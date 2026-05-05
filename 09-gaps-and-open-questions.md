@@ -223,9 +223,8 @@ Things the practice should probably have a more developed answer to but doesn't 
 Per the brief's final-check instruction: areas significant to design systems consultancy clients that are absent or shallow across all source material — internal and external. These are gaps the practice could lead by addressing.
 
 ### 5.1 Internationalization, localization, RTL, and bidirectional layout
-- All sources are English-language Western-context. None engage seriously with i18n / l10n at the system architecture level.
-- Specific concerns: bidirectional layout (Arabic, Hebrew), variable text expansion (German often 30%+ longer), CJK typography (vertical rhythm, line-height, font-loading), date/time/number/currency formatting at the component level, ICU MessageFormat for pluralization.
-- For multi-region clients (Ford's 5-region case study is the only internal example), this is a real procurement-grade requirement.
+- This gap is now articulated. (See 13-internationalization-and-rtl.)
+- Original gap framing: source material was English-language Western-context; specific concerns included bidirectional layout (Arabic, Hebrew), text expansion, CJK typography, date/time/number/currency formatting at the component level, ICU MessageFormat for pluralization. For multi-region clients (Ford's 5-region case study is the only internal example), this is a real procurement-grade requirement.
 
 ### 5.2 Data visualization and charting
 - Not addressed by any source.

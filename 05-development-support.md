@@ -88,7 +88,7 @@ The 2024+ standard for development support extends beyond build pipeline to AI i
 - **`AGENTS.md` / `CLAUDE.md` instruction files** — workflow-specific rule files. The internal AI-Compatible doc names a Figma MCP rule flow: `get_variable_defs` → `get_code` → `get_code_connect_map` → `get_screenshot` → translate / implement / validate. These instruction files are 200–600 lines, version-controlled, treated as system code. The practice's claim: external public DS discourse does not yet name this artifact — it's a defensible POV differentiator.
 - **Figma Make + Figma Sites** — Figma's house pipeline products. Make generates prototypes against the system; Sites publishes design directly to the web. By 2025–2026 these are increasingly the first AI tool a Figma-using client encounters. Practice should have a stance: where they fit, where they don't, how to govern their outputs.
 
-Internal practice's "required Figma MCP tool flow" (AI-Compatible doc, Feb 2025): explicit, sequenced steps for every AI-assisted component implementation. This is operational rigor most pitches don't yet articulate.
+Internal practice's "required Figma MCP tool flow" (AI-Compatible doc, Feb 2025): explicit, sequenced steps for every AI-assisted component implementation. This is operational rigor most pitches don't yet articulate. (See 12-figma-practice for the Figma-side mechanics — Dev Mode, Code Connect maturity and limitations, the MCP sequence, and the structured-component-data prerequisite.)
 
 ### 5. Adoption enablement
 

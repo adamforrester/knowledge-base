@@ -42,6 +42,8 @@ One-line hooks for each numbered file. Use this to jump to the right file rather
 - `09-gaps-and-open-questions.md` — practice gaps and unanswered questions across the corpus. Sourced inventory of what we don't yet have a POV on.
 - `10-cms-and-platform-integration.md` — DS in CMS environments. The seam between component governance and content governance.
 - `11-mobile-and-cross-platform.md` — iOS, Android, Flutter. Tokens as the shared layer; native vs. custom component decisions; platform-specific token delivery.
+- `12-figma-practice.md` — Figma at professional depth. Library architecture, component construction, Variables, Dev Mode/Code Connect/MCP, branching, performance, deprecation. The tool-specific exception in an otherwise tool-agnostic vault.
+- `13-internationalization-and-rtl.md` — i18n, l10n, and RTL as DS architecture. Logical properties, text expansion, multi-script typography, locale-aware tokens, RTL component mirroring, the DS/application boundary.
 
 When new numbered files are added, add a hook here as well as cross-referencing from earlier files.
 

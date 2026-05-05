@@ -104,6 +104,8 @@ This is the biggest single change to component-library practice since Atomic Des
 
 This is the defensible POV the practice should be writing into 2026+ engagements: components shipped as a data layer that *generates* the Figma library, the code, the docs, the registry — not as a Figma file with code "to follow."
 
+The Figma side of this — how components are actually built in Figma to be both designer-usable and Code-Connect-mappable, when to use variants vs. component properties, how to use slots, and the mechanics of multi-library architecture — is covered in 12-figma-practice. The internationalization side — how components must grow with content, mirror in RTL, and slot-shape locale-formatted output — is covered in 13-internationalization-and-rtl.
+
 ### 7. AI-readable metadata layer
 
 Wolosin's 12-field schema (Jun 2025) plus the practice's `.ai.json` (Feb 2025) converge on the per-component fields that AI agents need:
