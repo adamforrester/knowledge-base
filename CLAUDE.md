@@ -44,6 +44,8 @@ One-line hooks for each numbered file. Use this to jump to the right file rather
 - `11-mobile-and-cross-platform.md` — iOS, Android, Flutter. Tokens as the shared layer; native vs. custom component decisions; platform-specific token delivery.
 - `12-figma-practice.md` — Figma at professional depth. Library architecture, component construction, Variables, Dev Mode/Code Connect/MCP, branching, performance, deprecation. The tool-specific exception in an otherwise tool-agnostic vault.
 - `13-internationalization-and-rtl.md` — i18n, l10n, and RTL as DS architecture. Logical properties, text expansion, multi-script typography, locale-aware tokens, RTL component mirroring, the DS/application boundary.
+- `14-accessibility.md` — accessibility encoded into the DS architecture. Pair tokens for contrast, ARIA encapsulation, focus management, the four-layer model (tokens / components / docs / contribution gates), conformance reporting under EAA / Section 508.
+- `15-ai-in-ds.md` — AI integration across the DS lifecycle. Components-as-data as the architectural prerequisite. MCP server architecture, Figma MCP and Code Connect, three-level context maturity, the four-prerequisite minimum architecture, honest assessment of what works vs. aspirational.
 
 When new numbered files are added, add a hook here as well as cross-referencing from earlier files.
 

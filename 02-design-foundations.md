@@ -96,6 +96,8 @@ The Figma-side mechanics that feed this pipeline — Variables collection struct
 ### 6. AI-readiness layer (post-2024 standard)
 - **Every token carries a `$description`.** AI-Compatible Design Systems (Feb 2025) names this as the highest-ROI single action for AI compatibility. The same description is equally valuable to junior designers.
 - **Semantic naming as compressed sentence.** `surface / action / primary / rest` reads cleanly to humans and to agents.
+
+(See 15-ai-in-ds for how DTCG tokens combine with components-as-data and structured metadata to make the system queryable by AI agents — and why the architecture, not the tool, is the durable bet.)
 - **`$extensions.figma`** with `scopes` (`TEXT_FILL`, `STROKE_COLOR`) tells agents where a token is valid.
 - **Multi-theme from day one** so AI output is automatically theme-compatible.
 

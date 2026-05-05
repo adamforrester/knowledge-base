@@ -76,7 +76,7 @@ What's frequently missing in commercial engagements (and rarely shipped by the p
 - **Token drift detection.** A check that fails the build if Figma Variables and code tokens diverge.
 - **Component contract tests.** Unit-level tests that verify props validate, states render, edge cases handle.
 
-Mangialardi *also* doesn't cover these (a real gap in his book). They are not yet in any consultancy's commercial standard the practice has been benchmarked against. This is consequently both a gap *and* an opportunity — the practice can claim leadership by shipping CI quality gates as part of standard engagement scope.
+Mangialardi *also* doesn't cover these (a real gap in his book). They are not yet in any consultancy's commercial standard the practice has been benchmarked against. This is consequently both a gap *and* an opportunity — the practice can claim leadership by shipping CI quality gates as part of standard engagement scope. (See 14-accessibility on the full a11y CI stack — automated coverage limits, manual testing requirements, screen reader matrix, contribution gates — and 15-ai-in-ds on AI-assisted code review and the gate-vs-advisory question.)
 
 ### 4. AI / agent integration layer
 
