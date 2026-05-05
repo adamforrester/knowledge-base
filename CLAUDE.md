@@ -22,6 +22,10 @@ Three supporting directories:
 - `_notes/` — intermediate synthesis notes that fed the numbered files. Lower authority than the numbered files; useful as a paper trail.
 - `_research/` — workspace for the dual-agent research workflow. Drafts, not authoritative. See `_research/README.md` for the convention.
 
+Two top-level navigation aids:
+- `GLOSSARY.md` — vault-specific and practice-adjacent vocabulary. Common DS terms not defined; reach for it when a term reads as internal-tier IP (`.ai.json`, Six Signs, components-as-data, four-layer AI stack, etc.).
+- The file index below — one-line hooks per numbered file.
+
 `.obsidian/` is vault config — leave it alone unless asked.
 
 ## File index
