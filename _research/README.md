@@ -35,6 +35,8 @@ _inbound/
 
 **The prompt is identical for both agents.** That is the point of the dual-agent setup — same input, different reasoning paths, surface where they converge and where they diverge. Don't tweak the prompt between runs unless the run is being explicitly redone; in that case, supersede the whole folder rather than editing in place.
 
+**For prompt drafting, use `_prompt-template.md`.** The template is informed by completed runs and standardizes the parts that should be consistent (audience, output format, depth) while leaving the topic-specific scope variable. Skip it only when the question is small enough to not need a full survey.
+
 **Raw outputs are not edited.** No reformatting, no fixing typos, no trimming. We need to be able to audit which agent contributed which claim later, especially when they disagree. Edits happen in `_synthesis/`, not `_inbound/`.
 
 ---
