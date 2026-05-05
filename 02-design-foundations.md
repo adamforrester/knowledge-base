@@ -89,6 +89,8 @@ Consuming applications
 
 This pipeline is what Mangialardi's *Design Systems for Developers* (2021) lays out, what Curtis presents in his Tokens deck, and what the AI-Compatible doc names as the bedrock of an AI-readable foundation. Most pitches show "tokens" as a Figma-side concern and don't articulate this. Internal practice should articulate it explicitly — it is what differentiates a system that reaches engineers from one that lives in a design file.
 
+**The mobile rendering targets are not a footnote.** iOS Swift and Android XML are listed above as platform deliverables, but on a mobile DS engagement the Style Dictionary mobile transforms — Swift enums, Kotlin objects for Compose, Dart constants for Flutter — are the entire load-bearing pipeline, not an extension to a primarily web one. Token architecture decisions taken in this phase determine whether a future mobile or cross-platform extension is mechanical or a rebuild. (See 11-mobile-and-cross-platform.)
+
 ### 6. AI-readiness layer (post-2024 standard)
 - **Every token carries a `$description`.** AI-Compatible Design Systems (Feb 2025) names this as the highest-ROI single action for AI compatibility. The same description is equally valuable to junior designers.
 - **Semantic naming as compressed sentence.** `surface / action / primary / rest` reads cleanly to humans and to agents.

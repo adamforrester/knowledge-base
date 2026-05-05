@@ -54,7 +54,7 @@ Two patterns to choose between:
 
 **Headless UI components.** Tailwind Labs' Headless UI, Radix UI, React Aria. Functionality (focus management, keyboard nav, ARIA) encapsulated in unstyled components; styling applied via consumers' choice (styled-components, Tailwind, vanilla CSS, CSS-in-JS). Decoupling lets the UI library outlive any single design language. Mangialardi's recommendation, and the right answer for multi-framework or multi-brand orgs.
 
-Practice POV implication: for clients with multiple consuming frameworks (React + Vue + native), recommend headless. For clients with a single React stack and no theming complexity, opinionated is faster to ship. Discovery determines.
+Practice POV implication: for clients with multiple consuming frameworks (React + Vue + native), recommend headless. For clients with a single React stack and no theming complexity, opinionated is faster to ship. Discovery determines. The "native" leg of that decision — iOS/Android/Flutter — has its own component-architecture trade-offs that don't reduce to the headless-vs-opinionated axis. (See 11-mobile-and-cross-platform.)
 
 ### 3. Storybook, docs site, and developer surfaces
 
@@ -186,7 +186,7 @@ The practice's claim: design-side delivery + alignment is the offering; the cons
 - **Documentation in a different repo than code.** Engineers don't update it; it goes stale.
 - **No `docs/decisions/`.** Six months later, no one remembers why the team chose `inline-md` over `space-3` and re-litigates the decision every quarter.
 - **Visual regression deferred to "later."** Three months in, "later" is "never," and a redesign breaks half the consuming product silently.
-- **Single npm package as distribution.** Works for JS consumers; Java, Swift, Kotlin teams build their own. Three systems pretending to be one.
+- **Single npm package as distribution.** Works for JS consumers; Java, Swift, Kotlin teams build their own. Three systems pretending to be one. (See 11-mobile-and-cross-platform for the platform-specific delivery pipeline this failure mode breaks.)
 
 ---
 

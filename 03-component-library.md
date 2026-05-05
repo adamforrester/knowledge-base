@@ -10,6 +10,8 @@ A component library is the third layer down — it sits on top of the foundation
 
 The internal practice has unusually deep IP here: the **UI Components series** (Nov 2024 — six docs covering Naming/Metadata, Anatomy, Properties, Layout/Spacing, Composition) is the most operational component-building methodology any consultancy publishes internally. Reading it against Curtis's 2025 *Components as Data* and Wolosin's 2025 metadata schema, the practice's vocabulary is closely aligned with the field's frontier — the gap is articulating that alignment in client-facing materials.
 
+**This file's component model assumes a web rendering target.** The composition primitives, Group/GroupItem patterns, and configure-and-compose framing translate to native iOS, Android, and Flutter, but the component implementations do not — each platform requires its own component layer built against its own paradigm. (See 11-mobile-and-cross-platform.)
+
 ## What actually happens in this phase
 
 Five clusters of work, mostly sequential within a component but parallelizable across components.

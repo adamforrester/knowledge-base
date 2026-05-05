@@ -242,8 +242,9 @@ Per the brief's final-check instruction: areas significant to design systems con
 - No source treats this within DS scope.
 
 ### 5.5 Embedded, automotive, TV, and non-web platforms
+- Mobile DS practice (iOS, Android, Flutter) is now articulated. (See 11-mobile-and-cross-platform.)
 - Ford's in-vehicle work appears in the case study but the methodology isn't generalized.
-- TV (10-foot UI), automotive (driver-distraction-aware design), embedded (constrained hardware), wearables (small surfaces), AR/VR — all platform-specific concerns absent across sources.
+- TV (10-foot UI), automotive (driver-distraction-aware design), embedded (constrained hardware), wearables (small surfaces), AR/VR — all platform-specific concerns still absent across sources.
 
 ### 5.6 Performance budgets at the component level
 - Token compliance is measured. CSS bundle size, JS bundle size, render performance, animation jank, image weight per component — not addressed.
