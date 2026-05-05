@@ -1,0 +1,4487 @@
+Design System
+
+in 90 Days       Second Edition
+Design System in 90 Days
+
+2nd edition
+
+
+
+
+Written by Dan Mall
+
+
+
+
+ISBN 979-8-9863787-1-8
+
+
+
+
+Copyright © 2023 Design System University.
+
+All rights reserved. 
+
+
+
+
+No part of this publication may be copied, distributed, or otherwise exploited in whole or in
+part without the prior permission of Design System University.
+
+
+
+
+The text is set in Suisse BP Int’l by Swiss Typefaces. Numbers and code are set in Suisse
+Int’l Mono by Swiss Typefaces.
+
+
+
+
+Design System University
+
+533 Girard Ave Unit #549
+
+Philadelphia, PA 19125
+
+designsystem.university
+      Table of Contents
+      Introduction
+
+      Design System in 90 Days, visualized
+
+01
+   Assemble the North Star
+
+02
+   Assemble Design and Code Assets for Audit
+
+03
+   Create an Influence Map
+
+04
+   Collect Feature Teams’ Roadmaps
+
+05
+   Identify Existing Paradigms in Design And Code 
+
+06
+   Interview Potential Design System Customers 
+
+07
+   Identify Potential Pilot Teams 
+
+08
+   Schedule Pilot Product Walkthroughs 
+
+09
+   Identify Key Stakeholders and Schedule Interviews
+
+10
+   Identify Emerging and Interesting Paradigms in Design and Code 
+
+11
+   Visualize Your Ecosystem of Tools and Technologies
+
+12
+   Interview End Users
+
+13
+   Interview Stakeholders
+
+14
+   Conduct Pilot Team Walkthroughs
+
+15
+   Create New Design System Repository and Package
+
+16
+   Set Up Public Workshop Environment with Branch Deploys
+
+17
+   Teach HTML & CSS to Designers 
+
+18
+   Teach Figma to Engineers 
+
+19
+   Teach Git to Designers 
+
+20
+   Teach Storybook to Designers 
+
+21
+   Practice Hot Potato 
+
+22
+   Join Pilot Teams’ Sprint Planning Sessions 
+
+23
+   Practice with an Existing Design System 
+
+24
+   Conduct a Practice Pilot
+
+25
+   Create a Glossary of Shared Vocabulary 
+
+26    Identify 3 Initial Components to Pilot
+27
+   Synthesize Themes & Insights from Stakeholder Interviews 
+
+
+
+
+28
+   Send First Stakeholder Update
+
+
+
+
+29
+   Create Design System Coverage Map
+
+
+
+
+30
+   Set Up Slack Channel for Design System Conversation
+
+
+
+
+31
+   Create Reference Website v1
+
+
+
+
+32
+   Create Component Implementation Roadmap
+
+
+
+
+33
+   Propose Collaboration Plan to Pilot Teams
+
+
+
+
+34
+   Abstract Component Through Hot Potato
+
+
+
+
+35
+   Share In-Progress Component Abstraction Work with Pilot Teams
+
+
+
+
+36
+   Iterate on Component Through Hot Potato
+
+
+
+
+37
+   Chronicle the Process
+
+
+
+
+38
+   Issue Pull Request to Contribute Newly Abstracted Component
+
+
+
+
+39
+   Usability Test Component with Pilot Teams
+
+
+
+
+40
+   Final Iteration on Component
+
+
+
+
+41
+   Send Stakeholder Update
+
+
+
+
+42
+   Extract 3 Overarching Principles
+
+
+
+
+43
+   Create a List of Potential Design System Names
+
+
+
+
+44
+   Create Design System Logo v1
+
+
+
+
+45
+   Add “Design System Office Hours” to Calendar
+
+
+
+
+46
+   Make Design System Swag
+
+
+
+
+47
+   Send Slack Post about Component #1
+
+
+
+
+48
+   Host “Systems Week”
+
+
+
+
+49
+   Send Design System Name and Logo Finalists to Brand & Legal Team
+
+
+
+
+50
+   Repeat Activities 34–40 for Component #2
+
+
+
+
+51
+   Repeat Process for Component #3
+
+
+
+
+52    Congrats! Release Design System v1.0.0!
+
+
+
+
+      Conclusion
+
+
+
+
+      About the Author
+
+
+
+
+      Books about Design Systems
+
+
+
+
+      About Design System University
+Introduction
+Hi friend!
+
+
+
+Design systems are all the rage nowadays, aren’t they? If you find your team
+managing 2 or more digital products, having a design system will make your life
+easier. 
+
+
+
+Or will it? Why is it that so many teams seem to be on their third or fourth try? It’s
+because making the design system isn’t the hardest part: getting people to use it
+is. (That’s not to say that making a design system is easy. It’s definitely it’s own
+independent feat.)
+
+
+
+From our experience, there seem to be 3 stages of how enterprise organizations
+experience design systems
+
+    The design system is a tool or a library, usually created by a small group of
+    well-intentioned people. It’s been helpful to them in their work, and they’d love to
+    share the benefits
+    The design system becomes a product as more people recognize its
+    importance and merits. It receives more attention, dedicated team members,
+    funding, and a genuine attempt to make its use more widespread
+    Ultimately, the design system becomes a practice, a status only a few teams
+    have gotten to, where using it is simply “the way we do things.” It’s part of new
+    employee onboarding and it’d be ridiculous not to use it for any new product
+    creation. 
+
+
+
+The way to get a design system to become a practice is to, well, practice with it.
+Using it has to become habit, and that happens through repetition.
+
+
+
+
+
+1
+In this workbook, I’ve outlined a sequence of activities that, when done over and
+
+
+over again, plant seeds that eventually blossom into a healthy design system
+
+
+practice. I wrote those activities down, initially for me and my clients, and I figured I’d
+
+
+share it with you too. Whether you’re starting or restarting a design system at your
+
+
+organization, I hope this workbook helps you establish a lasting design system
+
+
+practice that makes work more efficient, consistent, and eventually more fun.
+
+
+
+
+
+
+Assumptions and conventions in this workbook
+
+
+Because design systems require deep knowledge of design, engineering, and
+
+
+product, they’re naturally a team sport. This workbook is designed for a dedicated,
+
+
+cross-disciplinary design system team to do together. If you’re a freelancer or a lone
+
+
+designer/engineer/product person, don’t be surprised if what you find here feels a
+
+
+bit too overwhelming for you to do completely on your own.
+
+
+
+
+
+
+This workbook is written for an ideal design system team size of 3–8 people,
+
+
+dedicated to design system work at least 20–30 hours per week. I also assume the
+
+
+design system team works in conjunction with other cross-disciplinary teams
+
+
+responsible for creating features for the digital products the organization promotes.
+
+
+
+
+
+
+The smallest ideal design system team might look something like this:
+
+
+
+
+                                             Product Owner
+
+
+
+
+DesignOps Lead                 Design Lead               Engineering Lead            Writer Lead
+
+
+
+
+ 2
+ Here’s a rough breakdown of each role on that team and their general
+ responsibilities
+
+      Product Owner: a people manager responsible for addressing the value and
+      viability risk of the design system and the overall health of the team
+      DesignOps Lead: an individual contributor responsible for supporting high
+      quality crafts, methods, and processes on the team
+      Design Lead: an individual contributor responsible for the user interface,
+      typically through graphical/visual tools like Figma and Sketch
+      Engineering Lead: an individual contributor responsible for the user interface,
+      typically through writing code
+      Writer Lead: an individual contributor responsible for the user interface,
+      typically through usable content and copy that is appropriate for the audience
+      and purpose.
+
+
+
+ It’s not important that your team have these titles exactly, but it is important to have
+ people that have these responsibilities. Especially for smaller teams, it’s very
+ common for multiple people to contribute to the task of a missing role. For example,
+ without a writer on the team, a designer and an engineer might share the
+ responsibility of writing copy for the user interface.
+
+
+
+ The largest ideal design system team might look something like this:
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                   Product Owner
+
+
+
+
+ DesignOps Lead                  Design Manager              Engineering Manager
+
+
+                                                                                    Writer   Business
+
+                                                                                              Analyst
+DesignOps Associate                 Designer(s)                     Engineer(s)
+
+
+
+
+  3
+Activities
+
+The content ahead is structured as Activities to be completed over a 90-day
+timeframe. You won’t find a lot of theory here: these Activities are very tactical and
+attempt to clearly instruct you on what to do and how to do it. Each Activity can take
+anywhere from a half a day to a few weeks to complete and may be done by one
+person, a smal group, or the entire design system team.
+
+
+Al Activities in the text are prefixed with .
+
+
+The  DACI    framework
+
+Under each Activity name, you’l see the letters “D,” “A,” “C,” and “I.” They represent
+the DACI framework, a tool for making decisions and taking action. It stands for
+    Driver: A single driver of overal project like the person steering a car
+    Approver: One or more approvers who make most project decisions, and are
+    responsible if it fails
+    Contributors: The worker-bees who are responsible for deliverables and with
+    whom there is two-way communication
+    Informed: Those who are impacted by the project and are provided status and
+    informed of decisions; and with whom there is one-way communication.
+
+
+Distributed         by  default
+
+For al Activities, I’m assuming that people aren’t working in the same physical
+location and are instead working distributed and asynchronous. That means there’s
+extra emphasis on written communication and working in public. Even if you’re a co-
+located team, this default perspective should help you more than hurt you.
+
+
+Knowledge       and   tools
+
+This workbook won’t cover too much in the way of the craft of design systems, which
+means there wil be very little here about using design tools or the specifics of
+writing code. I assume designers have a decent understanding of tools like Figma
+and Sketch and that engineers can write and understand HTML/CSS and
+understand concepts of JavaScript frameworks like React.
+
+ 4
+Extra  Credit
+
+Throughout the workbook, you’l occasional y see a ️in a yel ow box labeled “Extra
+Credit.” These represent bonus content and tips you can try if you’re feeling extra
+excited and ambitious.
+
+
+Accompanying           files
+
+Along with this workbook, you also downloaded 3 accompanying files
+     A FigJam file cal ed the Design System in 90 Days Canvas. Every time you
+     see this symbol ( ), that means there’s a corresponding section in the FigJam
+     where you can do the work suggested in the Activity. Look for the number that
+     corresponds to the Activity you’re currently reading. The easiest way to use this
+     is to open it directly from the Figma community. However, if that doesn’t work,
+     you can open the local version (See the README file for instructions if you need
+     help.)
+     A simplified PDF version of the Design System in 90 Days Canvas. You
+     may find it helpful to have this handy or print this out and refer to it as you’re
+     going through the workbook
+     Some people see the world as a Gantt chart, so there’s a PDF visualization of
+     the entire 90-day span with the 52 activities laid out so you can see how they
+     overlap, sequence, and work together
+     A Figma file cal ed “Design System in 90 Days template.” In that file, you’l find 2
+     pages that correspond to Activities 21 and 27.
+
+
+
+
+
+
+
+ 5
+     The Design System in 90 Days Canvas
+
+
+Let’ s Get    Started
+
+Without further ado, your journey to a design system in 90 days awaits. Head to
+
+  Activity #1: Assemble the North Star!
+
+
+—Dan Mal , founder of Design System University
+
+
+
+
+
+ 6
+Design System in 90 Days, visualized
+
+
+
+
+7
+    Day 1–4
+
+#01 Assemble the North Star
+    D Design system team      A Product Owner       C Design system team       I Entire org
+
+
+
+    Start your design system journey by aligning your efforts with the larger efforts of your
+    organization.
+
+
+
+    Gather any documents, presentations, or other artifacts that capture your
+    organization’s business strategy, what leadership author Michael D. Watkins calls the
+    “What, Who, How, and Why” of your organization. “[The] mission, network, strategy, and
+    vision define the strategic direction for a business. They provide the what, who, how,
+    and why necessary to powerfully align action in complex organizations.”
+
+
+
+    Collect all relevant information and documentation for the following and record them in
+    the Design System in 90 Days Canvas
+
+        What: Our Mission + Goal
+        Who: Who We Serve
+        How: Strategic Prioritie
+        Why: Vision + Incentives 
+
+
+
+
+
+            ️ Extra Credit
+        Write a recap of all the information you assembled to distill this information into a succinct set of
+        bullet points or a few short paragraphs. Make visual reminders within reach that can cue you and
+        the team what you’re working towards, like phone and desktop wallpapers, printed posters to
+        hang around your desks, etc.
+
+
+
+
+    9
+#01 Assemble the North Star, cont.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    10
+    Day 1–4
+
+#02 Assemble Design and Code
+    Assets for Audit
+    D Engineer + Designer   A Product Owner   C Design System team   I Entire org
+
+
+
+    In Activity #5: Identify Useful and Non-Useful Patterns in Design and Code,
+    you’re going to audit your design and code for useful and non-useful patterns. To
+    help your audit go smoothly, gather as many design and code assets related to your
+    design system as you can. For design assets (Figma files, Sketch files, etc), make
+    sure everyone on your team—yes, even engineers!—have access to these artifacts
+    and libraries. For code repositories on Github or Bitbucket or whatever you use,
+    gather up the team’s usernames or have them create accounts, and get everyone
+    access—yes, even designers!—to the necessary repos. (Read-only access is fine…
+    for now.)
+
+     
+
+    There might be assets and libraries your organization has that you don’t even know
+    to ask for! You may need to ask around to make sure you’ve gathered up past,
+    present and future libraries, repos, basically anything that teams use to do their
+    work, including: 
+
+
+         All design files related to your design syste
+         All code repositories related to your design syste
+         Any reference site links or PDF style guide
+         Any product that currently uses any part of a design system, whether yours or a
+         third-party one
+
+
+
+
+
+    11
+#02 Assemble Design and Code Assets for Audit, cont.
+
+    Assemble the list of links to all these artifacts in the        Design System in 90
+    Days Canvas.
+
+
+
+
+             ️ Extra Credit
+         Thinking ahead to Activity #10: Visualize Your Technical Ecosystem, begin to document and
+         map the relationships, connections, and dependencies between the assets you’re collecting.
+
+
+
+
+    12
+    Day 2–4
+
+#03 Create an Influence Map
+    D Design system team   A Product Owner   C Design system team   I Design system team
+
+
+
+    Design system adoption requires organizational change. You’re developing the
+    practice of using a design system to make digital interfaces, which requires teams to
+    collaborate in different ways and adopt new rituals and tools. You’ll definitely need
+    stakeholder support to shepherd this kind of change. 
+
+
+
+    Make a list of key stakeholders that have direct stakes in this design system effort,
+    folks who have a vested interest in its success and stand to lose if it fails.
+
+         Identify the key leads that own the artifacts you identify in Activity #2:
+         Assemble Design and Code Assets for Audit.
+         Reference your company’s org chart or create one if needed.
+         Map these individuals in the Design System in 90 Days Canvas to identify
+         the relational connections and alliances that will influence and shape the
+         decision making around design systems at your organization. Green =
+         supportive. Yellow = Undecided. Red = Opposed. Thick arrows indicate strong
+         influence, while thin arrows indicate weak influence.
+
+
+
+    This is different than an org chart. You’re identifying the critical decision makers and
+    the individuals within their departments that influence and challenge design system
+    efforts.
+
+
+
+
+    13
+#04 Create an Influence Map, cont.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+    Additional resource
+          The First 90 Days, by Michael D. Watkins. bit.ly/the-first-90-day
+          “7 Types of Organizational Structures” by Lucidchart. bit.ly/7-org-structures
+
+
+
+
+    14
+    Day 5–9
+
+#04 Collect Feature Teams’ Roadmaps
+    D DesignOps       A Product Owner      C Design system team      I Entire org
+
+
+
+    To prepare for Activity # 7: Identify Potential Pilot Teams, you’ll need to collect
+    feature teams’ roadmaps. Some organizations use a tool like Confluence to collect
+    high level team roadmaps for shared visibility, or you may have to track these down
+    one by one. At this stage, you’re looking for whatever exists. This could be
+    spreadsheets, Jira boards, Google docs, even photos of whiteboarding sessions.
+    Roadmaps evolve; that’s to be expected. Your aim in this exercise is to get your
+    hands on whatever is used at your organization to plan quarterly initiatives and to
+    facilitate conversations about prioritization. What are the feature teams at your
+    organization planning to do in the next 3 months? How are they broadcasting those
+    plans? That’s what you’re after. 
+
+
+
+    Record the list of links, screenshots, etc of team roadmaps in the  
+       Design System in 90 Days Canvas.
+
+
+
+
+             ️ Extra Credit
+         Consider asking your key stakeholders for help. They may have this level of detail captured in a
+         spreadsheet or presentation somewhere. 
+
+
+
+         If you are unable to collect these roadmaps without asking product owners directly, streamline
+         your communication and lump this ask in with your request for an interview in Activity #6:
+         Interview Potential Design System Users. 
+
+
+
+
+
+    15
+#04 Collect Feature Teams’ Roadmaps, cont.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    16
+     Day 5–14
+
+#05 Identify Existing Paradigms in
+     Design and Code
+     D Designer + Engineer   A Product Owner   C Design system team   I Design system team
+
+
+
+     Comb through every file and repository you listed from Activity #2: Assemble
+     Design and Code Assets for Audit and visually group similar components together in
+     the Design System in 90 Days Canvas.
+
+
+
+     Annotate what these components have in common visually and in code. This is a purely
+     objective exercise. Don’t exercise any judgment or evaluation here; in this activity, it
+     doesn’t matter if you love or hate the commonality… just the facts, ma’am.
+
+
+
+     Here's an example. Below are a few “card”-like components, collected from an
+     insurance website. What’s common here?
+
+
+
+
+
+     17
+#05 Identify Existing Paradigms in Design and Code, cont.
+
+         Small-ish sans-serif body copy (8 or 8
+         Support for an image, icon, or illustration (7 of 8
+         An all caps headline (6 of 8
+         Some sort of rounded corner call-to-action (CTA) link that looks like a button (6
+         of 8
+         Left-aligned text (5 of 8)
+
+
+
+    What’s less common but close
+
+         Card background colo
+         Card borde
+         CTA that has either blue or caramel backgroun
+         Text alignment (left or centered
+         Orientation (vertical or horizontal)
+
+
+
+    The same kind of pattern spotting applies for the markup too. Here are 3 different
+    ways this similar element has been coded (simplified for the purposes of example):
+
+
+
+
+
+    18
+#05 Identify Existing Paradigms in Design and Code, cont.
+
+
+
+
+    What’s common
+
+         Headline marked up as <h3>, followed by paragraph (2 of 3
+         Image comes first (3 of 3
+         Kebab case (2 of 3)
+
+
+
+
+    19
+#05 Identify Existing Paradigms in Design and Code, cont.
+
+    Less common
+
+         Wrapper element
+         Class names
+
+
+
+    These will be half the base of your new design system that we’ll pick up in                 Activity
+    #34: Abstract Component through Hot Potato.
+
+
+
+    Additional resource
+         Collect; don’t create. bit.ly/collect-dont-creat
+         “Interface Inventory,” by Brad Frost. bit.ly/interface-inventor
+         “How to Systematize Internal Products,” by Runi Goswami. bit.ly/systematize-internal-
+         product
+         “Auditing as a First Step to Design Systems Planning,” by Heather Taylor. bit.ly/design-
+         system-auditin
+         “Getting Systematic about Design Systems,” by Mindy Wagner. bit.ly/getting-
+         systematic-design-systems
+
+
+
+
+             ️ Extra Credit
+         Get more people involved! Make it a party: send out food delivery gift cards and ask every
+         designer and engineer in the organization that has time to come to a jam session where
+         everyone brings a tasty treat and contributes to a single Figma file.
+
+
+
+
+    20
+     Day 7–19
+
+#06 Interview Potential Design System
+     Customers
+     D Product Manager   A Product Owner   C Design system team   I Design system team
+
+
+
+     In order to make a useful design system—or really any useful product—you have to know
+     what pain points need to be alleviated. Make a list of 15-20 people who should use the
+     design system; that list should probably start with designers and engineers on feature
+     teams but also includes product managers, writers, and other disciplines. Interview
+     each person for 30-45 minutes and listen for stories of how product gets made.
+
+
+
+     Email template to send to schedule interviews
+
+     Create a Calendly, Doodle, or something equivalent to let interviewees select times
+     that are good for them for a chat. Send this email to everyone on your newly made list to
+     start scheduling conversations:
+
+                                                 Copy
+
+
+
+
+           Hi [NAME]! We’re conducting some interviews to kick off a new
+           effort to improve the design system. We’re interested in asking
+           you some questions to gather your insights into how digital
+           product gets made at [COMPANY NAME], your experience with design
+           systems, and what you hope to see for the future. These sessions
+           will be about 45 mins and will be casual and conversational.
+           Nothing needed to prepare. Just come ready to chat.
+
+
+
+           If that all sounds great to you, could you see if there’s a good
+           time for us to chat at this link? https://calendly.com/krakoa/
+           interviews
+
+
+
+
+
+     21
+#06 Interview Potential Design System Customers, cont.
+
+    Sample interview questions
+
+    Here’s a script you can use during the interview to capture the kind of information
+    that will come in handy later. Keep track of who you've interviewed, who’s left to talk
+    to, and the notes and recordings for each interview in the Design System in 90
+    Days Canvas.
+
+
+
+    Hi [INTERVIEWEE’S NAME]! My name is [NAME]. We’re currently having conversations
+    with folks like you to understand more about the needs of the people that do and may use
+    [COMPANY NAME]’s design system. 
+
+
+
+    We’d like to make sure it’s as useful of a platform as possible, and we’re starting by
+    making sure we’re well-informed as we make changes over the next few weeks and
+    months. 
+
+
+
+    Is it ok to ask you a few questions about that? 
+
+
+
+    Before you answer, please know that we’ll keep your answers confidential and we’ll only
+    use them within our team for our own information.
+
+
+
+    Introduction Question
+
+         What’s your role at [COMPANY NAME]
+         How long have you been at [COMPANY NAME]
+         Can you give a brief background of your time at [COMPANY NAME]
+         What has been your journey at [COMPANY NAME] like? For instance, how did you get
+         started and how did you end up where you are now? 
+
+
+
+    Work & Workflo
+
+         What does a day in your life look like
+         What are your priorities? How do you determine your priorities?
+
+
+
+    22
+#06 Interview Potential Design System Customers, cont.
+
+         Can you describe your current workflow
+         What aspects of the current workflow are working really well
+         What aspects of the current workflow do you think could be improved
+         If you had a magic wand and could change one thing about how things work here, what
+         would that thing be
+         What kind of projects are you working on right now
+         What specifically are you working on now? What specifically are you working on right
+         now that should or could use [COMPANY NAME] Design System? What specifically
+         are you working on right now that shouldn’t or couldn’t use [COMPANY NAME] Design
+         System?
+
+
+
+    Tools & Technologie
+
+         What tools/technologies are you using regularly? Which are you forced to use and
+         which do you choose to use
+         What tools/technologies do you use irregularly
+         What tools/technologies do you love
+         What tools/technologies do you hate?
+
+
+
+    Hopes & Fear
+
+         Have you used a design system before
+         Where did you first learn about design systems?
+         Have you used the [COMPANY NAME] Design System before
+         How did you hear about the [COMPANY NAME] Design System?
+         Do you think a design system will help in your current workflow? Why or why not
+         What about the design system makes you nervous, apprehensive, or skeptical
+         What about the design system makes you excited, eager, or curious?
+
+
+
+
+    23
+#06 Interview Potential Design System Customers, cont.
+
+    Outcome
+
+         What does success look like? Fast forward a year from now, everyone is thrilled with
+         the design system. How did that happen
+         What’s going to sink this ship? Fast forward a year from now and the design system
+         initiative is a total failure. Why did it fail?
+
+
+
+    Wrap U
+
+         What can we tell you about the project we’re working on
+         How involved would you like to be in the work we have coming up? Would you like to be
+         a collaborator? To stay informed? To steer clear
+         What advice can you give us about how to succeed on this project at [COMPANY
+         NAME]
+         What questions should we be asking you that we aren’t?
+
+
+
+
+
+
+
+
+    Additional resource
+         “Design system interview questions,” by Brad Frost. bit.ly/design-system-interview-
+         questions
+
+
+
+
+             ️ Extra Credit
+         Divvy up the role of interviewer and share the responsibility of conducting these interviews. Have
+         engineers interview designers and vice versa. 
+
+
+
+         Aim for a wide coverage of your organization: interview across themes, departments and
+         platforms. Don’t just interview from one department of the organization. Make sure you have a full
+         view of anyone who could use this system.
+
+
+
+
+    24
+#06 Interview Potential Design System Customers, cont.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    25
+     Day 9
+
+#07 Identify Potential Pilot Teams
+     D Design system team   A Product Owner   C Design system team   I Entire Org
+
+
+
+     In order to find out what kinds of digital products your design system should support
+     long-time, try out a few short-term products and features. These short-terms products
+     and features are called design system pilots, and they’re the best way to grow a
+     design system, especially at first. 
+
+
+
+     To determine which teams, products, and features make for the most useful pilots, use
+     the collective roadmap you assembled in Activity #4: Collect Feature Teams’
+     Roadmaps and score every product against these 8 factors on a scale from 0 (unlikely)
+     to 10 (very likely) to help determine which products will be best for the design system in  
+     what order
+
+          Potential for common components. Does this product have many components
+          that can be reused in other products
+          Potential for common patterns. Does this product have many patterns that can
+          be reused in other products
+          High-value elements. Even if uncommon, is there a component or pattern with
+          high-business value that is the heart of this product? We’re talking elements that
+          are integral to a flow or audience that has unusually high value for the organization
+          Technical feasibility. How simple is a technical implementation of the design
+          system? Is a large refactor required?
+
+
+
+
+     26
+#07 Identify Potential Pilot Teams, cont.
+
+          Available champion. Will someone working on this product see it through and
+          celebrate/evangelize using the design system (and even contributing back to it)
+          Scope. Is this work accomplishable in our pilot timeframe of [3–4 weeks] (insert
+          your timing here)
+          Technical independence. Is the work decoupled enough from other legacy
+          design and code that there are clear start and  
+          end points
+          Marketing potential. Will this work excite others to use the  
+          design system?
+
+
+
+     Record your scores in the Design System in 90 Days Canvas and create a
+     prioritized list from highest score to lowest. This is your starting point for teams to try
+     and work with.
+
+
+
+
+          Design System in 90 Days Canvas
+
+
+
+
+     27
+#07 Identify Potential Pilot Teams, cont.
+
+     Additional resource
+          “The Most Exciting Design Systems are Boring,” by Josh Clark. bit.ly/boring-design-
+          system
+          “Design Systems: Pilots & Scorecards,” by Dan Mall. bit.ly/design-system-pilot
+          “Your first ten customers,” by Patrick McKenzie. bit.ly/first-ten-customers
+
+
+
+
+              ️ Extra Credit
+          Wondering about the difference between a component and a pattern? It doesn’t matter much
+          which is which, but it is important to distinguish between the two. Start here: a component is a
+          static interface element, like a table or a card. A pattern is a series of static elements like flows,
+          such as a login sequence or checkout sequence.
+
+
+
+
+     28
+     Day 9
+
+#08 Schedule Pilot Product
+     Walkthroughs
+     D Product Manager   A Product Owner   C Engineer + Designer   I Design system team
+
+
+
+     Using the prioritized list you made in Activity #7: Identify Potential Pilots Teams,
+     track down the emails of each pilot team’s product owner/leads and start scheduling
+     some times to walk through their products with them. 
+
+
+
+     Use the Design System in 90 Days Canvas to keep track of who you’ve talked to
+     already and their general reception to working together.
+
+
+
+     Email template to send to schedule interviews
+
+     Create a Calendly, Doodle, or something equivalent to let interviewees select times
+     that are good for them for a chat. Send this email to everyone on your newly made list to
+     start scheduling conversations:
+
+                                                 Copy
+
+
+
+
+           Hi [PRODUCT OWNER NAME]! We’re conducting some interviews to
+           kick off a new effort to improve the design system. We’d love to
+           ask you some questions to gather your insights into how your
+           team works, your experience with design systems, and what you
+           hope to see for the future. 
+
+
+
+           We’ve also identified your team as a great potential candidate
+           to partner with as we grow the design system, so we'd love to
+           chat about your roadmap and walk through your feature work to
+           collaborate in more detail on what it might look like to run
+           pilots together in a way that’s mutually beneficial.
+
+
+
+
+     29
+#08 Schedule Pilot Product Walkthroughs, cont.
+                                       Copy
+
+
+
+
+         These sessions will be casual and conversational. Nothing needed
+         to prepare, just come ready to chat and share where your squad
+         is at with feature work. We’d love 90-minutes if you can spare
+         it: 30-minutes to walk through the products via screenshare and
+         about an hour of questions and discussion. And, of course, if we
+         end up not needing all the time, we’d be happy to end early and
+         give y’all valuable time back.
+
+
+
+         If that all sounds great to you, could you see if there’s a good
+         time for our teams to chat at this link? https://calendly.com/
+         krakoa/interviews
+
+
+
+
+
+    30
+#09 Schedule Pilot Product Walkthroughs, cont.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    31
+     Day 9
+
+#09 Identify Key Stakeholders and
+     Schedule Interviews
+     D Product Manager   A Product Owner   C Design system team   I Design system team
+
+
+
+     Using the diagram you made in Activity # 3: Create an Influence Map, identify the
+     list of key stakeholders you want to interview. Talk to as many heads, directors, VPs, and
+     other leads of departments or organizational sections as you can. Aim for 10
+     stakeholder interviews. Be mindful of your sample set, interview a variety of folks from
+     gender, background, ethnicity, tenure at the company, etc. 
+
+
+
+     You’ll likely need to work with assistants or project managers to schedule these
+     interviews and they may require booking a week (or weeks) out. 
+
+
+
+     Create a Calendly, Doodle, or something equivalent to let interviewees select times
+     that are good for them for a chat. Send this email to everyone on your newly made list to
+     start scheduling conversations:
+
+                                                 Copy
+
+
+
+
+           Hi [NAME]! As you know, we’re conducting some interviews to kick
+           off a new effort to improve the design system. We’re interested
+           in asking you some questions about the opportunities you see for
+           a design system at [COMPANY NAME], and what you hope to see for
+           the future. These sessions will be about 45 mins and will be
+           casual and conversational. Nothing needed to prepare. Just come
+           ready to chat.
+
+
+
+           If that all sounds great to you, could you see if there’s a good
+           time for us to chat at this link? https://calendly.com/krakoa/
+           interviews
+
+
+
+
+
+     32
+#09 Identify Key Stakeholders and Schedule Interviews, cont.
+
+    In the Design System in 90 Days Canvas, capture the names, titles,
+    departments, and relevant notes for each stakeholder to track the progress of
+    scheduling these interviews.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    33
+     Day 10–14
+
+#10 Identify Emerging and Interesting
+     Paradigms in Design and Code
+     D Engineer + Designer   A Product Owner   C Design system team   I Entire org
+
+
+
+     This activity will be nearly identical Activity #5: Identify Existing Paradigms in
+     Design and Code, but approach it from a different perspective. While the previous
+     activity was purely objective, this one is purely subjective. From every file and repository
+     you listed from Activity #2: Assemble Design and Code Assets for Audit, ask
+     yourself and your team this question: what in here would we like to see more or
+     less of at our organization? 
+
+
+
+     Your answers may vary wildly. Examples
+
+          More or less use of a particular colo
+          More or less code that’s structured a particular wa
+          More or less use of icons and illustration
+          More or less use of progressive disclosure
+
+
+
+     Screenshot existing examples in your organization’s portfolio of products and annotate
+     what’s interesting about them in the Design System in 90 Days Canvas. These
+     will be the other half of the base of your new design system that we’ll pick up in 
+
+         Activity #34: Abstract Component through Hot Potato.
+
+
+
+
+
+     34
+#10 Identify Emerging and Interesting Paradigms, cont.
+
+             ️ Extra Credit
+         Many organizations have aspirations to make their digital products more accessible or
+         performant. This is the perfect time to catalog and define just what “better accessibility” or “more
+         performant” mean. For example, if you find even one example of a component that, say, uses
+         ARIA roles in a way you’d like to see more of, note that here with plans to integrate it once you get
+         to Activity #34.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    35
+     Day 10–13
+
+#11 Visualize Your Ecosystem of Tools
+     and Technologies
+     D Engineer + Designer   A Product Owner    C Design system team   I Entire org
+
+
+
+     One of the most opaque things about a design system is how and where it fits in the
+     broader technical ecosystem of the organization. To solve this, draw a diagram that
+     can be shared to create some clarity and alignment! Start with a pairing session
+     between an engineer and designer and draw a map together with these initial items
+     as a starting point
+
+          Component librar
+          UI Ki
+          Reference websit
+          Guideline
+          Design Tokens
+
+
+
+     List as much metadata with each item as you can, like the technology each piece is
+     built with, the URL to find this item, who is the main point of contact for this item, etc.
+
+
+
+     Lastly, fill in contextual information outside of the design system specific pieces. A
+     good place to start is to look for anything with an acronym
+
+          Content Management System (CMS
+          Customer Relationship Management (CRM) too
+          Digital Asset Manager (DAM)
+
+
+
+     Ideally, someone at your organization may have made this already, like someone in
+     an IT or Engineering Infrastructure department. Try and track it down. If it doesn’t
+     exist or isn’t easily accessed, you may have to create it yourself.
+
+
+
+
+     36
+#11 Visualize Your Ecosystem of Tools and Technologies, cont.
+
+    Questions to answer
+
+         What does the environment look like that consumes components from the
+         design system
+         Is there a build pipeline to go from staging environments to a production
+         environment
+         What tools and processes are regularly employed to keep design work and
+         engineering work in sync?
+
+
+
+    Additional resource
+         Stuck? Diagrams Help. by Abby Covert. abbycovert.com/stuck
+         “Design Systems Architecture Diagrams,” by Nathan Curtis. bit.ly/design-systems-
+         architecture-diagram
+         “How to Draw Useful Technical Architecture Diagrams,” by Jimmy Soh. bit.ly/useful-
+         technical-diagram
+         “The Art of Crafting Architectural Diagrams,” on InfoQ. bit.ly/crafting-architectural-
+         diagrams
+
+
+
+             ️ Extra Credit
+         If you find people wanting even more context than the diagram provides, create use cases that
+         utilize the diagram as a visual aid. Write stories for processes like “how to publish a new
+         component,” “where to include a third-party plugin,” and more.
+
+
+
+
+                                       In the campus bookstore at Design System University
+
+                                       Need an icon for a specific design system concept
+                                       like “governance” or “reference site?” Download our
+                                       free Design System Icon pack.
+
+
+
+
+    37
+#11 Visualize Your Ecosystem of Tools and Technologies, cont.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    38
+    Day 10–22
+
+#12 Interview End Users
+     D Design system team   A Product Owner   C Design system team   I Design system team
+
+
+
+     Making a great design system starts with understanding the experiences that end
+     users are having. Identify their needs and their pain points. This will impact the work
+     your feature teams are doing, which will impact the evolution of how your design
+     system serves your feature teams. Aim to interview between 5-10 end users and
+     plan for up to 30. Ask them about their work, life, and behaviors so you know clearly
+     what kinds of interface problems your design system should solve.
+
+
+
+     Email template to send to schedule interviews
+
+     Create a Calendly, Doodle, or something equivalent to let interviewees select times
+     that are good for them for a chat. Send this email to everyone on your newly made
+     list to start scheduling conversations:
+
+                                                 Copy
+
+
+
+
+            Hi! This is [PERSON NAME] from [COMPANY NAME]. We’re working on
+            a new project and my team is interested in chatting with you
+            about your experience using [ORGANIZATION]’s products. We’re
+            interested in chatting with you about your experience using
+            [PRODUCT MADE WITH DESIGN SYSTEM]. We’re hosting 45-minute
+            interviews via Zoom video conference where we would like to ask
+            you questions about your experience using different parts of our
+            product. This will be casual and conversational. There's nothing
+            you need to do to prepare. Just be ready to answer some
+            questions and share your thoughts. If you’re interested, please
+            click on this link to see if there is a time that works for you:
+            https://calendly.com/krakoa/interviews
+
+
+
+
+     39
+#12 Interview End Users, cont.
+
+    Sample interview questions
+
+    Here’s a script you can use during the interview to capture the kind of information
+    that will come in handy later. Keep track of who you've interviewed, who’s left to talk
+    to, and the notes and recordings for each interview in the Design System in 90
+    Days Canvas.
+
+
+
+    Hi [INTERVIEWEE’S NAME]! My name is [NAME]. We’re currently having conversations
+    with folks like you to understand more about how you use [The product] to understand how
+    we might create better products for you and people like you. 
+
+
+
+    Is it ok to ask you a few questions about that? 
+
+
+
+    Before you answer, please know that we’ll keep your answers confidential and we’ll only
+    use them within our team for our own information.
+
+
+
+    Introduction Question
+
+         What’s your name
+         What do you do for a living?
+
+
+
+    Work & Workflo
+
+         What’s your typical day or week like
+         What’s your experience with [COMPANY NAME] and its products
+         What other products like [COMPANY NAME]’s do you use? Which do you enjoy? Which
+         are painful to use? Why
+         What aspects of [PRODUCT NAME] current offerings are working really well for you?
+
+
+
+
+    40
+#12 Interview End Users, cont.
+
+         Are there things on [PRODUCT NAME] platform that you do over and over again
+         What aspects of the [PRODUCT NAME] current offerings do you think could be
+         improved
+         If you had a magic wand and could change one thing about how you interact with [The
+         Product] , what would that thing be?
+
+
+
+    Outcome
+
+         Fast forward a year from now, [PRODUCT NAME] is a joy to use for you, something you
+         look forward to using weekly or even daily. How did that happen
+         Fast forward a year from now and you dread using anything that has to do with
+         [PRODUCT NAME]. Why did it fail?
+
+
+
+    Wrap U
+
+         What can we tell you about the project we’re working on
+         What advice can you give us about how to succeed at [COMPANY NAME] in making
+         better products for people like you
+         What questions should we be asking you that we aren’t?
+
+
+
+
+             ️ Extra Credit
+         If your organization has a research department or any UX researchers, find out if they have an
+         existing list of end users you could reach out to (or maybe they will reach out for you!). Offer an
+         incentive like a cash gift card in exchange for an interview… this always works! The going rate for
+         a 60-minute interview is about $75-$100 USD.
+
+
+
+
+    41
+#12 Interview End Users, cont.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    42
+     Day 10–29
+
+#13 Interview Stakeholders
+     D Design system team   A Product Owner    C Design system team    I Design system team
+
+
+
+     Where does leadership see this company or the flagship product(s) going? What are
+     the big plans? Do they see opportunities to be a more connected organization? What
+     are the obstacles? What are they excited about? Your objective here is to gather as
+     many insights as you can about where the organization is heading, what plans for
+     change and growth are in the works, and what opportunities and challenges are up
+     ahead. 
+
+
+
+     Note: these aren’t interviews about the design system. At this, you likely know more
+     about design systems and have thought about them more than your stakeholders
+     have. Instead, you’re asking them about everything outside the design system so you
+     can eventually propose a strategy for how the design system fits smoothly into
+     everything else.
+
+
+
+     Take good notes and record as many sessions as you can. You’ll need the info later in
+        Activity #27: Synthesize Themes & Insights from Stakeholder Insights when you
+     summarize, synthesize, and share what you’ve learned. 
+
+
+
+     Sample interview questions
+
+     Here’s a script you can use during the interview to capture the kind of information that
+     will come in handy later. Record your notes, insights and recordings in the Design
+     System in 90 Days Canvas. 
+
+
+
+
+
+     Hi [INTERVIEWEE’S NAME]! My name is [NAME]. We’re currently having conversations with
+     folks like you to understand more about the needs of the people that do and may use
+     [COMPANY NAME]’s design system. 
+
+
+
+     We’d like to make sure it’s as useful of a platform as possible, and we’re starting by making
+     sure we’re well-informed as we make changes over the next few weeks and months.
+
+
+
+     43
+#13 Interview Key Stakeholders, cont.
+
+     Is it ok to ask you a few questions about that? 
+
+
+
+     Before you answer, please know that we’ll keep your answers confidential and we’ll only
+     use them within our team for our own information.
+
+
+
+     Introduction Question
+
+         What’s your role at [COMPANY NAME]
+         How long have you been at [COMPANY NAME]
+         Can you give a brief background of your time at [COMPANY NAME]
+         What has been your journey at [COMPANY NAME] like? For instance, how did you get
+         started and how did you end up where you are now? 
+
+
+
+     Work & Workflo
+
+         What does a day in your life look like
+         What are your priorities? How do you determine your priorities
+         Can you describe your current workflow
+         What aspects of the current workflow are working really well
+         What aspects of the current workflow do you think could be improved
+         If you had a magic wand and could change one thing about how things work here, what
+         would that thing be
+         What kind of projects are you working on right now
+         What specifically are you working on now? What specifically are you working on right
+         now that should or could use [COMPANY NAME] Design System? What specifically
+         are you working on right now that shouldn’t or couldn’t use [COMPANY NAME] Design
+         System?
+
+
+
+     Tools & Technologie
+
+         What tools/technologies are you using regularly? Which are you forced to use and
+         which do you choose to use?
+
+
+
+
+    44
+#13 Interview Key Stakeholders, cont.
+
+         What tools/technologies do you use irregularly
+         What tools/technologies do you love
+         What tools/technologies do you hate?
+
+
+
+    Hopes & Fear
+
+         Have you used a design system before
+         Where did you first learn about design systems?
+         Have you used the [COMPANY NAME] Design System before
+         How did you hear about the [COMPANY NAME] Design System?
+         Do you think a design system will help in your current workflow? Why or why not
+         What about the design system makes you nervous, apprehensive, or skeptical
+         What about the design system makes you excited, eager, or curious?
+
+
+
+    Outcome
+
+         What does success look like? Fast forward a year from now, everyone is thrilled with
+         the design system. How did that happen
+         What’s going to sink this ship? Fast forward a year from now and the design system
+         initiative is a total failure. Why did it fail?
+
+
+
+    Wrap U
+
+         What can we tell you about the project we’re working on
+         How involved would you like to be in the work we have coming up? Would you like to be
+         a collaborator? To stay informed? To steer clear
+         What advice can you give us about how to succeed on this project at [COMPANY
+         NAME]
+         What questions should we be asking you that we aren’t?
+
+
+
+
+    45
+#13 Interview Key Stakeholders, cont.
+
+    Additional resource
+         “Design Systems Prepare You for Change,” by Dan Mall. bit.ly/design-systems-change
+
+
+
+
+             ️ Extra Credit
+         Everyone has their own system for taking notes, but one effective way is to capture quotes from
+         your interviewees. This contributes all the power and context of a person’s thoughts, and quotes
+         can easily be grouped into themes and shared anonymously.
+
+
+
+
+    46
+#13 Interview Key Stakeholders, cont.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    47
+    Day 10–29
+
+#14 Conduct Pilot Team Walkthroughs
+    D DesignOps    A Product Owner   C Designer + Engineer   I Design system team
+
+
+
+    Design system pilots should be a win-win scenario: the team using one or more
+    components saves time and the design system grows as more components can be
+    extracted into it from existing code.
+
+
+
+    Have your pilot team leads walk you through what they’ve been working on for their
+    product or feature and what’s coming up soon on their roadmaps. A good format for
+    walking through their product is a user journey. Ask them to share their screens and
+    take you through what they expect users to do with their product or feature. 
+
+
+
+    As they’re showing you their screens, make a simple list of every component you see
+    on screen in the Design System in 90 Days Canvas… anything that could be a
+    modular piece of design or code. (You’ll use this list in Activity #26: Identify 3 initial
+    Components to Pilot.)
+
+
+
+    Look at as many screens as you can in the time you have with the team. As your time
+    with the potential pilot team comes to a close, wrap up the conversation with these
+    closing words:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         Thanks so much for showing us what you’ve been working on! We’ll spend the next
+         few days looking across all the conversations we’ve had with our potential pilot
+         teams to see what overlaps exist. If we see something others are working on that
+         this team could benefit from or something that you’re working on that other teams
+         could benefit from, can we get back in touch with you in a few days with a few
+         options for how we might work together?
+
+
+
+
+    (They almost always say yes!)
+
+
+
+    48
+#14 Conduct Pilot Team Walkthroughs, cont.
+
+
+           something that you’re working on that other teams could benefit from,
+           can we get back in touch with you in a few days with a few options for
+           how we might work together?
+
+
+
+
+    (They almost always say yes!)
+
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    49
+    Day 14–15
+
+#15 Create New Design System
+    Repository and Package
+    D Engineer    A Product Owner   C Design system engineers   I Design system team
+
+
+
+    Within your version control platform of choice like GitHub or Bitbucket, create a new
+    repository that your new design system will live in.
+
+
+
+    That might seem simple enough, but in many enterprises, this small action sets off a
+    chain of events that could block useful design system work by weeks or even months.
+    Reasons to get these requests in early:
+
+
+         It’s likely that not everyone is allowed to create a new repository but that someone
+         specific within an IT or infrastructure department needs to do that. That department
+         may be backed up with lots of requests like this
+         Part of initializing a repository may be installing/implementing organizational best
+         practices, like continuous integration tools or specific server deploy configurations.
+         If there are any new configurations you may want to set up like using paid services
+         like Chromatic or getting a specific testing suite added, those vetting and
+         procurement processes may take time in the back-and-forth negotiations
+         Much of the tooling that goes along with design system work may require
+         authentication platforms, single sign-on functionality, VPN access, issuing
+         company laptops, etc
+         The idea of designers having access to code repositories may be a new concept at
+         your organization and may even need approval at a VP or executive level.
+
+
+
+
+    50
+#15 Create New Design System Repository and Package, cont.
+
+    In addition to the new repository, your new design system will need to be
+    consumable by other applications as a dependency, so you’ll also need to set up
+    and publish a new package for your design system to live in. There are various ways
+    to do this between tools like GitHub packages and npm. Your engineering, IT, or
+    infrastructure teams may also have their own proprietary package management
+    strategy, but if you need a refresher, start with npm’s documentation on creating
+    and publishing private packages.
+
+
+
+    Additional resource
+         “Do you need to version your component library?” by Mae Capozzi. bit.ly/version-
+         component-librar
+         “Distribute UI across an organization,” by Tom Coleman and Dominic Nguyen. bit.ly/
+         distribute-ui
+
+
+
+
+    51
+    Day 16–17
+
+#16 Set Up Public Workshop
+    Environment with Branch Deploys
+    D Engineer   A Product Owner   C Design system engineers   I Design system team
+
+
+
+    Every good design system team should have what front-end designer Brad Frost calls a
+    “workshop” environment, an environment separate from its production environment
+    that allows specifically for prototyping user interfaces. Storybook is one of the most
+    popular choices, but you can use similar component-based development
+    environments like Backlight, Pattern Lab, Fractal, and many more.
+
+
+
+    One of the biggest impediments to true collaboration is when work isn’t visible enough.
+    For example, designers can’t riff on what engineers are working on in Storybook if the
+    only way to see it is to run it locally, especially if they don’t know how to do that.
+
+
+
+    As a quick follow-up to Activity #15: Create New Design System Repository and
+    Package, invest in a solution that pushes any new code branch to a URL to anyone can
+    access (or that anyone can access on VPN or within a firewall or whatever your lowest
+    level of security can safely be). Products like Netlify and Chromatic have this feature
+    built in or you could configure it your own, but the important thing is that everyone on
+    the team can see what’s being worked on in a way that has the least amount of friction.
+
+
+
+
+    52
+#16 Set Up Public Workshop Environment with Branch Deploys, cont.
+
+    Additional resource
+         “Working in Public,” by Chris Coyier. bit.ly/working-in-publi
+         “The Workshop and the Storefront,” by Brad Frost. bit.ly/workshop-storefron
+         “Building Design Systems in React with Storybook,” by Patrick Fulton. bit.ly/design-
+         systems-react-storyboo
+         “Creating branch deploys,” by Phil Hawskworth. bit.ly/netlify-branch-deploy
+         “Structuring your Storybook,” by Varun Vachhar. bit.ly/structuring-storybook
+
+
+
+
+
+    53
+    Day 20
+
+#17 Teach HTML & CSS to Designers
+    D Best Engineer teacher    A Non-engineers    C All Engineers    I All Designers
+
+
+
+    Should designers code? Who cares, but it’d be helpful for everyone working on a design
+    system to have at least a little familiarity with the code browsers use to display
+    information… namely, HTML and CSS. Spend half a day covering these topics with lots
+    of room for questions and practicing together
+
+         Anatomy of an HTML ta
+         Most common HTML tags, like headings, paragraphs, and list
+         Anatomy of a CSS rul
+         Ways to change colors, spacing, and font-sizes in CSS
+
+
+
+    Additional resource
+         “Learn HTML,” by Codecademy. bit.ly/html-codecadem
+         “Learn CSS,” on web.dev. bit.ly/learn-css-web-de
+         “Getting started with the web,” on MDN Web Docs. mzl.la/3w1CgBY
+
+
+
+             ️ Extra Credit
+         If your non-engineers are catching on to HTML & CSS quickly or know it already, consider
+         expanding your class to cover some basics of the languages/framework(s) your design system
+         uses, like React, Angular, Vue, web components, etc.
+
+
+
+
+    54
+    Day 21
+
+#18 Teach Figma to Engineers
+    D Best Designer teacher   A Non-designers     C All Engineers      I All Designers
+
+
+
+    One of the biggest opportunities design system work provides is for teams to
+    collaborate more closely. That collaboration starts by understanding more about how
+    your colleagues work.
+
+
+
+    Spend half a day doing a “Figma for Engineers” workshop. Especially as Figma’s
+    features get closer to how engineers work but isn’t fully at parity yet, it’s important that
+    designers and engineers understand where their tools are the same and where they’re
+    different. Review these topics together
+
+         Auto-layout
+         Reusable component
+         Libraries
+
+
+
+    Additional resource
+         Design for Developers, by Stephanie Stimac. bit.ly/design-for-developers-stephanie-
+         stima
+         Auto-layout vs. flexbox. bit.ly/autolayout-vs-flexbo
+         “Engineer's Guide to Figma,” by Rachel McClung. bit.ly/engineers-guide-figm
+         “Everything Developers Need To Know About Figma,” by Jurn van Wissen. bit.ly/figma-
+         developers-guide
+
+
+
+                                     In the campus bookstore at Design System University
+
+                                     Once engineers get the hang of the basics of Figma,
+                                     put it all together with our “How to Use a Design
+                                     System in Figma” video course.
+
+
+
+
+    55
+     Day 22
+
+#19 Teach Git to Designers
+     D Best Engineer teacher   A Non-engineers   C All Engineers   I All Designers
+
+
+
+     A core tenet of the Agile manifesto—a public declaration of working the true Agile way—
+     is “working software over comprehensive documentation.” In order to get designers
+     working more on software than documentation, they need some way to literally
+     contribute code. For most organizations, that way is Git.
+
+
+
+     You set up a new repository in Activity #15: Create New Design System Repository
+     and Package. Now spend half a day teaching designers the basic commands and
+     general workflow of using Git, starting with these ideas
+
+          Clonin
+          Committin
+          Fetching, pushing, and pullin
+          Branching, conflicts, and merging
+
+
+
+     Start small with designers being able to push new changes to a README file and watch
+     their eyes light up. This brings you one step closer to designers and engineers working
+     the same way!
+
+
+
+
+     56
+#19 Teach Git to Designers, cont.
+
+     Additional resource
+         “Why design needs version control,” by Josh Brewer. bit.ly/design-version-contro
+         Git for Humans, by David Demaree. bit.ly/git-for-humans
+
+
+
+
+             ️ Extra Credit
+         While GUIs for Git are very powerful, teach Git on the command line if your designers are up for it.
+         In addition to feeling like they’re seeing the Matrix, you can then introduce a GUI later, giving
+         designers two new tools for getting the same thing done.
+
+
+
+
+    57
+    Day 23
+
+#20 Teach Storybook to Designers
+     D Best Engineer teacher   A Non-engineers      C All Engineers    I All Designers
+
+
+
+    Bakers don’t have to understand chemistry, but it definitely helps. Designers don’t have
+    to understand how components are built and combined, but it definitely helps.
+
+
+
+    You set up public(-ish) URLs in Activity #16: Set Up Public Workshop Environment
+    with Branch Deploys, so now it’s time to make sure the entire design system team
+    knows what they’re looking at. Whatever tool you choose, spend half a day helping your
+    designers understand its structure, how to set it up locally, and where certain pieces of
+    information live. Combined with their new skills of writing HTML + CSS ( Activity #17:
+    Teach HTML & CSS to Designers) and contributing through Git ( Activity #19: Teach
+    Git to Designers), you can create a tight workflow where everyone can own a piece of
+    the design system software you’re all creating together.
+
+
+
+    Additional resource
+         “Storybook for design,” by Dominic Nguyen. bit.ly/storybook-for-design
+
+
+
+
+
+             ️ Extra Credit
+         Storybook’s new-ish Docs functionality allows documentation to be generated directly from the
+         code itself. Once your designers are feeling confident enough in Storybook, entrust them with
+         being in charge of updating the documentation right in the code. A little primer on MDX and
+         knowing where the files live eliminates unnecessary Google docs that need to be translated into
+         code by an engineer.
+
+
+
+
+    58
+     Day 25–26
+
+#21 Practice Hot Potato
+     D Designer + Engineer    A Product Manager     C Designer + Engineer pairs   I Design system team
+
+
+
+     Now that designers know a little more about HTML, CSS, Git, and Storybook and
+     engineers know a bit more about Figma, it’s time to put that good overlap to use. Enter
+     The Hot Potato Process, a workflow where designer and engineer create interfaces
+     together by passing the work back and forth in little chunks as often as possible. 
+
+
+
+     Block out a day or two to work together in real-time. Start together by talking about all
+     the parts of a page you want to create and sketching out content priority guides
+     together on paper or using Figma Template: Practice Hot Potato. Jump straight
+     into writing code without high fidelity mockups for as many screens/pages as you can.
+     Only use a design tool when you need higher fidelity than lo-fi sketches.
+
+
+
+     You’ll be surprised as to how fast you can go and how far you can get with such little
+     design work!
+
+
+
+     Additional resource
+          Designer + Developer Workflow. youtu.be/tnkrUt7Ppn
+          “Content Priority Guide,” by Emily Gray. bit.ly/content-priority-guid
+          “The Hot Potato Process,” by Dan Mall. bit.ly/hot-potato-proces
+          “The Way We Build,” by Alex Schleifer. bit.ly/the-way-we-build
+
+
+
+
+     59
+#21 Practice Hot Potato, cont.
+
+
+
+
+         Figma Template: Practice Hot Potato
+
+
+
+
+    60
+     Day 26–forever
+
+#22 Join Pilot Teams’ Sprint  
+     Planning Sessions
+     D Design system team       A Product Owner      C Designer + Engineer      I Design system team
+
+
+
+     Find out how your pilot teams plan for their work and start joining their sprint planning
+     sessions. Most teams kick off a sprint and then have weekly and/or daily meetings
+     throughout their sprint cycles. Other teams coordinate via Slack. Wherever your pilot
+     teams are talking about their work and planning for their work, ask if you can start to
+     follow along. (Any easy way to stay in sync with your pilot teams is to ask to be added to
+     their daily standup meetings and their Slack channels.)
+
+
+
+     Your goal is to ride alongside your pilot teams. They know how to do their best work;
+     you’re there to better understand how they make digital interfaces, where they could
+     use support, what causes them delays, etc. You’re also there to identify timing and fit for
+     your first round of components ( Activity #26: Identify 3 Initial Components to Pilot),
+     so it’s important for you to be in tune with how your pilot teams plan to sequence their
+     work and what emerges or evolves as they go.  
+
+
+
+
+              ️ Extra Credit
+          For your first round of pilots, it’s best to have the whole design system team attend these sprint
+          planning sessions. It might feel overwhelming to have so many folks in a meeting, but while
+          you’re getting the rhythm of pilots down, it’s helpful for everyone on the team to have a deeper
+          shared knowledge of what pilot teams are up to. Eventually, these sessions can be something
+          that only the Product Owner and/or DesignOps lead attends—but hopefully your designers and
+          engineers will enjoy these so much that they won’t want to miss them!
+
+
+
+
+     61
+     Day 27–28
+
+#23
+ Practice with an Existing  
+     Design System
+     D Engineer + Designer     A Product Manager       C Design system team       I Design system team
+
+
+
+     Before you create a design system for others to use, build some empathy in a low
+     stakes way for what your users’ experience might be by using a design system yourself.
+     Divide into pairs or trios with at least 1 designer and 1 engineer on each team. Choose a
+     page from your company’s website or app and try to build it using an existing design
+     system like Material Design, Bootstrap, ANT Design, or something similar. Create as
+     little from scratch as possible, and keep notes about what’s easy and difficult to do in
+     the Design System in 90 Days Canvas. This will give you a better sense of what
+     you’d like to do (and avoid) with your design system!
+
+
+
+              ️ Extra Credit
+          Feeling brave? Use your organization’s current design system to really get a taste of what your
+          users experience!
+
+
+
+
+                                         In the campus bookstore at Design System University
+
+                                         Once designers get the hang of HTML, CSS, and
+                                         JavaScript frameworks like React, put it all together
+                                         with our “How to Use a Design System in Code”
+                                         video course.
+
+
+
+
+     62
+#23 Practice with an Existing Design System, cont.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    63
+     Day 29–30
+
+#24 Conduct a Practice Pilot
+     D Design system team   A Product Owner   C Design system team   I Design system team
+
+
+
+     Before starting to officially work with feature teams, build some shared empathy and
+     protocols on the design system team for exactly how you’ll want to work. Divide the
+     design system team equally into two practice squads, with each squad having at least
+     one designer and one engineer on it. Squad 1 will be the design system team and
+     Squad 2 will simulate being a feature team. 
+
+
+
+     (This will be easiest if you have a larger team. If you don’t, you may need to be creative,
+     like having someone pretend to be two different people during this exercise.)
+
+
+
+     Squad 2 should pick a screen that they want to be responsible for creating; for example,
+     if you work for a retail company, perhaps you’d simulate being the team responsible for
+     a product detail page.
+
+
+
+     Start speculating together on what each squad would be responsible for. Discuss
+     questions like
+
+          Who builds what?
+          Who designs what?
+          What are the tasks each team should complete?
+          When should those tasks happen? 
+
+
+
+     There are no right or wrong answers to these questions; it’s only important that you
+     agree and then try to practice what you’ve agreed on.
+
+
+
+
+
+     64
+#24 Conduct a Practice Pilot, cont.
+
+     Map out the process in a flowchart in the        Design System in 90 Days Canvas.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          Design System in 90 Days Canvas
+
+
+
+     Additional resource
+          “Design Systems Support,” by Nathan Curtis. bit.ly/design-systems-suppor
+          Pattern workflow, by Inayaili León. bit.ly/pattern-workflo
+          “Design, system,” by Ethan Marcotte. bit.ly/design-system-ethan-marcott
+          “Expectations and responsibilities for design system teams,” by R2. bit.ly/design-
+          system-team-expectations
+
+
+
+
+     65
+     Day 31
+
+#25 Create a Glossary of  
+     Shared Vocabulary
+     D DesignOps     A Product Owner    C Design system team   I Entire org
+
+
+
+     One of the biggest gaps—and one of the biggest opportunities—of a design system is
+     getting people to align. A great way to do that is to start with words. Now that all
+     disciplines have had a chance to work together ( Activity #24: Conduct a Practice
+     Pilot), use that experience to agree on some definitions, starting with these words
+
+          Componen
+          Component Librar
+          Design Syste
+          Governanc
+          Guideline
+          Patter
+          Pilo
+          Reference Sit
+          UI Kit
+
+
+
+     Make sure the terms you’re defining for the design system glossary fit one at least of
+     two main criteria, if not both
+
+          It signals, “This is what this term means
+          It signals, “This is what we’ve agreed to call this thing”
+
+
+
+
+     66
+#25 Create a Glossary of Shared Vocabulary, cont.
+
+     Document your definitions in the          Design System in 90 Days Canvas. 
+
+
+
+     Additional resource
+         “The Anatomy of a Design System,” by Ben Callahan. bit.ly/anatomy-design-syste
+         “Wordplay: Language Structure in Design Systems,” by Dan Eden. bit.ly/design-
+         systems-languag
+         “Design System Structure,” by Dan Eden. bit.ly/design-system-structur
+         “A Design System Grammar,” by Dan Eden. bit.ly/design-system-gramma
+         “From Pages to Patterns: An Exercise for Everyone,” by Charlotte Jackson. bit.ly/pages-
+         patterns-exercis
+         “Information Literacy Is a Design Problem,” by Lisa Maria Marquis. bit.ly/information-
+         literacy-design-proble
+         “Your Product Development Documentation Needs a Project Glossary,” by Tammy
+         Pearson. bit.ly/project-glossar
+         “Design systems and the notorious design-engineering gap” by R2. bit.ly/design-
+         systems-gap
+
+
+             ️ Extra Credit
+         Once you’ve defined some terms, start putting those terms in places where people can
+         encounter them as part of their natural workflow. For example, if you’ve chosen the BEM
+         methodology for how your engineers will write markup and styles, make sure your Figma file uses
+         words like “blocks,” “elements,” and “modifiers” too in folder and layer names. Calling them
+         anything else signals that you don’t yet have a shared vocabulary between different disciplines.
+
+
+
+
+                                       In the campus bookstore at Design System University
+
+                                       Consult our free glossary for a starting point in
+                                       creating your own.
+
+
+
+    67
+#25 Create a Glossary of Shared Vocabulary, cont.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    68
+     Day 32
+
+#26 Identify 3 Initial Components  
+     to Pilot
+     D Design system team     A Product Owner   C Design system team   I Design system team
+
+
+
+     Using the component list you generated in Activity #14: Conduct Pilot Team
+     Product Walkthroughs, highlight the components that appear three or more times.
+
+
+
+
+          Design System in 90 Days Canvas
+
+
+
+
+     69
+#26 Identify 3 Initial Components to Pilot, cont.
+
+     Create a new, prioritized list in the Design System in 90 Days Canvas of just
+     the components that appear three or more times. The more times a component is
+     being used, the higher up on the list it goes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          Design System in 90 Days Canvas
+
+
+     This also becomes the initial guideline for which components go into the design
+     system: if three or more teams need this component right now, it goes in the
+     design system.
+
+
+
+
+              ️ Extra Credit
+          “Once is happenstance, twice is coincidence, three times a pattern.” (Adapted from Ian
+          Fleming’s Goldfinger.)
+
+
+
+
+     70
+    Day 35
+
+#27 Synthesize Themes & Insights
+     from Stakeholder Interviews
+    D DesignOps    A Product Owner   C Design system team   I Entire org
+
+
+
+    Using the massive amount of data you recorded from Activity #13: Interview
+    Stakeholders, start sorting each sticky into themes. Create a matrix in the Design
+    System in 90 Days Canvas with the names of your stakeholders across the
+    horizontal axis and the general topics they discussed down the vertical axis. This will
+    make agreements and disagreements across stakeholders easy to spot.
+
+
+
+    Once you’ve sorted all the stickies, use Figma Template: Synthesize Themes &
+    Insights from Stakeholder Interviews to create a presentation you’ll deliver to
+    stakeholders to let them know two main things
+
+         Their recommendations and concerns were heard and considered
+         You have a plan and that plan is reasonable.
+
+
+
+    Here’s a starting point for an outline that communicates those two things
+
+         Cover slide. Have some fun with the design of this slide to tease a higher level of
+         quality that a design system will bring
+         What’s happening? A short summary of what’s happened ( Activities #1–#24)
+         since the last update from this initiative
+         What we heard. A prose description of the major themes that emerged across the
+         interviews. 1-2 paragraphs max.
+
+
+
+
+    71
+#27 Synthesize Themes & Insights from Stakeholder Interviews, cont.
+
+         A draft plan. What will your team do as a result of what you learned, and how
+         will you measure whether or not you were successful
+         Stay informed. List the ways stakeholders can keep up with what your team is
+         doing at any given time. Bonus points for asynchronous methods like being able
+         to check a constantly-updated status page.
+         Appendix. For stakeholders that want to check your work. Each slide in the
+         Appendix should focus on one of your themes, a brief summary of the insights
+         around that theme, and 2-3 anonymized quotes you heard in your interviews.
+         Chances are high that your stakeholders may not read through each one of the
+         slides in the Appendix, but even if they just skim it, it looks like you know what
+         you’re talking about and you did a lot of work to arrive at this point—which you
+         did!
+
+
+
+     Once you’ve filled in all the slides, export it to PDF (the universal language of
+     enterprise) and email it (the universal vehicle of enterprise) to your stakeholders,
+     CC’ing the design system team. Email is important because it can be easily
+     forwarded to others.
+
+
+
+     For extra clarity, create a short video of you—or, better yet, the entire team—walking
+     through the report. Tools like Loom and Descript are perfect for this. Don’t dryly read
+     through each slide; instead, talk about the things that both confirmed and refuted
+     some initial hypotheses you may have had about this design system initiative and
+     how that’ll affect your strategy moving forward. Stakeholder buy-in incoming!
+
+
+
+
+    72
+#27 Synthesize Themes & Insights from Stakeholder Interviews, cont.
+
+     Additional resource
+         “How to Present Your Research So That Stakeholders Take Notice and Take Action,” by
+         Nikki Anderson. bit.ly/present-research-stakeholder
+         “Making the most of stakeholder review meetings,” by Alison Harshberger. bit.ly/
+         stakeholder-review-meeting
+         “Reporting Usability Test Results,” from Usability.gov. bit.ly/reporting-results
+
+
+
+
+
+             ️ Extra Credit
+         At the start of every meeting hereafter, reference this report. Use the phrase, “As we shared in our
+         initial findings…” for extra muscle behind your activities. It’ll reinforce that you’ve done the work
+         and actively combat many subjective opinions from stakeholders and colleagues before they
+         have a chance to creep in.
+
+
+
+
+    73
+#27 Synthesize Themes & Insights from Stakeholder Interviews, cont.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    74
+#27 Synthesize Themes & Insights from Stakeholder Interviews, cont.
+
+
+
+
+         Figma Template: Synthesize Themes & Insights from Stakeholder Interviews
+
+
+
+
+    75
+     Day 36
+
+#28 Send First Stakeholder Update
+     D DesignOps   A Product Owner   C Design system team   I Key stakeholders
+
+
+
+     Stakeholders are like investors. They want to know the key points of success, progress
+     and most importantly, they want to know how they can help you succeed! Inventory all
+     the activities you’ve done over the last month and extract the key highlights, learnings,
+     successes and obstacles. Use this simple template to craft and send your first
+     stakeholder update to the folks you identified in Activity #10: Identify Key
+     Stakeholders and Schedule Interviews. Edit the template in the Design System
+     in 90 Days Canvas.
+
+                                                Copy
+
+
+
+
+           What We Did
+             High level progress mad
+             Links to key artifact
+             Share any wins!
+
+
+
+           Where We’re Headed
+             Outcomes expecte
+             Areas of focu
+             Links to key artifacts
+
+
+
+           How You Can Hel
+             What do you need from your stakeholders
+             Do you need any introductions
+             Are there planning meetings you’d like invitations to
+             Want to host a few minutes of a key product meeting
+             Do you need support partnering with pilot teams?
+             Do you need budget?
+
+
+
+
+     76
+#28 Send First Stakeholder Update, cont.
+
+     Additional resource
+         “Keeping Subscribers Engaged in Your Design System,” by Catherine Meade. bit.ly/
+         design-system-engagemen
+         Teachable’s investor updates, by Ankur Nagpal. bit.ly/teachable-investor-updates
+
+
+
+
+             ️ Extra Credit
+         If you have to send updates to multiple groups of stakeholders, focus on crafting the narrative of
+         these updates for the highest level audience first and then you can apply additional levels of
+         detail and context for other stakeholder groups. This way, you’re writing one primary update and
+         iterating on it for various audiences.
+
+
+
+
+    77
+     Day 36
+
+#29 Create Design System  
+     Coverage Map
+     D DesignOps     A Product Owner   C Design system team   I Entire org
+
+
+
+     As you conduct more pilots, you’ll need to maintain a broad view of what components
+     are adopted by whom, which ones are in flight, and which teams you’re collaborating
+     with. This helps ensure that your focus isn’t too weighted to one segment of the
+     business or the product. 
+
+
+
+     Create a design system coverage map to track your components in the  
+         Design System in 90 Days Canvas. Include business units that have feature
+     teams actively creating products across your organization. Using the following
+     statuses, document the components you’ve identified from Activity #26: Identify 3
+     Initial Components to Pilot. 
+
+
+
+          Live: In production, live in the product 
+
+          In Use: Integrated into team’s codebase
+
+          In Progress: actively working on with pilot team
+
+          In Planning: actively collaborating with pilot team
+
+
+
+     Continue to update this map as you conduct additional pilots. 
+
+
+
+     Additional resource
+          “Design System Coverage” by Dan Mall. bit.ly/design-system-coverag
+          “Design system and inbound requests,” by R2. bit.ly/design-system-inbound-request
+          Omlet, a component analytics tool from Zeplin. omlet.dev
+
+
+
+
+
+
+     78
+#29 Create Design System Coverage Map, cont.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    79
+     Day 36
+
+#30 Set Up Slack Channel for Design
+     System Conversation
+     D DesignOps       A Product Owner       C Design system team        I Entire org
+
+
+
+     Your new design system is more than a tool; it’s a product! That means you have to
+     market it and evangelize it. 
+
+
+
+     Set up a Slack channel called #design-system-support and add your pilot
+     teams. Make the channel public to the entire organization. Invite anyone that has
+     expressed interest in staying up to date with what’s happening with the design
+     system. As you continue the activities in this workbook, share your wins and post
+     your progress in this channel!
+
+
+
+     Additional resource
+          “Design System Communications,” by Nathan Curtis. bit.ly/design-system-
+          communication
+          “Long-Term Design System Support,” by Katie Jennings. bit.ly/long-term-design-
+          system-suppor
+          “Communication plan for design system teams,” by R2. bit.ly/design-system-
+          communication
+
+
+
+
+              ️ Extra Credit
+          As you’re working with your pilot teams, do it out in the open in this Slack channel. This allows for
+          shared visibility and creates intrigue for other folks that aren’t yet actively piloting. Feeling brave
+          again? Include automated deploy notifications for pull requests and new version pushes so
+          interested parties can follow along in Github!
+
+
+
+
+     80
+    Day 36–37
+
+#31 Create Reference Website V1
+     D Writer   A Product Owner   C Design system team   I Entire org
+
+
+
+    Your reference website will be the front door for many who use your design system.
+    Resist the urge to build a custom site at this stage, and instead, use a website
+    builder for their ability to have many people contribute to it without writing code.
+    Zeroheight is a great choice for its niche features for reference websites, but
+    Webflow, Squarespace, and Wix and general website builders are excellent
+    alternatives too. This allows a writer to be the main driver of the reference website,
+    not an engineer who already has a lot to do.
+
+
+
+    It’s important that your reference be unique to the specific needs of your
+    organization, but there’s also a rough set of content that any design system user will
+    probably be looking for. Use the structure in the Design System in 90 Days
+    Canvas a starting point for the sections your design system users may expect
+
+         Hom
+         Get Starte
+         Guideline
+            Accessibilit
+            Bran
+            CS
+            Colo
+            Data Displa
+            Data Entr
+            Error Handlin
+            Format
+            HTM
+            Icon
+            Illustration
+
+
+
+
+    81
+#31 Create Reference Website V1, cont.
+
+            JavaScrip
+            Layou
+            Localizatio
+            Motio
+            Navigatio
+            Performanc
+            Principle
+            Process & Workflo
+            Soun
+            Spacin
+            Typograph
+            Voice & Ton
+         Component
+            Overview (containing Component Status table
+            Accordio
+            Breadcrum
+            Car
+            Etc
+         Case Studie
+         Suppor
+         Blog/New
+         Abou
+         Changelo
+         Search
+
+
+
+
+    82
+#31 Create Reference Website V1, cont.
+
+    Additional resource
+         Design System Page Templates, by 5four Digital. bit.ly/design-system-page-template
+         “Structuring documentation in multi-brand design systems,” by Amy Hupe. bit.ly/
+         structuring-documentation-multi-brand-design-system
+         Design Systems Gallery. bit.ly/design-systems-galler
+         “Making Design Systems Public,” by Dan Mall. bit.ly/public-design-system
+         “Why Your Design System Needs a Documentation Site,” by Catherine Meade. bit.ly/
+         documentation-sit
+         “Design System documentation best practices,” by Thais Santos. bit.ly/
+         documentation-best-practice
+         “Useful Sections for a Design System Reference Site,” by Dan Mall. bit.ly/reference-
+         site-sections
+
+
+
+
+
+    83
+#31 Create Reference Website V1, cont.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    84
+    Day 39
+
+#32 Create Component
+    Implementation Roadmap
+    D DesignOps     A Product Owner   C Design system team   I Entire org
+
+
+
+    Combine the outputs from Activity #26: Identify 3 Initial Components to Pilot
+    and Activity #29: Create Design System Coverage Map in the Design
+    System in 90 Days Canvas to create a roadmap for which components you’ll be
+    able to serve from the design system and by when. 
+
+
+
+    Block off 2 weeks per component as a starting point, with the highest need ones
+    first. Match that against the teams that scored highest on the pilot scorecard. Bonus
+    points if the highest-scoring teams also need the most in-demand components. 
+
+
+
+    If the highest-scoring teams don't match up 1-to-1 with the most in-demand
+    components, don't worry. There's no right or wrong answer between the two. Don't
+    deliberate too long; pick an order and move on. 
+
+
+
+    Once you have a draft prioritization, add your estimated dates to the reference site
+    Component Status page you created in Activity #31: Create Reference Website
+    v1. 
+
+
+
+    Additional resource
+         “[Must/Should/Could] a Product Adopt a System?” by Nathan Curtis. bit.ly/design-
+         system-must-could-should
+
+
+
+
+    85
+#32 Create Component Implementation Roadmap, cont.
+
+
+
+
+         Design System in 90 Days Canvas
+
+
+
+
+    86
+     Day 39
+
+#33 Propose Collaboration Plan to Pilot
+     Teams
+     D DesignOps   A Product Owner   C Design system team   I Entire org
+
+
+
+     Using the Component Implementation Roadmap you created in Activity #32:
+     Create Component Implementation Roadmap, start talking to the pilot teams you did
+     product walkthroughs with from Activity #14: Conduct Pilot Team Walkthroughs
+     about working with them. You should even have a decent initial sense of where you
+     might fit in their workflow from Activity #22: Join Pilot Teams’ Sprint Planning
+     Sessions.
+
+
+
+     Use this email template to gauge their interest and capacity for working with the
+     earliest version of design system:
+
+
+                                                Copy
+
+
+
+
+           Hi [PRODUCT OWNER NAME]! It’s [NAME] again from the design
+           system team, following up from our last conversation with a few
+           new ideas of how our teams might collaborate.
+
+
+
+           We’ve recently had a look across many product teams to get a
+           sense of what components can best accelerate and unify our
+           interface design. We’ll be working on the [COMPONENT NAMES THAT
+           THIS TEAM NEEDS] components from the weeks of [SPRINTS
+           TIMEFRAME], and we think from joining your sprint planning that
+           our delivery lines up with then your team will also need these
+           components. If you’re willing to tolerate a little “early
+           adopter” churn in the process with us, we’d love to take on the
+
+
+
+
+     87
+#33 Propose Collaboration Plan to Pilot Teams, cont.
+
+                                               Copy
+
+
+
+
+           responsibility of delivering these components to you so your
+           team can focus on other things that are more important to your
+           product/feature.
+
+
+
+           How does that sound? Is that something you’d be interested in
+           talking through more with us?
+
+
+
+
+
+     It’s important to remember and reinforce that you’re not just staff augmentation for
+     this team. You’re working with them to identify and solve problems of scale, so work
+     with multiple pilot teams simultaneously so you’re seeing a range of different needs
+     for the same component you’ll be supplying.
+
+
+
+
+    88
+    Day 39–43
+
+#34 Abstract Component Through Hot
+    Potato
+    D Engineer + Designer   A Product Owner   C Design system team   I Design system team
+
+
+
+    Between the proposals you’ve sent to pilot teams in Activity #33: Propose
+    Collaboration Plan to Pilot Teams and the existing, emerging, and interesting patterns
+    you’ve identified in Activity #5: Identify Existing Paradigms in Design and Code
+    and Activity #10: Identify Emerging and Interesting Patterns in Design and Code,
+    you should have a good hypothesis for what components can help accelerate early
+    adoption of the design system.
+
+
+
+    It’s crucial to abstract a component’s design and code to the level that it supports a
+    wide range of use cases, without going so far as to making it too abstract to
+    understand. Luckily, the way to strike the right balance is to look at a wide range of use
+    cases like you did in Activities #5 and #8.
+
+
+
+    Let’s continue working with the card component we looked at in Activity #5.
+
+
+
+
+    89
+#34 Abstract Component Through Hot Potato, cont.
+
+    Whatever is common—meaning three or more teams need it to be like this—is the
+    list of things we need to support by default. Here’s what we previously recorded
+
+           Small-ish sans-serif body copy (8 or 8
+           Support for an image, icon, or illustration (7 of 8
+           An all caps headline (6 of 8
+           Some sort of rounded corner call-to-action (CTA) link that looks like a button (6
+           of 8
+           Left-aligned text (5 of 8
+           Icon/symbol in button (1 of 8)
+
+
+
+    Simply taking this at face value still leaves too much undecided. For example, the
+    buttons should definitely have rounded corners because 5 of our 8 examples (63%)
+    have rounded corners, but what should the radius be? This is where the emergent or
+    interesting parts come into play: perhaps folks have been gravitating towards—or
+    even just thinking about—an 8-point grid. Even though it’s not an existing paradigm
+    yet, this is the kind of “interestingness” that can fill in the gaps.
+
+
+
+    Use this framework for what to include and what to leave out:
+
+
+                   Question to ask                          Action to take
+
+    All
+           What does every version of this          Every characteristic is mandatory
+
+                   component have in common?
+
+    Most
+          What do most versions of this            Every characteristic is highly
+                   component have in common?
+               recommended
+
+    Some 
+         What do some versions of this            Prepare proposals and/or facilitate
+                   component have in common?
+               workshop to form consensus
+
+
+    Few            What do few versions of this             Delay including these characteristics
+                   component have in common?
+
+
+
+
+    90
+#34 Abstract Component Through Hot Potato, cont.
+
+
+
+
+    The trick is not deviating too far from any of the samples to keep all of these
+    components recognizable from where they were originally sourced. If you make
+    them too different, this one component will look drastically different than the rest of
+    an interface that’s not using the design system, which would create a cognitive load
+    problem for end users.
+
+
+
+
+    91
+#34 Abstract Component Through Hot Potato, cont.
+
+    Do the same abstraction exercise for the code observations we previously recorded
+    too. Using what’s common, we can come up with markup that looks like this:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    But that’s not finished. We need names and styling hooks, none of which have a
+    clear, existing paradigm. Enter the emerging and interesting paradigms. Is there an
+    engineering guild that wants to move toward BEM? Or Tailwind? Sprinkle a light
+    amount of the desired common practices in with the existing common practices.
+
+
+
+    Also, this is the perfect opportunity to implement some improvements around areas
+    like accessibility and performance that have been long neglected.
+
+
+
+
+
+    92
+#34 Abstract Component Through Hot Potato, cont.
+
+
+
+
+    Most design systems nowadays are made with some kind of component framework
+    like React, Angular, etc. Using React as an example, you’ll also have to define the
+    structure of your React component to render that markup, which may look
+    something like this:
+
+
+
+
+    93
+#34 Abstract Component Through Hot Potato, cont.
+
+
+
+
+    While there’s still more to do, this is a great stopping point. Next up: share this work-
+    in-progress with your pilot teams!
+
+
+
+    Additional resource
+         “Crafting Component API, Together,” by Nathan Curtis. bit.ly/crafting-component-api-
+         togethe
+         “Design System UI is More Expensive Than a Product Team’s UI,” by Nathan Curtis.
+         bit.ly/design-system-u
+         “Card and Composability in Design Systems,” by Nathan Curtis. bit.ly/cards-
+         composabilit
+         “Anatomy of a Typed React Component,” by Dan Eden. bit.ly/anatomy-typed-react-
+         component
+
+
+
+
+    94
+#34 Abstract Component Through Hot Potato, cont.
+
+
+         “Subatomic Design Systems,” by Dan Eden. bit.ly/subatomic-design-system
+         “CSS Architecture for Design Systems,” by Brad Frost. bit.ly/css-architectur
+         “React Component Composition Explained,” by Felix Gerschau. bit.ly/component-
+         compositio
+         “Creating the “Perfect” CSS System,” by Lindsay Grizzard. bit.ly/creating-perfect-css-
+         syste
+         “Content & Display Patterns,” by Dan Mall. bit.ly/content-display-pattern
+         “When patterns get weird.”, by Ethan Marcotte. bit.ly/weird-pattern
+         “Cards,” by Heydon Pickering. bit.ly/inclusive-card
+         “Manage large CSS projects with ITCSS,” by Harry Roberts. https://bit.ly/manage-
+         large-css-projects-itcss
+
+
+
+
+    95
+    Day 44
+
+#35 Share In-Progress Component
+    Abstraction Work with  
+    Pilot Teams
+    D Engineer   A Product Owner   C Design system team   I Design system team
+
+
+
+    Before getting too far on your component design and code abstraction, share an in-
+    progress version of what you’re working on with the pilot teams that will eventually
+    integrate it. That could be as informal as a “hey, can you check something out when you
+    have a chance today?” message in Slack with the implementing pilot team engineer or
+    a more formal meeting with larger design system team and pilot team.
+
+
+
+    Try to schedule these sharing sessions with different pilot teams as close together as
+    possible, ideally in the same week or even in the same day if you can, as it’ll help you
+    really grok what similar positives and negatives exist across multiple teams.
+
+
+
+    Frame this as getting a gut check from them about whether you’re headed in a
+    direction that fits with what they’re doing. They may give you feedback about changes
+    they want, but don’t commit to making changes just yet. If they press you to answer on
+    the spot, say something to the effect of, “That’s helpful feedback. We’ll compare that to
+    how many teams have similar feedback to make sure we can make changes that
+    scale.”
+
+
+
+    For a specific example, let’s look at one of the card components you collected in 
+
+       Activity #5: Identify Existing Paradigms in Design and Code.
+
+
+
+
+    96
+#35 Share In-Progress Work with Pilot Teams, cont.
+
+                              The team working on this one may ask you to create an area
+                              of a card that can accept a <table>. While this is a very
+                              real need for this team, it’s the only instance you’ve seen of
+                              that need. Because it doesn’t meet the criteria that three or
+                              more teams need this component right now, it’s not a good
+                              use of the design system team’s time. Remember that your
+                              job as the design system team is really to solve the
+                              common problems. The more the design system team tries
+                              to accommodate one-off problems, the less focus you can
+                              have on solving problems at scale. If only one or two teams
+                              are having this problem, it’s probably a feature problem that
+                              they can solve at the feature level.
+
+
+
+
+    To say “no” without sounding like you’re disregarding feedback, create a section on
+    every component detail page on the design system reference website that’s called
+    “Possible future iterations.” Add succinct bullet items that say things like, “Insurance
+    team needs the ability to support a <table> at the bottom of Card.” The final list
+    item on that section should be a link to the support channel in Slack where any team
+    can surface their needs for any given component. If enough teams need the same
+    thing, at that point should that graduate to a design system-level problem to solve. 
+
+
+
+    Instead of saying “no,” it’s more like “not right now.” 
+
+
+
+
+
+    97
+#35 Share In-Progress Work with Pilot Teams, cont.
+
+
+
+             ️ Extra Credit
+         Instead of only having a “Possible future iterations” section as a bulleted list on reference site
+         pages, use an issue tracker like Linear or Jira to track feature requests and make it public to
+         everyone in the organization. Tools like Productboard even have features like being able to
+         upvote/downvote feature requests and comment on them to give you a more detailed sense of
+         what feature teams are really looking to the design system for.
+
+
+
+
+    98
+    Day 45–47
+
+#36 Iterate on Component Through Hot
+    Potato
+    D Engineer + Designer   A Product Manager   C Design system team   I Pilot teams
+
+
+
+    Unless you’re Nostradamus, you’ll likely receive feedback in Activity #35: Share In-
+    Progress Component Abstraction Work with Pilot Teams for changes worth making
+    that you didn’t initially anticipate. That’s a good thing! You’re triggering the IKEA effect,
+    the idea that people place a disproportionately high value on things they have a hand in
+    creating. This increases the likelihood that your pilot teams will adopt this component,
+    because it’s partially theirs.
+
+
+
+    For any feedback 3 or more pilot teams gave you, have a designer and engineer do a
+    Hot Potato pairing session to implement that feedback. Ensure that the changes
+    manifest equivalently in both Figma components and code.
+
+
+
+
+
+    99
+    Day 48–50
+
+#37 Chronicle the Process
+     D Writer + DesignOps   A Product Owner   C Design system team   I Entire org
+
+
+
+     One of the biggest questions that a design system has to answer for any of its users
+     is, “What is the typical way to do [x] at this company?” Nike Design Director Hayley
+     Hughes says, “Design systems are any set of decisions governed across an
+     organization.” Once a team has gone through the work of making a difficult decision,
+     capture the decision and its context so that the decision becomes easier for
+     everyone else the next time around.
+
+
+
+     Shift your mindset from “documenting the components” to “chronicling the system.”
+     Yes, it’s important to document component props, but it’s more important to paint a
+     picture of the world the component best lives in.
+
+
+
+     Use the common interrogatives of “who, what, where, when, why, how” as a
+     framework to fill in on the any given component detail page
+
+           Who are the target end users that should interact with this component? Who
+           first envisioned this component as a solution to a particular problem
+           What problem is this component designed to solve? What content or other
+           components should be used in conjunction to make this component  
+           usage successful
+           Where does this line of code go? Where does this component typically go on  
+           a page
+           When should this component get used? When shouldn’t this component  
+           get used
+           Why would I use this component over another
+           How did this component come to exist in the first place?
+
+
+
+
+     100
+#37 Chronicle the Process, cont.
+
+
+     Additional resource
+       “​The Guideline Gap,” by Linzi Berry. bit.ly/guideline-ga
+       “Authoring Component Documentation,” by Nathan Curtis. bit.ly/authoring-
+       component-documentatio
+       “Design systems, structured content and headless publishing,” by Amy Hupe. bit.ly/
+       design-systems-structured-conten
+       “How to integrate content guidelines into design system documentation,” by Amy
+       Hupe. bit.ly/content-guidelines-design-system
+       “Chronicling the system,” by Dan Mall. bit.ly/chronicling-syste
+       “Design Systems & Magic,” by Dan Mall. bit.ly/design-systems-magi
+       “The design systems we swim in,” by Ethan Marcotte. bit.ly/design-systems-we-
+       swim-in
+
+
+
+
+    101
+     Day 48–50
+
+#38 Issue Pull Request to Contribute
+     Newly Abstracted Component
+     D Engineer    A Product Owner    C Design system team      I Pilot team
+
+
+
+     The design system is ready for its first contribution!
+
+
+
+     Push your revised component to the repository as v0.1.0 of the design system. From
+     the work you did in Activity #15: Create New Design System Repository and
+     Package, this should also make this component available for engineering teams to use
+     as a dependency in their codebases via npm, Github Packages, or something similar.
+
+
+
+     Additional resource
+        Semantic Versioning. bit.ly/semve
+        “What are Conventional Commits?” by Mae Capozzi. bit.ly/what-are-conventional-
+        commit
+        “Versioning Design Systems,” by Nathan Curtis. bit.ly/versioning-design-system
+        “Design System Versioning: Single Library or Individual Components?” by Brad Frost.
+        bit.ly/versioning-library-component
+        “Version Management for Design Systems,” by Patrick Fulton. bit.ly/version-management-
+        design-system
+        “Using Scorecards to Encourage Adoption of Design Systems,” by Mandy Kendall. bit.ly/
+        design-system-adoption-scorecard
+
+
+
+
+     102
+     Day 52–54
+
+#39 Usability Test Component with
+     Pilot Teams
+     D Engineer   A Product Owner   C Engineer + Designer   I Design system team
+
+
+
+     Time to see if your pilot teams can use the component all on their own. Send them this
+     message:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                  Copy
+
+
+
+
+           Hi [ENGINEER NAME]! Thanks so much for your feedback in our last
+           conversation. We have a new pass at the component based on your
+           comments as well as some feedback from other teams.
+
+
+
+           Would you be willing to do another session with us where you
+           attempt to implement this component in your application
+           codebase? We’d love 30 minutes with you where you do some
+           screensharing and live coding and we can take some notes on
+           what’s easy and difficult for you to do?
+
+
+
+
+
+     Once they confirm interest, schedule the session with them. Here’s a script you can
+     use at the beginning of your implementation testing session, modified from 18F’s
+     example usability test script: 
+
+
+
+
+
+     103
+#39 Usability Test Component with Pilot Teams, cont.
+
+
+          Hi [ENGINEER NAME]! Thanks again for making time to talk and work with us. All of
+          this has been making our design system that much more valuable for everyone that
+          will use it. Your feedback is valuable and will help us determine if our design system is
+          as easy-to-use as intended. Just to confirm, we’d like keep this session to 30
+          minutes. Does that still work for you?
+
+
+
+          Great! If you need a break or to stop at any time, please let me know.
+
+
+
+          During this session, I’ll ask you to share your screen and accomplish a few tasks.
+          Please be aware that there are no wrong answers. As you go about using the design
+          system, I’ll ask you to think aloud as much as possible, to describe what you’re
+          looking at, and what you’re trying to do. This will be a big help.
+
+
+
+          Also, please don’t worry that you’re going to hurt our feelings. We’re doing this to
+          make the design system as useful as it can be for everyone, so we need to hear your
+          honest reactions.
+
+
+
+          If you have any questions as we go along, just ask. I might not be able to answer them
+          right away, since we’re interested in how people do when they don’t have someone
+          sitting next to them to help. But if you still have any questions when we’re done I’ll try
+          to answer them then.
+
+
+
+          With your permission, I’d like to record this call. The recording will only be used to
+          help us figure out how to improve the site, and it won’t be seen by anyone except
+          those with a need-to-know. Recording this call also helps me, because I don’t have
+          to take as many notes. Do I have your pemission to record this call?
+
+
+
+
+    104
+#39 Usability Test Component with Pilot Teams, cont.
+
+
+          Great! Here’s what we’re doing today. We know you’re working on [PRODUCT/
+          FEATURE NAME] and you need the [COMPONENT NAME] component that we’ve
+          been previously discussing. 
+
+
+
+          Before we share our version with you, would you speculate on how long it would have
+          taken you to make this component on your own?
+
+
+
+          [Engineer answers here.]
+
+
+
+          Thanks… that’s a helpful benchmark. Let’s give this one a whirl. Can you please open
+          your application environment in your code editor? I’m going to send you a link to our
+          reference site with documentation about this component. I won’t say much more
+          after that, and I’d love you try and use the documentation as best you can to get this
+          component up and running in your application. 
+
+
+
+          Sound good? Here’s the link, and you can take it from there.
+
+
+
+
+
+     Try to be as silently observant as you can for as long as you can, and take copious
+     notes about what’s easy and difficult. If they’re able to implement the component
+     easily, confirm that this only took them less than 30 minutes against their initially
+     speculated time. If the implementation is difficult or they get stuck multiple times,
+     ask them what they might have expected or what could have made it easier. Humbly
+     take the good, bad, and the ugly feedback to heart, as this is all the stuff that’ll make
+     using the design system a good experience for everyone!
+
+
+
+     Additional resource
+        “Yes, Design Systems Do Improve Developer Efficiency and Design Consistency.”
+        bit.ly/sparkbox-design-system-roi
+
+
+
+
+    105
+     Day 55
+
+#40 Final Iteration on Component
+     D Engineer       A Product Owner      C Design system team       I Pilot teams
+
+
+
+     Home stretch! The pilot usability tests should have given you the necessary feedback
+     to make some final tweaks for a release candidate of this component. At this point, the
+     usability test feedback likely surfaced more gaps in the documentation about the
+     component than the code or design itself. 
+
+
+
+     Make those changes and push a v0.2.0 of the design system!
+
+
+
+     Notify your pilot teams and recommend that they do an npm update (or equivalent) to
+     get the latest changes. 
+
+
+
+     Additional resource
+           “Distributed Ownership,” by Linzi Berry. bit.ly/distributed-design-system-ownership
+
+
+
+
+
+               ️ Extra Credit
+           Depending on the bandwidth of the design system team, you may want to do a little extra work to
+           make it easier for pilot teams to get a more complete version of the component in their builds. 
+
+
+
+           Have the design system engineers create new branches of the pilot teams codebases and do
+           the work to update the component and test for anything breaking. Once any issues are resolved,
+           open a pull request to merge the new component in. Instead of the pilot teams having to do a
+           potentially significant chunk of work, all they have to do now is accept a pull request. A few times
+           of this and pilot teams all over the organization will see the design system team—and the design
+           system by proxy—as a valuable asset that makes their work easier!
+
+
+
+
+     106
+    Day 57, then weekly
+
+#41 Send Stakeholder Update
+    D DesignOps       A Product Owner     C Design system team     I Key stakeholders
+
+
+
+    Start the practice of weekly communications using the stakeholder update template
+    from Activity #28: Send First Stakeholder Update. 
+
+
+
+    Send out your weekly updates at the start or the end of each week moving forward as
+    you finish out this round of pilots. Be sure to include the details (and the links) of your
+    first component release and the  
+    reference site!
+
+
+
+
+              ️ Extra Credit
+          Email is a good format for these updates to be forwarded elsewhere, but Slack may be where
+          they get consumed the quickest. Find out where your stakeholder groups prefer to get these
+          sorts of updates. If you aren’t getting any reactions or responses, experiment with  
+          delivery methods.
+
+
+
+
+    107
+     Day 57
+
+#42 Extract 3 Overarching Principles
+     D DesignOps     A Product Owner    C Design system team   I Design system team
+
+
+
+     Now that you’ve successfully piloted 1 component, you’ve likely done some things that
+     you’d like to repeat, and you’ve probably done some things that you’d like to avoid the
+     next time. 
+
+
+
+     Run a retrospective on the process you went through with your first component and
+     extract the principles you used to make decisions and prioritize work. This becomes a
+     team charter that you can use to guide the way you make decisions moving forward. 
+
+
+
+     Look for the decision points. When the team came to a disagreement, what kind of
+     criteria did you use to resolve it?
+
+           Did the highest ranked person on the team win? Then a team principle is, “Rank
+           breaks ties.
+           Did the team take a vote? Then a team principle is, “Majority rules.
+           Did you look for a theme of work? Then a team principle is “Accessibility above all”
+           or “Performance above all.
+           Did one person get to pick the direction? Then a team principle is “Whomever cares
+           the most wins.”
+
+
+
+     Add these principles to the       Design System in 90 Days Canvas.
+
+
+
+     Additional resource
+        Fun Retrospectives. bit.ly/fun-retro
+        Retrospective, from Atlassian. bit.ly/agile-retrospective
+
+
+
+
+     108
+#42 Extract 3 Overarching Principles, cont.
+
+       “Design System – Principles of Success,” by UXPin. bit.ly/design-system-principles-
+       succes
+       “The Sliding Scale of Giving a Fuck,” by Cap Watkins. bit.ly/sliding-scale-giving-a-fuck
+
+
+
+
+               ️ Extra Credit
+           Did your team not have any disagreements at all? Beware: although that may look like the sign of
+           a team that’s on the same page, it’s more likely that everyone’s too polite to cause any friction.
+           There may be things unsaid, things that could be really valuable to the team if surfaced. Work on
+           creating a culture of psychological safety where everyone feels free to voice their concerns and
+           desires without fear of criticism. If that culture already exists, congratulations! Continue the hard
+           work to keep it going.
+
+
+
+
+     109
+#42 Extract 3 Overarching Principles, cont.
+
+
+
+
+       Design System in 90 Days Canvas
+
+
+
+
+     110
+     Day 57
+
+#43 Create a List of Potential Design
+     System Names
+     D Writer + Designer   A Product Owner   C Design system team   I Key stakeholders
+
+
+
+     A leaf blower is a tool, but the Toro PowerJet F700 is a product. Naming something
+     elevates it. Elevate your design system from being a tool to being a product that serves
+     your organization’s digital interfaces by naming it.
+
+
+
+     Have the entire design system team record any ideas you anyone has for what your
+     design system could be named asynchronously over the day in the Design System
+     in 90 Days Canvas. Keep this exercise simple and light. If the name makes you smile,
+     add it to the list.
+
+
+
+     The next morning after sleeping on it, highlight the names you still appreciate that have
+     particularly strong ties to the organization’s name, brand, and mission but could also
+     act as an independent sub-brand. 
+
+
+
+     Of the highlighted ones, have the design system team vote on the two favorites. The
+     design system product owner makes the final call in the case of a tie.
+
+
+
+     Additional resource
+           “El reto de nombrar un Design System,” by Dayan Galindo. bit.ly/reto-nombrar-
+           design-system
+
+
+
+
+     111
+#43 Create a List of Potential Design System Names, cont.
+
+
+
+
+      Design System in 90 Days Canvas
+
+
+
+
+    112
+    Day 58
+
+#44 Create Design System Logo v1
+    D Designer       A Product Owner      C Design system team       I Design system team
+
+
+
+    Start branding your product! 
+
+
+
+    Design some logos for the final two names you chose in                    Activity #43: Create a List
+    of Potential Design System Names. Have fun!
+
+
+
+    Additional resource
+       “How to make a logo, for free, in about 5 minutes,” by Marc Hemeon. bit.ly/5-minute-logo
+
+
+
+
+              ️ Extra Credit
+          Circulate ideas that have big impact early. Send your logo sketches to your key stakeholders as
+          soon as you can. Don’t ask for feedback quite yet, but frame it as an “FYI” (“for your information”)
+          so they’re in the loop about where you’re headed.
+
+
+
+
+    113
+    Day 58
+
+#45 Add “Design System Office Hours”
+     to Calendar
+    D DesignOps        A Product Owner      C Design system team   I Design system team
+
+
+
+    Set up a semi-monthly meeting to host design system office hours for your designers,
+    engineers, and product folks. Your default should be open time for teams to ask
+    questions about how to use the system, what pilots are, how they can contribute, ideas
+    and nominations for components, etc. You can also host specific working sessions as
+    the need arises. 
+
+
+
+    Not sure what to talk about? Here’s a starter list of sessions you  
+    could host
+
+          Ask Us Anything: What questions are there about this new  
+          design system
+          Have you repeatedly gotten the same set of questions in your Slack channel?
+          Address those in these office hours
+          Do Activities # 17–21
+          Host a Pizza and Cake Party for a casual hang
+
+
+
+              ️ Extra Credit
+          “A party without cake is just a meeting.” —Julia Child
+
+
+
+
+    114
+    Day 59
+
+#46 Make Design System Swag
+    D Designer   A Product Owner   C Design system team   I Entire org
+
+
+
+    Work should be fun! 
+
+
+
+    Make some swag to go along with your new design system. Make a sticker pack. Make
+    hats. T-shirts. Key chains. Koozies. Anything that will help spread the word about the
+    system you’re creating. No one was ever mad at some design system cookies!
+
+
+
+
+
+    115
+    Day 59
+
+#47 Send Slack Post about
+    Component #1
+    D DesignOps   A Product Owner   C Design system team   I Entire org
+
+
+
+    Announcing the release of your first component is huge! 
+
+
+
+    Craft a Slack message using the following template to announce the release of the first
+    component. Highlight the people on the teams you piloted with and share the details of
+    how other teams can use this component in their work. 
+
+
+                                               Copy
+
+
+
+
+          The Design System Team is excited to announce that we’ve
+          successfully partnered with [PILOT TEAM NAME / @mention key team
+          members] to pilot [COMPONENT NAME with brief description and
+          screenshots]. 
+
+
+
+          Check out our reference site [LINK TO SITE] to learn how to
+          install this component into your codebase, and when to and how
+          to use this component in your feature work. 
+
+
+
+          Major shout out to [@mention designers and engineers and other
+          folks you partnered with] for being willing investors and
+          partners. We couldn’t have done this work without you!
+
+
+
+          Next up, we’re working on [NAME OF OTHER 2 COMPONENTS] with
+          [PILOT TEAM NAMES]. 
+
+
+
+          Our goal in piloting is to understand needs and usage across
+          multiple feature and product teams, so if any of these
+
+
+
+
+    116
+#47 Send Slack Post about Component #1, cont.
+
+                                                         Copy
+
+
+
+
+             components seem familiar or useful to you, let us know in this
+             thread! 
+
+
+
+             You can also join us for our next Design System Office Hours
+             [ADD WHEN AND WHERE DETAILS] to learn more about how to partner
+             with us, our roadmap, general questions on usage, ideas, etc.  
+
+
+
+
+
+              ️ Extra Credit
+          The more you work out in the open, the easier it will be for folks to raise their own hands for
+          partnership and contributions. If you have any early work on the other two components, even
+          screenshots, consider sharing those as early previews to offer more shared visibility. 
+
+
+
+          And remember, you’re marketing a product! Do more than just a Slack post! Host a party!
+          Dedicate an office hours session to spreading the news. Are there other department “all hands”
+          sessions where you could announce this news? Take advantage of all the avenues you have
+          available to you, including asking your stakeholders to help spread the word.  
+
+
+
+
+
+    117
+    Day 60–65, then every 4 weeks
+
+#48 Host “Systems Week”
+    D Design system team   A Product Owner   C Design system team   I Design system team
+
+
+
+    You’ve been spending a lot of time working with pilot teams. And rightly so! Adoption is
+    the most difficult part of design system work, so to spend the majority of your time
+    directly focused on that is the right emphasis.
+
+
+
+    So when do you get to do things that aren’t directly related to a pilot teams’ product but
+    that you know will make their lives easier? Welcome to Systems Week. Think of
+    Systems Week like spring cleaning. Cleaning your grill thoroughly at the beginning of
+    the season means you can use it all summer without too much maintenance and build-
+    up. Systems Week is when the entire design systems team takes a week off from
+    focusing on pilot teams to focus on system tasks.
+
+
+
+    Some examples of systems tasks that belong in Systems Week
+
+          Anything that affects multiple components and constitutes a breaking change, like
+          changing how spacing works or adding a new namespac
+          Adding or changing global functionality, like implementing CSS encapsulation or
+          swapping out testing librarie
+          Renaming components
+
+
+
+    Most of the changes you’ll make in Systems Week will mean you’ll release a new major
+    version of the design system. For example, if your design system is in v.1.12.4
+    before Systems Week, you’ll likely release v2.0.0 that incorporates any Systems
+    Week changes.
+
+
+
+
+
+    118
+#48 Host “Systems Week,” cont.
+
+    3:1 is the right kind of cadence for Systems Week: one week of Systems Week for
+    every three weeks of working with pilot teams.
+
+
+
+    As you work with pilot teams and a systems task comes up, record it in the 
+
+       Design System in 90 Days Canvas. This becomes your backlog of tasks to do
+    in Systems Week.
+
+
+
+    Additional resource
+       Squarespace’s Design Week 2021. bit.ly/squarespace-design-week-202
+       “Visual Breaking Change in Design Systems,” by Nathan Curtis. bit.ly/visual-breaking-
+       chang
+       “Testing the Components and Behaviors of Your Design System,” by Jon Oliver. bit.ly/
+       testing-design-system-component
+       “Design system work throughput,” by R2. bit.ly/design-system-throughput
+
+
+
+
+              ️ Extra Credit
+          After getting a few team-wide Systems Weeks under your belt, the cadence and size of work will
+          start to become more intuitive. At this point, you can start to experiment with the size and
+          placement of Systems Week. Perhaps it becomes a Systems Day once every week. Perhaps
+          some team members are doing a Systems Week while others are working with pilot teams. It’s
+          important that you work more with pilot teams than doing systems work overall, but different
+          teams will need Systems Week to have a slightly different shape. Experiment!
+
+
+
+
+    119
+#48 Host “Systems Week,” cont.
+
+
+
+
+      Design System in 90 Days Canvas
+
+
+
+
+    120
+    Day 60–69
+
+#49 Send Design System Name and
+    Logo Finalists to Brand &  
+    Legal Team
+    D DesignOps   A Product Owner   C Design system team   I Design system team
+
+
+
+    Brand and Legal approval of a name and logo for an internal product can take up to 2-3
+    months to get sign off, so you want to get things rolling.
+
+
+
+    These teams and departments are also useful allies in recognizing your design system
+    as a full-fledged product your organization is investing in. The brand team will want to
+    make sure the design system fits appropriately within the suite of other products and
+    sub-brands at the company. The legal team will help ensure the name doesn’t violate
+    any copyrighted information and also help set the table for a defensible name and
+    mark, should the design system be made public outside the walls of the office (and it
+    should!).
+
+
+
+    Package up your final names and logos and share those with brand and legal
+    departments. Here are some scripts you can use to get those processes started.
+
+
+
+
+    121
+#49 Send Name and Logo Finalists to Brand & Legal Team, cont.
+
+    Send this to the Brand team:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                      Copy
+
+
+
+
+              Hello brand team!
+
+
+
+              One of the most fun things about creating a design system is
+              getting to name it! This will create some energy around this
+              effort as people start to rally around it, starting with us. It
+              also serves a functional need, in that the design system name
+              can be used as a namespace in code to avoid collisions with
+              other libraries and systems.
+
+
+
+              Attached is a PDF of our favorites—with accompanying logos, of
+              course—for what this design system might be called. We'd love to
+              hear from you about how these could best fit within your view of
+              the overall brand at [ORGANIZATION NAME]. Could we schedule a
+              conversation about that with you sometime soon?
+
+
+
+
+    Send this to the Legal team:
+
+
+
+                                                      Copy
+
+
+
+
+              Hello legal team!
+
+
+
+              One of the most fun things about creating a design system is
+              getting to name it! This will create some energy around this
+              effort as people start to rally around it, starting with us. It
+              also serves a functional need, in that the design system name
+
+
+
+
+    122
+#49 Send Name and Logo Finalists to Brand & Legal Team, cont.
+
+                                                       Copy
+
+
+
+
+            can be used as a namespace in code to avoid collisions with
+            other libraries and systems.
+
+
+
+            Attached is a PDF of our favorites—with accompanying logos, of
+            course—for what this design system might be called. We'd love to
+            hear from you about how these could best fit within your view of
+            the internal products at [ORGANIZATION NAME]. Could we schedule
+            a conversation about that with you sometime soon?
+
+
+
+
+
+              ️ Extra Credit
+          Instead of just sending a PDF, record a presentation for the Brand and Legal teams so they can
+          see and hear your excitement around the design system product and its new identity!
+
+
+
+
+    123
+     Day 60–77
+
+#50 Repeat Activities 34-40 for
+     Component #2
+     D Design system team       A Product Owner     C Design system team     I Design system team
+
+
+
+     Do it all again for your next component.
+
+           Make any necessary updates based on your pilot team’s sprint plans  
+           ( Activity #32: Create Component Implementation Roadmap)
+           Let your pilot teams know if there are any changes to process from the last round
+           ( Activity #33: Propose Collaboration Plan to Pilot Teams
+           Hot Potato Component #2
+                  Activity #34: Abstract Component Through Hot Potat
+                  Activity #35: Share In-Progress Component Abstraction Work with 
+               Pilot Team
+               Activity #36: Iterate on Component Through Hot Potat
+           Track and tweak the process to evaluate its strong and weak points  
+           ( Activity #37: Writer + Engineer + Designer Chronicle the Process
+           Repeat Activity #38: Issue Pull Request for Componen
+           Repeat Activity #39: Usability Test Component with Pilot Team
+           Get everything buttoned up for the next release ( Activity #40: Final Iteration on
+           Component). Release a minor or major version, depending on if you introduced any
+           breaking changes
+           Repeat Activity #47: Send Slack Post about Component #2
+
+
+
+
+
+               ️ Extra Credit
+           Adopt the practice of a retrospective after each round of components, and track the change and
+           progress you’re making as you evolve your practice of piloting with feature teams. Revisit your
+           coverage map and keep your progress up to date.
+
+
+
+
+     124
+     Day 72–89
+
+#51 Repeat Process for  
+     Component #3
+     D Design system team   A Product Owner   C Design system team   I Design system team
+
+
+
+     Following the steps from      Activity #51, go through the process again for 
+
+     component #3.
+
+
+
+
+     125
+     Day 90
+
+#52 Congrats! Release Design  
+     System v1.0.0!
+     D Engineer   A Product Owner   C Design system team   I Entire org
+
+
+
+     By now, you have three components that multiple teams are using in production, a
+     reference site that tells people how to easily replicate the hard work you’ve done, a
+     name for your design system, and excited and bought-in stakeholders.
+
+
+
+     Time to make it official. Tighten up any last minute bugs fixes or tiny improvements
+     you’ve wanted to make, tag it as v1.0.0, and tell the world.
+
+
+
+     Congratulations on making a viable, stable design system!
+
+
+
+     Additional resource
+        “How to Get Started with a Design System,” by Emily Gray. bit.ly/get-started-design-
+        syste
+        “Grow your Design System from Good to Great,” by Sandy Lam. bit.ly/grow-design-
+        system-good-to-grea
+        “How Much of A Design System Do You Really Need?” by Austin Munhofen. bit.ly/how-
+        much-design-syste
+        “An incoherent rant about design systems,” by Robin Rendle. bit.ly/incoherent-rant-
+        design-systems
+
+
+
+
+
+     126
+Conclusion
+You did it! You made a design system that teams are thrilled to use—and they’re
+already using it! And hopefully, doing the same activities across 3 components has
+established some habits that you’ve seen success with and want to continue.
+
+
+
+For some of you, those Activities and sequence may have been different than you
+expected. You did a lot of work over the 90 days, but there’s also a lot of work that
+you didn’t do. What about design tokens? Or a formal contribution process? When
+should you set up Figma libraries? Shouldn’t we have established success metrics?
+When does motion come into play?
+
+
+
+As you probably realized before finishing the last paragraph, this isn’t the end of your
+design system work. It’s the beginning.
+
+
+
+Hopefully, you can continue to practice the steps that have led to your success.
+Some of the Activities were probably difficult the first time, but they probably got
+easier as you did them over and over again.
+
+
+
+And that’s the beauty of design systems. What’s difficult the first time around gets
+easier for everyone as it settles. It gets easier as it’s more familiar, and that’s where
+you can fold in some new things, like design tokens or motion explorations or
+whatever your pilot teams need you to make easier for them next.
+
+
+
+So take a break now! You’ve earned it. Once you’re ready, the next 90 days of design
+system work will be ready too.
+
+
+
+
+
+127
+About the Author
+
+
+
+                     Dan Mall is the founder of Design System University. He has
+
+
+                     been a creative director, designer, and developer since 1998.
+
+
+                     He has taught design systems and collaboration at public
+
+
+                     conferences, private client engagements, as higher
+
+
+                     education instruction, and on many podcasts and videos.
+
+
+                     Dan’s superpower is getting people excited, even when
+
+
+                     there’s challenging work ahead.
+
+
+
+
+
+
+                     Dan is married with two daughters and two dogs. He learned
+
+
+                     how to swim recently and is down to 40 pairs of sneakers in
+
+
+                     regular rotation.
+
+
+
+
+Original Contributor
+
+
+
+        Crystal Vitelli contributed to the first edition of Design System in 90 Days. She was
+
+
+        formerly managing director of SuperFriendly. She has been caring for teams at digital
+
+
+        agencies for over a decade. In addition to scaling design organizations and product
+
+
+        teams, she's produced many successful digital projects from big web builds, native
+
+
+        apps, and web apps to large scale pattern libraries and enterprise level design systems.
+
+
+        Crystal’s superpower is tying themes together to reveal a clear and simple path forward.
+
+
+
+
+128
+Books about Design Systems
+Laying the Foundations
+
+by Andrew Couldwell
+
+
+
+Modular Web Design
+
+by Nathan Curtis
+
+
+
+Front-End Style Guides
+
+by Anna Debenham
+
+
+
+Atomic Design
+
+by Brad Frost
+
+
+
+Frontend Architecture for Design Systems
+
+by Micah Godbolt
+
+
+
+Design Systems
+
+by Alla Kholmatova
+
+
+
+Expressive Design Systems
+
+by Yesenia Perez-Cruz
+
+
+
+Thinking in Systems
+
+by Donella Meadows
+
+
+
+Practical UI for Design Systems
+
+by Diana McDonald
+
+
+
+Building Design Systems
+
+by Sarrah Vesselove & Taurie Davis
+
+
+
+
+
+129
+About Design System
+University
+
+Design System University provides curriculum, courses, and community to support
+
+how you design at scale. If you want to grow your design system prowess even
+
+more, join our community at designsystem.university.
+
+
+
+
+130
+01 Assemble the North Star 02 Assemble Design and Code Assets for
+Audit 03 Create an Influence Map 04 Collect Feature Teams’
+Roadmaps 05 Identify Existing Paradigms in Design And Code
+06 Interview Potential Design System Customers 07 Identify Potential
+Pilot Teams 08 Schedule Pilot Product Walkthroughs 09 Identify Key
+Stakeholders and Schedule Interviews 10 Identify Emerging and
+Interesting Paradigms in Design and Code 11 Visualize Your Technical
+Ecosystem 12 Interview End Users 13 Interview Stakeholders
+14 Conduct Pilot Team Walkthroughs 15 Create New Design System
+Repository and Package 16 Set Up Public Workshop Environment with
+Branch Deploys 17 Teach HTML & CSS to Designers 18 Teach Figma
+to Engineers 19 Teach Git to Designers 20 Teach Storybook to
+Designers 21 Practice Hot Potato 22 Join Pilot Teams’ Sprint Planning
+Sessions 23 Practice with an Existing Design System 24 Conduct a
+Practice Pilot 25 Create a Glossary of Shared Vocabulary 26 Identify 3
+Initial Components to Pilot 27 Synthesize Themes & Insights from
+Stakeholder Interviews 28 Send First Stakeholder Update 29 Create
+Design System Coverage Map 30 Set Up Slack Channel for Design
+System Conversation 31 Create Reference Website v1 32 Create
+Component Implementation Roadmap 33 Propose Collaboration Plan
+to Pilot Teams 34 Abstract Component Through Hot Potato 35 Share
+In-Progress Component Abstraction Work with Pilot Teams 36 Iterate
+on Component Through Hot Potato 37 Writer + Engineer + Designer
+Chronicle the Process 38 Issue Pull Request to Contribute Newly
+Abstracted Component 39 Usability Test Component with Pilot Teams
+40 Final Iteration on Component 41 Send Stakeholder Update
+42 Extract 3 Overarching Principles 43 Create a List of Potential Design
+System Names 44 Create Design System Logo v1 45 Add “Design
+System Office Hours” to Calendar 46 Make Design System Swag
+47 Send Slack Post about Component #1 48 Host “Systems Week”
+49 Send Design System Name and Logo Finalists to Brand & Legal
+Team 50 Repeat Activities 34–40 for Component #2 51 Repeat
+Process for Component #3 52 Congrats! Release Design System v1.0.0!
+

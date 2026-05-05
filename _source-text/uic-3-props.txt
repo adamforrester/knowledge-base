@@ -1,0 +1,868 @@
+   UI Components
+                          size
+   Properties
+                                           type
+                                          state
+                                        disabled
+
+
+© Copyright 2024 • Directed Edges LLC
+Properties / Key questions
+
+
+
+
+                                               What properties can you configure?
+                                               What is each property type?
+                                               What is each property default?
+                                               What options are available for each property?
+                                               Do properties interact? If so, how?
+                                               What properties and options are exposed 
+                                               by parent component(s)?
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Button
+
+
+
+
+                                               {label}   What properties can you configure?
+                                                         What is each property type?
+                                                         What is each property default?
+                                               {label}   What options are available for each property?
+                                                         Do properties interact? If so, how?
+                                                         What properties and options are exposed 
+                                               {label}   by parent component(s)?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Button variants
+
+
+
+
+                                                               {label}     {label}     {label}
+
+     IBM Carbon                                    style     primary     tertiary    ghost       Hierarchy & appearance
+
+     Github Primer                                 variant   primary     secondary   invisible   Hierarchy & appearance
+
+     Google Material                               type      filled      outlined    text        Appearance
+
+     MUI                                           variant   contained   outlined    text        Appearance
+
+     Reshaped                                      type      solid       outlined    ghost       Appearance
+
+     Salesforce Lightning                          type      brand       outline     base        Purpose & appearance
+
+
+
+
+           © Copyright 2024 • Directed Edges LLC
+Properties / Special cases
+
+   Github Primer                                IBM Carbon                      Salesforce Lightning                         Atlassian
+
+                                primary                       Primary                                  Brand                                primary
+       Button 20                                    Button                              Label                                      Button
+
+
+                                                              Secondary                                                                     default
+                                                    Button                                                                         Button
+
+
+                                secondary                     Tertiary                                 Brand Outline
+       Button 20                                    Button                              Label
+
+
+
+                                invisible                     Ghost                                    Base                                 link
+       Button 20                                     Button                             Label                                      Button
+
+
+
+
+                                danger                        Danger primary                           Destructive                          danger
+       Button 20                                    Button                              Label                                      Button
+
+
+                                                              Danger tertiary                          Destructive Outline
+                                                    Button                              Label
+
+
+
+                                                              Danger ghost
+                                                     Button
+
+
+
+                                                                                                       Success                              warning
+                                                                                        Label                                      Button
+
+
+
+                                                                                                       Neutral                              subtle
+                                                                                        Label                                      Button
+
+
+
+                                                                                                       Inverse
+                                                                                        Label
+
+
+
+
+        © Copyright 2024 • Directed Edges LLC
+Properties / Completeness
+
+
+   state
+                          Shopify Polaris          MUI           Material 3    IBM Carbon    Github Primer   Salesforce 
+    Atlassian      Reshaped
+                                                                                                             Lightning
+   rest/...                          Label
+                                     Label               Label         Label      Button        Button 20           Label         Button        Button
+
+
+
+
+   hover                             Label               Label         Label      Button        Button 20           Label         Button
+
+
+
+
+   focus                             Label               Label         Label      Button        Button 20           Label         Button
+
+
+
+
+   disabled                          Label               Label                    Button        Button 20           Label                       Button
+
+
+
+
+   pressed                           Label                             Label                    Button 20                         Button
+
+
+
+
+   active                            Label                                        Button
+
+
+
+
+   loading
+
+
+
+                                  skeleton                                        inactive      Button 20      highlighted         Button
+
+
+
+
+           © Copyright 2024 • Directed Edges LLC
+Properties / Default
+
+
+
+
+                                                       Most important?
+    Most common?
+                                                       Most prominent?
+
+
+
+
+                                                                 {label}             {label}           {label}
+                    DESIGN (FIGMA)                     primary             secondary           invisible
+
+                    CODE (WEB)                         primary             default             invisible
+
+
+
+
+R e f e r e n c e
+
+https://primer.style/components/button/react/alpha
+
+
+
+               © Copyright 2024 • Directed Edges LLC
+Properties / Blending qualitative and ordinal scales
+
+
+
+
+                                           {label}                                                 {label}
+                     Code (REACT)                                                         design (figma)
+
+                      size                            'sm' | 'md' | 'lg' | 'xl' | '2xl'   size   'Small' | 'Medium' | 'Large' | 'Extra large' |
+                                                                                                 '2xl' | 'Expressive'
+                      isExpressive                    boolean
+
+
+
+
+R e f e r e n c e
+
+https://carbondesignsystem.com/components/button/usage#formatting 
+https://react.carbondesignsystem.com/?path=/story/components-button--default
+
+
+              © Copyright 2024 • Directed Edges LLC
+Properties / Design <--> Code parity
+
+
+
+
+                                                          {label}                                 {label}
+                                               Code (Web)                               Design (Figma)
+                                                size                                    size
+
+                                                'micro' | 'medium' | 'large' | 'slim'   'micro' | 'medium' | 'large'
+
+
+
+
+R e f e r e n c e
+
+https://polaris.shopify.com/components/actions/button 
+https://www.figma.com/community/file/1293611962331823010/polaris-components
+
+
+             © Copyright 2024 • Directed Edges LLC
+Properties / Naming
+
+
+
+
+                             Code (Web)                Design (Figma)            p r o p e r t y a lt e r n at i v e s
+
+                            <DsButton icon="plus"...
+                                                               DsButton          icon                 showIcon
+
+                                                        icon?
+                                                                                 icon?                Show icon?
+
+                                                        icon              plus
+                                                                                 hasIcon?             With icon?
+
+
+                                                                                 icon
+                                                                                 iconName
+                                                                                 Icon name
+                                                                                 name
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Visual variation ≠ property variation (...exactly)
+
+
+
+
+                                                                       {label}                                         {label}                                          {label}
+
+
+
+                                                small                                            medium                                          large
+                                                       DS Button                                        DS Button                                       DS Button
+                                                Height: 28                                       Height: 36                                      Height: 42
+                                                Item spacing:    DS Space/ padding/0_25x (4)     Item spacing:    DS Space/ padding/0_375x (6)   Item spacing:    DS Space/ padding/0_5x (8)
+
+                                                Padding left:    DS Space/ padding/0_375x (6)    Padding left:    DS Space/ padding/0_5x (8)     Padding left:    DS Space/ padding/0_75x (12)
+
+                                                Padding right:    DS Space/ padding/0_375x (6)   Padding right:    DS Space/ padding/0_5x (8)    Padding right:    DS Space/ padding/0_75x (12)
+
+
+
+                                                       leftIcon                                         leftIcon                                        leftIcon
+                                                Size: 16x16                                      Size: 20x20                                     Size: 20x20
+
+
+                                                       Label                                            Label                                           Label
+                                                Text style:        Body/Small                    Text style: Body/Medium                         Text style: Body/Medium
+
+
+
+
+        © Copyright 2024 • Directed Edges LLC
+Properties / Abbreviations
+
+
+
+
+                                                  button              btn
+
+
+                            Clarity                                         Brevity
+                                                   Small       Sm     S
+
+
+
+
+                                               3 Extra Large   XXXL   3XL
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Interacting props
+
+
+
+                                       Independent                            M u t u a l ly e x c l u s i v e   M u t u a l ly e x c l u s i v e
+
+    design (Figma)
+                                               DsButton                                DsButton                           DsButton
+
+                                           leadingIcon                          icon                               icon?             leading
+
+                                           leadingIcon name    plus             iconPosition      leading          icon                 plus
+
+                                           trailingIcon                         name                 plus
+
+                                           trailingIcon name   chevronRight
+
+
+
+
+                                                                               iconPosition       'leading' |
+   icon?         'none' | 'leading' |
+
+                                                                                                  'trailing'                   'trailing'
+
+
+
+    Code (Web)                         <DsButton                              <DsButton                          <DsButton
+                                          leadingIcon="plus"                     icon="plus"                       icon="plus"
+                                          trailingIcon="chevronRight"            iconPosition="leading"            iconPosition="leading"
+                                       />                                     />                                 />
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Input
+
+
+
+
+       {Label}                                 What properties can you configure?
+                                               What is each property type?
+                                               What is each property default?
+       * {Label}                               What options are available for each property?
+       {Help text}
+                                               Do properties interact? If so, how?
+                 Placeholder                   What properties and options are exposed 
+       {error text}                            by parent component(s)?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Configuring Input
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Design and code alignment?
+
+
+    Figma property panel                        Code property table
+
+
+             ESDS Button
+
+      Icon
+
+      Text
+
+      ↪️Text                          {Label}
+
+      Variant                         Primary
+
+      Size                            Medium
+
+      Surface                         Light
+
+      State                           Initial
+
+      Breakpoint                      Wide
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Design and code alignment?
+
+
+                                        Design and code          variant      primary (default), flat, outline
+
+                                                                 size      medium (default), small, large
+
+                                                                 iconName     {string}
+
+                                                                 label      {string}
+
+                                                                 colorMode     light (default), dark
+
+
+                                        Design only              content      text only (default), leading icon, trailing icon, icon only
+
+                                                                 breakpoint     mobile (default), tablet, desktop
+
+
+                                       Code only                 href      {string}
+
+                                                                 type      button (default), submit, reset
+
+
+                                     i n t e n t i o n a l ly
+   state      initial (default), hover, press, focus, disabled
+                                     different?
+                                                                 disabled     false (default), true
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Let's talk about States
+
+
+
+
+           Components                          properties
+
+
+                    DsTextInput                     Text input
+
+                    DsTextArea                  State            Restrest
+
+
+                    DsCheckbox                                      hover
+                                                                    active
+                    DsRadioButton                                   focus
+                                                                    disabled
+                    DsDropdown                                      error
+                                                                    success
+                                                                    read only
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Modeling state properties
+
+
+
+
+          Distinct properties                           C o n s o l i dat e d p r o p e r t y
+
+
+                      Text input                               Text input
+
+               Validation                      error      State                    Restrest
+
+               Disabled                                                                hover
+                                                                                       active
+               Read only
+                                                                                       focus
+               State                           Rest
+                                               rest                                    disabled
+                                               hover                                   error
+                                               active                                  success
+                                               focus                                   read only
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Default state name
+
+
+
+
+                     enabled                         default          resting         rest
+                     hover                           hover            hover           hover
+                     active                          active           active          active
+                     focus                           focus            focus           focus
+
+
+          MUI                                  Salesforce Lightning             Shopify Polaris
+          IBM Carbon                           Atlassian                        Github Primer
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Complete combination set
+
+
+
+
+           Components
+                                               state
+                    DsRadioButton                rest   hover   active   focus   selected
+
+                                                                                 false
+
+                                                                                 true
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Complete combination set
+
+
+
+                  DO                                     caution                              don’t
+
+
+
+
+                      Radio button                          Radio button                         Radio button
+
+               selected                                 state              rest
+                                                                           rest              state              rest
+
+                                                                           hover                                hover
+               state                           rest
+                                                rest
+                                                                           active                               active
+                                               hover
+                                                                           focus                                focus
+                                               active
+                                                                           rest selected                        selected
+                                               focus
+                                                                           hover selected
+                                                                           active selected
+                                                                           focus selected
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Partial combination set
+
+
+
+
+           Components
+                                               state
+                    DsTextInput
+                                                 rest   hover   active   focus   disabled
+                    DsTextArea
+                                                                                 true
+                    DsCheckbox
+                    DsRadioButton                                                false
+
+                    DsDropdown
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Partial combination set
+
+
+
+
+                                                DO                        A BIT OF caution
+
+
+                                                   Text input                Text input
+
+                                               disabled                  state            rest
+                                                                                          hover
+                                               state            rest
+                                                                 rest
+                                                                                          active
+                                                                hover
+                                                                                          focus
+                                                                active
+                                                                                          disabled
+                                                                focus
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Conditional partial set
+
+
+
+
+                                                                                  readonly is conditional
+                                                                                  on disabled
+              Components                       state
+
+                       DsTextInput              rest   hover   active   focus   disabled           readonly
+
+                       DsTextArea                                               true             n/a
+                       DsCheckbox
+                                                                                false            true
+                       DsRadioButton
+                       DsDropdown                                               false            false
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Conditional partial set
+
+
+
+                  DO                                     caution                           don’t
+
+
+
+
+                      Text input                            Text input                        Text input
+
+               disabled                                 disabled                          state            rest
+                                                                                                            rest
+
+               readonly                                 state            rest                              hover
+                                                                         rest
+                                                                                                           active
+               state                           rest
+                                                rest                     hover
+                                                                                                           focus
+                                               hover                     active
+                                                                                                           disabled
+                                               active                    focus
+                                                                                                           readonly
+                                               focus                     rest readonly
+                                                                         focus readonly
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Conditional partial set
+
+
+
+
+          disabled                                         r e a d o n ly                   neither
+
+
+
+                      Text input                                  Text input                     Text input
+
+               disabled                                       disabled                       disabled
+
+               readonly                                       readonly                       readonly
+
+               state                           rest
+                                                rest          state                rest
+                                                                                    rest     state            rest
+                                                                                                               rest
+                                               hover                               hover                      hover
+                                               active                              active                     active
+                                               focus                               focus                      focus
+
+
+
+
+          Ideally, Figma would instead not show hover and active when disabled
+          or read only is true, as well as focus when disabled is true, based on
+          the order of properties. But that’s not how Figma works.
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Conditional sets on 2+ props
+
+
+          Can focus vary independently of hover, active?
+
+          No                                                                          OR Yes!
+            state                                                                        state
+
+           initial            hover            active   focus   disabled   readonly      initial   hover   active    disabled   readonly   focus
+
+                                n/a             n/a     n/a     true       n/a                      n/a     n/a     true        n/a        n/a
+
+                                n/a             n/a             false      true                     n/a     n/a     false       true       false
+
+                                                                false      false                    n/a     n/a     false       true       true
+
+                                                                                                                    false       false      false
+
+                                                                                                                    false       false      true
+
+
+
+                                                                                         hover AND focus   active AND focus
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Card
+
+
+
+
+                                                                    What properties can you configure?
+                                                                    What is each property type?
+                                                                    What is each property default?
+    {Title}                                                         What options are available for each property?
+    {property} {value}
+    {property} {value}
+                                                  {Label}
+                                                 { M e ta d ata }
+                                                                    Do properties interact? If so, how?
+    {property} {value}                           {Title}
+     {Label}      {Label}                        {Description}
+                                                                    What properties and options are exposed 
+                                                 Link Link          by parent component(s)?
+
+
+
+
+         © Copyright 2024 • Directed Edges LLC
+Properties / Prop dispersion
+
+
+
+
+                                                                                      { M e ta d ata }
+
+                                                                                      {Title}
+                                                                                      {Description}
+                                                                                                                           {Label}                          {Label}
+
+                   component                              component                   component                            component
+                   DsCardContainer                        DsCardMedia                 DsCardText                           DsCardActions
+                         DSCardContainer                      DsCardMedia                     DsCardText                          DsCardActions
+
+                     aspectRadio           16:9           type              image      size                medium          type                   Button
+
+                     background            transparency   aspectRatio       16:9       metadata                            actions                2
+
+                     imageFallbackColor    solid          state             initial      metadata          {Metadata}      size                   medium
+
+                     border                               zoomOnHover                    title             {Title}
+                                                                                                                           Action 1
+                     padding               1x
+                                                                                       description                         variant                filled
+                     state                 focus
+                                                                                         description       {Description}   state                  initial
+
+                                                                                                                             Label                {Label}
+
+
+                                                                                                                           Action 2
+
+                                                                                                                           variant                outline
+
+                                                                                                                           state                  initial
+
+                                                                                                                             Label                {Label}
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Prop smell
+
+
+
+
+       What of configuring size in terms of
+         Relating text size to action size
+         Controlling action size at the
+         group and item levels?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Facade
+
+
+
+
+                                                   {Abcde}
+                                                                 {Abcde}
+                             {Abcde}
+
+                             {Abcde}               {Abcde}       {Abcde}
+                             {Abcde}               {Abcde}       {Abcde}
+
+
+                                                                           Property   component      element
+
+                         Small                 Medium        Large         size       DS Card Text
+
+
+
+
+                         Very small            Small         Medium        size       DS Eyebrow     Metadata
+
+                         4                     3             2             size       DS Heading     Title
+
+                         Small                 Medium        Large         size       DS Body        Description
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Properties / Flexible configuration
+
+
+
+
+                           {Abcde}                        {Abcde}               {Abcde}
+                           {Abcde}                        {Abcde}               {Abcde}
+                           {Abcde}                        {Abcde}
+                                                                                {Abcde}
+                             {Abcde}           {Abcde}     {Abcde}   {Abcde}     {Abcde}   {Abcde}
+
+
+
+                        Options                                                                      Property   component
+
+                        Medium                           Medium                Large                 size       DS Card Text
+
+                        Medium                           Large                 Medium                size       DS Button
+
+                               DO                           caution?              caution?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                        Properties
+                                        Figjam activity
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+                                                     Props
+                                                     Types
+
+
+                                        Properties
+                                                     Options
+                                                     Default
+                                                     Exposure
+                                                     Interactions
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+

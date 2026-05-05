@@ -1,0 +1,1182 @@
+   UI Components
+
+   Composition
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+Composition / Key questions
+
+
+
+
+                      What container(s) must be flexible?
+                      What subcomponent(s) save time and improve consistency?
+                      What examples best express component potential?
+                      What content and components can be included?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Button
+
+
+
+
+                                                         What container(s) must be flexible?
+                                                         What subcomponent(s) save time
+                                                         and improve consistency?
+                                                         What examples best express
+                                                         component potential?
+
+                                               {label}   What content and components can
+                                                         be included?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Input
+
+
+
+          Action, icons as props?              {Label}
+                                               {Help text}
+
+                                                     {Value}   {action}
+
+
+
+                                                                             What container(s) must be flexible?
+          Slot for action,                     {Label}
+          Icon as prop?                        {Help text}                   What subcomponent(s) save time
+                                                     {Value}   {action}      and improve consistency?
+                                                                             What examples best express
+                                                                             component potential?
+          Slot for entire                      {Label}
+          r i g h t a r e a?                   {Help text}                   What content and components can
+                                                     {Value}   {action}      be included?
+
+
+          w h at a b o u t L a b e l ?         {Label}
+                                               {Help text}        {action}
+                                                     {Value}
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Property quantity?
+
+
+
+
+                                               {Title}
+                                               {property} {value}
+                                               {property} {value}
+                                               {property} {value}
+
+                                                {Label}
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                        “I need this.”
+                                                         {Title}
+                                                         {property} {value}
+                                                         {property} {value}
+                                                         {property} {value}
+
+                                                          {Label}
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+                                        {Title}
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+                                        { M e ta d ata }
+
+                                        {Title}
+                                        {Description}
+
+                                         Action 1          Action 2
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+          {property} {value}
+          {property} {value}
+          {property} {value}
+                                        { M e ta d ata }
+
+                                        {Title}
+                                        {Description}
+
+                                         Action 1          Action 2
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+                                                   { M e ta d ata }
+
+                                                   {Title Title Title Title
+                                                   Title Title Title Title Title
+                                                   Title }
+                                                   {Description Description Description
+                                                   Description Description Description
+                                                   Description Description }
+                                                                                          {Title}
+    {Label}
+                                                                                           {Label}
+{Title}
+{Description}
+
+
+
+
+{Title}
+{property} {value}
+{property} {value}
+{property} {value}                                 Wheatfield                             { M e ta d ata }
+
+                                                                                          {Title}
+ {Label}                                                                                  {Description}
+
+
+
+
+           © Copyright 2024 • Directed Edges LLC
+                                        Permitted composition
+                                        Figjam activity
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+                                        Composition
+
+
+© Copyright 2024 • Directed Edges LLC
+                                                { M e ta d ata }
+
+
+                                                {Title Title Title Title
+
+
+                                                                                                            !
+                                                Title Title Title Title Title
+
+
+
+           !                                                                                              O
+                                                Title }
+
+
+
+         O                                                           !                           N
+                                                {Description Description Description
+
+
+
+
+        N                                                          O
+                                                Description Description Description
+                                                Description Description }
+                                                                                       {Title}
+    {Label}
+
+{Title}
+{Description}
+                                                          N                             {Label}
+
+
+
+
+                      !                                                                                   O !
+       N            O                                              O !                           N
+                                                         N
+{Title}
+{property} {value}
+
+{property} {value}
+
+{property} {value}                              Wheatfield                             { M e ta d ata }
+
+
+                                                                                       {Title}
+ {Label}                                                                               {Description}
+
+
+
+
+        © Copyright 2024 • Directed Edges LLC
+Composition / Efficiency tradoffs
+
+
+
+                                                Without composition        with composition
+
+
+                                                      Insert                   Insert
+
+
+                                                      Configure                Configure
+
+                                                                               Create & swap
+
+                                               Realize you can’t do it
+        custom design
+                                               Wait for design systems
+
+                                               team to do it                   Create specs of
+
+                                                                               custom design
+
+                                                      Handoff                  Handoff
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Card
+
+
+
+                                               { M e ta d ata }
+
+                                               {Title Title Title Title
+                                               Title Title Title Title Title
+                                               Title }
+                                               {Description Description Description
+                                               Description Description Description
+                                               Description Description }
+                                                                                      {Title}
+           {Label}
+                                                                                       {Label}           What container(s) must be flexible?
+       {Title}
+       {Description}
+                                                                                                         What subcomponent(s) save time
+                                                                                                         and improve consistency?
+                                                                                                         What examples best express
+                                                                                                         component potential?
+                                                                                                         What content and components can
+                                                                                                         be included?
+       {Title}
+       {property} {value}
+       {property} {value}
+       {property} {value}                      Wheatfield                             { M e ta d ata }
+
+                                                                                      {Title}
+        {Label}                                                                       {Description}
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Card subcomponents
+
+
+
+                                          DSCard
+
+
+
+                                                                     DSCardImage        Extensions
+
+
+                                        { M e ta d ata }
+
+                                        {Title}                      DSCardTextLockup      Lockups
+                                        {Description}
+
+                                          {Label}          {Label}   DSCardActions      Alternatives
+
+
+
+      © Copyright 2024 • Directed Edges LLC
+Composition / Lockup
+
+
+
+
+                  DsCardTextLockup             Props                          R at i o n a l e
+
+          4       { M e ta d ata }                                            – Used by every DsCard?
+
+                                                       DsCardTextLockup
+           8
+                  {Title}                                                     – Resizes pairings predictably
+
+                  {Description}                 size                  Small   – Affords required/optional
+
+                                                                              – Controls spacing by size
+                                                metadata
+
+                                                description
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Extension
+
+
+
+                DsImage
+
+
+                DsCardImage                    Props                     R at i o n a l e
+
+                                     16:9
+                                                    DsCardImage
+                                                                         – Constrain aspect ratios 
+                                                                         – Add hover zoom, other states
+                                                aspectRatio       16:9
+
+                                                hoverZoom
+          4:3                        1:1
+                                                pressShadow
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Container concepts
+
+
+                                                              DsCard
+
+
+
+
+                                               Block
+                                                              { M e ta d ata }
+
+                                               Area           {Title}
+                                                              {Description}
+
+                                               Slot           Custom area
+
+
+                                               Substitution    {Label}
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition /
+
+
+
+
+                                               Slot
+                                               A component placeholder or area that
+                                               allows you to pass custom content into it.
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Slot
+
+
+                                               Card
+
+
+
+
+                                               { M e ta d ata }
+                                                                  Custom composition
+                                               {Title}
+                                               {Description}      {property} {value}
+                                               Custom area        {property} {value}
+                                                                  {property} {value}
+                                                {Label}
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                        Composition zone(s)
+                                        Figjam activity
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+                                   How designers compose in Figma ≠
+
+                                   How developers compose in code
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+D e v e l o p e r s
+                                         D E S I G N E R S
+
+Composing entire card                               Configuring views
+with smaller parts?                                with custom areas?
+
+
+  <esds-card contained>
+    <esds-image src="" aspect-ratio=""/>
+    <esds-card-content>
+      <esds-card-text metadata="1889">
+        Wheatfield
+      </esds-card-text>
+      <esds-card-actions>
+        <esds-icon-button />
+        <esds-icon-button />                    1889
+
+
+        <esds-icon-button />                    Wheatfield
+      </esds-card-actions>
+    </esds-card-content>
+  </esds-card>
+
+
+
+
+        © Copyright 2024 • Directed Edges LLC
+Composition / Container as (nested?) component
+
+
+
+
+    DsCardContainer
+
+    Example                                    Figma props                          code props
+
+                                                   DSCardContainer                  aspectRatio          'fill' | '16:9' | '4:3' | '3:2'
+                                               contained
+
+                                               containedPadding      1x             background           'color' | 'image' | 'transparency' | 'gradient'
+                                               aspectRadio           16:9
+
+                                               background            transparency   contained            boolean
+                                               imageFallbackColor    solid
+
+                                               border
+                                                                                    containedPadding     '0_5x' | '1x' | '2x'
+                                               state                 focus
+                                                                                    imageFallbackColor   'solid' | 'none'
+
+                                                                                    border               boolean
+
+                                                                                    state                'initial' | 'hover' | 'press' | 'focus'
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Collaborating after handoff
+
+
+
+        <esds-card
+          contained
+          aspectRatio=“fill, 16:9, ...”    >
+          <esds-image
+            aspectRatio="16:9 (default), 1:1, 4:3"
+            src=""
+            alt=""
+            objectFit=""></esds-image>
+          <esds-card-content>
+            <esds-card-text
+              title=""
+              description=""
+              metadata=""
+              inset ></esds-card-text>
+            <esds-card-actions
+              data=""></esds-card-actions>
+          </esds-card-content>
+        </esds-card>
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Figma "Custom Areas"
+
+
+
+          Present designer(s) with one (or more)
+          areas in which they are encouraged to
+          compose flexible solutions.
+
+
+
+
+                                                   {Title}
+                 Custom area                       Below text
+           Custom area
+                                                    {Label}
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Naming custom areas
+
+
+                                              Custom area
+                                              Customize
+                                              Slot
+                                              Swap
+                                              Compose
+                                              Composition
+
+      © Copyright 2024 • Directed Edges LLC
+Composition / Beware the bento
+
+
+
+
+          a p o t e n t i a l l ayo u t              T h e b e n t o b o x s ta r t i n g p o i n t ?
+
+
+                   List item                             List item
+
+               Travel points credit card $1,430.23             Above
+               August 2022                                     {Title} Between                     {Title}
+                                                       Left {Descri                        {Description} Right
+                                                            ption}
+                                                               Below
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                        Composition targets and examples
+                                        Figjam activity
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+                                        Composition
+
+
+© Copyright 2024 • Directed Edges LLC
+Composition / Custom area alternatives
+
+
+
+   Slot                                           substitution                              area                         block
+   Above text                                     Actions                                   All the things               Entire card
+   Below text                                     Media (Image)
+       Card
+                                                                           Card                               Card
+                                                                       Media
+                                                                                                           Entire card
+                                                      Card
+                                                                         { M e ta d ata }
+
+                                                                         {Title}                Card
+                                                                         {Description}      Media
+
+                                                                           {Label}            Above text
+
+                                                                                              {Title}
+     Above text                                                                               Below text
+     { M e ta d ata }
+                                                                                              Actions
+     {Title}                                        { M e ta d ata }
+     {Description}                                  {Title}
+      {Label}                                       {Description}
+                                                    Actions
+
+
+
+
+          © Copyright 2024 • Directed Edges LLC
+Composition / Custom area alternatives
+
+
+
+Slot                                             Slot                      substitution             substitution              area                  block
+Above text                                      Below text                 Actions                  Media (Image)             All the things        Entire card
+
+   Card                                              Card                     Card                      Card                      Card                  Card
+
+                                        OR                            OR                       OR                        OR                    OR
+                                                                                                    Media                     Media
+                                                                                                                                                     Entire card
+                                                                                                      { M e ta d ata }          Above text
+                                                                                                      {Title}                   {Title}
+                                                                                                      {Description}             Below text
+
+                                                                                                        {Label}                 Actions
+
+
+
+
+ Above text                                        { M e ta d ata }         { M e ta d ata }
+                                                                                                                                                    Note: this is technically
+ { M e ta d ata }
+                                                   {Title}                  {Title}                                                                 what a developer does
+ {Title}                                           {Description}            {Description}
+ {Description}                                     Below text               Actions
+
+  {Label}                                           {Label}
+
+
+
+
+                    © Copyright 2024 • Directed Edges LLC
+Composition / Custom area alternatives
+
+
+
+ Slot                                               Slot                    substitution             substitution                       area               block
+ Above text                                         Below text              Actions                  Media (Image)                      All the things     Entire card
+
+    Card                                                 Card                     Card                     Card                             Card                  Card
+
+                                         AND                              AND                      AND                              AND                  AND
+                                                                                                     Media                              Media
+                                                                                                                                                               Entire card
+                                                                                                         { M e ta d ata }                 Above text
+                                                                                                         {Title}                          {Title}
+                                                                                                         {Description}                    Below text
+
+                                                                                                          {Label}                         Actions
+
+
+
+
+  Above text                                           { M e ta d ata }         { M e ta d ata }
+                                                                                                                                                           Note: this is technically
+  { M e ta d ata }
+                                                       {Title}                  {Title}                                                                    what a developer does
+  {Title}                                              {Description}            {Description}
+  {Description}                                        Below text               Actions
+
+   {Label}                                              {Label}
+
+
+
+
+                                                                                                                            Figma prop menu
+                     © Copyright 2024 • Directed Edges LLC
+Composition / Composing in Figma is painful
+
+
+
+  1   Compose it
+
+      outside                                    2    Make it a
+
+      Place components
+                               component
+      Space via AutoLayout
+                                                      Create a component to be
+
+                                                                                  3    Swap it inside
+                                                      swapped as an instance
+      {property} {value}                                                                Card
+      {property} {value}                               Prop value thing
+      {property} {value}
+                                                     {property} {value}
+                               2.0 (375)             {property} {value}
+                                                     {property} {value}
+                                                                  2.0 (375)
+                                                                                      Bedroom in Arles
+                                                                                      {property} {value}
+                                                                                      {property} {value}
+                                                                                      {property} {value}
+                                                                                                  2.0 (375)
+
+                                                                                       Download
+
+
+
+
+         © Copyright 2024 • Directed Edges LLC
+Composition / Configuring vs composing technical difficulty
+
+
+
+
+      Configuring                              Swapping 1                     Composing 2+
+      Placing a component
+                     Swapping a custom area for
+    Adding two or more elements
+
+      Adjusting props
+                         a single component required
+   into one slot confounded
+
+      Changing content                         learning something new         some participants
+
+
+
+
+        J u ly 1 8 9 0
+                                                   Best in show                Bedroom in Arles
+        Wheatfield with crows
+        Vincent Van Gogh
+                                                The starry night               {property} {value}
+                                                Vincent Van Gogh               {property} {value}
+          View           Download                                              {property} {value}
+                                                                                           2.0 (375)
+
+                                                                                Download
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Experiment
+
+          TA S K                               1                           2              3                                     4
+
+                                               Configure                   Compose 1      Compose 2                            Play
+
+
+
+          Make this...
+                                               J u ly 1 8 9 0
+                                                                                {Label}    Sunflowers
+                                               Wheatfield with crows
+                                               Vincent Van Gogh
+                                                                           Orchards        {property} {value}
+                                                                                           {property} {value}
+                                                 View           Download                   {property} {value}
+                                                                                                       2.0 (375)
+
+
+
+
+          S TA R T F R O M . . .
+                                               {Title}                     {Title}        {Title}                              {Title}
+                                               {Label}                     {Label}        {Label}                              {Label}
+
+
+
+                                                                                                                   2.0 (375)
+                                                                            {Label}
+
+                                                                                          {property} {value}
+                                                                                          {property} {value}
+                                                                                          {property} {value}
+       © Copyright 2024 • Directed Edges LLC
+Composition / Experiment
+
+          TA S K                                1                            2              3                       4
+
+                                               Configure                    Compose 1      Compose 2                Play
+
+
+
+          Make this...
+                                                J u ly 1 8 9 0
+                                                                                 {Label}    Sunflowers
+                                                Wheatfield with crows
+                                                Vincent Van Gogh
+                                                                             Orchards       {property} {value}
+                                                                                            {property} {value}
+                                                 View            Download                   {property} {value}
+                                                                                                        2.0 (375)
+
+
+
+
+       d i f f i c u lt y                      Easy                         Moderate       Hard
+
+       D U R AT I O N ( M I N )
+                                               1 to 3                       2 to 8         3 to 15
+       U N A S S I S T E D
+
+       S U C C E S S R AT E                    100%                         ~80%           ~50%
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Composition excitement
+
+
+
+
+                                    “How excited are you about composing solutions?”
+
+
+
+                                               1   2       3        4         5
+
+                                    Not at all         Somewhat              Very
+
+
+                                                                        Average
+       Max
+
+                                                                         4.75          10
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Composition self-assessment
+
+
+
+
+                                    “How confident are you in composing solutions?”
+
+
+
+                                               1   2       3         4         5
+
+                                    Not at all         Somewhat              Very
+
+                                                                  Average
+
+                                                                     4
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Figma autolayout self-assessment
+
+
+
+
+                                    “How strong are your skills in laying out custom
+                                    solutions using Figma autolayout?”
+
+                                               1   2        3          4           5
+
+                                    Not at all          Somewhat                  Very
+
+                                                                What they’d say
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Figma autolayout self-assessment
+
+
+
+
+                                    “How strong are your skills in laying out custom
+                                    solutions using Figma autolayout?”
+
+                                               1           2          3         4            5
+
+                                    Not at all                  Somewhat                    Very
+
+                                                   What I’d observe       What they’d say
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Nested layout swapping
+
+
+                 Start with one block                 Divide horizontally / vertically                                              Configure and nest
+
+
+
+
+                     Bedroom in Arles                  Bedroom in Arles                                                                Bedroom in Arles
+                                                ◇
+               ◇
+                       ◇
+                                                                        ◇
+
+                                               Swap             Swap                     Swap                                               ◇
+                     Swap
+                                                                                                                                           Swap                     ◇
+
+                                                                                                                                                                   Swap
+                       Download                         Download
+                                                                                                                                            Download
+
+
+
+                                                          ◇
+      ◇
+   ◇
+   ◇
+   ◇
+   ◇
+   ◇
+   ◇
+   ◇
+   ◇
+   ◇
+      ◇
+     ◇
+     ◇
+        ◇
+     ◇
+     ◇
+      ◇
+     ◇
+     ◇
+     ◇
+
+                                                         Swap    Swap Swap Swap Swap Swap Swap Swap Swap Swap Swap    Swap   Swap   Swap      Swap   Swap   Swap    Swap   Swap   Swap   Swap
+
+
+
+                  Layout blocks
+                                                                                                                              ◇
+     ◇
+        ◇
+     ◇
+     ◇
+      ◇
+     ◇
+     ◇
+     ◇
+
+                                                                                                                             Swap   Swap      Swap   Swap   Swap    Swap   Swap   Swap   Swap
+                                                          ◇
+   ◇
+       ◇
+   ◇
+   ◇
+   ◇
+   ◇
+   ◇
+   ◇
+   ◇
+   ◇
+
+                                                         Swap Swap     Swap Swap Swap Swap Swap Swap Swap Swap Swap
+                                                                                                                                     ◇
+        ◇
+     ◇
+     ◇
+      ◇
+     ◇
+     ◇
+     ◇
+
+                                                                                                                                    Swap      Swap   Swap   Swap    Swap   Swap   Swap   Swap
+                                                          ◇
+   ◇
+   ◇
+       ◇
+   ◇
+   ◇
+   ◇
+   ◇
+   ◇
+   ◇
+   ◇
+                             ◇
+     ◇
+     ◇
+      ◇
+     ◇
+     ◇
+     ◇
+
+                                                         Swap Swap Swap     Swap Swap Swap Swap Swap Swap Swap Swap                           Swap   Swap   Swap    Swap   Swap   Swap   Swap
+                                                                                                                                                      ◇
+     ◇
+      ◇
+     ◇
+     ◇
+     ◇
+
+                                                                                                                                                     Swap   Swap    Swap   Swap   Swap   Swap
+                                                          ◇
+   ◇
+   ◇
+   ◇
+       ◇
+   ◇
+   ◇
+   ◇
+   ◇
+   ◇
+   ◇
+
+                                                         Swap Swap Swap Swap     Swap Swap Swap Swap Swap Swap Swap
+                                                                                                                                                             ◇
+      ◇
+     ◇
+     ◇
+     ◇
+
+                                                                                                                                                            Swap    Swap   Swap   Swap   Swap
+
+                            @SShuaiqi (Mr. Biscuit)       ◇
+   ◇
+   ◇
+   ◇
+   ◇
+
+                                                         Swap Swap Swap Swap Swap
+                                                                                       ◇
+   ◇
+   ◇
+   ◇
+   ◇
+   ◇
+
+                                                                                      Swap Swap Swap Swap Swap Swap
+                                                                                                                                                                     ◇
+
+                                                                                                                                                                    Swap
+                                                                                                                                                                            ◇
+
+                                                                                                                                                                           Swap
+                                                                                                                                                                                   ◇
+
+                                                                                                                                                                                  Swap
+                                                                                                                                                                                          ◇
+
+                                                                                                                                                                                         Swap
+                                                                                                                                                                            ◇
+     ◇
+     ◇
+
+                                                                                                                                                                           Swap   Swap   Swap
+                                                                                                                                                                                   ◇
+     ◇
+
+                                                                                                                                                                                  Swap   Swap
+                                                                                                                                                                                          ◇
+
+                                                                                                                                                                                         Swap
+
+       © Copyright 2023
+                   2024 • Directed
+                          EightShapes LLCLLC
+                                   Edges
+Composition / Detailed talk
+
+
+
+
+                                               https://webexpo.net/blog/make-designers-fall-in-love-with-your-design-system/
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Approaches
+
+
+
+                       Don’t                        Caution                             DO
+
+         Supercomponent                       Components made-to-order            Composable component parts
+         Make a single component that         Make all the components centrally   Offer containers, subcomponents
+         serves all needs                     for each adopter to use             and examples so adopters DIY
+
+             DsCard                              DsProductCard                      DsCardContainer
+          with 32 props, and counting...
+                                                 DsEventCard                        DsCardTextLockup
+                                                 DsArticleCard                      DsCardImage
+                                                 DsVideoCard                        DsCardActions
+                                                 DsActivityCard
+                                                 DsActivityCard2                  If and when reuse scale suggests...
+                                                 DsEventActivityCard                DsProductCard
+                                                 DsCoolExperimentCard               DsCardlet
+                                                 DsHighlightCard
+                                                 DsWontBeUsedAfter2MonthsCard
+      © Copyright 2024 • Directed Edges LLC
+Composition / Why care about composition?
+
+
+
+
+                   Expression                  Maximize reasonable diversity of compositions
+                   Efficiency                  Minimize time needed to experiment and make uncommon things
+                   Delegation                  Maximize adopter responsibility for needs others don’t share
+                   Autonomy                    Minimize support needed from system team
+                   Quality                     Make uncommon things better, more easily and consistently
+                   Maintenance                 Minimize the cost of maintaining shared “core” things
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Concerns about quality
+
+
+
+
+                    Usability                  “Can users succeed?”
+
+                    Consistency                “Were design tokens and layout applied well?”
+
+                    Accessibility              “Do outcomes have accessible contrast?”
+
+                                               “Do compositions work well with screen reading?”
+
+                    Performance                “Does it render quickly?”
+
+                                               “Is there a download size impact?”
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composition / Trust
+
+
+
+
+                                         NOT THE FUTURE                                                             The FUTURE
+
+
+                                                                                                                  Trust them.
+
+                                                                                                                  They won’t make this.
+                          { M e ta d ata a b o u t m e ta d ata }
+
+
+                                    {Action 2}       {Action 3}         {Action 4}   {Action 5}
+
+                          { M e ta d ata }
+
+                          A card with custom content, layout, styling, oh my!
+                          For most design systems, solving for every feature to support every case is a fool’s
+                          errand. Yet, design system practitioners cringe when a designer detaches a Figma
+                          component or developer codes a component from scratch.
+
+                          {property} {value}                    {property} {value}           {property} {value}
+                          {property} {value}                    {property} {value}           {property} {value}
+                          {property} {value}                    {property} {value}           {property} {value}
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                             Teams control their destiny.
+
+
+
+                             Design systems enable teams
+                             to achieve their destiny.
+
+
+© Copyright 2024 • Directed Edges LLC
+Configure                               OR   Compose
+       with properties                        with parts
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+Configure AND Compose
+      common things                     uncommon things
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+                                        Composition
+
+
+© Copyright 2024 • Directed Edges LLC
+                                        Thank you!
+
+
+© Copyright 2024 • Directed Edges LLC
+

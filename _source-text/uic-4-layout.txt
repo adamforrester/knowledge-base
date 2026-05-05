@@ -1,0 +1,212 @@
+   UI Components
+
+   Layout and spacing
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+Layout and spacing / Approaches
+
+
+
+  Hugging                                                                                                        Fixed height                                Special shape
+
+                                                                                                                            12                          12             16            64
+               20    10           20                             16   8           24            8   4    4   8
+         14                                                                                                                                                       15
+                                                            10                              4                                         Button
+                       Label                                              Label                     Button                                                                  Button
+                                                            10                              4                                                                     15
+         14
+
+
+
+
+  iOS 16                                              Material                         Reshaped                  Atlassian minHeight                         IBM Carbon
+
+
+
+                                                                                                                                 16    8           16
+         12   8        8      8    8   12                        12 2        2 12
+                                                                                                                        1
+     6                                                       6                                                                             Label
+                  Button 20                                           Label
+                                                                      Label
+                                                                                                                        1
+     6                                                       6
+
+
+
+
+  Github Primer                                       Shopify Polaris                                            Salesforce Lightning
+
+                                                                                                                 height
+
+
+
+
+              © Copyright 2024 • Directed Edges LLC
+Layout and spacing / Across component concerns
+
+
+
+
+                                          {Label}
+                                          {Help text}
+
+                                                {Value}   {label}
+
+
+
+
+      © Copyright 2024 • Directed Edges LLC
+Layout and spacing / Nesting
+
+
+
+
+                       DsTextInput                              DsTextInput / DsLabel                  DsTextInput / DsLabel / Label content
+
+                                                                                                            4         4
+
+                                * {Label}                             * {Label}                            * {Label}
+                                                                  4
+                                {Help text}                           {Help text}                          {Help text}
+                           8
+                                      {Value}    {action}                   {Value}         {action}             {Value}               {action}
+                           8
+                                {error text}                          {error text}                         {error text}
+
+
+
+
+                       DsTextInput / Container                  DsTextInput / Container / Left         DsTextInput / Container / Right
+
+
+                                * {Label}                             * {Label}                            * {Label}
+                               12                           8                                                                      8          8   8
+                                {Help text}                           {Help8 text}                         {Help text}
+                           8                                                                                                   4
+                                      {Value}    {action}                   {Value}         {action}             {Value}               {action}
+                           8                                                                                                   4
+                                {error text}                          {error text}                         {error text}
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Layout and spacing / Groups
+
+
+                                                     32                                            32
+
+
+
+
+                                                                                                        width     orientation
+                                                                     16              16
+
+
+                                                          Button 1        Button 2        Link 3        default   horizontal (default)
+                                                                     16              16
+                                               32
+
+                                                          Button 1        Button 2        Link 3        default   horizontal (default)
+                                                                             16
+                                               32
+
+                                                             Button 1                Button 2           fill      horizontal (default)
+                                               32
+
+                                                                          Button 1                      fill      vertical
+                                                    16
+
+                                                                          Button 2
+                                               32
+
+                                                                          Button 1                      fill      vertical
+                                                    16
+                                                                           Link 3
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Layout and spacing / Group items
+
+
+
+                DsListGroup                                                     DsListItem
+
+
+                                               {Title}     {Title}
+                                                                          AND         16
+                                                                                           8
+
+
+                                                                                               {Title}       {Title}
+                                                                                      16
+
+
+                                               {Title}     {Title}
+
+                                               {Title}     {Title}
+
+                                               {Title}     {Title}                                       8
+
+                                                                                               {Title}       {Title}
+
+
+
+
+          Similarly applies to...
+                DsCheckboxGroup /                        DsCheckbox
+                DsTabs /                       DsTab
+                DsRadioButtonGroup /                      DsRadioButton
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Layout and spacing / Density
+
+
+
+                                               small                                             medium                                           large
+
+                                                                                                             8           6               8                 12             8               12
+                                                                6 4                 6
+
+                                                                          {label}                                           {label}                                           {label}
+
+
+                                                   DS Button                                         DS Button                                        DS Button
+                                               Direction: Horizontal                             Direction: Horizontal                            Direction: Horizontal
+
+                                               Alignment: Middle left                            Alignment: Middle left                           Alignment: Middle left
+
+                                               Vertical resizing: Fixed                          Vertical resizing: Fixed                         Vertical resizing: Fixed
+
+                                               Horizontal resizing: Hug                          Horizontal resizing: Hug                         Horizontal resizing: Hug
+                                               Item spacing:     DS Space/ padding/0_25x (4)     Item spacing:     DS Space/ padding/0_375x (6)   Item spacing:     DS Space/ padding/0_5x (8)
+                                               Padding left:    DS Space/ padding/0_375x (6)     Padding left:    DS Space/ padding/0_5x (8)      Padding left:    DS Space/ padding/0_75x (12)
+                                               Padding right:     DS Space/ padding/0_375x (6)   Padding right:     DS Space/ padding/0_5x (8)    Padding right:     DS Space/ padding/0_75x (12)
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                                  Patterns
+
+                                   Layout and 
+   Nesting
+                                                  Groups
+                                   spacing        Group items
+                                                  Density
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+

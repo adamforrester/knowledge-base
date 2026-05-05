@@ -1,0 +1,45 @@
+Design System Canvas
+A one-page plan for your team’s Design System, to help structure                                                                                                  DS Name:                                                      Date:
+implementation and garner buy-in.
+
+  1. Problem                                                       2. Existing assets                                              3. Maturity level
+  What are the problems you currently face with                    What assets do you have already that could be                   Based on what exists, what
+  your approach to designing new products and                      folded in? Think about component libraries,                     maturity level are you at?
+  services?                                                        style guides, marketing assets and more.
+
+                                                                                                                                                                                                                            3                          4
+                                                                                                                                                0                         1                        2
+                                                                                                                                      Each product and         Foundations (e.g.         Some reusable           Most components are        Fully documented DS w/
+                                                                                                                                      service is designed      reusable colour and       components exist with   linked to a library with   dedicated team and
+                                                                                                                                      bespoke. Nothing is      type styles) are in place light documentation,    documentation. DS is       detailed roadmap. DS
+                                                                                                                                      reused.                                            outside of codebase     used as a core part of a   usage is integrated into
+                                                                                                                                                                                                                 design workflow.           all workflows.
+
+
+
+
+  4. New resources                                                                                       5. affected products                               6. Consumers
+  What new things need to be put in place, in order to move your design system up a maturity level?      What products and services will tangibly           Who are the consumers of your design system?
+                                                                                                         benefit from your design system?                   Think about all parties who will benefit from it.
+  4a. assets                                          4b. processes
+
+
+
+
+                                                                                                                                                            7a. Maintainers                                       7b. Champions
+                                                                                                                                                            Who will maintain it?                                 Who will champion it?
+
+
+
+
+  8. scope                                                                      9. Adoption strategy                                                                10. Costs
+  What scope of changes is feasible and realistic?                              What needs to happen for the design system to be adopted by the                     What will this cost? Consider what resources will be needed team
+                                                                                consumers? Who will own making that happen?                                         capacity, time and money.
+
+
+
+
+Inspired by Ash Maurya’s lean startup canvas, in turn based on Alex Osterwalder’s one-page business model canvas. 
+
+Made with ❤ by Paavan (paavandesign.com) · Get updates and give feedback at designsystemcanvas.com
+

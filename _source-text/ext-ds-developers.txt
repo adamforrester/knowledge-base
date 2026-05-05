@@ -1,0 +1,1943 @@
+Design Systems for
+Developers
+Learn how to code design systems that
+scale
+
+Michael Mangialardi
+This book is for sale at
+http://leanpub.com/designsystemsfordevelopers
+
+This version was published on 2021-04-09
+
+
+
+
+This is a Leanpub book. Leanpub empowers authors and
+publishers with the Lean Publishing process. Lean Publishing is
+the act of publishing an in-progress ebook using lightweight tools
+and many iterations to get reader feedback, pivot until you have
+the right book and build traction once you do.
+
+© 2021 Michael Mangialardi
+Contents
+
+1 - The Mission . . . . . . . . . . . . . . . . . . . . . . . . . .    1
+
+2 - The Problem . . . . . . . . . . . . . . . . . . . . . . . . . .    4
+
+3 - Introducing Design Tokens . . . . . . . . . . . . . . . . .        7
+
+4 - Introducing Style Dictionaries . . . . . . . . . . . . . . .      9
+
+5 - Extracting Design Tokens . . . . . . . . . . . . . . . . .        14
+
+7 - Valuing Design Tokens . . . . . . . . . . . . . . . . . . .       17
+
+6 - Naming Design Tokens . . . . . . . . . . . . . . . . . . .        19
+
+8 - Storing and Transforming Design Tokens . . . . . . . .            24
+
+9 - Delivering Design Tokens . . . . . . . . . . . . . . . . .        42
+
+10 - Creating Tools and Assets From Design Tokens . . .               51
+
+11 - Ideas for Real-World Collaboration . . . . . . . . . . .         57
+
+12 - The Conclusion . . . . . . . . . . . . . . . . . . . . . . .     60
+              1 - The Mission
+Ok, so you’re a really passionate UI developer…
+Great! We’ve got an exciting project that we want to entrust with
+you.
+Our top-notch, e-commerce site ZapShoes provides the zappiest
+way to get shoes delivered to your doorsteps.
+We recently raised 100 million dollars in funding, and we believe we
+can keep the momentum going by giving our application a facelift.
+We’ve hired a core group of designers that have whipped up a fresh
+design system.
+So far, the design system just includes a set of Figma files.
+Since you’re the UI guru, we want you to build tools that will ensure
+that our current web application can successfully be migrated to the
+new design system and stay in sync with it.
+We also want the tooling to be flexible to be able to easily handle a
+future redesign.
+Moreover, we want to ensure that if we add applications for other
+platforms, like mobile and desktop, that we have a smooth way of
+ensuring that those applications can adopt and stay in sync with
+the design system.
+
+
+
+
+Imagine being a new hire and assigned the project as I’ve outlined
+above.
+How would you feel?
+Well, given that you’re a developer, you may feel excited.
+1 - The Mission                                                      2
+
+
+After all, developers love solving problems. At the end of the day,
+the project is just another problem to solve, and solving problems
+is fun.
+You might also feel energetic.
+A design system is a really fun thing to work on.
+It’s a perfect blend of doing something that’s highly visual and
+architectural, requiring you to think on a large scale of how systems
+work together.
+It satisfies both the visually orientated and engineering-driven sides
+of a frontend engineer, a combination that is hard to come across.
+More likely than not, you would feel nervous.
+Creating the tooling around a design system is an exciting, energiz-
+ing task, but it is also intimidating.
+There is a whole lot of ground to cover, starting from receiving a set
+of design files to delivering assets to an indefinite list of consuming
+applications, regardless of platform and technology.
+You are molding the way for the future yet working within the
+bounds of current technology, which is always subject to change.
+There is an indefinite list of stakeholders interested in the tooling
+around the design system, each wanting the tooling to work well
+for their use cases.
+Let me encourage by making some remarks which hopefully will
+take the bite out of these intimidating thoughts.
+First, if you are a developer you love to solve problems. Not only
+that, I completely trust that as a developer, you are talented in being
+able to solve problems. A design system is just another problem that
+you are capable of solving.
+Second, a design system is satisfying to work on as mastering it
+will give you an appealing professional skill, enlarging your critical
+thinking, communication, and coding skills.
+1 - The Mission                                                    3
+
+
+Third, working on a design system requires covering a lot of ground,
+but that is simply an opportunity to work with a wide range of
+talented peers.
+The connections you are forced to make will boost your morale. The
+solutions that you build will bless a wide range of people, providing
+an objective value to your work that will certainly result in an
+increase in your energy and motivation.
+Finally, you are not alone. As of today, there countless developers
+who are trying to solve similar problems. There are modern tech-
+nologies that make building tooling around a design system easier
+and more engaging than ever.
+One of those countless developers trying to solve a similar problem
+is me. He also gets nervousness mixed in with the excitement when
+thinking about design systems.
+
+      The mission of my book, therefore, will be to walk with
+      you as a fellow nervous developer, growing our ability
+      to solve the problems surrounding design systems.
+
+By the end of it, we will know how to solve the imaginary project
+that ZapShoes has assigned to us. In other words, you’ll be able to
+develop tools for a robust design system all by yourself.
+             2 - The Problem
+There are several difficulties in trying to develop tools for a design
+system.
+First, the design system has to scale as more and more applications
+are added within a company.
+Second, the design system has to be consumable across various
+types of platforms (i.e. web, mobile, desktop) as well as specific
+technologies for those platforms (i.e. React, Vue, Angular).
+Third, the design system has to be flexible to handle updates by the
+designers.
+Similarly, and finally, the design system as implemented by con-
+suming applications has to be high fidelity. Meaning, it has to be
+pure, or faithful, to the official specifications.
+Let’s talk briefly about some real-life scenarios where these pitfalls
+are encountered.
+The first couple of difficulties are usually encountered together.
+Imagine that your company, ZapShoes, only consisted of an e-com-
+merce site built with React. To accomplish the project we outlined
+in the previous chapter, you decided to build a UI component
+library written in React. That way, you can encapsulate all the
+design specifications within sharable components.
+Now, that only works as long as ZapShoes only consists of a React
+app. However, another team is spun up to create a customer support
+app. They decide to build this with Vue (despite your best efforts to
+persuade them otherwise).
+Because of this, you can no longer apply the styles from the design
+system by consuming a shared UI component library. The React
+app will need a UI component library that works with React, and
+2 - The Problem                                                   5
+
+
+the Vue app will need a UI component library that works with Vue.
+The design specifications are then encapsulated in a shared CSS-in-
+JS library. This is used to get the design specifications for the UI
+components in both the React and Vue UI component libraries.
+That works as long as all the applications at ZapShoes are built
+with modern web frameworks. However, there’s been a push to “go
+back to the basics” with a marketing landing page that’s built with
+plain HTML and CSS. Now, the design specifications need to be
+encapsulated into a CSS file as that is the only common way to
+share styles across all three applications in the company.
+This stinks because you either need to build some tools to port the
+CSS to the CSS-in-JS library, or you continue to use plain CSS which
+doesn’t give you the power of CSS-in-JS which you prefer.
+You can imagine how this problem can spiral downwards if a
+mobile application built with Java was announced.
+The last couple of difficulties manifest themselves when things do
+spiral downwards as in the example I just provided. Imagine that
+because of the sticky situation to either use plain CSS or make a
+tool to port CSS to a CSS-in-JS library, you decide to have the
+design specifications encapsulated in the CSS file and a JavaScript
+file referenced in the CSS-in-JS library.
+That seems to make everyone happy as the plain HTML coders can
+create CSS variables and classes to match the design specifications
+from the design system, and the modern JavaScript coders can cre-
+ate JavaScript objects or modules to match the design specifications
+from the design system.
+The problem is that you now have two places where the design
+specifications of the design system are trying to be represented in
+code. One in CSS variables and classes, and another in JavaScript
+objects/modules. Imagine that updates are made to the design
+system. The modern JavaScript coders update the JavaScript ob-
+jects/modules referenced in the shared CSS-in-JS library so that it
+is in sync with the latest version of the design system. However,
+2 - The Problem                                                     6
+
+
+the plain HTML coders are lagging behind (…imagine that…) and
+haven’t updated the CSS variables and classes to match the latest
+version of the design system.
+In this scenario, where is the “pure,” or “high fidelity,” representa-
+tion of the design specifications in code? Is it the CSS variables and
+classes or the JavaScript objects/modules? As time goes on, it only
+becomes harder and harder to answer this question.
+Not only is it hard to identify where the pure representation
+of the design specifications in code lives, but, practically, your
+applications can begin to look different depending on how closely
+they sync up with changes to the design system. Additionally, there
+is an increased risk that the the official design specifications get
+lost in translations as more and more applications maintain their
+separate representations of design specifications in code.
+These problems can be solved by using design tokens and a style
+dictionary. We’ll unpack those terms more in the following chap-
+ters.
+     3 - Introducing Design
+              Tokens
+Every design system has the “high fidelity” design specifications
+encapsulated in a design file, and usually some form of docu-
+mentation. These design files are called “high fidelity” because
+they are the purest, or most faithful, expression of the design
+system. In other words, if you see a design specification in the
+design file, it is highly likely that it is what the designers want
+a consuming application to emulate. If the design file says to use
+#ff000 as the color for error text, then, as a developer, you trust
+that is what your application should follow. The only way that the
+specification is “unpure,” or inaccurate of the designers’ intent, is if
+someone made a mistake when creating the design file and didn’t
+realize it. Regardless if there are actually any mistakes, developers
+always go off of what the latest version of a design file (or some
+documentation) specifies.
+Whether it’s in CSS variables, SASS variables, JavaScript objects,
+or something else, all the assets/tools of a design system have to
+translate the official design specifications from a design file. The
+high fidelity design specifications in the design file have to be
+encapsulated, or represented, in some code. The goal is to have
+design specifications represented in code to be high fidelity as well,
+in that it follows the design file with 100% accuracy.
+The point of this all is to say that the design specifications have
+to be represented in code and that representation is important. So
+important that it deserves a name. Design tokens are simply a name,
+or label, for the design specifications you represent in code.
+Now, a design file has different types of design specifications.
+There are design specifications that simple values. They are simply
+3 - Introducing Design Tokens                                       8
+
+
+enumerations of valid values that may be used in accordance with
+the design system. For example, design systems usually specify a
+color palette. A color palette is an enumeration of the official/valid
+colors of the design system. It doesn’t specify when and where
+the colors should be used, only that they are the official colors.
+Therefore, the design tokens that represent the “simple” design
+specifications, like the official colors, typography, etc., are called
+simple tokens.
+Other design specifications specify the styles for UI components.
+The specifications for UI components do not merely enumerate a
+set of valid values. They specify how a valid value should be applied
+to a UI component. In other words, a UI component is created
+by composing a set of simple values. Therefore, the design tokens
+that represent the specifications of a UI component may be called
+component tokens or composed tokens. The former label captures
+the literal meaning and the latter label captures the technical
+meaning.
+By using the terminology design tokens, we have a way to speak
+of our design specifications represented in code in a platform and
+technology-agnostic manner. We’ll learn in the next chapter that
+this not only is helpful for communication as it also has technical
+significance.
+       4 - Introducing Style
+            Dictionaries
+Previously, we’ve talked about the issue with representing design
+specifications in code across multiple applications (and their re-
+spective platform and technologies). If there are several CSS and
+JavaScript files, for example, that maintain their own representa-
+tions of design specifications in code, then it becomes difficult to
+keep them all in sync with the latest, official design specifications.
+Moreover, there is no central place that may serve as a “source
+of truth,” prohibiting you from being able to compare the styles
+implemented across all applications within a company against the
+official design specifications.
+So, how may we solve this problem?
+We may solve this problem by having a single place where we
+represent the design specifications in code. Put it another way,
+we have a single place where we store our design tokens, the
+platform and technology-agnostic label for our design specifica-
+tions represented in code. With some tools, we can generate the
+platform deliverables, like CSS, SASS, or JavaScript variables, that
+encapsulate the design specifications and deliver them to all the
+applications that have adopted the design system. In other words,
+we can build or generate, the assets needed by all the applications
+consuming the design system. Then, we can deliver some of these
+assets to each consuming application depending on their preference
+given their target platform and technology. Since the React and
+Vue applications at ZapShoes want to encapsulate their design
+specifications in a shared CSS-in-JS library, we can transform and
+ship the design tokens as JavaScript variables. The plain HTML
+coders can have a CSS file built and shipped to them according
+4 - Introducing Style Dictionaries                                  10
+
+
+to their needs.
+So, why is this important?
+First, it becomes very easy to keep all the applications that consume
+a design system in sync with the latest, official specifications of the
+design system. The reason being, you only have a single place to
+keep in sync. Instead of all the consuming applications maintaining
+their own set of design tokens, you move the maintenance to a
+single location.
+Second, by having only a single place to store the design tokens,
+designers and developers only have to glance at this central place
+to determine what design specifications are (or are not) being
+implemented across all applications within a company. You no
+longer have to check all the CSS and/or JavaScript files across every
+shared library and/or consuming application to determine whether
+things are in sync with the official design specifications.
+Finally, building platform and technology-specific deliverables
+from the platform and technology-agnostic design tokens allow
+for a design system to scale well within a company. Even if more
+applications are added and/or some applications target a new
+platform and tech stack, you would just deliver the platform
+deliverables that are being built or configure new platform
+deliverables to be built and delivered. Put it this way, since
+you start with the most agnostic representation of your design
+specifications, that is your design tokens, you can just generate
+more platform and technology-specific deliverables as needed.
+By doing this, you avoid the problem of making a platform and
+technology-specific encapsulation of your design specifications
+(like a file in a CSS-in-JS library) and having to work backward
+as new platforms and technologies are supported. You don’t have
+to be pigeonholed to the most agnostic asset to encapsulate your
+design specifications (like a CSS file) or support a wide range of
+assets without having a single source of truth.
+Just as we had a label for the platform and technology-agnostic
+4 - Introducing Style Dictionaries                                11
+
+
+representation of your design specifications in code (design tokens),
+we have a label for the single place where we store our design
+tokens, build platform deliverables, and ship those deliverables to
+consuming applications. We may call it a style dictionary. Another
+way to describe a style dictionary is as a central management
+system for design tokens. It is a central management system of
+design tokens in that it serves as the source of truth for the coded
+implementation of design specifications.
+I like the term “style dictionary” because it captures both the
+technical and illustrative meaning of what we’re trying to achieve
+with a central management system for design tokens.
+If you’re familiar with a language like C#, then you’ll understand
+how “dictionary” has technical significance. A dictionary is a
+collection of keys and values. Similarly in JavaScript, an object
+is the collection of keys and value, or “dictionary.” If you’ve ever
+played Scrabble, you’ll know that a dictionary is very valuable. A
+dictionary, in human terms, is a collection of words that can settle
+whether that arrangement of Scrabble letters on the game board is a
+valid word or not. Likewise, “dictionary” connotates the illustrative
+meaning that a style dictionary is a collection of design tokens
+representing the valid design specs and providing a single source
+of truth.
+Ok, we’ve described design tokens and a style dictionary in an
+abstract way. Let’s get a bit more technical.
+Since a style dictionary is a single place to store design tokens,
+it can be as simple as a file. Recall, design tokens are key-value
+pairs that represent the design specifications in code. A flexible
+way of “storing” key-value pairs is a JSON object. Therefore, the
+design tokens may be “stored” in a JSON object. Each property
+on the object will have a key representing the name of the design
+specification and a value. A simple style dictionary may just be a
+JSON file.
+However, if want to be able to transform the design tokens into
+4 - Introducing Style Dictionaries                                    12
+
+
+platform deliverables, we will need more than just a JSON file.
+Ideally, a style dictionary will also include scripts to transform the
+design tokens into platform deliverables. For example, you could
+have Node scripts to read the JSON file and create CSS variables, a
+JavaScript module, etc.
+Finally, the style dictionary will be a repository that contains all this
+code. By having a repository, you can invite collaboration between
+designers and developers. Using a tool like GitHub, designers and
+developers can have version control around the evolution of the
+design tokens. In other words, designers can see and review changes
+that are made to the design tokens. That way, designers and devel-
+opers will stay in sync with updates to the design system in code
+and not just updates in a design file. We’ll discuss collaboration
+between designers and developers via a style dictionary later on in
+this book.
+Thankfully, we don’t have to reinvent the wheel when it comes
+to creating and maintaining a style dictionary. Tooling already
+exists for storing design tokens in JSON and transforming them
+into common platform deliverables. At ZapShoes, we’ll use a library
+called Style Dictionary¹ which they describe as:
+
+       a system that allows you to define styles once, in
+       a way for any platform or language to consume. A
+       single place to create and edit your styles, and a single
+       command exports these rules to all the places you need
+       them - iOS, Android, CSS, JS, HTML, sketch files, style
+       documentation, etc. It is available as a CLI through npm,
+       but can also be used like any normal npm module if you
+       want to extend its functionality.
+
+To summarize, we’ll be creating an npm package that utilizes the
+Style Dictionary package. It will store the design tokens in JSON
+and include an npm script that executes the Style Dictionary CLI to
+    ¹https://amzn.github.io/style-dictionary/#/README
+4 - Introducing Style Dictionaries                              13
+
+
+build the platform deliverables (CSS variables, JavaScript module,
+etc.) We will then have another script to deliver the platform
+deliverables to all the applications that are consuming the design
+system. Lastly, we’ll have a GitHub repository containing this code
+for version control and collaboration.
+Before we get going with creating our full-blown style dictionary,
+we’ll have to learn how to translate design specifications from a
+design file to a design token stored in JSON.
+       5 - Extracting Design
+               Tokens
+We discussed in the previous chapter that design tokens are “stored”
+in JSON objects. Each design token will be a property on the object.
+Being a property, it will have a key and a value. That is why
+we’ve referred to design tokens are key-value pairs representing
+the design specifications in code. The key refers to the name of the
+design specification, and the value refers to the actual value of the
+design specification.
+Before we go down the rabbit hole of learning how to look at a
+design file and manually create design tokens, that is, properties
+on a JSON object, you may be curious if there are any ways to
+automate this process.
+If you are curious about finding a way to automatically create
+design tokens from a design file, then you are not alone. There are
+several plugins that have been created to do just this. There are
+plugins that are compatible with Figma, Sketch, Adobe XD, and
+more. Here is a full list².
+Figmatic³, for example, is an npm module that has a CLI script
+that can create JSON design tokens from a specified design file and
+Figma API token.
+In this book, we will not be going with an automated solution. Let
+me explain why.
+First, by doing things the manual way, we will better understand
+what design tokens are and how we can use them to generate
+platform deliverables.
+   ²https://github.com/sturobson/Awesome-Design-Tokens#plugins
+   ³https://github.com/mikaelvesavuori/figmagic
+5 - Extracting Design Tokens                                                          15
+
+
+Second, design tokens do not yet have an official standard as to how
+they should be named. This is in the works⁴ but not a present reality.
+Therefore, all the tools for automating the process of creating design
+tokens require you to follow a template. Figmatic, as an example,
+provides a public design system template⁵. As long as you follow
+the template, you can automate the translation of a design file
+into design tokens. However, this limits the possible workflows for
+designers.
+Finally, a manual approach forces communication between design-
+ers and developers which is always a healthy thing. As I see it,
+having a style dictionary is similar to having API contracts. If
+you’re not familiar with API contracts, it is essentially an agree-
+ment between API developers and frontend developers specifying
+an API route and its parameters as well as response data. Both API
+and frontend developers can collaborate to iron down a contract
+based on their unique needs and insights. Once a contract is
+established, the API developers can build the API, and the frontend
+developers can build experiences off of mock APIs that are bare-
+bones implementations of the contracts using dummy data.
+Similarly, as design tokens are being added and updated in the
+style dictionary, you are essentially establishing a contract once
+those changes are merged into the main branch. Through code
+reviews and supplementary discussions, designers and developers
+can establish a contract as to how the design specifications will
+be represented in the code. By having designers and developers
+collaborate together, you can expect to have improved naming
+conventions and better organization for the stored design tokens.
+The designers and developers can bring their unique wants and
+insights to come to an agreement as to how the design tokens
+should be represented in code. As changes are made to the design
+system, changes will be made to the style dictionary. Both designers
+and developers may stay in sync with these changes through
+    ⁴https://www.w3.org/community/design-tokens/
+    ⁵https://github.com/mikaelvesavuori/figmagic#preparing-figma-for-figmagic-usage
+5 - Extracting Design Tokens                                      16
+
+
+communication.
+Before we move on, I’d like to clarify that I am not saying that
+you should avoid an automated approach, nor am I suggesting that
+communication between designers and developers can only occur
+with a manual approach. My point is that the manual approach is
+not bad and is good for learning purposes. If you do go with the
+automated approach, my suggestion would be to go all-in with it.
+For example, I would recommend the Specify⁶ app which allows
+you to manage, transform, and deliver design tokens with just a
+Figma file, Figma API token, and a configuration file. Instead of
+stitching together existing tools for this automation, you can do
+it through a UI, making it a bit less intimidating for designers.
+The creator, Louis Chenais⁷, is a part of the design tokens W3C
+Community Group, so you can trust that the tooling will stay in
+sync with the community. I have chatted with Louis and done
+a demo of the app. You can do so as well using the link found
+above. However, this app is only accessible by invite. You will have
+to weigh the tradeoffs to decide if this tool is right for you. Just
+remember, you’re currently employed at ZapShoes so I recommend
+deferring looking into this until after you finish the book.
+Eventually, we will discuss some formal processes for collaborating
+with designers and developers to create design tokens from design
+files. In the next chapter, we will look at how to come up with names
+for your design tokens.
+    ⁶https://specifyapp.com/
+    ⁷https://twitter.com/ChucKN0risK
+7 - Valuing Design Tokens
+Congratulations! If you’ve made it this far, you’ve gotten through
+the hardest part. This is also the last abstract chapter before we
+finally get to code. We’ll keep this chapter short than the previous
+one, discussing some considerations for how we represent the
+values of our design tokens.
+First, there are some things to consider when representing the value
+for color tokens. Colors can be represented as Hex, RBG, or HSL.
+Some prefer to go with HSL because it is easier to parse the color
+from the value as well as providing more programmatic control for
+creating different shades of the same pigment. You can read this
+article for more details⁸.
+My suggestion is that you use whatever is consistent with the
+design files. If the designers prefer RGB, it wouldn’t be a great idea
+to introduce a discrepancy between the design files and the style
+dictionary. After all, the style dictionary is supposed to be a “source
+of truth” to make it easier (not harder) to see how well the design
+specifications are represented in code. With Style Dictionary, you
+can easily transform any color format found in the JSON objects to
+another one according to the preferences of the developers. So, you
+could convert HEX colors in your design tokens to HSL colors in
+your platform deliverables.
+Similarly, other design tokens have a value that will be a number.
+For example, the line height, spacing, font size, border radius, etc.
+have numbers for the values (whereas a font, for comparison, has
+a value of a string).
+There is a case to be made that a line height should always be
+defined as a unitless value⁹. As for scalable elements, such as
+   ⁸https://www.sarasoueidan.com/blog/hex-rgb-to-hsl/
+   ⁹https://css-tricks.com/almanac/properties/l/line-height/
+7 - Valuing Design Tokens                                                       18
+
+
+spacing, font size, etc., there is a case to be made that rem should be
+the unit of choice¹⁰. Regarding non-scalable elements, such as the
+border radius, border width, box shadow, etc., there is a case to be
+made to use pixels, a static unit, as opposed to a relative unit.
+You’ll have to do your research on these topics. All you need to
+know, for now, is that you should expect these types of conversa-
+tions with the design system team as you are trying to translate
+design files into design tokens.
+   ¹⁰https://css-tricks.com/theres-more-to-the-css-rem-unit-than-font-sizing/
+6 - Naming Design Tokens
+Now that we’ve established that designers and developers will
+collaborate to manually store design specifications as design tokens,
+let’s talk about how to turn a design specification into a design
+token, that is, how to turn a design specification into a key-value
+pair that will be part of a JSON object.
+This is easy to speak of abstractly, but it is not a simple task. There
+is a lot to consider when creating both a key and a value. Because
+of that, we’ll tackle each in a separate chapter. For now, let’s focus
+on creating a key, or naming our design tokens.
+You’ll remember that design tokens may be categorized into two
+types: simple and composed (also called component) tokens.
+Simple tokens are design tokens that represent the enumeration of
+valid values of a design system, such as color palette, typography,
+etc.
+Composed tokens are compositions of simple tokens specifying how
+a value should be used in a specific context.
+For example, monday.com UI Kit¹¹ has the following color palette
+specified in a Figma file:
+   ¹¹https://www.figma.com/community/file/940242815162888749
+    6 - Naming Design Tokens                                           20
+
+
+
+
+    This represents the list of valid colors of the design system. Simple
+    tokens are pretty easy to come up with when looking at the design
+    file.
+    For example, here are some design tokens you could create:
+
+1   {
+2       "color.primary": "...",
+3       "color.success": "...",
+4       "color.dark: "...",
+5       "color.darkRed: "..."
+6   }
+
+    Now, do you prepend the color type with color or colors for
+    example? Do you use kebab-case or snake_case?
+    Style Dictionary will not be impacted by these decisions. It comes
+    down to what the designers and developers think best. No team
+    is the same, so y’all will have to hash it out together. You’ll just
+    want to consider that clarity and brevity are what you’re looking
+    for. At the end of the day, it is the developers who will be consuming
+    these design tokens via the platform deliverables. As long as it is
+    clear enough what a design token is referring to, make it as brief as
+    possible to the developers’ liking.
+    6 - Naming Design Tokens                                         21
+
+
+    Often, simple tokens can follow the naming convention of CSS
+    attributes. For example:
+
+1   {
+2       "border.radius.sm": "...",
+3       "border.radius.md": "...",
+4       "border.radius.lg": "..."
+5   }
+
+
+    However, that’s not always the case. For example, you may want to
+    combine margin and padding specifications into a generic spacing
+    prefix:
+
+1   {
+2       "spacing.sm": "...",
+3       "spacing.md": "...",
+4       "spacing.lg": "..."
+5   }
+
+
+    Again, this something that will have to be hashed out between
+    designers and developers. There is no right answer.
+    This isn’t the case in the monday.com example but imagine a
+    design file that specifies color.primary and a color.blue with the
+    same value of #192BC2. Would you store a color.primary and a
+    color.blue design token? Yes. In fact, this brings up an important
+    point that there is a hierarchy in design tokens. Even simple tokens
+    may reference the value of another simple token. In our example,
+    color.primary would reference the same value as color.blue. You
+    may include both but the consuming applications would reference
+    the color.primary token. That way, if color.primary changes to
+    refer to the value of color.purple, you don’t have to update all
+    the references in the codebases. It is nice to have both, however,
+    so the style dictionary includes a full enumeration of valid colors,
+    matching the design file. But again, there is no right answer.
+6 - Naming Design Tokens                                                           22
+
+
+When it comes to component tokens, however, the naming deci-
+sions get more complicated. You are no longer merely describing
+a value. Instead, you are describing a value and the context in
+which the value is being. For example, component.button.color is
+a design token’s name, or key, describing the application of a color
+on a button. Since UI elements/components have various states
+(like loading, error, hover, active, etc.) and potential variants (like
+primary, secondary, and tertiary), it is no small task to come up
+with a name.
+Given this complexity, and since design tokens do not have an
+official naming convention to date, companies attempting to im-
+plement design tokens have all come up with their own naming
+conventions. Put it another way, they have all come up with their
+own tokenized language.
+Nathan Curtis has a phenomenal article summarizing all the differ-
+ent approaches by companies like Salesforce, Shopify, Adobe, Orbit,
+and more¹². Let me try to summarize some key points.
+First off, he provides a helpful label for the things surrounding the
+separators. He calls them levels. So, color.primary has two levels,
+color and primary.
+
+Second, he organizes levels into the following groups:
+
+      Base levels as a token’s backbone that combine category
+      (for example, color), concept (action), and property
+      (size). Modifier levels to refer to one or more of variant
+      (primary), state (hover), scale (100), and mode (on-dark).
+      Object levels to refer to a component (button), element
+      within a component (left-icon), or component group
+      (forms). Namespace levels combining any (or all, in
+      extreme cases!) of system (esds), theme (ocean or sub-
+      brand), or domain (retail). I would advise any group of
+      designers and developers working together on a design
+   ¹²https://medium.com/eightshapes-llc/naming-tokens-in-design-systems-9e86c7444676
+6 - Naming Design Tokens                                           23
+
+
+      system to look through this article and determine for
+      themselves what approach they like the most. Every
+      team is different, and there is no right or wrong answer.
+      However, there are some key principles to keep in mind.
+
+First, the names of design tokens should be clear
+but brief. As long as the name is descriptive enough,
+don’t add unnecessary levels. For example, don’t do
+component.button.color.primary.default.light if primary,
+default, and light are the defaults.
+
+Second, the order is not an exact science, but it does matter. Nathan
+Curtis suggests that namespace levels come first, then object, levels,
+then base levels, and then the modifier levels come at the end.
+Before moving on to the next chapter, it could be helpful to look
+over Nathan Curtis’s article. Browse an existing design system¹³
+and think about how you would come up with names for design
+tokens given the examples and principles in the article. However,
+don’t get discouraged if this is a lot to think about. Remember,
+you are not alone. The whole process in a real-world scenario
+will be a collaboration between designers and developers. To be
+a successful developer working on a design system team, you just
+need to understand the problem, have an overview of the solution,
+and initiate conversation.
+   ¹³https://www.designsystemsforfigma.com/
+              8 - Storing and
+           Transforming Design
+                   Tokens
+    Now that we have an idea of how to extract design tokens from
+    design files, let’s go ahead and create our style dictionary.
+    As a refresher, the style dictionary will be an npm project that
+    we’ll push to a GitHub repository. The project will contain “store”
+    our design tokens. Specifically, we will have a JSON file with
+    properties (key-value pairs) on the object representing the design
+    specifications. The project will have Style Dictionary¹⁴, an npm
+    package that exposes a CLI to transform the JSON file into platform
+    deliverables, as a dependency.
+    Let’s begin by setting up the project.
+    Create a new folder for our project:
+
+1   mkdir zappy_design
+2   cd zappy_design
+
+
+    Then, let’s initialize the npm project:
+
+1   npm init -y
+
+
+    Next, we’ll install Style Dictionary:
+
+
+
+
+       ¹⁴https://github.com/amzn/style-dictionary
+     8 - Storing and Transforming Design Tokens                         25
+
+
+1    npm install -D style-dictionary
+
+
+     Now, we’ll want to create a folder to contain the design tokens:
+
+1    mkdir tokens
+
+
+     We can “store” our design tokens in an index.json file:
+
+1    touch tokens/index.json
+
+
+     With Style Dictionary, you can divide your design tokens into
+     multiple JSON files. During the build process, it will merge together
+     all your JSON files before generating the platform deliverables.
+     So, you could have files like a colors.json, spacing.json, etc.
+     We’ll leave it at just index.json.
+     As we’ve talked about, extracting the names and values for design
+     tokens is a collaborative process. There is no way that we can do
+     that full process together through a book. For that reason, I’ll just
+     supply a handful of example tokens that you can copy into the
+     tokens/index.json file:
+
+
+1    {
+2        "color.primary": "#00C875",
+3        "color.accent": "#8B46FF",
+4        "color.success": "#11AF22",
+5        "color.error": "#BA1E45",
+6        "color.white": "#FFFFFF",
+7        "color.black": "#000000",
+8        "spacing.0": "0rem",
+9        "spacing.1": "0.25rem",
+10       "spacing.2": "0.5rem",
+11       "spacing.3": "0.75rem",
+12       "spacing.4": "1rem",
+     8 - Storing and Transforming Design Tokens              26
+
+
+13     "spacing.5": "1.25rem",
+14     "spacing.6": "1.5rem",
+15     "spacing.7": "1.75rem",
+16     "spacing.8": "2rem",
+17     "line.height.none": "1",
+18     "line.height.tight": "1.25",
+19     "line.height.snug": "1.375",
+20     "line.height.normal": "1.5",
+21     "line.height.relaxed": "1.625",
+22     "line.height.loose": "2",
+23     "font.weight.thin": "100",
+24     "font.weight.light": "300",
+25     "font.weight.normal": "400",
+26     "font.weight.bold": "700",
+27     "font.size.1": "0.75rem",
+28     "font.size.2": "0.875rem",
+29     "font.size.3": "1rem",
+30     "font.size.4": "1.250rem",
+31     "font.size.5": "1.625rem",
+32     "font.size.6": "2rem",
+33     "font.family": "Open Sans, sans-serif",
+34     "breakpoint.mobile": "40rem",
+35     "breakpoint.tablet": "65rem",
+36     "border.radius.none": "0",
+37     "border.radius.small": "2px",
+38     "border.radius.medium": "4px",
+39     "border.radius.large": "6px",
+40     "component.button.base.font.size": "0.875rem",
+41     "component.button.base.font.weight": "700",
+42     "component.button.base.padding": "0.75rem",
+43     "component.button.primary.background.color": "#00C875",
+44     "component.button.primary.color": "#FFFFFF",
+45     "component.button.primary.hover.background.color": "#FF\
+46   FFFF",
+47     "component.button.primary.hover.color": "#00C875",
+     8 - Storing and Transforming Design Tokens                    27
+
+
+48     "component.button.secondary.background.color": "#8B46FF\
+49   ",
+50     "component.button.secondary.color": "#FFFFFF",
+51     "component.button.secondary.hover.background.color": "#\
+52   FFFFFF",
+53     "component.button.secondary.hover.color": "#8B46FF"
+54   }
+
+
+     With our tokens stored, we can proceed to set up the script to
+     transform these design tokens into platform deliverables.
+     Style Dictionary knows what types of transformations to do based
+     on a configuration file¹⁵.
+     Let’s create a config.json file at the root of the project:
+
+1    touch config.json
+
+
+     Here’s the sample configuration on Style Dictionary’s documenta-
+     tion site:
+
+1    {
+2        "source": ["properties/**/*.json"],
+3        "platforms": {
+4          "scss": {
+5            "transformGroup": "scss",
+6            "prefix": "sd",
+7            "buildPath": "build/scss/",
+8            "files": [{
+9              "destination": "_variables.scss",
+10             "format": "scss/variables"
+11           }],
+12           "actions": ["copy_assets"]
+13         },
+14         "android": {
+         ¹⁵https://amzn.github.io/style-dictionary/#/config
+     8 - Storing and Transforming Design Tokens                                                28
+
+
+15         "transforms": ["attribute/cti", "name/cti/snake", "\
+16   color/hex", "size/remToSp", "size/remToDp"],
+17         "buildPath": "build/android/src/main/res/values/",
+18         "files": [{
+19           "destination": "style_dictionary_colors.xml",
+20           "format": "android/colors"
+21         }]
+22       }
+23     }
+24   }
+
+
+     This introduces us to some core concepts of Style Dictionary.
+     First, the source             property         is      an      array        of      path
+     [globs](https://github.com/isaacs/node-glob)                                  pointing
+     to the files containing our design tokens. We'll want to
+     update this to point to our tokens/index.json‘ file.
+
+     Second, we see a platforms property. Within this property, we can
+     configure the different build artifacts we want to create for a given
+     platform and technology. In other words, we’ll specify the platform
+     deliverables we want to be generated.
+     Within the scss property, there is a transformGroup. Style Dictio-
+     nary as certain pre-defined transform groups¹⁶ that apply a set of
+     pre-defined transforms¹⁷. A transform is simply a function that
+     transforms a design token. As Style Dictionary processes the design
+     tokens in the JSON files, it will iterate through each property (each
+     design token) and execute the transform. This can be used for
+     formatting the key of the design token, changing the unit of a value,
+     etc. You can click the link above to see all the possible options. You
+     also have the option to register a custom transform¹⁸. The scss
+     transform group used in the sample configuration, for example,
+     applies the following transforms:
+        ¹⁶https://amzn.github.io/style-dictionary/#/transform_groups
+        ¹⁷https://amzn.github.io/style-dictionary/#/transforms
+        ¹⁸https://amzn.github.io/style-dictionary/#/transforms?id=defining-custom-transforms
+    8 - Storing and Transforming Design Tokens                                   29
+
+
+1   attribute/cti name/cti/kebab time/seconds content/icon si\
+2   ze/rem color/css
+
+
+    Generally, you can use a transform group unless you need to
+    customize the set of transforms.
+    A prefix property can optionally be set to prefix the transformed
+    design tokens with a namespace.
+    The buildPath property specifies the directory where the generated
+    platform deliverables will be stored.
+    The files property specifies the files to be generated for a given
+    platform. You indicate the destination and format for each file.
+    Like the transform groups, Style Dictionary exposes several pre-
+    defined formats. While “transforms” transform the JSON properties
+    that represent our design tokens, “formats” transform the design
+    tokens in JSON to the platform deliverable. In the sample config-
+    uration, a _variables.scss file will be generated containing the
+    SCSS variables that represent the design tokens:
+
+1   $color-background-base: #f0f0f0;
+2   $color-background-alt: #eeeeee;
+
+
+    You can register custom formats¹⁹ just as you can register custom
+    transforms.
+    Finally, Style Dictionary exposes pre-defined actions²⁰ that will do
+    something after the platform deliverables are generated. We will
+    not be needing to use these.
+    We can also see that the sample configuration configures a platform
+    deliverable for the Android platform, demonstrating that you can
+    create deliverables across multiple platforms. In a real-world sce-
+    nario, you would just configure a new platform deliverable when
+    the need arises.
+       ¹⁹https://amzn.github.io/style-dictionary/#/formats?id=creating-formats
+       ²⁰https://amzn.github.io/style-dictionary/#/actions
+     8 - Storing and Transforming Design Tokens                      30
+
+
+     Now that we’ve been introduced to the concepts behind Style
+     Dictionary and how to configure the generation of platform deliv-
+     erables, let’s give it a whirl.
+     Copy the following config to the config.json file:
+
+1    {
+2        "source": ["tokens/**/*.json"],
+3        "platforms": {
+4          "scss": {
+5            "transformGroup": "scss",
+6            "buildPath": "build/scss/",
+7            "files": [{
+8              "destination": "_variables.scss",
+9              "format": "scss/variables"
+10           }]
+11         },
+12         "javascript": {
+13           "transformGroup": "js",
+14           "buildPath": "build/js/",
+15           "files": [{
+16             "destination": "_variables.js",
+17             "format": "javascript/es6"
+18           }]
+19         }
+20       }
+21   }
+
+
+     Here, we are telling Style Dictionary to find all JSON files in the
+     tokens directory. Then, we want it to create SCSS and JS variables
+     using the pre-defined options. The results should be written to a
+     build directory.
+
+     Finally, we can create an npm script that will execute the Style
+     Dictionary CLI, building the platform deliverables from the raw
+     design tokens.
+    8 - Storing and Transforming Design Tokens                                        31
+
+
+    Copy the following the package.json file:
+
+1   "scripts": {
+2     "build": "style-dictionary build"
+3   },
+
+
+    I also like to clean the build folder before running the build script,
+    that way you don’t have old platform deliverables that stick around:
+
+1   "scripts": {
+2     "build": "npm run clean && style-dictionary build",
+3     "clean": "style-dictionary clean"
+4   },
+
+
+    We can test this out by running npm run build.
+    Looking at the build/js/_variable.js and build/scss/_-
+    variables.scss files, we should see that nothing has happened.
+
+    What gives?
+    Well, I haven’t mentioned this yet in order to avoid confusion.
+    However, Style Dictionary does have an opinion when it comes to
+    a convention for storing design tokens. It expects a Category/Type-
+    /Item (CTI) convention²¹. It is more than one of the many naming
+    conventions that are out there. It is a classification structure.
+
+          Style properties are organized into a hierarchical tree
+          structure with ‘category’ defining the primitive nature
+          of the property. For example, we have the color category
+          and every property underneath is always a color. As
+          you proceed down the tree, you get more specific about
+          what that color is. Is it a background color, a text color,
+          or a border color? What kind of text color is it?You get
+          the point. It’s like the animal kingdom classification.
+       ²¹https://amzn.github.io/style-dictionary/#/properties?id=category-type-item
+    8 - Storing and Transforming Design Tokens                           32
+
+
+
+
+    If we want the pre-defined “formats” to work, we would need to
+    update our JSON file to match this structure:
+
+1   {
+2       "color": {
+3         "background": {
+4           "button": "#00C875"
+5         }
+6       }
+7   }
+
+
+    Personally, I do not like this approach. I think it is inevitable that
+    every team will have to come up with their own tokenized language
+    to describe the design tokens. This requires collaboration, and there
+    is no right answer. Also, I find a flat design token key easier to parse
+    than nested properties.
+    That’s my opinion, and your team will have to weigh the tradeoffs
+    and decide for yourself.
+    Recall, Style Dictionary allows you to configure custom transforms
+     8 - Storing and Transforming Design Tokens                         33
+
+
+     and actions. So, this isn’t a huge deal. We’ll update our configura-
+     tion by registering a custom format that can handle the convention
+     we followed in our tokens/index.json file.
+     First, create a new file called config.js at the root of the project.
+     Style Dictionary allows you to use a JavaScript file as the configura-
+     tion file. This will allow us to register a custom format in addition
+     to exporting the settings.
+     Next, let’s copy the JSON configuration and translate it to JS format:
+
+1    module.exports = {
+2      source: ["tokens/**/*.json"],
+3      platforms: {
+4        scss: {
+5          transformGroup: "scss",
+6          buildPath: "build/scss/",
+7          files: [
+8            {
+9              destination: "_variables.scss",
+10             format: "scss/variables",
+11           },
+12         ],
+13       },
+14       javascript: {
+15         transformGroup: "js",
+16         buildPath: "build/js/",
+17         files: [
+18           {
+19             destination: "_variables.js",
+20             format: "javascript/flat",
+21           },
+22         ],
+23       },
+24     },
+25   };
+     8 - Storing and Transforming Design Tokens                   34
+
+
+     We can now delete the config.json file.
+     Now, let’s import the StyleDictionary module and tell Style Dic-
+     tionary to register our custom format:
+
+1    const StyleDictionary = require("style-dictionary");
+2
+3    StyleDictionary.registerFormat(OUR_CUSTOM_FORMAT);
+4
+5    module.exports = {
+6      source: ["tokens/**/*.json"],
+7      platforms: {
+8        scss: {
+9          transformGroup: "scss",
+10         buildPath: "build/scss/",
+11         files: [
+12           {
+13             destination: "_variables.scss",
+14             format: "scss/variables",
+15           },
+16         ],
+17       },
+18       javascript: {
+19         transformGroup: "js",
+20         buildPath: "build/js/",
+21         files: [
+22           {
+23             destination: "_variables.js",
+24             format: "javascript/es6",
+25           },
+26         ],
+27       },
+28     },
+29   };
+
+
+     The final piece is to replace OUR_CUSTOM_FORMAT with an actual
+     8 - Storing and Transforming Design Tokens                       35
+
+
+     custom format and reference the custom format in the settings:
+
+1    const StyleDictionary = require("style-dictionary");
+2
+3    const jsFlatFormat = {
+4      name: "javascript/flat",
+5      formatter: ({ properties }) => {
+6        return `module.exports = ${
+7          JSON.stringify(properties), null, 2)
+8        }`;
+9      },
+10   };
+11
+12   StyleDictionary.registerFormat(jsFlatFormat);
+13
+14   module.exports = {
+15     source: ["tokens/**/*.json"],
+16     platforms: {
+17       scss: {
+18         transformGroup: "scss",
+19         buildPath: "build/scss/",
+20         files: [
+21           {
+22             destination: "_variables.scss",
+23             format: "scss/variables",
+24           },
+25         ],
+26       },
+27       javascript: {
+28         transformGroup: "js",
+29         buildPath: "build/js/",
+30         files: [
+31           {
+32             destination: "_variables.js",
+33             format: "javascript/flat", // es6 --> flat
+34           },
+     8 - Storing and Transforming Design Tokens                     36
+
+
+35         ],
+36       },
+37     },
+38   };
+
+
+     A custom format in Style Dictionary specifies name (which can be
+     reference in the settings) and a formatter function.
+     The formatter function has access to the properties which is
+     simply the JSON design tokens in JS format. In the code, we return
+     a string that will be written directly to the destination file. We
+     stringify the properties and make them exportable.
+     Try running npm run build again.
+     We should see that the build/js/_variables.js file exports our
+     design tokens:
+
+1    module.exports = {
+2      "color.primary": "#00C875",
+3      "color.accent": "#8B46FF",
+4      "color.success": "#11AF22",
+5      "color.error": "#BA1E45",
+6      "color.white": "#FFFFFF",
+7      "color.black": "#000000",
+8      "spacing.0": "0rem",
+9      "spacing.1": "0.25rem",
+10     "spacing.2": "0.5rem",
+11     "spacing.3": "0.75rem",
+12     "spacing.4": "1rem",
+13     "spacing.5": "1.25rem",
+14     "spacing.6": "1.5rem",
+15     "spacing.7": "1.75rem",
+16     "spacing.8": "2rem",
+17     "line.height.none": "1",
+18     "line.height.tight": "1.25",
+19     "line.height.snug": "1.375",
+     8 - Storing and Transforming Design Tokens              37
+
+
+20     "line.height.normal": "1.5",
+21     "line.height.relaxed": "1.625",
+22     "line.height.loose": "2",
+23     "font.weight.thin": "100",
+24     "font.weight.light": "300",
+25     "font.weight.normal": "400",
+26     "font.weight.bold": "700",
+27     "font.size.1": "0.75rem",
+28     "font.size.2": "0.875rem",
+29     "font.size.3": "1rem",
+30     "font.size.4": "1.250rem",
+31     "font.size.5": "1.625rem",
+32     "font.size.6": "2rem",
+33     "font.family": "Open Sans, sans-serif",
+34     "breakpoint.mobile": "40rem",
+35     "breakpoint.tablet": "65rem",
+36     "border.radius.none": "0",
+37     "border.radius.small": "2px",
+38     "border.radius.medium": "4px",
+39     "border.radius.large": "6px",
+40     "component.button.base.font.size": "0.875rem",
+41     "component.button.base.font.weight": "700",
+42     "component.button.base.padding": "0.75rem",
+43     "component.button.primary.background.color": "#00C875",
+44     "component.button.primary.color": "#FFFFFF",
+45     "component.button.primary.hover.background.color": "#FF\
+46   FFFF",
+47     "component.button.primary.hover.color": "#00C875",
+48     "component.button.secondary.background.color": "#8B46FF\
+49   ",
+50     "component.button.secondary.color": "#FFFFFF",
+51     "component.button.secondary.hover.background.color": "#\
+52   FFFFFF",
+53     "component.button.secondary.hover.color": "#8B46FF"
+54   }
+     8 - Storing and Transforming Design Tokens                     38
+
+
+     Cool! Now, we will need to register another custom format for SCSS
+     variables:
+
+1    const _ = require("lodash"); // use to convert keys to a \
+2    different case
+3    const StyleDictionary = require("style-dictionary");
+4
+5    const jsFlatFormat = {
+6      name: "javascript/flat",
+7      formatter: ({ properties }) => {
+8        return `module.exports = ${
+9          JSON.stringify(properties, null, 2)
+10       }`;
+11     },
+12   };
+13
+14   const scssFlatFormat = {
+15     name: "scss/flat",
+16     formatter: ({ properties }) => {
+17        return Object.entries(properties).map(([key, value]) \
+18   => {
+19          return `$${_.kebabCase(key)}: ${value}`;
+20        }).join(';\n');
+21     },
+22   };
+23
+24   StyleDictionary.registerFormat(jsFlatFormat);
+25   StyleDictionary.registerFormat(scssFlatFormat); // regist\
+26   er new format
+27
+28   module.exports = {
+29     source: ["tokens/**/*.json"],
+30     platforms: {
+31       scss: {
+32         transformGroup: "scss",
+33         buildPath: "build/scss/",
+     8 - Storing and Transforming Design Tokens                     39
+
+
+34         files: [
+35           {
+36             destination: "_variables.scss",
+37             format: "scss/flat", // variables --> flat
+38           },
+39         ],
+40       },
+41       javascript: {
+42         transformGroup: "js",
+43         buildPath: "build/js/",
+44         files: [
+45           {
+46             destination: "_variables.js",
+47             format: "javascript/flat",
+48           },
+49         ],
+50       },
+51     },
+52   };
+
+
+     Here, I used Object.entries to iterate through the object, having
+     access to the key and value. For every property, I append a $,
+     transform the key to kebab-case, and remove the quotes around
+     the value.
+     Notice, I installed lodash for converting the keys into kebab-case
+     so make sure to install it:
+
+1    npm i -D lodash
+
+
+     Running npm run build again, we can see that it generates a nice
+     looking set of SCSS variables:
+     8 - Storing and Transforming Design Tokens   40
+
+
+1    $color-primary: #00C875;
+2    $color-accent: #8B46FF;
+3    $color-success: #11AF22;
+4    $color-error: #BA1E45;
+5    $color-white: #FFFFFF;
+6    $color-black: #000000;
+7    $spacing-0: 0rem;
+8    $spacing-1: 0.25rem;
+9    $spacing-2: 0.5rem;
+10   $spacing-3: 0.75rem;
+11   $spacing-4: 1rem;
+12   $spacing-5: 1.25rem;
+13   $spacing-6: 1.5rem;
+14   $spacing-7: 1.75rem;
+15   $spacing-8: 2rem;
+16   $line-height-none: 1;
+17   $line-height-tight: 1.25;
+18   $line-height-snug: 1.375;
+19   $line-height-normal: 1.5;
+20   $line-height-relaxed: 1.625;
+21   $line-height-loose: 2;
+22   $font-weight-thin: 100;
+23   $font-weight-light: 300;
+24   $font-weight-normal: 400;
+25   $font-weight-bold: 700;
+26   $font-size-1: 0.75rem;
+27   $font-size-2: 0.875rem;
+28   $font-size-3: 1rem;
+29   $font-size-4: 1.250rem;
+30   $font-size-5: 1.625rem;
+31   $font-size-6: 2rem;
+32   $font-family: Open Sans, sans-serif;
+33   $breakpoint-mobile: 40rem;
+34   $breakpoint-tablet: 65rem;
+35   $border-radius-none: 0;
+     8 - Storing and Transforming Design Tokens                       41
+
+
+36   $border-radius-small: 2px;
+37   $border-radius-medium: 4px;
+38   $border-radius-large: 6px;
+39   $component-button-base-font-size: 0.875rem;
+40   $component-button-base-font-weight: 700;
+41   $component-button-base-padding: 0.75rem;
+42   $component-button-primary-background-color: #00C875;
+43   $component-button-primary-color: #FFFFFF;
+44   $component-button-primary-hover-background-color: #FFFFFF;
+45   $component-button-primary-hover-color: #00C875;
+46   $component-button-secondary-background-color: #8B46FF;
+47   $component-button-secondary-color: #FFFFFF;
+48   $component-button-secondary-hover-background-color: #FFFF\
+49   FF;
+50   $component-button-secondary-hover-color: #8B46FF
+
+
+     Congratulations! You now know how to generate platform deliver-
+     ables from a set of design tokens using Style Dictionary. As you may
+     have noticed, Style Dictionary provides a lot of options. My hope
+     is that you are now exposed to all the major concepts, allowing
+     you the flexibility to implement a solution that matches the unique
+     needs of a team.
+     Here’s the final code for this chapter²².
+     Make sure to push your changes so you can follow along.
+         ²²[https://github.com/michaelmang/zappy_design/commit/
+     286d63f04bbd1348501f6fd4c6d641ddce1e65f4
+           9 - Delivering Design
+                   Tokens
+    Ok, we’ve learned how to transform design tokens into platform
+    deliverables using a style dictionary. The final piece to the puzzle
+    is learning how to deliver/export these deliverables to consuming
+    applications.
+    Let’s consider our options on how we can solve this problem.
+    There are four realistic options that I have seen adopted by other
+    companies.
+    One option is to turn the style dictionary into an installable package.
+    Importing the package would provide you access to the platform
+    deliverables:
+
+1   import { js, scss } from 'zappy-design';
+
+
+    I don’t like this option because it seems to defeat the whole purpose
+    of having a style dictionary in the first place. Using Style Dictionary,
+    we can export tokens that work for Android. However, Android
+    coders won’t be able to consume an npm package. This solution
+    seems inflexible to go beyond the web platform.
+    Another option is to create an API. Theoretically, each consuming
+    application could have a script that calls the API and requests the
+    platform deliverables it is interested in. For example, a Node appli-
+    cation could have a script that requests the JavaScript module we
+    created in the previous chapter. The downside is that either there
+    has to be a process in place to communicate to all the consuming
+    applications that an update has occurred and new deliverables are
+    available; or, each application would have to do routine checks.
+9 - Delivering Design Tokens                                      43
+
+
+A third option is to create a CLI. The process and downsides are
+identical to the previous option.
+While the previous two options are flexible enough to work across
+any target platform and technology of a consuming application,
+there’s a better approach (in my opinion). I would recommend that
+you build tooling to automate copying the platform deliverables
+written by Style Dictionary to all the consuming applications’
+repositories whenever a build is triggered. In this chapter, we’ll
+create a proof-of-concept of this approach using GitHub Actions²³.
+GitHub Actions allows you to…
+
+       Automate, customize, and execute your software devel-
+       opment workflows right in your repository…You can
+       discover, create, and share actions to perform any job
+       you’d like, including CI/CD, and combine actions in a
+       completely customized workflow.
+
+Basically, a GitHub action kicks off a workflow after it is triggered
+by an “event.” A workflow is a composition of steps which perform
+actions to do a certain job with your code. Each workflow can run
+multiple jobs in parallel.
+   ²³https://docs.github.com/en/actions
+    9 - Delivering Design Tokens                                                    44
+
+
+
+
+    For example, you could set an event that when code is pushed to a
+    branch, it will run your unit tests and report the status.
+    These actions will run in a virtual environment which has to be
+    specified. You can learn more about the virtual environment here²⁴.
+    Let’s create a workflow to deliver the platform deliverables to a
+    consuming application when Style Dictionary generates them.
+    First, we’ll add a YAML file that will contain the code for our
+    workflow:
+
+1   mkdir .github/workflows
+2   touch .github/workflows/deliver-tokens-to-consumers.yml
+
+    .github/workflows is a specific directory that will inform GitHub
+    to initialize the workflows found in the directory.
+    If you’re unfamiliar with YAML, I recommend reading up on it²⁵.
+    The basic gist is that it is a data serialization language, like JSON.
+        ²⁴https://docs.github.com/en/github/automating-your-workflow-with-github-
+    actions/virtual-environments-for-github-hosted-runners
+        ²⁵https://circleci.com/blog/what-is-yaml-a-beginner-s-guide/
+    9 - Delivering Design Tokens                                                           45
+
+
+    It’s a popular choice for specifying configuration. Apparently,
+    GitHub likes it too. Don’t worry if you get confused. GitHub has
+    solid documentation around the workflow syntax for actions²⁶.
+    Next, we can add a name for our workflow:
+
+1   name: Deliver Tokens To Consumer
+
+
+    Then, we can specify the event in which we want to trigger our
+    workflow. You can see all the possible events that can trigger a
+    workflow here²⁷.
+    In our case, we want the workflow to be triggered on the push of
+    platform deliverables on the build path(s):
+
+1   name: Deliver Tokens To Consumer
+2
+3   on:
+4     push:
+5       paths:
+6         - 'build/**'
+
+
+    Finally, we’ll give our workflow a job of checking out our code and
+    copying the build path to a path on another GitHub repository (the
+    repository of a consuming application in a company):
+
+
+
+
+       ²⁶https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
+       ²⁷https://docs.github.com/en/actions/reference/events-that-trigger-workflows
+     9 - Delivering Design Tokens                             46
+
+
+1    name: Deliver Tokens To Consumer
+2
+3    on:
+4      push:
+5        paths:
+6          - 'build/**'
+7
+8    jobs:
+9      # Add a job for every additional consumer/application
+10     deliver_to_react_application:
+11       runs-on: ubuntu-latest
+12       steps:
+13       - uses: actions/checkout@v2
+14       - name: Deliver Platform Deliverable To Application
+15         uses: andstor/copycat-action@v3
+16         with:
+17           # See documentation: https://docs.github.com/en/a\
+18   ctions/reference/encrypted-secrets
+19           # Set the secret in the "src" repository
+20           personal_token: ${{ secrets.API_TOKEN_GITHUB }}
+21           # You may need to change this to "main"
+22           src_branch: main
+23           src_path: build/js/_variables.js
+24           # Replace with your repository owner. Most likely\
+25   , this is your GitHub username.
+26           dst_owner: michaelmang
+27           dst_repo_name: consume-style-dictionary-github-ac\
+28   tions
+29           # You may need to change this to "main"
+30           dst_branch: master
+31           dst_path: tokens/_variables.js
+32           commit_message: Update design tokens
+
+
+     Here, we specify a job named deliver_to_react_application as
+     well as the virtual environment with the runs-on property.
+9 - Delivering Design Tokens                                                   47
+
+
+Each job has a series of steps. The first step is to use a pre-defined
+GitHub Actions’ step. Namely, the actions/checkout²⁸ step which
+checks out the code of our repository in the virtual environment.
+You can see the full set of pre-defined steps here²⁹.
+Then, we use a user-made step called copycat-action³⁰. This step
+allows you to copy files from your repository to another repository.
+We use this to copy the built JavaScript variables encapsulating our
+design tokens to another repository.
+That’s it!
+Since each application will only be interested in receiving a specific
+type of platform deliverable that was generated by Style Dictionary,
+we can create a separate “job” for each application.
+Jobs in GitHub Actions run in parallel by default.
+So, on the push of new platform deliverables, each application that
+needs to consume one of these deliverables will have a job in the
+workflow to copy the needed deliverable to its repository.
+This means that for every new application that consumes the style
+dictionary, we would just have to add a new job in the workflow
+for them to stay in sync with changes to the design tokens.
+To      test     this     out,      let’s     create       a    dummy   repository
+consume-style-dictionary-github-actions. After you initialize
+this new repository on GitHub, you’ll need to read the comments
+in the workflow file.
+You’ll need to follow the documentation³¹ to create a GitHub
+Personal Access Token on the zappy-design repository. This grants
+permission to the copycat-action step to copy code from the
+zappy-design repository. Make sure to name it API_TOKEN_GITHUB
+for the workflow code to work.
+     ²⁸https://github.com/actions/checkout
+     ²⁹https://github.com/actions
+     ³⁰https://github.com/andstor/copycat-action
+     ³¹https://docs.github.com/en/actions/reference/encrypted-secrets
+9 - Delivering Design Tokens                                    48
+
+
+You’ll also need to replace the dst_owner with the repository owner
+of the dummy repository you just initialized. Most likely, this is
+your GitHub username.
+Finally, you may need to update the branches to main instead of
+master.
+
+Let’s push our current code for this chapter to GitHub.
+Navigate to the Actions tab. You should see that our workflow has
+been registered:
+
+
+
+
+Now, we’ll need to make a change to the build directory to trigger
+this workflow.
+Make a change to the build/js/_variables.js file (I added a line
+to the end of the file). Then, push these changes.
+You should see that the workflow was triggered, and hopefully, you
+eventually see that it worked:
+9 - Delivering Design Tokens                            49
+
+
+
+
+Now, go to the dummy repository and you should see that it
+worked!
+9 - Delivering Design Tokens                                                          50
+
+
+
+
+Congratulations! You now know how to transform and deliver
+design tokens to any consuming application in a company!
+Here are the changes for this chapter³².
+Here’s a PR with the changes to the dummy repository³³.
+    ³²https://github.com/michaelmang/zappy_design/commit/
+946892e83da73c6b6d8710444ee75d65b9997c9e
+    ³³https://github.com/michaelmang/consume-style-dictionary-github-actions/pull/1
+   10 - Creating Tools and
+    Assets From Design
+           Tokens
+In a real-world scenario, there would likely be several phases for
+building out the tools for a design system. The first phase would
+be to extract the design tokens from a design file. The next phase
+would be to create the style dictionary and export the transformed
+design tokens to all the consuming applications. We’ll talk more in
+the next chapter as to what these phases may practically look like.
+For now, we’ll talk about the phase after all that. That is, the phase
+to create assets, or tools, from the transformed design tokens.
+When adopting a new design system, there first initiative would
+likely be to have all the consuming applications in a company to
+adopt the transformed tokens. They should use the transformed
+tokens for their application, creating an application that meets the
+specifications of the design system. After that, the design system
+team may want to build some assets, or tools, that would improve
+the developer experience for all the coders of the consuming
+applications.
+As for what assets or tools should be created, that is up to stake-
+holders of the consuming applications to collaborate on with the
+design system team. To whet your appetite, I’ll enumerate what I
+would push for.
+First, I would create a UI component library. I would prefer to
+make a UI component library that is specific to a technology.
+Meaning, I would create a React UI component library and a Vue
+UI component library if there existed a need for both within a
+company. From first-hand experience, I would not recommend
+10 - Creating Tools and Assets From Design Tokens                 52
+
+
+using agnostic UI components, like web components. It works with
+any UI technology, but it also seems to be awkward with all of them.
+Many times developers create a technology-specific (like React)
+wrapper around them anyways.
+One way to create technology-specific UI component libraries
+without reinventing the wheel is to create a headless UI component
+library for each technology. The idea is that you would create
+plain, unstyled (hence the name “headless”) UI components for each
+technology, like React and Vue. Then, you expose a UI component
+library that wraps the headless UI components and applies the
+transformed design tokens.
+With a headless UI, the functionality is encapsulated into the UI
+components, so that every consuming application does not need
+to rewrite the code to make a UI component interactive. However,
+the styles are not encapsulated in the components. That way, the
+coders for teams using a particularly technology, let’s say the React
+developers, can choose how they want to apply the design tokens.
+If the React developers preferred to use styled-components to style
+their UI components, they have the freedom to do that since the
+styles of the UI components are separated from the functionality of
+the plain, headless UI components. If the Vue developers preferred
+to use Tailwind, then they may do so. Even more specifically, each
+consuming application, theoretically, could create a library that
+wraps the headless UI component library with its preferred means
+of applying the styles without compromising the functionality.
+If you don’t want to create a headless UI from scratch, I would
+recommend looking into the Headless UI³⁴ project created by the
+Tailwind team. This is much better than using something like
+Material Design where you have to undo all the default styles
+and add the official styles. Because the styles and functionality
+are so tightly coupled together, it becomes hard to know what is
+a Material Design style and the design system’s style. At least, that
+   ³⁴https://github.com/tailwindlabs/headlessui
+10 - Creating Tools and Assets From Design Tokens                                53
+
+
+has been my experience. By separating the plain UI components
+encapsulating the shared functionality from the application of the
+official styles, you add another layer of security that a UI compo-
+nent library could outlast a design system. However, given the solid
+foundation that we’ve demonstrated with a style dictionary, we
+should already be set to have a design system that lasts.
+Second, I would create some assets that would make the integration
+of tools for applying the transformed design tokens easy. For
+example, you could integrate the transformed design tokens with
+a Stitches³⁵ theme, neatly organizing your potential styles for a UI
+component.
+Given recent trends, a great option would be to provide a Tailwind
+theme so that teams could easily apply the design tokens via utility
+classes.
+There is no way that I can iterate through every potential tech-
+nology that you can integrate with the transformed design tokens.
+My goal is just to give you the tools for your toolkit for you to
+research what would be best in your specific use case. However,
+let me provide direction for one way that you could integrate the
+design tokens with a tool that may help the coders in a company
+apply the official design specifications in their codebases. Namely,
+I’ll describe how to create a shareable Tailwind instance with a
+custom configuration that makes the design tokens accessible via
+utility classes.
+Given some of the tokens we created in a previous chapter³⁶, we
+could create the following Tailwind theme³⁷ in tailwind/index.js
+of our zappy_design project:
+
+
+
+
+   ³⁵https://stitches.dev/
+   ³⁶https://github.com/michaelmang/zappy_design/blob/master/tokens/index.json
+   ³⁷https://tailwindcss.com/docs/theme
+     10 - Creating Tools and Assets From Design Tokens       54
+
+
+1    const _ = require("lodash");
+2
+3    const tokens = require("../build/js/_variables.js");
+4
+5    const colors = () => {
+6      const colorTokens = Object.entries(tokens).filter(([key\
+7    ]) =>
+8        key.startsWith("color")
+9      );
+10     return Object.fromEntries(
+11       colorTokens.map(([key, value]) => {
+12         const colorName = key.replace("color.", "");
+13         return [colorName, value];
+14       })
+15     );
+16   };
+17
+18   const fontFamily = () => ({
+19     sans: _.get(tokens, "font-family"),
+20   });
+21
+22   const fontSize = () => {
+23     return Object.fromEntries(
+24       Object.entries(tokens).filter(([key]) => key.includes\
+25   ("font-size"))
+26     );
+27   };
+28
+29   const screens = () => ({
+30     sm: _.get(tokens, "breakpoint.mobile"),
+31     md: _.get(tokens, "breakpoint.tablet"),
+32   });
+33
+34   const spacing = () => {
+35     return Object.fromEntries(
+     10 - Creating Tools and Assets From Design Tokens                 55
+
+
+36       Object.entries(tokens).filter(([key]) => key.includes\
+37   ("spacing"))
+38     );
+39   };
+40
+41   module.exports = {
+42     theme: {
+43       colors: colors(),
+44       fontFamily: fontFamily(),
+45       fontSize: fontSize(),
+46       screens: screens(),
+47       spacing: spacing(),
+48     },
+49   };
+
+
+     Here, we just take the built JavaScript variables representing the
+     design tokens and shape them into a Tailwind theme configuration,
+     tweaking it as needed to our liking.
+     At a minimum, a Tailwind theme may include the simple design
+     tokens. You could also expose utility classes for the component
+     tokens.
+     With a shareable theme, you may either deliver it to a set of
+     consuming applications using a GitHub Actions workflow that we
+     outlined in the previous chapter. However, since the tool is specific
+     to the web, you could provide it via an npm package.
+     The main point of this example is to demonstrate how tools
+     may be built on top of the transformed design tokens. Without
+     the solid foundation of a style dictionary, creating platform and
+     technology-specific tools can lead to problems. However, with a
+     solid foundation of a style dictionary, which can transform raw
+     design tokens into deliverables for any given platform, building
+     technology-specific tools/assets carries little risk and much reward.
+10 - Creating Tools and Assets From Design Tokens           56
+
+
+Here is the final code for this chapter³⁸
+    ³⁸https://github.com/michaelmang/zappy_design/commit/
+3f5b7c9ddbd3e643b8a7f730f44f5d20f8fb672e
+ 11 - Ideas for Real-World
+        Collaboration
+Now, we know how to build the foundation of a style dictionary
+have the sky as our limit as far as the tools that may be built
+on top of it. The final thing to discuss to have a comprehensive
+understanding of how to start, maintain, and develop a robust
+design system is diving into the practical details on how a design
+system team, consisting of designers and developers, may collab-
+orate together. Additionally, we’ll consider how a design system
+team may communicate well with its stakeholders (the tech leads
+of applications consuming the design system).
+First things first, you will have to gather an inventory of all the
+people who will (at least initially) be working on the design system.
+This will include all the designers and developers that will be part
+of the design system team.
+Second, you’ll want to schedule an initial meeting, discussing your
+vision for the design system. This will include making a case for
+a style dictionary and explaining the concepts to everyone. You
+will need to set the expectation that the designers will ultimately
+play an active role in how the design specifications are translated
+into code, primarily by helping with the naming and organizational
+conventions for storing design tokens. Designers will also be helpful
+by answering other questions such as when to use rem or px.
+Specifically, by setting the expectation that designers will play an
+active role in building the style dictionary, I mean that designers
+should be aware that they will be a part of ongoing collaborative
+sessions. They will also need to know that they will need to have
+access to GitHub to review updates to the design tokens.
+This will require doing a couple things.
+11 - Ideas for Real-World Collaboration                                58
+
+
+One, you should plan on scheduling a meeting to help designers
+get on-boarded to GitHub. Optionally, you may want to write
+some documentation directly in the GitHub repository so you
+have the directions perpetually in writing. Feel free to build a
+documentation site, but really, all you need to do is create a docs
+directory in the design system project (such as our zappy-design
+project) and add Markdown files. Specifically, you’ll begin with
+writing a Markdown file that contains instructions for designers
+to get on-boarded to GitHub as well as outlining their involvement
+in the project.
+Two, you should all work towards committing to a series of
+meetings for collaborating together. At first, these meetings will
+be primarily discussing the nitty gritty of how to extract and store
+the design tokens from the design files. After that, or perhaps in
+addition to that, you may want to continue to meet to discuss
+updates on the progress of the design system and any action items.
+If you do use a docs directory in the design system project, you
+may want to include a log of the meeting notes in a nested
+meeting-notes directory, consisting of the agenda, points of discus-
+sion, and action items from each meeting. In addition to that, you
+may want to have a decisions directory to log major decisions that
+were made, such as the naming convention for component tokens.
+Third, you’ll want to make a plan as to the roadmap of the design
+system. It would make sense to break out the upcoming work
+into phases. The first phase would be to extract all the design
+tokens from the design files. The next phase would be to create the
+style dictionary and export the transformed design tokens to all
+the consuming applications. Once all teams have adopted the new
+design system via the design tokens, you reach out to stakeholders
+(tech leads) for those applications and schedule sessions to test
+their application and score how well their adoption has gone. You
+could create scorecards for these stakeholders similar to how people
+create UX scorecards³⁹ during usability testing. These scorecards
+   ³⁹https://about.gitlab.com/handbook/engineering/ux/ux-scorecards/
+11 - Ideas for Real-World Collaboration                           59
+
+
+could be used to generate action items for each team so that they
+can more closely adopt the official design system. The process of
+scorecard testing, however, assumes an inventory of stakeholders
+in a company. You’ll want to be intentional about gathering this
+information early on in the process.
+Once a design system has been built upon a solid foundation of a
+style dictionary, adopted by various applications, and tested for its
+adoption success, you can begin the fun part of building tools off
+of the design tokens as we discussed in the last chapter.
+Again, I’m left having to say that there is no way that I can tell
+every design system team that exists today, and that will exist in
+the future, what to do and how exactly to do it all. However, I hope
+that this provides some helpful direction.
+        12 - The Conclusion
+Congratulations! You have made it through the book.
+Let’s recap our original mission.
+The original mission was to walk with you as a fellow nervous
+developer to grow our ability to solve the problems surrounding
+design systems.
+Together, we have learned about the challenges to creating a com-
+pany-wide design system. But, we discovered what design tokens
+and style dictionaries are and how they may help fill in some of
+the gaps. We’ve stored up principles for creating design tokens
+as well as technical skills to build a style dictionary and deliver
+the transformed design tokens to an infinite amount of consuming
+applications. We’ve talked about the potential for building tools and
+assets from the transformed design tokens to improve the developer
+experience of all the developers within a company that are trying to
+adopt a design system. Finally, we’ve learned about collaborating
+with designers and other developers so that you don’t have to go
+through this process alone.
+Let me repeat the imaginary problem we were given at the start of
+this book.
+
+
+
+
+Ok, so you’re a really passionate UI developer…
+Great! We’ve got an exciting project that we want to entrust with
+you.
+Our top-notch, e-commerce siteÃƒâ€š ZapShoes provides the zap-
+piest way to get shoes delivered to your doorsteps.
+12 - The Conclusion                                                 61
+
+
+We recently raised 100 million dollars in funding, and we believe we
+can keep the momentum going by giving our application a facelift.
+We’ve hired a core group of designers that have whipped up a fresh
+design system.
+So far, the design system just includes a set of Figma files specifying
+the styles for web elements and some custom UI components.
+Since you’re the UI guru, we want you to build tools that will ensure
+that our current web application can successfully be migrated to the
+new design system and stay in sync with it.
+We also want the tooling to be flexible to be able to easily handle a
+future redesign.
+Moreover, we want to ensure that if we add applications for other
+platforms, like mobile and desktop, that we have a smooth way of
+ensuring that those applications can adopt and stay in sync with
+the design system.
+
+
+
+
+If you were given this problem, would you know how to solve it? I
+assure you that you certainly do!
+Remember, creating a robust design system is just a problem. As
+a developer, you are naturally good at solving problems. If you
+don’t know how to solve a problem, you know where to go looking
+for answers. In this case, you do have some tangible answers and
+direction for solving this particular problem.
+You may not understand how to extract every design specification
+from a design file, but you have a framework for thinking about it,
+and you know that you’ll have help.
+You may not know what custom Style Dictionary formats will be
+needed to create the platform deliverables that stakeholders need,
+but you know where to begin.
+12 - The Conclusion                                                62
+
+
+You may not know what tools people want built on top of the
+transformed design tokens, but you are able to help when the need
+arises.
+You may not know what designers and developers you will be
+collaborating with and what processes will come from it, but you
+know how to begin the conversation and gain their trust.
+You may still be at the start of a journey of working on developing
+a design system, but you are further along then when you started.
+It has been my pleasure to transfer my little bit of knowledge on
+this subject to you. And, I hope and trust that you’ll do great things
+with it.
+Every blessing, Michael Mangialardi
+Here is the final repository for this book⁴⁰
+
+
+
+
+   ⁴⁰https://github.com/michaelmang/zappy_design
+

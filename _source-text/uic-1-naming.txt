@@ -1,0 +1,184 @@
+   UI Components
+
+   Naming & Metadata
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+Naming and metadata / Key questions
+
+
+
+
+                                               What is the component name?
+                                               How are component names formatted?
+                                               Does a component name include a namespace?
+                                               Does component name vary by platform?
+                                               What is the component’s version and status?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Naming and metadata / Component name
+
+
+
+
+                                                            * {Label}
+                                                            {Help text}
+                                              {label}
+                                                                   {Value}
+                                                                                 {Title}
+                                                            {error text}         {property} {value}
+                                                                                 {property} {value}
+                                                                                 {property} {value}
+
+                                                                                  {Label}
+
+
+
+
+                      1                                 2                    3
+
+
+
+
+      © Copyright 2024 • Directed Edges LLC
+Naming and metadata / Component name
+
+
+
+
+                                                          * {Label}
+                                                          {Help text}
+                                              {label}
+                                                                 {Value}
+                                                                              {Title}
+                                                          {error text}        {property} {value}
+                                                                              {property} {value}
+                                                                              {property} {value}
+
+                                                                               {Label}
+
+
+
+
+                      Button                            Text input
+        Card
+
+                                                        Text field
+        Tile
+
+                                                        Input
+             Module
+
+                                                        Input field        Container
+
+
+      © Copyright 2024 • Directed Edges LLC
+Naming and metadata / Format via case
+
+
+
+
+                                               Type            example
+
+                                               Title case      Text Input
+                                               Sentence case   Text input
+                                               Camelcase       text Input
+                                               Lower case      text input
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Naming and metadata / Format via delimiters
+
+
+
+
+                                               Type         example
+
+                                               No space     TextInput
+                                               Dash         Text-Input
+                                               Underscore   Text_Input
+                                               Space        Text Input
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Naming and metadata / Namespace                                  Including a namespace in component
+                                                                 names is useful for
+                                                                   Specificity, Clarity to distinguishing
+                                                                   system assets from local asset
+                                                                   Traceability to quickly find, replace,
+                                                                   maintain and upgrade instance
+                                                                   Analytics to track and measure use
+                              Type            example
+
+
+                              None            Text Input
+
+                              Acronym         MDS Text Input
+
+                              Name            Cedar Text Input
+
+
+
+
+      © Copyright 2024 • Directed Edges LLC
+Naming and metadata / Design and code consistency
+
+
+
+
+          figma                                r e ac t      figma                r e ac t
+
+          DS Button                            DSButton      DS Button            Button
+          DS Text input                        DSTextInput   DS Text input        DSInputField
+          DS Card                              DSCard        DS Card              DSTile
+
+
+
+                         Consistent, Deterministic                Inconsistent, Non-deterministic
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Naming and metadata / Multi code platform consistency
+
+
+                    figma                      r e ac t           IOS               Android
+
+                    DS Button                  DSButton           DSButton          DSAButton
+
+                    DS Text input              DSTextInput        DSInputField      DSATextField
+
+                    DS Card                    DSCard             DSTile            Not available
+
+                    DS Badge                   DSBadge            DSBadge           DSABadge
+                                                                                    DSABadgeDot
+
+                            Consistent            Consistent        Consistent        Consistent
+                            Deterministic         Deterministic     Deterministic     Deterministic
+                            Isomorphic            Isomorphic        Isomorphic        Isomorphic
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                                 Name
+                                                 Format
+                                        Naming   Namespace
+                                                 Platform consistency
+                                                 Version and status
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+

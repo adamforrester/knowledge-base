@@ -1,0 +1,754 @@
+                                          Open in app
+
+                                                                                  3
+                            Search                                      Write
+
+
+
+                                 Design Systems Collective
+
+
+
+
+     Home
+
+     Library
+
+     Profile
+
+
+     Stories
+
+     Stats
+
+
+
+
+Following
+
+     UX Collective Edito…
+
+     Intodesignsystems
+                              Building AI-Driven
+     The Medium Blog          Design Systems with
+                              Metadata for Machine
+     Nathan Curtis
+
+     _carbondesign
+
+     Donnie D'Amato
+
+     EightShapes
+                              Learning
+     Salesforce Designer
+                                      Diana Wolosin | Design            7 min   · Jun 29,
+                                                               Follow
+     Dan Brown                        Systems                           read      2025
+
+     Karissa Woodward-H…
+
+                                     70         2
+                            This Article Breaks Down My Shift from Designing
+                            for Humans to Designing for AI
+
+
+                            I’ve been watching our industry push Figma to its
+                            absolute limits: optimizing components, minimizing
+                            variants, hacking functional prototypes, and altering
+                            auto-layouts to squeeze every element pixel-perfect
+     Home                   to match with development. And I get it, that work
+     Library                matters, but I couldn’t help asking myself: Is this
+                            really the only thing that will prepare us for what’s
+     Profile
+                            next?
+
+     Stories
+                            So I started pulling the thread. What are the actual
+     Stats                  things we need to be doing, not just to optimize the
+                            current system we have, but to prepare our design
+                            systems for a future where AI isn’t just an assistant,
+Following                   but an active user of our system?
+     UX Collective Edito…
+
+     Intodesignsystems      I began researching, sketching ideas, and rethinking
+     The Medium Blog        how our design assets could be structured not just
+     Nathan Curtis          for people, but for the AI. Then I had the chance to
+     _carbondesign          share my direction with TJ Pitre, someone I deeply
+     Donnie D'Amato         admire in this space for the visionary experiments
+     EightShapes            he shares about design system + AI. And something
+     Salesforce Designer    powerful happened: he confirmed I was on the right
+     Dan Brown              track and opened my mind even further to what’s
+     Karissa Woodward-H…    coming. That conversation didn’t spark the idea. It
+                            amplified it. It gave me clarity, courage, and a much
+                            bigger vision.
+                            After that call, I had to take a walk with my dogs
+                            because my brain was buzzing too loudly to sit still.
+                            He shared so much valuable information, resources,
+                            and insights. And when I came back, I knew: I’m not
+                            just building components. I’m building the
+                            foundation for intelligent systems.
+
+
+     Home                   This article is the beginning of that journey, my
+     Library                attempt to document what I’ve learned about AI-
+                            ready design systems, metadata as infrastructure,
+     Profile
+                            MCP servers, and how labeling design assets is the
+                            first step toward enabling supervised machine
+     Stories
+                            learning and automation at scale.
+     Stats
+
+
+
+
+Following
+                            …making our design system assets speak the language
+     UX Collective Edito…
+                            of AI
+     Intodesignsystems
+
+     The Medium Blog
+                            At some point, I realized I wasn’t just building for
+     Nathan Curtis
+                            designers anymore.
+     _carbondesign
+
+     Donnie D'Amato
+                            Up until now, much of our effort as design system
+     EightShapes
+                            designers has gone into optimizing visual
+     Salesforce Designer
+                            consistency, reducing cognitive load, and scaling
+     Dan Brown
+                            our component sets across products and platforms.
+     Karissa Woodward-H…
+                            But if we want to future-proof our systems, we need
+                            to stop designing only for humans.
+                            AI is becoming a real user of our systems. It doesn’t
+                            care if a component is pretty; it cares if it’s
+                            structured and labeled and can read, understand,
+                            and act on the intent behind it.
+
+
+                            And that shift requires a new way of thinking.
+                            Instead of just building with Figma best practices in
+     Home                   mind, I started to ask:
+     Library
+                               What would it take for AI to consume our
+     Profile
+                               system?
+
+     Stories                   How can I teach an AI what a component means,
+                               not just what it looks like?
+     Stats
+                               What fields, structures, or patterns would help a
+                               model generate, suggest, or validate UI at scale?
+Following
+                            This wasn’t about design anymore. It was about
+     UX Collective Edito…
+                            information architecture, systems thinking, and
+     Intodesignsystems
+                            making our design system assets speak the language
+     The Medium Blog
+                            of AI.
+     Nathan Curtis
+
+     _carbondesign
+
+     Donnie D'Amato
+
+     EightShapes
+
+     Salesforce Designer    Metadata Is the Interface
+     Dan Brown
+                            The first step in making our systems intelligent is
+     Karissa Woodward-H…
+                            making our assets legible to machines. That starts
+                            with metadata.
+                            I began to tag every asset in our design system with
+                            detailed, specific, and structured fields, not for
+                            documentation’s sake, but to give AI something to
+                            hold on to. Here’s the initial example of an AI-ready
+                            metadata schema for the components I have built:
+
+
+
+     Home
+                               {
+                                 "component_id": "",
+     Library                     "primary_purpose": "",
+                                 "when_to_use": "",
+     Profile                     "avoid_when": "",
+                                 "required_content": "",
+                                 "optional_content": "",
+     Stories                     "common_partners": "",
+                                 "generation_priority": "",
+                                 "layout_behavior": "",
+     Stats
+                                 "semantic_role": "",
+                                 "trigger_keywords": "",
+                                 "responsive_support": "",
+                                }
+Following
+
+     UX Collective Edito…
+
+     Intodesignsystems
+
+     The Medium Blog
+
+     Nathan Curtis
+                            MCP Servers and Structured Context
+     _carbondesign
+                            When I started investigating how AI tools could
+     Donnie D'Amato
+                            leverage all this metadata, I stumbled into the world
+     EightShapes
+                            of Model Context Protocol infrastructure (MCP
+     Salesforce Designer
+                            servers).
+     Dan Brown
+
+     Karissa Woodward-H…
+                            An MCP connects your metadata-rich assets to your
+                            AI solutions. Instead of prompting ChatGPT or
+                            Claude with isolated questions and limited context,
+                            an MCP server is an environment that lets you feed
+                            it structured, embedded knowledge for components,
+                            icons, tokens, and behavioral rules, all tied to your
+                            system’s context through API integrations with your
+                            design and development tools.
+
+
+                            Product teams are already experimenting with
+                            Cursor: They’re using MCP to let AI understand
+     Home                   components in code, suggest documentation, and
+     Library                even prototype full UIs. Now imagine combining
+                            that with Figma metadata and real design usage
+     Profile
+                            data. That’s where we’re headed.
+
+     Stories
+                            I’m not an engineer, but this research made me
+     Stats                  realize I need to work closely with dev partners to
+                            build that infrastructure. Because an AI can only be
+                            as smart as the context we give it.
+Following
+
+     UX Collective Edito…
+
+     Intodesignsystems
+
+     The Medium Blog
+                            …supervised machine learning relies on labeled data.
+     Nathan Curtis
+                            And that’s exactly what I’ve started doing.
+     _carbondesign
+
+     Donnie D'Amato
+
+     EightShapes
+                            Machine Learning Starts With Labels
+     Salesforce Designer    This is where it all clicked: supervised machine
+     Dan Brown              learning relies on labeled data. And that’s exactly
+     Karissa Woodward-H…    what I’ve started doing.
+
+
+                            Every time I tag a component with usage context or
+                            define what the “business_context" field means, I’m
+                            not just documenting, I’m training the system. I’m
+                            creating a labeled dataset for future models to learn
+                            from.
+
+
+                            This AI-ready metadata could power the following
+                            AI solutions:
+
+     Home                      A Figma plugin that generates layouts from
+     Library                   prompts
+
+     Profile                   A prototype generator
+
+                               A QA tool that flags non-compliant accessibility
+     Stories
+                               An assistant that recommends patterns based on
+     Stats
+                               intent
+
+                               A translation layer between design and dev that
+Following                      reduces friction and speeds up hand-off
+
+     UX Collective Edito…
+                            But none of that happens without labels. Metadata
+     Intodesignsystems
+                            isn’t busywork. It’s training data for the future of
+     The Medium Blog
+                            design.
+     Nathan Curtis
+
+     _carbondesign
+
+     Donnie D'Amato
+
+     EightShapes
+
+     Salesforce Designer    The AI doesn’t invent meaning, it extracts it.
+     Dan Brown
+
+     Karissa Woodward-H…
+                            The Foundation Matters: This Future Is Built
+                            on the Work of My Team
+                            None of this AI-driven work would be possible
+                            without the foundational design system work my
+                            team at Indeed has done, especially the extremely
+                            detailed work from my coworkers. My team has:
+
+
+                               Standardized our component library with
+                               exceptional clarity
+
+                               Structured our Figma files with consistency and
+                               logic
+     Home
+                               Mirrored that structure in Storybook
+     Library
+
+                               Partnered closely with devs to align design and
+     Profile
+                               code
+
+     Stories                   Built design documentation that’s rich in context
+
+     Stats
+                               and behavior
+
+
+                            This future-facing work stands on years of
+Following                   foundational effort by our design system team. That
+                            context makes this new layer of AI possible. The AI
+     UX Collective Edito…
+                            doesn’t invent meaning; it extracts it. Thanks to our
+     Intodesignsystems
+                            team's discipline, our system has meaning baked in.
+     The Medium Blog
+                            This AI work stands on the shoulders of the
+     Nathan Curtis
+                            traditional design system.
+     _carbondesign
+
+     Donnie D'Amato
+
+     EightShapes
+
+     Salesforce Designer
+
+     Dan Brown
+
+     Karissa Woodward-H…
+     Home
+
+     Library
+
+     Profile
+
+
+     Stories                      The metadatada ecosystem for AI Driven Design Systems
+
+
+     Stats
+
+                            Design, Code, and AI: Closing the Metadata
+                            Loop
+Following                   Here’s how we’re tying it all together:
+     UX Collective Edito…
+
+     Intodesignsystems       1. Structured Metadata (Tier 1)
+     The Medium Blog           Metadata → MCP server
+     Nathan Curtis
+                             2. Embedded Metadata in Figma (Tier 2)
+     _carbondesign
+                               Using native Figma metadata and tagging
+     Donnie D'Amato
+
+     EightShapes             3. Embedded Metadata in React (Tier 3)
+     Salesforce Designer       Through the component structure
+     Dan Brown
+                             4. Cross-linking via Figma<>Storybook (Tier 4)
+     Karissa Woodward-H…
+                               Connecting design and code with Figma’s native
+                               dev link
+                            Each tier closes the loop between tools. Figma
+                            serves designers, React serves developers, and the
+                            AI-ready metadata serves AI.
+
+
+
+
+     Home
+                            What the heck am I even doing now?
+
+     Library
+                            When I Realized This Wasn’t UX Design
+     Profile                Anymore
+                            I soon realized I was getting into a new field
+     Stories
+                            organically, and if I wanted to keep building this
+     Stats                  beast, I needed to stay current and keep learning.
+                            But what is this thing I am building? Eventually, I
+                            asked ChatGPT, “What the heck am I even doing
+Following                   now?”
+
+     UX Collective Edito…
+
+     Intodesignsystems      Here’s what my dear friend said:
+     The Medium Blog
+
+     Nathan Curtis             Information Architecture
+     _carbondesign
+                               Knowledge Management
+     Donnie D'Amato
+
+     EightShapes
+                               ML Ops (applied to design)
+
+     Salesforce Designer       Data Labeling for Supervised Learning
+     Dan Brown
+                               Semantic Systems Design
+     Karissa Woodward-H…
+
+                               AI-Ready Component Architecture
+
+                               Taxonomy Engineering
+
+                               Metadata Strategy
+                            That gave me language, the learning path, and the
+                            clarity. Because the moment I started designing for
+                            my new user: AI, this was the moment my mindset
+                            shifted.
+
+
+
+
+     Home
+
+     Library                Actionable Items That Helped Me Think
+     Profile
+                            Differently
+
+                            Concepts
+     Stories
+                               Supervised Machine Learning
+     Stats
+                               Metadata for Design Systems
+
+                               MCP Servers
+Following
+                               Semantic Tagging
+     UX Collective Edito…
+                               Design System taxonomy, ontology, and
+     Intodesignsystems
+                               folksonomy
+     The Medium Blog
+
+     Nathan Curtis
+                            Tools
+     _carbondesign
+                               Cursor for Figma MCP data retrieval
+     Donnie D'Amato
+
+     EightShapes               Claude, ChatGPT, and Gemini for late-night
+     Salesforce Designer       conversations
+     Dan Brown
+
+     Karissa Woodward-H…
+                            Behaviors
+                               Key conversations with top leaders in the
+                               industry
+
+                               Proactive learning
+                               Documenting your notes with an AI of your
+                               choice
+
+
+
+
+                            Final Thoughts: Designing for the Next User
+     Home                   TJ shared this insightful article by Murphy Trueman,
+                            Your next design system user is an agent, and one
+     Library
+                            quote especially caught my attention:
+     Profile
+
+                            “You need to start treating your component architecture
+     Stories                like an API — clear contracts, explicit inputs and
+     Stats                  outputs, and semantics that work for humans and
+                            machines alike.”
+
+
+Following                   That line captures the essence of what I’ve been
+                            building. Once we treat our components like data,
+     UX Collective Edito…
+                            we stop thinking about just usage and start thinking
+     Intodesignsystems
+                            about interpretability. That is what makes a system
+     The Medium Blog
+                            scalable for both people and AI. It might take a little
+     Nathan Curtis
+                            time to set it up at first, but I give you my word, it is
+     _carbondesign
+                            going to be worth it! It will optimize your design
+     Donnie D'Amato
+                            system so much that you will finally be able to focus
+     EightShapes
+                            on design system research, innovation, and
+     Salesforce Designer
+                            expansion.
+     Dan Brown
+
+     Karissa Woodward-H…
+                            If we want AI to help us build, audit, and scale our
+                            design systems, we need to give it structure, intent,
+                            and clarity, and that starts with labeling.
+                            💡 Are you on a similar path? Let’s build the future
+                            of design systems together.
+                            I’d love to connect, exchange insights, and compare
+                            notes. DM me or drop a comment.
+     Home
+
+     Library
+                             AI       Machine Learning          Design Systems          Metadata
+
+     Profile
+                             Artificial Intelligence
+
+
+     Stories
+
+     Stats
+
+
+
+                                      Published in Design Systems                            Follow
+Following                             Collective
+                                      2.2K followers · Last published 2 hours ago
+     UX Collective Edito…
+                                      A welcoming community for designers and
+     Intodesignsystems
+                                      developers passionate about scalable, consistent
+     The Medium Blog                  design. Explore articles, insights, and resources to
+                                      build and refine your design systems. Join us to
+     Nathan Curtis                    connect, learn, and shape the future of systematic
+     _carbondesign                    design together.
+
+     Donnie D'Amato
+
+     EightShapes                      Written by Diana Wolosin | Design                      Follow
+     Salesforce Designer              Systems
+                                      942 followers · 40 following
+     Dan Brown
+
+     Karissa Woodward-H…              A UX Designer formed in Colombia and Spain.
+                                      Based in San Diego, CA. +8 YOE on Product Design
+                                      & Design Systems.
+                            Responses (2)
+
+                                    Adam Forrester
+
+
+                             What are your thoughts?
+
+
+
+
+     Home
+
+     Library                        Murphy Trueman
+                                    Jun 29
+     Profile
+                            Loved this! Especially the idea of using metadata to create reasoning
+                            scaffolds for ML. I recently wrote about agent-facing design systems as
+                            APIs – your take on metadata as a bridge to pattern inference really
+     Stories
+                            complements that.
+     Stats                  Feels like we're both… more
+
+
+                                1     Reply
+
+
+Following
+                                    Chela Giraldo she/her
+     UX Collective Edito…           Jun 29
+
+     Intodesignsystems      Amazing how you are thinking about shaping design systems for the AI
+                            world of today! Inspiring! Thank you for sharing
+     The Medium Blog
+
+     Nathan Curtis                  Reply
+
+     _carbondesign
+
+     Donnie D'Amato
+
+     EightShapes
+
+     Salesforce Designer
+
+     Dan Brown
+                            More from the list: "DS AI"
+     Karissa Woodward-H…
+                            Curated by Adam Forrester
+
+
+
+
+                                Joe Njenga                                 In Bootca… by Pierre Bre…
+                            My 10 Level Claude Code                 How to build an AI design
+                            Cheat Sheet Will Make…                  system with MCP
+                                · Jun 29                            Aug 9
+
+
+                            View list
+
+
+
+
+     Home
+                            More from Diana Wolosin | Design Systems
+     Library
+                            and Design Systems Collective
+     Profile
+
+
+     Stories
+
+     Stats
+
+
+                                 In Design Sy… by Diana Wolosi…        In Design Syste…   by Youssef …
+
+Following                   AI Metadata: Powering                  The Figma UX-to-UI
+                            a Design System MCP                    Handoff Dream Finall…
+     UX Collective Edito…
+                            How Structured Data Makes              I waited years for engineers to
+     Intodesignsystems      Our Design System Machine-…            go from UX-to-UI in seconds.…
+     The Medium Blog                                                   Jun
+                            Aug 11      27      1                               283       1
+     Nathan Curtis                                                     3
+
+     _carbondesign
+
+     Donnie D'Amato
+
+     EightShapes
+
+     Salesforce Designer
+
+     Dan Brown
+
+     Karissa Woodward-H…
+                                 In Design Syste…   by Claus Ni…       In Boot… by Diana Wolosin | De…
+
+
+                            The Evolution of Design                FOMO, Config, AI, and
+                            System Tokens: A 202…                  the Future
+                            Table of Contents                      What Spain taught me about
+                                                                   evolution while the UX world…
+                            Jul 11       89                         May 23
+
+
+
+
+                                     See all from Diana Wolosin |            See all from Design
+                                          Design Systems                     Systems Collective
+
+
+
+     Home
+
+     Library
+
+     Profile
+
+
+     Stories
+                            Recommended from Medium
+     Stats
+
+
+
+
+Following
+
+     UX Collective Edito…
+
+     Intodesignsystems
+                                 In Bootca… by Victor Onyedik…          In Design Syste… by Maksym …
+     The Medium Blog
+
+     Nathan Curtis
+                            📘 Design + Code                         Design system best
+                            Microcopy Style Guide                   practices: Component…
+     _carbondesign          Building Trust Through                  In complex products,
+     Donnie D'Amato         Consistency from Figma to…              especially those that scale or…
+
+     EightShapes
+                            Jun 24                                  Aug 18      11     1
+     Salesforce Designer
+
+     Dan Brown
+
+     Karissa Woodward-H…
+                               In UX Collec… by Helena Mathi…       Srivats Mutalik | UX & Brand De…
+
+
+                            What’s human agency,                99% of UI/UX
+                            anyway?                             Designers Still Don’t…
+                            Overly seamless UX routinely        Photo by Alvaro Reyes on
+                            erodes user agency. Designe…        Unsplash
+
+                                                                    Aug
+                                Aug 18     221                                   129    1
+                                                                    15
+
+
+
+     Home
+
+     Library
+
+     Profile
+
+
+                               Web Designer Depot                   Roberto Moreno Celta
+     Stories
+                            Exciting New Tools for              Design Systems
+     Stats
+                            Designers, August…                  Without the Chaos: A…
+                            Our roundup of exciting new         How to create design systems
+                            tools for designers is a…           that teams actually use (and…
+
+Following                       Aug
+                                         255        1           Aug 14      11
+                                12
+     UX Collective Edito…
+
+     Intodesignsystems
+
+     The Medium Blog
+
+     Nathan Curtis            See more recommendations
+
+     _carbondesign
+
+     Donnie D'Amato
+
+     EightShapes
+
+     Salesforce Designer
+
+     Dan Brown
+
+     Karissa Woodward-H…
+

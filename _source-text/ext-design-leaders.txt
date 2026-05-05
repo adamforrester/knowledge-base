@@ -1,0 +1,822 @@
+The design
+leader's guide to
+redefining handoff
+03
+     The impact of designer-
+     developer collaboration
+04
+     Chapter 1: Unlock
+     collaboration with curiosity
+11
+     Chapter 2: Communicate
+     early and often
+18
+     Chapter 3: Choose
+     your defaults
+24
+     Working better, together
+
+
+
+
+02            Table of contents
+Discover how top design and
+
+engineering leaders break down
+
+silos, align incentives, and empower
+
+teams to build exceptional products
+
+together.
+
+
+
+Product development teams face unprecedented pressure to
+
+
+
+                                                                                  80%
+ship both faster and better. As AI lowers barriers to entry, the
+
+competitive edge lies not just in speed to market, but in
+
+crafting truly differentiated product experiences. In this                        of developers think their
+
+
+environment, the relationship between design and                                  business would benefit
+
+                                                                                  from designers and
+development is business critical. In fact, 80% of developers
+                                                                                  developers working more
+
+think their business would benefit from designers and
+                                                                                  closely together.
+
+developers working more closely together.
+
+
+
+
+Handoff has become a shorthand for the baton pass between
+
+
+
+                                                                                  92%
+design and development. But the term itself implies that
+
+there is a distinct “design” phase and a “development”
+
+phase, two sequential parts of a linear process. This might                       of designers and 91% of
+
+                                                                                  developers think there’s
+have been true in the past, when waterfall methods
+                                                                                  room for improvement in
+dominated, but as product development has become iterative
+                                                                                  the handoff process.
+
+and nonlinear, handoff has evolved into a more continuous,
+
+ongoing collaboration between the two disciplines.
+
+
+
+
+03                      The   design   leader's   guide   to   redefining   handoff
+                                                                     55%
+Today, the challenge isn’t just about how to improve handoff
+—it’s about reimagining the relationship between designers
+and developers. Even when they share the same north star of
+shipping exceptional user experiences, their daily realities         of developers think that
+can feel worlds apart. Engineers typically optimize for              improving the relationship
+                                                                     between developers and
+performance and stability, while designers focus on crafting
+                                                                     designers would achieve
+consistent, well-designed interfaces. “We are literally              faster time to market.
+speaking different languages,” says Lauren Byrne, Designer
+Advocate at Figma. Layer that on top of bandwidth
+constraints and pressure to adopt new tools, and it’s
+unsurprising that over 90% of both developers and designers
+see room for improvement.
+
+The impacts of poor design-development collaboration can
+be subtle at first—a few pixels off here, inconsistent spacing
+there—but, over time, they accrue as design and tech debt,
+and diminish team morale. As Colleen MacDonald, Product
+Designer at Duolingo, puts it: “It’s expensive to build
+something, so you want to build it right.” On the flip side,
+effective collaboration enables higher quality products,
+faster time to market, and improved organizational culture.
+“Companies that are well known for their craft tend to shine
+from both an engineering and design standpoint,” says
+Roshan Bhalla, Software Engineer at Figma. While handoff
+looks different at every company, successful teams who see
+these benefits share clear patterns. Beyond the tactical work
+of file organization and state management, the key lies in
+fostering deeper cross-functional understanding, alignment,
+and trust.
+
+
+
+Read on to learn:
+     The key points of tension during handoff and how to address the
+     How to foster shared ownership, align teams towards a common goal, and
+     decide on a definition of “done
+     The mindset shift that unlocks smoother collaboratio
+     When to bring developers in and how to set them up for succes
+     How to communicate non-negotiables vs. nice-to-have functionalitie
+     Tips from Linear, Duolingo, GitHub, and more leading teams
+
+04                     The design leader's guide to redefining handoff
+Chapter 1: Unlock
+collaboration with
+curiosity
+
+Designers and developers each bring unique strengths to
+product development. Both disciplines need each other to
+ship great user experiences, yet they operate with
+                                                                       47%
+different constraints, motivations, and expertise. Bridging            of developers cite lack of
+this gap requires looking beyond traditional role boundaries.          understanding in the
+                                                                       development process as a
+“It’s more about competencies than roles,” says Hugo
+                                                                       challenge when working
+Raymond, Designer Advocate at Figma. “You’re trying to find            with designers.
+ways to inspire curiosity in each other’s discipline.”
+
+
+With 49% of developers citing differences in priorities and
+motivations as challenges, and 47% citing designers’ lack of
+understanding in the development process, it's clear that
+both sides could benefit from sharing knowledge and
+context. “The developer is going to know what constraints
+exist on the code side. Sometimes there are time constraints:
+Something that seems really simple in design takes a long
+time to build,” says Tom Lowry, Director, Designer Advocates
+at Figma. At the same time, developers may not anticipate
+the various states they’ll need to build—incomplete states,
+loading states, error states—that may not be accounted for
+in their design system. While this disconnect can pose real
+challenges, it’s also an opportunity to better understand
+each other.
+05                       The design leader's guide to redefining handoff
+ Navigating individual and shared
+ constraints
+ When developers determine something isn’t feasible, it’s easy
+ to interpret that as reluctance rather than reality. The truth is
+ typically a matter of trade-offs within constraints—whether
+ that’s tech stack limitations, framework restrictions, or tight
+ timelines. The rationale is usually technical or structural—not
+ personal.
+
+ These constraints can compound as companies scale, forcing
+ teams to navigate competing priorities. “Designers, product
+ managers, even developers to some degree are now actually
+ not only focused on a single goal, they’re focused on many
+ goals,” says Roshan. “A designer might have to care about
+ the specific products’ users, but also what their design
+ system is telling them, and what their manager’s telling them
+ other teams are thinking about, and what patterns they
+ should be inheriting.” 
+
+ While designers juggle these demands, engineers might face
+ pressure from their CTO to prioritize performance or tackle
+ foundational projects. “It’ll be hard for me to convince a
+ designer to make a certain decision because of a migration
+ we’re doing in a completely different part of the code base,”
+ says Roshan. “I don’t want [designers] thinking about those
+ types of things. But it unfortunately does affect both of us.”
+
+
+
+“The teams struggling for greater alignment—that’s
+ usually a structural problem based on the incentives that
+ go all the way up to the top.”
+ Hugo Raymond, Designer Advocate, Figma
+
+
+
+
+ 06                      The design leader's guide to redefining handoff
+Constraints exist at both macro and micro levels.
+Sometimes, they’re organizational. “The teams struggling
+for greater alignment—that’s usually a structural
+problem based on the incentives that go all the way up to
+the top,” says Designer Advocate Hugo Raymond. It
+might feel like developers don’t understand the
+importance of addressing design debt, when the reality is
+they’re prioritizing immediate problems like bug fixes
+because of organizational pressure. “Engineers are
+incentivized to improve their JavaScript knowledge over
+CSS,” says Hugo. “The thing designers care about is not
+the same as what developers are told they need to care
+about, unless they’re sitting in a very front-end role—a
+rarity in most companies.”
+
+This is where it’s important for leadership to align.
+“There’s a whole conversation still to be had about
+design debt, technical debt, and product debt,” says
+Hugo, pointing out that many organizations don’t weigh
+them equally. “That structural problem is what’s actually
+getting in the way of designers and developers
+collaborating more closely together.”
+
+
+
+
+07                     The design leader's guide to redefining handoff
+A mindset shift, not a cultural
+overhaul
+At their worst, constraints can feel like one discipline
+imposing limitations on the other; at their best, they become
+accelerants. The difference lies in mindset. When teams
+approach product development as a shared problem space,
+they can make thoughtful trade-offs that balance priorities
+for designers and developers. It’s a “‘me’ versus ‘we’”
+mindset, says Designer Advocate Lauren Byrne.
+
+Without this shared perspective, teams often engage in
+unnecessary negotiation. “What you end up doing is arguing
+for 120% so that you can hopefully back down to 100%,
+instead of just being like, ‘What is 100% for us together?’”
+says Jake Albaugh, Developer Advocate at Figma. "We start
+with 'How far do I need to pitch?' so that we work back to
+'What am I going for?'" Noga Mann, Engineering Manager at
+Figma, suggests reframing these conversations: “It’s not
+about pushing back—it’s bringing things up for discussion.”
+
+Your handoff process reflects your culture, and while a
+complete cultural transformation takes time, an attitude
+shift is within reach. “Engineers, at times, can have the bias
+that they know more than the designers do,” says Jake. “At
+times, designers might have the bias that engineering is too
+rigid. It’s a natural trap to fall into those default
+perspectives.” You can’t manufacture trust, but you can
+assume best intent.
+
+Amy Lokey, Chief Experience Officer at ServiceNow,
+suggests rethinking the concept itself. “Maybe we have to
+reframe handoff as no longer being a handoff,” she says. “We
+are working together until this thing gets to a level of
+completeness and quality that we feel it’s ready to ship.”
+
+
+
+
+08                     The design leader's guide to redefining handoff
+How emerging technology impacts
+handoff
+With generative AI and other emerging technologies, product development
+has become even more fluid. Amy says that before her teams started
+experimenting with generative AI, the handoff process was linear. 
+
+“That doesn’t work anymore because there’s this level of organic
+unpredictability with generative AI. We really have to see it live in production
+to make sure that our assumptions are correct, because a lot of times we’re
+building a new experience at the same time and launching that along with a
+new LLM simultaneously,” Amy says. 
+
+Since working with generative AI requires a more experimental approach, it’s
+especially important for design and development to stay in lockstep. Here’s
+how
+   Ensure that developers understand design intent and the nuances of each
+   interactio
+   Consider pair designing so that design and development can work side by
+   side as they iterat
+   Embrace a more fluid, communicative process and be open to evolving
+   designs as designers and developers experiment together
+
+
+
+
+Understanding is an active pursuit
+So how far should designers lean into learning other
+disciplines? For many, “understand development work”
+translates to “learn code”—a daunting prospect. But that’s
+not necessary. “They don’t necessarily need to code, but they
+should understand how their design choices impact the
+engineering work required,” says Aleksander Djordjevic,
+Senior Product Designer at Spotify. “I haven’t gone through
+any formal training of learning how to build JavaScript
+applications or anything like that. I just looked at code and
+tried to understand how it works, and that has helped me get
+to a point where I can do simple things myself—and have
+deeper conversations with my engineering friends.”
+
+
+09                            The design leader's guide to redefining handoff
+ On a more foundational level, it’s about taking an interest in
+ each other’s craft and understanding what they’re up
+ against. For example, full stack engineers write code that
+ isn’t just front-end while balancing multiple priorities and
+ context-switching. “They have all of their rituals and they’re
+ probably struggling to find enough time to write code,” says
+ Designer Advocate Director Tom Lowry. “Those rituals of
+ working closely with design at certain organizations aren’t
+ always baked into their day to day.” Similarly, designers need
+ focused time to quietly think and solve problems.
+
+
+
+“It’s about taking an interest in each other’s craft and
+ understanding what they’re up against.”
+
+ Tactically, this means collaborative problem-solving and
+ putting in extra effort to bridge the gap. If issues that
+ weren’t caught earlier repeatedly surface in quality
+ assurance (QA), instead of a designer saying, “I don’t
+ understand why that is,” they could spend more time
+ watching their developer counterpart build and work through
+ bugs aloud. This investment may not feel like direct design
+ work, but it will save countless hours down the line.
+
+ This understanding must flow both ways. “You can definitely
+ talk about it from both the designer to developer angle and
+ the developer to designer angle,” says Oscar Nilsson, Product
+ Designer at Figma. “As a designer, I can start engaging in the
+ pull requests (PRs)—actually testing the functioning code
+ and sort of reviewing the work that’s being done by
+ engineers.” It becomes about mutual engagement rather than
+ one-sided outreach.
+
+
+
+
+ 10                     The design leader's guide to redefining handoff
+More broadly, encouraging flexible role boundaries requires
+leadership support. “We’re really trying to encourage
+people not to read too much into their role definition, and
+that it’s okay to cross those boundaries,” says Engineering
+Manager Noga Mann. “A developer might do a design riff of
+a feature, or design something and build it, and share it for
+feedback with the designer. And our designers are also
+looking at our PRs.” This mindset shift allows teams to make
+shared bets together.
+
+
+
+
+Chapter in review
+Key takeaways
+Reframe how you talk about handoff     Encourage designers to shadow their   Set the expectation that
+—as part of an ongoing collaboration   developer counterparts                designers can review technical
+between designers and developers                                             implementations and developers
+                                                                             can iterate on design directions
+
+
+11                          The design leader's guide to redefining handoff
+ Chapter 2:
+ Communicate early
+ and often
+
+
+ 55% of front-end developers would like to be brought into the
+ design process earlier—and for good reason. Developers are
+ uniquely positioned to identify code constraints, making
+                                                                      55%
+ early alignment important for determining what’s feasible and        of developers would like to
+ what might extend timelines. Involvement at this stage gives         be brought into the design
+                                                                      process earlier.
+ designers an opportunity to share the intent behind their
+ work and explain their thought process. Whether through
+ video calls, chat messages, or comments in Figma, keeping
+ an open line of communication from the outset prevents
+ confusion and unwelcome surprises later.
+
+
+
+
+“Communication is always the big part—getting people on
+ the same page about what we are trying to do, and how
+ we are going to do it.”
+ Jori Lallo, Co-founder, Linear
+
+
+
+ 12                     The design leader's guide to redefining handoff
+“Communication is always the big part—getting people on
+                                                                       GitHub believes that
+ the same page about what we are trying to do, and how                 engineers should enter the
+ we are going to do it,” says Jori Lallo, Co-founder of Linear.        product development
+ For some teams, the ideal is pair designing and                       process earlier, a concept
+                                                                       they call shifting left.
+ developing, where everyone works in lockstep from the
+ beginning. “We’re in constant communication on Slack, we
+ all work together in the office three to four days a week,
+ we sit in a row together,” says Product Designer Colleen
+ MacDonald. If that level of collaboration isn’t possible, the
+ goal should be to involve developers as early as possible;
+ when they’re involved from the start, they can be valuable
+ thought partners.
+
+ This collaborative tone comes from leadership. “A lot of it
+ is down to how you structure your teams—bringing
+ designers operationally closer to engineers and having
+ those conversations regularly,” says Reza Rahman, Senior
+ Staff Engineer at GitHub. “One of the ways we do that is
+ through design reviews.” This aligns with GitHub’s
+ philosophy that engineers should “shift left” and enter the
+ product development process at earlier stages—even
+ during ideation—to assess feasibility and strengthen
+ ideas. This approach encourages designers to include
+ developers more proactively. “They are tagged into design
+ discussions almost daily,” says Reza. The result is a more
+ fluid workflow that has changed how products move from
+ design to development. “We don’t really have a single
+ handoff anymore—we have a continuous collaboration.”
+
+
+
+
+ 13                      The design leader's guide to redefining handoff
+Context is critical
+Early involvement allows developers to understand how
+something should behave, not just how it looks. “When I’m
+looking at a design, oftentimes what I’m seeing is a very
+static representation of what I’m going to be building,”
+says Akbar Mirza, Developer Advocate at Figma. “As an
+engineer, I’m thinking, ‘How is this going to respond to
+different screen sizes as a user changes a window?’ and
+all the other in-between steps that we might not
+necessarily see in Figma.”
+
+This early stage is also when designers can create
+prototypes or videos that demonstrate intent, especially
+for components that don’t already exist in the design
+system. Even a 30-minute conversation can be invaluable
+when asynchronous communication falls short. “It’s going
+to be a much more organic conversation as opposed to
+putting down your bullet points in Slack,” says Designer
+Advocate Lauren Byrne.
+
+“Another benefit is that—depending on the rapport and
+ level of design collaboration they prefer—developers can
+ see the rest of the work in progress. I’ve had experiences
+ where they’ve been able to come in and make really good
+ suggestions, or point out things I missed while working
+ through a problem so it can be incorporated into the final
+ handoff version,” says Susan Lin, Staff Product Designer
+ at Crunchyroll.
+
+
+
+
+ 14                     The design leader's guide to redefining handoff
+This approach creates efficiencies for both teams. By
+sharing enough context early on, designers empower
+developers to independently work through problems and
+arrive at the right solution. “Ideally, developers should
+have enough context to understand where alternative
+solutions might be helpful—and feel comfortable
+proposing them,” says Software Engineer Roshan Bhalla.
+For example, if a designer explains why they want toggle
+functionality, a developer has enough context to
+confidently suggest alternatives like a dropdown menu,
+without having to ask the designer follow up questions and
+await their response—avoiding implementation delays.
+When presenting options, it helps if the designer
+understands the trade-offs—a toggle might delay
+shipping by days, whereas a dropdown could achieve the
+same result and might keep the project on schedule.
+Meaza Abate, Engineering Manager at Figma, echoes this
+sentiment: “Even if we're missing pieces during
+implementation, we have enough context to make trade-
+offs independently.”
+
+Plus, if the team is using a design system, it’s valuable to
+inventory existing components and align on available
+libraries and frameworks. “It’s hard to keep track of
+everything that’s available and having that counterpart is
+nice,” says Clara Ujiie, Designer Advocate at Figma.
+
+
+
+
+15                      The design leader's guide to redefining handoff
+Communicate the non-negotiables
+Sometimes a simple design change can save hours of
+development time. “If I can change something in one
+second and that will save you 10 hours, I’ll do it,” says
+Lauren. But to get there, designers and developers need to
+align on the non-negotiables so it’s clear where there is
+room for flexibility. Designers in particular should articulate
+which elements must remain intact and why—even if it’s
+just a few components on a page. They can present both an
+“ideal” approach that reveals their vision and a more
+“realistic” version, allowing the team to explore
+possibilities in between.
+
+When facing too many non-negotiables that might require
+scope reduction, Lauren suggests asking, “Where else can I
+take from?” What seems flexible to one discipline might
+be essential to another. This is where designers should
+advocate for elements they strongly believe in; even
+seemingly minor design details can significantly impact
+craft, quality, and consistency.
+
+
+
+
+16                      The design leader's guide to redefining handoff
+Case study
+
+How Duolingo approaches designer-
+developer collaboration
+Software Engineer Sammi Siegel and Product Designer Colleen MacDonald work
+together on Duolingo Math, which launched in 2022. Their mission is to “Make
+math learning fun” and find product-market fit. Since their product is more
+nascent than others at Duolingo, their handoff process is especially fluid, but
+they’ve still arrived at a number of must-haves in their process. Here are their
+learnings:
+
+
+
+Prototype                                Adopt a shared                            Know when to just
+whenever                                 language                                  ship it
+possible                              “Duolingo has very strong
+                                      engineering constraints for the
+                                                                                   Sammi describes a time when the
+                                                                                   team came under a lot of pressure to
+“Oftentimes, we’ll design just enough system-level stuff. Everything seems         launch math games, part of an effort
+to get the engineers able to make an to map pretty cleanly from Figma,”            to learn how to gamify Duolingo
+initial scrappy prototype, and then   says Colleen. “The labels of the             Math. “We wanted to test as many
+we’ll all come together, test it,     different text sizes, the colors, it's all   games as possible to see what
+dogfood it a bunch, give feedback,    the same in code.” The Duolingo team         resonated with learners, so we opted
+and we just iterate a lot that way,”  labels their brand colors based on           to ship four simple games instead of
+says Colleen. “It really enables the  animals, which streamlines                   just one or two more robust ones,”
+quick feedback loops that help us     implementation. “We’re like, ‘Oh, this       says Colleen. "They were so simple—
+accelerate our work,” says Sammi.     is eel, and I know where to put that in      no extra mechanics, just core
+                                      the code,’” says Sammi.                      gameplay, only very simple designs."
+                                                                                   Even though those designs didn’t
+                                                                                   have extra bells and whistles, they
+                                                                                   ultimately met the quality bar—just
+                                                                                   at a reduced scope. “We tend to cut
+                                                                                   corners on the scope of the feature,
+                                                                                   but never the polish or the fun or any
+                                                                                   of those elements,” she says.
+
+
+
+
+Chapter in review
+Key takeaways
+Consider ways to structure your          Encourage your team to play an            Lean on design systems to
+team to bring designers and              active role in communicating design       streamline implementation
+developers closer together               intent and non-negotiables
+
+
+17                            The design leader's guide to redefining handoff
+Chapter 3: Choose
+
+your defaults
+
+
+
+
+While there’s no universal template for handoff that works for
+
+
+all teams, establishing some foundational scaffolding is
+
+
+valuable. This becomes increasingly important for larger
+
+
+teams where dependencies and variables multiply. For smaller
+
+
+organizations with emerging design functions, more
+
+
+flexibility may be appropriate. Regardless of company size or
+
+
+established processes, it’s less about rigid prescriptions and
+
+
+more about having a clear perspective on what excellence
+
+
+looks like for your team. Consider developing a position on
+
+
+several key areas— creating “default” approaches that your
+
+
+team can adapt as needed
+
+
+
+
+     How to align on scop
+
+
+
+
+     When to make or break pattern
+
+
+
+
+     What the "pencils down" moment should b
+
+
+
+
+     Which beliefs are strongly held
+
+
+
+
+18                      The   design   leader's   guide   to   redefining   handoff
+How to align on scope
+
+In highly collaborative environments, it can be challenging
+to transition from exploration to decision-making. “Design
+has a tendency to open more threads, ask more questions,
+do more explorations,” says Engineering Manager Noga
+Mann. “It’s really hard to make decisions and eventually
+choose what we’re doing and what we’re not doing.” The art
+lies in balancing thorough exploration and forward
+momentum. 
+
+
+Here are strategies teams have found effective
+
+     Use a decision-making framework, like categorizing
+     decisions as either one-way (difficult to reverse) or two-
+     way (easily reversible) doors
+
+     Enlist cross-functional teammates as “tiebreakers,”
+     whether that’s a product manager representing the
+     user’s voice, or the product marketer maintaining
+     awareness of external launch deadlines
+
+     Establish what’s “above” and “below” the line and
+     remember that post-launch iterations can continue as
+     “fast follow” improvements.
+
+
+
+
+19                       The design leader's guide to redefining handoff
+When to make or break patterns
+
+For teams with design systems, having a framework to
+determine when to use existing patterns versus create new
+designs is invaluable. “There are times when a designer
+creates a net new design, even though there’s an existing
+pattern,” says Developer Advocate Akbar Mirza. “It’s not
+that I’m opposed to creating something new, but leveraging
+existing patterns—where it makes sense—can keep us on
+track and prevent delays.”
+
+
+Consider these approaches to balance structure and
+flexibility
+
+     Map design and code libraries to each other to avoid
+     hidden costs and reduce redundant work
+
+     Create shared ownership between designers and
+     developers through joint reviews and pairing sessions,
+     increasing visibility into existing patterns and driving
+     alignment on when to reuse or create new patterns
+
+     Be intentional when bypassing established patterns—
+     share reasoning and acknowledge the departure from
+     the system.
+
+
+
+
+20                       The design leader's guide to redefining handoff
+What the “pencils down” moment
+should be
+
+The distinction between when something feels ready for
+development and when it actually is ready can be subtle.
+Many teams view shipping not as the final result, but as
+another milestone in ongoing iteration—even after
+launch. Duolingo, for example, treats feature releases as
+“v1,” freeing them from the burden of perfection with
+every launch.
+
+
+Other effective approaches you might consider
+
+     Make “ready for dev” a shared decision by requiring
+     approval from both designers and developers
+
+     Align on criteria for post-development changes,
+     whether addressing design inconsistencies or fixing
+     bugs during QA
+
+     Decide between synchronous or asynchronous
+     handoff—either through formal handoff meetings or
+     marking files as “ready for dev” in Dev Mode.
+
+
+
+
+21                      The design leader's guide to redefining handoff
+How to empower your teams with
+asynchronous handoff
+When it comes to the “pencils down” moment, designers should feel
+empowered to connect with their developer counterpart if they prefer
+synchronous handoff. But tools can be a bridge between the two
+disciplines, and features in Dev Mode can help teams save time with
+asynchronous handoff:
+
+
+
+Ready for dev                             Compare changes Annotations
+Designers can mark sections, frames,      Dev Mode allows developers to see      Designers can communicate design
+and components as “ready for dev”         when a frame or component was          intent and details through Dev
+so developers can preview designs         edited and compare versions. “With     Mode annotations. “Before Figma,
+before implementation. Developers         compare changes and version            we needed extra meetings for
+can view all designs marked with a        history, developers have more          handoff and collaborative
+Dev Mode status in a given file and       transparency on when a file has        discussions about interaction
+easily identify changes since they last   changed,” says Saurav Rastogi,         states and component behaviors,”
+worked in it.                             Staff Designer, Design Systems,        says Oliver Dumoulin, Staff Design
+                                          Razorpay. “That helps them to          Systems Engineer, Peloton. “Now,
+                                          freeze the files and scope things to   we handle much of that
+                                          avoid missing timelines due to last-   asynchronously through Dev Mode.”
+                                          minute changes.”
+
+
+
+
+22                            The design leader's guide to redefining handoff
+Which beliefs are strongly held
+Every team operates with different values and principles,
+typically established by leadership who set the tone.
+Design-development collaboration ultimately reflects and
+embodies this culture. Most importantly, teams need
+alignment on their non-negotiables—not just design
+specifics, but core approaches to work and what they
+value most. This is especially true as teams scale.
+Articulating and socializing these values help align the
+team around consistent processes, shared learnings, and
+an established quality bar. “We push direct responsibility
+onto the team, giving them the freedom to make
+decisions, while setting a standard for them to meet,”
+says Karri Saarinen, CEO and Co-founder of Linear.
+
+Other teams we spoke with shared these insights
+     Establish team-level principles, like GitHub’s “shift
+     left” philosophy encouraging developers to participate
+     in the earliest phases of product development
+     Operationalize company values, as Duolingo does
+     with their company handbook that guides their
+     product development process
+     Iterate and evolve as new tools and technologies
+     transform workflows, just as ServiceNow has in
+     response to generative AI.
+
+
+
+
+Chapter in review
+Key takeaways
+Use tools as a bridge between      Have a point of view on what “good”   Embrace change and evolution in
+designers and developers           looks like—and how to empower         the face of new technology
+                                   your team to meet the bar
+
+
+23                          The design leader's guide to redefining handoff
+Working better, together
+As you address these key areas of investment, consider how
+you might empower your team to proactively improve these
+workflows and speak up when they see opportunities for
+greater designer-developer alignment. “Don’t be afraid to get
+in the room. There’s no need to have a divide. More
+communication, more collaboration is just a benefit to
+everybody,” says Mallory Dean, Designer Advocate at Figma.
+
+Today, collaboration between designers and developers isn’t
+merely about shipping faster—it’s about elevating each
+other’s craft and the end product we provide to users. When
+teams understand each other, work in lockstep, and freely
+share feedback and constraints, they can focus less on the
+“how” and more on the “what.” As we adapt to evolving tools
+and technologies, the most innovative teams will be those
+who create environments where both disciplines can do their
+best work together.
+
+
+
+
+What’s next?
+As a next step, you might consider
+     How to work with engineering leadership to align
+     incentives and encourage developers to “shift left
+     Workflow changes to foster pair designin
+     Sharing tactical tips and tricks with your team
+
+
+
+
+24                       The design leader's guide to redefining handoff
+figma.com/reports
+

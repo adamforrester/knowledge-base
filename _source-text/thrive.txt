@@ -1,0 +1,1074 @@
+Design
+Systems
+
+VML / September 2024
+                          Digital Design Systems
+                                               AT VML
+
+
+
+
+   Adam Forrester            Aaron May                     Sofia Andreadis           Sam Thompson
+Group Director, XD | KC   Director, XD | CIN            Sr. Program Director |   Director, Technology | KC
+                                                                 CIN
+
+
+
+
+                                                                                                             PAG E   2
+Supporting design systems for clients
+
+
+
+
+                                        PAG E   3
+  Thrivent
+  September 2024
+
+
+
+
+Defining
+Design
+Systems
+                              DESIGN SYSTEMS
+
+
+
+
+      A digital product refers to any software-based offering or
+       tool that generates revenue, help improves efficiency or
+                   enhances customer experiences.
+VML                                                                2 0 2 4
+
+
+
+
+       Common examples of digital products include websites,
+          mobile apps, and various software applications.
+A design system is a
+collection of UI elements
+built as reusable code.
+They are guided by clear
+standards that help
+organizations deliver
+cohesive, on-brand
+experiences at scale,
+over time.
+
+
+                            PAG E   6
+                                                           DESIGN SYSTEMS
+
+
+
+
+                                                 Key Deliverables
+
+                    UI Component                                                       Usage Guidance &
+                       Libraries                                                        Documentation
+
+
+VML                                                                                                                                        2 0 2 4
+
+
+
+
+             Design Library             Code Library
+
+
+      These components are designed and coded in a way that                 Documentation is the single source of truth that defines how
+      makes it easy for designers and developers to re-use them               components should be used, styled, and implemented.
+                 consistently throughout the product.
+
+
+
+                                                Other deliverables can include:
+              Accessibility guidelines, code standards, design patterns, design assets, content guidelines & more.
+                                                        DESIGN SYSTEMS
+
+
+
+
+      Often confused with….
+
+      Style guide                     UI kit
+      Outlines the visual and         UI kits are collections of
+      sometimes written elements      pre-built elements that can
+      of a brand or project. It       be used by designers to
+
+                                                                         2 0 2 4
+      typically includes guidelines   quickly assemble a user
+VML
+      for colors, typography,         interface for a website or
+      imagery, and other design       application and typically
+      elements.                       come in the form a Figma
+                                      or Sketch library.
+
+
+      Component                       Brand design
+      library                         system
+      A collection of reusable code   Guidelines that encompass
+      for that can be assembled to    the broader aspects of brand
+      create user interfaces.         identity, including visual
+                                      identity, messaging, tone of
+                                      voice, and brand values.
+                        DESIGN SYSTEM PRACTICE
+
+
+
+
+       A design system provides a library of solved
+       problems delivered as reusable UI elements,
+                 guidelines, and patterns.
+VML                                                   2 0 2 4
+
+
+
+
+        This helps companies scale design, foster
+      collaboration, and creates space for teams to
+            focus on more complex problems.
+                                         DESIGN SYSTEMS
+
+
+
+
+                      The brand defines the design language and the
+              design system translates that into digital styles and libraries of
+             user interface elements that can be utilized by all product teams.
+
+
+                                                                       Brand identity, logos colors, fonts, tone of
+                                    Brand Identity / Design Language
+             Brand Team                                                voice, photography, & usage guidance.
+
+
+
+
+                                                                                                                       DECEMBER 2022
+V M LY & R
+                                                                       Accessible digital color scales, digital type
+                                             Digital Styles &
+                                                                       scales, spacing & grids, UX writing
+                                              Foundations              guidelines.
+
+
+             Design System Team
+
+                                                                       UI design & code libraries, common design
+                                        UI Component Libraries         patterns, best practices & usage guidance.
+
+
+
+
+                                                Product
+                                                                       Product-specific local libraries.
+             Product Teams
+
+
+
+
+                                              PAG E    10
+   Josh Clarke, Big Medium
+Design Systems at Scale: Episode 2
+
+                                     PAG E   11
+ Thrivent
+ Version 1.0
+ September 2024
+
+
+
+
+Why
+design
+systems
+Value
+Using design systems not only saves time, it creates space
+for teams by minimizing the redundant and menial tasks so
+teams can focus on the bigger problems.
+
+
+
+                                                                             More time spent on
+                                                                             more meaningful work.
+Efficient                 Accessible               Reusable
+Teams hit the ground      Built from the ground    Work can be created,
+running with pre-built    up to be accessible      replicated, and
+foundations, components   and meet all WCAG 2.2    maintained quickly
+& templates that can      standards, a design      and at scale, unifying
+typically take weeks or   system is ready out of   language across
+months to define.         the box for design       cross-functional teams.
+                          teams.
+                                                  DESIGN SYSTEMS
+
+
+
+
+ Why companies invest
+ in design systems
+                        Work can be created, replicated, and maintained
+           Scaling
+
+                                                                              DECEMBER 2022
+                        quickly and at scale.
+
+       Efficiency Speed-to-market
+                  teams.
+                                  is significantly improved across
+
+
+      Reusability       Sharing solutions minimizes redundant work so teams
+                        can focus on more meaningful problems..
+
+    Consistency Visual unity across products, channels, and
+                departments.
+
+Maintainability Teams  and experience can more easily apply change
+                at scale.
+
+       Simplicity A unified language develops within and between
+                        cross-functional teams.
+
+                                                     PAG E   14
+It’s how organizations today are approaching product design.
+
+
+
+
+    "In 2020, 65% of companies said they use
+   design systems, and that will only increase."   You Need A Design System — Here’s Why
+
+
+
+
+                                                                                           PAG E   15
+“ “ “
+The efficiency
+savings for
+designers and front
+end developers
+using the design
+                             The four months of
+                             work to update our
+                             brand across all
+                             apps can now be
+                             accomplished in
+                                                  In just three
+                                                  months, our design
+                                                  system solved 30%
+                                                  of our accessibility
+                                                  issues across 50+
+
+
+
+
+  ” ” ”
+system: 40%-50%.             minutes.             products.
+Robin Cannon,                Gerrit Kaiser,       Jehad Affoneh,
+Global Design Systems Lead   Design Leader        Head of Design
+
+
+
+
+                                                                   PAG E   16
+                                                                DESIGN SYSTEMS
+
+
+
+
+      Design systems                                                             Accessibility baked-in from day one
+
+      and accessibility:                                                             “Design systems are a perfect pair to
+                                                                                     accessibility.. “Accessibility can be baked into
+
+      The perfect pair                                                               every part of a design system, from carefully
+                                                                                     tested foreground and background colors to
+                                                                                     individual components.”
+      With 1 billion disabled people worldwide holding                               Anna Zaremba, Senior Design Lead at eBay
+
+                                                                                                                                         2 0 2 4
+VML
+      $1.2 trillion in annual disposable income, making
+      your websites, apps, and customer portals                                  By promoting consistency, creating thorough
+      accessible to people with disabilities isn’t some                          documentation, and ongoing feedback, design
+      compliance burden to be met or lawsuit to be                               systems provide the perfect scaffolding for
+      avoided. It’s a chance to embrace an                                       implementing accessibility best practices across an
+                                                                                 entire product ecosystem. They also make it easier to
+      underserved market and for customer
+                                                                                 roll out changes at scale by propagating adjustments
+      experience (CX) leaders to show the way toward
+                                                                                 made at the system-level across all instances. Not to
+      new levels of growth, market credibility, and trust.                       mention, less time testing for, and remediating,
+                                                                                 accessibility issues in development and QA.
+      The Billion-Customer Opportunity: Digital Accessibility
+  Time to Efficiency
+
+
+
+
+                             How long does
+                               this take?
+
+Productivity
+
+
+
+                       Without a design system          With a design system
+
+
+
+
+                                                 Time
+
+
+                                                                               PAG E
+  Thrivent
+  Version 1.0
+  September 2024
+
+
+
+
+Our
+Process
+                                                     DESIGN SYSTEMS
+
+
+
+
+             “The system
+             addresses 80% of
+
+                                                                      DECEMBER 2022
+             design and
+V M LY & R   development needs
+             so they can focus on
+             the other 20%.”
+             You Need A Design System — Here’s Why
+
+
+
+
+                                                        PAG E   20
+Crawl
+
+Planning & Strategy
+Planning and upfront strategy are crucial to ensure alignment with business goals, user
+needs and technical feasibility, ultimately leading to a cohesive and effective system.
+
+
+Assess &                  Identify a tech             Create a                    Stakeholder               Establish
+Audit                     stack                       blueprint                   alignment                 governance &
+Review the existing and   Choose the tools and        Define the overarching      Identifying key           processes
+component libraries or    frameworks that will best   structure and               stakeholders within the   Crafting a tailored creation
+systems to identify       support the design          organization of the         organization helps        and governance process
+redundancies,             system's development,       design system. This         establish effective       ensures that the design
+inconsistencies and       maintenance, and            involves determining the    communication and         system is consistently
+accessibility concerns.   integration into the        hierarchy and structure     decision-making           maintained and evolves
+                          existing technical          of the brands, platforms,   channels.                 with the needs of the
+                          infrastructure.             products, and                                         organization.
+                                                      frameworks that will
+                                                      make up the system.
+Walk
+
+Building & Scaling
+Define design tokens and creation core elements that set the foundation to scale the
+system for use across teams and platforms.
+
+
+Define                   Design Tokens &         Core                      Guidelines &               Design
+Foundations              Variables               Components                Documentation              Patterns
+Defining core elements   Provide consumer        Develop a foundational    Create a strategy to       Provide consumer product
+like color palettes,     product teams with      set of reusable           ensure consumer teams      teams with ongoing
+typography, spacing,     ongoing assistance as   components (buttons,      not only understand        assistance as they
+and grid systems that    they integrate and      inputs, grids) that are   how to implement the       integrate and maintain the
+provide a consistent     maintain the design     scalable and adaptable    design system but also     design system.
+and scalable             system.                 across platforms.         continue to effectively
+framework for all                                                          utilize it. This step is
+components and                                                             crucial to maximizing
+design decisions.                                                          the system's potential.
+Foundations
+Using the latest methodologies and best practices, we build foundations, brand themes and dev-ready
+design tokens along with theme-able components to ensure share-ability and re-usability across brands.
+
+
+
+
+Color              Typography          Grids               Spacing             Icons
+Accessible color   Type scales and     Grids for desktop   Spacing scales      A robust icon
+palettes and       Figma styles for    and mobile web.     and corresponding   library as well as
+accompanying       each supported                          variables.          other useful icons
+tokens for each    brand.                                                      and logos.
+brand theme.
+Design tokens
+Design tokens represent small, repeatable design
+decisions. A token can be a color, font style, unit of
+white space, or even a motion animation designed
+for a specific need.
+
+Why:
+• Delivers visual consistency across digital products.
+• Enables themes (dark mode, different brands).
+• Simplifies design and development by streamlining
+  handoff.
+• As Thrive’s visual language evolves, changes can
+  be made once across the system and products. No
+  more finding and replacing hard-coded values
+  everywhere.
+
+                                                         PAG E   24
+Themes
+A theme is a collection of token
+values designed to achieve a           Lorem Ipsum   Lorem Ipsum      Lorem Ipsum
+
+certain look or style.
+
+Themes are how you switch color
+schemes and styles everywhere
+using a single set of tokens.
+
+Light mode, dark mode and
+different brands are all examples of
+theming. Non-color themes are also
+possible: think cozy/comfortable/
+compact views, reduced motion, or
+custom typography styles.
+
+                                                                   PAG E   25
+Run
+
+Performing & Optimizing
+Monitor adoption, gather feedback, and continuously improve the design system while
+providing training and managing contributions for ongoing evolution.
+
+
+Adoption &                 Support                 Communication              Collect                     Contribution
+Integration                consumer teams          strategy                   Feedback                    Process
+Strategy                   Provide consumer        Communication should       Regularly gather input      Establish a contribution
+Create a strategy to       product teams with      cover everything from      from users (designers,      process that allows team
+ensure consumer teams      ongoing assistance as   communicating releases     developers, and             members to propose
+not only understand        they integrate and      and changes to eliciting   stakeholders) to identify   changes or additions,
+how to implement the       maintain the design     feedback, conducting       areas for improvement,      ensuring the system
+design system but also     system.                 roadshows, and             both in design and          evolves while maintaining
+continue to effectively                            ensuring seamless          functionality.              quality and consistency.
+utilize it. This step is                           onboarding for new
+crucial to maximizing                              teams.
+the system's potential.
+  Thrivent
+  Version 1.0
+  September 2024
+
+
+
+
+Case
+Studies
+FRESH
+DESIGN SYSTEM
+OPPORTUNITY
+Inconsistent and inaccessible digital experiences were leading to
+frustration for Wendy’s users. These issues stemmed from a lack of
+standardization across it’s products. In addition to a poor experience, the
+fragmentation meant updates and expansions were unnecessarily time-
+consuming and resource-intensive, translating to a slow time-to-market
+and increased costs.
+
+SOLUTION
+Wendy’s Fresh Design System was created to provide an accessible, reusable
+standard to support a rebuild of the existing mobile iOS & Android apps into a
+single code-base in Flutter. In doing so it has allowed a reduction of 4000 lines
+of code in the app, and helped increase time-to-market speeds by 600%. It has
+since expanded to support Wendy’s digital ordering website as well as the CRM
+platform. It also provides usage guidelines as a reference for best practices.
+
+
+
+
+30      APP
+        COMPONENTS          24        APP
+                                      COMPONENTS          4000                LINES OF APP
+                                                                              CODE REMOVED
+
+
+
+22      DEVELOPERS
+        SUPPORTED           15       DESIGNERS
+                                     SUPPORTED
+Wendy’s
+Fresh Design System
+Wendy’s                                                                    Wendy’s Fresh Design System
+
+
+
+
+Fresh Design System                                                            https://freshds.wendys.com
+
+
+
+
+The design system fosters collaboration and provides a framework and set
+of tools to help designers and developers efficiently design cohesive
+experiences across products and platforms.
+
+
+
+
+                                    30
+Wendy’s
+Fresh Design System
+
+
+DESIGN TOKENS
+& THEMES
+Our expanded knowledge and
+experience into the use of design
+tokens takes shape with Fresh
+DS, leveraging tokens to enable
+stylistic consistency, scaling, and
+the ability to affect change
+across design and development
+with minimal effort.
+
+
+
+
+                                      31
+Wendy’s
+Fresh Design System
+OPPORTUNITY
+In the digital food ordering sphere, there is no clear standout when it comes
+to accessibility, especially for screen reader users. Their experiences have
+largely been unaccounted for. Wendy's has the potential to be the most
+accessible food ordering app ever, and be a gold star standard for screen
+reader experiences when ordering tasty nuggs.
+
+
+SOLUTION
+From logging current issues, to remediation, to baking accessibility into the
+entirety of our process, the Wendy's digital team has been tackling accessibility
+head-on. The Design System is a shining example of how great Accessibility
+can look.
+
+
+
+          Web Accessibility             App iOS and Android                 Critical Accessibility Issues
+  40+     Issues Logged        80+      Accessibility Issues Logged   25    Remediated
+2022-2023
+
+T-Mobile
+Apeiron
+Design System
+Starting in Q2 of 2022, we led a blended
+team of agency and T-Mobile resources
+in creating the new design system for T-
+Mobile to support their flagship app and
+website.
+
+
+
+
+                                           PAG E   34
+                                                           DESIGN SYSTEMS
+
+
+
+
+             The Ask
+             Redeploy                        as Design-Centric
+
+             Redeploy the T-Mobile flagship app and website from the ground-up,
+             built from a single consolidated design system that will reduce the
+
+
+
+                                                                                   DECEMBER 2022
+             cost of maintaining T-Mobile’s digital experiences, accelerate the
+
+V M LY & R
+             introduction of new features and enable scalable, cohesive
+             experiences for our customer and front-line.
+
+
+
+
+                                                               PAG E   36
+                                                              DESIGN SYSTEMS
+
+
+
+
+             Overview
+             Apeiron is a flexible framework for the future
+             of T-Mobile and Metro digital products across
+             multiple platforms.
+
+
+
+
+                                                                                                                                DECEMBER 2022
+             VML’s Role:
+                                                                         Deliverables Include:
+             • Lead client/agency design system team
+V M LY & R
+                                                                         • UI libraries for for Web, iOS & Android
+             • Provide cross disciplinary resources as                   • T-Mobile & Metro brands themes
+              needed
+                                                                         • Design tokens to provide single source of truth
+             • Define DS team processes & roadmaps
+                                                                         • Defined design patterns to ensure consistent &
+             • Define implementation & adoption                              logical usage
+              strategies
+                                                                         • Robust documentation for proper implementation
+             • Lead adoption efforts
+                                                                         • Support for teams including Getting Started guides
+             • Define support strategies                                     and integration support
+                                                                         •
+
+
+                                                                 PAG E       37
+                        DESIGN SYSTEMS
+
+
+
+
+             The Team
+
+
+
+
+                                         DECEMBER 2022
+V M LY & R
+
+
+
+
+                           PAG E   38
+                                                                          DESIGN SYSTEMS
+
+
+
+
+             Design Tokens
+             Defining styles and automating
+             change from a single source of truth.
+
+
+
+
+                                                                                           DECEMBER 2022
+             Tokens store values in a platform-agnostic format that can
+             be translated into readable styles for all our digital
+
+V M LY & R
+             platforms to use. The tokens are used in place of hard-
+             coded values so that the design token only needs to be
+             changed in one place to see the effect system-wide.
+
+
+
+
+              iOS    Android   Web      Figma
+
+
+
+
+                                                                             PAG E   39
+                             DESIGN SYSTEMS
+
+
+
+
+             Tokens
+             Examples
+             Colors
+
+
+                                              DECEMBER 2022
+             Typography
+V M LY & R   Spacing
+             Border Width
+             Border Radius
+             Shadows
+             Transparency
+
+
+
+
+                                PAG E   40
+                                                                    DESIGN SYSTEMS
+
+
+
+
+             Brand Themes
+             Changing brands with the
+             flip of a switch
+
+
+
+                                                                                     DECEMBER 2022
+             Apeiron provides a theme for the T-Mobile and
+
+
+V M LY & R
+             Metro brands. Developers can easily customize all of
+             their components by changing the brand theme,
+             eliminating the need to modify individual
+             components or separate UI libraries for multiple
+             brands.
+
+
+             Colors are included for UI on both light and dark
+             backgrounds.
+
+
+
+
+                                                                       PAG E   41
+                                                                     DESIGN SYSTEMS
+
+
+
+
+             The Guidelines
+             Usage guidance &
+             component documentation
+
+
+
+                                                                                      DECEMBER 2022
+             A collection of guidelines, rules, and best practices
+
+
+V M LY & R
+             for creating consistent, high-quality, and on-brand
+             user interfaces. It provides a guide for designers,
+             developers, and other stakeholders to understand
+             how to create and maintain a unified visual
+             language across all digital touch points.
+
+
+
+
+                                                                        PAG E   42
+                          DESIGN SYSTEMS
+
+
+
+
+             Tech Stack
+             Web                          iOS & Android
+
+
+
+
+                                                          DECEMBER 2022
+V M LY & R
+
+
+
+
+                             PAG E   43
+                                       DESIGN SYSTEMS
+
+
+
+
+             Design Token Automation
+             & Architecture
+
+
+
+
+                                                        DECEMBER 2022
+V M LY & R
+
+
+
+
+                                          PAG E   44
+By the Numbers Started Apr 2022
+
+
+      20+
+      UI ELEMENTS RESEARCHED
+                                      500
+                                      DESIGN TOKENS
+                                                                2
+                                                                BRAND THEMES
+
+
+
+
+      18                              24                        39
+                                                                TEAM MEMBERS SINCE JUNE
+      UI ELEMENTS DESIGNED            ELEMENTS RESEARCHED
+
+
+
+
+      3                               15                        20
+                                                                PAGES OF USAGE GUIDANCE
+      PLATFORMS (IOS, ANDROID, WEB)   ELEMENTS IN DEVELOPMENT   & DESIGN PATTERNS
+
+
+
+
+                                                                                 PAG E    45
+                                          Simple Tracker               Activity Indicator         Standard Button
+                                                               Title
+
+
+
+
+                                                               Title                    25               Lorem Ipsum
+
+
+2018-2022
+                                                               Title
+
+
+
+Ford                                      Standard Outline Button      Toggle                     Filter Chip
+
+
+Design
+System                                          Lorem Ipsum               Off                On                 FWD
+
+
+Through collaborations with the in-
+vehicle team our team defined the look
+and feel for the launch of the new
+Mach-E. This work was used as the         Carousel Indicator           Standard Input             Floating Action button
+
+foundation for creating a robust design
+system to support all of Ford digital                                   Label
+
+that scaled guide Ford experience
+                                                       2/8                 Input Text|
+teams at a global level.
+
+
+                                                                                                        PAG E   46
+  Ford encountered an issue with its digital products—customers faced inconsistent
+  and challenging brand interactions. To tackle this, a global transformation was
+  essential. The vision work on the Ford Mustang Mach-E sparked inspiration,
+  leading to the creation of the Ford Design System (FDS). FDS unifies the Ford
+  brand across all channels, including in-vehicle experiences, providing a universal
+  pattern library and guidelines for teams worldwide.
+
+
+
+
+ 900+                                 50                       100+
+DESIGNERS, DEVELOPERS,            AGENCIES WITH FDS               FORD URLS
+PM, BO, ETC. ONBOARDED                ACCESS                   IMPACTED TO-DATE
+
+
+
+
+                                                                                       47
+PAG E   48
+                                                           DESIGN SYSTEMS
+
+
+
+
+             Brand
+             Themes                                    Lorem Ipsum          Lorem Ipsum   Lorem Ipsum
+
+
+             The ability to change
+
+
+                                                                                                        DECEMBER 2022
+             between Ford &
+V M LY & R
+             Lincoln brands “saved
+             developers 90% of the
+             time it would typically
+             take for Lincoln.”
+             Using a single code base with stylistic
+             brand themes allows for highly
+             efficient implementation and
+             maintenance across multiple brands.
+
+
+
+
+                                                              PAG E   50
+By the Numbers 2018-2022
+
+
+      900+
+      DESIGNERS, DEVELOPERS, PM, BO,
+                                       5
+                                       REGIONS
+                                                                50
+                                                                AGENCIES WITH FDS ACCESS
+      ETC. INVITED TO ONBOARD          (NA, SA, EU, IMG, CN)
+
+
+
+
+      45                               250+                     90+
+                                                                DEVS WITH CODE KIT ACCESS
+      COMPONENTS IN WEB LIBRARY        LICENSED DSM USERS
+
+
+
+
+      100+                             55                       2
+                                                                2020 AWARD NOMINATIONS
+      FORD URLS IMPACTED TO-DATE       SPRINTS OVER TWO YEARS   (FORD API; WPP EXTRAORDINARY)
+
+
+
+
+                                                                                  PAG E     51
+ Thrivent
+ Version 1.0
+ September 2024
+
+
+
+
+When
+Sign #1                                             How a design system can help:
+                                                    A design system provides a single source
+Inconsistent,                                       of truth with everyone using the same
+                                                    reusable, accessible UI components,
+Inaccessible UI & UX                                patterns, layouts, fonts, colors, and
+                                                    guidelines. This shared system ensures
+The problem:
+                                                    consistent visual language and
+Inconsistent & inaccessible user interfaces and
+                                                    accessibility throughout your products.
+experiences can lead to confusion and
+frustration for users, negatively impacting their
+                                                    By establishing clear standards and best
+perception of your products.
+                                                    practices, a design system reduces the
+                                                    risk of inconsistency and promotes an
+These issues may stem from design
+                                                    accessible, cohesive, intuitive user
+fragmentation, miscommunication, a lack of
+                                                    experience that strengthens your brand
+knowledge or no standardization among
+                                                    identity and user satisfaction.
+designers and developers working on different
+parts of a product or across products.
+                                                                                  PAG E   53
+                                                How a design system can help:
+Sign #2                                         Implementing a design system helps
+                                                prevent design and technical debt by
+Design and                                      establishing a unified set of UX design
+
+technical UI debt                               principles, components, and a pattern
+                                                library. This unified approach ensures
+The problem:                                    that designers and developers work with
+Design and technical UI debt are the            a shared understanding, reducing the
+consequences of shortcuts and poor              likelihood of miscommunications and
+decisions in the design and development         inconsistencies.
+process. Over time, these compromises
+can lead to inconsistencies, usability          By adhering to the design system’s
+issues, and a fragmented user                   guidelines, your team can create a
+experience, resulting in a significant effort   cohesive and consistent user experience,
+to address these problems later.                mitigating the accumulation of design
+                                                and technical UI debt in the long run.
+
+
+                                                                              PAG E   54
+Sign #3                                      How a design system can help:
+                                             A design system lays the foundation for
+Difficulty in                                scalable design by providing reusable
+maintaining and                              components, standardized patterns, and
+                                             clear guidelines that make maintenance
+scaling your product                         and growth more manageable. With a
+                                             design system in place, you can
+The problem:                                 efficiently introduce new features and
+Maintaining and scaling its user interface   make design updates while maintaining
+becomes increasingly complex as your         consistency and quality. This streamlined
+product evolves. Design debt                 approach saves time and resources,
+accumulates, and the lack of consistent      enabling your team to focus on
+design patterns can make updates and         innovation and delivering a superior user
+expansions challenging, time-consuming,      experience.
+and resource-intensive.
+
+                                                                            PAG E   55
+                                                   How a design system can help:
+Sign #4                                            A design system acts as a single source
+                                                   of truth for both designers and
+Communication gaps                                 developers, bridging the communication
+                                                   gap by providing clear guidelines,
+between designers                                  reusable components, and standardized
+and developers                                     design patterns.
+
+The problem:
+                                                   By adhering to the design system, both
+Communication gaps between designers and
+                                                   teams can work more efficiently, with a
+developers can lead to misunderstandings,
+                                                   shared understanding of the design
+inconsistencies, and delays in product
+                                                   language and implementation methods.
+development. Misaligned expectations,
+                                                   This enhanced collaboration reduces the
+differing interpretations of design mockups, or
+                                                   likelihood of misinterpretations and
+unclear documentation can result in a
+                                                   ensures a cohesive, consistent final
+confusing and inefficient process, impacting
+                                                   product that meets the desired user
+the final product’s quality and user experience.
+                                                   experience and design goals.
+                                                                                PAG E   56
+                                                How a design system can help:
+Sign #5                                         A design system addresses the slow time-
+                                                to-market problem by streamlining the
+Slow time                                       entire design and development process.
+
+to market                                       With a shared UI library and clear
+The problem:                                    guidelines, designers and developers can
+A slow time to market can result from           work more efficiently and collaboratively,
+inefficiencies in the design and development    reducing the time spent creating, refining,
+process and complications in coordinating       and implementing design elements.
+efforts between team members.
+                                                This improved workflow allows the
+Slow product development leads to missed        product team to deliver new features and
+deadlines, increased costs, and reduced         updates more quickly, increasing the
+competitiveness, as your product takes longer   product’s competitiveness and enabling a
+to reach the market or introduce new features   faster response to market demands and
+and improvements.                               user needs.
+                                                                                PAG E   57
+                                                     How a design system can help:
+                                                     By implementing a design system, teams can
+Sign #6                                              significantly reduce duplicated work. A design
+                                                     system provides:
+Duplicated design &
+development work                                     • A single source of truth
+                                                     • UI library of reusable components
+The problem:                                         • Standardized patterns
+Without a centralized design system, teams           • Guidelines that can be easily accessed and
+often duplicate work when creating or                  applied by all team members
+updating UI elements–for example, building
+                                                     This single source of truth streamlines the
+multiple versions of an app bar.
+                                                     design and development process, ensuring
+                                                     everyone works from the same set of
+This inefficiency can lead to wasted time, effort,
+                                                     resources and follows the same standards,
+and resources, as designers and developers
+                                                     ultimately eliminating redundant efforts and
+work independently or in silos, unknowingly
+                                                     fostering a more efficient, collaborative,
+replicating each other’s efforts or creating
+                                                     and cohesive workflow.
+inconsistent assets.
+                                                                                     PAG E   58
+Questions
+
+  Thrivent   September 2024   59
+

@@ -1,0 +1,1059 @@
+Animation in
+Design Systems
+
+1: The Case for Covering Animation 3
+
+2: Defining What Your Animation Guidelines Should Cover 5
+
+3: Defining Your Motion Principles   11
+
+4: Defining Your Animation Building Blocks   17
+
+5: Taking It Further            30
+
+
+
+
+Copyright © 2019 Adobe Inc.
+All rights reserved
+Cover design: Ainsley Wagoner
+Content and layout: Val Head
+Editor: Patrick Faller
+
+
+
+
+                                                  Animation in Design Systems 2
+Animation in Design Systems:
+Chapter 1
+
+
+
+
+1          The Case for Covering
+           Animation
+           Design systems come in all shapes and sizes, but not all of them
+           include guidelines for animation. Sure, some teams may have
+           decided that motion wasn’t something their product needed
+           guidance on, but I suspect that in many cases motion was left out
+           because they weren’t sure what to include. In the past few years,
+           I’ve talked with many teams and designers who tell me motion is
+           something they want to address, but they just aren’t sure how to
+           do it. If you’re in that boat, you’re in luck. This eBook breaks down
+           everything to include when integrating animation into your design
+           system, and how to successfully pull it off.
+
+
+
+
+                                                                 Animation in Design Systems 3
+So, why animation?
+Animation is an important design tool for brand messaging. Just like typogra-
+phy and color, the animation you use says something about your product and
+its personality. So, when it’s not addressed in a design system, that area of UI
+design tooling is left unaccounted for. When that happens, people following the
+design system either do whatever they want with animation—which can lead
+to a strange mish-mash of animation execution across the experience—or, they
+just don’t use animation at all because they don’t have time to figure out all the
+details themselves. Neither case is ideal.
+
+Having a clear stance on how animation is used (or not used) in your design sys-
+tem can help ensure your brand is using animation consistently and effectively
+while also helping your team work faster.
+
+Your design system’s stance on interface animation is part of its point of view;
+it’s part of what makes it unique to your brand or product. There are some com-
+mon best practices to consider for doing interface animation well, but just like
+with other areas of design, there is also room to add your brand’s unique per-
+sonality and perspective.
+
+This ebook will walk you through a framework for creating a set of motion guide-
+lines for your design system. It covers best practices, but will also help you
+develop your system’s point of view around motion.
+
+
+
+
+                                                                   Animation in Design Systems 4
+Animation in Design Systems:
+Chapter 2
+
+
+
+
+2            Defining What Your
+             Animation Guide-
+             lines Should Cover
+             The groundwork: Defining what
+             you need to cover
+             As Jina Anne says, “Design systems are for people”(bit.ly/peo-
+             plesystems). A key step in creating a successful design system is
+             to talk to the people who will actually be using it—this is crucial
+             to make sure you’re building a design system that will be actually
+             useful. This holds true for guidelines around creating animation
+             too. The biggest thing you can gain from talking to the folks who
+
+
+                                                                Animation in Design Systems 5
+will be using your guidelines is to find out what those designers need and what
+you should focus on. This helps you set an appropriate scope for what you need
+to cover in your animation guidelines; no one wants to spend hours on extensive
+guidelines that address things your team will never actually need. That wouldn’t
+be any fun.
+
+First, talk to people
+Your team may not tell you about their animation pain points unprompted, but
+that doesn’t mean they don’t have any. Set up some user interviews and ask
+them where they’re getting stuck when it comes to animation. Ask them how, or
+if, they use animation, and where animation falls in their design process. Ask
+them what help they wish they had to better address the pain points they’re
+encountering. Most importantly, listen to how they talk about using animation in
+their work and what’s going well or not so well.
+
+While every team is different, the issues and questions I’ve heard most often
+from designers are concerns like: “How do I know an animation is good, or fits
+with our brand?”, “How can I convey the animation details to our engineers
+effectively?”, or “Our developers always say there’s no time to implement the
+animations we design.”
+
+You’ve probably guessed where I’m going with this, but all of these concerns are
+things you can provide answers for in your motion guidelines. And you can use
+the questions and pain points that come up most often to guide and focus your
+motion guideline efforts.
+
+Here are some helpful questions to kick-start your audience research sessions:
+worksheet: research questions for motion guidelines (bit.ly/motionresearch-
+questions).
+
+Reference other design systems
+Not every design system needs to be public, but it’s great that so many of them
+are. They make for helpful resources when planning your own design system,
+
+
+                                                                 Animation in Design Systems 6
+and they can be useful research for your design system’s motion guidelines too
+(in fact, I’ll be referencing a few of them in this book).
+
+Using the motion sections of other design systems as a reference for your own
+design system is very helpful, but I don’t recommend adopting another brand’s
+motion guidelines wholesale in place of your own.
+
+The most effective design systems contain a branded point of view unique to
+them—things that make their design system more specific to the products it’s
+for—along with common design best practices. Spend a little time researching
+and reading through other systems’ motion guidelines, and you start to get a
+feel for which parts are best practices and which parts are customized to that
+brand or product’s point of view. (Or just read this book because we’ll do that
+in Chapter 4 to give you a head start.) Then you can decide which best practices
+you might also like to include in your guidelines, as well as where to customize
+the guidelines for your product.
+
+For example, using ease-ins for exits and ease-outs for entrances is a common
+best practice for UI animation. But the exact ease-in or ease-out curve is usually
+customized to a brand’s intended message and personality.
+
+To quote Dan Mall (bit.ly/systempointofview):
+
+      “This is the kind of thing a design system should have guidelines
+      for: perspective, point of view, extending creative direction to every-
+      one that decides to build something with the design system. That
+      stuff should be baked in.”
+
+I totally agree. Exploring the motion sections of other design systems can give
+you a sense of what stance your design system will take on motion and how that
+might look and feel.
+
+The motion audit
+It’s not uncommon to be starting a design system for an existing product, or one
+that’s in the works. And in that case, you might already be using motion in your
+
+
+                                                                    Animation in Design Systems 7
+product; you can use that existing motion as a basis for your motion section.
+The same goes for adding a motion section or additional clarification on motion
+to an existing system. If you’re already using motion in some capacity, that is a
+great source that can inform your work in creating guidelines.
+
+A motion audit gives you a chance to look at all your animations as a whole, not
+just individually. You can use the trends you identify in the audit to establish a
+strong foundation for your future efforts.
+
+There are a lot of different things you can uncover in a motion audit—everything
+from gaining an understanding of animation performance and code,to identify-
+ing missed opportunities or redundancies in animation—but I’m going to stick to
+a motion audit’s use in identifying trends across a collection of animations used
+in a given product for this discussion. (I’ve also written about motion audits in
+my book Designing Interface Animation (bit.ly/bookDIA), if you’re looking to dig
+into them even more than we cover here.)
+
+Conducting a motion audit to quantify your ex-
+isting animation efforts
+First, establish the scope of where you’ll investigating your animations. If you
+have multiple products, do one at a time as they may each have their own goals
+and personalities that require separate consideration. Remember that the main
+goal of the motion audit is to uncover the trends of how you’re currently using
+motion in your product(s). That’s what will help you inform your motion guide-
+lines as you create them.
+
+Collect descriptions (and screen recordings or screenshots) of all the animation
+currently used in your product.
+
+Don’t forget any log-in only areas, sign-up sequences, and similar items. Just
+taking notes is also an option here, but I find that having a visual representation
+of each animation, like a video clip or .gif, that you can play back is helpful for
+making sure everyone is on the same page when discussing them in more detail.
+
+
+                                                                   Animation in Design Systems 8
+The combination of written description and visuals tends to be the best founda-
+tion for analysis and discussion in my experience.
+
+You can capture the animations with QuickTime, Screenflow, or other screen
+recording software, and collect them up as you go. I like using Keynote for my
+motion audits but Google Docs or spreadsheets, also work well. Pick whichever
+format is easiest for you to share with your team.
+
+For each animation note the purpose of the animation, the properties it ani-
+mates, a description of the effect, and the personality it conveys (the feel of the
+animation).
+
+Group the animations by their primary purpose.
+
+This is the fun—and often most revealing—part. You might end up with groupings
+like entrances and exits, state changes, content reveals, emphasis, and similar
+things. Try to really consolidate your animations down to as few purpose-based
+groups as logically possible. This makes it harder, but also helps to reveal the
+core patterns in how you use animation. Everyone will have slightly different
+groupings depending on how their product uses animation. The goal here is to
+identify trends and patterns.
+
+Evaluate the common traits in each grouping of the animations you’ve collected.
+Note durations and easing curves used for the animations. Is there a common
+easing curve that is used across most of the animations? Is it one that fits the
+personality of your product? Are you using too many different easing curves arbi-
+trarily? Could they be consolidated or streamlined for specific purpose instead of
+being arbitrary?
+
+You may find, for example, that the animations used for directing attention em-
+ploy a more dramatic or eye-catching style of easing than your other animation
+categories. Or you might find that there are specific sets of properties that are
+animated in all your state change animations. These are the kinds of patterns
+you’ll want to solidify in your motion guidelines. Here’s a starter spreadsheet
+template you can use to get you started on your motion audit (bit.ly/motionau-
+
+
+                                                                    Animation in Design Systems 9
+ditsheet).
+
+But what if the results of my motion audit
+aren’t so great?
+Sometimes when you take a step back and look at any specific aspect of
+your product you realize that what’s currently there just isn’t working. In
+those cases you absolutely can decide to start defining a whole new, and
+more fitting, approach to animation for your product. Deciding to start
+over with a whole new approach to animation might be a tougher sell, but
+if it’s what needs to be done, go for it.
+
+Next up
+Now that you’ve got a good idea of where you’re starting from and which
+issues your guidelines need to address, it’s time to start defining the
+motion principles for your design system. That’s coming up in the next
+chapter!
+
+
+
+
+                                                           Animation in Design Systems 10
+Animation in Design Systems:
+Chapter 3
+
+
+
+
+3            Defining Your Motion
+             Principles
+             Let’s start with the big picture thinking and work on defining your
+             motion principles first. Motion principles are high-level guide-
+             lines to measure design decisions around animation, as well as a
+             place to state some specific definitions or values around anima-
+             tion. Principles often focus on the ‘why’ of using animation within
+             a particular design system and the UX-driven purpose animations
+             serve. In many cases, design systems list these under the head-
+             ing of Principles in their motion section.
+
+             Why create motion principles?
+             To make your animations work as a system, they all need to have
+             some common ground. Establishing these patterns ensures your
+
+
+                                                                Animation in Design Systems 11
+animations share a common message not only with each other, but with the rest
+of your design efforts. Defining what your design system wants to say with mo-
+tion gives you the ‘why’ of your motion guidelines – the higher-level concepts
+that represent the common traits you want all your animations to share.
+
+These become a design system’s motion principles, which will act as a guide for
+how motion is used within the system as a whole. They should cover, broadly,
+both the purpose(s) for using animation and what sort of emotion these ani-
+mations should convey. This is a great starting point for getting animation into
+your design system because it gives the whole effort direction, and because it
+requires both conversation and exploration, both of which are useful for getting
+buy-in and building understanding. Once you define your motion principles, you
+can use them to focus your animation efforts into a cohesive system and even to
+evaluate future designs.
+
+How to create your motion principles
+Your motion principles can be modeled after your brand’s existing global design
+principles, extrapolated from things like voice and tone guidelines, or even be
+inferred from finding patterns in your product’s existing UI animations in a mo-
+tion audit (as covered in the previous chapter). You can also use a combination
+of all of the above if you have strong examples to work from in all those catego-
+ries.
+
+We’ve already talked about motion audits, but let’s look at some examples of
+creating motion principles from the other two sources.
+
+Translating global design principles to motion principles
+The same principles that you use to guide the overall design of your product can
+be tailored to apply to motion as well. For example, an overarching design prin-
+ciple of:
+
+      “We Simplify: Building something simple is anything but. So, we’re
+      honest about our impact on people’s lives. We respect their time
+      and spend every waking moment of our day making things sim-
+
+
+                                                                  Animation in Design Systems 12
+      pler.”
+
+(Example taken from bit.ly/designprinciples2)
+
+Could be translated to a motion principle of:
+
+      “Simple: We use motion that is clear and to the point with simple,
+      easy-to-follow actions that do not distract from the primary task.”
+
+Sometimes your existing brand guidelines might already mention motion, in
+which case you can use these as your motion principles, or as one of your mo-
+tion principles for consistency. For example, a design principle like the below
+easily translates to a motion principle:
+
+      “Conversational: Our use of motion breathes life into our products,
+      and allows us to communicate with users in easily understood
+      ways.”
+
+(From bit.ly/designprinciples1 )
+
+Looking at brand descriptive documents like Voice and Tone guidelines or sim-
+ilar may also help inform your brand’s motion principles. The content in those
+may be a bit more removed from overall design principles, but you can connect
+some dots between the overall personality and tone you want to convey and the
+role motion should play in conveying that message.
+
+Examples of motion principles in other design
+systems
+Now that you’ve got an idea of what your motion principles might be, let’s look
+at some examples of motion principles in other design systems to get a better
+idea of how these play out. Not every brand handles them the same way. Some
+call out their motion principles specifically, while others fold them into their
+design system overall.
+
+Microsoft’s Fluent design system (bit.ly/fluentuwp) lists its motion principles
+as being physical, functional, continuous, and contextual. They include a short
+
+
+                                                                  Animation in Design Systems 13
+description and illustration of each to explain how it applies to UI animation.
+
+
+
+
+                       A segment of Fluent’s motion principles page.
+
+Audi (bit.ly/audianimation) doesn’t have a separate principles section, but they
+start off their animation section with a declaration of why they use animation.
+This sets the stage for what sort of motion is to be used in the design system,
+just like a principle would. Audi states:
+
+      “We stand for dynamic premium mobility. As such, movements in
+      the Audi look have a typically dynamic character.”
+
+While developing the motion section for Spectrum (adobe.ly/spectrum), Ado-
+be’s design system, the motion principles were modeled after the patterns of
+
+
+                                                                       Animation in Design Systems 14
+the other sections of the system. Within Spectrum, animation aims to be pur-
+poseful, intuitive, and seamless.
+
+
+
+
+                   Spectrum’s guiding motion principles for UI animation.
+
+No matter how you decide to present them, your design system’s animation
+principles can be used to establish the system’s expectations around anima-
+tion. They can also be used to evaluate potential future UI animations for the
+corresponding product(s). For example, if a designer following the Fluent design
+system wanted to introduce a large bouncing animation into a component, there
+could be discussion around whether that meets the motion principles (does it
+fit the principles of functional and continuous?). Then a decision could be made
+as to whether or not that particular animation warrants breaking from the stated
+principles, or if the animation should be redesigned to fit the principles.
+
+This helps to steer the design discussions away from the “do you like it?” or
+personal opinion realm and gives a structure for evaluating animation in a more
+pragmatic design-oriented way. This is my favorite advantage of establishing de-
+clared motion principles; they make discussing meaningful animation so much
+easier, even for people who don’t have a lot of animation experience.
+
+For more motion principles references, check out Photon’s motion principles
+(bit.ly/photonprinciples), Material Design motion principles (bit.ly/materialprin-
+ciples), and Carbon’s motion principles (bit.ly/carbonmotion). It’s interesting to
+compare and contrast these different design systems and how they present their
+motion principles in the context of each system.
+
+
+                                                                            Animation in Design Systems 15
+What makes a good motion principle
+As you can see from the examples above, there’s no one single way to do motion
+principles. The number of principles you have and how you articulate them in
+your design system can be customized for your team’s needs. That said, there
+are some key things to look out for to make sure you’ve created solid motion
+principles.
+
+A strong motion principle should be something that it’s easy to say the opposite
+of. For example, if one of your motion principles is “motion should not be dis-
+tracting,” this principle holds up because it has an opposite: motion that dis-
+tracts users from their current task.
+
+Strong motion principles should also be objective. You’ll be using these to
+guide what sort of animations your design system will have, and at times you
+might even be using them to judge if a proposed new animated interaction fits
+with your system’s principles. Having a principle like “all motion used should
+be good motion” likely isn’t objective enough because it’s hard to define what
+“good” means here. On the other hand, a principle that states something like
+“animations support UX by helping users achieve their goals” is more objective.
+It would be possible to have a conversation about, and come to a conclusion
+on, whether or not a particular animated interaction helped users achieve their
+goals in a particular flow.
+
+Next up
+Motion principles take care of the big picture definitions that you need to guide
+your motion work, but we also need to define some of the more specific imple-
+mentation details of how to pull those off for a more well-rounded set of guide-
+lines. We’ll look at defining your animation building blocks next.
+
+
+
+
+                                                                  Animation in Design Systems 16
+Animation in Design Systems:
+Chapter 4
+
+
+
+
+4            Defining Your An-
+             imation Building
+             Blocks
+             Motion principles are great for some high-level guidance, but
+             without some details on exactly how to implement them, you’ll
+             be missing the biggest time-saving benefits of including anima-
+             tion in your design system. The implementation section (though
+             rarely actually titled as such) answers many of the ‘how’ and
+             ‘what’ questions your team might have around animation.
+
+             The objective is to provide smart defaults for anyone following
+             the design system. That way, instead of spending ages playing
+             around with durations and easing for every animation, they can
+
+
+                                                              Animation in Design Systems 17
+use the smart defaults you’ve provided in the guidelines to accomplish tasks
+faster. It’s a huge timesaver that also makes your UI animation much more con-
+sistent across the board.
+
+The implementation guidelines are where a lot of design systems diverge in their
+approach. The amount of detail you include and the topics you cover in these
+guidelines will depend on how big of a role animation plays in your design ef-
+forts and your team’s exact needs. For example, Photon’s (bit.ly/photoneasing)
+implementation section includes just one duration and one easing curve, while
+Material Design’s (bit.ly/materialduration) section includes individual sections
+on duration and easing as well as additional pages full of implementation de-
+tails.
+
+There’s no perfect length for a motion section; it’s more about covering the
+details your team needs, rather than hitting a specific number of pages or rules.
+Some of the animation building blocks to consider including in your motion
+guidelines are:
+
+• Animation durations
+• Animatable properties
+• Easing values used
+
+These are the main ways we customize or style animation. Variations in the
+properties, durations, and easings used for animation can drastically affect how
+animations come across.
+
+Let’s dig into each set of guidelines in more detail, and for each I’ll point out
+some common best practices and where there’s room for your own customized
+interpretation.
+
+
+
+Durations, ranges, and rhythm
+Duration describes how long animations should be, and when we’re talking
+about UI animation, these values tend to be very short; it’s amazing how much
+information we can convey in fractions of a second! This is a key aspect of ani-
+
+
+                                                                   Animation in Design Systems 18
+mation and every design system with motion guidelines covers it, but they do it
+in a variety of ways.
+
+Common best practices
+Some of the best practices around duration that you’ll see addressed in most
+motion guidelines include:
+
+• Shorter durations should be used for simpler effects and relatively small-sized
+animations (such as fades or color changes);
+
+• Longer durations should be used for more complex effects and larger scale ani-
+mations (such as page transitions or moving objects on and offscreen);
+
+• Optimal timing can change based on viewport size.
+
+While the specifics of each set of guidelines vary—sometimes even greatly—
+you’ll see these common best practices in almost all of them. Different systems
+have different definitions of exactly what ‘short’ or ‘long’ durations are, and go
+into varying amounts of detail on the difference between the two. Also, while it’s
+more of a design system thing than an animation best practice, providing design
+tokens for your specified duration values is a useful thing to consider here as
+well.
+
+Implementation examples
+Carbon (bit.ly/carbonmotion) provides a short table of ranges of duration values
+based on the type of animation in question. Contrast that with Material Design
+(bit.ly/materialduration), which breaks down recommendations on duration
+speed in categories based on the complexity of the animation, as well as by the
+relative area covered by the animation. Pluralsight (bit.ly/pluralsightmotion)
+takes a different approach altogether and provides a set of keywords for differ-
+ent durations paired with cute animals.
+
+
+
+
+                                                                  Animation in Design Systems 19
+Pluralsight’s design system lists durations, animals, and design tokens for each of its duration options.
+
+
+
+
+      Carbon’s illustration and table sorted by interaction type give guidance on what durations
+                               to use for UI animation within the system.
+
+
+
+                                                                                     Animation in Design Systems 20
+Easing values
+Common best practices
+My top advice for easing guidelines is to create your own customized curves and
+not just use the CSS defaults for your animations. This is the most effective way
+to build some consistent motion association for your brand and, as Sarah Dras-
+ner puts it, build “motion equity.” (bit.ly/motionequity) You’ll be on solid ground
+with just three curves: a custom ease-out, ease-in, and ease-in-out. And there’s
+always the option to add more if needed.
+
+Of course, there are times when it’s best to follow native operating system stan-
+dards or defaults for certain OS specific components that are animated. But
+there are also many cases where you’re creating custom components or interac-
+tions, and that’s where your custom easing choices can shine.
+
+Quick Tip: Penner easing equations as a starting point
+
+If you’re totally stumped on where to start on easing curves, check out the Pen-
+ner Easing equations on easings.net. These are designed to give you some nice
+looking motion and are grouped in threes for easy use. They’re much more ex-
+pressive and flexible than the CSS defaults. Using a set of these in your motion
+guidelines can be a great place to start.
+
+
+
+
+                                                                   Animation in Design Systems 21
+              A few of the Penner Easing Equations illustrated as cubic-bezier curves.
+
+
+
+
+Essential easing functions
+I recommend defining the three core easing curves because that will cover all
+your main easing needs for various animations:
+
+Ease-in
+
+This curve is the one that accelerates as it begins any movement. It reads well
+for moving an object out of view.
+
+Ease-out
+
+This curve causes objects to decelerate before stopping, which makes for a more
+natural way to bring objects into view.
+
+Ease-in-out
+
+As the name suggests, this curve combines the features of the first two and is
+
+
+                                                                                  Animation in Design Systems 22
+best for moving elements from point to point.
+
+With these three custom curves, you’ll have almost all your animation needs
+covered.
+
+
+
+
+               Most motion guidelines include these three main types of curves.
+
+Implementation examples
+For Spectrum, three custom easing curves were created, along with recommen-
+dations on which kinds of animation to use for each (these curves were devel-
+oped by looking at existing animation and experimenting with some motion
+studies). Carbon (bit.ly/carbonmotion) and Pluralsight (bit.ly/pluralsightmotion)
+take a similar approach, designating three curves with suggested uses, as well
+as designating one as the default curve to use when in doubt. In some cases,
+you might only feel the need to have one custom easing curve, like Photon (bit.
+ly/photoneasing) does, defining one curve for use across all animations.
+
+
+
+
+                       One of Spectrum’s three custom easing curves.
+
+
+
+                                                                                  Animation in Design Systems 23
+                         Carbon’s standard easing curve details.
+
+Along with the easing curves, it’s helpful to provide some supporting informa-
+tion like associated design tokens, language-specific code (for CSS, JS, iOS,
+and/or Android), or After Effects keyframe velocities depending on which tools
+your team uses. This adds to the ease of use and helps make following smart
+defaults in your motion guidelines the path of least resistance.
+
+It’s also a big plus to include a visual illustration of the curve and interactive
+examples. This helps you quickly demonstrate how the easing curves work and
+what they look like. Never underestimate the power of showing instead of telling
+(or, better yet, showing along with telling!)
+
+Easing hierarchy
+Including a hierarchy of easing is one way you can take things a little further
+than the three core custom curves. This can be especially useful for brands that
+use motion as a core method for conveying their design message. Just like with
+type, you may want to determine a way to make certain animations stand out
+
+
+                                                                   Animation in Design Systems 24
+more than others. Animations that stand out more strongly can be used to em-
+phasize a particular point or interaction. In these cases, structuring your easing
+curves so that you have one that is more dramatic than others can be a useful
+technique.
+
+Different easings for different types of motion
+When looking where you’re using UI animation, or where you plan to use UI
+animation, you might notice that you have distinct contexts for your products
+that require a different approach to animation. For example, your product itself
+might be for productivity tasks like tracking financial transactions, but you also
+use animation in your onboarding and marketing communications. Animation
+that works well for the onboarding and marketing contexts, may not fit well with
+the productivity context. In cases like this, it can be helpful to delineate different
+motion guidelines for each of these main contexts.
+
+IBM’s Carbon design system is a great example of this. In it, a distinction is
+made between productive motion and expressive motion. Each category has its
+own recommended easings and durations and Carbon also provides descrip-
+tions of each context to be clear on when each applies.
+
+
+
+
+                                                                     Animation in Design Systems 25
+            Carbon’s description of the productive and expressive easing categories.
+
+
+Defining your brand’s custom easing curves
+with motion studies
+Using the default easing curves for your platform or animation library is certain-
+ly an option. But if you’re going to the trouble of setting up a design system,
+having custom easing curve definitions that fit your brand personality will make
+your system much more unique and impactful. Easing curves are a part of design
+systems that have a lot of room for expressing your brand’s point of view. It’s a
+best practice to use them, but the exact curves are up to you.
+
+Setting up a motion study
+The way I recommend doing this is to create a small collection of motion studies
+to narrow down which types of easing seem to best emulate your brand per-
+sonality in a simplified motion case. A motion study can be done in almost any
+tool—CSS, JavaScript, After Effects, etc. All you need to get started are some sim-
+ple shapes (I like to use circles) and a short list of brand attributes you want to
+convey with your easing choices. Add some simple animations to your shapes—I
+usually go with a fade, a scale, and some point-to-point movement. Then, ex-
+
+
+                                                                               Animation in Design Systems 26
+periment with the easings on those simple animations to find a custom set of
+easing curves (ease-in, ease-out, ease-in-out) that have a vibe that matches your
+brand attributes. Here’s a starter CodePen example (bit.ly/motionstudystarter)
+you can use to make your own motion study.
+
+Narrowing down your brand attributes
+
+Every brand has words or traits it uses to describe itself, or a specific sort of per-
+sonality it wishes to project. You can use these as a starting point to inform your
+design system’s point of view on motion. You might find these in your branding
+guidelines, experience pillars, design principles, or other similar materials. By
+defining these brand attributes, your animations will say something, and your
+work will be stronger since you’ll be planning intentionally.
+
+Voice and tone guidelines can be an especially useful place to start for defin-
+ing your brand’s personality. The same traits your brand is trying to convey with
+written words can also be conveyed with animation. When both your content and
+your design align, your messaging becomes that much stronger and clearer.
+
+I find that a group of three attribute words is a good number to work with. This is
+just the right amount to help focus your efforts without becoming overwhelmed
+with possible options.
+
+Let’s look at an example: Intuit has a nice and concise voice and tone documen-
+tation (bit.ly/harmonyvoicetone) as part of their Harmony design system that I’ll
+use as an example. In it, they outline three main traits for their voice and tone,
+along with a list of supporting characteristics for each. That list of supporting
+characteristics make a great basis for some brand-specific motion exploration.
+
+Three of their supporting characteristics are “friendly, charming, and clear.” To
+embody concepts like friendly and charming in motion, you could use easing
+that employs some follow-through or overshoots to convey a heightened sense
+of energy and friendly appearance. Even when this is applied to a simple circle,
+you can start to see the friendly feel with just a touch of extra bounce, while the
+straight line of the action keeps the motion clearly defined. This kind of motion
+
+
+                                                                      Animation in Design Systems 27
+can fit well with a moment when you want to say something like “Good for you!
+You’ve balanced all of today’s transactions!”.
+
+Motion studies are a great way to focus in on designing animation details in
+a relatively short amount of time. Once you have some easing and animation
+styles that work well in your motion study, you can apply them to prototypes for
+further exploration to see how they look in context.
+
+While some additional prototyping and exploring would still be necessary for
+resting and refining the exact easing and timing standards, rooting your motion
+guidelines in your brand’s personality and goals gives those guidelines con-
+text and meaning. Instead of just using default easing keywords from CSS or an
+animation library, you’ll be using easing that gives your design system a point of
+view that will differentiate it from other projects.
+
+Just like other design elements, like type and color, the meaning derived from
+motion is somewhat contextual and subjective. There isn’t going to be one true,
+correct answer for exactly how your brand should exist in motion, but there will
+be many possible answers. You get to choose which combination of attributes is
+right for your brand.
+
+Bring the team in early
+Don’t forget to include other key team members or colleagues in your animation
+exploration along the way. You can show them prototypes based on your motion
+studies during design critiques or design discussions to gather feedback and
+iterate further. The more you involve others in the process, the more likely they
+will buy-in to the final results; everyone likes to be heard, and your colleagues
+have valuable insights into your brand and its personality too. Sharing your work
+along the way is a win-win.
+
+
+
+You’re of﻿f to a good start
+At this point, you’re armed with animation principles plus your durations and
+easing sections, and you have a solid set of motion guidelines in hand. That
+
+
+                                                                  Animation in Design Systems 28
+might be all you need for a version one of your motion guidelines, or if you’re
+designing for a brand that doesn’t rely heavily on motion in its design. If you’re
+pressed for time, establishing smart defaults for durations and easing will get
+you far enough to see the benefits (and time savings) of establishing motion
+guidelines and save your team time.
+
+Quick Tip: Finding more examples
+
+If you’re looking for additional motion guidelines for research, Adele (bit.ly/
+adelelist) is a design system collection that lets you filter by topics like motion,
+and styleguides.io is always a great resource for finding public design systems
+too.
+
+Next up
+If you’re looking to add a little more to your animation guidelines, or thinking
+ahead to what you might want to include in the next iteration, the next chapter
+covers some other possible topics to address in your motion guidelines.
+
+
+
+
+                                                                     Animation in Design Systems 29
+Animation in Design Systems:
+Chapter 5
+
+
+
+
+  5
+             Taking It Further
+             If your design system uses motion extensively in your design
+             style, it can be useful to include some more detailed direction
+             on how to use motion in your guidelines. Not all design systems
+             need to have all of these additional motion guidelines, and you
+             might even find that there are other things specific to your prod-
+             uct and your design system that you want to include. It all goes
+             back to making guidelines that will help your team in their work.
+             Here are a few options to start with.
+
+
+
+             Named effects
+             Providing a list of named effects or a library of animations to use
+             can be a useful thing to have in your motion guidelines. Not all
+             design systems’ motion guidelines have these; some opt to bake
+             the animation guidelines into their components instead (or as
+
+
+                                                                Animation in Design Systems 30
+well), and some just don’t need this level of detail. This is one of those areas
+where you can decide if including these will be useful for the folks using your
+design system. And this is also something that you might decide to add in a ver-
+sion two or beyond while iterating on your motion guidelines over time.
+
+One word of caution on these though: more isn’t always better. It might look cool
+to have a huge library of animations as part of your design system, but the more
+effects you list, the more time and effort it will take to maintain those effects. To
+avoid creating a huge time-sink for you and your team, I’d suggest making any
+collection of named effects as small as you possibly can.
+
+There tend to be two approaches to providing a library of effects in motion
+guidelines. One approach is the way that Fluent (web) (bit.ly/fluentweb) does
+it, providing a library of small animation effects (molecules of animation, if you
+will) that can be used individually or composed together to build up more com-
+plex animations. Each animation is named and variables are listed to invoke
+each of them, along with a preview of what each looks like for easy recognition
+and implementation (previous iterations of Lightning design system took a simi-
+lar approach as well).
+
+
+
+
+ Fluent’s basic animations for their web implementation serve as a library of named effects that can be
+                                  easily accessed and implemented.
+
+
+
+
+                                                                                    Animation in Design Systems 31
+               The Lightning design system’s previous named animation library.
+
+The other approach is to provide more comprehensive and purpose-driven ef-
+fects, like Audi does for its show and hide, transform, shift, and superimposing
+effects (bit.ly/auditransitions), and Fluent (Windows) does for its page transition
+effects (bit.ly/uwppagetransitions). For either approach, providing the design
+rationale and specific code implementations for each is useful.
+
+
+
+
+                          One of Audi’s specified animation effects.
+
+
+
+
+                                                                             Animation in Design Systems 32
+Choreography of multiple animations
+If you use a significant amount of complex animation, or have multiple instances
+where multiple elements are in motion together, establishing guidelines around
+choreography will be helpful. Choreography comes into play any time more than
+one element or property is animating because that requires making decisions
+around how those properties or elements will animate relative to each other.
+
+Common best practices for choreography
+Choreography guidelines can vary drastically from one product to the next de-
+pending on how each brand is expressing its message in motion, but there are
+also some good general best practices.
+
+Entrances should inform exits
+
+While there’s no rule saying all elements must leave the screen the same way
+they came on, having a logical plan in place for how elements enter and exit
+provides a solid foundation for your choreography. For example, if an element
+appears into view by animating from the bottom, and then returns to the bot-
+tom of the screen when it exits the view, that reinforces the spatial idea that the
+element ‘lives’ just out of view below the screen. Using entrance and exits to
+establish spatial orientation like that can make the overall experience feel more
+consistent. Whatever your entrance and exit animations might be, having consis-
+tent logic to how they work will go far in creating a UI that feels easy to navigate
+around.
+
+Sequencing
+
+If you often have multiple elements moving at the same time in your effects or
+components, having some guidelines on how these should be sequenced can
+be helpful. For simple sequences it often makes sense for all the animating
+properties to start and end together. But for more complex sequences—especial-
+ly ones where some elements are leaving the view and others are entering—it
+might be easier to follow the action if some animations happen before others
+
+
+                                                                   Animation in Design Systems 33
+start. Also, including some points around how to handle the continuity of ele-
+ments that persist on screen throughout a transition can be very useful. The way
+elements move in and out of view during times of transition can make the dif-
+ference between a transition that’s confusing and one that leads the user’s eye
+through in a logical way. Material Design’s motion section provides some good
+examples of how to present sequencing guidelines and Carbon’s guidelines on
+continuity provide a good reference as well.
+
+
+
+
+                    A segment of Material Design’s sequencing guidelines.
+
+
+Overlapping action looks more organic
+
+Overlapping action (or staggers) is very much related to sequencing,and honest-
+ly could fall under that same heading, but I wanted to call it out specifically. It’s
+a great way to add more organic feel when you’re animating multiple objects at
+once and can also help to reinforce the elements’ relationship to each other.
+
+
+                                                                            Animation in Design Systems 34
+Achieving overlapping action is pretty easy too. All you need to do is add a bit
+of delay to each subsequent item in a group of animating items to offset their
+action by a small amount. Instead of having a group of objects all wait for the
+one before it to finish before it starts its motion, have each start slightly after the
+other to overlap the action.
+
+Including guidelines around when to use overlapping action and what amounts
+of delay to use between items can help ensure the technique is used consistent-
+ly throughout your product.
+
+
+
+
+              A figurative timeline showing four objects’ motion offset slightly in time
+                                to create some overlapping action.
+
+
+Consider the path of motion
+
+Elements moving from one place to another on screen can take a variety of ways
+to get there. By default, most of our tools will move the object in a straight line,
+but it is also possible to animate objects on curved or arched motion paths.
+
+If you often have elements moving from place to place, defining guidelines for
+these motion paths—if they should be straight lines, what shape of curve they
+should follow, if motion paths may intersect, etc.—will have a significant impact
+on how cohesive the overall experience feels.
+
+In general, curved paths of motion tend to feel more organic and are visually
+softer, while straight lines of motion tend to feel more efficient or urgent and
+are visually more harsh. You’ll want to pick an approach that fits best with your
+
+
+                                                                                    Animation in Design Systems 35
+content and messaging.
+
+IBM’s Carbon design system does a good job of noting this in the Paths section
+of their motion guidelines where they say, “Elements in Carbon dance on the
+grid. Motion paths trace lines along the grid which never run diagonally.”
+
+
+
+
+           Carbon’s guidelines on motion paths in their motion choreography section.
+
+As I mentioned above, choreography isn’t something that all design systems
+cover, but it can be very useful for design systems that use a good bit of anima-
+tion. Currently the best public design systems to use for reference on choreogra-
+phy are Carbon and Material Design. Both address choreography differently for
+their different needs, but you can learn a lot from reading each to help guide you
+in creating your own custom choreography guidelines.
+
+Motion and design tokens
+Design tokens are a way to denote common design variables across platforms
+in a central way. While not every design system uses them, if yours does, you’ll
+
+
+                                                                              Animation in Design Systems 36
+want to include motion-related tokens as well. As Jina Anne describes them:
+
+      “With design tokens, you can capture low-level values and then use
+      them to create the styles for your product or app. You can maintain
+      a scalable and consistent visual system for UI development.”
+
+This makes design tokens very useful for large or complex systems; they can be
+used as a single source of truth for your animation building blocks.
+
+The building blocks discussed in the last chapter are types of animation details
+that lend themselves to being tokenized. For example, creating design tokens
+for your durations and easing curve definitions would be very useful indeed. You
+can find some examples of how motion details have been translated to design
+tokens in the Carbon design system, as well as Lightning design system, and
+others.
+
+
+
+
+                        Lightning design system’s timing tokens.
+
+
+
+
+                                                                   Animation in Design Systems 37
+                       Carbon’s duration tokens for animation timing.
+
+To learn more about design tokens and their role in design systems, check out
+this course (bit.ly/jinadesigntokens) from Jina Anne. It’s a great starting point.
+
+
+
+Wrapping up
+I hope this book has helped show how including motion guidelines in your
+design system can be incredibly useful, and I hope the chapters above have
+helped to demystify the process of creating one as well. Addressing animation in
+your design system can have a positive impact on the overall consistency of your
+product’s design, and it doesn’t have to be overly time-consuming.
+
+As you’re working on your motion guidelines, I encourage you to work in stages
+instead of waiting for your motion guidelines to be perfect. Shipping a version
+one with the intention of adding to and updating is much easier on you, the
+person or people authoring the guidelines, and can help you make sure you’re
+creating guidelines that are useful.
+
+As hard as it can be to share something that you know is missing some detail,
+it can be very useful to ship a version one of your motion guidelines and then
+talk to your team about them. This helps you see how the first version of the
+
+
+                                                                        Animation in Design Systems 38
+guidelines has helped them and which pain points are still a factor. This itera-
+tive approach can go far towards making your guidelines cover the most relevant
+topics, and lets you adapt them to your team’s needs. Both are good for having a
+system that’s useful, while also avoiding unnecessary extra effort.
+
+Good luck with all your motion guideline efforts. I’m excited to see how you in-
+corporate motion into your design system and I’d love to see what you come up
+with. Find me on Twitter (twitter.com/vlh) and show me what you’ve created!
+
+
+
+
+                                                                 Animation in Design Systems 39
+

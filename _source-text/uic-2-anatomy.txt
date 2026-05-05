@@ -1,0 +1,589 @@
+   UI Components
+                       1
+                                        2
+
+
+
+   Anatomy
+                                        3   {Abcde}
+                                        4   {Abcde}
+                                        5   {Abcde}
+
+                                        6    {Abcde}   {Abcde}
+
+
+
+                                                7                8
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+Anatomy / Key questions
+
+
+
+
+                                          What elements could it include?
+                                          Which elements are required?
+                                          What is each element’s name?
+                                          Does an element depend on another component?
+                                          If so, is it a subcomponent or nested component?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Button
+
+
+
+
+                                               {label}
+                                                         What elements could it include?
+                                                         Which elements are required?
+                                               {label}   What is each element’s name?
+                                                         Does an element depend on another component?
+                                                         If so, is it a subcomponent or nested component?
+                                               {label}
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Essential elements
+
+                                               2     3
+
+
+
+
+                         1
+                                                   {label}
+                                                             Container
+                                                             Icon
+                         4
+                                                   {label}   Label
+                                                             Focus ring
+
+
+                                                   {label}
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Required vs optional
+
+                                               2     3
+
+
+
+
+                         1
+                                                   {label}
+                                                                     Depends on property
+                                                             Icon
+                         4
+                                                   {label}   Label   Required
+                                                                     Depends on behavior
+
+
+                                                   {label}
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Nonessential elements
+
+
+
+                                                         1    2
+
+
+
+
+                                               {label}       20
+
+                                                                      Icon after label?
+                                                                      Counter?
+                                               {label}            3
+                                                                      Dropdown?
+                                                                      Loading?
+
+
+                                               {label}            4
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Element naming
+
+
+
+
+                                              Physical   Ordinal   Abstract   Logical
+
+
+
+
+                        {label}               Left       Before    Leading    Start
+
+
+
+          {label}                             Right      After     Trailing   End
+
+
+
+
+      © Copyright 2024 • Directed Edges LLC
+Anatomy / Dependencies
+
+
+
+
+      © Copyright 2024 • Directed Edges LLC
+Anatomy / Content or component?
+
+
+                                                                 DsButton component
+
+                                                                               {label}
+
+
+
+
+                                              DsIcon component                 AND OR?   Icon/Plus “glyph” content
+                                              name    plus                               (no properties)
+
+
+                                                                                                                            c !
+                                              color   primary | secondary | ...
+
+
+                                                                                                                     Ato m i
+                                                                                                                  n ≠
+                                              size    small | medium | large
+
+
+                                                                                                           But to
+      © Copyright 2024 • Directed Edges LLC
+Anatomy / Nested components
+
+
+
+
+                                              1                               2                     3
+
+
+
+
+                                                      {label}      {label} 20            {label}
+
+                                DsIcon component                 DsCounter component   DsSpinner component
+                                 name             color   size   scheme                size
+
+
+
+
+                                  OR
+
+
+
+                                Icon content
+                                 name
+
+
+
+
+      © Copyright 2024 • Directed Edges LLC
+Anatomy / Separate or integrated components?
+
+
+
+          component                                            component     component
+          DsButton                                        OR   DsButton      DsIconButton
+          With label                           No label
+
+
+                        {label}                                    {label}
+
+                        {label}                                    {label}
+
+                        {label}                                    {label}
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Separate components
+
+
+
+                component                                                          component
+                DsButton                                                     AND   DsIconButton
+
+
+                              {label}
+
+                Prop                      type                                     Prop          type
+
+                  size                        'small' | 'medium' | 'large'         size          'small' | 'large'
+
+                  variant                     'solid' | 'outline' | 'flat'         variant       'solid' | 'lowContrast' | 'flat'
+
+
+
+
+                                                                                   surfaceType          'colorFill' | 'media'
+
+
+
+
+      © Copyright 2024 • Directed Edges LLC
+Anatomy / Input
+
+
+
+
+                                               What elements could it include?
+      {Label}                                  Which elements are required?
+                                               What is each element’s name?
+                                               Does an element depend on another component?
+                                               If so, is it a subcomponent or nested component?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Input
+
+
+
+
+      {Label}
+
+                                               What elements could it include?
+                                               Which elements are required?
+      * {Label}                                What is each element’s name?
+      {Help text}
+                                               Does an element depend on another component?
+                 Placeholder                   If so, is it a subcomponent or nested component?
+      {error text}
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Essential elements
+
+
+
+
+                                               * {Label}
+     {Label}                                   {Help text}
+
+                                                      {Value}   {action}
+                                               {error text}
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Required vs optional
+
+
+
+
+                         Is anything required?                  * {Label}
+                                                                {Help text}
+
+                         If a label isn’t visually required,
+          {Value}   {action}
+                         what must be done?
+
+                                                                {error text}
+                         Whose responsibility is that?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Containers as element?
+                                                                                          1         Container
+                                                                                              Width: 328
+                                                                                              Background color:       DS Color/ Forms/Control/Background (#060809)
+                                                                                              Border color:       DS Color/ Forms/Control/Border (#666E74)
+                                                                                              Border weight: 1
+                                                                                              Border radius:      DS Shape/ border radius/input control (4)
+
+
+                                                                                          2         Left Icon
+                                                                                              Depends on: DS Icon
+                                                                                              Name: <Instance name>
+                                                                                              Size: 16x16
+
+
+                                                                                          3         Value
+                                                                4                 5           Text style: Body/Medium
+
+
+                                                                                          4         Placeholder
+                                                                                              Text color: #868E92
+                                1                  {Value} {Placeholder}   {action}   7       Text style: Body/Medium
+
+
+                                                                                          5         Right content
+                                                                                              H   eight: 33
+                                               2     3                        6               Background color:       DS Color/ Forms/Control/Background (#060809)
+                                                                                              Border radius:      DS Shape/ border radius/input control (4)
+
+
+                                                                                          6         Inline action
+                                                                                              Text color:      DS Color/ Action/Initial (#518AF5)
+                                                                                              Text align: Right
+                                                                                              Text style: Body/Medium
+
+
+                                                                                          7         Right icon
+                                                                                              Depends on: DS Icon
+                                                                                              Name: <Instance name>
+                                                                                              Size: 16x16
+                                                                                              Color: Primary
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Default content
+
+
+
+
+          {Label}                              Address                                               Label                        Lorem ipsum dolor
+          {Help text}                          Include street name, building number, and any unit,   Help text                    uismod orci vitae ligula viv
+                                               apartment, or suite numbers.
+                {Value}                                                                                    Value                        et felis feugiat s
+                                                    Main St.
+          {error text}                                                                               Error text                   ulputate felis scelerisque. Donec ut metus massa.
+                                               Address must include a valid house number.                                         Vestibulum non tellus neque. Praes
+
+
+
+
+          Labeled Data                         Real Data                                             Element names                Lorem Ipsum
+                                               Ready-made examples or                                What’s fixed versus what’s
+                                               content as data, for the win?                         editable?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Nested components
+
+
+
+     Form Label                                Text Input
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Nested components
+
+
+
+                                        Integrated                           Composed
+    Code (Web)                          <DsTextInput                         <DsFormLabel helpText="">
+                                          label="{Label}"                      {Label}
+                                          helpText=""                        </DsFormLabel>
+                                        >                                    <DsTextInput>
+                                          {Value}                              {Value}
+                                        </DsTextInput>                       </DsTextInput>
+
+
+    Design (Figma)                                DSTextInput                     DSTextInput                    DSTextInput
+
+                                              required                        leftIcon
+                                                                                                             DSFormLabel
+                                              label                             value           {Value}
+                                                                                                             required
+                                                label           {Label}
+                                                                              DSFormLabel                    label
+                                              helpText
+                                                                              required                         label           {Label}
+                                                helpText        {helpText}
+                                                                              label                          helpText
+                                              leftIcon
+                                                                                label           {Label}        helpText        {helpText}
+                                                value           {Value}
+                                                                              helpText
+                                                                                                             Text Input
+                                                                                helpText        {helpText}
+                                                                                                             leftIcon
+
+                                                                                                               value           {Value}
+
+
+
+
+      © Copyright 2024 • Directed Edges LLC
+Anatomy / Card
+
+
+
+
+                                                                 What elements could it include?
+                                                                 Which elements are required?
+           {Title}                                               What is each element’s name?
+           {property} {value}                  {Label}
+           {property} {value}
+           {property} {value}
+                                              { M e ta d ata }
+
+                                              {Title}
+                                                                 Does an element depend on another component?
+             {Label}    {Label}               {Description}
+                                              Link Link
+                                                                 If so, is it a subcomponent or nested component?
+
+
+
+
+      © Copyright 2024 • Directed Edges LLC
+Anatomy / Essential elements
+
+
+
+                                               DsCardContainer        DsCard
+
+
+
+
+                                                                 OR
+                                                                       {Abcde}
+
+                                                                       {Abcde}
+                                                                       {Abcde}
+
+                                                                        {Abcde}   {Abcde}
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Essential elements
+
+
+
+                                               DsCardContainer         DsCard
+
+
+
+
+                                                                 AND
+                                                                        {Abcde}
+
+                                                                        {Abcde}
+                                                                        {Abcde}
+
+                                                                         {Abcde}   {Abcde}
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Required vs optional
+
+
+
+
+                                1
+                                2
+                                                                        Container      Required
+                                                                        Media          Optional?
+                                                                        Metadata       Optional
+                                                                        Title          Required
+                                3
+                                                                        Description    Optional
+                                               {Abcde}
+                                                                        Actions Area   Optional
+                                4              {Abcde}                  Action 1       Optional
+                                5              {Abcde}
+                                                                                       Depends on behavior
+                                6               {Abcde}   {Abcde}
+
+
+
+                                                   7                8
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Nonessential elements
+                                                      { M e ta d ata }
+
+                                                      {Title Title Title Title
+                                                      Title Title Title Title Title
+                                                      Title }
+                                                      {Description Description Description
+                                                      Description Description Description
+                                                      Description Description }
+                                                                                             {Title}
+                                       {Label}
+                                                                                              {Label}
+                                 {Title}
+                                 {Description}
+
+
+
+
+                                 {Title}
+                                 {property} {value}
+                                 {property} {value}
+                                 {property} {value}   Wheatfield                             { M e ta d ata }
+
+                                                                                             {Title}
+                                   {Label}                                                   {Description}
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Anatomy / Element names
+
+
+
+
+                               1
+                                                                   Media, Image, CardMedia, Asset
+
+                                                                   Metadata, Eyebrow, something else?
+
+                               2              {Abcde}              Title, Heading, Header, something else?
+                               3              {Abcde}
+                               4              {Abcde}              Subtitle, Subheader, Description, Body
+                                               {Abcde}   {Abcde}
+
+
+
+
+      © Copyright 2024 • Directed Edges LLC
+                                        Anatomy
+                                        Figjam activity
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+                                                  Elements
+
+                                        Anatomy
+                                                  Required
+                                                  Naming
+                                                  Dependencies
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+

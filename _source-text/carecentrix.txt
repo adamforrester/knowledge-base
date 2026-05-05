@@ -1,0 +1,1305 @@
+CareCentrix
+Design Language
+Partner
+
+□ March 2026 □ Version 2
+                                                                                                                                                 2
+
+
+
+
+Dear CareCentrix,
+Thank you for including VML in your
+search to find the right partner for your
+internal design systems.
+Thank you for the opportunity to partner with you on something that matters — not just to your engineering
+team, but to every person who depends on your internal tools to do their job well.
+
+We've spent time with your applications, your RFP, and the questions behind it. What we see isn't a design
+refresh — it's a foundational investment in how CareCentrix operates. The tools your teams use every day
+deserve the same level of craft and intentionality as any customer-facing product.
+
+A design system is infrastructure, not a one-time deliverable. Done right, it makes your engineering team
+faster, your interfaces more consistent, and your organization more resilient to change. And the best systems
+are built with the teams that use them — which is why we work alongside your engineers from day one, not
+just hand off at the end.
+                                                                                                                Adam Forrester
+We're ready to build something lasting together.                                                                GROUP DIRECTOR, DESIGN SYSTEMS
+                                                                                                                ADAM.FORRESTER@VML.COM
+                                                         3
+
+
+
+
+Table of Contents
+      01 We are VML           04 Milestones & Timeline
+
+      02 How We Think About   05 Relevant Experience
+      Systems That Scale
+                              06 Discovery Questions
+      03 Our Approach
+                 4
+
+
+
+
+01. We are VML
+                                                                                         6
+
+
+
+
+This is VML.
+Where creativity meets
+human connection.
+Who We Are
+VML is a global creative company that builds connected brands to drive growth. We
+partner with organizations around the world to create experiences that are impactful
+and deeply true to each brand’s identity. Our integrated capabilities across strategy,
+experience design, technology, and creativity allow us to bring brand ambition and
+real human insight together in meaningful ways.
+
+We understand the balance required to deliver inspiring brand experiences while
+ensuring clarity, consistency, and ease across every interaction. Our work helps
+brands show up with purpose, build lasting connections, and create experiences
+people genuinely value.
+
+
+We Are Human First
+In a world obsessed with speed, scale, and AI, we choose to start with people. Being
+Human First means designing with empathy, grounding decisions in real user needs,
+and ensuring technology enhances rather than replaces emotional connection. We
+prioritize clarity over complexity, intention over automation, and experiences that
+make people feel understood from the moment they arrive.
+
+
+Our Mission is Simple
+Our goal is to create experiences that begin with people, turning real human needs
+and emotions into meaningful brand moments that build trust, loyalty, and long-term
+growth.
+                                                                                                                                                 7
+
+
+
+
+A unified approach                                                             Creative
+                                                                               Agencies
+                                                                                                    Consulting
+                                                                                                      Firms
+                                                                                                                            System
+                                                                                                                          Integrators
+that redefines                                              Full digital
+                                                                                 Marketing               Strategic        Implementation only,
+
+what’s possible                                           growth services
+                                                                            enhancement without
+                                                                               implementation
+                                                                                                  offerings, fragmented
+                                                                                                          delivery
+                                                                                                                            lack of strategic
+                                                                                                                                offerings
+
+
+Our fusion of capabilities ensures
+creativity and technology go hand in         Consulting
+hand.
+
+Maximizing experience performance,       Communication
+efficiency, and value delivered by the
+underlying technology.
+                                            Production
+
+
+
+         Core capabilities
+                                             Experience
+
+         Partial ability to execute
+         on offering
+
+         No ability to execute               Commerce
+         on offering
+
+
+
+                                            Technology
+
+
+
+
+                                                  Data
+                                                                    8
+
+
+
+
+       A partner in excellence.
+  With VML, you gain more than a design system — you gain a
+strategic partner committed to bringing consistency, clarity, and
+  craftsmanship to the tools your teams depend on every day.
+ Let's build something that works as hard as the people using it.
+Supporting design systems for clients
+
+
+
+
+                                        PAG E   9
+                         10
+
+
+
+
+02. How We Think About
+Systems That Scale
+                            11
+
+
+
+
+A design system is a
+collection of UI elements
+built as reusable code.
+They are guided by clear
+standards that help
+organizations deliver
+cohesive, on-brand
+experiences at scale,
+over time.
+                                                                      12
+
+
+
+
+Built once.
+Used everywhere.
+A design system is not just a UI library—
+it’s a product serving the organization.
+
+A strong design system enables:
+
+Consistency across          Efficiency in building   Quality and
+teams and products.         and maintaining          scalability at
+                            experiences.             every layer.
+                                        13
+
+
+
+
+“The system
+addresses 80%
+of design and
+development needs
+so they can focus
+on the other 20%.”
+You Need A Design System — Here’s Why
+                                                                                                          14
+
+
+
+
+         The brand defines the design language and the
+ design system translates that into digital styles and libraries of
+user interface elements that can be utilized by all product teams.
+
+
+                                                          Brand identity, logos colors, fonts, tone of
+                       Brand Identity / Design Language
+Brand Team                                                voice, photography, & usage guidance.
+
+
+
+
+                                                          Accessible digital color scales, digital type
+                                Digital Styles &
+                                                          scales, spacing & grids, UX writing
+                                 Foundations              guidelines.
+
+
+Design System Team
+
+                                                          UI design & code libraries, common design
+                           UI Component Libraries         patterns, best practices & usage guidance.
+
+
+
+
+                                   Product
+                                                          Product-specific local libraries.
+Product Teams
+Atomic Design
+
+
+        Subatomic                   Atomic   Molecule   Organism     Template
+        (Design tokens)
+                                                         (Pattern)    (Pattern)
+
+
+
+
+Color     Typography      Spacing
+
+
+
+
+        Grids    Shadows
+                   16
+
+
+
+
+03. Our Approach
+                                                                                                                           17
+
+
+
+
+Your Ask
+Establish a shared design language and component library for internal tooling — giving your
+engineering team a consistent, scalable foundation to build from across multiple platforms and
+applications.
+
+
+
+   Our Perspective
+   A great design system for internal tooling isn't just about visual
+   consistency — it's about making your engineers faster and your tools
+   more trustworthy to the people who depend on them every day.
+
+   Foundations                    Built for real                 Accessibility as a            Brand, made
+   that scale.                    users.                         standard.                     digital.
+   Typography, color, spacing,    Recognizable, intuitive        As a healthcare               A unified visual
+   and interaction defined as     design patterns that           organization, inclusive       expression of
+   W3C DTCG-compliant             prioritize clarity and ease    design isn't optional. The    CareCentrix across
+   design tokens — structured     of use — documented so         system is built to WCAG 2.1   every internal
+   for consistency today and      engineers can implement        AA and Section 508            application — consistent
+   built to support enterprise-   them faithfully, every time.   compliance out of the gate.   in color, type, and tone.
+   level growth.
+                                                                                                          18
+
+
+
+
+Phases of Our
+Process
+PHASE 1                           PHASE 2                          PHASE 3
+
+Discovery                         Foundations                      Build
+Understand the                    Define the core visual           Build the component
+landscape, align on               and structural elements          library, document usage
+visual direction, and             of the design system,            patterns, and deliver a
+establish the tools and           documented as design             system your engineering
+principles that will guide        tokens and delivered in          team can start using
+everything that follows.          Figma.                           immediately.
+
+
+We work alongside your team throughout — not a handoff at the end, but an iterative build from day one.
+                                                                                                                                     19
+
+
+
+
+Discovery
+Discovery is where alignment happens. Before a single component is designed, we establish the
+principles, priorities, and direction that guide everything that follows.
+
+
+Brand onboarding                                                  Component backlog
+Review existing brand guidelines and assets to understand         Create a prioritized inventory of components based on
+what CareCentrix has established and what needs to translate      application needs and usage frequency.
+into digital.
+                                                                  Define the design direction
+Application audit                                                 Establish the visual language aligned to CareCentrix brand,
+Examine existing tools to identify components, design patterns,   validated through high-fidelity mockups..
+inconsistencies, and redundancies across the ecosystem.
+                                                                  North star
+Stakeholder alignment                                             Define why this system exists, who it serves, and the principles
+Align with key stakeholders on tools, Figma setup, and ways of    that will guide every design decision.
+working together throughout the engagement.
+
+
+Definition sessions
+Lead collaborative working sessions to surface requirements,
+priorities, and open questions.
+                                                                                                                                       20
+
+
+
+
+Foundations
+With direction established, we build the structural core of the system — the design decisions that
+every component will inherit.
+
+
+Figma setup                                                          Spacing
+Establish Figma as the source of truth, including variables,         Define spacing scales that support the full range of your
+styles, and documentation tooling.                                   application types — from data-dense internal tools to
+                                                                     interfaces that need more visual breathing room — ensuring
+                                                                     consistency without rigidity.
+Naming & architecture
+Enact token naming standards and establish the primitive/
+semantic variable structure.                                         Design tokens
+                                                                     Color, typography, and spacing form the core — but every
+                                                                     foundational decision is encoded as a token. All foundational
+Color                                                                values are all documented as W3C DTCG-compliant variables,
+Define a full color palette including primary, secondary, neutral,
+                                                                     creating a complete and consistent system ready for
+semantic, and status colors — with documented usage rules
+                                                                     consumption as your stack evolves.
+and WCAG-compliant contrast ratios baked in from the start.
+
+
+Typography                                                           Style guide
+                                                                     Create a digital style guide covering all foundational elements
+Establish typographic scales across heading and body styles,
+                                                                     with usage documentation.
+designed to work across multiple breakpoints and the range of
+density levels your applications require.
+                                                                                                                                  21
+
+
+
+
+Build
+With the foundation in place, we build the library — designing and documenting components
+that your engineering team can implement with confidence.
+
+Component architecture                                           Usage documentation
+Components are organized in layers — from foundational           Document when and how to use each component, with clear
+elements like buttons and icons, to composite patterns, to       do/don't guidance and annotated specs
+containers and layout structures.
+                                                                 Content guidelines
+Component design                                                 Establish tone of voice standards, error message patterns, and
+Each component is designed in Figma on the token foundation      help text best practices for CareCentrix's internal tooling
+— built to be themeable, accessible, and adaptable across the    ecosystem.
+range of your internal applications.
+                                                                 Component validation
+Design patterns                                                  Where applicable, components are validated with pilot teams
+Document common design patterns relevant to internal, data-      and tested in context — ideally through Storybook — ensuring
+heavy tooling — giving your engineering team a playbook for      the system holds up in real use before full rollout.
+the most frequent interface challenges.
+
+
+
+
+Handoff is incremental, not a moment. As components are completed, they're handed off to engineering —
+so your team starts building with the system before the engagement ends.
+                                                                                                                                                                                                         22
+
+
+
+
+Team Structure                                                  Our flexible staffing model, covering project management, experience design and technology, ensures
+                                                                optimal support for each phase of your design system journey.
+
+
+
+
+                                      Design Director                                                                                  Design Systems Lead
+
+                       Executive oversight and strategic direction                                                                     Day-to-day design lead and primary point of
+                      across the engagement. Ensures the work is                                                                       contact. Leads discovery, shapes the design
+                  aligned to CareCentrix's goals and meets VML's                                                                       vision, and drives alignment between design
+                                   standard for quality and craft.                                                                     decisions and technical implementation.
+
+
+
+
+                               UI Designers                                                                                            UX Designer
+
+Designs and builds the component library in Figma — from                                                                               Owns the documentation strategy and UX
+ individual elements to composite patterns — on the token                                                                              framework. Responsible for translating design
+  foundation. Responsible for ensuring every component is                                                                              decisions into clear, usable guidance that
+      consistent, accessible, and production-ready, with full                                                                          engineering teams can act on confidently.
+       documentation coverage across the component set.
+
+
+
+
+                              Delivery lead                                                                                                           UX Copywriter
+
+    Keeps the engagement on track and on budget.                                                                                                       Defines the voice and content standards for
+         Manages timelines, facilitates stakeholder                                                                                                    CareCentrix's internal tools — covering tone of
+  communication, and ensures smooth coordination                                                                                                       voice, readability, error message patterns, and
+   between VML and CareCentrix teams throughout.                                                                                                       help text best practices.
+                                                                                   Accessibility Specialist
+
+                                                                     Brings dedicated expertise to accessibility compliance. Reviews design
+                                                                     decisions against WCAG 2.1 AA and Section 508 standards, ensuring the
+                                                                             system is inclusive by design — not as an afterthought.
+                                                                                                                                                                                                                23
+
+
+
+
+Roles & Responsibilities                                                                                                               UX COPYWRITER
+                                                                                                                                       •   Defines the voice and content standards for CareCentrix's
+Each member of the VML team has a defined role and clear ownership across the                                                              internal tooling ecosystem
+                                                                                                                                       •   Develops tone of voice guidelines aligned to CareCentrix brand
+engagement — ensuring accountability at every phase.                                                                                       and internal use context
+                                                                                                                                       •   Writes and documents error message patterns and help text
+                                                                                                                                           best practices
+                                                                                                                                       •   Collaborates with the UX Designer to integrate content
+DESIGN DIRECTOR                                                     UI DESIGNERS
+                                                                                                                                           guidelines into component documentation
+•   Executive creative lead and escalation point for the            •   Design and build all components and foundations within the
+    engagement                                                          Figma library
+•   Ensures all work meets VML's standard for quality, craft, and   •   Ensure all components are built on the token foundation and    DELIVERY LEAD
+    strategic alignment                                                 meet accessibility standards                                   •   Overall engagement lead for project management, timeline,
+•   Reviews and approves design direction and foundational          •   Collaborate with the Design Systems Lead on component              and budget oversight
+    decisions before client presentation                                architecture and hierarchy decisions                           •   Primary operational point of contact for CareCentrix's day-
+•   Participates in key stakeholder presentations and design        •   Participate in review cycles and incorporate feedback across       to-day engagement needs
+    reviews                                                             design iterations                                              •   Plans and maintains the project schedule, sprint cycles, and
+•   Available to CareCentrix leadership for strategic alignment     •   Support documentation with annotated component specs               milestone tracking
+    conversations as needed                                             and usage guidance                                             •   Facilitates all recurring project meetings, captures notes, and
+                                                                    •   Conduct incremental handoffs to engineering as                     distributes follow-ups
+                                                                        components are completed                                       •   Proactively communicates status, risks, and decisions to both
+D E S I G N SYS T E M L E A D                                                                                                              VML and CareCentrix stakeholders
+                                                                                                                                       •   Manages review and approval cycles to keep the
+•   Day-to-day project lead and primary creative point of
+                                                                    UX DESIGNER                                                            engagement on track
+    contact for CareCentrix
+                                                                    •   Owns the documentation strategy across the engagement          •   Coordinates access, onboarding, and logistics at the start of
+•   Leads discovery activities including application audit,
+                                                                    •   Defines the structure and format of component                      the engagement
+    stakeholder sessions, and design direction
+•   Drives the visual language and design system architecture           documentation in Figma
+    decisions throughout the engagement                             •   Documents usage guidance, do/don't patterns, states, and
+                                                                                                                                       ACCESSIBILITY SPECIALIST
+•   Collaborates with the engineering team to ensure design             accessibility notes for each component
+                                                                    •   Establishes and documents design patterns relevant to          •   Serves as the dedicated accessibility expert across the
+    decisions are implementable
+                                                                        CareCentrix's internal tooling workflows                           engagement
+•   Works with the Delivery Lead to prioritize and maintain the
+                                                                    •   Ensures documentation is clear, consistent, and actionable     •   Reviews foundational decisions — color contrast, type scale, focus
+    component backlog
+                                                                        for an engineering audience                                        states — against WCAG 2.1 AA and Section 508 standards
+•   Leads incremental handoff sessions with CareCentrix's
+                                                                    •   Collaborates with the UX Copywriter to align documentation     •   Provides accessibility guidance during component design to ensure
+    engineering team
+                                                                        language with content guidelines                                   compliance is built in, not retrofitted
+                                                                                                                                       •   Documents accessibility requirements and annotations within the
+                                                                                                                                           Figma library
+                                                                                                                                       •   Available for targeted review sessions at key milestones —
+                                                                                                                                           foundations approval and component completion
+                        24
+
+
+
+
+04. Recommended
+Milestones & Timeline
+                                                                                                                                                                                            25
+
+
+
+
+Assumptions
+This proposal is based on the following   ENGAGEMENT & PROCESS                                                      SCOPE BOUNDARIES
+assumptions. Changes to these             •   Client will provide a dedicated point of contact with authority to    •   This engagement covers design system foundations, component
+conditions may affect timeline, scope,        provide feedback and approvals in a timely manner                         design, and documentation only — it does not include front-end
+or investment.                            •   Design direction and visual language will be approved within 2            development, code delivery, or engineering implementation
+                                              rounds of review before foundations work begins — to ensure the       •   Custom iconography is not included in scope — existing
+                                              engagement moves forward without delay                                    CareCentrix icons or an open-source icon library will be adopted
+                                          •   Component feedback will be addressed within agreed review                 and documented
+                                              cycles — incremental handoffs depend on timely input from             •   Application-specific UI redesign, journey mapping, and UX
+                                              engineering                                                               research are outside the scope of this engagement
+                                          •   VML will have access to all necessary brand assets, guidelines, and   •   The extended component set for the 6-month engagement will be
+                                              existing design files at the start of the engagement                      defined collaboratively during discovery — the lists provided are
+                                                                                                                        illustrative, not exhaustive
+
+                                          TOOLS & ACCESS                                                            S TA F F I N G
+
+                                          •   Figma will be the design and documentation tool — CareCentrix         •   Team composition remains consistent across both scope options
+                                              will either provide or procure the necessary Figma licensing, or          — allocation varies by engagement length
+                                              work with VML to establish a transfer of files from VML's Figma       •   Accessibility SME involvement is scoped as a bucket of hours —
+                                              environment at an agreed-upon point during or at the conclusion           additional accessibility audit work is available but would constitute
+                                              of the engagement.                                                        a scope addition
+                                          •   VML will have access to existing application environments for audit
+                                              purposes
+                                          •   Engineering team will be available for alignment sessions during
+                                              discovery and incremental handoff touchpoints
+              26
+
+
+
+
+Option 1
+
+12-16 Weeks
+                                                                                                                                           27
+
+
+
+                                                                                                                             12-16 Weeks
+Team Structure
+Our flexible staffing model, covering project management, experience design and
+technology, ensures optimal support for each phase of your design system journey.
+
+
+
+
+                         Project Lead
+
+
+                                                                       Design Director
+                                                                            25%
+
+
+
+
+               Core Production Team
+
+                                                Design Systems Lead     UX Designer            UI Designer   Delivery Lead
+                                                        50%                100%                  100%%            50%
+
+
+
+
+                    Supporting Roles
+
+                                                            UX Copywriter      Accessibility Specialist
+                                                              75 hours                10 hours
+                                                                                                                                                                                                                     28
+
+
+
+                                                                                                                                                                                                       12-16 Weeks
+Tasks & Deliverables
+A structured, three-phase engagement — each phase building on the last, with clear outputs at every stage.
+
+
+Discovery                                                            Foundations                                                          Build
+TA S K S                                                             TA S K S                                                             TA S K S
+•   Review and onboard to brand guidelines and existing assets       •   Establish Figma as the source of truth — variables, styles,      •   Define component hierarchy — establish layers from
+•   Audit existing applications — inventory UI patterns,                 and documentation tooling                                            foundational elements (buttons, inputs, icons) to composite
+    components, inconsistencies, and redundancies across the         •   Define naming standards and token architecture — primitive           components to layout structures
+    ecosystem                                                            and semantic variable structure                                  •   Design core component set in Figma, built on the token
+•   Align with stakeholders on tools, Figma setup, and ways of       •   Build the color system — primary, secondary, neutral,                foundation
+    working                                                              semantic, and status colors with documented usage and            •   Document when and how to use each component —
+•   Lead collaborative definition sessions to surface                    WCAG-compliant contrast ratios                                       purpose, usage guidance, do/don't patterns, states, and
+    requirements and priorities                                      •   Build the typographic scale — typefaces, sizes, and leading          accessibility notes
+•   Create a prioritized component backlog based on                      across breakpoints                                               •   Document design patterns relevant to internal, data-heavy
+    application needs and usage frequency                            •   Define spacing scales — supporting the range of application          tooling workflows
+•   Define the north star — why this system exists, who it serves,       density needs                                                    •   Establish content guidelines — tone of voice, error message
+    and the principles that will guide design decisions              •   Encode all foundational decisions as W3C DTCG-compliant              patterns, help text standards
+•   Define the design direction — establish the visual language          design tokens — color, typography, spacing, border, radius,      •   Conduct incremental handoffs to engineering as
+    aligned to CareCentrix brand, validated through high-fidelity        shadow, grid, and motion                                             components are completed
+    mockups                                                          •   Establish accessibility baseline — contrast, type scale, focus   •   Pilot validation where applicable — test components in
+                                                                         states                                                               context with engineering team
+DELIVERABLES
+•   Application audit report — UI patterns, inconsistencies, and     DELIVERABLES                                                         DELIVERABLES
+    redundancies documented                                          •   Color system — palette with semantic usage documentation         •   Core component set in Figma — fully built, annotated, and
+•   Prioritized component backlog                                    •   Typography system — type scale with breakpoint guidance              token-connected
+•   Design principles — 3–5 opinionated, decision-making             •   Spacing system — scale with density variants                     •   Component usage documentation — purpose, states, do/
+    principles for the system                                        •   Design tokens — complete W3C DTCG-compliant token set in             don't guidance, and accessibility notes per component
+•   High-fidelity mockups — illustrative screens demonstrating           Figma Variables                                                  •   Design patterns documentation — common workflows and
+    the approved design direction                                    •   Digital style guide in Figma covering all foundational               interface patterns for internal tooling
+•   Figma environment configured and ready for foundations               elements                                                         •   Content guidelines — tone of voice, readability standards,
+    work                                                             •   Accessibility standards documentation — contrast ratios,             error and help text best practices
+                                                                         type minimums, focus state specs                                 •   Published Figma component library — ready for engineering
+                                                                                                                                              consumption
+                                                                                                                                                                                      29
+
+
+
+                                                                                                                                                                        12-16 Weeks
+Core Components &
+Design Patterns
+The following components and               CORE COMPONENTS
+patterns form the core deliverable set
+                                           • Button — primary, secondary, destructive, disabled states
+for the initial engagement — prioritized
+                                           • Text input & text area — with validation states: error,
+based on frequency, complexity, and
+                                             warning, success
+impact across CareCentrix's internal
+                                           • Select / dropdown
+tooling ecosystem.
+                                           • Checkbox / checkbox list
+                                           • Radio button / radio button list
+                                           • Toggle
+                                           • Alert / notification banner
+                                           • Badge / status tag
+
+
+
+
+                                           C O R E D E S I G N PAT T E R N S
+
+                                           • Button groupings
+                                           • Form layout and validation flow
+                                           • General wayfinding patterns
+
+
+                                           The components and patterns listed above are illustrative of the core set we anticipate delivering within this engagement.
+                                           Final component scope will be confirmed and prioritized collaboratively during the discovery phase.
+                                                                                                                                                                                              30
+
+
+
+                                                                                                                                                                             12-16 Weeks
+Timeline
+
+    WEEK 1   WEEK 2             WEEK 3             WEEK 4   WEEK 5      WEEK 6               WEEK 7     WEEK 8              WEEK 9            WEEK 10            WEEK 11          WEEK 12
+
+
+
+
+              Discovery
+
+                                                                     Foundations
+
+                                                                                                                                                 Build
+                          Component
+                             backlog
+                           prioritized
+
+
+                                     Audit &                                     Color                           Component
+                                   research                                     system                           design
+Kickoff                           complete                                                                       begins
+                                                                               defined
+             Brand
+                                                  Design                                                      Style guide     First
+             onboarding
+                                                direction                      Typography                     complete &      component          Component
+             complete
+                                               approved                             system                    approved        handed off to      Documentation
+                                                                                   defined                                    engineering        alignment
+                                                                      Token
+                                                                      architecture       Foundation     Full
+                                                                      defined                                                                                         Component library and
+                                                                                            direction   token set                                                     documentation handoff
+                                                                                           approved     complete
+
+
+
+                                                                                                                                                   Pilot validation
+                                                                                                                                                  with engineering
+                                                                                                                                                                                                          31
+
+
+
+                                                                                                                                                                                            12-16 Weeks
+12-16 Week
+Engagement Estimate
+We've structured this as a focused            Phase                                                                                                                           TIMING
+engagement to deliver a design system
+MVP over 12–16 weeks, with resourcing
+                                              Discovery                                                                                                                     4 weeks
+tailored to the different needs of each       Audit existing applications, align on design direction, and establish the foundation for the system.
+phase.
+
+Costs are shown as a range to provide         Foundations                                                                                                                   4 weeks
+flexibility based on final scope and level    Define color, typography, spacing, and design tokens — the structural core of the system
+
+of support.
+                                              Build                                                                                                                       4 - 6 weeks
+                                              Create components, patterns, and documentation, iterative handoffs to engineering.
+
+
+
+
+                                                                                                                                    Estimated Total Cost                $230 - $320k
+
+
+
+
+                                             The components and patterns listed above are illustrative of the core set we anticipate delivering within this engagement. Final component scope will
+                                             be confirmed and prioritized collaboratively during the discovery phase. This estimate is based on the scope and assumptions outlined in this proposal.
+                                             Changes to scope, timeline, or client availability may affect the final investment.
+              32
+
+
+
+
+Option 2
+
+16-24 Weeks
+                                                                                                                                       33
+
+
+
+                                                                                                                             16-24 Weeks
+Team Structure
+Our flexible staffing model, covering project management, experience design and
+technology, ensures optimal support for each phase of your design system journey.
+
+
+
+
+                         Project Lead
+
+
+                                                                       Design Director
+                                                                            25%
+
+
+
+
+               Core Production Team
+
+                                                Design Systems Lead     UX Designer            UI Designer   Delivery Lead
+                                                        50%                100%                  100%%            50%
+
+
+
+
+                    Supporting Roles
+
+                                                            UX Copywriter      Accessibility Specialist
+                                                              75 hours                10 hours
+                                                                                                                                                                                                                 34
+
+
+
+                                                                                                                                                                                                       16-24 Weeks
+Tasks & Deliverables
+A structured, three-phase engagement — each phase building on the last, with clear outputs at every stage.
+
+
+Discovery                                                            Foundations                                                          Build
+TA S K S                                                             TA S K S                                                             TA S K S
+•   Review and onboard to brand guidelines and existing assets       •   Establish Figma as the source of truth — variables, styles,      •   Define component hierarchy — establish layers from
+•   Audit existing applications — inventory UI patterns,                 and documentation tooling                                            foundational elements (buttons, inputs, icons) to composite
+    components, inconsistencies, and redundancies across the         •   Define naming standards and token architecture — primitive           components to layout structures
+    ecosystem                                                            and semantic variable structure                                  •   Design core component set in Figma, built on the token
+•   Align with stakeholders on tools, Figma setup, and ways of       •   Build the color system — primary, secondary, neutral,                foundation
+    working                                                              semantic, and status colors with documented usage and            •   Document when and how to use each component —
+•   Lead collaborative definition sessions to surface                    WCAG-compliant contrast ratios                                       purpose, usage guidance, do/don't patterns, states, and
+    requirements and priorities                                      •   Build the typographic scale — typefaces, sizes, and leading          accessibility notes
+•   Create a prioritized component backlog based on                      across breakpoints                                               •   Document design patterns relevant to internal, data-heavy
+    application needs and usage frequency                            •   Define spacing scales — supporting the range of application          tooling workflows
+•   Define the north star — why this system exists, who it serves,       density needs                                                    •   Establish content guidelines — tone of voice, error message
+    and the principles that will guide design decisions              •   Encode all foundational decisions as W3C DTCG-compliant              patterns, help text standards
+•   Define the design direction — establish the visual language          design tokens — color, typography, spacing, border, radius,      •   Conduct incremental handoffs to engineering as
+    aligned to CareCentrix brand, validated through high-fidelity        shadow, grid, and motion                                             components are completed
+    mockups                                                          •   Establish accessibility baseline — contrast, type scale, focus   •   Pilot validation where applicable — test components in
+                                                                         states                                                               context with engineering team
+DELIVERABLES
+•   Application audit report — UI patterns, inconsistencies, and     DELIVERABLES                                                         DELIVERABLES
+    redundancies documented                                          •   Color system — palette with semantic usage documentation         •   Core component set in Figma — fully built, annotated, and
+•   Prioritized component backlog                                    •   Typography system — type scale with breakpoint guidance              token-connected
+•   Design principles — 3–5 opinionated, decision-making             •   Spacing system — scale with density variants                     •   Component usage documentation — purpose, states, do/
+    principles for the system                                        •   Design tokens — complete W3C DTCG-compliant token set in             don't guidance, and accessibility notes per component
+•   High-fidelity mockups — illustrative screens demonstrating           Figma Variables                                                  •   Design patterns documentation — common workflows and
+    the approved design direction                                    •   Digital style guide in Figma covering all foundational               interface patterns for internal tooling
+•   Figma environment configured and ready for foundations               elements                                                         •   Content guidelines — tone of voice, readability standards,
+    work                                                             •   Accessibility standards documentation — contrast ratios,             error and help text best practices
+                                                                         type minimums, focus state specs                                 •   Published Figma component library — ready for engineering
+                                                                                                                                              consumption
+                                                                                                                                                                                        35
+
+
+
+                                                                                                                                                                        16-24 Weeks
+Components & Design
+Patterns
+The following components and               CORE COMPONENTS                                                              EXTENDED COMPONENTS
+patterns form the core deliverable set
+                                           • Button — primary, secondary, destructive,                                  •   Modal / dialog with scrim
+for the initial engagement — prioritized
+                                             disabled states                                                            •   Data table — basic structure, column headers, row states
+based on frequency, complexity, and
+                                           • Text input & text area — with validation                                   •   Pagination
+impact across CareCentrix's internal
+                                             states: error, warning, success                                            •   Tooltip / popover
+tooling ecosystem.
+                                           • Select / dropdown                                                          •   Search input
+                                           • Checkbox / checkbox list                                                   •   Tabs
+                                           • Radio button / radio button list                                           •   Accordion
+                                           • Toggle                                                                     •   Loading spinner / skeleton loader
+                                           • Alert / notification banner
+                                           • Badge / status tag
+                                                                                                                        E X T E N D E D D E S I G N PAT T E R N S
+
+                                                                                                                        •   Error state handling
+                                           C O R E D E S I G N PAT T E R N S
+                                                                                                                        •   Data table interactions — sorting, filtering, row actions
+                                           • Button groupings                                                           •   Confirmation and destructive action flows
+                                           • Form layout and validation flow                                            •   Overlay and modal workflows
+                                           • General wayfinding patterns                                                •   Search and filter patterns
+
+
+                                           The components and patterns listed above are illustrative of what an extended engagement could deliver. The full
+                                           component scope — both core and expanded — will be confirmed and prioritized collaboratively during the discovery phase,
+                                           ensuring the library reflects CareCentrix's highest-priority needs.
+                                                                                                                                                                                                                 36
+
+
+
+                                                                                                                                                                                               16-24 Weeks
+Timeline
+    WEEK 1       WEEK 2            WEEK 3             WEEK 4       WEEK 5        WEEK 6               WEEK 7         WEEK 8              WEEK 9             WEEK 10             WEEK 11            WEEK 12
+
+
+
+                  Discovery
+
+                                                                             Foundations
+                             Component
+                                backlog
+                              prioritized                                                                                                                          Build
+                                                                                          Color
+                                                                                         system
+                Brand                                                                   defined
+                onboarding                                                                                                    Component                                     Pilot validation
+Kickoff         complete                                                                                                      design                                       with engineering
+                                        Audit &      Design                             Typography                            begins
+                                      research     direction                                 system
+                                     complete     approved                                  defined                        Style guide
+                                                                                                                           complete &
+                                                                               Token              Foundation                                First
+                                                                                                                           approved
+                                                                               architecture          direction                              component           Component and                  Component and
+                                                                               defined              approved         Full                   handed off to       documentation                   documentation
+                                                                                                                     token set              engineering         alignment                           alignment
+                                                                                                                     complete
+
+
+
+
+   WEEK 13      WEEK 14            WEEK 15           WEEK 16       WEEK 17      WEEK 18               WEEK 19       WEEK 20              WEEK 21            WEEK 22            WEEK 23             WEEK 24
+
+
+
+
+                                                                                        Build
+                 Extended                         Component and              Component and                       Component and                          Pilot validation                        Component and
+             component set                         documentation              documentation                       documentation                        with engineering                          documentation
+                confirmed                              alignment                  alignment                           alignment                                                                       handoff
+                                                                                                                                                                                                          37
+
+
+
+                                                                                                                                                                                            16-24 Weeks
+16-24 Week
+Engagement Estimate
+An extended timeline allows us to move        Phase                                                                                                                            TIMING
+beyond MVP creation into real-world
+validation, adoption and scale.
+                                              Discovery                                                                                                                      4 weeks
+                                              Audit existing applications, align on design direction, and establish the foundation for the system.
+In addition to expanding the
+component library, the extended
+timeline creates space for system-wide        Foundations                                                                                                                    4 weeks
+readiness, broader organizational             Define color, typography, spacing, and design tokens — the structural core of the system
+
+adoption, and long-term scalability.
+
+Costs are shown as a range to provide         Build                                                                                                                          16 weeks
+                                              Create components, patterns, and documentation, iterative handoffs to engineering.
+flexibility based on final scope and level
+of support.
+                                                                                                                                     Estimated Total Cost                $320 - $500k
+
+
+
+
+                                             The components and patterns listed above are illustrative of what an extended engagement could deliver. The full component scope — both core and
+                                             expanded — will be confirmed and prioritized collaboratively during the discovery phase, ensuring the library reflects CareCentrix's highest-priority
+                                             needs. This estimate is based on the scope and assumptions outlined in this proposal. Changes to scope, timeline, or client availability may affect the
+                                             final investment.
+                          38
+
+
+
+
+05. Relevant Experience
+FRESH
+DESIGN SYSTEM
+OPPORTUNITY
+Inconsistent and inaccessible digital experiences were leading to
+frustration for Wendy’s users. These issues stemmed from a lack of
+standardization across it’s products. In addition to a poor experience, the
+fragmentation meant updates and expansions were unnecessarily time-
+consuming and resource-intensive, translating to a slow time-to-market
+and increased costs.
+
+SOLUTION
+Wendy’s Fresh Design System was created to provide an accessible, reusable
+standard to support a rebuild of the existing mobile iOS & Android apps into a
+single code-base in Flutter. In doing so it has allowed a reduction of 4000 lines
+of code in the app, and helped increase time-to-market speeds by 600%. It has
+since expanded to support Wendy’s digital ordering website as well as the CRM
+platform. It also provides usage guidelines as a reference for best practices.
+
+
+
+
+30      APP
+        COMPONENTS          24        APP
+                                      COMPONENTS          4000                LINES OF APP
+                                                                              CODE REMOVED
+
+
+
+22      DEVELOPERS
+        SUPPORTED           15       DESIGNERS
+                                     SUPPORTED
+Wendy’s
+Fresh Design System
+Wendy’s                                                                    Wendy’s Fresh Design System
+
+
+
+
+Fresh Design System                                                            https://freshds.wendys.com
+
+
+
+
+The design system fosters collaboration and provides a framework and set
+of tools to help designers and developers efficiently design cohesive
+experiences across products and platforms.
+
+
+
+
+                                    41
+Wendy’s
+Fresh Design System
+
+
+DESIGN TOKENS
+& THEMES
+Our expanded knowledge and
+experience into the use of design
+tokens takes shape with Fresh
+DS, leveraging tokens to enable
+stylistic consistency, scaling, and
+the ability to affect change
+across design and development
+with minimal effort.
+
+
+
+
+                                      42
+Wendy’s
+Fresh Design System
+OPPORTUNITY
+In the digital food ordering sphere, there is no clear standout when it comes
+to accessibility, especially for screen reader users. Their experiences have
+largely been unaccounted for. Wendy's has the potential to be the most
+accessible food ordering app ever, and be a gold star standard for screen
+reader experiences when ordering tasty nuggs.
+
+
+SOLUTION
+From logging current issues, to remediation, to baking accessibility into the
+entirety of our process, the Wendy's digital team has been tackling accessibility
+head-on. The Design System is a shining example of how great Accessibility
+can look.
+
+
+
+          Web Accessibility             App iOS and Android                 Critical Accessibility Issues
+  40+     Issues Logged        80+      Accessibility Issues Logged   25    Remediated
+2022-2023
+
+T-Mobile
+Apeiron
+Design System
+Starting in Q2 of 2022, we led a blended
+team of agency and T-Mobile resources
+in creating the new design system for T-
+Mobile to support their flagship app and
+website.
+
+
+
+
+                                           PAG E   45
+                                              DESIGN SYSTEMS
+
+
+
+
+The Ask
+Redeploy                        as Design-Centric
+
+Redeploy the T-Mobile flagship app and website from the ground-up,
+built from a single consolidated design system that will reduce the
+
+
+
+                                                                      DECEMBER 2022
+cost of maintaining T-Mobile’s digital experiences, accelerate the
+introduction of new features and enable scalable, cohesive
+experiences for our customer and front-line.
+
+
+
+
+                                                  PAG E   47
+                                                 DESIGN SYSTEMS
+
+
+
+
+Overview
+Apeiron is a flexible framework for the future
+of T-Mobile and Metro digital products across
+multiple platforms.
+
+
+
+
+                                                                                                                   DECEMBER 2022
+VML’s Role:
+                                                            Deliverables Include:
+• Lead client/agency design system team                     • UI libraries for for Web, iOS & Android
+• Provide cross disciplinary resources as                   • T-Mobile & Metro brands themes
+ needed
+                                                            • Design tokens to provide single source of truth
+• Define DS team processes & roadmaps
+                                                            • Defined design patterns to ensure consistent &
+• Define implementation & adoption                              logical usage
+ strategies
+                                                            • Robust documentation for proper implementation
+• Lead adoption efforts
+                                                            • Support for teams including Getting Started guides
+• Define support strategies                                     and integration support
+                                                            •
+
+
+                                                    PAG E       48
+           DESIGN SYSTEMS
+
+
+
+
+The Team
+
+
+
+
+                            DECEMBER 2022
+
+
+
+
+              PAG E   49
+         DESIGN SYSTEMS
+
+
+
+
+Intake
+
+
+
+
+                          DECEMBER 2022
+
+
+
+
+            PAG E   50
+                                                             DESIGN SYSTEMS
+
+
+
+
+Design Tokens
+Defining styles and automating
+change from a single source of truth.
+
+
+
+
+                                                                              DECEMBER 2022
+Tokens store values in a platform-agnostic format that can
+be translated into readable styles for all our digital
+platforms to use. The tokens are used in place of hard-
+coded values so that the design token only needs to be
+changed in one place to see the effect system-wide.
+
+
+
+
+ iOS    Android   Web      Figma
+
+
+
+
+                                                                PAG E   51
+                DESIGN SYSTEMS
+
+
+
+
+Tokens
+Examples
+Colors
+
+
+                                 DECEMBER 2022
+Typography
+Spacing
+Border Width
+Border Radius
+Shadows
+Transparency
+
+
+
+
+                   PAG E   52
+                                                       DESIGN SYSTEMS
+
+
+
+
+Brand Themes
+Changing brands with the
+flip of a switch
+
+
+
+                                                                        DECEMBER 2022
+Apeiron provides a theme for the T-Mobile and
+Metro brands. Developers can easily customize all of
+their components by changing the brand theme,
+eliminating the need to modify individual
+components or separate UI libraries for multiple
+brands.
+
+
+Colors are included for UI on both light and dark
+backgrounds.
+
+
+
+
+                                                          PAG E   53
+                                                        DESIGN SYSTEMS
+
+
+
+
+The Guidelines
+Usage guidance &
+component documentation
+
+
+
+                                                                         DECEMBER 2022
+A collection of guidelines, rules, and best practices
+for creating consistent, high-quality, and on-brand
+user interfaces. It provides a guide for designers,
+developers, and other stakeholders to understand
+how to create and maintain a unified visual
+language across all digital touch points.
+
+
+
+
+                                                           PAG E   54
+             DESIGN SYSTEMS
+
+
+
+
+Tech Stack
+Web                          iOS & Android
+
+
+
+
+                                             DECEMBER 2022
+
+
+
+
+                PAG E   55
+                          DESIGN SYSTEMS
+
+
+
+
+Design Token Automation
+& Architecture
+
+
+
+
+                                           DECEMBER 2022
+
+
+
+
+                             PAG E   56
+By the Numbers Started Apr 2022
+
+
+      20+
+      UI ELEMENTS RESEARCHED
+                                      500
+                                      DESIGN TOKENS
+                                                                2
+                                                                BRAND THEMES
+
+
+
+
+      18                              24                        39
+                                                                TEAM MEMBERS SINCE JUNE
+      UI ELEMENTS DESIGNED            ELEMENTS RESEARCHED
+
+
+
+
+      3                               15                        20
+                                                                PAGES OF USAGE GUIDANCE
+      PLATFORMS (IOS, ANDROID, WEB)   ELEMENTS IN DEVELOPMENT   & DESIGN PATTERNS
+
+
+
+
+                                                                                 PAG E    57
+                          58
+
+
+
+
+06. Discovery Questions
+                                                                                                                                                                 59
+
+
+
+
+Questions for
+CareCentrix                                TOOLS & LICENSING                                          S TA K E H O L D E R S & P R O C E S S
+
+                                           • Does CareCentrix have an existing Figma license, or      • Who will serve as the day-to-day point of contact on
+To refine our approach and ensure this       will one need to be procured for this engagement?          the CareCentrix side?
+proposal reflects your exact needs, we'd
+welcome clarity on the following before    • Are brand fonts licensed for digital use, or will font   • Who holds approval authority for design direction
+we begin. These answers will help us hit     licensing need to be addressed as part of the              sign-off, and how are review decisions made?
+                                             engagement?
+the ground running from day one.                                                                      • How available will the engineering team be for
+                                           • Does CareCentrix have an existing icon library, or         alignment sessions during discovery and
+                                             should we plan to recommend and adopt an open-             incremental handoffs throughout the engagement?
+                                             source icon set?
+
+
+
+                                           BRAND & CONTENT                                            TECHNICAL CONTEXT
+
+                                           • Are existing brand guidelines and assets available       • Are there any existing design files, UI kits, or
+                                             for VML to reference at the start of the                   component libraries we should be aware of prior to
+                                             engagement?                                                the audit?
+
+                                           • Will content guidelines and tone of voice work be        • What is the current status of the Backoffice Portal
+                                             informed by existing brand materials, or will              POC — is it actively in development, and will it serve
+                                             stakeholder interviews with communications or              as the primary pilot target for the design system?
+                                             marketing be required?
+             60
+
+
+
+
+Thank you!
+

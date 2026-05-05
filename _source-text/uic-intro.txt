@@ -1,0 +1,204 @@
+UI Components
+
+                                                 32                  32
+
+
+
+
+Naming
+
+                                                      16        16
+
+
+
+
+Anatomy
+
+                                           32         16        16
+
+
+                                                           16
+
+
+
+Props
+
+                                           32
+
+
+                                           32
+
+
+
+Layout
+                                         16
+
+
+
+
+Composition                                32
+
+
+                                                16
+
+
+
+
+   © Copyright 2024 • Directed Edges LLC
+                                    When describing a UI component,
+                                   what kinds of details do you include?
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+                                                                     Specification
+                                                                     or “Design spec” or, simply “Spec”
+                                                                     A document that describes how an interface is composed,
+                                                                     configured, visually designed, behaves and more, whether
+                                                                     a component, page or something else.
+
+
+
+
+nt name}       Anatomy                                                Properties                      Layout and spacing                     Accessibility                                                                                                                Component tokens                                                                                Version history
+
+                                                                      {Variant property name}         Spacing                                Screen reading                                                                                                               {Subsection title}                                                                              Version #.#.# • MMM DD, YYYY
+               1       {Layer name}
+                   Depends on :   {Dependency}
+                   {Name} : {Value}                                                                                                          F   or when the member is using a screen reader, including how elements should be identified, read, and in what order.       o en                               Alias                   igma style                   Value
+                   {Name} : {Value}
+                                                     #   #   #                                                                                                                                                                                                            T k                                                    F
+
+                                                                                                                                                                                                                                                                                                                                                                          N   ew features
+                                                                      {Property value} (default)          {Layer name}                                                                                                                                                    00    {Value}        $esds-...             $esds-...                    {Figma style}
+                                                                                                      {Name} : {Value}                             ESDS Text input                                                                                                                                                                                                            {Description
+               2       {Layer name}                                                                                                                                                                                                                                                          {Description}
+                                                                          {Layer name}                {Name} : {Value}                                   ESDS Form label]. [Icon] [value/                                                                                                                                                                                     {Description
+                                                                                                                                              eading : [placeholder
+                   {Name} :   {Style/token}
+                                                                                                                                             R
+                                                                                                                                                                   ], [role].                                                                                             00    {Value}        $esds-...             $esds-...                    {Figma style}               {Description}
+                                                                      {Name} :    {Style/token}       {Name} : {Value}
+                   {Name} :   {Style/token}                                                                                                            “Cost rate, the internal cost that this                                                                                               {Description}
+                                                                      {Name} : {Value}                {Name} : {Value}                       Example : person incurs on your business. Dollar 100,
+                   {Name} : {Value}
+                                                                                                      {Name} : {Value}
+                                                                                                                                                       [role].”                                                                                                           Aa    {Value}        $esds-...             $esds-...                    {Figma style}           Enhancements
+                                                                          {Layer name}                                                       Role : text box                                                                                                                                 {Description}                                                                    {Description
+               3       {Layer name}              #               #
+                                                                      Depends on :     {Dependency}                                                                                                                                                                             {Value}        $esds-...             $esds-...                    {Figma style}               {Description
+                   {Name} : {Value}              #               #
+                                                                      {Name} : {Value}                                                                                                                                                                                                       {Description}                                                                    {Description}
+                   {Name} :   {Style/token}
+                                                 #               #                                                                                                                                                                                                                             $esds-...             $esds-...                    {Figma style}
+                                                                                                          {Layer name}                                                                                                                                                          {Value}
+                   {Name} :   {Style/token}
+                                                                                                                                                   {Layer name}                                                                                                                                                                                                            i es
+                                                                                                                                                                                                                                                                                                                                                                          F x
+                                                                      {Property value}                {Name} : {Value}        16   16   16
+                                                                                                                                              eading : {Reading}
+                                                                                                                                                                                                                                                                                             {Description}
+                                                                                                                                                                                                                                                                                                                                                                              {Description
+                       {Layer name}
+                                                                                                                                             R
+               4                                                                                      {Name} : {Value}                                                                                                                                                          {Value}        $esds-...             $esds-...                    {Figma style}
+                                                                                                                         16
+                                                                          {Layer name}                                                       Example : {Example}                                                                                                                                                                                                              {Description
+                   Depends on :   {Dependency}                                                        {Name} : {Value}                                                                                                                                                                       {Description}
+                                                                      {Name} :    {Style/token}                                              Role : {Role}                                                                                                                                                                                                                    {Description}
+                   {Name} : {Value}                                                                   {Name} : {Value}   16
+                   {Name} : {Value}                                   {Name} : {Value}                {Name} : {Value}
+                                                     #   #   #
+                                                                          {Layer name}
+                                                                      Depends on :     {Dependency}
+                                                                                                                         16
+                                                                                                                                                                                                                                                                          {Subsection title}                                                                              Version #.#.# • MMM DD, YYYY
+                                                                      {Name} : {Value}                                                                                                                                                                                    o en
+                                                                                                                                                                                                                                                                          T k                                Alias               F   igma style                   Value
+
+                                                                                                                                                                                                                                                                          00    {Value}        $esds-...             $esds-...                    {Figma style}           N   ew features
+                                                                      {Property value}
+                                                                                                      Overflow                               F    ocus order                                                                                                              00
+
+                                                                                                                                                                                                                                                                          00
+                                                                                                                                                                                                                                                                                {Value}        $esds-...
+
+                                                                                                                                                                                                                                                                                               $esds-...
+                                                                                                                                                                                                                                                                                                                     $esds-...
+
+                                                                                                                                                                                                                                                                                                                     $esds-...
+                                                                                                                                                                                                                                                                                                                                                  {Figma style}
+
+                                                                                                                                                                                                                                                                                                                                                  {Figma style}
+                                                                                                                                                                                                                                                                                                                                                                              {Description
+                                                                                                                                                                                                                                                                                                                                                                              {Description
+                                                                                                                                                                                                                                                                                {Value}
+                                                                          {Layer name}                                                                                                                                                                                                                                                                                        {Description}
+                                                                      {Name} :    {Style/token}                                              ##. {Name} { ole} R                                                                                                          00    {Value}        $esds-...             $esds-...                    {Figma style}
+
+                                                                      {Name} : {Value}
+                                                                                                          {Layer name}                       ##. {Name} { ole} R
+                                                                                                                                                                                                                                       #     #      #
+                                                                                                                                                                                                                                                                                                                                                                          Enhancements
+                                                                                                                                             ##. {Name} { ole} R                                                                                                                                                                                                              {Description
+                                                                          {Layer name}                {Description}                                                                                                                                                                                                                                                           {Description
+                                                                                                                                             ##. {Name} { ole}
+                                                                                                                                                                                                                                                                          {Subsection title}
+                                                                                                                                                               R
+
+                                                                      Depends on :     {Dependency}                                                                                                         #                                                         #                                                                                                       {Description}
+                                                                      {Name} : {Value}
+                                                                                                                                                                                                            #                                                         #   o en
+                                                                                                                                                                                                                                                                          T k
+                                                                                                                                                                                                                                                                                                                                                                           i es
+                                                                                                                                                                                                                                                                                                                                                                          F x
+                                                                                                                                                                                                            #                                                         #   {Value}         $esds-...
+                                                                                                                                                                                                                                                                                                                                                                              {Description
+                                                                      {Boolean property name}                                                                                                                                                                             {Value}         $esds-...                                                                           {Description
+                                                                                                                                                                                                                                                                                                                                                                              {Description}
+                                                                                                                                                                                                                                       #      #     #                     {Value}         $esds-...
+                                                                                                          {Layer name}
+                                                                      Property type : Boolean                                                                                                                                                                             {Value}         $esds-...
+
+
+
+           © Copyright 2024 • Directed Edges LLC
+                                                                      Default : {true/false}          {Description}                                                                                                                                                       {Value}         $esds-...
+                                                                      Associated layers :
+                                                                                                                                                                                                                                                                          {Value}         $esds-...
+
+                                                                                                                                             Announced order
+                                                                          {Layer name}
+                                                                                                                                                                                                                                                                          {Value}         $esds-...
+                                                                          {Layer name}
+UI components / Considerations
+
+
+                                               Naming and metadata
+                                               Anatomy
+                                               Dependencies
+                                               Properties
+                                               Layout and spacing
+                                               Composition
+                                               Behavior
+                                               Motion
+                                               Theming
+                                               Accessibility
+
+       © Copyright 2024 • Directed Edges LLC
+UI components / Our focus
+
+
+                                               Naming and metadata
+                                               Anatomy
+
+                                               Properties
+                                               Layout and spacing
+                                               Composition
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+

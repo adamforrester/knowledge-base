@@ -1,0 +1,964 @@
+   How design systems
+power the new pace of
+product development
+03
+     Introduction       →
+
+
+
+07
+     Making your design system 
+     AI-ready →
+
+
+
+18
+     Setting your design system up
+     for scale →
+
+
+23
+     Pushing teams further (and
+     skills for what’s next) →
+
+
+
+
+02            Introduction
+In the age of AI, design systems are a context
+coefficient—the clearer and more complete a
+system is, the more likely AI is to produce on-
+brand results. Here, Figma leaders and
+practitioners share how to harness the power of
+design systems to meet the moment, and the
+skills teams will need to keep moving forward.
+
+
+
+
+03                      Introduction
+AI is changing who builds products and how they’re built.
+Historically, the product development process has been
+defined by clear roles and responsibilities and linear
+handoffs from one team to another. Today, AI is collapsing
+that sequence, leading to faster building and a blurring of
+boundaries between product, design, and engineering.
+While this acceleration is powerful, it also introduces new
+risk. As more people take part in design and increasingly
+bring AI tools into the product development process, work
+can start to lose the qualities that make it feel both
+recognizable and distinct. 
+
+
+
+All of this creates a renewed sense of urgency around
+design systems. With these systems, teams can codify their
+taste and craft, extending thoughtfully designed principles       56%
+and guidelines to any new idea or surface they set out to         of non-designers are
+explore. “[Design systems] help make sure we don’t all end        participating frequently in
+up shipping the same generic UIs cobbled together from the        at least one design-centric
+                                                                  task, according to recent
+same pool of AI-generated parts,” says Ana Boyer, Figma
+                                                                  Figma research.
+designer advocate. “As more companies adopt AI tools in
+their product development stacks, design systems will
+increasingly become the connective tissue that guides
+these tools toward better outcomes.”   
+
+Hear from Figma leaders and practitioners about how to
+approach these shifts, including practical advice for
+building systems ready for the AI era and developing skills
+to prepare for what's next.
+
+
+
+
+04            How design systems power the new pace of product development
+ Navigating a new era
+ of collaboration
+“The whole product development process used to start at the
+                                                                     “Instead of discouraging
+ beginning and it was very linear,” says Figma Vice President        contributions from PMs or
+ of Product Paige Costello. “Now, you can start in the middle        other non-designers who
+ then go back to the beginning, or start at the end then go          want to design, what if we
+                                                                     welcomed them into the
+ back to the middle. The whole lifecycle has both collapsed          process? Designers can
+ and shifted in terms of where you can start.”
+
+                     even empower these
+                                                                     collaborators by sharing
+ With AI driving this shift, work moves faster and across            their quality standards and
+                                                                     sense of taste. Design
+ more roles. PMs, designers, and developers now work side            systems—which codify
+ by side in shared tools, moving fluidly between strategy,           these standards and taste
+ design, and implementation. Marketers, engineers, and PMs           —play a crucial role in
+                                                                     making this possible.” 
+ are also working directly in design tools, giving feedback          —Yuhki Yamashita, Chief
+ and creating quick prototypes to express ideas. According           Product Officer at Figma
+ to recent Figma research, 55% of product builders are taking
+ on new tasks that fall outside of their usual scope.
+
+
+
+
+              Design                   DS                  Development
+
+
+
+
+ 05            How design systems power the new pace of product development
+Across disciplines, there’s a shift in the day-to-day work of designers, developers,
+and product managers:
+
+Designers are refining ideas      Developers are influencing           Product managers are using
+with real components, using       design earlier, weighing in on       AI to visualize concepts,
+live systems instead of static    component logic,                     prompting rough prototypes
+mockups to show how layouts       accessibility, and feasibility as    that make ideas tangible for
+behave in production.             ideas take shape.                    the team.
+
+
+
+
+                   Researcher                                         Marketer
+
+
+
+
+                           Designer                              Developer
+
+
+
+
+                        PM                                            UX Writer
+
+
+
+
+ 06             How design systems power the new pace of product development
+Making your
+design system  
+AI-ready
+
+
+
+
+
+07
+“What many designers and developers can  
+
+ infer just from understanding the brand  
+
+ and the business as a whole, AI doesn’t
+
+ inherently know.”
+
+ Zoe Adelman, Product Manager, Figma
+
+
+
+
+“You and your team already have a point of view on what
+
+ good looks like,” Paige says. “The future of who can build
+
+ the fastest, highest-quality experiences depends on
+
+ collecting and organizing this context and point of view in
+
+ one place and knitting it together.”  
+
+
+
+
+ Organizing this context raises a new requirement for how
+
+ systems are built and maintained: They need to encode the
+
+ kind of context that AI can’t infer on its own. “Authors
+
+ should be prioritizing getting as much context into the
+
+ system as possible,” says Zoe Adelman, product manager at
+
+ Figma. “What many designers and developers can infer just
+
+ from understanding the brand and the business as a whole,
+
+ AI doesn’t inherently know.” 
+
+
+
+
+
+
+ Details that once felt optional— clear usage guidelines,
+
+ complete documentation, and explicit links between design
+
+ and code—become essential for keeping outputs on-brand
+
+ and production-ready. “If we really want to maximize the
+
+ power of AI in product development, we need to give it the
+
+ same knowledge our best people have,” Figma product
+
+ manager Yarden Katz. “The model needs to understand how
+
+ we work, what we value, and what makes our product
+
+ distinct. The results should feel native to us.”
+
+
+
+
+
+ 08              How   design   systems   power   the   new   pace   of   product   development
+AI as a new consumer
+Historically, designers were the primary consumers of  
+design systems, and developers relied on those systems to
+implement UI consistently. Today, that relationship is
+evolving. “We’re seeing a shift where AI also becomes a
+consumer of the design system and designers and developers
+increasingly work with what AI produces,” says Zoe. 
+
+
+
+As AI begins to interact directly with design systems, the
+idea of fluency is changing. Instead of designers and
+developers applying the system’s rules themselves, they’re
+learning to guide AI in doing so through prompts and
+structured context. For design systems teams, the focus
+shifts from driving adoption and enforcement to ensuring
+the system is complete, interpretable, and ready for both
+people and AI to use effectively.
+
+
+
+09            How design systems power the new pace of product development
+Building on your
+foundations
+Crafting design systems for AI consumption doesn’t mean
+starting from scratch. The same foundations still apply—
+variables, styles, and components form the logic that keeps
+your system coherent and give AI the structure it needs to
+build accurately. “Think about how you would approach
+design systems before AI,” Ana advises. “What are the
+absolute things you want to make consistent and feel you
+need to document?” This means fine-tuning what’s already
+in place so that any gaps designers and developers often fill
+with unspoken context don’t leave AI guessing.
+
+
+
+
+Investing in structure
+The clearer your system’s structure, the easier it is for both
+AI and product builders to read and reuse it accurately.
+Design systems are built around modular components like
+buttons, inputs, and icons, but those smaller pieces can be
+difficult for AI tools to compose into coherent layouts on
+their own. Adding higher-order compositions—blocks and
+patterns that capture layout, color, and spacing logic—gives
+AI the context it needs to generate those interfaces. 
+
+
+
+That same clarity should extend to how you organize your
+system. Consistent file structures and naming conventions
+make it easier for both product builders and AI tools to
+interpret layouts accurately and reuse components with
+confidence. “Design decisions like how interface building
+blocks are defined, how components are wired, and how
+they’re used represent the DNA of how a product is built
+and understood,” says Wayne Sun, Figma product designer.
+“There’s a lot of buried treasure there. When models can tap
+into that structure, they can generate interfaces that align
+with the system out of the box.”
+
+
+
+10            How design systems power the new pace of product development
+      In Practice
+
+      How LinkedIn built Figma Make templates
+      grounded in their design system
+      LinkedIn’s design systems team needed a faster,
+      more consistent way to create design variations to
+      preserve internal styles. Using Figma Make, they
+      built a starter template that instantly generates on-
+      brand layouts across devices, including light and
+      dark modes, helping designers explore ideas faster
+      while staying true to LinkedIn’s system. High-fidelity
+      system-aligned prototypes now drive clearer
+      alignment across design, engineering, and product
+      —boosting both creativity and execution speed. 
+
+
+
+     “We were trying to get more deterministic outputs
+      that would accurately abide by not just our
+      components and styles, but our product patterns
+      as well,” says LinkedIn Product Designer Cherin
+      Yoo. “LLMs make choices within the boundaries  
+      we give them, and this template helps us narrow
+      those boundaries.”
+
+
+
+
+11                  How design systems power the new pace of product development
+To structure your system for clarity and reuse:
+
+Add larger, reusable           Design for stackability. 
+     Clarify relationships
+blocks. Extend your            Structure these blocks so      between components.
+existing system with           they work together             Define how elements  
+blocks like headers, cards,    cohesively, making it easier   like spacing and nesting
+or carousels that AI can       for AI tools (and teams) to    connect so AI can
+draw from when                 combine them into              accurately interpret  
+generating layouts.            complete, coherent layouts.    their structure.
+
+
+
+Preserve logic through         Organize files and naming
+tokens and metadata.           consistently. Use pre-
+Keep tokens and variables      dictable hierarchies and
+tightly linked to component    clear naming to help
+behavior so AI has reliable    collaborators understand
+cues for spacing, color,       how elements relate and
+and typography.                reuse them correctly.
+
+
+For example, instead of structuring your system around
+separate components like buttons, text fields, and image
+containers, create a reusable “card” block where those
+elements are already grouped with defined spacing, color,
+and typography tokens. When an AI-powered tool references
+your design system, it can reuse that complete block
+consistently across layouts rather than guessing how
+individual elements should fit together.
+
+
+
+
+12            How design systems power the new pace of product development
+Bridging design 
+and code
+The design-to-code gap is where details can get lost in           Figma Make will soon make
+translation, leading to misalignment and rework.                  it possible for teams to
+“Designers and engineers consume components                       prototype with their design
+differently,” Wayne says. “This means that even when both         system components
+                                                                  through React code imports
+sides are using the same building blocks, they’re not             from public or private npm
+speaking the same language. A lot of hours go into                packages, making it easier
+translating between design and code.” 
+
+                          to build and experiment
+                                                                  with AI using real  
+                                                                  system components.
+When AI understands how design and code relate, it can
+start to change that equation. Today, that looks like linking
+design components to their code counterparts through tools
+like Code Connect, structuring tokens and variables so
+they’re machine-readable, and using design systems as the
+shared framework that defines those relationships.
+
+
+Clarifying implementation logic
+Even with those connections in place, gaps often remain.          Code Connect ties Figma
+Much of the work comes down to closing those remaining            and the codebase together
+gaps between design and development. “You might have              so developers can view  
+some components in Figma Design that you’ve never hooked          and use real, production
+                                                                  code without leaving
+up to code, even though there’s an actual valid component         Figma. It reduces context
+in your code repository for it somewhere,” Zoe says. A            switching and helps
+component that exists only in design might look fine in an        designs and implemen-
+                                                                  tations stay aligned.
+AI-generated mockup but miss accessibility features or
+expected animations.
+
+
+
+
+13            How design systems power the new pace of product development
+To lay the groundwork for AI to better understand and
+
+connect design and code, teams should:
+
+
+
+  Map design components to product code. Link design
+
+     components directly to their coded counterparts so
+
+     teams can access real implementation details instead of
+
+     generic snippets.
+
+
+     Structure design tokens clearly. Store tokens in
+
+     machine-readable formats (like JSON or YAML) with
+
+     consistent naming so colors, spacing, and typography
+
+     map predictably to production variables.
+
+
+     Expose component relationships. Make it clear how
+
+     components, patterns, and variants relate across design
+
+     and code—through naming, hierarchy, or metadata—so
+
+     AI can understand how parts fit together.
+
+
+     Make implementation logic discoverable. Your codebase
+
+     and design system should both reference the same
+
+     sources for variables, styles, and behaviors. The easier this
+
+     logic is to access, the more consistently it will be used.
+
+
+
+
+Bringing design context into the
+
+developer environment with MCP
+
+As teams work to link design systems more tightly to
+
+production code, emerging standards like Model Context
+
+Protocol (MCP) take that connection a step further, letting
+
+AI not just understand but actively pull context from a
+
+design system in real time. By giving AI structured access to
+
+the same components, tokens, and documentation
+
+developers use, MCP transforms a design system into a
+
+shared context across tools, so designers and developers
+
+can work from the same information without exporting,
+
+syncing, or duplicating files.
+
+
+
+
+
+Through tools like Figma Make, MCP also connects design
+
+artifacts to the code that powers them. AI can reference the
+
+real structure and logic behind a file, keeping generated
+
+outputs consistent with established standards and helping
+
+teams move from prototype to production more quickly.
+
+
+
+
+14               How   design   systems   power   the   new   pace   of   product   development
+Teams can use MCP to maintain and scale their design system by:
+
+Connecting design to             Automating token work:         Auditing design-code
+code: MCP gives AI access        AI can suggest where           alignment: AI agents can
+to your design and code          tokens should be applied,      flag prop misalignment,
+context so generated code        so new tokens comply with      audit token usage between
+references real compo-           defined standards, and         design and code, and
+nents and variables. This        help write scripts for         suggest improvements to
+helps teams maintain             better token workflows.        layer names for better
+consistency across                                              component mapping.
+products and scale their
+systems as AI becomes
+part of everyday workflows.
+
+
+
+
+Maintaining robust
+documentation
+Thorough documentation provides the extra context layer that
+AI needs to interpret a design system. Without this
+documentation, AI can parse rules around components or
+code but may not translate them into outcomes teams expect.
+
+
+
+Making the implicit explicit
+G etting a design system AI-ready means gathering guidance
+and context that might otherwise be scattered across
+developer docs, design specs, and Figma files. “Providing
+more robust documentation for each asset, especially
+similar components that might be used in subtly different
+ways, is really critical context for AI to have,” Zoe says.  
+
+“This way, it’s always choosing the right assets when there
+
+are opportunities to pick between more than one.”
+
+
+
+
+15            How design systems power the new pace of product development
+But there’s more to documentation than simply listing
+components. As teams build out AI usage for their own
+design systems, it’s important to include examples and
+patterns that help AI understand not only what to use, but
+the logic behind when and how to use it.
+
+
+Good design system documentation should:
+
+Explain the “why.”              Keep structure               Show right and wrong
+Describe each com-              consistent. Use a            examples. These help AI
+ponent’s purpose and            standard format for every    understand the intended
+when to use it, not just        component, clearly           boundaries of a com-
+how it looks.                   separating purpose,          ponent and avoid misusing
+                                usage, behavior, and         styles or patterns.
+                                accessibility details.
+
+
+Maintain layer hygiene.         Document behavior            Include accessibility
+
+Keep file hierarchies clean     and states. S pell out       details. Note require-
+
+and free of unnecessary         hover, focus, and error      ments like color contrast
+
+groups or frames to make        states so outputs match      or keyboard navigation so
+
+structures easier for AI        production logic.            accessibility is built into
+
+to parse.                                                    every output.
+
+
+
+
+
+16            How design systems power the new pace of product development
+     In short
+      Many of the foundations that have long been important—like clear structure,
+      active maintenance, and robust documentation—are more important than ever.
+
+
+
+       To evolve design systems for AI, teams should:
+
+          Structure tokens and variables predictably.
+
+          Document usage rules and intent.
+
+          Add higher-order compositions, clarifying relationships, and maintain  
+          clean file structures.
+
+          Connect design and code through tools like Code Connect and MCP.
+
+
+
+
+Related reading
+ Why MCP servers are the unlock in AI-centric workflows
+
+
+ How Figma's investing in design context
+
+
+ Designers on how to structure files for dev consumption
+
+
+
+
+17              How design systems power the new pace of product development
+Setting your
+
+design system up
+
+for scale
+
+
+
+
+18
+Design systems have always been dynamic, but today more           Hear more from Samira
+than ever, change has to be built in. The best systems            Rahimi, head of platform
+operate like products themselves, with a backlog, clear           experience at Uber, and Tali
+ownership, and versioning so they grow alongside the tools        Krakowsky Apel, former
+                                                                  director of product design
+and teams that depend on them. “It doesn’t matter how big         at Coinbase, as they share
+or small, the most important part [of a design system] is         how design systems can
+treating it like a product,” says Samira Rahimi, head of          help unify design and
+platform experiences at Uber. “A design system won’t              development teams in their
+                                                                  2025 Config talk.
+succeed if it’s just a thing. It should be a product with clear
+OKRs, a roadmap, customers, and output.” This mindset is
+especially critical in the AI era, as design systems must
+scale across more teams and products. Scaling at this level
+means creating systems resilient enough to maintain intent
+and standards as the company grows and the pace of
+change accelerates.
+
+
+
+
+19            How design systems power the new pace of product development
+The flywheel of AI
+collaboration
+Today, AI can also help teams understand where to focus
+                                                                  In our recent report on the
+their efforts. By surfacing usage patterns and highlighting       evolution of roles in product
+gaps, AI helps teams prioritize what to build or refine next.     development, survey
+As teams and AI continue to collaborate in these ways, the        respondents expected the
+                                                                  amount of time they spend
+work begins to build momentum. Each cycle helps AI                collaborating, co-creating,
+better understand how a team designs and builds, while            or reviewing outputs from
+product builders learn how to guide and refine AI’s               AI to grow 42% in the  
+                                                                  next 12 months.
+contributions. Over time, this creates a flywheel of
+collaboration, where each round of shared work builds
+fluency and momentum for the next.
+
+
+
+Once AI is able to master this fluency in design systems, the
+next frontier is participation—AI not just consuming
+systems, but helping create and maintain them. “I think we’re
+going to see that AI plays a bigger role in building alongside
+design system teams, so they will co-author alongside
+humans,” Zoe says. In this scenario, it may be possible to
+create one button asset in Figma and have the AI intelligently
+guess all the different states and variants for you, thereby
+saving hours in a Figma file fine-tuning every detail.
+
+
+
+
+20            How design systems power the new pace of product development
+Design system
+adoption made easier
+Whether AI is generating variants or analyzing usage, co-
+                                                                  Design system adoption  
+creation of design systems between product builders and           has long been a pain point
+AI could make them easier to adopt across the board.              for product builders. Mis-
+“AI is going to help a lot with adoption,” Ana says. “If the      aligned components,
+                                                                  inconsistent naming, and
+system is something AI can automatically reference, it will       mismatched expectations
+use your code components and design tokens in any code            often slow progress—but
+it generates. That makes adoption much smoother,                  strong documentation
+because teams won’t have to struggle as much to apply             creates the shared
+                                                                  language teams need  
+the system themselves.”
+
+                                         to stay aligned.
+
+One of the biggest sources of friction today is keeping
+design and development aligned. AI can help reduce that
+burden by connecting those workflows across tools
+without requiring everything to be perfectly mirrored.
+“Designers and developers can each work their own way,
+and as long as those worlds are close enough, AI can
+bridge the gaps,” Yarden says.
+
+
+
+As AI manages more of that translation through the design
+system, it can automatically apply the right components
+and tokens, making consistency a built-in feature instead
+of a manual task. The result is a system that’s faster to use
+and easier to maintain, one that reduces rework, improves
+quality, and speeds up delivery. Those gains make its
+impact measurable.
+
+
+
+
+21            How design systems power the new pace of product development
+     In short
+      AI has the potential to act as a collaborator, helping teams build, maintain, and
+       prioritize design systems.
+
+
+
+       Adoption will become more seamless as AI automatically applies design system
+       rules and connects design to code.
+
+
+
+
+Related reading
+ How documentation can help drive design system adoption
+
+
+ The importance of measuring design system impact
+
+
+
+
+22              How design systems power the new pace of product development
+Pushing teams
+further (and skills
+for what’s next)
+
+
+
+
+23
+ As AI becomes part of design system management, the
+
+ work of managing them is changing. “AI will help automate
+
+ some aspects of overhead and operations, which can take
+
+ up a lot of time,” Ana says. “This shift will free up more
+
+ time to work on the high-level vision of the overarching
+
+ design of a product.”
+
+
+
+
+
+ As this work evolves, teams will need to strengthen existing
+
+ skills like domain expertise and design craft while developing
+
+ new ones, like learning the language that leads to the best AI
+
+ outputs. Together, these skills will determine how teams turn
+
+ AI’s speed into substance, and how thoughtful decision-
+
+ making continues to shape great design.
+
+
+
+
+ Understanding AI’s behavior
+
+ Integrating AI more deeply into your workflow requires
+
+ analyzing and learning from its behavior. “[The role of the
+
+ design systems team] is going to be about looking at the
+
+ insights and how the design system is being consumed,”
+
+ Zoe says. “It’s going to be more on authors to see what kind
+
+ of outputs are coming from their systems.” This means
+
+ tracking how AI interprets components, logging where it
+
+ breaks rules or invents workarounds, and monitoring which
+
+ parts of the system get used versus ignored. By treating
+
+ AI’s activity as diagnostic data, teams can prioritize
+
+ updates based on real usage.
+
+
+
+
+
+“It’s important to avoid relying on AI as the absolute expert—
+
+ you need to check its outputs before confidently shipping
+
+ something,” Ana says. Knowing where AI excels and where it
+                                                                                      57%
+ falls short is an important skill, and developing this instinct                      of product builders now
+
+ takes repetition and awareness. It comes from noticing the                           spend more time on high-
+
+                                                                                      value work like defining
+ small things AI often misses and spotting when its outputs
+                                                                                      product vision and long-
+ start to drift from your design system or live components.
+                                                                                      term strategy, according to
+
+ When something feels off, understanding why matters as                               recent Figma research.
+
+ much as fixing it. “Ask AI questions so you can better
+
+ understand its reasoning and actually develop the skills to
+
+ branch out, rather than relying on it to do things you don’t
+
+ know how to," says Ana.
+
+
+
+
+
+ 24             How   design   systems   power   the   new   pace   of   product   development
+“It’s important to avoid relying on AI as the
+ absolute expert—you need to check its outputs
+ before confidently shipping something.”
+ Ana Boyer, Designer Advocate, Figma
+
+
+
+
+ Leaving room for experimentation
+ With a design system, designers can automate the tasks
+ that once consumed hours, like applying styles or enforcing
+ consistency across files. As a result, they can focus more
+ on what AI can’t do: exploring new interactions, infusing
+ taste into every decision, and pushing the creative
+ boundaries of the brand.
+
+
+
+ But that space for creativity is only valuable if teams are
+ able to harness it with intention—an effort guided by
+ intuition and experimentation. “It’s about not seeing rules
+ as hard and fixed,” Paige says. “Instead, builders should stay
+ playful and ask, ‘What if I just tried this?’ It’s about listening
+ to your intuition and ideas, and trusting that you can bring
+ them to life.” Advancements in AI lower the barrier to
+ creation and experimentation—the more teams lean into
+ that experimentation, the more they'll strengthen their
+ instincts and evolve their craft.
+
+
+
+
+
+ 25              How design systems power the new pace of product development
+Harnessing the power of language
+As AI proliferates, product builders will likely find
+themselves spending more time fine-tuning their prompts.
+Providing complete instructions alongside a design system
+gives AI the context it needs to deliver outputs that match
+intent. “I think it’s actually more of a language skill than
+anything else. Knowing the right questions to ask or how to
+phrase something in a way that gets you the most accurate
+output is a skill we need to have,” Zoe says.
+
+
+Best practices for prompting include:
+
+Breaking down                    Including relevant            Linking your design
+complex concepts into            design context—               system through tools like
+manageable steps.                like layout constraints,      Code Connect or MCP so
+                                 components, styles, or        AI can reference real
+                                 tokens—to help AI             components, tokens, and
+                                 produce outputs that stay     documentation instead of
+                                 consistent and on brand.      recreating them from
+                                                               scratch.
+
+
+Using plain, specific            Providing examples of         Asking AI to explain its
+
+language  instead of             what good looks like—         reasoning when outputs
+
+abstract adjectives (“use        showing preferred             feel off to help you guide it
+
+a 16px button” instead of        patterns, styles, or          more precisely.
+
+
+“make it bold.”)                 visual treatments so AI
+
+                                 understands the
+
+                                 standard you’re aiming
+
+                                 for and can align its
+
+                                 results accordingly.
+
+
+
+
+26            How design systems power the new pace of product development
+     In short
+      As AI takes on more operational work, design systems teams move into a more
+       strategic role—shaping architecture, guiding AI’s use, and building the skills to
+       interpret and refine its outputs.
+
+
+
+       To meet the moment, teams should continue improving domain knowledge, hone
+       their craft, and learn how to effectively communicate with AI.
+
+
+
+
+Related reading
+ 6 skills every engineer needs for the AI era
+
+
+ How to harness skills that AI can’t automate
+
+
+
+
+27              How design systems power the new pace of product development
+The road ahead
+
+
+
+
+28
+Design systems have always been about helping teams build
+better, faster, and more consistently. In today’s shifting
+landscape, they become the foundation that allows teams to
+harness the power of AI and maintain craft at scale.
+
+
+
+
+     Key takeaways
+     Design systems scale craft and intent. 
+     By codifying the details that define great design, design systems preserve quality
+     and identity as teams and AI work together at greater speed.
+
+
+
+     Meeting the moment means evolving your design systems for AI consumption. 
+     Clear documentation, consistent naming, and machine-readable tokens give AI
+     the context it needs to generate reliable, brand-aligned results while reducing
+     manual work.
+
+
+
+     AI changes how systems evolve. 
+     When AI can read and apply system logic, it can help with design system
+     maintenance. It can flag inconsistencies, surface insights, and help teams improve
+     clarity and quality over time. 
+
+
+     New skills will shape the next era of design systems.  
+     As AI becomes part of daily workflows, teams will need to ensure domain knowledge
+     to check AI’s outputs, learn best practices for communicating with AI, and lean into
+     curiosity and exploration.
+
+
+
+
+29            How design systems power the new pace of product development
+Related reading
+
+
+
+
+How teams are shifting                 Figma's 2025 AI report:
+in an AI-driven landscape              Perspectives from
+                                       designers and developers
+
+
+
+
+30     How design systems power the new pace of product development
+figma.com/reports
+

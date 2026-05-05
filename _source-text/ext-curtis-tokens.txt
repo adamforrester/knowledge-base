@@ -1,0 +1,2452 @@
+   Design tokens
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+                                        Foundations
+                                        About tokens
+                                        Generic tokens
+                                        Semantic tokens
+                                        Composite tokens
+                                        Theming
+                                        Component tokens
+                                        Process
+
+
+© Copyright 2024 • Directed Edges LLC
+                                        Foundations
+                                        About tokens
+                                        Generic tokens
+                                        Semantic tokens
+                                        Composite tokens
+                                        Theming
+                                        Component tokens
+                                        Process
+
+
+© Copyright 2024 • Directed Edges LLC
+                                        Foundations
+                                        Attributes (color, space, motion,
+                                        content, typography, ... ) applied
+                                        across components and libraries.
+                                        A L S O K N OW N A S 
+                                        Fundamentals
+
+                                        Visual language
+
+                                        Visual style
+
+
+
+© Copyright 2024 • Directed Edges LLC
+Foundations / Examples
+
+  Google
+                 Shopify
+                   Adobe
+     Atlassian
+      Washington Post
+   Pinterest
+   IBM
+     REI
+    JP Morgan
+
+  Material                Polaris                    Spectrum   Design System   Design System      Gestalt      Carbon   Cedar   Salt
+
+
+
+
+             © Copyright 2024 • Directed Edges LLC
+Foundations / Naming
+
+
+                              NAME               DESIGN SYSTEM
+
+                              Base
+              City of Boston Fleet
+
+                              Core
+              Blueprint
+
+                              Design
+            Lonely Planet
+
+                              Design Language
+   Ant, IBM
+
+                              Foundation
+
+       Google Material, Atlassian, Adobe Spectrum, Shopify
+                                                 Polaris, Github Primer
+
+                              Fundamentals
+      [A few clients]
+
+                              Guidelines
+        GE Predix, Salesforce Lightning
+
+                              Patterns
+          Yelp
+
+                              Style
+             Wikia, Trello’s Nacho
+
+                              Utilities
+         Walmart Web
+
+                              Visuals
+           Firefox Photon
+
+                              Visual Style
+      Discovery Ed Comet
+
+                              Visual Language    Morningstar, NetApp LUCI, USAC
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Foundations / Visual attributes
+
+
+                                                      Color                   Typography
+
+
+                                       16px
+                                               16px   Space (Grids, Layout)   Iconography
+
+
+                                                      Size                    Line
+
+
+                                                      Shape                   Elevation
+
+
+       © Copyright 2024 • Directed Edges LLC
+Foundations / Naming Content
+
+
+
+
+                              a lt e r n at i v e s   To p i c s i n c l u d e d
+
+                              Content
+                Error messages
+
+                              Content Style
+          Voice and tone
+
+                              Content Design
+         Alternative text
+
+                              Content Strategy
+       Punctuation
+
+                              Editorial style
+        Help messaging
+                              UX Writing
+
+                              Voice and Tone
+
+                              Writing for the Web
+
+                              Words
+
+
+       © Copyright 2024 • Directed Edges LLC
+Foundations / Scope
+
+
+
+
+  Design system?                                    Design
+
+                      Content
+
+                  Content design
+                                               Color, typography, space...   Voice and tone, messages, ...   system?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Foundations / Scope
+
+
+
+
+   Design system?
+
+  Design system?                                    Design
+
+                      Content
+
+                  Content design
+                                               Color, typography, space...   Voice and tone, messages, ...   system?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Foundations / Scope
+
+
+                                                                                                                  Motion?
+ 
+                                                                                                               Animation, library, ...
+
+
+   Design system?
+
+  Design system?                                    Design
+
+                      Content
+
+                  Content design
+                                               Color, typography, space...   Voice and tone, messages, ...   system?
+
+
+
+                                                                                                               Accesibility?
+ 
+                                                                                                              Guidelines, practices, ...
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                        Foundations
+
+© Copyright 2024 • Directed Edges LLC
+                                        Foundations
+                                        About tokens
+                                        Generic tokens
+                                        Semantic tokens
+                                        Composite tokens
+                                        Theming
+                                        Component tokens
+                                        Process
+
+
+© Copyright 2024 • Directed Edges LLC
+About tokens / Problems to solve
+
+
+
+
+      DESIGN                                   APP                 VA R I A B L E         VA L U E
+
+                                                 Web Site          $containerbackground   #111111
+
+                                                 Web Site          $background-color      #0D0D0D
+
+                                                 Web App           $bg-inv-2              #0D0D0D
+
+                                                 Web App           (hardcoded)            #0D0D0D
+         { M e ta d ata }
+
+         {Title}                                     iOS App       $inversebackground     #0D0D0D
+         {Description}
+                                                     Android App   (hardcoded)            #111111
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+About tokens / Problems to solve
+
+
+                                                                   Distinct languages
+
+      DESIGN                                   APP                   VA R I A B L E         VA L U E
+
+                                                 Web Site            $containerbackground   #111111
+
+                                                 Web Site            $background-color      #0D0D0D
+
+                                                 Web App             $bg-inv-2              #0D0D0D
+
+                                                 Web App             (hardcoded)            #0D0D0D
+         { M e ta d ata }
+
+         {Title}                                     iOS App         $inversebackground     #0D0D0D
+         {Description}
+                                                     Android App     (hardcoded)            #111111
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+About tokens / Problems to solve
+
+
+                                                                   Distinct languages           Inconsistent values
+
+      DESIGN                                   APP                   VA R I A B L E         VA L U E
+
+                                                 Web Site            $containerbackground   #111111
+
+                                                 Web Site            $background-color      #0D0D0D
+
+                                                 Web App             $bg-inv-2              #0D0D0D
+
+                                                 Web App             (hardcoded)            #0D0D0D
+         { M e ta d ata }
+
+         {Title}                                     iOS App         $inversebackground     #0D0D0D
+         {Description}
+                                                     Android App     (hardcoded)            #111111
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+About tokens / Problems to solve
+
+
+                                                                   Distinct languages                  Inconsistent values
+
+      DESIGN                                   APP                   VA R I A B L E                VA L U E
+
+                                                 Web Site            $containerbackground          #111111
+
+                                                 Web Site            $background-color             #0D0D0D
+
+                                                 Web App             $bg-inv-2                     #0D0D0D
+
+                                                 Web App             (hardcoded)                   #0D0D0D
+         { M e ta d ata }
+
+         {Title}                                     iOS App         $inversebackground            #0D0D0D
+         {Description}
+                                                     Android App     (hardcoded)                   #111111
+
+
+                                                                          Impossible to propagate change
+
+
+       © Copyright 2024 • Directed Edges LLC
+About tokens / Examples
+
+
+
+
+      Name                                                         va l u e
+
+
+              ds-color-palette-white                               #FFFFFF
+
+
+              ds-color-surface-primary-light                       #FFFFFF
+
+              ds-color-component-tabs-selected_indicator-on_dark   #FFFFFF
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                        Token
+                                        An information associated with a
+                                        name, at minimum a name/value pair.
+                                        A L S O K N OW N A S 
+                                        Design token
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+About tokens / Industry examples
+
+
+
+
+   https://www.lightningdesignsystem.com/design-tokens/
+   https://rei.github.io/rei-cedar-docs/tokens/all-tokens/
+   https://www.carbondesignsystem.com/guidelines/color/usage/
+
+
+
+
+              © Copyright 2024 • Directed Edges LLC
+About tokens / Integration
+
+    D e s i g n to o l s                                                                 C o d e TO O L S
+
+      Figma                                     Tokens                                     Formats                    Packages               Apps and libraries
+      Styles or variables                       Source of truth                            Transformed by tooling
+    Imported by adopters
+                                                                                           such as Style Dictionary                             React library
+                                                100   ds-color-surface-primary-light
+
+                                                94    ds-color-surface-secondary-light
+                                                                                                                                                Angular library
+                                                15    ds-color-surface-primary-dark
+                                                                                           Less                            npm
+                                                7     ds-color-surface-secondary-dark
+                                                                                                                           v2.7.1               Web App
+                                                                                           Sass
+                                                39    ds-color-surface-brand-orange
+
+                                                7
+
+                                                100
+                                                      ds-color-text-primary-light
+
+                                                      ds-color-text-primary-dark
+                                                                                                                                                Web App
+                                                                                           JSON
+                                                                                                                                                Web Site
+                                                43    ds-color-text-secondary-light
+
+                                                55    ds-color-text-secondary-dark
+
+                                                67    ds-color-text-disabled-light         Typescript
+                                                43    ds-color-text-disabled-dark
+                                                                                                                                                Web App
+                                                44    ds-color-text-error-light            CSS variables
+                                                100   ds-color-text-error-dark                                                                  iOS library
+                                                67    ds-color-border-primary-light        iOS                             iOS Swift
+                                                67    ds-color-border-primary-dark                                         v2.7.1               iOS App
+                                                7     ds-color-icon-primary-light          Android                         Tokens.aar
+                                                100   ds-color-icon-primary-dark                                           v2.7.1               Android library
+                                                43    ds-color-icon-secondary-light
+
+                                                55    ds-color-icon-secondary-dark                                                              Android App
+
+        © Copyright 2024 • Directed Edges LLC
+About tokens / Comparing tokens to variables
+
+
+
+                           TO K E N S                      VA R I A B L E S
+
+
+  W H AT
+                           Available in many formats       Available in one format
+  WHERE
+                           Shared from central place       Stored in local place of one team
+  WHY
+                           Reuse by all teams              Reuse by one team
+  WHEN
+                           Versioned independently         Embedded a team’s evolving work
+  H OW
+                           Named deliberately, for scale   Often named chaotically, as needed
+
+
+
+           © Copyright 2024 • Directed Edges LLC
+About tokens / Data per token
+
+
+                                       Figma
+
+
+
+
+                   Name                         Scope
+
+        Description
+
+
+               Value(s)
+
+
+
+
+   Publishing status
+                                                Plus, in code, whatever other attributes
+
+                                                and transforms you need. :)
+
+
+        © Copyright 2024 • Directed Edges LLC
+About tokens / Categories
+
+
+       c at e g o ry                           A l s o k n ow n a s       e x a m p l e va l u e s
+
+
+        ds-color-...                                                      #FFFFFF, #0080FF80           More common
+
+
+        ds-font-...                            text, type, typography     ‘Inter’, ‘Bold’, 16pt, 1.2
+
+        ds-space-...                           spacing, unit, dimension   16px, 1rem
+
+        ds-shape-...                           radius                     4px
+
+        ds-breakpoints-...                     media_query                768px
+
+        ds-elevation-...                       z_index, layering          1000
+
+        ds-opacity-...                                                    50%
+
+        ds-shadow-...                          depth                      {composite value}
+
+        ds-time-...                            animation, motion          300ms                        Less common
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+About tokens / Enumerations
+
+
+
+      Va r i a n t                             Va r i a n t
+
+
+       ds-color-text-primary-on_dark            ds-font-size-page_title
+
+       ds-color-text-secondary-on_dark          ds-font-size-heading_level_1
+
+       ds-color-text-tertiary-on_dark           ds-font-size-paragraph
+
+       ds-color-text-disabled-on_dark           ds-font-size-list_item
+
+       ds-color-text-error-on_dark              ds-font-size-figure_caption
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+About tokens / Levels
+
+
+
+
+           to k e n                        ds-color-text-primary-on_dark                             ds-font-size-page_title
+
+
+           levels
+
+                                                                                              mode
+                                                    c at e g o ry
+                                                                               va r i a n t
+                                                                                                              c at e g o ry
+                                                                                                                                         va r i a n t
+                                                                    property                                                  property
+                                           system                                                    system
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+About tokens / Level types
+
+          Level                    use when                                                          examples                        Generic   Semantic   C o m p.
+
+       system                      Defining a top level namespace.                                   slds, mds
+
+         Theme                     Naming a theme, such as color palette or product line.            seafoam,courtyard
+
+       Domain                      Enabling a business unit to customize a reusable set.             consumer, marketing
+
+         Group                     Organizing tokens relevant to many related components.            forms, layered
+
+   Component                       Applying a token to a specific component.                         button, icon, card
+
+      Element                      Applying a token to an element of a specific component.           title, action, image
+
+    c at e g o ry                  Organizing tokens into a prototypical category.                   color, font, space
+
+     concept                       Distinguishing sets of tokens into familiar conceptual groups.    feedback, heading
+
+     property                      Aligning a token with an object’s property.                       background, size, padding
+
+      va r i a n t                 Enumerating a set of alternatives.                                red vs blue, error vs success
+
+          s tat e                  Enumerating alternative states of an object.                      default, hover, disabled
+
+         scale                     Enumerating stops on a potentially continuous / infinite scale.   16, 2x, half-x, 300
+
+           mode                    Toggling display based on a mode, usually light vs dark.          light, dark
+
+
+        © Copyright 2024 • Directed Edges LLC
+                                        About tokens
+
+© Copyright 2024 • Directed Edges LLC
+                                        Foundations
+                                        About tokens
+                                        Generic tokens
+                                        Semantic tokens
+                                        Composite tokens
+                                        Theming
+                                        Component tokens
+                                        Process
+
+
+© Copyright 2024 • Directed Edges LLC
+Generic tokens / Examples
+
+
+
+                                               Name                           va l u e
+
+
+                                                 ds-color-palette-white       #FFFFFF
+
+                                                 ds-color-palette-neutral-7   #0E1114
+
+                                               ds-font-size-5                 32px
+
+                                               ds-space-m                     16px
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                        Generic token
+                                        A value available for use that lacks
+                                        specific intent or purpose.
+                                        A L S O K N OW N A S 
+                                        Option token
+
+                                        Choice token
+
+                                        Reference token (Google Material)
+
+
+
+© Copyright 2024 • Directed Edges LLC
+Generic tokens / Generic colors as ramps
+
+
+
+
+                                               https://material.io/design/color/the-color-system.html
+       © Copyright 2024 • Directed Edges LLC
+Generic tokens / Generic colors as palette for theming
+
+
+
+
+        1. Build a palette                     2. Validate accessible pairings   3. Confirm choices in across designs
+
+
+
+
+                                                                                                                        https://material.io/resources/color/
+
+       © Copyright 2024 • Directed Edges LLC
+Generic tokens / Case study: Adobe Spectrum
+
+
+
+
+                                                                                               https://leonardocolor.io/theme.html#
+                                               https://medium.com/thinking-design/introducing-adaptive-color-palettes-111b5842fc88
+                                                  https://adobe.design/stories/design-for-scale/reinventing-adobe-spectrum-s-colors
+       © Copyright 2024 • Directed Edges LLC
+Generic tokens / Case study: Github Primer tools
+
+
+
+
+                                                   https://github.blog/2022-06-14-accelerating-github-theme-creation-with-color-tooling/
+                                                                                                               https://primer.style/prism
+
+       © Copyright 2024 • Directed Edges LLC
+Generic tokens / Output: Color ramps
+
+                                               Neutral/
+   Red   Green   Blue   Orange   Yellow
+                                               White
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Generic tokens / Brand colors
+
+
+
+
+                          Example Audit                    p r o b l e m s to s o lv e
+
+                          In site and app headers:              “Brand decisions” vs accessibility requirements
+                                                                Use brand names or new “digital” names
+                                                                Different for light versus dark settings
+                                                                Digital display diversity (e.g., dark room)
+                                               Gradients
+                                                                Breadth of use, such as email?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Generic tokens / Incorporating fixed ("brand") colors
+
+                                               Separate        Integrated
+
+
+
+
+                                                          OR
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+               Design systems present an illusion of choice,
+               solving problems others face over and over.
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+Generic tokens / Exposing generics
+
+               Expose all                           Expose limited set        Expose none
+
+
+                                               OR                        OR
+
+
+
+
+                          EightShapes
+       © Copyright 2024 • Directed    LLCLLC
+                                   Edges
+                                        Generic tokens
+                                        Figjam activity
+
+
+
+
+                   EightShapes
+© Copyright 2024 • Directed    LLCLLC
+                            Edges
+Generic tokens / Naming colors
+
+
+
+
+                          Increment value                    Computed value                         Named stops
+
+                      ds-color-palette-neutral-900         ds-color-palette-neutral-94           ds-color-palette-neutral-arctic
+
+                      ds-color-palette-neutral-300         ds-color-palette-neutral-21           ds-color-palette-neutral-charcoal
+
+                      ds-color-palette-neutral-200         ds-color-palette-neutral-15           ds-color-palette-neutral-dark-knight
+
+
+
+               Less resilient to new stops (50s)
+      For example, lightness value of HSL
+   Except for already named brand colors
+               Better for aligning stops across hues   Enables adding stops as needed
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Generic tokens / Calculating font sizes
+
+
+         Handpicked                            Computed
+
+         64            Text sizing             47.78     Text sizing      61.04      Text sizing
+         45            Text sizing             39.82     Text sizing      48.83      Text sizing
+         36            Text sizing             33.18     Text sizing      39.06      Text sizing
+         28            Text sizing             27.65     Text sizing      31.25      Text sizing
+         24            Text sizing             23.04     Text sizing      25         Text sizing
+         20            Text sizing             19.2      Text sizing      20         Text sizing
+
+         16            Text sizing             16        Text sizing      16         Text sizing
+
+         13            Text sizing             13.33     Text sizing      12.8       Text sizing
+
+
+         11            Text sizing
+                                               11.11     Text sizing      10.24      Text sizing
+
+
+
+
+                                               r = 1.2                    r = 1.25
+                                               size = 16 × rn
+                                                  https://natebaldw.in/
+
+
+       © Copyright 2024 • Directed Edges LLC
+Generic tokens / Naming font sizes
+
+
+                 TShirt size                       Increment           Step from initial value
+
+        Aa ds-font-size-4xl                    Aa ds-font-size-9   Aa ds-font-size-600           61.04   Text sizing
+        Aa ds-font-size-3xl                    Aa ds-font-size-8   Aa ds-font-size-600           48.83   Text sizing
+        Aa ds-font-size-2xl                    Aa ds-font-size-7   Aa ds-font-size-500           39.06   Text sizing
+        Aa ds-font-size-xxl                    Aa ds-font-size-6   Aa ds-font-size-400           31.25   Text sizing
+        Aa ds-font-size-xl                     Aa ds-font-size-5   Aa ds-font-size-300           25      Text sizing
+        Aa ds-font-size-l                      Aa ds-font-size-4   Aa ds-font-size-200           20      Text sizing
+        Aa ds-font-size-m                      Aa ds-font-size-3   Aa ds-font-size-100           16      Text sizing
+
+        Aa ds-font-size-s                      Aa ds-font-size-2   Aa ds-font-size-90            12.8    Text sizing
+
+
+        Aa ds-font-size-xs                     Aa ds-font-size-1   Aa ds-font-size-80            10.24   Text sizing
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Generic tokens / Opinions in naming
+
+
+                 TShirt size                   Increment   Step from initial value
+
+                                                                                     61.04
+                                                                                             Text sizing
+                                                                                     48.83   Text sizing
+                                                                                     39.06   Text sizing
+                                                                                     31.25   Text sizing
+                                                                                     25      Text sizing
+                                                                                     20      Text sizing
+
+                                                                                     16      Text sizing
+
+                                                                                     12.8    Text sizing
+
+
+                                                                                     10.24   Text sizing
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Generic tokens / Naming intent
+
+
+                                               Anticipating a future?
+
+
+
+
+                                               Relating to a familiar past?
+
+
+
+
+                                               Balance abstraction and clarity?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Generic tokens / Space
+
+
+
+
+                                       TShirt size        Step                      Proportion
+
+                            ds-space-l (20)          ds-space-6 (20)           ds-space-1_25x (20)
+
+                            ds-space-m (16)          ds-space-5 (16)           ds-space-1x (16)
+
+                            ds-space-??? (12)        ds-space-??? (12)         ds-space-0_75x (12)
+
+                            ds-space-s (8)           ds-space-4 (8)            ds-space-0_5x (8)
+
+
+                           What if you need a size   What if you need a size   What is your magic
+                           between S and M?          between 4 and 5?          number? Usually teams
+                                                                               choose 16, 8, or 4.
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Generic tokens / Documentation
+
+              Neutral                                                                                 Green
+              Value                      Token                           Figma variable               Value                Token                        Figma variable
+
+               100 #ffffff                ds-color-palette-neutral-100   DS Palette / Neutral / 100   95 #e6fdeb            ds-color-palette-green-95   DS Palette / Green / 95
+                                                                                                         {Description}
+               94 #f0f1f1                 ds-color-palette-neutral-94    DS Palette / Neutral / 94    64 #5de787            ds-color-palette-green-64   DS Palette / Green / 64
+                                                                                                         {Description}
+               88 #dee0e1                 ds-color-palette-neutral-88    DS Palette / Neutral / 88    53 #45c76c            ds-color-palette-green-53   DS Palette / Green / 53
+                                                                                                         {Description}
+               78 #c3c7ca                 ds-color-palette-neutral-78    DS Palette / Neutral / 78    45 #34b35b            ds-color-palette-green-45   DS Palette / Green / 45
+                                                                                                         {Description}
+               67 #a6acb0                 ds-color-palette-neutral-67    DS Palette / Neutral / 67    40 #28a24b            ds-color-palette-green-40   DS Palette / Green / 40
+                                                                                                         {Description}
+               55 #868e92                 ds-color-palette-neutral-55    DS Palette / Neutral / 55    35 #1c9540            ds-color-palette-green-35   DS Palette / Green / 35
+                                                                                                         {Description}
+               43 #666e74                 ds-color-palette-neutral-43    DS Palette / Neutral / 43    31 #138a39            ds-color-palette-green-31   DS Palette / Green / 31
+                                                                                                         {Description}
+               30 #464e53                 ds-color-palette-neutral-30    DS Palette / Neutral / 30    26 #097d33            ds-color-palette-green-26   DS Palette / Green / 26
+                                                                                                         {Description}
+               21 #2f363a                  ds-color-palette-neutral-21   DS Palette / Neutral / 21    22 #026e2e            ds-color-palette-green-22   DS Palette / Green / 22
+                                                                                                         {Description}
+               15 #21272a                 ds-color-palette-neutral-15    DS Palette / Neutral / 15    18 #005c2a            ds-color-palette-green-18   DS Palette / Green / 18
+                                                                                                         {Description}
+               11 #171c1f                 ds-color-palette-neutral-11    DS Palette / Neutral / 11    14 #00471f            ds-color-palette-green-14   DS Palette / Green / 14
+                                                                                                           {Description}
+                7    #0e1114              ds-color-palette-neutral-07    DS Palette / Neutral / 7      9   #002f12          ds-color-palette-green-9    DS Palette / Green / 9
+                                                                                                           {Description}
+                3    #060809              ds-color-palette-neutral-03    DS Palette / Neutral / 03     3   #001104          ds-color-palette-green-3    DS Palette / Green / 3
+                                                                                                           {Description}
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                        Generic tokens
+
+© Copyright 2024 • Directed Edges LLC
+                                        Foundations
+                                        About tokens
+                                        Generic tokens
+                                        Semantic tokens
+                                        Composite tokens
+                                        Theming
+                                        Component tokens
+                                        Process
+
+
+© Copyright 2024 • Directed Edges LLC
+Semantic tokens / Examples
+
+
+
+                           Name
+
+                                   ds-color-surface-primary-light
+                                                                    Primary text
+                                   ds-color-text-primary-on-light
+
+
+                                   ds-color-surface-primary-dark
+                                                                    Primary text
+                                   ds-color-text-primary-on-dark
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                        Semantic token
+                                        A token imbued with purposeful intent
+                                        reusable across 2+ components.
+                                        A L S O K N OW N A S 
+                                        Decision token
+
+                                        System token (Google Material)
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+Semantic tokens / Alias examples
+
+
+
+
+    Semantic                             ds-color-surface-primary-light     ds-color-alert-error-element
+                                     Alias                                  Alias
+
+
+    generic                              ds-color-palette-white             ds-color-red-65
+
+
+    Va l u e                    #FFFFFF                                   #F85558
+
+
+
+
+        © Copyright 2024 • Directed Edges LLC
+                                        Alias
+                                        When a design token references
+                                        another token as it’s value.
+                                        A L S O K N OW N A S 
+                                        Reference token
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+Semantic tokens / Element colors
+
+
+
+    Consolidated
+                                                                Separate
+
+    as element                                                              OR   as text, line, icon
+
+
+                                               ds-color-element-primary                         ds-color-text-primary
+               Text                            ds-color-element-secondary
+                                                                                      Text      ds-color-line-secondary
+                                                                                                ds-color-icon-secondary
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Semantic tokens / Additional semantic groups
+
+
+                                                                                                           Examples
+                      Text                                      Action
+                        Aa ds-color-text-primary                 ds-color-action-initial                    {label}
+
+                        Aa ds-color-text-secondary               ds-color-action-hover                      {label}
+
+                        Aa ds-color-text-brand                   ds-color-action-press                      {label}
+
+                                                                 ds-color-action-focus                      {label}
+
+                        Aa ds-color-text-link         OR         ds-color-action-selected
+
+                                                                 ds-color-action-disabled                   {label}
+
+
+
+                                                                Forms
+                                                                 ds-color-forms-control-background-error   {Label}
+                                                                                                           {Help text}
+                        Aa ds-color-text-disabled          OR    ds-color-forms-control-disabled
+                                                                                                             {Value}
+                        Aa ds-color-text-error       OR          ds-color-forms-control-error
+                                                                                                           {error text}
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                        Semantic tokens
+
+                                        Forms and borders
+                                        Figjam activity
+
+
+
+
+                   EightShapes
+© Copyright 2024 • Directed    LLCLLC
+                            Edges
+Semantic tokens / Color contrast
+
+
+
+
+                                               https://contrast-grid.eightshapes.com/
+
+
+       © Copyright 2024 • Directed Edges LLC
+Semantic tokens / Alert color contrast
+
+
+        Spot any problem(s)?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Semantic tokens / Alert colors
+
+                      c at e g o ry            C o lo r s
+
+
+                      Feedback?
+                                                                               Nathan’s demo sample
+                      Messaging?
+
+                      Alert?
+
+                      Notice?
+                                                                                 GE     Predix
+
+                                                                                                               https://www.predix-ui.com/#/css/visual/px-colors-design
+                      Notification?
+
+                      Attention?                                                                               Discovery          Education
+
+                                                                                                               comet.discoveryeducation.com/visual-style/color.html
+
+
+                                                                                                               IBM    Carbon
+
+                                                                                                               carbondesignsystem.com/style/colors/swatches
+
+
+                                                                                                               Morningstar
+
+                                                                                                               https://designsystem.morningstar.com/
+
+                                               Positive?
+   Negative?
+   Warning?
+    New?   Informational?
+
+                                               Success?
+    Error?
+      Alert?
+             Information?
+
+                                               Do?          Failure?
+    Attention?          Info?
+                                                            Don’t?
+
+                                                            Danger?
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                        Semantic tokens
+
+                                        Alert naming
+                                        Figjam activity
+
+
+
+
+                   EightShapes
+© Copyright 2024 • Directed    LLCLLC
+                            Edges
+Semantic tokens / Font family
+
+
+
+  specimen                                                                            Type         to k e n                        Va l u e
+
+
+
+
+  Aa                           A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+
+                               a b c d e f g h i j k l m n o p q r s t u v w x y z
+
+                               1234567890
+                                                                                      Serif            ds-font-family-serif        Merriweather
+
+
+
+
+  Aa                           A B C D E F G H IJ K L M N O P Q R S T U V W X Y Z
+
+                               a b c d e f g h ij k l m n o p q r s t u v w x y z
+
+                               1234567890
+                                                                                      Sans Serif       ds-font-family-sans_serif   Barlow
+
+
+
+
+  Aa                           A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+
+                               a b c d e f g h i j k l m n o p q r s t u v w x y z
+
+                               1234567890
+                                                                                      Monospace        ds-font-family-mono         Roboto Mono
+
+
+
+
+        © Copyright 2024 • Directed Edges LLC
+Semantic tokens / Font weight
+
+
+
+
+    specimen                                                                               to k e n                               Va l u e
+
+
+
+
+    Aa                               A B C D E F G H IJ K L M N O P Q R S T U V W X Y Z
+
+                                     a b c d e f g h ij k l m n o p q r s t u v w x y z
+
+                                     1234567890
+                                                                                               ds-font-weight-sans_serif-bold     Semibold
+
+
+
+
+    Aa                               A B C D E F G H IJ K L M N O P Q R S T U V W X Y Z
+
+                                     a b c d e f g h ij k l m n o p q r s t u v w x y z
+
+                                     1234567890
+                                                                                               ds-font-weight-sans_serif-normal   Regular
+
+
+
+
+    Aa                                                                                         ds-font-weight-sans_serif-light    Light
+
+
+
+
+        © Copyright 2024 • Directed Edges LLC
+Semantic tokens / Implementation
+
+                          Background
+                                               Value             Token                                                       Alias                             Figma variable
+
+                                               100 #ffffff         ds-color-background-primary-light                          ds-color-palette-neutral-white   DS Color:Background / Primary (Light)
+                                                                 Use for the default surface color in light settings, including the page background.
+
+                                               94 #f0f1f1          ds-color-background-secondary-light                        ds-color-palette-neutral-94      DS Color:Background / Secondary (Light)
+                                                                 Use for a contrasting surface color in light settings, such as a card background.
+
+                                                15 #21272a         ds-color-background-primary-dark                           ds-color-palette-neutral-15      DS Color:Background / Primary (Dark)
+                                                                 Use for the default surface color in dark settings, including the page background.
+
+                                                7      #0e1114     ds-color-background-secondary-dark                         ds-color-palette-neutral-7       DS Color:Background / Secondary (Dark)
+                                                                 Use for a contrasting surface color in dark settings, such as a card background.
+
+                                               39 #c03e09          ds-color-background-brand-orange-light                     ds-color-palette-orange-39       DS Color:Background / Brand Orange (Light)
+                                                                 Use for a brand surface color in light or dark settings.
+
+                                               39 #c03e09          ds-color-background-brand-orange-dark                      ds-color-palette-orange-39       DS Color:Background / Brand Orange (Dark)
+                                                                 Use for a brand surface color in light or dark settings.
+
+
+
+
+                          Text
+                                               Value             Token                                                      Alias                              Figma variable
+
+                                                7   #0e1114       ds-color-text-primary-on_light                             ds-color-palette-neutral-7        DS Text / Primary Light
+
+                                               100 #ffffff        ds-color-text-primary-on_dark                              ds-color-palette-neutral-white    DS Text / Primary Dark
+
+                                               55 #f05c28         ds-color-text-primary-brand-on_light                       ds-color-palette-orange-55        DS Text / Primary Brand Dark
+
+                                               55 #f05c28         ds-color-text-primary-brand-on_dark                        ds-color-palette-orange-55        DS Text / Primary Brand Dark
+
+                                               43 #666e74         ds-color-text-secondary-on_light                           ds-color-palette-neutral-43       DS Text / Secondary Light
+
+                                               55 #868e92         ds-color-text-secondary-on_dark                            ds-color-palette-neutral-55       DS Text / Secondary Dark
+
+                                               67 #a6acb0         ds-color-text-disabled-on_light                            ds-color-palette-neutral-67       DS Text / Disabled Light
+
+                                               43 #666e74         ds-color-text-disabled-on_dark                             ds-color-palette-neutral-43       DS Text / Disabled Dark
+
+                                               44 #d90936         ds-color-text-error-on_light                               ds-color-palette-red-44           DS Text / Error Light
+
+                                               100 #ffffff        ds-color-text-error-on_dark                                ds-color-palette-neutral-white    DS Text / Error Dark
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                              Semantic tokens
+
+© Copyright 2024 • Directed Edges LLC
+                                        Foundations
+                                        About tokens
+                                        Generic tokens
+                                        Semantic tokens
+                                        Composite tokens
+                                        Theming
+                                        Component tokens
+                                        Process
+
+
+© Copyright 2024 • Directed Edges LLC
+Composite tokens / Examples
+
+
+
+
+      Shadow                                  Border                             Border, with reference
+      {                                        {                                    {
+          "shadow-default": {                      "border": {                          "border": {
+            "$type": "shadow",                       "heavy": {                           "focusring": {
+            "$value": {                                "$type": "border",                   "$type": "border",
+              "color": "#00000080",                    "$value": {                          "$value": {
+              "offsetX": "0.5rem",                       "color": "#36363600",                "color": "{color.focusring}",
+              "offsetY": "0.5rem",                       "width": "3px",                      "width": "1px",
+              "blur": "1.5rem",                          "style": "solid"                     "style": {
+              "spread": "0rem"                         }                                        "dashArray": ["0.5rem", "0.25rem"],
+            }                                        }                                          "lineCap": "round"
+          }                                        }                                          }
+      }                                        }                                            }
+                                                                                          }
+                                                                                        }
+                                                                                    }
+
+
+
+
+      © Copyright 2024 • Directed Edges LLC
+                                        Composite token
+                                        A token whose value follows a
+                                        predefined structure of values either
+                                        explicit or references to other tokens.
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+Composite tokens / Typography
+
+
+
+                                                 fontFamily: The typography's font. The value of this
+                                                 property MUST be a valid font family value or a reference to a font
+     {                                           family token.
+
+
+           "type styles": {
+             "heading-level-1": {                fontSize: The size of the typography. The value of this
+                                                 property MUST be a valid dimension value or a reference to a
+               "$type": "typography",            dimension token.
+
+
+               "$value": {
+                 "fontFamily": "Roboto",         fontWeight: The weight of the typography. The value of this
+                 "fontSize": "42px",             property MUST be a valid font weight or a reference to a font
+                 "fontWeight": 700,              weight token.
+
+
+                 "letterSpacing": "0.1px",
+                 "lineHeight": 1.2               letterSpacing: The horizontal spacing between characters. The
+               }                                 value of this property MUST be a valid dimension value or a
+                                                 reference to a dimension token.
+
+
+             }
+           }                                     lineHeight: The vertical spacing between lines of typography.
+     }                                           The value of this property MUST be a valid number value or a
+                                                 reference to a number token. The number SHOULD be interpreted
+                                                 as a multiplier of the fontSize.
+
+
+
+         © Copyright 2024 • Directed Edges LLC
+Composite tokens / Typography
+
+
+
+
+      61.04
+                  Text sizing                 ds-font-family-{level}   = Aa ds-font-heading-level-1
+      48.83       Text sizing                 +
+                                              ds-font-weight-{level}
+      39.06       Text sizing
+      31.25       Text sizing                 +
+      25          Text sizing                 ds-font-size-{level}
+      20          Text sizing
+                                              +
+      16          Text sizing
+
+      12.8        Text sizing
+                                              ds-font-line_height-{level}
+      10.24       Text sizing
+                                              +
+                                              ds-font-letter_spacing-{level}
+
+
+      © Copyright 2024 • Directed Edges LLC
+                                        Typography tokens
+                                        Figjam activity
+
+
+
+
+                   EightShapes
+© Copyright 2024 • Directed    LLCLLC
+                            Edges
+Composite tokens / Typography
+
+
+
+
+      61.04
+                  Text sizing                 ds-font-family-{level}   = Aa ds-font-heading-level-1
+      48.83       Text sizing                 +
+                                              ds-font-weight-{level}
+      39.06       Text sizing
+      31.25       Text sizing                 +
+      25          Text sizing                 ds-font-size-{level}
+      20          Text sizing
+                                              +
+      16          Text sizing
+
+      12.8        Text sizing
+                                              ds-font-line_height-{level}
+      10.24       Text sizing
+                                              +
+                                              ds-font-letter_spacing-{level}
+
+
+      © Copyright 2024 • Directed Edges LLC
+Composite tokens / Essential typography
+
+
+                                               Headings                     Body
+                                               Aa ds-font-heading-level-1   Aa ds-font-body-xl
+
+                                               Aa ds-font-heading-level-2   Aa ds-font-body-l
+
+                                               Aa ds-font-heading-level-3   Aa ds-font-body-m
+
+                                                                            Aa ds-font-body-s
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composite tokens / Expansive typography
+
+
+   Display                                      Headings                     Body                   Micro
+    Aa ds-font-display-level-1                  Aa ds-font-heading-level-1   Aa ds-font-body-lead
+
+    Aa ds-font-display-level-2                  Aa ds-font-heading-level-2   Aa ds-font-body-xl
+
+    Aa ds-font-display-level-3                  Aa ds-font-heading-level-3   Aa ds-font-body-l
+
+    Aa ds-font-display-level-4                  Aa ds-font-heading-level-4   Aa ds-font-body-m      Aa ds-font-micro-m
+
+                                                Aa ds-font-heading-level-5   Aa ds-font-body-s      Aa ds-font-micro-s
+
+                                                Aa ds-font-heading-level-6   Aa ds-font-body-xs
+
+
+
+                                                Eyebrow
+                                                Aa ds-font-eyebrow-level-1
+
+                                                Aa ds-font-eyebrow-level-2
+
+                                                Aa ds-font-eyebrow-level-3
+
+
+
+
+        © Copyright 2024 • Directed Edges LLC
+Composite tokens /
+
+
+
+
+          Principle                                 Aa ds-font-heading-level-1
+
+
+          Avoid homonyms                            Aa ds-typography-display-level-1
+          Avoid terms in token levels that can be
+          interpreted in different ways.
+                                                    Aa ds-type-display-level-1
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composite tokens /
+
+
+
+
+                                                             Generic sizes?   Semantic composites?
+     Principle
+
+     Balance flexibility
+                                    ds-font-size-6   ds-font-heading-level-1
+
+
+     and specificity                                         ds-font-size-5   ds-font-heading-level-2
+
+                                                             ds-font-size-4   ds-font-heading-level-3
+     Flexibility favors generic choices, leaving decisions
+     to tactics of composition. Specificity favors
+     semantics, enabling reuse across many contexts. 
+
+      ds-font-size-3   ds-font-heading-level-4
+
+     Goals vary by system, resulting in diverse              ds-font-size-2   ds-font-heading-level-5
+     approaches. You can offer both.
+                                                             ds-font-size-1   ds-font-heading-level-6
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composite tokens /
+                                               Implement as
+
+                                               Figma text styles,
+ Exploring token taxonomy in Airtable          Sass mixins
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Composite tokens /
+
+
+
+     Principle                                                    ds-font-display-level-1
+
+     Avoid premature                                              ds-font-display-level-2
+
+     optimization                                                 ds-font-display-level-3
+     The temptation to centralize choices any team                ds-font-display-level-4
+     needs can be strong. However, avoid polluting a
+     shared namespace with options relevant to few or
+     one team, especially unstable options.
+
+     A L S O K N OW N A S                               Needed by 1 team?
+        Needed by 7 teams
+
+                                                        (Marketing)               across 3 business groups?
+     YAGNI
+
+     (“You ain’t gonna need it”)                            Don’t add to “Core”       Add it to “Core”
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                      Composite tokens
+
+© Copyright 2024 • Directed Edges LLC
+                                        Foundations
+                                        About tokens
+                                        Generic tokens
+                                        Semantic tokens
+                                        Composite tokens
+                                        Theming
+                                        Component tokens
+                                        Process
+
+
+© Copyright 2024 • Directed Edges LLC
+Theming / Example
+
+                                               BRAND   -default?
+           -product_A   -product_B   -product_B
+                                                       -base?
+
+                                                       -master
+
+
+
+
+     To k e n
+
+     ds-color-action-primary
+
+     ds-color-surface-accent
+
+
+
+     ds-color-tile-accent
+
+
+
+
+                                                       Works very well, 
+
+                                                       out of the box
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                        Theming
+                                        Shifting visual attributes like color, space
+                                        and typography across all components and
+                                        elements uniformly within a scope such as
+                                        an app, page or component.
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+Theming / Dimensions
+
+                       E X A M P L E TO K E N                  C AT E G O RY   purpose
+
+
+                               ds-color-text-primary-on_dark   Color           “Dark mode”
+                               ds-color-accent-productB        Color           Brand, White label
+                               ds-color-accent-winterSales     Color           Campaign
+                        Aa ds-font-heading_level-2-tablet      Typography      Responsive
+                       ds-space-inset-squish-compact           Space           Density
+                       ds-font-size-body-large                 Size
+                       ds-shape-tile-round                     Shape
+
+
+      © Copyright 2024 • Directed Edges LLC
+Theming / Purpose
+
+   purpose                                     p r o b l e m to s o lv e                             P ot e n t i a l c o s t
+
+
+   Responsiveness                              Shift attributes based on common device
+                                               profiles like tablet and desktop
+                                                                                                     Low                        High
+
+
+   Light and dark mode                         Invering color based on device settings and/or
+
+                                               user preference
+                                                                                                     Low                        High
+
+
+   Multi-brand                                 Set attributes like colors, images, icons and fonts
+                                               based on distinct brands
+                                                                                                     Low                        High
+
+
+   Campaigns                                   Extend default or brand themes based on
+                                               marketing campaigns
+                                                                                                     Low                        High
+
+
+   Design generations                          Style components with visual attributes of
+                                               legacy generations while still evolving “latest”
+                                                                                                     Low                        High
+
+
+   White label                                 Extensively customize any design decision at the
+                                               library, component, element and attribute level
+                                                                                                     Low                        High
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Theming / Strategy
+
+
+Define the customer problems,
+and work back from there.
+
+
+
+
+                                                 https://themes.getbootstrap.com/guide/
+
+
+
+         © Copyright 2024 • Directed Edges LLC
+Theming / Responsive typography
+
+                                   Theming Level
+
+                                   -mobile                               -tablet                             -desktop
+
+       Composite                     Aa ds-font-heading_level-2-mobile   Aa ds-font-heading_level-2-tablet   Aa ds-font-heading_level-2-desktop
+
+             family                  Aa ds-font-family-serif
+
+             weight                  Aa ds-font-weight-bold
+
+                  size               Aa ds-font-size-4                   Aa ds-font-size-5                   Aa ds-font-size-6
+
+     line_height                     Aa ds-font-line_height-heading
+
+   letter_spacing                    Aa ds-font-letter_spacing-heading
+
+
+
+       Composite                     Aa ds-font-body-m-mobile            Aa ds-font-body-m-tablet            Aa ds-font-body-m-desktop
+
+
+             family                  Aa ds-font-family-serif
+
+             weight                  Aa ds-font-weight-normal
+
+                  size               Aa ds-font-size-2                   Aa ds-font-size-3                   Aa ds-font-size-3
+
+     line_height                     Aa ds-font-line_height-body
+
+   letter_spacing                    Aa ds-font-letter_spacing-body
+
+
+
+        © Copyright 2024 • Directed Edges LLC
+Theming / Purpose: Light and dark mode
+
+Many design systems limit color
+theming to refer to light versus
+dark mode, or even light versus
+dark inverted portions of a page.
+
+
+And that’s ok.
+
+
+
+                                                                 Apple iOS toggle
+                                                                 between light and dark
+
+
+
+
+    ds-color-surface-primary-light                ds-color-surface-primary-dark
+
+
+    ds-color-surface-secondary-light              ds-color-surface-secondary-dark
+
+
+
+          © Copyright 2024 • Directed Edges LLC
+Theming / Surface
+                                                 ds-color-surface-primary-light
+
+
+                                                ds-color-surface-secondary-light
+                                                                                   Good afternoon
+                                                                                   Sign in to manage your accounts
+
+                                                                                          There’s a problem
+                                                                                          Enter your email address
+
+
+
+
+          Surface                                                                      Email address
+                                                                                         {Value}
+
+          A container that applies color and more to                                   Password
+
+          composed elements and components to                                            {Value}
+
+          ensure clear, accessible and legible color                                     Sign in
+
+          contrast against a set background.                                           Forgot username or password?
+
+
+
+                                                                                     Create a new account
+
+
+
+
+                                                ds-color-surface-secondary-dark
+                                                                                   Company Inc
+                                                                                   Copyright 2024 • Terms & conditions • Contact us
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Theming / Set a theme
+
+Generally, themes are applied to surfaces
+containing UI components that are to                  Good afternoon
+inherit the mode of that container (scope).           Sign in to manage your accounts
+
+                                                             There’s a problem
+                                                             Enter your email address
+                 Page (aka Canvas, Body)
+                  Set to “Light”                          Email address
+                                                            {Value}
+
+                                                          Password
+                                                            {Value}
+
+                                                            Sign in
+                 Tile (aka Module, Card, Container)
+                                                          Forgot username or password?
+                  Set to “Light”
+
+                                                        Create a new account
+
+
+
+
+                 Row (aka Section)
+                                                      Company Inc
+                  Set to “Dark”                       Copyright 2024 • Terms & conditions • Contact us
+
+
+
+
+          © Copyright 2024 • Directed Edges LLC
+Theming / Inherit a theme
+                                                                                                  Most core UI components like even buttons
+                                                                                                  and notifications inherit a surface mode from
+                                                                                                  a parent and are not themed individually.
+                                               Good afternoon
+                                               Sign in to manage your accounts                    Typography (inherits “Light” from Page)
+                                                      There’s a problem
+                                                      Enter your email address                    Notification (inherits “Light” from Page)
+
+                                                   Email address
+                                                     {Value}                                      Input container (inherits “Light” from Tile)
+                                                   Password
+                                                     {Value}
+
+                                                     Sign in                                      Button (inherits “Light” from Tile)
+                                                   Forgot username or password?
+
+
+
+                                                 Create a new account                             Button (inherits “Light” from Page)
+
+
+
+                                               Company Inc
+                                               Copyright 2024 • Terms & conditions • Contact us   Typography (inherits “Dark” from Row)
+
+
+       © Copyright 2024 • Directed Edges LLC
+Theming / Brand accent
+
+
+   ds-color-surface-brand-light
+
+
+
+
+                                               ds-color-surface-brand-dark
+  ds-color-action-brand-initial
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Theming / Brand model
+
+
+
+                           A                           B                        C
+   Type                    Mode
+                           Light                Dark   Light   Dark   Accent    Light   Dark   Accent
+                                                                      as mode                  as mode
+   Primary
+
+
+   Secondary
+
+
+   Accent
+   as background
+
+   color option
+
+
+
+
+        © Copyright 2024 • Directed Edges LLC
+Theming / Dark mode vs dark surface design language
+
+
+
+          No inversion                         Rows   Rows and tiles   All the things
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Theming / github.com/settings/appearance
+
+                                              Theme (detected user preference)
+
+
+
+
+      © Copyright 2024 • Directed Edges LLC
+                                        Theming, Part 1
+
+© Copyright 2024 • Directed Edges LLC
+Theming / Purposes: Brand, Mode and Surface
+
+
+  BRAND                       -product_A                                -product_B
+  C O LO R M O D E            -light               -dark                -light       -dark
+  s u r fac e
+  -accent                                                                                    -secondary
+
+
+  -secondary                                               Ac t i o n                        -secondary
+                                                           -primary
+  -primary
+                                                                                             -accent
+
+
+
+  -secondary                                                                                 -secondary
+
+  -secondary                                                                                 -secondary
+
+
+
+
+           © Copyright 2024 • Directed Edges LLC
+Theming / Mixing and nesting
+
+
+
+        -default                               In Figma
+           -product_A                          Supported by variables, collections
+                                               and modes, but without extensions
+                                               of brands across collections.
+
+
+
+                 -product_B
+                     -product_B-subbrand_1     In Code
+                                               A good example is Material UI’s
+                            -product_D         ThemeProvider.
+                                               mui.com/material-ui/customization/theming/
+                                               #nesting-the-theme
+                  -product_C
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Theming / Tiers
+
+
+    Theme Palette                                              Theme Mapping
+
+                           Component mapping
+
+
+                                                               Aliases per theme, 
+                      Aliases per theme, 
+
+                                                               Tokens the same across themes             Tokens the same across themes
+
+
+        color-brand-starbucks-green                                 theme-color-background-brand            button-primary-background
+
+                                                                                                            band-branded-background
+
+                                                                    theme-color-content-brand               heading-branded-text-color
+
+                                                                                                            fieldnote-success-text-color
+
+                                                                    theme-color-border-utility-success      text-input-border-color-success
+
+                                                                                                            badge-border-color-success
+
+                                                                                                            alert-border-color-success
+
+
+     https://bradfrost.com/blog/post/the-many-faces-of-themeable-design-systems/
+
+
+
+         © Copyright 2024 • Directed Edges LLC
+Theming / System generations
+
+
+
+                                                            G e n e r at i o n
+
+TO k e n                                           mode     -DS2_0 (2022)                                -DS3_0 (2024)
+
+ ds-color-text-primary -light                                      ds_legacy-color-palette-neutral-07       ds-color-palette-neutral-200
+
+                                                   -dark           ds_legacy-color-palette-neutral-100      ds-color-palette-neutral-1000
+
+
+ds-color-alert-error                               -light          ds_legacy-color-palette-red-42           ds-color-palette-red-500
+
+                                                   -dark           ds_legacy-color-palette-red-55           ds-color-palette-red-700
+
+
+
+
+           © Copyright 2024 • Directed Edges LLC
+Theming / Purpose: Density
+                                                -compact                                                    -cozy (default)                                                -comfortable
+  In Figma as variable collection               Page layout
+                                                        24                                             24              32                                             32               40                                             40
+
+                                                   24                                                         32                                                             40
+
+
+
+
+                                                                                                                                                                                            Username
+                                                                                                                            Username
+                                                             Username
+                                                                                                                                                                                            Please tell us your username
+                                                                                                                            Please tell us your username                     20
+                                                             Please tell us your username                     16
+                                                   12                                                                                                                                       Password
+                                                                                                                            Password
+                                                             Password
+
+                                                                                                              16                                                             20
+                                                   12
+                                                              Sign in                                                        Sign in                                                          Sign in
+                                                   12                                                         16                                                             20
+                                                             Forgot username?                                               Forgot username?                                                Forgot username?
+                                                             Forgot password?                                               Forgot password?
+                                                   12                                                                                                                                       Forgot password?
+                                                                                                              16
+                                                                                                                                                                             20
+                                                   12
+                                                              Create a new account                            16
+                                                                                                                                                                             20
+                                                                                                                             Create a new account
+                                                                                                                                                                                              Create a new account
+
+
+
+
+                                                                                                              32                                                             40
+                                                   24
+
+
+
+
+                                                Within components
+
+                                                             Password                                                       Password                                                    Password
+                                                        6                                                          8                                                              10
+                                                                                            {action}                                                       {action}                                                        {action}
+
+                                                             9                                     6                    12                                        8                     15
+                                                                                                                                                                                        Password                                  10
+                                                             Password                                                       Password
+                                                        6                                                          8                                                              10
+                                                        6
+                                                                                            {action}                                                       {action}                                                        {action}
+                                                                                                                   8                                                              10
+
+
+
+
+        © Copyright 2024 • Directed Edges LLC
+Theming / Interaction: Density *and* Size?
+
+                                               Density
+                           Size                -compact                                           -cozy                                              -comfortable
+
+                           -small
+                                                                        {label}                                             {label}                                            {label}
+
+
+
+                                               Item spacing:   DS Space / padding/0_25x (3)       Item spacing:   DS Space / padding/0_25x (4)       Item spacing:   DS Space / padding/0_25x (5)
+                                               Padding left:   DS Space / padding/0_5x (6)        Padding left:   DS Space / padding/0_5x (8)        Padding left:   DS Space / padding/0_5x (10)
+                                               Padding top:    DS Space / padding/0_375x (4.5)    Padding top:    DS Space / padding/0_375x (6)      Padding top:    DS Space / padding/0_375x (7.5)
+
+
+
+
+                           -medium
+                                                                        {label}                                             {label}                                            {label}
+
+
+                                               Item spacing:   DS Space / item-spacing/0_5x (6)   Item spacing:   DS Space / item-spacing/0_5x (8)   Item spacing:   DS Space / item-spacing/0_5x (10)
+                                               Padding left:   DS Space / padding/0_75x (9)       Padding left:   DS Space / padding/0_75x (12)      Padding left:   DS Space / padding/0_75x (15)
+                                               Padding top:    DS Space / padding/0_5x (6)        Padding top:    DS Space / padding/0_5x (8)        Padding top:    DS Space / padding/0_5x (10)
+
+
+
+
+                           -large
+                                                                       {label}                                             {label}                                            {label}
+
+
+                                               Item spacing:   DS Space / item-spacing/0_5x (6)   Item spacing:   DS Space / item-spacing/0_5x (8)   Item spacing:   DS Space / item-spacing/0_5x (10)
+                                               Padding left:   DS Space / padding/1x (12)         Padding left:   DS Space / padding/1x (16)         Padding left:   DS Space / padding/1x (20)
+                                               Padding top:    DS Space / padding/0_75x (9)       Padding top:    DS Space / padding/0_75x (12)      Padding top:    DS Space / padding/0_75x (15)
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Theming / Technical approach
+
+
+                                 Configure by prop              Inherited
+                                 Set an object-level property   Inherit a setting from a container, page, app,
+                                                                or app-level setting
+
+    Figma                        Props                          Mode
+
+
+
+
+    Code                         Props                          Provider / Parent
+                                 <Checkbox size="Medium"...     <ThemeProvider theme={....}>
+                                 <Button size="Medium"...         <Checkbox...
+                                                                  <Button...
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                        Spacing tokens
+                                        Figjam activity
+
+
+
+
+                   EightShapes
+© Copyright 2024 • Directed    LLCLLC
+                            Edges
+                                        Theming
+
+© Copyright 2024 • Directed Edges LLC
+                                        Foundations
+                                        About tokens
+                                        Generic tokens
+                                        Semantic tokens
+                                        Composite tokens
+                                        Theming
+                                        Component tokens
+                                        Process
+
+
+© Copyright 2024 • Directed Edges LLC
+Component tokens / Examples
+
+
+
+
+                                         ds-color-component-modal-overlay-on_light
+
+
+                                         ds-color-component-tabs-selected_indicator-on_dark
+
+
+                                         ds-color-component-price_lockup-sale-on_dark
+
+
+
+
+      © Copyright 2024 • Directed Edges LLC
+                                        Component token
+                                        A token used for only one component
+                                        to support an attribute that varies by
+                                        theme and is not already supported by
+                                        a semantic token.
+
+
+
+
+© Copyright 2024 • Directed Edges LLC
+Component tokens / Can't do generics anymore
+
+    A s - I s
+                                         to - b e
+
+    Tile with single brand accent                      Tile with accent by brand
+                                                        A          B          C
+
+
+
+                                                              DON’T use generic tokens directly
+         DO create a component token that
+
+                                                              when varying color by mode                 enumerates aliases by mode
+
+   Background color:                                   Background color:                           ackground color:
+                                                                                                   B
+
+
+        ds-color-brandA-orange-55                  A        ds-color-brandA-orange-55                  ds-color-components-tile-background-accent-brandA
+
+                                                                                                         Alias          ds-color-brandA-orange-55
+
+
+                                                   B        ds-color-brandB-green-400                  ds-color-components-tile-background-accent-brandB
+
+                                                                                                         Alias          ds-color-brandB-green-400
+
+
+                                                   C        ds-color-brandC-purpleForever              ds-color-components-tile-background-accent-brandC
+
+                                                                                                         Alias          ds-color-brandC-purpleForever
+
+
+
+           © Copyright 2024 • Directed Edges LLC
+Component tokens / Case study: Modal overlay
+
+
+                                                     DON’T use generic tokens directly
+     DO create a component token that
+
+                                                     when varying color by mode             enumerates aliases by mode
+
+
+    Light                                          ds-color-neutral-03 (#060809)          ds-color-component-modal-overlay-on_light (#060809,80%)
+                                                + 80% opacity on overlay layer                ds-color-neutral-03
+
+
+
+
+    Dark                                           ds-color-neutral-100 (#FFFFFF)         ds-color-component-modal-overlay-on_dark (#FFFFFF, 80%)
+                                                + 80% opacity on overlay layer
+                                                                                              ds-color-neutral-100
+
+
+
+
+        © Copyright 2024 • Directed Edges LLC
+Component tokens / Case study: Tabs
+
+   A s - I s
+                                       to - b e
+
+   Tab uses brand color for 
+                       Tab uses distinct selected
+
+   selected indicator                               indicator by color mode
+
+                                                           DON’T use generic tokens directly
+    DO create a component token that
+
+                                                           when varying color by mode            enumerates aliases by mode
+
+
+
+            {Label}                                         {Label}                                {Label}
+
+
+
+       ds-color-background-brand-on_light               ds-color-background-brand-on_light      ds-color-component-tabs-selected_indicator-on_light
+
+                                                                                                    ds-color-background-brand-on_light
+
+
+
+
+            {Label}                                         {Label}                                {Label}
+
+
+
+       ds-color-background-brand-on_dark                ds-color-palette-neutral-100            ds-color-component-tabs-selected_indicator-on_dark
+
+                                                                                                    ds-color-palette-neutral-100
+
+
+
+            © Copyright 2024 • Directed Edges LLC
+Component tokens / Varying aliasing depth
+
+
+
+
+   Component                           ds-color-component-tabs-selected_indicator-on_light   ds-color-component-tabs-selected_indicator-on_dark
+
+   Semantic                                      ds-color-background-brand-on_light
+
+   Generic                                          ds-color-palette-orange-55                  ds-color-palette-neutral-100
+
+   Va l u e                                          #F05C28                                     #FFFFFF
+
+
+
+
+         © Copyright 2024 • Directed Edges LLC
+                                        Component tokens
+                                        Figjam activity
+
+
+
+
+                   EightShapes
+© Copyright 2024 • Directed    LLCLLC
+                            Edges
+Component tokens /
+                                                                  Light                 Dark
+                                                     Just
+                                                     Modal...
+
+
+     Principle
+
+     Start within, then                                              Don’t add a semantic token.
+
+                                                                     Instead, use a component token.
+
+     promote across
+     As tokens reveal themselves as opportunities,   ...or also
+     only promote concepts to semantic level when    Dialog?
+     applicable to 2 or more components.
+
+
+
+
+                                                                     Create a semantic token instead:
+
+                                                                          ds-color-background-overlay...
+
+      © Copyright 2024 • Directed Edges LLC
+Component tokens / Inverse conundrum
+
+
+
+Light                          Da r k                       C o m p o n e n t to k e n
+
+
+        {Label}                           {Label}                 ds-color-component-button-label-inverse...
+
+
+
+          {Label}                           {Label}               ds-color-component-checkbox-check...                 s e m a n t i c to k e n
+
+
+                                                                                                                              ds-color-element-primary-inverse...
+         {Label}                            {Label}               ds-color-component-badge-success-icon...
+                                                                                                                                            Do you publish it for others to reuse?
+
+                                                                                                                                            Is it clear that button and checkbox aren’t
+
+                                                                  ds-color-component-icon_button-focus_ring-inner...                        surfaces to invert?
+                                                                                                                                            Is it clear that inverse element and 
+
+                                                                                                                                            surface colors should be rarely used and
+
+                                                                                                                                            only for atomic components?
+
+
+
+
+                    © Copyright 2024 • Directed Edges LLC
+                 Component tokens
+
+© Copyright 2024 • Directed Edges LLC
+                                        Foundations
+                                        About tokens
+                                        Generic tokens
+                                        Semantic tokens
+                                        Composite tokens
+                                        Theming
+                                        Component tokens
+                                        Process
+
+
+© Copyright 2024 • Directed Edges LLC
+Token process / Steps
+
+
+
+
+                                                                    Figma
+
+                               Plan            Discovery   Decide   Automation?
+
+                                                                    Style dictionary
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Token process / Problem(s) to solve
+
+
+
+
+          Do existing styles                   Gaps          Applying generic values where reusable
+          or tokens have                                     purposefully applied decisions exist?
+          issues with...
+                                               Depth         Insufficiently descriptive and robust for
+                                                             dark mode or other theming?
+                                               Specificity   Some too general, applied broadly?  
+                                                             Some too specific, used once or twice?
+                                               Misuse        Being used in the invalid scenarios, perhaps
+                                                             out of going to fast or laziness?
+                                               Conflicts     Similar sets being used in different
+                                                             contexts, teams, or generations?
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Token process / Approach
+
+
+
+
+                                                                         Formal       OR   Organic
+                                               Audit all things, propose taxonomy,         Find and name useful tokens as you
+                                                    and implement catalog-wide?            work over time?
+
+                                                             Comprehensive            OR   Color and text only
+                                               Cover all possible tokens, including        Focus on generics and semantics for
+                                                size, space, shape, and elevation          color and text
+
+                                                        Deliver tokens only           OR   Fix and enhance as-you-go
+                                               Only deliver a new token taxonomy,          As new tokens are established,
+                                                         updating component later          update components to match now
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Token process / Scoping
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Token process / Inspecting design
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Token process / Inspecting code
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Token process / Audit design, usage
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Token process / Audit findings
+
+
+
+
+                                                     INTENT
+
+
+
+
+                                                     MISUSE
+
+
+
+
+                                               BY COMPONENT
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Token process / Workshops
+
+
+
+
+      © Copyright 2024 • Directed Edges LLC
+Token process / Specs, as sheet
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Token process / Specs, as document
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+Token process / Template                       https://bit.ly/de-token-template
+
+
+
+
+       © Copyright 2024 • Directed Edges LLC
+                                        Token process
+
+© Copyright 2024 • Directed Edges LLC
+
