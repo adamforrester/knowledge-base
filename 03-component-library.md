@@ -100,7 +100,7 @@ This is the biggest single change to component-library practice since Atomic Des
 - **Figma is one target among many**, not the source of truth. The data is the source; Figma assets are *outputs*.
 - Auto-generates: docs, code (multi-platform), Figma component sets, registry entries, AI-readable metadata.
 - Catalog scale: simple components ~20–50 lines of YAML; complex components 500+; a `core.yaml` with 30–50 components is "10,000s of lines."
-- The 2025 caveat (Curtis): some things data still can't capture well — motion / non-trivial interaction, accessibility (Figma is structurally weak here), non-visual configs (Alert autohide duration). Pair component data with structured handoff for these.
+- The 2025 caveat (Curtis): some things data still can't capture well — motion / non-trivial interaction, accessibility (Figma is structurally weak here), non-visual configs (Alert autohide duration). Pair component data with structured handoff for these. (The structured handoff for motion is treated in 21-motion-spec-and-handoff; the accessibility parallel is in 17-accessibility-annotation-contract.)
 
 This is the defensible POV the practice should be writing into 2026+ engagements: components shipped as a data layer that *generates* the Figma library, the code, the docs, the registry — not as a Figma file with code "to follow."
 
@@ -148,7 +148,7 @@ Extended set (Option 2): Modal / dialog with scrim; Data table (basic structure,
 **Gaps in our current commercial Component standard, honestly named:**
 
 - **Components-as-data is not in our 2026 deliverables.** The practice's AI-Compatible doc reaches the data structure layer; CareCentrix-style proposals do not yet sell components as YAML/JSON definitions that generate Figma assets and code. This is the leading edge of practice and Curtis names it as the post-tokens move. By end of 2026 it should be a default deliverable for engagements scoped past MVP.
-- **Motion specs in components are missing.** The component templates list states (rest/hover/active/disabled) but don't specify entrance/exit motion, transitions between states, or motion guidelines per component. Head's framework would slot in cleanly.
+- **Motion specs in components are missing.** The component templates list states (rest/hover/active/disabled) but don't specify entrance/exit motion, transitions between states, or motion guidelines per component. Head's framework would slot in cleanly. The architectural treatment now lives in 18-motion-foundations; the per-component spec contract lives in 21-motion-spec-and-handoff.
 - **`.ai.json` is in the AI-Compatible doc but not the commercial proposal.** We have the IP; we don't yet sell it. By end of 2026 every component shipped should ship with its `.ai.json` peer file as default deliverable.
 - **Accessibility annotations are referenced but under-specified.** The UIC series explicitly excludes Accessibility (along with Behavior, Motion, Theming) from scope. This is honest scoping but it's also a gap — the practice's component-level a11y annotations (focus states, ARIA roles, keyboard interaction, screen-reader labels) need a documented standard.
 - **Component contribution and deprecation policy.** What happens after launch — how does a new component enter the system, how does an old one leave? The UIC series doesn't address this; commercial proposals leave it to "ongoing maintenance." (See `07-governance-and-adoption.md` and `08-ongoing-maintenance.md`.)

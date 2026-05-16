@@ -117,6 +117,8 @@ Multi-Brand Governance (Apr 2025) extends this with a process layer:
 
 These together are the most complete contribution operating model published. The practice should ship them as default — they translate immediately into client-team operating instructions.
 
+**Governance weight should track blast radius at the token layer specifically.** A primitive token change cascades to every brand and every consuming codebase; a semantic change cascades to every component in one brand; a component-token change cascades to one component. The right RACI by token tier (central team owns primitives; brand lead owns semantics; product team owns component tokens) makes friction proportional to consequence. **Primitive changes pass through a Cascade Report in CI** that lists every brand and component affected; semantic and component changes pass through lighter review. See 24-tokens-at-scale for the full operational layer.
+
 ### 5. Adoption tactics
 
 A list, not a recipe — the right combination depends on org size and culture:

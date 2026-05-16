@@ -24,6 +24,7 @@ Areas where the collective source material is thin or silent. These are the high
 - **Token architecture for multi-brand is under-articulated.** Internal materials handle multi-brand at the *theming* layer (T-Mobile/Metro, Ford/Lincoln) but the architectural decision — when one system with brand themes vs. parallel brand-specific systems vs. federated systems with shared roots — is not laid out as a decision tree.
 - **Composition-based brand extension** is mentioned in the AI-Compatible doc as where brand actually lives, but the *architectural* implications (how composition patterns get registered, themed, validated) are not yet detailed.
 - **The Multi-Brand Governance source (Apr 2025)** covers process governance well but skips technical governance entirely. Practice's combined POV is unique but undocumented coherently.
+- **Largely closed by 24-tokens-at-scale (May 2026)** — multi-collection-not-multi-mode for brand, managed inheritance vs. fork governance, brand version pinning, the Theme Schema contract for white-label, blast-radius-weighted RACI, and the Generative Token pattern. The remaining gap is sub-bulleted as §1.20 below: the Generative Token / OKLCH-derived brand expansion pattern as a practice-default deliverable.
 
 ### 1.4 ROI and measurement methodology
 - **Defensible ROI calculator absent across the entire field.** UXPin's "hours × salary" framing (2017) and the practice's component-level math (Button 67.7%, Dynamic menu 81%) are the most rigorous public artifacts. Neither is a calculator a client can run themselves. **A practice with this case-study volume should be publishing its own.**
@@ -41,21 +42,21 @@ Areas where the collective source material is thin or silent. These are the high
 - **Ambassadors program not productized.** Couldwell's Guardians/Ambassadors/Lead pattern; Sprout Social's program; GOV.UK's working group. Could ship as a 4–6 week embedded coaching engagement.
 
 ### 1.7 Code-side delivery
-- **Token build pipeline not in deliverables.** DTCG-compliant tokens named; Style Dictionary configuration, GitHub Actions distribution, custom transforms not shipped.
-- **CI quality gates not in scope.** Visual regression, accessibility CI, token drift detection — not standard scope. Field is silent broadly; practice could lead.
+- **Token build pipeline not in deliverables.** DTCG-compliant tokens named; Style Dictionary configuration, GitHub Actions distribution, custom transforms not shipped. **Partially closed by 24-tokens-at-scale (May 2026)** — Style Dictionary v4 as the build engine, validation in CI with errors-vs-warnings discipline, the Cascade Report artefact. The remaining gap is making these a default commercial deliverable rather than an internal stance.
+- **CI quality gates not in scope.** Visual regression, accessibility CI, token drift detection — not standard scope. Field is silent broadly; practice could lead. **Partially closed by 24** — DTCG schema validation, alias resolution, matrix contrast validation across brand × theme × density, dead-token detection. Same remaining gap: default deliverable, not just stated stance.
 - **Code Connect not defaulted.** Practice has IP; commercial proposals don't ship Code Connect bindings by default. By 2026 this should be standard.
 - **Custom MCP server / registry not commercial.** Internal POV; not yet sold.
 - **Engineering-onboarding artifact not produced.** Couldwell's `docs/decisions/`, `docs/onboarding/`, `docs/meeting-notes/` patterns; almost no client has them.
 - **Headless vs. opinionated component architecture stance** undocumented.
 
-### 1.8 Component-level accessibility annotations
-- The UIC series explicitly excludes Accessibility from scope (along with Behavior, Motion, Theming). This is honest scoping but a real gap.
-- No documented standard for per-component focus states, ARIA roles, keyboard interaction, screen-reader labels, error states with content guidance.
-- Accessibility is treated as a foundation-level concern (contrast ratios) and a checklist item; the operational annotation layer at the component is missing.
+### 1.8 Component-level accessibility annotations — CLOSED
+- **Closed by 14-accessibility (architecture), 16-mobile-accessibility-implementation (framework depth across Flutter, Compose, SwiftUI/UIKit, React Native), and 17-accessibility-annotation-contract (the per-component annotation spec — name, role, state, value, focus, scaling, inversion, motion, gestures, live regions).**
+- The remaining sliver — web implementation depth and the ARIA-specific annotation fields — is the new gap (see §1.16 below).
 
 ### 1.9 Motion as foundation
 - Motion appears in token lists but the practice does not yet ship motion principles, motion audits, easing studies, or productive/expressive splits as foundational deliverables.
 - Head's framework (principles → building blocks → choreography) is straightforward to adopt and would close the gap.
+- **Closed (architectural layer) by 18-motion-foundations, 19-motion-implementation-web, 20-motion-implementation-mobile, and 21-motion-spec-and-handoff (May 2026).** Open gaps that remain are now downstream of the architectural treatment: cross-platform spring calibration as a practice deliverable (a starting mapping table is in 20 but the side-by-side reference videos are not yet a practice default); Pattern A vs. Pattern B tooling for the motion spec contract (a Figma-plugin or pipeline to emit machine-readable spec files does not yet exist as a turnkey product); the productive vs. expressive choice between parallel token sets and override-mode is not yet a practice default.
 
 ### 1.10 Documentation IA and templates
 - Reference-site information architecture is named; not delivered as a deliverable.
@@ -87,6 +88,50 @@ This will become a procurement-grade requirement for regulated industries (healt
 ### 1.15 Education curriculum and certification
 - Cross-disciplinary onboarding mentioned (HTML/CSS for designers, Figma for engineers, Git for designers). No curriculum, no certification path, no "DS literacy" frame productized.
 
+### 1.16 Web accessibility implementation depth
+- 16-mobile-accessibility-implementation and 17-accessibility-annotation-contract are mobile-scoped. Web teams currently retrofit ARIA, `prefers-reduced-motion`, `prefers-contrast`, `forced-colors`, `inert`, `focus-visible`, ARIA APG keyboard interactions, and complex `aria-controls` relationships at PR review.
+- The web equivalents of the annotation contract fields (name, role, state, value translate cleanly to ARIA; merging/traversal/dynamic-type/system-inversion have materially different mechanics).
+- Next natural research run; explicitly flagged in 17.
+
+### 1.17 Annotation methodology as a Figma practice
+- 17 sketches two patterns — Pattern A (annotation as a layer in Figma) and Pattern B (annotation as metadata in the component schema) — and states the practice's preference, but does not work the methodology in Figma at the level 12-figma-practice operates on for everything else.
+- Concretely: how the annotation table lives in a component file, how it's kept current as the design evolves, who owns it, how it's reviewed alongside the visual spec.
+- A natural extension to 12-figma-practice.
+
+### 1.18 Compose Multiplatform's accessibility story on iOS
+- Compose on iOS (via CMP) is newer than Compose on Android. 16-mobile-accessibility-implementation flags this as a tension: do not assume parity with native SwiftUI/UIKit for accessibility until validated.
+- For projects considering CMP for iOS, accessibility should be a release-blocking validation. Practice should have a position before recommending CMP commercially.
+
+### 1.19 The annotation contract as a sellable deliverable
+- 17-accessibility-annotation-contract is practice IP — derived from cross-framework synthesis, prescriptive enough to ship to clients, not yet in any commercial proposal.
+- Sits next to §1.12 (AI-readiness as commercial default): practice has the artefact, hasn't packaged it.
+- Productizable as a Discovery output or a Foundations deliverable. By when?
+
+### 1.20 The Generative Token / OKLCH-derived brand expansion pattern
+- The pattern (5–10 primitives produce a brand's full semantic layer mechanically via OKLCH lightness adjustments and a standardised transform set) is the field's most-promising direction for portfolio engagements past five brands. Mature systems doing this (Adobe Spectrum's light/dark math, IBM Carbon's contrast-pinned palettes) report onboarding costs of ~10% per additional brand.
+- **The practice does not yet ship the tooling** — the OKLCH transforms, the brand-primitive Theme Schema, the generation pipeline that emits a full semantic layer from a small primitive set. Building it the first time is a one-time investment per portfolio that amortises across the engagement and its successors.
+- Surface in next portfolio engagement scoping. By end of 2026 should be a default for any portfolio past three brands. (See 24-tokens-at-scale.)
+
+### 1.21 `text-box-trim` Baseline gap and the cross-platform cap-height alignment story
+- Cap-height alignment as a system-level feature requires `text-box-trim` on web parity with iOS `leading-trim` and Compose `LineHeightStyle.Trim`.
+- **As of May 2026, `text-box-trim` is Limited Availability, not Baseline.** Chrome 133+, Safari 18.2+, Edge 133+ ship it; Firefox has implemented but keeps it disabled by default through at least Firefox 149. Verified via caniuse.com / MDN.
+- The cross-platform alignment-baseline story does not close until Firefox enables the property by default. Track Firefox releases through 2026; revisit this gap as Firefox progresses. (See 23-typography-tokenisation.)
+
+### 1.22 Continuous density via computed tokens
+- The emerging pattern (density as a parameter in a spacing formula rather than a switch between named discrete modes) is technically feasible with Tokens Studio math and Style Dictionary preprocessors.
+- The practice has not yet committed to a use case that justifies the architectural overhead. Most agency clients can articulate two or three density tiers; few can articulate the use case for continuous density.
+- Watch for the use case to surface; do not lead with the pattern. (See 22-token-architecture-extensions.)
+
+### 1.23 React Native Dynamic Type bridge as a practice standard
+- Without a native bridge module, RN typography stays at the developer-specified size regardless of iOS Dynamic Type. This is the largest accessibility gap in cross-platform mobile typography.
+- Open-source bridge modules exist but none has emerged as the convergent answer. The practice should either commit to maintaining its own bridge for RN engagements or commit to a specific upstream module and document the dependency.
+- Currently undecided. By end of 2026 the practice should have a stated default. (See 23-typography-tokenisation.)
+
+### 1.24 Token-usage telemetry from production
+- The "we don't know which tokens are actually used" problem is one of the more-frequently-named failure modes in the field at portfolio scale. No standard tool tracks runtime usage.
+- Approaches that work in 2026: build-time scans of compiled CSS for web; Style Dictionary plugins emitting a usage manifest for native; product analytics with token tags for surfaces where the deeper telemetry matters.
+- The practice has not yet shipped any of these as a default deliverable. Surface in portfolio engagements past two years' operation. (See 24-tokens-at-scale.)
+
 ---
 
 ## 2. Temporal gaps
@@ -98,6 +143,7 @@ Areas where all available thinking is older and may need revisiting in light of 
 - Mall *90 Days* (2023), InVision MVP/Benchmarking (2020), and even Mangialardi (2021) predate Figma Variables shipping (mid-2023) and the DTCG draft consolidating (2024).
 - Curtis *Design Tokens* (Nov 2024) is the most current source; even it is approaching 18 months old.
 - **Implication:** Anything in source material older than Figma Variables (mid-2023) is treating Sass variables, JSON files, or Sketch libraries as the source of truth. Practice should explicitly disclaim this when citing older sources.
+- **Largely closed by 22-token-architecture-extensions, 23-typography-tokenisation, and 24-tokens-at-scale (May 2026).** DTCG 2025.10 stable spec (28 October 2025) is now the version-of-record. Style Dictionary v4, Tokens Studio, Figma Variables composite types, Penpot, and Terrazzo all support the stable spec. The 18-months-old-Curtis problem is no longer the active gap; the active gaps are 1.20–1.24 above.
 
 ### 2.2 AI integration
 - All foundational books predate the AI-as-DS-consumer era (post-Nov 2024 Anderson reframe).

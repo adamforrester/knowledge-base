@@ -134,6 +134,8 @@ Most teams stop at level 2 and ship. Level 3 belongs in the CI pipeline for prod
 
 ## Typography for international content
 
+The depth of typography-specific tokenisation (the three-tier mandatory stack, modular scales, fluid type, variable fonts, line-height discipline, the native platform translation) lives in 23-typography-tokenisation. This section covers the i18n-specific concerns; 23 covers the typography-as-architecture concerns the multi-script discipline sits within.
+
 ### Text expansion and component sizing
 
 Translations from English expand or contract by language; the rule of thumb is that **shorter strings expand more, often dramatically.** IBM and W3C have published guidance with specific percentages. A commonly-cited budget table appears below; for client-facing recommendations, cite the source rather than asserting the numbers as our practice POV:

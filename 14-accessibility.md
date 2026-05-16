@@ -6,7 +6,7 @@
 
 ## Why this is its own file
 
-Accessibility runs through every other file in this vault — it's named in 00-principles as a foundational principle, in 02-design-foundations as a token concern, in 03-component-library as a component concern, in 11-mobile-and-cross-platform as a platform concern, in 13-internationalization-and-rtl as a multi-locale concern. **What this file does is consolidate the accessibility-specific architecture in one place** — the patterns we keep re-deriving per engagement, the conventions we keep documenting in slide decks, the failure modes we keep watching for. It is not a WCAG primer. It assumes the reader knows the standards at a working level. The focus is on how accessibility is encoded into the system so consumers can't get it wrong.
+Accessibility runs through every other file in this vault — it's named in 00-principles as a foundational principle, in 02-design-foundations as a token concern, in 03-component-library as a component concern, in 11-mobile-and-cross-platform as a platform concern, in 13-internationalization-and-rtl as a multi-locale concern, and (for motion-sensitivity specifically) in 18-motion-foundations as the system-level contract that reduce-motion variants encode. **What this file does is consolidate the accessibility-specific architecture in one place** — the patterns we keep re-deriving per engagement, the conventions we keep documenting in slide decks, the failure modes we keep watching for. It is not a WCAG primer. It assumes the reader knows the standards at a working level. The focus is on how accessibility is encoded into the system so consumers can't get it wrong. (For the mobile implementation depth across Flutter, Compose, SwiftUI/UIKit, and React Native, see 16-mobile-accessibility-implementation. For the annotation contract designers fill in so engineers can implement faithfully, see 17-accessibility-annotation-contract.)
 
 The argument for centralizing here, the same argument we made for i18n in 13: **the cost of building accessibility into the system from the first component is a small tax on every author; the cost of retrofitting is a multi-quarter project plus the legal exposure during the gap.** The cost is paid either way. The DS is the only place to pay it once.
 
@@ -131,7 +131,11 @@ easing/decel → cubic-bezier(0.2, 0, 0.4, 1) (default), step-end (reduced-motio
 
 Animations that can't simply be zeroed (a page transition that conveys spatial relationship) should fall back to an instant or near-instant version, or to a different transition style (cross-fade instead of slide). A parallel concern worth encoding is **calm easing tokens** — easing curves that avoid abrupt starts or stops, less likely to cause discomfort even for users without reduced-motion settings enabled.
 
-**A frequent failure mode:** the DS ships motion tokens that respect reduced-motion at the duration level but components have hardcoded transitions that bypass the tokens. The contract holds only if all motion goes through the token layer. (See also 02-design-foundations on motion as foundation primitive.)
+**A frequent failure mode:** the DS ships motion tokens that respect reduced-motion at the duration level but components have hardcoded transitions that bypass the tokens. The contract holds only if all motion goes through the token layer. (See also 02-design-foundations on motion as foundation primitive, 18-motion-foundations for the current architectural treatment, 19-motion-implementation-web and 20-motion-implementation-mobile for per-platform spelling.)
+
+**Refinement on the blanket "collapse to 0ms" pattern.** The convergent 2025–2026 position is that reduce-motion is *not* a blanket disable — it is an *informational vs. vestibular* split. Vestibular triggers (large-scale translation, parallax, 3D rotation, scale) should be replaced with a cross-fade. Informational motion (short fades, focus-state transitions, progress indicators) can be preserved unchanged or at reduced amplitude. The DS encodes this as a per-token decision, not a global override. See 18-motion-foundations for the token-layer contract.
+
+**The View Transitions API gotcha (web).** `document.startViewTransition()` does *not* automatically respect `prefers-reduced-motion`. If an engineer calls it, the browser runs the transition regardless of the user's setting — a frequent compliance finding in late-2025 audits. The DS should ship a `safeViewTransition` wrapper that gates on the system setting and route all view-transition calls through it. The full pattern is in 19-motion-implementation-web.
 
 ### Focus indicator tokens
 
@@ -408,7 +412,7 @@ The toolchain that's stabilized:
 - **Storybook a11y addon** — real-time dashboard surfacing violations during development.
 - **Playwright accessibility / Cypress axe** — E2E coverage; can validate focus traps and keyboard navigation by simulating keystrokes and checking `document.activeElement`.
 - **Pa11y** — CI-friendly headless tool.
-- **Build-time token contrast validation** — fails the build if pair tokens drop below WCAG threshold.
+- **Build-time token contrast validation** — fails the build if pair tokens drop below WCAG threshold. At portfolio scale, validation runs across the full brand × theme × density matrix; the discipline is to **block on WCAG failures and warn on APCA failures** (regulatory floor + perceptually-correct readability signal). See 24-tokens-at-scale for the validation operations layer.
 
 (See 05-development-support on the broader CI architecture.)
 

@@ -12,7 +12,7 @@ This phase is also the most leveraged decision point in the engagement. Token ar
 
 Three things that have changed since 2019, which most legacy materials don't reflect:
 
-1. **W3C DTCG** is now the de-facto interchange standard. `$value`/`$type`/`$description` JSON is what tools should read and write.
+1. **W3C DTCG** reached its first stable specification (2025.10) in October 2025 and is now the de-facto interchange standard. `$value`/`$type`/`$description`/`$extensions` JSON is what tools should read and write. (See 22-token-architecture-extensions for the spec at practitioner depth — the omissions DTCG leaves to the implementer, the composite-token fidelity gap, and the convergent stack on top of it.)
 2. **Figma Variables and modes** have replaced Sass-variable thinking as the design-tool source of truth — and made multi-theme architecture practical for the first time.
 3. **Tokens are now machine-readable contracts**, not just shared values. AI agents, code generators, MCP servers, design-to-code tools all consume tokens; tokens without descriptions or with chaotic naming break those consumers silently.
 
@@ -29,12 +29,12 @@ Six clusters of work, run roughly in parallel. Discovery deliverables flow into 
 
 ### 2. The visual foundation primitives
 - **Color** — accessible palettes structured for theming. Numeric scales (Couldwell: 50/60/70 with two digits to allow 5% half-steps), named neither poetically nor by hex. Group colors by **role** within a background context (foreground/background/border/divider/state) rather than enumerating 300 individual variables. (Lyft's "15 pinks" remains the cautionary tale — Perez-Cruz, 2021.)
-- **Typography** — type scale via modular ratio (not handpicked). Heading/body/UI families. Multiple breakpoints. Density variants if the product spans data-dense and breathing-room contexts.
+- **Typography** — type scale via modular ratio (not handpicked). Heading/body/UI families. Multiple breakpoints. Density variants if the product spans data-dense and breathing-room contexts. The 2024–2026 platform shifts (variable fonts, fluid type with `clamp()` and container queries, `text-box-trim` partial support, Dynamic Type / `sp` discipline on native) have made typography the most under-tokenised foundation in most systems we audit. See 23-typography-tokenisation for the spec-and-platform depth: the three-tier mandatory stack, the modular-scale-with-display-pivot pattern, the fluid-type accessibility rule, variable fonts as a tokenisation problem, and the native platform translation discipline.
 - **Space** — scale on a base unit (4px or 8px most common). Numbered intervals (`0_25x`, `0_5x`, `1x`, `1_25x`, `2x`...) preferred over T-shirt sizes — they handle "between sizes" cleanly where T-shirt and increment do not (Curtis, *Design Tokens*, Nov 2024).
 - **Shape** — radius, border weights. Often overlooked; encodes "feel" more than designers credit it.
 - **Elevation / shadow** — composite tokens with structured DTCG values referencing color and offset primitives.
 - **Iconography** — robust library; flag licensing early (a recurring CareCentrix-style discovery question for a reason).
-- **Motion** — *the foundation primitive most legacy materials skip*. Tokens for **duration** and **easing** belong alongside color, type, and space. Three custom easing curves (in / out / in-out) is the minimum viable system. Carbon's *productive vs. expressive* split (utility vs. marketing) is a clean way to handle the consistency-vs-expression tension at the motion layer (Head, 2020).
+- **Motion** — *the foundation primitive most legacy materials skip*. Tokens for **duration** and **easing** belong alongside color, type, and space. Three custom easing curves (in / out / in-out) is the minimum viable system. Carbon's *productive vs. expressive* split (utility vs. marketing) is a clean way to handle the consistency-vs-expression tension at the motion layer (Head, 2020). The 2025–2026 field has extended this with spring tokens and composite motion tokens; see 18-motion-foundations for the full treatment, plus 19 (web) and 20 (mobile) for implementation depth.
 
 ### 3. Token architecture and naming
 
@@ -70,6 +70,8 @@ Curtis's seven theming dimensions (in ascending cost):
 7. **Density** (compact / cozy / comfortable) — often forgotten; matters for data-dense UIs.
 
 Strategy: "Define the customer problems, and work back from there." Don't theme dimensions you can't justify.
+
+**Multi-brand at portfolio scale** (5–20+ brands sharing a foundation) has its own operational layer — multi-collection-over-multi-mode for brand axes, managed inheritance vs. fork governance, brand version pinning, the Generative Token pattern for OKLCH-derived brand expansion. See 24-tokens-at-scale.
 
 **Surface as the unit of inheritance.** Components inherit their theme context from a parent surface — they're rarely themed individually. This prevents 200 components from each owning explicit dark-mode logic.
 
@@ -124,7 +126,7 @@ Deliverables: color system with semantic usage, typography system with breakpoin
 
 **Gaps in our current commercial Foundations standard, honestly named:**
 
-- **Motion is on the token list but not in our methodology.** CareCentrix lists motion in the token set but the practice does not yet ship motion principles, motion audits, easing studies, or productive/expressive splits as foundational deliverables. Adopting Head's framework would be straightforward and would close a real gap.
+- **Motion is on the token list but not in our methodology.** CareCentrix lists motion in the token set but the practice does not yet ship motion principles, motion audits, easing studies, or productive/expressive splits as foundational deliverables. Adopting Head's framework would be straightforward and would close a real gap. (See 18-motion-foundations for the architectural treatment that has emerged across the 2025–2026 field.)
 - **No purpose-grouped color discipline.** We tend to enumerate palettes; Perez-Cruz's "color groups by background context" approach (15 pinks → 4 contexts) is more defensible. Adopt.
 - **Token descriptions are aspirational in our current pitches.** They appear in the AI-Compatible doc as the highest-ROI single action; they don't appear as a default deliverable in CareCentrix-style proposals. This needs to flip — descriptions should be a default Foundations deliverable, not an AI add-on.
 - **Code-side pipeline is implied, not articulated.** Style Dictionary, DTCG export, GitHub Actions distribution — these are standard, but our pitches don't show them as engineering deliverables. We sell Figma; we don't sell the pipeline. Adding a single "code delivery architecture" slide to the methodology would materially strengthen the procurement conversation with technology stakeholders.
@@ -165,7 +167,7 @@ Deliverables: color system with semantic usage, typography system with breakpoin
 3. **"Tokens stop at component boundaries" vs. component tokens.** Curtis is explicit: component tokens exist when theming demands per-component override that no semantic supports. Many practitioners (and some of our materials) avoid component tokens to keep the system "clean." Curtis's argument is the right one — refusing component tokens forces over-promoted semantics that misrepresent intent. Our internal POV should explicitly endorse component tokens for theming, not avoid them.
 4. **Motion-as-foundation, where it lives in the methodology.** Head's framework (principles → building blocks → choreography) is sound but our 4-week Foundations phase doesn't have time for a motion audit + study + token set + named effects library at the same depth as color/type/space. Pragmatic path: ship motion principles + duration tokens + 3 easing curves in MVP; defer named effects library to extended scope.
 5. **Color-by-role vs. color-by-shade.** The Perez-Cruz approach (color groups + role binding) and the Curtis approach (numeric scale + semantic mapping) are largely compatible but emphasize different artifacts. The practice should pick one as the default for client-facing work and note the alternative as a stylistic choice, not present both as equally good.
-6. **DTCG adoption velocity.** The W3C Design Tokens Community Group spec is still evolving (as of 2026, draft). Tooling support varies. Internal POV commits to DTCG; some clients' engineering stacks may push back. Working synthesis: lead with DTCG; have a fallback path for clients whose stack doesn't yet consume it (Style Dictionary outputs CSS custom properties / SCSS / TS regardless of source format).
+6. **DTCG adoption velocity.** The W3C Design Tokens Community Group spec reached its first stable version (2025.10) on 28 October 2025. Tool support (Style Dictionary v4, Tokens Studio, Figma, Penpot, Sketch, Framer, Terrazzo) is now broad. Internal POV commits to DTCG; remaining client engineering-stack pushback is rare in 2026. Working synthesis: lead with DTCG and name the stable version explicitly in procurement materials; have a fallback path for the small number of clients whose stack doesn't yet consume it (Style Dictionary outputs CSS custom properties / SCSS / TS regardless of source format). (See 22-token-architecture-extensions.)
 7. **AI-compatibility now or later.** Internal AI-Compatible doc treats AI-readiness as a parallel layer. External 2025–2026 consensus (Figma DS x AI; Anderson; Wolosin) increasingly treats it as table stakes for any new system. The practice's commercial proposals don't yet default to shipping the AI layer; this should flip by end of 2026.
 
 ## Failure modes specific to this phase

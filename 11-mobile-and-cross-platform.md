@@ -44,6 +44,8 @@ Tokens are the mechanism that makes a single design system serve multiple platfo
 
 **Figma as the design source across platforms.** Figma Variables feed all platforms from a single library when the token architecture is correct. Tokens Studio can push to the token JSON; Style Dictionary processes it from there. This is the design-to-development pipeline for multi-platform work — not perfect, but the most mature path currently available.
 
+**Motion as a cross-platform token category.** Motion tokens (duration, easing, springs, composite motion tokens) sit in the same token pipeline as color and space. The architectural treatment lives in 18-motion-foundations; the per-framework spelling — SwiftUI's perceptual springs, Compose's classical springs, Flutter's `SpringDescription`, Reanimated's worklets, shared element transitions, reduce-motion APIs — lives in 20-motion-implementation-mobile. The cross-platform calibration problem (the same `spring/snappy` token must feel the same across all four frameworks) is the practical extension of this file's token-architecture argument into the motion layer.
+
 ---
 
 ## The native vs. custom component decision
@@ -178,7 +180,7 @@ When the DS starts on one platform and is extended to another, the token layer i
 
 **Component count multiplies by platform.** A 20-component DS on web is a 20-component DS. A 20-component DS on iOS + Android native is 40 component implementations (or 20 in Flutter). Estimates must reflect this. The token layer is shared; the components are not.
 
-**Accessibility scope on Flutter is explicit, not inherited.** Budget for explicit accessibility implementation on Flutter — screen reader support, focus management, semantic labels — in a way that iOS and Android native development does not require to the same degree, because native components carry these behaviors by default.
+**Accessibility scope on Flutter is explicit, not inherited.** Budget for explicit accessibility implementation on Flutter — screen reader support, focus management, semantic labels — in a way that iOS and Android native development does not require to the same degree, because native components carry these behaviors by default. (See 16-mobile-accessibility-implementation for the full framework-by-framework treatment — Flutter's semantics tree, Compose's mergeDescendants/clearAndSetSemantics, SwiftUI/UIKit traits and focus systems, React Native's prop divergence — and 17-accessibility-annotation-contract for what designers must specify in Figma to make that implementation faithful.)
 
 **Font licensing for mobile.** Brand fonts on mobile require mobile-specific licenses in many cases. This is a client responsibility, but it should be raised early — missing font licenses have delayed launches. Raise it in Discovery.
 
