@@ -167,7 +167,7 @@ These are questions a senior practice leader should have a developed answer to. 
 - **What is our minimum viable governance?** What can we credibly ship for a 12–16 week MVP engagement that a client team can actually run after we leave? (See 07-governance-and-adoption.)
 - **What is our pricing model after handoff?** Retainer? Subscription? Federated chargeback? We sell the build; we don't sell the keep-alive. (See 08-ongoing-maintenance.)
 - **What is our maturity diagnostic?** We use the Six Signs as opportunity recognition; we don't have a productized "where are you on the curve" workshop. (See 01-discovery-and-strategy.)
-- **What is our defensible ROI methodology?** The 40–50% / 4-months-to-minutes / 30%-of-a11y stats are borrowed. A practice with our case-study volume should be publishing its own. (See 09-gaps.)
+- **What is our defensible ROI methodology?** The 40–50% / 4-months-to-minutes / 30%-of-a11y stats are borrowed. A practice with our case-study volume should be publishing its own. (See 09-gaps-and-open-questions.)
 - **What is our position on AI-generated UI?** The AI-Compatible doc is forward-leaning but not yet integrated with the core methodology. By when does every client engagement deliver an AI-readable layer by default?
 - **When do we recommend *not* starting a system?** We have signs to recognize when one is needed; we don't have an articulated set of conditions under which we would advise a client to *wait*. (Callahan's "unhealthy practices" warning suggests this should exist.)
 

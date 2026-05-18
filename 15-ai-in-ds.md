@@ -33,7 +33,7 @@ Deterministic tools (axe-core, Stark, Leonardo) compute contrast ratios. **AI's 
 
 The token-pair architecture from 14-accessibility makes this much more tractable: the AI is reasoning about a contract (this pair must meet this ratio) rather than guessing intent.
 
-A related capability worth watching is **expression tokens** — Figma variables that allow conditional logic and math-driven computation, variously dated to 2025 rollout in current research. We have not independently verified this against current Figma docs; if real, it materially changes how dynamic theming is encoded in tokens. If stable, AI agents can simulate token permutations across modes and surface accessibility regressions automatically. **Treat as "verify before recommending"** until our own pilot confirms the feature surface and stability.
+A related capability is **expression tokens / math** — conditional logic and math-driven computation inside a variable's value. **Not part of the DTCG 2025.10 stable spec.** Tokens Studio's math syntax is the most-adopted implementation; Style Dictionary v4 preprocessors handle the same job at build time. The convergent practitioner discipline is **compute at authoring time, ship literals at runtime** — expression resolution is a build-time artefact, not a runtime contract. (See 22-token-architecture-extensions for the spec depth and the trade-off framing.) For AI agents specifically, this means agents reason about literal values at runtime — token permutation across modes runs in the build pipeline, and AI-driven contrast/regression checks consume the resolved literals.
 
 ### Automated token audits
 

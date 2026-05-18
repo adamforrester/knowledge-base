@@ -58,7 +58,7 @@ Vault-specific and practice-adjacent vocabulary. Common DS terms (token, compone
 
 **EAA (European Accessibility Act)** — EU regulatory framework requiring digital accessibility for products and services sold in the EU. Enforceable since June 28, 2025. Materially raises the regulatory floor for EU-facing consumer products. (See 14-accessibility.)
 
-**Embedded handoff** — Practice operating model: engineering joins from Discovery, components ship into the consuming codebase as they complete (not at the end). Differentiates from consultancies that ship a Figma file and walk away. (See 00-principles, 06-pilot-and-implementation.)
+**Embedded handoff** — Practice operating model: engineering joins from Discovery, components ship into the consuming codebase as they complete (not at the end). Differentiates from consultancies that ship a Figma file and walk away. (See 00-principles-and-philosophy, 06-pilot-and-implementation.)
 
 **EN 301 549** — EU's harmonised technical standard for accessibility, basis of EAA technical conformance, references WCAG 2.x. (See 14-accessibility.)
 
