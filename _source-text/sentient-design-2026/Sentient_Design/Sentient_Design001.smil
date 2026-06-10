@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE smil PUBLIC "-//NISO//DTD dtbsmil 2005-1//EN" "http://www.daisy.org/z3986/2005/dtbsmil-2005-1.dtd">
+<smil xmlns="http://www.w3.org/2001/SMIL20/">
+<head>
+<meta name="dtb:uid" content="9781959029892" />
+<meta name="dtb:generator" content="Bookshare.org" />
+<meta name="dtb:totalElapsedTime" content="0" />
+<layout>
+<region id="textRegion" height="auto" width="auto" bottom="auto" top="auto" left="auto" right="auto" fit="hidden" showBackground="always" />
+</layout>
+<customAttributes>
+<customTest id="pagenumCustomTest" defaultState="false" override="visible" />
+<customTest id="noteCustomTest" defaultState="false" override="visible" />
+<customTest id="sidebarCustomTest" defaultState="false" override="visible" />
+</customAttributes>
+</head>
+<body>
+<seq id="baseseq" class="book" fill="remove">
+<par id="pg_xvii" class="pagenum">
+<text src="Sentient_Design.xml#pg_xvii" region="textRegion" />
+</par>
+<par id="int" class="h1">
+<text src="Sentient_Design.xml#int" region="textRegion" />
+</par>
+<par id="para291" class="p">
+<text src="Sentient_Design.xml#para291" region="textRegion" />
+</par>
+<par id="para292" class="p">
+<text src="Sentient_Design.xml#para292" region="textRegion" />
+</par>
+<par id="para293" class="p">
+<text src="Sentient_Design.xml#para293" region="textRegion" />
+</par>
+<par id="para294" class="p">
+<text src="Sentient_Design.xml#para294" region="textRegion" />
+</par>
+<par id="para295" class="p">
+<text src="Sentient_Design.xml#para295" region="textRegion" />
+</par>
+<par id="para296" class="p">
+<text src="Sentient_Design.xml#para296" region="textRegion" />
+</par>
+<par id="para297" class="p">
+<text src="Sentient_Design.xml#para297" region="textRegion" />
+</par>
+<par id="para298" class="p">
+<text src="Sentient_Design.xml#para298" region="textRegion" />
+</par>
+<par id="pg_xviii" class="pagenum">
+<text src="Sentient_Design.xml#pg_xviii" region="textRegion" />
+</par>
+<par id="para299" class="p">
+<text src="Sentient_Design.xml#para299" region="textRegion" />
+</par>
+<par id="para300" class="p">
+<text src="Sentient_Design.xml#para300" region="textRegion" />
+</par>
+<par id="para301" class="p">
+<text src="Sentient_Design.xml#para301" region="textRegion" />
+</par>
+<par id="para302" class="p">
+<text src="Sentient_Design.xml#para302" region="textRegion" />
+</par>
+<par id="para303" class="p">
+<text src="Sentient_Design.xml#para303" region="textRegion" />
+</par>
+<par id="para304" class="p">
+<text src="Sentient_Design.xml#para304" region="textRegion" />
+</par>
+<par id="pg_xix" class="pagenum">
+<text src="Sentient_Design.xml#pg_xix" region="textRegion" />
+</par>
+<par id="para305" class="p">
+<text src="Sentient_Design.xml#para305" region="textRegion" />
+</par>
+<par id="para306" class="p">
+<text src="Sentient_Design.xml#para306" region="textRegion" />
+</par>
+<par id="para307" class="p">
+<text src="Sentient_Design.xml#para307" region="textRegion" />
+</par>
+<par id="para308" class="p">
+<text src="Sentient_Design.xml#para308" region="textRegion" />
+</par>
+<par id="para309" class="p">
+<text src="Sentient_Design.xml#para309" region="textRegion" />
+</par>
+<par id="para310" class="p">
+<text src="Sentient_Design.xml#para310" region="textRegion" />
+</par>
+<par id="pg_xx" class="pagenum">
+<text src="Sentient_Design.xml#pg_xx" region="textRegion" />
+</par>
+<par id="para311" class="p">
+<text src="Sentient_Design.xml#para311" region="textRegion" />
+</par>
+<par id="para312" class="p">
+<text src="Sentient_Design.xml#para312" region="textRegion" />
+</par>
+</seq>
+</body>
+</smil>

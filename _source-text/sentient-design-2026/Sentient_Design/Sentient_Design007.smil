@@ -1,0 +1,1173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE smil PUBLIC "-//NISO//DTD dtbsmil 2005-1//EN" "http://www.daisy.org/z3986/2005/dtbsmil-2005-1.dtd">
+<smil xmlns="http://www.w3.org/2001/SMIL20/">
+<head>
+<meta name="dtb:uid" content="9781959029892" />
+<meta name="dtb:generator" content="Bookshare.org" />
+<meta name="dtb:totalElapsedTime" content="0" />
+<layout>
+<region id="textRegion" height="auto" width="auto" bottom="auto" top="auto" left="auto" right="auto" fit="hidden" showBackground="always" />
+</layout>
+<customAttributes>
+<customTest id="pagenumCustomTest" defaultState="false" override="visible" />
+<customTest id="noteCustomTest" defaultState="false" override="visible" />
+<customTest id="sidebarCustomTest" defaultState="false" override="visible" />
+</customAttributes>
+</head>
+<body>
+<seq id="baseseq" class="book" fill="remove">
+<par id="pg_131" class="pagenum">
+<text src="Sentient_Design.xml#pg_131" region="textRegion" />
+</par>
+<par id="ch6" class="h1">
+<text src="Sentient_Design.xml#ch6" region="textRegion" />
+</par>
+<par id="para1051" class="p">
+<text src="Sentient_Design.xml#para1051" region="textRegion" />
+</par>
+<par id="para1052" class="p">
+<text src="Sentient_Design.xml#para1052" region="textRegion" />
+</par>
+<a href="#ch6-sec6-1" external="false">
+<par id="web365" class="a">
+<text src="Sentient_Design.xml#web365" region="textRegion" />
+</par>
+</a>
+<par id="para1053" class="p">
+<text src="Sentient_Design.xml#para1053" region="textRegion" />
+</par>
+<a href="#ch6-sec6-2" external="false">
+<par id="web366" class="a">
+<text src="Sentient_Design.xml#web366" region="textRegion" />
+</par>
+</a>
+<par id="para1054" class="p">
+<text src="Sentient_Design.xml#para1054" region="textRegion" />
+</par>
+<a href="#ch6-sec6-9" external="false">
+<par id="web367" class="a">
+<text src="Sentient_Design.xml#web367" region="textRegion" />
+</par>
+</a>
+<par id="para1055" class="p">
+<text src="Sentient_Design.xml#para1055" region="textRegion" />
+</par>
+<a href="#ch6-sec6-10" external="false">
+<par id="web368" class="a">
+<text src="Sentient_Design.xml#web368" region="textRegion" />
+</par>
+</a>
+<par id="para1056" class="p">
+<text src="Sentient_Design.xml#para1056" region="textRegion" />
+</par>
+<a href="#ch6-sec6-11" external="false">
+<par id="web369" class="a">
+<text src="Sentient_Design.xml#web369" region="textRegion" />
+</par>
+</a>
+<par id="para1057" class="p">
+<text src="Sentient_Design.xml#para1057" region="textRegion" />
+</par>
+<a href="#ch6-sec6-12" external="false">
+<par id="web370" class="a">
+<text src="Sentient_Design.xml#web370" region="textRegion" />
+</par>
+</a>
+<par id="para1058" class="p">
+<text src="Sentient_Design.xml#para1058" region="textRegion" />
+</par>
+<a href="#ch6-sec6-13" external="false">
+<par id="web371" class="a">
+<text src="Sentient_Design.xml#web371" region="textRegion" />
+</par>
+</a>
+<par id="para1059" class="p">
+<text src="Sentient_Design.xml#para1059" region="textRegion" />
+</par>
+<a href="#ch6-sec6-18" external="false">
+<par id="web372" class="a">
+<text src="Sentient_Design.xml#web372" region="textRegion" />
+</par>
+</a>
+<par id="para1060" class="p">
+<text src="Sentient_Design.xml#para1060" region="textRegion" />
+</par>
+<a href="#ch6-sec6-27" external="false">
+<par id="web373" class="a">
+<text src="Sentient_Design.xml#web373" region="textRegion" />
+</par>
+</a>
+<par id="pg_132" class="pagenum">
+<text src="Sentient_Design.xml#pg_132" region="textRegion" />
+</par>
+<par id="para1061" class="p">
+<text src="Sentient_Design.xml#para1061" region="textRegion" />
+</par>
+<par id="para1062" class="p">
+<text src="Sentient_Design.xml#para1062" region="textRegion" />
+</par>
+<par id="para1063" class="p">
+<text src="Sentient_Design.xml#para1063" region="textRegion" />
+</par>
+<par id="ch6-sec6-1" class="h2">
+<text src="Sentient_Design.xml#ch6-sec6-1" region="textRegion" />
+</par>
+<par id="para1064" class="p">
+<text src="Sentient_Design.xml#para1064" region="textRegion" />
+</par>
+<par id="para1065" class="p">
+<text src="Sentient_Design.xml#para1065" region="textRegion" />
+</par>
+<par id="para1066" class="p">
+<text src="Sentient_Design.xml#para1066" region="textRegion" />
+</par>
+<par id="para1067" class="p">
+<text src="Sentient_Design.xml#para1067" region="textRegion" />
+</par>
+<par id="para1068" class="p">
+<text src="Sentient_Design.xml#para1068" region="textRegion" />
+</par>
+<par id="para1069" class="p">
+<text src="Sentient_Design.xml#para1069" region="textRegion" />
+</par>
+<par id="para1070" class="p">
+<text src="Sentient_Design.xml#para1070" region="textRegion" />
+</par>
+<par id="para1071" class="p">
+<text src="Sentient_Design.xml#para1071" region="textRegion" />
+</par>
+<par id="para1072" class="p">
+<text src="Sentient_Design.xml#para1072" region="textRegion" />
+</par>
+<par id="para1073" class="p">
+<text src="Sentient_Design.xml#para1073" region="textRegion" />
+</par>
+<par id="para1074" class="p">
+<text src="Sentient_Design.xml#para1074" region="textRegion" />
+</par>
+<par id="para1075" class="p">
+<text src="Sentient_Design.xml#para1075" region="textRegion" />
+</par>
+<par id="para1076" class="p">
+<text src="Sentient_Design.xml#para1076" region="textRegion" />
+</par>
+<par id="para1077" class="p">
+<text src="Sentient_Design.xml#para1077" region="textRegion" />
+</par>
+<par id="para1078" class="p">
+<text src="Sentient_Design.xml#para1078" region="textRegion" />
+</par>
+<par id="para1079" class="p">
+<text src="Sentient_Design.xml#para1079" region="textRegion" />
+</par>
+<par id="para1080" class="p">
+<text src="Sentient_Design.xml#para1080" region="textRegion" />
+</par>
+<par id="para1081" class="p">
+<text src="Sentient_Design.xml#para1081" region="textRegion" />
+</par>
+<par id="para1082" class="p">
+<text src="Sentient_Design.xml#para1082" region="textRegion" />
+</par>
+<par id="pg_133" class="pagenum">
+<text src="Sentient_Design.xml#pg_133" region="textRegion" />
+</par>
+<par id="para1083" class="p">
+<text src="Sentient_Design.xml#para1083" region="textRegion" />
+</par>
+<par id="para1084" class="p">
+<text src="Sentient_Design.xml#para1084" region="textRegion" />
+</par>
+<a href="#fig6-1" external="false">
+<par id="web374" class="a">
+<text src="Sentient_Design.xml#web374" region="textRegion" />
+</par>
+</a>
+<a href="#ch9" external="false">
+<par id="web375" class="a">
+<text src="Sentient_Design.xml#web375" region="textRegion" />
+</par>
+</a>
+<par id="para1085" class="p">
+<text src="Sentient_Design.xml#para1085" region="textRegion" />
+</par>
+<par id="para1086" class="p">
+<text src="Sentient_Design.xml#para1086" region="textRegion" />
+</par>
+<par id="pg_134" class="pagenum">
+<text src="Sentient_Design.xml#pg_134" region="textRegion" />
+</par>
+<par id="ch6-sec6-2" class="h2">
+<text src="Sentient_Design.xml#ch6-sec6-2" region="textRegion" />
+</par>
+<par id="para1087" class="p">
+<text src="Sentient_Design.xml#para1087" region="textRegion" />
+</par>
+<a href="#fig6-2" external="false">
+<par id="web376" class="a">
+<text src="Sentient_Design.xml#web376" region="textRegion" />
+</par>
+</a>
+<par id="para1088" class="p">
+<text src="Sentient_Design.xml#para1088" region="textRegion" />
+</par>
+<par id="para1089" class="p">
+<text src="Sentient_Design.xml#para1089" region="textRegion" />
+</par>
+<par id="para1090" class="p">
+<text src="Sentient_Design.xml#para1090" region="textRegion" />
+</par>
+<par id="para1091" class="p">
+<text src="Sentient_Design.xml#para1091" region="textRegion" />
+</par>
+<par id="para1092" class="p">
+<text src="Sentient_Design.xml#para1092" region="textRegion" />
+</par>
+<par id="pg_135" class="pagenum">
+<text src="Sentient_Design.xml#pg_135" region="textRegion" />
+</par>
+<par id="ch6-sec6-8a" class="h3">
+<text src="Sentient_Design.xml#ch6-sec6-8a" region="textRegion" />
+</par>
+<par id="para1093" class="p">
+<text src="Sentient_Design.xml#para1093" region="textRegion" />
+</par>
+<par id="para1094" class="p">
+<text src="Sentient_Design.xml#para1094" region="textRegion" />
+</par>
+<par id="ch6-sec6-3" class="h4">
+<text src="Sentient_Design.xml#ch6-sec6-3" region="textRegion" />
+</par>
+<par id="para1095" class="p">
+<text src="Sentient_Design.xml#para1095" region="textRegion" />
+</par>
+<par id="para1096" class="p">
+<text src="Sentient_Design.xml#para1096" region="textRegion" />
+</par>
+<par id="para1097" class="p">
+<text src="Sentient_Design.xml#para1097" region="textRegion" />
+</par>
+<par id="para1098" class="p">
+<text src="Sentient_Design.xml#para1098" region="textRegion" />
+</par>
+<par id="para1099" class="p">
+<text src="Sentient_Design.xml#para1099" region="textRegion" />
+</par>
+<par id="pg_136" class="pagenum">
+<text src="Sentient_Design.xml#pg_136" region="textRegion" />
+</par>
+<par id="ch6-sec6-4" class="h4">
+<text src="Sentient_Design.xml#ch6-sec6-4" region="textRegion" />
+</par>
+<par id="para1100" class="p">
+<text src="Sentient_Design.xml#para1100" region="textRegion" />
+</par>
+<par id="para1101" class="p">
+<text src="Sentient_Design.xml#para1101" region="textRegion" />
+</par>
+<par id="para1102" class="p">
+<text src="Sentient_Design.xml#para1102" region="textRegion" />
+</par>
+<par id="para1103" class="p">
+<text src="Sentient_Design.xml#para1103" region="textRegion" />
+</par>
+<par id="para1104" class="p">
+<text src="Sentient_Design.xml#para1104" region="textRegion" />
+</par>
+<par id="ch6-sec6-5" class="h4">
+<text src="Sentient_Design.xml#ch6-sec6-5" region="textRegion" />
+</par>
+<par id="para1105" class="p">
+<text src="Sentient_Design.xml#para1105" region="textRegion" />
+</par>
+<par id="para1106" class="p">
+<text src="Sentient_Design.xml#para1106" region="textRegion" />
+</par>
+<par id="pg_137" class="pagenum">
+<text src="Sentient_Design.xml#pg_137" region="textRegion" />
+</par>
+<par id="para1107" class="p">
+<text src="Sentient_Design.xml#para1107" region="textRegion" />
+</par>
+<a href="#fig6-3" external="false">
+<par id="web377" class="a">
+<text src="Sentient_Design.xml#web377" region="textRegion" />
+</par>
+</a>
+<par id="para1108" class="p">
+<text src="Sentient_Design.xml#para1108" region="textRegion" />
+</par>
+<par id="para1109" class="p">
+<text src="Sentient_Design.xml#para1109" region="textRegion" />
+</par>
+<par id="para1110" class="p">
+<text src="Sentient_Design.xml#para1110" region="textRegion" />
+</par>
+<par id="pg_138" class="pagenum">
+<text src="Sentient_Design.xml#pg_138" region="textRegion" />
+</par>
+<par id="para1111" class="p">
+<text src="Sentient_Design.xml#para1111" region="textRegion" />
+</par>
+<par id="para1112" class="p">
+<text src="Sentient_Design.xml#para1112" region="textRegion" />
+</par>
+<par id="ch6-sec6-6" class="h4">
+<text src="Sentient_Design.xml#ch6-sec6-6" region="textRegion" />
+</par>
+<par id="para1113" class="p">
+<text src="Sentient_Design.xml#para1113" region="textRegion" />
+</par>
+<a href="#fig6-4" external="false">
+<par id="web378" class="a">
+<text src="Sentient_Design.xml#web378" region="textRegion" />
+</par>
+</a>
+<par id="para1114" class="p">
+<text src="Sentient_Design.xml#para1114" region="textRegion" />
+</par>
+<par id="pg_139" class="pagenum">
+<text src="Sentient_Design.xml#pg_139" region="textRegion" />
+</par>
+<par id="para1115" class="p">
+<text src="Sentient_Design.xml#para1115" region="textRegion" />
+</par>
+<par id="para1116" class="p">
+<text src="Sentient_Design.xml#para1116" region="textRegion" />
+</par>
+<par id="ch6-sec6-7" class="h4">
+<text src="Sentient_Design.xml#ch6-sec6-7" region="textRegion" />
+</par>
+<par id="para1117" class="p">
+<text src="Sentient_Design.xml#para1117" region="textRegion" />
+</par>
+<par id="para1118" class="p">
+<text src="Sentient_Design.xml#para1118" region="textRegion" />
+</par>
+<par id="para1119" class="p">
+<text src="Sentient_Design.xml#para1119" region="textRegion" />
+</par>
+<par id="para1120" class="p">
+<text src="Sentient_Design.xml#para1120" region="textRegion" />
+</par>
+<par id="para1121" class="p">
+<text src="Sentient_Design.xml#para1121" region="textRegion" />
+</par>
+<a href="#fig6-5" external="false">
+<par id="web379" class="a">
+<text src="Sentient_Design.xml#web379" region="textRegion" />
+</par>
+</a>
+<par id="pg_140" class="pagenum">
+<text src="Sentient_Design.xml#pg_140" region="textRegion" />
+</par>
+<par id="para1122" class="p">
+<text src="Sentient_Design.xml#para1122" region="textRegion" />
+</par>
+<par id="para1123" class="p">
+<text src="Sentient_Design.xml#para1123" region="textRegion" />
+</par>
+<par id="para1124" class="p">
+<text src="Sentient_Design.xml#para1124" region="textRegion" />
+</par>
+<par id="pg_141" class="pagenum">
+<text src="Sentient_Design.xml#pg_141" region="textRegion" />
+</par>
+<par id="para1125" class="p">
+<text src="Sentient_Design.xml#para1125" region="textRegion" />
+</par>
+<par id="ch6-sec6-8" class="h4">
+<text src="Sentient_Design.xml#ch6-sec6-8" region="textRegion" />
+</par>
+<par id="para1126" class="p">
+<text src="Sentient_Design.xml#para1126" region="textRegion" />
+</par>
+<par id="pg_142" class="pagenum">
+<text src="Sentient_Design.xml#pg_142" region="textRegion" />
+</par>
+<par id="para1127" class="p">
+<text src="Sentient_Design.xml#para1127" region="textRegion" />
+</par>
+<par id="para1128" class="p">
+<text src="Sentient_Design.xml#para1128" region="textRegion" />
+</par>
+<par id="ch6-sec6-9" class="h3">
+<text src="Sentient_Design.xml#ch6-sec6-9" region="textRegion" />
+</par>
+<par id="para1129" class="p">
+<text src="Sentient_Design.xml#para1129" region="textRegion" />
+</par>
+<a href="#ch1" external="false">
+<par id="web380" class="a">
+<text src="Sentient_Design.xml#web380" region="textRegion" />
+</par>
+</a>
+<par id="para1130" class="p">
+<text src="Sentient_Design.xml#para1130" region="textRegion" />
+</par>
+<par id="para1131" class="p">
+<text src="Sentient_Design.xml#para1131" region="textRegion" />
+</par>
+<par id="pg_143" class="pagenum">
+<text src="Sentient_Design.xml#pg_143" region="textRegion" />
+</par>
+<par id="para1132" class="p">
+<text src="Sentient_Design.xml#para1132" region="textRegion" />
+</par>
+<a href="#fig6-1" external="false">
+<par id="web381" class="a">
+<text src="Sentient_Design.xml#web381" region="textRegion" />
+</par>
+</a>
+<par id="para1133" class="p">
+<text src="Sentient_Design.xml#para1133" region="textRegion" />
+</par>
+<par id="ch6-sec6-10" class="h3">
+<text src="Sentient_Design.xml#ch6-sec6-10" region="textRegion" />
+</par>
+<par id="para1134" class="p">
+<text src="Sentient_Design.xml#para1134" region="textRegion" />
+</par>
+<par id="para1135" class="p">
+<text src="Sentient_Design.xml#para1135" region="textRegion" />
+</par>
+<par id="para1136" class="p">
+<text src="Sentient_Design.xml#para1136" region="textRegion" />
+</par>
+<par id="para1137" class="p">
+<text src="Sentient_Design.xml#para1137" region="textRegion" />
+</par>
+<par id="pg_144" class="pagenum">
+<text src="Sentient_Design.xml#pg_144" region="textRegion" />
+</par>
+<par id="para1138" class="p">
+<text src="Sentient_Design.xml#para1138" region="textRegion" />
+</par>
+<par id="para1139" class="p">
+<text src="Sentient_Design.xml#para1139" region="textRegion" />
+</par>
+<par id="ch6-sec6-11" class="h3">
+<text src="Sentient_Design.xml#ch6-sec6-11" region="textRegion" />
+</par>
+<par id="para1140" class="p">
+<text src="Sentient_Design.xml#para1140" region="textRegion" />
+</par>
+<a href="#fig6-6" external="false">
+<par id="web382" class="a">
+<text src="Sentient_Design.xml#web382" region="textRegion" />
+</par>
+</a>
+<par id="para1141" class="p">
+<text src="Sentient_Design.xml#para1141" region="textRegion" />
+</par>
+<par id="pg_145" class="pagenum">
+<text src="Sentient_Design.xml#pg_145" region="textRegion" />
+</par>
+<par id="para1142" class="p">
+<text src="Sentient_Design.xml#para1142" region="textRegion" />
+</par>
+<par id="para1143" class="p">
+<text src="Sentient_Design.xml#para1143" region="textRegion" />
+</par>
+<a href="#fig6-7" external="false">
+<par id="web383" class="a">
+<text src="Sentient_Design.xml#web383" region="textRegion" />
+</par>
+</a>
+<par id="pg_146" class="pagenum">
+<text src="Sentient_Design.xml#pg_146" region="textRegion" />
+</par>
+<par id="para1144" class="p">
+<text src="Sentient_Design.xml#para1144" region="textRegion" />
+</par>
+<par id="para1145" class="p">
+<text src="Sentient_Design.xml#para1145" region="textRegion" />
+</par>
+<par id="para1146" class="p">
+<text src="Sentient_Design.xml#para1146" region="textRegion" />
+</par>
+<par id="ch6-sec6-12" class="h3">
+<text src="Sentient_Design.xml#ch6-sec6-12" region="textRegion" />
+</par>
+<par id="para1147" class="p">
+<text src="Sentient_Design.xml#para1147" region="textRegion" />
+</par>
+<par id="pg_147" class="pagenum">
+<text src="Sentient_Design.xml#pg_147" region="textRegion" />
+</par>
+<par id="para1148" class="p">
+<text src="Sentient_Design.xml#para1148" region="textRegion" />
+</par>
+<par id="para1149" class="p">
+<text src="Sentient_Design.xml#para1149" region="textRegion" />
+</par>
+<par id="para1150" class="p">
+<text src="Sentient_Design.xml#para1150" region="textRegion" />
+</par>
+<a href="#fig6-8" external="false">
+<par id="web384" class="a">
+<text src="Sentient_Design.xml#web384" region="textRegion" />
+</par>
+</a>
+<par id="para1151" class="p">
+<text src="Sentient_Design.xml#para1151" region="textRegion" />
+</par>
+<par id="pg_148" class="pagenum">
+<text src="Sentient_Design.xml#pg_148" region="textRegion" />
+</par>
+<par id="para1152" class="p">
+<text src="Sentient_Design.xml#para1152" region="textRegion" />
+</par>
+<par id="para1153" class="p">
+<text src="Sentient_Design.xml#para1153" region="textRegion" />
+</par>
+<par id="para1154" class="p">
+<text src="Sentient_Design.xml#para1154" region="textRegion" />
+</par>
+<par id="para1155" class="p">
+<text src="Sentient_Design.xml#para1155" region="textRegion" />
+</par>
+<par id="para1156" class="p">
+<text src="Sentient_Design.xml#para1156" region="textRegion" />
+</par>
+<par id="para1157" class="p">
+<text src="Sentient_Design.xml#para1157" region="textRegion" />
+</par>
+<par id="para1158" class="p">
+<text src="Sentient_Design.xml#para1158" region="textRegion" />
+</par>
+<par id="para1159" class="p">
+<text src="Sentient_Design.xml#para1159" region="textRegion" />
+</par>
+<par id="para1160" class="p">
+<text src="Sentient_Design.xml#para1160" region="textRegion" />
+</par>
+<par id="para1161" class="p">
+<text src="Sentient_Design.xml#para1161" region="textRegion" />
+</par>
+<par id="para1162" class="p">
+<text src="Sentient_Design.xml#para1162" region="textRegion" />
+</par>
+<par id="para1163" class="p">
+<text src="Sentient_Design.xml#para1163" region="textRegion" />
+</par>
+<par id="para1164" class="p">
+<text src="Sentient_Design.xml#para1164" region="textRegion" />
+</par>
+<par id="para1165" class="p">
+<text src="Sentient_Design.xml#para1165" region="textRegion" />
+</par>
+<par id="para1166" class="p">
+<text src="Sentient_Design.xml#para1166" region="textRegion" />
+</par>
+<par id="para1167" class="p">
+<text src="Sentient_Design.xml#para1167" region="textRegion" />
+</par>
+<par id="para1168" class="p">
+<text src="Sentient_Design.xml#para1168" region="textRegion" />
+</par>
+<par id="para1169" class="p">
+<text src="Sentient_Design.xml#para1169" region="textRegion" />
+</par>
+<par id="para1170" class="p">
+<text src="Sentient_Design.xml#para1170" region="textRegion" />
+</par>
+<par id="para1171" class="p">
+<text src="Sentient_Design.xml#para1171" region="textRegion" />
+</par>
+<par id="pg_149" class="pagenum">
+<text src="Sentient_Design.xml#pg_149" region="textRegion" />
+</par>
+<par id="para1172" class="p">
+<text src="Sentient_Design.xml#para1172" region="textRegion" />
+</par>
+<par id="para1173" class="p">
+<text src="Sentient_Design.xml#para1173" region="textRegion" />
+</par>
+<par id="para1174" class="p">
+<text src="Sentient_Design.xml#para1174" region="textRegion" />
+</par>
+<par id="para1175" class="p">
+<text src="Sentient_Design.xml#para1175" region="textRegion" />
+</par>
+<par id="para1176" class="p">
+<text src="Sentient_Design.xml#para1176" region="textRegion" />
+</par>
+<par id="para1177" class="p">
+<text src="Sentient_Design.xml#para1177" region="textRegion" />
+</par>
+<par id="para1178" class="p">
+<text src="Sentient_Design.xml#para1178" region="textRegion" />
+</par>
+<par id="para1179" class="p">
+<text src="Sentient_Design.xml#para1179" region="textRegion" />
+</par>
+<par id="para1180" class="p">
+<text src="Sentient_Design.xml#para1180" region="textRegion" />
+</par>
+<par id="para1181" class="p">
+<text src="Sentient_Design.xml#para1181" region="textRegion" />
+</par>
+<par id="para1182" class="p">
+<text src="Sentient_Design.xml#para1182" region="textRegion" />
+</par>
+<a href="#ch12" external="false">
+<par id="web385" class="a">
+<text src="Sentient_Design.xml#web385" region="textRegion" />
+</par>
+</a>
+<par id="para1183" class="p">
+<text src="Sentient_Design.xml#para1183" region="textRegion" />
+</par>
+<par id="pg_150" class="pagenum">
+<text src="Sentient_Design.xml#pg_150" region="textRegion" />
+</par>
+<par id="para1184" class="p">
+<text src="Sentient_Design.xml#para1184" region="textRegion" />
+</par>
+<par id="ch6-sec6-13" class="h3">
+<text src="Sentient_Design.xml#ch6-sec6-13" region="textRegion" />
+</par>
+<par id="para1185" class="p">
+<text src="Sentient_Design.xml#para1185" region="textRegion" />
+</par>
+<par id="para1186" class="p">
+<text src="Sentient_Design.xml#para1186" region="textRegion" />
+</par>
+<a href="#fig6-10" external="false">
+<par id="web386" class="a">
+<text src="Sentient_Design.xml#web386" region="textRegion" />
+</par>
+</a>
+<par id="para1187" class="p">
+<text src="Sentient_Design.xml#para1187" region="textRegion" />
+</par>
+<par id="para1188" class="p">
+<text src="Sentient_Design.xml#para1188" region="textRegion" />
+</par>
+<par id="pg_151" class="pagenum">
+<text src="Sentient_Design.xml#pg_151" region="textRegion" />
+</par>
+<par id="para1189" class="p">
+<text src="Sentient_Design.xml#para1189" region="textRegion" />
+</par>
+<par id="para1190" class="p">
+<text src="Sentient_Design.xml#para1190" region="textRegion" />
+</par>
+<par id="para1191" class="p">
+<text src="Sentient_Design.xml#para1191" region="textRegion" />
+</par>
+<par id="para1192" class="p">
+<text src="Sentient_Design.xml#para1192" region="textRegion" />
+</par>
+<par id="ch6-sec6-14" class="h4">
+<text src="Sentient_Design.xml#ch6-sec6-14" region="textRegion" />
+</par>
+<par id="para1193" class="p">
+<text src="Sentient_Design.xml#para1193" region="textRegion" />
+</par>
+<par id="pg_152" class="pagenum">
+<text src="Sentient_Design.xml#pg_152" region="textRegion" />
+</par>
+<a href="#fig6-11" external="false">
+<par id="web387" class="a">
+<text src="Sentient_Design.xml#web387" region="textRegion" />
+</par>
+</a>
+<par id="para1194" class="p">
+<text src="Sentient_Design.xml#para1194" region="textRegion" />
+</par>
+<par id="para1195" class="p">
+<text src="Sentient_Design.xml#para1195" region="textRegion" />
+</par>
+<par id="para1196" class="p">
+<text src="Sentient_Design.xml#para1196" region="textRegion" />
+</par>
+<par id="pg_153" class="pagenum">
+<text src="Sentient_Design.xml#pg_153" region="textRegion" />
+</par>
+<par id="para1197" class="p">
+<text src="Sentient_Design.xml#para1197" region="textRegion" />
+</par>
+<par id="para1198" class="p">
+<text src="Sentient_Design.xml#para1198" region="textRegion" />
+</par>
+<par id="para1199" class="p">
+<text src="Sentient_Design.xml#para1199" region="textRegion" />
+</par>
+<par id="para1200" class="p">
+<text src="Sentient_Design.xml#para1200" region="textRegion" />
+</par>
+<par id="para1201" class="p">
+<text src="Sentient_Design.xml#para1201" region="textRegion" />
+</par>
+<par id="para1202" class="p">
+<text src="Sentient_Design.xml#para1202" region="textRegion" />
+</par>
+<par id="para1203" class="p">
+<text src="Sentient_Design.xml#para1203" region="textRegion" />
+</par>
+<par id="pg_154" class="pagenum">
+<text src="Sentient_Design.xml#pg_154" region="textRegion" />
+</par>
+<par id="para1204" class="p">
+<text src="Sentient_Design.xml#para1204" region="textRegion" />
+</par>
+<par id="para1205" class="p">
+<text src="Sentient_Design.xml#para1205" region="textRegion" />
+</par>
+<par id="para1206" class="p">
+<text src="Sentient_Design.xml#para1206" region="textRegion" />
+</par>
+<par id="para1207" class="p">
+<text src="Sentient_Design.xml#para1207" region="textRegion" />
+</par>
+<par id="para1208" class="p">
+<text src="Sentient_Design.xml#para1208" region="textRegion" />
+</par>
+<par id="para1209" class="p">
+<text src="Sentient_Design.xml#para1209" region="textRegion" />
+</par>
+<par id="para1210" class="p">
+<text src="Sentient_Design.xml#para1210" region="textRegion" />
+</par>
+<par id="para1211" class="p">
+<text src="Sentient_Design.xml#para1211" region="textRegion" />
+</par>
+<par id="para1212" class="p">
+<text src="Sentient_Design.xml#para1212" region="textRegion" />
+</par>
+<par id="para1213" class="p">
+<text src="Sentient_Design.xml#para1213" region="textRegion" />
+</par>
+<par id="para1214" class="p">
+<text src="Sentient_Design.xml#para1214" region="textRegion" />
+</par>
+<par id="para1215" class="p">
+<text src="Sentient_Design.xml#para1215" region="textRegion" />
+</par>
+<par id="para1216" class="p">
+<text src="Sentient_Design.xml#para1216" region="textRegion" />
+</par>
+<par id="para1217" class="p">
+<text src="Sentient_Design.xml#para1217" region="textRegion" />
+</par>
+<par id="para1218" class="p">
+<text src="Sentient_Design.xml#para1218" region="textRegion" />
+</par>
+<par id="para1219" class="p">
+<text src="Sentient_Design.xml#para1219" region="textRegion" />
+</par>
+<par id="para1220" class="p">
+<text src="Sentient_Design.xml#para1220" region="textRegion" />
+</par>
+<par id="para1221" class="p">
+<text src="Sentient_Design.xml#para1221" region="textRegion" />
+</par>
+<par id="para1222" class="p">
+<text src="Sentient_Design.xml#para1222" region="textRegion" />
+</par>
+<par id="para1223" class="p">
+<text src="Sentient_Design.xml#para1223" region="textRegion" />
+</par>
+<par id="para1224" class="p">
+<text src="Sentient_Design.xml#para1224" region="textRegion" />
+</par>
+<par id="para1225" class="p">
+<text src="Sentient_Design.xml#para1225" region="textRegion" />
+</par>
+<par id="para1226" class="p">
+<text src="Sentient_Design.xml#para1226" region="textRegion" />
+</par>
+<par id="pg_155" class="pagenum">
+<text src="Sentient_Design.xml#pg_155" region="textRegion" />
+</par>
+<par id="para1227" class="p">
+<text src="Sentient_Design.xml#para1227" region="textRegion" />
+</par>
+<par id="ch6-sec6-16" class="h4">
+<text src="Sentient_Design.xml#ch6-sec6-16" region="textRegion" />
+</par>
+<par id="para1228" class="p">
+<text src="Sentient_Design.xml#para1228" region="textRegion" />
+</par>
+<par id="para1229" class="p">
+<text src="Sentient_Design.xml#para1229" region="textRegion" />
+</par>
+<par id="para1230" class="p">
+<text src="Sentient_Design.xml#para1230" region="textRegion" />
+</par>
+<par id="para1231" class="p">
+<text src="Sentient_Design.xml#para1231" region="textRegion" />
+</par>
+<par id="pg_156" class="pagenum">
+<text src="Sentient_Design.xml#pg_156" region="textRegion" />
+</par>
+<par id="ch6-sec6-17" class="h4">
+<text src="Sentient_Design.xml#ch6-sec6-17" region="textRegion" />
+</par>
+<par id="para1232" class="p">
+<text src="Sentient_Design.xml#para1232" region="textRegion" />
+</par>
+<par id="para1233" class="p">
+<text src="Sentient_Design.xml#para1233" region="textRegion" />
+</par>
+<par id="para1234" class="p">
+<text src="Sentient_Design.xml#para1234" region="textRegion" />
+</par>
+<par id="para1235" class="p">
+<text src="Sentient_Design.xml#para1235" region="textRegion" />
+</par>
+<par id="para1236" class="p">
+<text src="Sentient_Design.xml#para1236" region="textRegion" />
+</par>
+<par id="para1237" class="p">
+<text src="Sentient_Design.xml#para1237" region="textRegion" />
+</par>
+<par id="ch6-sec6-18" class="h3">
+<text src="Sentient_Design.xml#ch6-sec6-18" region="textRegion" />
+</par>
+<par id="para1238" class="p">
+<text src="Sentient_Design.xml#para1238" region="textRegion" />
+</par>
+<par id="pg_157" class="pagenum">
+<text src="Sentient_Design.xml#pg_157" region="textRegion" />
+</par>
+<par id="para1239" class="p">
+<text src="Sentient_Design.xml#para1239" region="textRegion" />
+</par>
+<par id="para1240" class="p">
+<text src="Sentient_Design.xml#para1240" region="textRegion" />
+</par>
+<par id="para1241" class="p">
+<text src="Sentient_Design.xml#para1241" region="textRegion" />
+</par>
+<par id="para1242" class="p">
+<text src="Sentient_Design.xml#para1242" region="textRegion" />
+</par>
+<par id="para1243" class="p">
+<text src="Sentient_Design.xml#para1243" region="textRegion" />
+</par>
+<a href="#fig6-1" external="false">
+<par id="web388" class="a">
+<text src="Sentient_Design.xml#web388" region="textRegion" />
+</par>
+</a>
+<par id="para1244" class="p">
+<text src="Sentient_Design.xml#para1244" region="textRegion" />
+</par>
+<par id="ch6-sec6-19" class="h4">
+<text src="Sentient_Design.xml#ch6-sec6-19" region="textRegion" />
+</par>
+<par id="para1245" class="p">
+<text src="Sentient_Design.xml#para1245" region="textRegion" />
+</par>
+<par id="pg_158" class="pagenum">
+<text src="Sentient_Design.xml#pg_158" region="textRegion" />
+</par>
+<par id="para1246" class="p">
+<text src="Sentient_Design.xml#para1246" region="textRegion" />
+</par>
+<par id="para1247" class="p">
+<text src="Sentient_Design.xml#para1247" region="textRegion" />
+</par>
+<a href="#fig6-12" external="false">
+<par id="web389" class="a">
+<text src="Sentient_Design.xml#web389" region="textRegion" />
+</par>
+</a>
+<par id="para1248" class="p">
+<text src="Sentient_Design.xml#para1248" region="textRegion" />
+</par>
+<par id="pg_159" class="pagenum">
+<text src="Sentient_Design.xml#pg_159" region="textRegion" />
+</par>
+<par id="para1249" class="p">
+<text src="Sentient_Design.xml#para1249" region="textRegion" />
+</par>
+<a href="#ch9" external="false">
+<par id="web390" class="a">
+<text src="Sentient_Design.xml#web390" region="textRegion" />
+</par>
+</a>
+<par id="para1250" class="p">
+<text src="Sentient_Design.xml#para1250" region="textRegion" />
+</par>
+<par id="para1251" class="p">
+<text src="Sentient_Design.xml#para1251" region="textRegion" />
+</par>
+<par id="para1252" class="p">
+<text src="Sentient_Design.xml#para1252" region="textRegion" />
+</par>
+<par id="para1253" class="p">
+<text src="Sentient_Design.xml#para1253" region="textRegion" />
+</par>
+<par id="para1254" class="p">
+<text src="Sentient_Design.xml#para1254" region="textRegion" />
+</par>
+<par id="para1255" class="p">
+<text src="Sentient_Design.xml#para1255" region="textRegion" />
+</par>
+<par id="para1256" class="p">
+<text src="Sentient_Design.xml#para1256" region="textRegion" />
+</par>
+<par id="para1257" class="p">
+<text src="Sentient_Design.xml#para1257" region="textRegion" />
+</par>
+<par id="pg_160" class="pagenum">
+<text src="Sentient_Design.xml#pg_160" region="textRegion" />
+</par>
+<a href="#fig6-13" external="false">
+<par id="web391" class="a">
+<text src="Sentient_Design.xml#web391" region="textRegion" />
+</par>
+</a>
+<par id="para1258" class="p">
+<text src="Sentient_Design.xml#para1258" region="textRegion" />
+</par>
+<par id="pg_161" class="pagenum">
+<text src="Sentient_Design.xml#pg_161" region="textRegion" />
+</par>
+<par id="para1259" class="p">
+<text src="Sentient_Design.xml#para1259" region="textRegion" />
+</par>
+<par id="para1260" class="p">
+<text src="Sentient_Design.xml#para1260" region="textRegion" />
+</par>
+<par id="para1261" class="p">
+<text src="Sentient_Design.xml#para1261" region="textRegion" />
+</par>
+<par id="para1262" class="p">
+<text src="Sentient_Design.xml#para1262" region="textRegion" />
+</par>
+<a href="#fig6-14" external="false">
+<par id="web392" class="a">
+<text src="Sentient_Design.xml#web392" region="textRegion" />
+</par>
+</a>
+<par id="para1263" class="p">
+<text src="Sentient_Design.xml#para1263" region="textRegion" />
+</par>
+<a href="#fig6-15" external="false">
+<par id="web393" class="a">
+<text src="Sentient_Design.xml#web393" region="textRegion" />
+</par>
+</a>
+<par id="pg_162" class="pagenum">
+<text src="Sentient_Design.xml#pg_162" region="textRegion" />
+</par>
+<par id="para1264" class="p">
+<text src="Sentient_Design.xml#para1264" region="textRegion" />
+</par>
+<par id="para1265" class="p">
+<text src="Sentient_Design.xml#para1265" region="textRegion" />
+</par>
+<par id="pg_163" class="pagenum">
+<text src="Sentient_Design.xml#pg_163" region="textRegion" />
+</par>
+<par id="para1266" class="p">
+<text src="Sentient_Design.xml#para1266" region="textRegion" />
+</par>
+<par id="para1267" class="p">
+<text src="Sentient_Design.xml#para1267" region="textRegion" />
+</par>
+<par id="ch6-sec6-23" class="h4">
+<text src="Sentient_Design.xml#ch6-sec6-23" region="textRegion" />
+</par>
+<par id="para1268" class="p">
+<text src="Sentient_Design.xml#para1268" region="textRegion" />
+</par>
+<a href="#fig6-16" external="false">
+<par id="web394" class="a">
+<text src="Sentient_Design.xml#web394" region="textRegion" />
+</par>
+</a>
+<par id="para1269" class="p">
+<text src="Sentient_Design.xml#para1269" region="textRegion" />
+</par>
+<par id="pg_164" class="pagenum">
+<text src="Sentient_Design.xml#pg_164" region="textRegion" />
+</par>
+<par id="para1270" class="p">
+<text src="Sentient_Design.xml#para1270" region="textRegion" />
+</par>
+<par id="para1271" class="p">
+<text src="Sentient_Design.xml#para1271" region="textRegion" />
+</par>
+<a href="#ch4" external="false">
+<par id="web395" class="a">
+<text src="Sentient_Design.xml#web395" region="textRegion" />
+</par>
+</a>
+<par id="para1272" class="p">
+<text src="Sentient_Design.xml#para1272" region="textRegion" />
+</par>
+<par id="para1273" class="p">
+<text src="Sentient_Design.xml#para1273" region="textRegion" />
+</par>
+<par id="para1274" class="p">
+<text src="Sentient_Design.xml#para1274" region="textRegion" />
+</par>
+<a href="#fig6-17" external="false">
+<par id="web396" class="a">
+<text src="Sentient_Design.xml#web396" region="textRegion" />
+</par>
+</a>
+<par id="pg_165" class="pagenum">
+<text src="Sentient_Design.xml#pg_165" region="textRegion" />
+</par>
+<par id="para1275" class="p">
+<text src="Sentient_Design.xml#para1275" region="textRegion" />
+</par>
+<par id="para1276" class="p">
+<text src="Sentient_Design.xml#para1276" region="textRegion" />
+</par>
+<par id="para1277" class="p">
+<text src="Sentient_Design.xml#para1277" region="textRegion" />
+</par>
+<par id="ch6-sec6-24" class="h4">
+<text src="Sentient_Design.xml#ch6-sec6-24" region="textRegion" />
+</par>
+<par id="para1278" class="p">
+<text src="Sentient_Design.xml#para1278" region="textRegion" />
+</par>
+<par id="pg_166" class="pagenum">
+<text src="Sentient_Design.xml#pg_166" region="textRegion" />
+</par>
+<par id="para1279" class="p">
+<text src="Sentient_Design.xml#para1279" region="textRegion" />
+</par>
+<par id="para1280" class="p">
+<text src="Sentient_Design.xml#para1280" region="textRegion" />
+</par>
+<par id="para1281" class="p">
+<text src="Sentient_Design.xml#para1281" region="textRegion" />
+</par>
+<par id="para1282" class="p">
+<text src="Sentient_Design.xml#para1282" region="textRegion" />
+</par>
+<a href="#fig6-18" external="false">
+<par id="web397" class="a">
+<text src="Sentient_Design.xml#web397" region="textRegion" />
+</par>
+</a>
+<par id="para1283" class="p">
+<text src="Sentient_Design.xml#para1283" region="textRegion" />
+</par>
+<par id="pg_167" class="pagenum">
+<text src="Sentient_Design.xml#pg_167" region="textRegion" />
+</par>
+<par id="para1284" class="p">
+<text src="Sentient_Design.xml#para1284" region="textRegion" />
+</par>
+<a href="#ch4" external="false">
+<par id="web398" class="a">
+<text src="Sentient_Design.xml#web398" region="textRegion" />
+</par>
+</a>
+<par id="para1285" class="p">
+<text src="Sentient_Design.xml#para1285" region="textRegion" />
+</par>
+<par id="para1286" class="p">
+<text src="Sentient_Design.xml#para1286" region="textRegion" />
+</par>
+<par id="para1287" class="p">
+<text src="Sentient_Design.xml#para1287" region="textRegion" />
+</par>
+<par id="para1288" class="p">
+<text src="Sentient_Design.xml#para1288" region="textRegion" />
+</par>
+<par id="para1289" class="p">
+<text src="Sentient_Design.xml#para1289" region="textRegion" />
+</par>
+<par id="pg_168" class="pagenum">
+<text src="Sentient_Design.xml#pg_168" region="textRegion" />
+</par>
+<par id="para1290" class="p">
+<text src="Sentient_Design.xml#para1290" region="textRegion" />
+</par>
+<a href="#fig6-19" external="false">
+<par id="web399" class="a">
+<text src="Sentient_Design.xml#web399" region="textRegion" />
+</par>
+</a>
+<par id="para1291" class="p">
+<text src="Sentient_Design.xml#para1291" region="textRegion" />
+</par>
+<par id="para1292" class="p">
+<text src="Sentient_Design.xml#para1292" region="textRegion" />
+</par>
+<par id="para1293" class="p">
+<text src="Sentient_Design.xml#para1293" region="textRegion" />
+</par>
+<a href="#fig6-20" external="false">
+<par id="web400" class="a">
+<text src="Sentient_Design.xml#web400" region="textRegion" />
+</par>
+</a>
+<par id="pg_169" class="pagenum">
+<text src="Sentient_Design.xml#pg_169" region="textRegion" />
+</par>
+<par id="para1294" class="p">
+<text src="Sentient_Design.xml#para1294" region="textRegion" />
+</par>
+<par id="para1295" class="p">
+<text src="Sentient_Design.xml#para1295" region="textRegion" />
+</par>
+<par id="para1296" class="p">
+<text src="Sentient_Design.xml#para1296" region="textRegion" />
+</par>
+<par id="para1297" class="p">
+<text src="Sentient_Design.xml#para1297" region="textRegion" />
+</par>
+<par id="pg_170" class="pagenum">
+<text src="Sentient_Design.xml#pg_170" region="textRegion" />
+</par>
+<par id="para1298" class="p">
+<text src="Sentient_Design.xml#para1298" region="textRegion" />
+</par>
+<par id="para1299" class="p">
+<text src="Sentient_Design.xml#para1299" region="textRegion" />
+</par>
+<par id="para1300" class="p">
+<text src="Sentient_Design.xml#para1300" region="textRegion" />
+</par>
+<par id="ch6-sec6-26" class="h4">
+<text src="Sentient_Design.xml#ch6-sec6-26" region="textRegion" />
+</par>
+<par id="para1301" class="p">
+<text src="Sentient_Design.xml#para1301" region="textRegion" />
+</par>
+<par id="para1302" class="p">
+<text src="Sentient_Design.xml#para1302" region="textRegion" />
+</par>
+<par id="para1303" class="p">
+<text src="Sentient_Design.xml#para1303" region="textRegion" />
+</par>
+<par id="pg_171" class="pagenum">
+<text src="Sentient_Design.xml#pg_171" region="textRegion" />
+</par>
+<par id="para1304" class="p">
+<text src="Sentient_Design.xml#para1304" region="textRegion" />
+</par>
+<par id="para1305" class="p">
+<text src="Sentient_Design.xml#para1305" region="textRegion" />
+</par>
+<par id="ch6-sec6-27" class="h3">
+<text src="Sentient_Design.xml#ch6-sec6-27" region="textRegion" />
+</par>
+<par id="para1306" class="p">
+<text src="Sentient_Design.xml#para1306" region="textRegion" />
+</par>
+<par id="para1307" class="p">
+<text src="Sentient_Design.xml#para1307" region="textRegion" />
+</par>
+<par id="para1308" class="p">
+<text src="Sentient_Design.xml#para1308" region="textRegion" />
+</par>
+<par id="para1309" class="p">
+<text src="Sentient_Design.xml#para1309" region="textRegion" />
+</par>
+</seq>
+</body>
+</smil>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE smil PUBLIC "-//NISO//DTD dtbsmil 2005-1//EN" "http://www.daisy.org/z3986/2005/dtbsmil-2005-1.dtd">
+<smil xmlns="http://www.w3.org/2001/SMIL20/">
+<head>
+<meta name="dtb:uid" content="9781959029892" />
+<meta name="dtb:generator" content="Bookshare.org" />
+<meta name="dtb:totalElapsedTime" content="0" />
+<layout>
+<region id="textRegion" height="auto" width="auto" bottom="auto" top="auto" left="auto" right="auto" fit="hidden" showBackground="always" />
+</layout>
+<customAttributes>
+<customTest id="pagenumCustomTest" defaultState="false" override="visible" />
+<customTest id="noteCustomTest" defaultState="false" override="visible" />
+<customTest id="sidebarCustomTest" defaultState="false" override="visible" />
+</customAttributes>
+</head>
+<body>
+<seq id="baseseq" class="book" fill="remove">
+<par id="pg_412" class="pagenum">
+<text src="Sentient_Design.xml#pg_412" region="textRegion" />
+</par>
+<par id="abouttheauthor" class="h1">
+<text src="Sentient_Design.xml#abouttheauthor" region="textRegion" />
+</par>
+<par id="para4096" class="p">
+<text src="Sentient_Design.xml#para4096" region="textRegion" />
+</par>
+<par id="para4097" class="p">
+<text src="Sentient_Design.xml#para4097" region="textRegion" />
+</par>
+<par id="para4098" class="p">
+<text src="Sentient_Design.xml#para4098" region="textRegion" />
+</par>
+<par id="para4099" class="p">
+<text src="Sentient_Design.xml#para4099" region="textRegion" />
+</par>
+<par id="para4100" class="p">
+<text src="Sentient_Design.xml#para4100" region="textRegion" />
+</par>
+<par id="para4101" class="p">
+<text src="Sentient_Design.xml#para4101" region="textRegion" />
+</par>
+<par id="para4102" class="p">
+<text src="Sentient_Design.xml#para4102" region="textRegion" />
+</par>
+<par id="para4103" class="p">
+<text src="Sentient_Design.xml#para4103" region="textRegion" />
+</par>
+</seq>
+</body>
+</smil>
