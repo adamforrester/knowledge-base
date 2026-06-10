@@ -284,7 +284,7 @@ Per the brief's final-check instruction: areas significant to design systems con
 ### 5.4 Voice and conversational interfaces
 - Conversational UI design (chat, voice assistants, embedded AI) has its own patterns (turn-taking, error recovery, persona consistency, tone-of-voice systematization).
 - Increasingly relevant in 2026 with AI-driven product surfaces.
-- No source treats this within DS scope.
+- **Largely closed by 25-ai-aware-patterns-and-conversational-ui (May 2026)** — chat input / streaming response / message-thread / tool-call / citation / refusal / disclosure as published-pattern clusters, the production-grade triad (Cloudscape, Atlassian Rovo, Twilio Paste), Vercel AI Elements as the leading open primitive layer, and the architecture/governance contract underneath. Voice as a first-class input mode (transcription, diarisation, interruption semantics) is partially addressed via AI Elements' Voice pillar but remains the residual gap; tone-of-voice systematization for assistant copy across product surfaces is the other piece still un-codified.
 
 ### 5.5 Embedded, automotive, TV, and non-web platforms
 - Mobile DS practice (iOS, Android, Flutter) is now articulated. (See 11-mobile-and-cross-platform.)
@@ -324,6 +324,7 @@ Per the brief's final-check instruction: areas significant to design systems con
 - Most DS thinking assumes the consuming product is a deterministic UI.
 - AI-native products (generative interfaces, conversational flows, ambient AI) have different composition rules — the system constrains what AI can do, not just what humans build.
 - Anderson's "infrastructure" reframe gestures at this; Wolosin's metadata loop touches it; neither articulates DS-for-AI-products as a distinct practice area.
+- **Partially closed by 25-ai-aware-patterns-and-conversational-ui (May 2026)** for the consumer-facing pattern surface (chat, citation, refusal, tool-call, approval workflows) and by 15-ai-in-ds for the operator-side architecture (components-as-data, MCP, structured metadata). The residual gap is *generative UI* specifically — interfaces that the AI assembles dynamically at runtime from DS primitives, distinct from human-authored interfaces that *contain* an AI surface. AI Elements' tight coupling to `UIMessage` is the visible artefact of where this is heading; the practice has no POV yet on DS authoring conventions for components designed to be AI-composed.
 
 ### 5.14 Cross-tool design-source migration
 - Sketch → Figma migrations. Figma → Penpot. XD legacy. 

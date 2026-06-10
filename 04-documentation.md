@@ -105,6 +105,7 @@ The CareCentrix 2026 commercial standard:
 - **Accessibility integrated into component docs**, not as a separate chapter.
 - **Token descriptions as a default deliverable.** Every token gets a description; the AI-Compatible doc names this as the highest-leverage move. We should make this default in commercial proposals (currently aspirational).
 - **The four-layer AI documentation stack** (tokens with descriptions / `.ai.json` + registry / `AGENTS.md` + `CLAUDE.md` / Figma pipeline). The instruction-file layer (`AGENTS.md`/`CLAUDE.md`) is genuinely under-theorized in public DS discourse; the practice can claim it.
+- **AI-aware patterns ship with their own documentation contract.** When the system also publishes consumer-facing AI patterns (chat input, streaming, citation, refusal, tool-call), the disclosure copy, refusal copy, citation behaviour, and approval workflow become docs deliverables in their own right — and they sit alongside legal/governance artefacts (PIA, Article 50 disclosure language) the docs site does not normally host. (See 25-ai-aware-patterns-and-conversational-ui.)
 
 **Gaps in our current commercial Documentation standard, honestly named:**
 
