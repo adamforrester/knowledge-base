@@ -16,6 +16,8 @@ The two axes share architectural prerequisites and diverge on audience, delivera
 
 A scoping signal: when a client says "we want AI features," they almost always mean (b). When they say "we want our design system to be AI-ready," they may mean (a), (b), or both — and rarely know the difference until it's surfaced. Surfacing it is the first thing to do in scoping.
 
+There is a third axis adjacent to (a) and (b) that is increasingly worth distinguishing in the same conversation: **adaptive interfaces that *reshape themselves* in real time** around user, moment, and task — covered in 26-adaptive-interfaces-foundations and 27-adaptive-interfaces-implementation. The chat patterns documented in this file are one *posture* (in Clark & Kindred's vocabulary) of the adaptive-interface category; the bespoke-UI / intelligent-canvas / call-and-response surfaces in 26 and 27 are another. The shared substrate is components-as-data plus semantic intent metadata; the shared governance load is variant logging and outcome-based eval. When clients arrive asking for "AI features," the diagnostic question is not just (a) vs. (b) but also *which posture* — chat, agent, copilot, or bespoke surface — and *which adaptive-UI rung* (rule-based / catalog / template / structured-output / code-emit). 25 covers chat at depth; 26 covers the broader pattern set the chat surface sits inside; 27 covers the engineering reality of all of it.
+
 ---
 
 ## The state of the (b) field in 2026

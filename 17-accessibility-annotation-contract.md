@@ -197,6 +197,8 @@ The annotation fields above translate to ARIA on web, but the spelling and the a
 
 The full web extension of this contract is a separate research run on web accessibility implementation, currently planned but not yet completed. Until then, web teams should fill in the ARIA-specific fields at PR review and flag where the contract's framing fails to capture web-specific concerns (forced-colors mode, ARIA APG keyboard interactions, complex `aria-controls` relationships).
 
+A second known gap: this contract assumes a fixed surface designers can annotate ahead of build. Adaptive UI breaks that assumption — when the surface itself is generated per render, *what* gets annotated and *when* both shift. The reasonable interim discipline is to annotate the *component primitives* the LLM composes from (the slot types, the available components, the system prompt's "available UI design patterns" catalogue) rather than the rendered output, and to verify the rendered DOM in CI against the same field-by-field contract via in-pipeline accessibility scanning. This catches the 25–40% of WCAG violations automation reaches; the remainder still needs manual testing with assistive technology, which becomes a standing engagement cost. (See 27-adaptive-interfaces-implementation §6.2 for the full verification gap; 26-adaptive-interfaces-foundations §4.1 for the ability-based-design evidence base that motivates the work.)
+
 ---
 
 ## See also
