@@ -134,6 +134,8 @@ The practical workflow with MCP, in increasing order of context maturity:
 
 **The architectural insight:** Figma MCP alone is insufficient. It exposes whatever's in the Figma file, and a Figma file optimized for designers is not the same as a structured component contract. **The leverage compounds when MCP is paired with a structured DS data layer** — which is the load-bearing argument of §7 below.
 
+The docs surface of this layer — the per-component template that makes the structured DS data legible to all four audiences (designers, developers, AI agents, auditors), the seam between generated technical facts and authored intent, the CI freshness check that prevents drift between code and metadata — is covered in 29-per-component-documentation-template. The template's accessibility section maps 1:1 to the 17 / 28 annotation contract; the conformance dossier slot aggregates into the consuming product's ACR. The `.ai.json` schema and the per-component documentation are the same artefact at two altitudes.
+
 ### Limits of Figma AI for DS authoring
 
 Where human judgment is still required:

@@ -68,9 +68,9 @@ Areas where the collective source material is thin or silent. These are the high
 
 ### 1.10 Documentation IA and templates
 - Reference-site information architecture is named; not delivered as a deliverable.
-- No standard practice template for the per-component doc page (purpose / when-to-use / avoid-when / props / states / accessibility / examples / do-don't / content / related / changelog).
-- Tooling opinion is thin (Storybook / Supernova / Pattern Lab / Zeroheight / GitBook listed without trade-offs).
-- Generated-from-data documentation not yet default; practice ships authored prose.
+- **Per-component template gap closed by 29-per-component-documentation-template (June 2026).** The practice now ships a 17-section template (header / summary / live example / purpose / when-to-use / avoid-when / anatomy / props/API / states / variants / examples / do-don't / accessibility / content guidelines / composition-and-related / changelog / conformance dossier), with conditional rendering per component-type, a CI freshness check, per-section minimum-prose rules, and a YAML version-zero schema the practice pulls off the shelf in week one of every engagement. The MDX template, the `.ai.json` schema mapping, and the conformance-dossier aggregation pattern are practice IP.
+- Tooling opinion has firmed up (29 §6 carries the decision framework: Storybook + MDX as engineering default; Zeroheight / Supernova / Knapsack as hosted alternatives by client shape; self-hosted as default for regulated and EAA-procurement clients).
+- Generated-from-data documentation is now articulated as the architectural target (29 §5: technical facts generated, intent authored, CI freshness check on the seam) — but it is **not yet the default in commercial deliverables**, which is the residual gap.
 
 ### 1.11 Glossary
 - Mall's Activity #25 framing (glossary as a *negotiation* between disciplines) is missing from the practice's commercial flow. Most engagements treat glossary as a docs appendix.

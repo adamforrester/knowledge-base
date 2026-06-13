@@ -53,6 +53,7 @@ A personal knowledge base on design systems consulting, maintained by Adam Forre
 * [Adaptive Interfaces - Foundations](/26-adaptive-interfaces-foundations.md) - Six lineages of adaptive UI, Sentient Design as adopted vocabulary, four-tier pattern catalogue, agent typology, personalization vs. adaptation, EU AI Act Article 5.
 * [Adaptive Interfaces - Implementation](/27-adaptive-interfaces-implementation.md) - Engineering companion to 26. Five-rung spectrum, tool-calls as UI primitive, RAG, multi-step agentic flows, four-tier memory, streaming UI, eval-driven QA, cost modelling.
 * [Web Accessibility Implementation](/28-web-accessibility-implementation.md) - ARIA 1.3, the user-preference media-query surface, APG composite-widget patterns, live regions, native form primitives, contrast and focus, the four-engine × four-AT test matrix, and the cross-engine divergences that change implementation decisions.
+* [Per-Component Documentation Template](/29-per-component-documentation-template.md) - The 17-section spine of a single component's docs page, per-section depth, four-audience entry points, generation-vs-authoring seam with CI freshness check, tooling decisions, anti-patterns, the version-zero YAML schema the practice ships in week one.
 
 ## Vocabulary
 
