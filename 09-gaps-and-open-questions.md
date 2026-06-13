@@ -59,7 +59,7 @@ Areas where the collective source material is thin or silent. These are the high
 
 ### 1.8 Component-level accessibility annotations — CLOSED
 - **Closed by 14-accessibility (architecture), 16-mobile-accessibility-implementation (framework depth across Flutter, Compose, SwiftUI/UIKit, React Native), and 17-accessibility-annotation-contract (the per-component annotation spec — name, role, state, value, focus, scaling, inversion, motion, gestures, live regions).**
-- The remaining sliver — web implementation depth and the ARIA-specific annotation fields — is the new gap (see §1.16 below).
+- The remaining sliver — web implementation depth and the ARIA-specific annotation fields — was named §1.16 below and is now also closed (see §1.16).
 
 ### 1.9 Motion as foundation
 - Motion appears in token lists but the practice does not yet ship motion principles, motion audits, easing studies, or productive/expressive splits as foundational deliverables.
@@ -96,10 +96,10 @@ This will become a procurement-grade requirement for regulated industries (healt
 ### 1.15 Education curriculum and certification
 - Cross-disciplinary onboarding mentioned (HTML/CSS for designers, Figma for engineers, Git for designers). No curriculum, no certification path, no "DS literacy" frame productized.
 
-### 1.16 Web accessibility implementation depth
-- 16-mobile-accessibility-implementation and 17-accessibility-annotation-contract are mobile-scoped. Web teams currently retrofit ARIA, `prefers-reduced-motion`, `prefers-contrast`, `forced-colors`, `inert`, `focus-visible`, ARIA APG keyboard interactions, and complex `aria-controls` relationships at PR review.
-- The web equivalents of the annotation contract fields (name, role, state, value translate cleanly to ARIA; merging/traversal/dynamic-type/system-inversion have materially different mechanics).
-- Next natural research run; explicitly flagged in 17.
+### 1.16 Web accessibility implementation depth — CLOSED
+- **Closed by 28-web-accessibility-implementation and the web extension to 17-accessibility-annotation-contract (June 2026).** Both files cover ARIA 1.3 (working draft, not Recommendation as of mid-2026), the user-preference media-query surface (`prefers-reduced-motion`, `prefers-contrast`, `forced-colors`, `prefers-reduced-transparency`, `prefers-color-scheme`), `inert`, `:focus-visible`, the popover API, `<dialog>` + `showModal()`, the APG keyboard model per composite-widget pattern, the four-engine × four-AT test matrix, and the cross-engine divergences that change implementation decisions (`aria-owns`, `aria-description`, `aria-errormessage`, JAWS table mode, VoiceOver `aria-current="page"`).
+- The annotation contract now carries five web-only fields — landmark and heading structure, ARIA relationships (with `aria-owns` discouraged), `inert` regions and modal scope, `forced-colors` survival, APG keyboard model per Tier 2 composite — and the mobile-derived fields gained web implementation lines.
+- The standing gap that remains is adaptive UI — when the surface is generated per render, annotation targets shift to the component primitives the LLM composes from, and verification shifts to in-pipeline accessibility scanning of rendered DOM. See 17 *"Adaptive UI — the standing gap"* and 27-adaptive-interfaces-implementation §6.2.
 
 ### 1.17 Annotation methodology as a Figma practice
 - 17 sketches two patterns — Pattern A (annotation as a layer in Figma) and Pattern B (annotation as metadata in the component schema) — and states the practice's preference, but does not work the methodology in Figma at the level 12-figma-practice operates on for everything else.

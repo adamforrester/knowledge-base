@@ -8,7 +8,7 @@ timestamp: 2026-05-16
 
 # 16 — Mobile Accessibility Implementation
 
-> Our position on accessibility as a design system concern is in 14-accessibility — pair tokens, ARIA encapsulation, the four-layer model, conformance reporting under EAA and Section 508. That file is what the system must encode. This file is what the framework actually does with it. The gap between the architectural intent and the device behaviour is where most apps quietly lose WCAG conformance, and it is platform-specific in ways that 14 cannot speak to. Mobile is the case where that gap is largest. We cover Flutter, Jetpack Compose, SwiftUI and UIKit (treated together because production iOS codebases mix them), and React Native — the four frameworks our teams actually ship in.
+> Our position on accessibility as a design system concern is in 14-accessibility — pair tokens, ARIA encapsulation, the four-layer model, conformance reporting under EAA and Section 508. That file is what the system must encode. This file is what the framework actually does with it. The gap between the architectural intent and the device behaviour is where most apps quietly lose WCAG conformance, and it is platform-specific in ways that 14 cannot speak to. Mobile is the case where that gap is largest. We cover Flutter, Jetpack Compose, SwiftUI and UIKit (treated together because production iOS codebases mix them), and React Native — the four frameworks our teams actually ship in. (Web has its own implementation file — see 28-web-accessibility-implementation — and the annotation contract in 17-accessibility-annotation-contract carries both mobile and web fields.)
 
 ---
 
