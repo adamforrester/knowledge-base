@@ -33,6 +33,8 @@ Three top-level navigation aids:
 
 `index.md` is the canonical list. When new numbered files are added, add a hook to `index.md` and add inline cross-references from earlier files where the new content is now relevant. Do not duplicate the index inside this file.
 
+Frontmatter is scoped to numbered files (and the root `index.md`). Underscore-prefixed directories — `_research/`, `_notes/`, `_source-text/` — stay frontmatter-free as editorial scratch. Revisit `_source-text/` only when the planned MCP server is real and the source corpus needs to be agent-discoverable.
+
 ## Cross-reference style
 
 References to other files are written inline as prose, e.g. `(See 01-discovery-and-strategy.)` — not as Obsidian `[[wikilinks]]` and not as relative markdown links. Match this style. When a new file is added, search for topics it now covers and add inline references from the relevant earlier files rather than retrofitting links into every file.
@@ -41,19 +43,22 @@ References to other files are written inline as prose, e.g. `(See 01-discovery-a
 
 Numbered files follow a consistent shape — preserve it when editing:
 
-1. `# NN — Title` H1
-2. A blockquote one-paragraph framing of why this file exists / the POV it takes
-3. `---` separator
-4. H2 sections, often opening with framing prose before any lists/tables
-5. Heavy use of bolded lead-ins (`**Like this.**`) inside paragraphs
-6. Citations in parens with source + year, e.g. `(InVision MVP, 2020)`, `(VML library)`, `(Sam Anderson, *Design Systems are Infrastructure*, Nov 2024)`
+1. YAML frontmatter block (`type`, `title`, `description`, `tags`, `timestamp`) — see the OKF v0.1 conformance note above
+2. `# NN — Title` H1
+3. A blockquote one-paragraph framing of why this file exists / the POV it takes
+4. `---` separator
+5. H2 sections, often opening with framing prose before any lists/tables
+6. Heavy use of bolded lead-ins (`**Like this.**`) inside paragraphs
+7. Citations in parens with source + year, e.g. `(InVision MVP, 2020)`, `(VML library)`, `(Sam Anderson, *Design Systems are Infrastructure*, Nov 2024)`
+
+Update the `timestamp` field when making a substantive content change. Skip it for typo fixes.
 
 Voice is declarative and opinionated. Avoid hedging, avoid bullet-point dumps where prose is doing the work, avoid emoji. New content should sound like it was written by the same person.
 
 ## When asked to add or update content
 
 - Prefer editing existing files over creating new ones. New top-level files are reserved for genuinely new phase/topic areas.
-- When a new file is added (most recently `11-mobile-and-cross-platform.md`), audit the earlier numbered files for places the new topic was previously hand-waved or noted as out-of-scope, and add inline cross-references there.
+- When a new file is added, audit the earlier numbered files for places the new topic was previously hand-waved or noted as out-of-scope, and add inline cross-references there. Recent precedent: the 26/27 adaptive-interfaces split added back-references from 15 and 25.
 - For substantial new claims, expect a `_source-text/` file to back them. If one doesn't exist, flag the claim as needing a source rather than inventing a citation.
 - Don't rewrite tone. If the user asks to add a section, match the surrounding voice.
 
