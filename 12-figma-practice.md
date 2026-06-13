@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Figma Practice
+description: Figma at professional depth. Library architecture, component construction, Variables, Dev Mode/Code Connect/MCP, branching, performance, deprecation.
+tags: [extension, figma, code-connect, mcp]
+timestamp: 2026-05-16
+---
+
 # 12 — Figma as the Design Systems Tool
 
 > Figma is the tool we use on nearly every design systems engagement, which makes our fluency with it a competitive surface, not a checkbox. This file is what professional Figma practice looks like in 2026 — how we architect libraries, build components, manage tokens, hand off to engineering, and govern the system over time. It is not Figma 101. It assumes the reader knows the tool and skips to the trade-offs, the gaps, and the conventions that have stabilized into de facto standards.

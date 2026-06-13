@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: AI in Design Systems
+description: AI integration across the DS lifecycle. Components-as-data as architectural prerequisite. MCP, Figma MCP and Code Connect, three-level context maturity, the four-prerequisite minimum architecture.
+tags: [extension, ai, mcp, components-as-data, code-connect]
+timestamp: 2026-06-10
+---
+
 # 15 — AI in Design Systems Practice
 
 > AI in design systems work compounds where the architecture is structured and fails where it isn't. Components-as-data, DTCG tokens, Code Connect, structured metadata exposed via MCP — these are not optional add-ons; they are the prerequisites that make AI tools produce reliable output instead of confident hallucinations. This file covers how AI integrates across the lifecycle and the architecture that makes the integration pay off. It also covers the limits, honestly, because the field is moving fast enough that confident assertions today will be inaccurate within months.

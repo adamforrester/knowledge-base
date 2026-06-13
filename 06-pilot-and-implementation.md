@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Pilot and Implementation
+description: Running the pilot product team — validating the system in production and building the executive coalition for scale.
+tags: [phase, pilot, adoption, executive-coalition]
+timestamp: 2026-05-05
+---
+
 # 06 — Pilot & Implementation
 
 > The hinge between "the system exists" and "the system is used." A well-run pilot validates the system in production conditions with a real consuming team and converts evidence into the executive coalition that scales adoption. A poorly-run pilot — or no pilot at all — produces a system that ships and is forgotten.

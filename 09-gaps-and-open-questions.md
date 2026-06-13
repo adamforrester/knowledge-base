@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Gaps and Open Questions
+description: Practice gaps and unanswered questions across the corpus. Sourced inventory of what we don't yet have a POV on.
+tags: [gaps, open-questions]
+timestamp: 2026-06-10
+---
+
 # 09 — Gaps & Open Questions
 
 > Where the practice's collective material — internal and external — is thin, dated, contested, or silent. Organized in four categories per brief, plus a fifth pass against the broader field for what's missing across all sources.

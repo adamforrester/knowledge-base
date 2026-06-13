@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Adaptive Interfaces - Foundations
+description: Six lineages of adaptive UI, Sentient Design as adopted vocabulary, the Sentient Triangle, four-tier pattern catalogue, agent typology, personalization vs. adaptation, EU AI Act Article 5.
+tags: [extension, ai, adaptive-ui, sentient-design, governance]
+timestamp: 2026-06-10
+---
+
 # 26 — Adaptive Interfaces (Foundations)
 
 > Adaptive UI is not one thing. Six overlapping lineages — sentient design, generative UI, personalization-incumbent practice, malleable software, academic ability-based design, and agentic UX — currently compete for the same vocabulary, and clients increasingly arrive at our door asking for "AI features" in language that flattens the distinctions. This file is the foundations layer: what each lineage actually claims, what the evidence supports, where the field is converging vs. diverging in 2026, and the strategic shape an agency practice should take. The companion file is 27-adaptive-interfaces-implementation, which covers how the architecture actually gets built. Together they are the (b)-axis sibling to 15-ai-in-ds (AI operating the DS) and 25-ai-aware-patterns-and-conversational-ui (AI patterns the DS ships). Adaptive interfaces are the third axis — interfaces that *reshape themselves* in real time around the user, the moment, and the task.

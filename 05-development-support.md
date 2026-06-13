@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Development Support
+description: Dev pipeline, Storybook, headless vs. opinionated, CI quality gates, MCP/AI integration, adoption enablement.
+tags: [phase, engineering, ci, mcp, adoption]
+timestamp: 2026-05-05
+---
+
 # 05 — Development Support
 
 > The system reaches engineers at the framework, the build, and the IDE — or it does not reach them at all. Development support is what turns a Figma file into something a consuming codebase can run, version, and trust. It is also the phase the practice currently sells lightest, and where most engagements quietly fail to translate design intent into production reality.

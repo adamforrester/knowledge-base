@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Documentation
+description: Docs strategy for two audiences (humans and machines). Storybook/MDX plus machine-readable metadata and registries from one source.
+tags: [phase, documentation, storybook, mcp]
+timestamp: 2026-06-10
+---
+
 # 04 — Documentation
 
 > The system's user manual for two distinct audiences: humans, and machines. Most published thinking still treats docs as a website for humans. The 2024+ practice ships docs as a parallel layer — human-readable Storybook/MDX *and* machine-readable metadata + registries — generated from the same source. Documentation is not the appendix; it is the system's surface.

@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Accessibility
+description: Accessibility encoded into the DS architecture. Pair tokens, ARIA encapsulation, focus management, the four-layer model, conformance under EAA / Section 508.
+tags: [extension, accessibility, a11y, wcag, eaa]
+timestamp: 2026-06-10
+---
+
 # 14 — Accessibility in Design Systems
 
 > Accessibility lapses in the design system propagate to every consuming product simultaneously. That asymmetry — one fix in the DS, hundreds of fixes avoided downstream — is the strongest argument for treating accessibility as architecture, not as audit. This file is what that architecture looks like: how we encode accessibility into tokens, components, Figma, documentation, testing, and governance, so that products built from our system are accessible by default, not by retrofit.

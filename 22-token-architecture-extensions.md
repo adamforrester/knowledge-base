@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Token Architecture Extensions
+description: Spec-and-architecture layer beneath 02. DTCG 2025.10 at practitioner depth, composite-token fidelity gap, computed/relational tokens, density as a theming dimension, web-vs-native asymmetry.
+tags: [extension, tokens, dtcg, theming, density]
+timestamp: 2026-05-16
+---
+
 # 22 — Token Architecture Extensions
 
 > The DTCG specification reached its first stable version (2025.10) in October 2025. Our practice has been treating DTCG as procurement-grade for over a year — 02-design-foundations names it, our pitches commit to it. What 02 does not reach is the spec-level depth a senior architect needs once the easy decisions are made: how composite tokens actually round-trip across tools, where computed and relational tokens belong in the pipeline, and how density gets encoded without inflating the surface to unmanageable. This file is that layer. It assumes the reader already accepts the three-tier taxonomy and the DTCG-as-standard position. It picks up where 02 stops being prescriptive.

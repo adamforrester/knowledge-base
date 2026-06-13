@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: CMS and Platform Integration
+description: DS in CMS environments. The seam between component governance and content governance.
+tags: [extension, cms, content, integration]
+timestamp: 2026-05-05
+---
+
 # 10 — Design Systems in CMS Environments
 
 > A design system and a CMS are two different governance models for the same frontend. The design system governs components. The CMS governs content. The seam between them is where most of the hard problems live — and where most agencies underestimate the work.

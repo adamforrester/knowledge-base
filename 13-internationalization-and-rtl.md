@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Internationalization and RTL
+description: i18n, l10n, and RTL as DS architecture. Logical properties, text expansion, multi-script typography, locale-aware tokens, RTL component mirroring.
+tags: [extension, i18n, l10n, rtl, multi-script]
+timestamp: 2026-05-16
+---
+
 # 13 — Internationalization, Localization, and RTL
 
 > Internationalization is a design system architecture concern, not a content concern. A DS that bakes i18n in from the first component absorbs the cost as a small tax on every component author. A DS that retrofits i18n later pays a six-to-twelve-month project tax. The choice is made implicitly, every day, by every component author who reaches for `margin-left`. Most published DS material is silent on this; this file is the corrective.

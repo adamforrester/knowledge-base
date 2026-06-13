@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Design Foundations
+description: Tokens, theming, naming, the Figma → DTCG → Style Dictionary pipeline. The bedrock layer.
+tags: [phase, foundations, tokens, theming, dtcg]
+timestamp: 2026-05-16
+---
+
 # 02 — Design Foundations
 
 > The floor of the system. Decisions about color, typography, space, shape, motion, accessibility — encoded as tokens, named with intent, made readable to humans and machines. Foundations done well make every downstream decision cheaper; done poorly, every downstream decision is a fight.

@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Component Library
+description: Component model — anatomy, properties, layout, composition primitives, components-as-data. Web rendering target assumed; mobile in 11.
+tags: [phase, components, components-as-data]
+timestamp: 2026-06-10
+---
+
 # 03 — Component Library
 
 > The most visible artifact of the system. Also the part most likely to be mistaken for the system itself. Components are the medium through which the foundation propagates and the brand expresses; they are not the system.

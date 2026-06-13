@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: AI-Aware Patterns and Conversational UI
+description: AI patterns the DS ships to consumers (chat, streaming, citation, refusal, tool-call). Field survey, production-grade triad (Cloudscape / Rovo / Paste), AI Elements as primitives, EU AI Act Article 50.
+tags: [extension, ai, conversational-ui, patterns, governance]
+timestamp: 2026-06-10
+---
+
 # 25 — AI-Aware Patterns and Conversational UI
 
 > An "AI-aware" design system is two things at once. It is a system that is *operated on* by AI tools (the territory of 15-ai-in-ds — token critique, codegen, MCP-served metadata, AI-readable docs). It is also a system that *ships AI patterns to consumers* (chat input, streaming response, citation, refusal, conversation primitives, agent affordances). Confusing the two is the most common category error in scoping conversations. This file covers the second axis. The architecture that makes either work — components-as-data, structured metadata, evaluation contracts, content/safety governance — is shared, but the audiences, deliverables, and failure modes diverge sharply. Both axes belong inside the system. Neither subsumes the other.

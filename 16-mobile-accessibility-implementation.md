@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Mobile Accessibility Implementation
+description: Mobile accessibility implementation depth across Flutter, Jetpack Compose, SwiftUI/UIKit, React Native. Semantics, focus, text scaling, system preferences, gestures, live regions, testing.
+tags: [extension, accessibility, a11y, mobile, flutter, compose, swiftui, react-native]
+timestamp: 2026-05-16
+---
+
 # 16 — Mobile Accessibility Implementation
 
 > Our position on accessibility as a design system concern is in 14-accessibility — pair tokens, ARIA encapsulation, the four-layer model, conformance reporting under EAA and Section 508. That file is what the system must encode. This file is what the framework actually does with it. The gap between the architectural intent and the device behaviour is where most apps quietly lose WCAG conformance, and it is platform-specific in ways that 14 cannot speak to. Mobile is the case where that gap is largest. We cover Flutter, Jetpack Compose, SwiftUI and UIKit (treated together because production iOS codebases mix them), and React Native — the four frameworks our teams actually ship in.

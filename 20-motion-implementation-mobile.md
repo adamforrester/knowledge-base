@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Motion Implementation - Mobile
+description: Mobile motion across SwiftUI / UIKit, Compose, Flutter, RN. Cross-framework spring parameter mapping, shared element transitions, Lottie vs. Rive, threading and 120Hz, reduce-motion per framework.
+tags: [extension, motion, mobile, swiftui, compose, flutter, react-native]
+timestamp: 2026-05-16
+---
+
 # 20 — Motion Implementation: Mobile
 
 > Mobile motion in 2026 is four frameworks that have converged on declarative, value-driven animation and diverged on almost everything underneath. Springs are the default; the spring vocabulary is different in every framework. Shared element transitions exist everywhere; the spelling is different everywhere. This file is the cross-framework comparison a DS team needs to ship motion that feels like the same product across SwiftUI, UIKit, Jetpack Compose, Flutter, and React Native — and the reference an AI coding agent needs to write idiomatic motion code in each.

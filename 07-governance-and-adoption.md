@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Governance and Adoption
+description: Governance models, contribution flow, adoption mechanics. The phase that decides whether the system survives the engagement.
+tags: [phase, governance, adoption, contribution]
+timestamp: 2026-06-10
+---
+
 # 07 — Governance & Adoption
 
 > The phase that decides whether the system survives the engagement. Governance is the operating model that keeps the system trustworthy as it grows; adoption is the work of moving the system from "available" to "default." Both are the responsibility of the practice — not artifacts to hand off.

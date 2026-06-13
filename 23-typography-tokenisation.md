@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Typography Tokenisation
+description: Three-tier mandatory typography stack, modular scales with the display pivot, fluid type with clamp() + container queries + rem-floor accessibility rule, variable fonts as tokenisation, multi-script as DTCG modes.
+tags: [extension, typography, tokens, dtcg, fluid-type, variable-fonts]
+timestamp: 2026-05-16
+---
+
 # 23 — Typography Tokenisation
 
 > Typography is the most under-tokenised foundation in the design systems our practice audits — colors and spacing are usually tokenised; typography is usually a list of styles with one or two ratios behind them and no architecture. The 2024–2026 platform shifts (DTCG 2025.10 composite typography, fluid type with `clamp()`, container queries reaching wide support, variable fonts as first-class, native Dynamic Type / sp / `LineHeightStyle.Trim`) have changed what good typography tokenisation looks like. This file is the depth our existing 02-design-foundations and 12-figma-practice files don't reach: the shape of a typography token set, modular scales with the display pivot, fluid type and container queries, variable fonts as a tokenisation problem, line-height discipline, multi-script, native platform translation, and the AI-readable description schema typography benefits from most.

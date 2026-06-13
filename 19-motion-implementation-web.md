@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Motion Implementation - Web
+description: Web motion in 2026. CSS / WAAPI / View Transitions primitives, the linear() spring revolution, library landscape (Motion / GSAP / Rive / Lottie), INP / LoAF / compositor-only performance.
+tags: [extension, motion, web, css, view-transitions, performance]
+timestamp: 2026-05-16
+---
+
 # 19 — Motion Implementation: Web
 
 > Motion on the web in 2026 has stopped being an animation-library decision and become a primitive-layer decision. CSS, WAAPI, and the View Transitions API can do most of what teams reached for Framer Motion or GSAP to do three years ago — and they can do it on the compositor thread, off the main thread, without paying an INP cost. This file is the web spelling of the motion tokens, principles, and choreography defined in 18: which primitives produce which token, which libraries are still worth their weight, and which performance gotchas are now load-bearing.

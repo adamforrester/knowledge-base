@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Adaptive Interfaces - Implementation
+description: Engineering companion to 26. Five-rung spectrum (rule-based to code-emit), tool-calls as UI primitive, RAG, multi-step agentic flows, four-tier memory, streaming UI, eval-driven QA, cost modelling.
+tags: [extension, ai, adaptive-ui, agents, rag, memory, streaming]
+timestamp: 2026-06-10
+---
+
 # 27 — Adaptive Interfaces (Implementation)
 
 > The companion to 26-adaptive-interfaces-foundations. Where that file covered *what and why* — the lineages, the postures, the personalization-versus-adaptation distinction, the evidence base, the ethics, the four-postures-and-fourteen-patterns scaffold — this one covers *how it actually works*: architecture, integration patterns, memory and governance, streaming UI, evaluation and QA, cost and latency, authoring tooling, and the design-systems implications that fall out. It is written for someone who needs to have informed strategic conversations about this work without building it personally — the engineering reality behind the vendor pitches, where the real engineering risk sits, and what a vendor is eliding when they say "generative UI."

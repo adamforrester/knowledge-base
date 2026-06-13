@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Agency Context
+description: VML as agency context — how DS work fits agency commercial reality, and the gap between "what good looks like" and the world we operate in.
+tags: [cross-cutting, agency, vml]
+timestamp: 2026-05-05
+---
+
 # 00b — Agency Context
 
 > This file contextualizes the knowledge base for how VML actually works. The rest of the knowledge base describes what good looks like. This file describes the world we operate in — and the gap between those two things is where most of the hard decisions live.

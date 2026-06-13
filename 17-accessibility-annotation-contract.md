@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Accessibility Annotation Contract
+description: What designers specify in Figma so engineers can implement accessibility faithfully. Per-concern annotation spec. Mobile-scoped today; web extension is a known gap.
+tags: [extension, accessibility, a11y, figma, handoff, mobile]
+timestamp: 2026-06-10
+---
+
 # 17 — The Accessibility Annotation Contract
 
 > What designers specify in Figma so engineers can implement accessibility faithfully — without guessing, without retrofitting, and without the contract evaporating between handoff and PR. This is the practice's annotation spec, derived from the implementation depth in 16-mobile-accessibility-implementation. It is currently mobile-scoped (iOS native, Android native, Flutter, Compose, React Native). Web extension is a known gap and the next research run; until then, web teams should treat this as informative and add ARIA-specific fields at PR review.

@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Motion Foundations
+description: Motion as a first-class foundation primitive. Three-tier motion tokens with composite tokens, choreography vocabulary, reduce-motion as a system contract, performance budget.
+tags: [extension, motion, foundations, tokens, reduce-motion]
+timestamp: 2026-05-16
+---
+
 # 18 — Motion Foundations
 
 > Motion is the foundation primitive our practice has named on every token list and shipped on almost none. This file is what motion looks like when it stops being a per-screen design choice and starts being a system primitive — the principles, tokens, choreography vocabulary, performance budget, and reduce-motion contract that a design system encodes once so that downstream products don't improvise it a thousand times. The implementation depth lives in 19 (web) and 20 (mobile); the designer-to-developer spec gap lives in 21.

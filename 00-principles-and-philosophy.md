@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Principles and Philosophy
+description: The practice's POV — the ten principles, where we converge with and diverge from the field.
+tags: [cross-cutting, principles, philosophy]
+timestamp: 2026-05-18
+---
+
 # 00 — Principles & Philosophy
 
 > Cross-cutting positioning for the practice. This is what we believe a design system *is*, what it *isn't*, what makes one succeed or fail, and how we frame value to clients. Phase-specific guidance lives in files 01–08.

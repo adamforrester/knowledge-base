@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Commercial Model
+description: How VML scopes, resources, and prices DS engagements. Working document, not fixed formula.
+tags: [cross-cutting, commercial, pricing]
+timestamp: 2026-05-05
+---
+
 # 00d — Commercial Model
 
 > This file covers how VML scopes, resources, and prices design systems work. It is intentionally a working document — commercial model specifics are built over time from engagement data, not defined up front. What follows is a framework, not a fixed formula.

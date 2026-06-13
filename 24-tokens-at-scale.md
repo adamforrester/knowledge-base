@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Tokens at Scale
+description: Operational layer for enterprise multi-brand token systems. Multi-collection-not-multi-mode, Generative Token pattern, blast-radius-weighted RACI, the Cascade Report, semver-for-tokens, build-vs-buy.
+tags: [extension, tokens, scale, multi-brand, governance, semver]
+timestamp: 2026-05-16
+---
+
 # 24 — Tokens at Scale
 
 > Small token systems can hand-wave governance, validation, and versioning. Large ones cannot — and our agency clients are increasingly the latter, with multi-brand portfolios that hold five to twenty brands and engagements that need to survive years of post-launch change. This file is the operational layer for token systems at that scale: multi-brand collection architecture, governance weighted by blast radius, validation that the system can run against itself in CI, semver applied honestly to a visual API, and the tools landscape at the enterprise tier. Where 22 is the spec-and-architecture layer, this file is the operations layer on top of it.

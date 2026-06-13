@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Motion Spec and Handoff
+description: The designer-to-developer micro-interaction spec gap. Why Figma is structurally inadequate for motion, the eight-field sufficient spec, the layered handoff contract, Pattern A vs. Pattern B.
+tags: [extension, motion, handoff, figma, spec]
+timestamp: 2026-05-16
+---
+
 # 21 — Motion Spec and Designer–Developer Handoff
 
 > Motion is the part of the design system designers cannot reliably hand off in Figma. The result is the motion equivalent of the accessibility annotation problem (17): whatever ends up in production is whatever the engineer improvised, sometimes informed by a Loom video and a Slack message. This file is what a sufficient motion spec contains, what the candidate tools actually produce, and what the practice should standardise on as the canonical handoff artefact — recognising that the field has not yet converged on a single answer.

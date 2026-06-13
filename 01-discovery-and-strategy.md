@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Discovery and Strategy
+description: The Discovery phase — strategic alignment, audits, stakeholder mapping, maturity baseline, pilot scoring.
+tags: [phase, discovery, strategy, audits]
+timestamp: 2026-05-05
+---
+
 # 01 — Discovery & Strategy
 
 > The phase that determines whether the engagement succeeds. Most failed design systems fail here — not in components, not in tooling, not in handoff. They fail because nobody did the work to know what the organization actually needed, who would actually use it, who would actually decide, and what was actually true about the existing landscape.

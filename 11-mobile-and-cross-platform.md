@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Mobile and Cross-Platform
+description: iOS, Android, Flutter. Tokens as the shared layer; native vs. custom component decisions; platform-specific token delivery.
+tags: [extension, mobile, ios, android, flutter, cross-platform]
+timestamp: 2026-05-16
+---
+
 # 11 — Mobile and Cross-Platform Design Systems
 
 > Mobile design systems are not a mobile version of a web design system. They are a parallel rendering target for the same design decisions — which means the token architecture is shared, but the component implementations are not. Understanding that distinction early determines whether a mobile DS engagement is scoped correctly or not.

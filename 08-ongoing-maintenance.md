@@ -1,3 +1,11 @@
+---
+type: practice-area
+title: Ongoing Maintenance
+description: Post-launch operating model, retainer shapes, KPIs. The phase the practice sells the least and external sources flag as the biggest delivery gap.
+tags: [phase, maintenance, retainer, kpis]
+timestamp: 2026-05-05
+---
+
 # 08 — Ongoing Maintenance
 
 > Most design systems die quietly, not loudly. They are launched, used briefly, then neglected — outpaced by the products that consume them, until the consuming teams forget they exist. Maintenance is the work of preventing that. It is also the phase the practice currently sells the least, and where every external source from Frost (2016) to Anderson (2024) names the largest gap between consultancy delivery and durable client outcomes.
