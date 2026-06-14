@@ -20,7 +20,7 @@ Three reasons this matters now:
 
 1. **Adoption is the only scoreboard, and adoption is a maintenance metric.** Coverage trends down quarter over quarter without active maintenance — products evolve faster than the system if no one funds the catch-up. (See `00-principles-and-philosophy.md` Principle 1.)
 2. **AI consumers age systems faster than human consumers.** A token without a description, a component without `avoid_when`, a metadata file that hasn't been refreshed since the component last changed — each is a silent failure point that compounds across every AI-generated artifact downstream. (Wolosin, Jun 2025; AI-Compatible Design Systems, Feb 2025.)
-3. **Brand evolves; products evolve; tools evolve.** A system frozen at handoff is already legacy by month 6. The 2024–2026 tooling shifts (Figma Variables modes, DTCG, MCP, Code Connect, Components-as-Data) make any 2023-tier system materially older every quarter it doesn't update.
+3. **Brand evolves; products evolve; tools evolve.** A system frozen at handoff is already legacy by month 6. The 2024–2026 tooling shifts (Figma Variables modes, DTCG, MCP, Code Connect, Components-as-Data) make any 2023-tier system materially older every quarter it doesn't update. The retainer shape itself is materially smaller for systems on a generated-from-data substrate — authored-prose docs need 60–120 hours per quarter to stay current with drift; generated docs need ~10–20 hours of pipeline maintenance plus a separate ~8–16 hours per quarter for documentation pipeline maintenance. (See 30-generated-from-data-documentation §3 for the lifetime cost argument.)
 
 Frost's epigraph (quoting Schleifer at Airbnb) is the right framing: *"The biggest existential threat to any system is neglect."*
 

@@ -623,7 +623,7 @@ The vendor's value is the rendering and hosting layer. The practice's value is t
 
 ## See also
 
-For the documentation strategy this template operationalises — the four-layer AI documentation stack, the human-plus-machine parallel layer, generated-from-data — see 04-documentation.
+For the documentation strategy this template operationalises — the four-layer AI documentation stack, the human-plus-machine parallel layer, generated-from-data — see 04-documentation. For the *commercial-default angle* of this template — the engineering investment, the per-component hours redistribution, the migration playbook, the 5-question decision tree for when generation is justified, the phased-adoption pitch, the cluster relationship to AI-readiness — see 30-generated-from-data-documentation.
 
 For the components-as-data substrate that underwrites the generation seam, see 03-component-library and 15-ai-in-ds.
 
