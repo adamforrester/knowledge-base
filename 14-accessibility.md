@@ -265,7 +265,7 @@ Every interactive element has states that must be visually distinct *and* access
 | Disabled | Not interactive | aria-disabled or disabled attribute (decision below); contrast requirements relaxed but consider readability |
 | Error | Invalid input | Visual + ARIA announcement (aria-invalid + aria-describedby) |
 
-**The disabled vs. aria-disabled decision.** The HTML `disabled` attribute removes the element from the tab order and prevents interaction — but assistive tech often skips disabled elements entirely, so users may not understand why the action is unavailable. `aria-disabled` keeps the element focusable and announceable but requires the component to handle the click and explain why nothing happened. Most modern accessibility-led patterns prefer `aria-disabled` paired with a tooltip or message explaining the reason. Both are defensible; **document which the component uses and why.**
+**The disabled vs. aria-disabled decision.** The HTML `disabled` attribute removes the element from the tab order and prevents interaction — but assistive tech often skips disabled elements entirely, so users may not understand why the action is unavailable. `aria-disabled` keeps the element focusable and announceable but requires the component to handle the click and explain why nothing happened. Most modern accessibility-led patterns prefer `aria-disabled` paired with a tooltip or message explaining the reason. Both are defensible; **document which the component uses and why.** (Button is the canonical worked example — the move off native `disabled` toward a focusable inactive state, and where each is appropriate, is in components/button.md §4.)
 
 ---
 

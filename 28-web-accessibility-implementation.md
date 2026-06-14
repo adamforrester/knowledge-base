@@ -419,7 +419,7 @@ Borders, focus rings, icons, and controls' visual boundaries must meet 3:1 again
 
 - **Buttons with no border, only fill colour against background.** A blue button on white passes 3:1 only if the blue is dark enough. A pale-blue button often fails.
 - **Form-field borders** — a 1px gray border against white frequently fails 3:1. Ship form fields with a contrast-aware border colour.
-- **Disabled state** — disabled inputs / buttons are exempted from contrast requirements per WCAG 2.2 SC 1.4.3 and 1.4.11. The system can use lower-contrast disabled states.
+- **Disabled state** — disabled inputs / buttons are exempted from contrast requirements per WCAG 2.2 SC 1.4.3 and 1.4.11. The system can use lower-contrast disabled states. (This exemption is exactly why a natively-disabled control can be both illegible *and* unreachable — the case for the focusable inactive pattern on relevant-but-blocked buttons; see components/button.md §4.)
 - **Decorative content** — pure decoration (illustrations without informational role) is exempted. The system distinguishes decorative from informational icons; decorative gets `aria-hidden="true"`, informational meets 3:1.
 
 ### Focus-indicator contrast — SC 2.4.13

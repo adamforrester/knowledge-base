@@ -210,6 +210,8 @@ The **components/** catalogue closes that seam. It is a flat directory of per-co
 
 The §15 agent-consumable schema is what makes the catalogue load-bearing for the AI-readiness story. Per 30, the engagement's component data file is the source of truth in *its* codebase; per 15, the four-layer AI documentation stack assumes a per-component machine-readable layer exists. The brief's §15 is the seed an engagement copies and instantiates. Free-form YAML for the first ~5 briefs; the schema formalises after the shape has stabilised through real use.
 
+The first brief is **Button** — deliberately, because it is the most-shipped, least-agreed-upon component and so the hardest test of the spine. It lands the practice's defaults on the questions every engagement re-litigates: the two-axis `intent` + `appearance` model over a single overloaded `variant` enum, native-disabled versus a focusable inactive state, and the loading contract. (See `components/button.md`.)
+
 ## Failure modes specific to this phase
 
 - **Supercomponent.** A component grows 14 props, 6 boolean flags, 4 enum dimensions to handle every possible variant. Sign of an anatomy problem. (UIC: "Don't supercomponent.")

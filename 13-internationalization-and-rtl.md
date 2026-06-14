@@ -107,7 +107,7 @@ Mirroring is not "flip every pixel." It's "flip what reflects directionality of 
 | Icons of physical objects (pencil, magnifier, key) | Usually no | Object orientation is a real-world convention, not a reading one. |
 | Clock and analog time icons | No | Clock face is universal. |
 
-**The mistake teams make most often** is mirroring everything, then having to manually un-mirror logos, numbers, and media controls. **The right default is to mirror layout via logical properties; declare per-icon whether it mirrors via metadata in the icon library.**
+**The mistake teams make most often** is mirroring everything, then having to manually un-mirror logos, numbers, and media controls. **The right default is to mirror layout via logical properties; declare per-icon whether it mirrors via metadata in the icon library.** (Button is the worked example at component scope — mirror the row via logical properties, flip the directional leading/trailing icon but never the media-transport one, and never fix width to the English label; see components/button.md §9.)
 
 ### Icon directionality in the library
 

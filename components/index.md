@@ -51,7 +51,7 @@ A flat catalogue of per-component field-truth briefs. Each brief is a single com
 
 ### Form
 
-- **Button** — *not yet briefed.* `scope: tone / size / shape / emphasis matrix, the icon-button vs. icon-with-label boundary, loading state, link-vs-button semantics, destructive-action confirmation.`
+- **[Button](button.md)** — the action trigger, not navigation: the two-axis intent + appearance model over a single overloaded variant enum, the link-vs-button boundary, native-disabled vs. focusable-inactive, and the delayed-spinner / width-preserving loading contract. *stable* — the catalogue's calibration brief.
 - **Text Field** — *not yet briefed.* `scope: label / placeholder / helper / error stack, the autocomplete contract, prefix/suffix slots, password-reveal pattern, validation timing.`
 - **Textarea** — *not yet briefed.* `scope: auto-resize behaviour, character counter, paste-handling, the textarea-vs-rich-text boundary.`
 - **Select** — *not yet briefed.* `scope: native vs. custom, multi-select model, group/option structure, the select-vs-combobox decision.`
