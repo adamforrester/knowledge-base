@@ -3,7 +3,7 @@ type: practice-area
 title: Gaps and Open Questions
 description: Practice gaps and unanswered questions across the corpus. Sourced inventory of what we don't yet have a POV on.
 tags: [gaps, open-questions]
-timestamp: 2026-06-10
+timestamp: 2026-06-14
 ---
 
 # 09 — Gaps & Open Questions
@@ -71,6 +71,7 @@ Areas where the collective source material is thin or silent. These are the high
 - **Per-component template gap closed by 29-per-component-documentation-template (June 2026).** The practice now ships a 17-section template (header / summary / live example / purpose / when-to-use / avoid-when / anatomy / props/API / states / variants / examples / do-don't / accessibility / content guidelines / composition-and-related / changelog / conformance dossier), with conditional rendering per component-type, a CI freshness check, per-section minimum-prose rules, and a YAML version-zero schema the practice pulls off the shelf in week one of every engagement. The MDX template, the `.ai.json` schema mapping, and the conformance-dossier aggregation pattern are practice IP.
 - Tooling opinion has firmed up (29 §6 carries the decision framework: Storybook + MDX as engineering default; Zeroheight / Supernova / Knapsack as hosted alternatives by client shape; self-hosted as default for regulated and EAA-procurement clients).
 - **Generated-from-data as commercial default articulated by 30-generated-from-data-documentation (June 2026).** The pipeline (source format choices, five generation targets, CI surface, single-source-of-truth file structure, the authoring seam), the upfront engineering investment (~50–80 hours Phase 1 only; ~108–216 hours full Phase 1+2+3), the per-component hours redistribution (2–8 hours generated vs. 4–11 authored, ~3–6 hours saved per component), the ~30-component break-even, the 5-question decision tree (3-of-5 = mandate generation), the two-phase migration playbook, the four-prerequisite cluster relationship to AI-readiness, and the phased adoption (clients land Phase 1 in initial proposal, Phase 2/3 in retainer) are now committed practice POV. The residual that remains is *shipping it* — the next engagement actually itemising the pipeline as a Foundations-tier line item rather than absorbing it as overhead.
+- **Per-component field-truth gap closed by `components/` catalogue (June 2026).** The new authoritative tier ships ~40 per-component briefs across the seven categories. Each brief is a 15-section field-truth study (framing / anatomy / properties / states / usage / accessibility / content / motion / i18n / naming / implementation / related / POV evolution / sources / agent-consumable schema). The §15 schema is the seed an engagement instantiates into its component data file (per 30). Briefs are written through the existing `_research/` dual-agent workflow with a purpose-built prompt template at `_research/_component-prompt-template.md`. The catalogue is the upstream artefact 29's docs page is built from. Intake is engagement-driven; gap visibility lives in `components/index.md`.
 
 ### 1.11 Glossary
 - Mall's Activity #25 framing (glossary as a *negotiation* between disciplines) is missing from the practice's commercial flow. Most engagements treat glossary as a docs appendix.
