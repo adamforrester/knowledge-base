@@ -251,6 +251,8 @@ Forms concentrate a11y complexity because errors compound:
 - **Above-the-input labels** translate cleanly across locales (see 13-internationalization-and-rtl); inline labels (label-on-the-left) break with text expansion.
 - **Disabled / read-only / error states must be visually and programmatically distinct,** never color-only.
 
+Text Field is the canonical worked example for all of the above — the label-association contract, the `aria-describedby` helper+error chain, the polite-live-region character counter, `autocomplete` as the SC 1.3.5 Identify Input Purpose obligation (a criterion this file under-states), and read-only ≠ disabled — in components/text-field.md §6.
+
 ### Interactive state coverage
 
 Every interactive element has states that must be visually distinct *and* accessible:

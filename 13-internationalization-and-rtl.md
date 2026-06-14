@@ -85,7 +85,7 @@ A single rule using `margin-inline-start: 16px` works in both LTR and RTL contex
 
 **Browser support is now near-universal** for the core logical properties (margins, padding, borders, inset, text-align, sizing). Corner-radius logical equivalents and intrinsic-sizing logical equivalents shipped later but are also widely supported by 2026. **We treat physical properties as legacy and write logical from new code.** Whether to refactor existing CSS depends on whether the product is going RTL — and we should be asking that in Discovery.
 
-**For inline content that bucks the document direction** — a Latin URL inside an Arabic paragraph, a code snippet inside an RTL UI — the right tool is the `<bdi>` element or `dir="ltr"` attribute on a span, plus `unicode-bidi: isolate` in CSS. These prevent the bidi algorithm from re-ordering content that has its own internal direction.
+**For inline content that bucks the document direction** — a Latin URL inside an Arabic paragraph, a code snippet inside an RTL UI — the right tool is the `<bdi>` element or `dir="ltr"` attribute on a span, plus `unicode-bidi: isolate` in CSS. These prevent the bidi algorithm from re-ordering content that has its own internal direction. Text Field is the worked example inside a control: set `dir="auto"` on the input so a typed value (a Latin email or phone number) renders correctly regardless of UI direction, and guard validation during IME composition so CJK input isn't validated mid-keystroke — see components/text-field.md §9.
 
 ### Component mirroring rules
 

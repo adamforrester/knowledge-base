@@ -52,7 +52,7 @@ A flat catalogue of per-component field-truth briefs. Each brief is a single com
 ### Form
 
 - **[Button](button.md)** — the action trigger, not navigation: the two-axis intent + appearance model over a single overloaded variant enum, the link-vs-button boundary, native-disabled vs. focusable-inactive, and the delayed-spinner / width-preserving loading contract. *stable* — the catalogue's calibration brief.
-- **Text Field** — *not yet briefed.* `scope: label / placeholder / helper / error stack, the autocomplete contract, prefix/suffix slots, password-reveal pattern, validation timing.`
+- **[Text Field](text-field.md)** — the data-capture primitive where accessibility, validation, and composition collide: bundled-props vs. composed-slots resolving to a hybrid, the graduated typed-family split (NumberField separate; email/url/tel as type+attrs), placeholder-is-not-a-label with static top labels, read-only ≠ disabled, the aria-describedby chain and the polite character counter, and presentational-by-default validation. *stable* — the second brief; calibrates the encapsulation-boundary and accessibility-wiring axis.
 - **Textarea** — *not yet briefed.* `scope: auto-resize behaviour, character counter, paste-handling, the textarea-vs-rich-text boundary.`
 - **Select** — *not yet briefed.* `scope: native vs. custom, multi-select model, group/option structure, the select-vs-combobox decision.`
 - **Combobox** — *not yet briefed.* `scope: ARIA 1.3 combobox pattern, async option loading, free-text vs. enumerated, multi-select, the popover positioning model.`
