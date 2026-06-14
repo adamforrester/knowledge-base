@@ -3,7 +3,7 @@ type: practice-area
 title: AI in Design Systems
 description: AI integration across the DS lifecycle. Components-as-data as architectural prerequisite. MCP, Figma MCP and Code Connect, three-level context maturity, the four-prerequisite minimum architecture.
 tags: [extension, ai, mcp, components-as-data, code-connect]
-timestamp: 2026-06-10
+timestamp: 2026-06-14
 ---
 
 # 15 — AI in Design Systems Practice
@@ -468,6 +468,8 @@ This is what "AI-ready DS architecture" looks like in 2026. **Most teams have pi
 ### Semantic naming as compressed sentence
 
 A reinforcing detail: token names like `surface/action/primary/rest` are AI-readable specifically because they read as compressed sentences. The semantic structure carries intent. **Visual names** (`blue-500`) **strip intent and force AI to extrapolate.** This is the same point made in 02-design-foundations on naming as compressed sentences — restated here because the AI-readability of the system depends on it.
+
+**The components/ catalogue is the per-component layer the four-layer stack assumes.** Per 03's *Per-component briefs* section, every brief in `components/` carries a §15 *Agent-consumable schema* — a free-form YAML block that is the practice's opinionated default `.ai.json` shape for the component. When this vault is eventually exposed via MCP (per the long-term plan in CLAUDE.md), an extractor parsing those fenced YAML blocks from `components/*.md` is the per-component-registry surface an agent actually consumes. The catalogue is what makes the AI-readiness story materially testable per-component, not aspirationally per-system.
 
 ---
 
