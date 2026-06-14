@@ -3,7 +3,7 @@ type: practice-area
 title: Per-Component Documentation Template
 description: The shape of a single component's documentation page — sectional spine, per-section depth, four-audience entry points, generation-vs-authoring seam, tooling decisions, anti-patterns, the version-zero schema the practice ships in week one.
 tags: [extension, documentation, components, mdx, storybook, ai-json, mcp]
-timestamp: 2026-06-13
+timestamp: 2026-06-14
 ---
 
 # 29 — The Per-Component Documentation Template
@@ -32,6 +32,8 @@ A template that surfaces each audience without forcing them to read the whole pa
 **The "trust the docs" cliff.** Trust is asymmetric: it takes weeks of consistent experience to build per consumer and minutes to lose. Once a consumer finds one wrong page — one out-of-date prop default, one component marked stable that's actually deprecated, one accessibility note that contradicts the live build — they stop trusting the entire site. The template is a contract that bounds where wrong-ness can live. If the props table is generated from the component data file, the props can never lie. If the accessibility section is `.ai.json`-derived and the schema is enforced in CI, the accessibility note can never lie about what the component does. The structural discipline is what makes single-source-of-truth generation tractable; without it, the source of truth fragments across the prose authors.
 
 **The relationship to ACR / VPAT evidence.** Per 28-web-accessibility-implementation §8 and 14-accessibility, every component page is a per-component conformance dossier in microcosm. The consuming product's ACR aggregates per-component dossiers with application-level evidence; without the per-component dossier slot in the template, the consuming product's accessibility lead has to reverse-engineer it from the docs site. This is a real engagement-end cost the practice currently absorbs and could ship as a default deliverable instead. As GitHub Primer's accessibility annotations demonstrate, accessible components do not automatically guarantee accessible designs — the documentation must explicitly bridge the gap *(external)*. The template's accessibility section is what makes the bridge default.
+
+**The brief is upstream of the docs page.** The template described in this file is the *output* — the artefact the practice ships to a client. The *input* is the per-component brief: the field-truth study that establishes what the component is, how the leading systems handle it, and what the practice's opinionated default is. The brief is the source the docs page authors draw from; the §15 schema embedded in the brief is the seed the engagement instantiates into its component data file (per 30). Without the brief, every engagement's docs page reinvents the field survey, the prop convergence analysis, and the accessibility decision tree from scratch. (See `components/index.md` for the catalogue.)
 
 ---
 
