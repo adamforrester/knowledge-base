@@ -56,6 +56,10 @@ A personal knowledge base on design systems consulting, maintained by Adam Forre
 * [Per-Component Documentation Template](/29-per-component-documentation-template.md) - The 17-section spine of a single component's docs page, per-section depth, four-audience entry points, generation-vs-authoring seam with CI freshness check, tooling decisions, anti-patterns, the version-zero YAML schema the practice ships in week one.
 * [Generated-From-Data Documentation as Commercial Default](/30-generated-from-data-documentation.md) - The architecture that treats the component data file as the source of truth, the pipeline shape, the upfront engineering investment with phased adoption (Phase 1 baseline / Phase 2 Code Connect and Figma sync / Phase 3 custom MCP server), the per-component hours redistribution, the ~30-component break-even, the 5-question decision tree, the migration playbook, the cluster relationship to AI-readiness, the commercial pitch, and the tooling realities where the field is genuinely behind in 2026.
 
+## Component briefs
+
+* [Component Briefs Catalogue](/components/index.md) - Field-truth studies of individual components — how the leading systems handle them, where they converge, where they diverge, and the practice's defaults. Upstream of 29's docs page and 30's data file.
+
 ## Vocabulary
 
 * [Glossary](/GLOSSARY.md) - Vault-specific and practice-adjacent vocabulary. Common DS terms not defined; reach for it when a term reads as internal-tier IP.
