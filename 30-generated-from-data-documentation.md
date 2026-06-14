@@ -16,6 +16,8 @@ timestamp: 2026-06-14
 
 Generated-from-data documentation rests on a single load-bearing decision: **the component data file is the source of truth.** Every consumer of the docs — Storybook, MDX docs site, `.ai.json` registry served via MCP, Figma library properties, AI-assistant catalog, conformance dossier — derives its content from this source. Per 29-per-component-documentation-template, 03-component-library, and Curtis (*Components as Data*, Sep 2025), this is the architectural answer the practice has accepted. The questions for this file are about the *shape* of the source, the *consumers* that derive from it, the *seams* where authoring still happens, and the *commercial transition* that converts the architecture into a sellable scope item.
 
+**The data file's seed is the per-component brief.** Per 03's *Per-component briefs* section and `components/index.md`, every component in the practice's catalogue carries a §15 *Agent-consumable schema* — a free-form YAML block that is the structured projection of the brief's prose. The brief's §15 is not the engagement's source of truth (that is the engagement's component data file in its own codebase); it is the seed that data file is instantiated from. The brief documents what the practice would ship if starting from scratch; the engagement's reality — existing component model, framework choice, brand-specific extensions — overrides where it has to. The two-source-of-truth concern dissolves once the relationship is read this way: the brief is upstream and prescriptive; the engagement's data file is downstream and authoritative for that codebase.
+
 ### Source-format choices
 
 Three credible source formats in 2026, with materially different downstream consequences.
