@@ -3,7 +3,7 @@ type: practice-area
 title: Component Library
 description: Component model — anatomy, properties, layout, composition primitives, components-as-data. Web rendering target assumed; mobile in 11.
 tags: [phase, components, components-as-data]
-timestamp: 2026-06-10
+timestamp: 2026-06-14
 ---
 
 # 03 — Component Library
@@ -201,6 +201,14 @@ Extended set (Option 2): Modal / dialog with scrim; Data table (basic structure,
 5. **How many components in MVP?** CareCentrix Option 1 ships ~8 core components. InVision MVP (2020) recommends "*only three* component groups." Practice can defend 8 as appropriate scope for an enterprise internal-tooling client; 3 is right for a fast-moving product team. Discovery should determine which.
 6. **Component-level accessibility annotations as standard deliverable.** Practice does not yet ship a documented accessibility-annotation standard per component. Worth defining: focus states, ARIA roles, keyboard interaction, screen-reader labels, error states with content guidance. This is the most under-articulated practice gap in the phase.
 7. **Higher-order compositional blocks as registry entries.** Figma (2025) makes a strong case for cards, headers, carousels as the right unit for AI generation. The practice's UIC series stops at the component layer. Adding "block" or "pattern" entries to the `.ai.json` registry — with their own metadata — would close the gap.
+
+## Per-component briefs
+
+03 is the practice's POV on the *component model* — anatomy, properties, composition, the configure-and-compose framing, the decision rules that apply across components. The model is system-level; it tells us *how* to think about any component but stops short of telling us how to think about *this* component. The seam between system-level model and per-component reasoning is where every engagement currently re-derives the same field-truth study from scratch — what does Polaris do, what does Spectrum do, what does Material call this, where does Carbon land on the API.
+
+The **components/** catalogue closes that seam. It is a flat directory of per-component briefs, each one a 15-section field-truth study of a single component: framing, anatomy, properties/API, states and variants, usage guidance, accessibility, content guidelines, motion, internationalization, naming, implementation notes, related components, field POV evolution, sources cited, and an embedded agent-consumable schema. Briefs are written in the same prose-led, opinionated, first-person-plural voice as the numbered files. They are not docs pages — that is what 29's template ships. They are the *upstream* artefact: the practice's opinionated default the docs page is built from and the engagement's `.ai.json` is seeded from. (See `components/index.md` for the catalogue and the seed target list of ~40 components across the seven categories.)
+
+The §15 agent-consumable schema is what makes the catalogue load-bearing for the AI-readiness story. Per 30, the engagement's component data file is the source of truth in *its* codebase; per 15, the four-layer AI documentation stack assumes a per-component machine-readable layer exists. The brief's §15 is the seed an engagement copies and instantiates. Free-form YAML for the first ~5 briefs; the schema formalises after the shape has stabilised through real use.
 
 ## Failure modes specific to this phase
 
