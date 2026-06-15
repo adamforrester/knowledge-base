@@ -15,6 +15,8 @@ A flat catalogue of per-component field-truth briefs. Each brief is a single com
 
 ## How this catalogue works
 
+**Platform scope.** The catalogue is web-primary with mobile as a reference dimension. The web is the authoritative API surface — properties, accessibility, and implementation are written against HTML/ARIA/React; mobile systems (Apple HIG, Material 3 Compose, Fluent) are cited only where a component genuinely diverges on touch or native behaviour. This is a deliberate commitment: most agency DS work is web-first and the `.ai.json` seed comes off the web API surface. A standing native-API section or a platform-agnostic abstraction is a future decision, not the current shape.
+
 **Brief shape.** Every brief follows a 15-section spine: framing, anatomy, properties/API, states and variants, usage guidance, accessibility, content guidelines, motion, internationalization, naming, implementation notes, related and alternative components, field POV evolution, sources cited, and an embedded agent-consumable schema. Sections scale to component complexity — a brief on `Button` will be longer than a brief on `Divider`, and that is correct. Voice and depth match the numbered files: prose-led, opinionated, citations to real systems with version dates.
 
 **Research workflow.** Briefs use the existing `_research/` dual-agent workspace with a purpose-built prompt template at `_research/_component-prompt-template.md`. Dual-agent is the default for any component where the field is contested; claude-only is allowed for components where the field genuinely converges (Divider, Spinner, simple primitives). The choice is recorded by the contents of the research folder — presence of `external-agent.md` means dual-agent, absence means claude-only.

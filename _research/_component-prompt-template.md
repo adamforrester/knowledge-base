@@ -15,6 +15,12 @@ If unsure, ask: is the output a numbered file or a component brief? That answers
 
 ---
 
+## Platform scope
+
+The catalogue is **web-primary with mobile as a reference dimension**, and this is a deliberate commitment, not a gap. The web is the authoritative API surface: sections 3 (properties/API), 6 (accessibility), and 11 (implementation) are written against HTML/ARIA/React. Mobile systems (Apple HIG, Material 3 Compose, Microsoft Fluent) are cited only where a component genuinely diverges on touch or native behaviour — a mobile pressed state, a platform keyboard, a native control with no clean web equivalent. The brief does not carry a standing native-API section, and it does not abstract the API to platform-agnostic concepts; doing either is a future decision, recorded here if it changes. Most agency DS work is web-first, and the `.ai.json`/MCP story is seeded from the web API surface — that is why the posture sits here.
+
+---
+
 ## When to deviate
 
 The 15-section spine is the contract. Deviation is rare, and is recorded in the synthesis. Reasons that justify deviation:
