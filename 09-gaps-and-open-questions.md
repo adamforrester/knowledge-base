@@ -141,6 +141,34 @@ This will become a procurement-grade requirement for regulated industries (healt
 - Approaches that work in 2026: build-time scans of compiled CSS for web; Style Dictionary plugins emitting a usage manifest for native; product analytics with token tags for surfaces where the deeper telemetry matters.
 - The practice has not yet shipped any of these as a default deliverable. Surface in portfolio engagements past two years' operation. (See 24-tokens-at-scale.)
 
+### 1.25 Typography deepening (open within 23)
+- 23-typography-tokenisation.md is strong on tokenisation, modular scales, fluid type, variable fonts, line-height, multi-script, and native translation. Three named subtopics remain thin and warrant a deepening pass within 23 (not a new file):
+  - **Type pairing as a system.** Display + text + mono triads, what makes a pairing fail, the contrast-of-personality discipline (humanist-vs-grotesque, modulated-vs-monoline). Currently absent.
+  - **Font loading and performance.** FOIT/FOUT strategy, `font-display`, subsetting, the variable-axis cost vs. multiple weight files, the `<link rel="preload">` discipline. Currently absent.
+  - **Brand voice in type choices.** The soft side — how tone is encoded in serif/sans/grotesque/humanist decisions, how a system carries a brand's voice without micro-managing every text style. Currently absent.
+- Vertical rhythm / baseline grid is mostly dead on the web but still asked about; worth a one-paragraph "where this stands" treatment for inheritance from print-design clients.
+- Heading semantics (H1–H6) vs. visual scale is a Type-Scale-vs-DOM-Tag decoupling worth naming explicitly. Currently implicit.
+- Likely path: a single dual-agent run scoped to the three subtopics, synthesised back into 23 as new sections rather than a sibling file.
+
+### 1.26 Team-building / DS-team-as-discipline (split out from 07 + 00d)
+- Team-structure content is currently split across `00d-commercial-model.md` (roles, hours, minimum viable teams, CareCentrix reference) and `07-governance-and-adoption.md` (governance models, Curtis's 1:2 ratio, lead roles, contribution model, communities of practice, comms structure).
+- That split is governance-leaning; the *team-as-discipline* layer is underdeveloped. Named gaps:
+  - **Hiring and skill mix.** What makes a strong DS designer vs. a product designer; the design-technologist role as a specific archetype; what the DS lead actually owns; the "T-shape" expected of a DS engineer.
+  - **Building from one person to a core team.** The Part Timer → Allocated Individual → Dedicated Team arc is *named* in 07 but not operationalised: what to hire when, what signals a stage transition, where the practice's engagements are typically stuck.
+  - **The agency → client team handoff.** The practice's *constant* problem — leaving a maintainable team behind, not just a maintainable system. Currently glanced at; deserves its own treatment.
+  - **Internal team rituals.** Daily/weekly DS-team cadence (vs. the external comms structure 07 covers well).
+  - **Career paths.** IC vs. lead, principal track, where DS people go after DS.
+  - **Distributed/global team patterns.** Timezones, async, hand-offs — material to VML.
+  - **Team health and burnout patterns** specific to DS work.
+- Likely path: a new file (e.g. `32-ds-team-building.md` or `00e-team-and-discipline.md` if positioned as a 00-level cross-cutting concern) so 07 keeps focusing on governance/adoption and the new file owns the team-as-discipline layer. Decide the slot before the run.
+
+### 1.27 Color-side follow-ups from the 31 dual-agent run
+- Three claims in 31-color-systems.md are flagged in the provenance footer as needing `_source-text/` backing before being quoted verbatim in client-facing artefacts:
+  - **MINDE Chroma Reduction algorithm name** (the external pass surfaced this for CSS Color 4's chroma-reduction gamut-mapping default). The *category* is correct; the algorithm-name attribution needs a primary source (CSS Color 4 spec or implementation notes).
+  - **APCA Lc threshold table specifics** (per-tier font-size and weight floors). Needs the Myndex/SAPC-APCA repo or W3C WCAG 3 working draft as the canonical source before quoting in workshops or proposals.
+  - **DTCG `colorSpace: "display-p3"` schema field** — verify against the current Format Module spec at tr.designtokens.org/format/.
+- One open watch item: **`color-mix()` / relative-color-syntax tooling support in Style Dictionary** (mid-2026: not in core; community asking). Re-check the Style Dictionary changelog quarterly; if a `color-mix` transform lands, the recommendation in 31 §1 (web-only state derivation vs. explicit cross-platform state tokens) updates.
+
 ---
 
 ## 2. Temporal gaps
