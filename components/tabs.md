@@ -108,11 +108,11 @@ The converged compound naming mirrors the ARIA roles: **`Tabs`** (root/state) / 
 ## 12. Related and alternative components
 
 - **Composes with:** TabList/Tab/TabPanel (the parts), Icon (tab icons — see icon), Badge (count), Button/Icon (the close affordance on closable tabs), the overflow Menu.
-- **Alternative to:** Segmented Control (value-in-place — see segmented-control), a nav of links (routing — the boundary; `aria-current`, not `role=tab`), Accordion (vertical/multi-open/mobile), Stepper/Wizard (sequential), Carousel (auto-advancing peer content).
+- **Alternative to:** Segmented Control (value-in-place — see segmented-control), a nav of links (routing — the boundary; `aria-current`, not `role=tab`), Accordion (vertical/multi-open/mobile — see accordion), Stepper/Wizard (sequential), Carousel (auto-advancing peer content).
 - **Supersedes:** ad-hoc show/hide `<div>`s without the tablist ARIA; `role=tab` misused for routing (→ nav links).
 - **Superseded by:** Accordion on narrow viewports; a nav landmark when it is really routing.
 
-(The first Navigation brief; shares the roving-tabindex + sliding-indicator mechanics with segmented-control but owns panels — see segmented-control for the boundary from its side, button for the close affordance, icon/badge for tab adornments. 03-component-library; 29 for the docs template. Accordion and the routing `TabNav`/Link are the adjacent Navigation briefs to come.)
+(The first Navigation brief; shares the roving-tabindex + sliding-indicator mechanics with segmented-control but owns panels — see segmented-control for the boundary from its side, button for the close affordance, icon/badge for tab adornments. 03-component-library; 29 for the docs template. Accordion (see accordion) is the vertical cousin; the routing `TabNav`/Link is the adjacent Navigation brief to come.)
 
 ## 13. Field POV evolution
 
