@@ -1,14 +1,14 @@
 ---
 type: practice-area
 title: Typography Tokenisation
-description: Three-tier mandatory typography stack, modular scales with the display pivot, fluid type with clamp() + container queries + rem-floor accessibility rule, variable fonts as tokenisation, multi-script as DTCG modes.
-tags: [extension, typography, tokens, dtcg, fluid-type, variable-fonts]
-timestamp: 2026-05-16
+description: Three-tier mandatory typography stack, brand voice as a system constraint, type pairing as a token-system decision, modular scales with the display pivot, fluid type with clamp() + container queries + rem-floor accessibility rule, variable fonts as tokenisation, font loading and CWV-tuned font-display, metric-matched fallbacks, multi-script as DTCG modes.
+tags: [extension, typography, tokens, dtcg, fluid-type, variable-fonts, type-pairing, font-loading, brand-voice]
+timestamp: 2026-06-15
 ---
 
 # 23 — Typography Tokenisation
 
-> Typography is the most under-tokenised foundation in the design systems our practice audits — colors and spacing are usually tokenised; typography is usually a list of styles with one or two ratios behind them and no architecture. The 2024–2026 platform shifts (DTCG 2025.10 composite typography, fluid type with `clamp()`, container queries reaching wide support, variable fonts as first-class, native Dynamic Type / sp / `LineHeightStyle.Trim`) have changed what good typography tokenisation looks like. This file is the depth our existing 02-design-foundations and 12-figma-practice files don't reach: the shape of a typography token set, modular scales with the display pivot, fluid type and container queries, variable fonts as a tokenisation problem, line-height discipline, multi-script, native platform translation, and the AI-readable description schema typography benefits from most.
+> Typography is the most under-tokenised foundation in the design systems our practice audits — colors and spacing are usually tokenised; typography is usually a list of styles with one or two ratios behind them and no architecture. The 2024–2026 platform shifts (DTCG 2025.10 composite typography, fluid type with `clamp()`, container queries reaching wide support, variable fonts as first-class, native Dynamic Type / sp / `LineHeightStyle.Trim`, font-loading metrics-instrumented around LCP/INP/CLS, metric-matched fallbacks closing the FOUT gap) have changed what good typography tokenisation looks like. This file is the depth our existing 02-design-foundations and 12-figma-practice files don't reach: the shape of a typography token set, brand voice as a system constraint, type pairing as a token-system decision (not an art-direction one), modular scales with the display pivot, fluid type and container queries, variable fonts as a tokenisation problem, font loading and performance, line-height discipline, multi-script, native platform translation, and the AI-readable description schema typography benefits from most.
 
 ---
 
@@ -92,6 +92,98 @@ The `system-ui` family name engages the host OS's native font (San Francisco on 
 
 Variable fonts are tagged explicitly in the family name or in `$extensions`; the build pipeline reads the tag to know whether to emit weight tokens as continuous numerics or as named keywords.
 
+### Heading semantics vs. visual scale — the type-scale-vs-DOM-tag decoupling
+
+The DOM heading level (`<h1>`–`<h6>`) and the typography composite that styles it are independent decisions. The DOM level is a structural and accessibility decision — it dictates the document outline screen readers expose, and the SEO and outline-extraction tools that parse heading hierarchy. The visual scale is a presentation decision — which typography composite carries the visible hierarchy. **The two are decoupled, and the token system has to encode the decoupling explicitly.**
+
+A page can ship an `<h1>` styled with `heading/medium` (visually restrained for a tertiary surface) and an `<h2>` styled with `display/xl` (visually dominant for a marketing section). The semantic structure satisfies the AT navigation contract; the visual scale carries the eye-tracking hierarchy for sighted users. Both are correct; neither is determined by the other.
+
+The practitioner pattern in component briefs: heading components accept a `level` prop (semantic — `1`–`6`) and a `size` prop (visual — references a typography composite). The two are decoupled at the API. Per-component briefs (Heading, Page Title, Section Header, Card Title, Dialog Header) carry the level/size combinatorics and the contexts each combination is appropriate for. Lint rules and accessibility checks validate the level structure (no skipped levels; one `<h1>` per page where the convention applies); they don't validate the visual size.
+
+The token-naming consequence: the type-scale composites (`display/xl`, `display/l`, `heading/xl` through `heading/s`, `body/large` through `body/small`) **are not bound to specific DOM heading levels and must not be named for them.** A composite called `h2` encourages consumers to bind size to level; a composite called `heading/large` encourages the structural decision the system actually wants. Documentation that says "use `heading/large` for `<h2>`" is wrong; documentation that says "use `heading/large` for the visual prominence appropriate to a section subtitle, with the DOM level determined by document structure" is right.
+
+---
+
+## Brand voice in type choices
+
+Typography is the single largest carrier of brand voice in an interface. Color and spacing express tone at the margin; type expresses it on every surface, in every word, at every size. The system has to encode the voice as a foundation decision, not leave it to consumers to express art-direction-style on every surface — and equally has to know where the system's voice stops and per-instance art direction begins.
+
+### Tone as a property of category — and where the vocabulary breaks
+
+The literature offers a connotation vocabulary the design-aware reader has assimilated:
+
+- **Humanist sans** — warm, approachable, contemporary, human-centred. Open apertures, calligraphic traces, modulated stroke weight. Frutiger, Open Sans, Lato, Source Sans, Fira Sans, Plex Sans.
+- **Neo-grotesque sans** — neutral, modern, institutional. Closed apertures, low stroke contrast, geometric uprightness. Helvetica, Akzidenz Grotesk, Inter, Söhne, Aktiv Grotesk, Neue Haas Grotesk.
+- **Geometric sans** — engineered, precise, technical. Constructed from circles and lines, low warmth, high regularity. Futura, Avenir, Circular, DM Sans, Geist.
+- **Slab serif** — solid, editorial, mechanical, weighty. Heavy bracketed or unbracketed serifs, even stroke weight. Rockwell, Roboto Slab, Tiempos Slab.
+- **Modulated serif** — authoritative, traditional, intellectual, classical. High thick-thin contrast, calligraphic origins. Garamond, Didot, Bodoni, Tiempos, Source Serif, Editorial New.
+- **Monoline / rounded** — casual, friendly, contemporary, soft. Even strokes, rounded terminals. Nunito, Quicksand, the lighter Avenir cuts.
+
+The vocabulary is a useful starting heuristic and a dangerous final answer. **The same category reads differently across cuts.** A 1957 neo-grotesque (Akzidenz Grotesk) reads as historical and weighted; a 2017 neo-grotesque (Inter) reads as contemporary and software-y. A humanist sans designed for screens (Source Sans) reads differently from a humanist sans designed for print (Frutiger). The category is a coarse signal; the specific cut is the precise one. A second caveat that practitioners over-index away from: **typographic literacy varies, and the typical user reads typography as competence ("does this look professional / appropriate / on-brand?"), not as voice.** The fit-for-surface judgement matters more than the connotation game.
+
+The category-signal alignment is the floor, not the ceiling. The failure modes the discipline does prevent are real and visible: a legacy financial institution using a rounded humanist sans reads as a fintech startup; a consumer-facing playful product using an austere neo-grotesque reads as enterprise software; a heritage editorial brand using a contemporary geometric sans reads as a tech blog. **The typographic category must align with the brand's positioning; the cut within the category is the systemic decision the practice owns.**
+
+### Voice as an immutable system constraint
+
+The system carries the voice in the *category-and-cut decision* (the families chosen), the *scale ratio* (the modular scale's interval), the *line-height discipline* (tight-and-tall vs. open-and-low), the *optical size pivot* (where display typography starts and how it differs from text), and the *feature-set defaults* (which OpenType features are on by default). These are foundation decisions, made once, locked into the token tree, inherited by every consumer. A developer building a card component does not choose a typeface or a weight; they reach for `typography/card-title`, which inherits the system's encoded tone.
+
+The discipline that prevents typographic drift: subjective decisions move out of the component layer and into the foundation token layer. **Brand voice in type ceases to be a system concern when the typographic decision is per-instance** — this hero, this campaign, this article. There the system supplies primitives (the families, the weights, the scale, the colour) and the consumer composes. Where the decision is per-class — every heading, every body paragraph, every numeric column — the system supplies the composite and the consumer applies it. The system encodes classes, not instances.
+
+A common system-degradation pattern: instance decisions seeping into class definitions. The marketing team adds a campaign-specific tracking value to a hero composite; the value sticks because no one removed it; six months later every page using that composite reads with the campaign-era tracking. The discipline that prevents this: composites version, and instance-specific overrides ship as composition deltas at the consumer site, not as edits to the composite.
+
+### Translating brand brief into typographic tokens
+
+A brand brief like *"approachable but expert, contemporary but grounded"* translates to typographic decisions through compounded choices. The translation is not deterministic — multiple typographic outcomes can satisfy the same brief — but the *space of viable outcomes* is constrained by the brief's vocabulary.
+
+A worked example: "approachable but expert."
+
+- **Text family.** Approachable → humanist sans with open apertures and subtle warmth (rules out neo-grotesque coldness, rules out geometric precision). Expert → competent humanist with rigour at small sizes (rules out the warmest cuts that read as casual). Candidates: Source Sans 3, Inter (the warmer end of neo-grotesque), Söhne Buch, Public Sans, Plex Sans.
+- **Display family.** Expert → modulated serif (intellectual, authoritative). Approachable → modern modulated serif rather than historical (rules out Bodoni's coldness, Garamond's archaism). Candidates: Tiempos Headline, Editorial New, Source Serif, Reckless.
+- **Mono family.** Lower-stakes; the mono is rarely a brand-voice carrier. Pick a credible system-compatible face that aligns metrically with the text family (JetBrains Mono, IBM Plex Mono, Söhne Mono, Geist Mono).
+- **Modular scale ratio.** Approachable → moderate ratio (1.200 minor third). Expert → enough difference between scale steps for clear hierarchy (rules out 1.125 minor second's undifferentiation).
+- **Line-height discipline.** Approachable → generous body line-height (1.5–1.6). Expert → controlled headings (heading line-heights tighter than body; signals deliberateness).
+- **Letter-spacing.** Tight at display sizes (negative tracking on display composites); default at body sizes; tabular numerals on data tables.
+
+The token output is a small set of primitives (3 family roles, 9 weight values, 12-step scale, 6 line-height multipliers, 3 letter-spacing values, 4 OpenType feature sets) and a derived composite tier (15–25 composites). The brief is encoded; consumers compose against it. The same brief can be satisfied by multiple plausible outcomes; the practitioner's job is to pick a viable outcome and defend it against the brief's vocabulary, not to find *the* unique answer.
+
+### Display tone vs. text tone — the asymmetric pattern
+
+The most common 2026 pattern: **monumental display + invisible text.** The display face carries 100% of the brand's expressive weight; the text face is neutral, work-horse, optimised for reading. Examples track the field's leading systems:
+
+- **Stripe** — Söhne (display, bespoke-feel, idiosyncratic) plus Söhne Mono and a quiet text cut.
+- **Linear** — Inter Display (display) plus Inter (text); both from the Inter family but with `opsz` retuning the display cut.
+- **Vercel / Geist** — Geist (display, geometric, contemporary) plus Geist Mono plus Geist (text, optically retuned).
+- **Wired** — Cooper (display, distinctive, brand-defining) plus a clean text cut.
+- **Bloomberg Businessweek** — Neue Haas Grotesk Display (commissioned revival) plus a workhorse text cut plus a custom Agate Mono drawn for tabular financial data.
+
+The pattern works because the display face is where the user spends the milliseconds of brand-impression formation, and the text face is where the user spends the minutes of reading. The display face must signal; the text face must disappear. The asymmetry is the point.
+
+The inverse pattern — neutral display plus characterful text — is rare and surfaces in long-form editorial, academic publishing, and brands whose value is in reading rather than impression. **In multi-brand systems, the asymmetry pushes further:** the text face unifies across brands (one workhorse, optimised for performance and legibility), and only the display face varies per brand. The text face carries operational coherence; the display face carries each brand's identity. Engagements past three brands almost always settle here; the full-asymmetric (every brand has its own display *and* text) is too expensive to maintain at portfolio scale and is rarely justified by user-perceived brand differentiation.
+
+### Type as brand asset vs. type as commodity
+
+The decision matrix:
+
+- **Commissioned / bespoke.** A foundry draws a face specifically for the brand. Cost typically $80,000–$300,000+ for a 3–5 weight family with web licensing; 6–18 months timeline. Examples: Stripe's Söhne (Klim, originally licensed and now broadly identified with Stripe), Wired's Cooper revival, Bloomberg Businessweek's Neue Haas Grotesk revival (Commercial Type), Apple's San Francisco, Google's Roboto, IBM's Plex, Netflix Sans, Airbnb Cereal. Reserved for brands where typographic distinctiveness is a competitive position. The asset compounds — a commissioned face becomes a recognisable brand element decoupled from logo and colour.
+- **Licensed independent foundry.** The brand licenses an existing face from a respected independent foundry — Klim, Commercial Type, Grilli Type, Production Type, OH no Type Co., Pangram Pangram, Typotheque, Lineto, Dinamo. Cost typically $5,000–$50,000 for a 2–4 weight family on a domain or pageview tier; days to weeks. **The optimal sweet spot for most agency engagements** — the face has craft and distinctiveness; licensing is tractable; the foundry is a partner for future expansion (script extensions, additional weights, custom alternates).
+- **Open-source.** Inter, IBM Plex, JetBrains Mono, DM Sans, Geist (Vercel-released), Public Sans (US government), Source Sans. Zero licensing; days to integrate. Reserved for engagements where typographic distinctiveness isn't a competitive lever, for low-budget engagements, for internal tooling, and for the text/UI/mono roles in a hybrid setup where the display face is licensed.
+
+The convergent agency-budget pattern is **licensed display + open-source text.** The display face carries the brand's distinctiveness; the text face carries the workhorse load; the licensing budget concentrates where it produces brand value. Most B2B SaaS brands shipping in 2024–2026 have settled here. **The "brand smell" rule:** relying entirely on commodity Google Fonts for a brand-critical engagement signals under-investment in typographic identity. The senior practitioner's read is that the brand hasn't decided what its typography should say. The exception is engagements where Inter, IBM Plex, or Geist *is* the deliberate choice — these faces have enough craft and recognition that using them is a positive choice, not a default.
+
+### Where brand voice gets suppressed — the "system green" of typography
+
+Status colours have a property the system protects: a `success` token reads as success regardless of brand. The same property holds in typography for surfaces where comprehension dominates over expression. **Brand voice in type is selective, not pervasive.** A system that imposes the brand's expressive typography on every surface degrades both the brand (the expressive moves become wallpaper) and the user (every surface demands the same level of typographic attention).
+
+The suppression zones:
+
+- **Form labels and inputs.** The user is parsing a structured form, not appreciating brand. The text face carries labels at default tracking, default weight, default size. The user's attention is on the input value, not the label's typography.
+- **Data tables and tabular data.** Tabular numerals are mandatory for column alignment; the text face is the system's text face with `font-variant-numeric: tabular-nums`; weight is regular; size is the smallest legibly comfortable. No brand expression.
+- **Code blocks and monospace surfaces.** The mono face is rarely a brand asset — JetBrains Mono, IBM Plex Mono, Geist Mono, Söhne Mono. The mono's job is column alignment and code legibility; it carries the brand by metric compatibility with the text face, not by expressive distinction. **Custom or commissioned monospace is a luxury** — Bloomberg Businessweek's commissioned Agate Mono (drawn specifically to align metrically with their custom Neue Haas Grotesk text cut at financial-table sizes) is the canonical example, justified only when tabular alignment with the brand text face's metrics requires a custom cut.
+- **Microscopic metadata, tooltips, system messages.** The text face at the smallest size; no expressive moves; the content is reference, not statement.
+- **Long-form data-dense reading where comprehension dominates.** Financial dashboards, scientific papers, log streams. The text face is tuned for reading stamina; the display face appears only at section headers, if at all.
+
+The principle the system carries forward: the system's typographic identity is in the *families chosen* and the *scale*; the *expression of those families* varies by surface. Most expressive moves live in display and hero contexts; the rest of the system is quiet on purpose.
+
 ---
 
 ## Modular scales: math, trade-offs, the display pivot
@@ -149,6 +241,92 @@ Practitioner tools that produce these scales mechanically:
 - **Modularscale** and **Typescale** — visual exploration of ratios; useful for designer-architect conversations before committing to a scale.
 
 These tools produce the values; the practitioner's job is to map them into the three-tier token stack with the right naming.
+
+---
+
+## Type pairing as a system
+
+Pairing typefaces is the most-published topic in typography and the least-tooled. The principles are mature; the *system encoding* of those principles is hand-rolled. The 2026 articulation: **pairing is a token-system decision, not an art-direction decision, and the system has to encode it as such or it doesn't survive contact with consumers.**
+
+### The triad and the editorial fourth
+
+The agency-scale default is the **display / text / mono triad.** Display covers macro-typography — page titles, section headers, marketing heroes, pull quotes — at sizes where character matters more than reading stamina. Text covers micro-typography — body paragraphs, labels, captions, table cells, form values — at sizes where x-height, counter aperture, and rhythm dominate. Mono covers tabular structure — code, transactional values, log lines, addresses, anywhere column-aligned figures are the readable form.
+
+The triad's stability is empirical. Audited mature systems (Material, Carbon, Spectrum, Polaris, Primer, Atlassian, Cloudscape, the major platform-vendor systems) all ship at least these three roles. Systems that don't ship a mono role aren't doing tabular UI; systems that collapse display into text either have no editorial surface or are visually flat. The triad maps onto the three legibility regimes a multi-surface agency engagement has to cover.
+
+A fourth face is rare and the bar is high. The typical fourth role is *editorial* (a face used for long-form reading or for distinct-from-product editorial surfaces — brand magazines, content-marketing properties) or *expressive* (a face used for hero treatments where the system's display face isn't expressive enough on its own — campaign hero copy, illustration-adjacent typography). The fourth-face cost is real: token volume increases by 20–40%, every composite that could plausibly use the editorial face needs a sibling, every additional family is ~30–80 KB compressed per weight in `woff2` plus connection setup, and the third face has to pair coherently with both display and text. The fourth is justified when (a) the engagement's surfaces are categorically distinct enough that one display face can't serve both (a SaaS dashboard plus an editorial publishing surface plus a marketing site), (b) the brand's voice is genuinely bifurcated, or (c) a long-form reading surface needs a face purposely tuned for reading and the display face is a pure display cut with no text master. Outside those, the fourth is decoration the system pays for forever.
+
+### Contrast of personality, not contrast of category
+
+The classical rule — pair a serif with a sans, or a humanist with a grotesque — is correct as a starting heuristic and wrong as the ending discipline. **Pairings work on contrast of personality; they fail on contrast of category that doesn't carry through to personality.**
+
+The failure modes are predictable.
+
+- **Categorical collapse.** Two neo-grotesques, even from different foundries, read as "the same typeface, slightly different proportions." Inter at 32pt next to Söhne at 16pt is a hierarchy collapse — the visible difference is size, not voice. Helvetica Now Display next to Helvetica Now Text *can* work because the cuts are explicitly drawn for different roles and the size pivot is large enough; two sibling neo-grotesques without that explicit role-tuning don't.
+- **Double novelty.** A confident display serif (modulated, high stroke contrast, idiosyncratic terminals) paired with a characterful humanist sans (wide apertures, calligraphic terminals) — both faces want the eye, neither yields. The result reads as *busy*, not as *expressive*. Reading velocity drops; users perceive friction without identifying its source.
+- **Personality conflict.** A geometric sans (engineered, mechanical) next to an old-style humanist serif (warm, organic) — the personalities argue. The brand can't decide whether it's "engineered" or "humane"; the typography enforces the indecision.
+- **Brittle balance.** A pairing that reads coherently at one weight pair (display Bold + text Regular) but breaks under variation (display Black + text Light reveals categorical mismatch the medium weights hid). Mature systems test pairings across the full weight matrix, not just the marketing comp.
+
+The discipline that works: **one face does the heavy lifting for brand expression; the other supports.** If the display face is novel — bespoke, expressive, character-forward — the text face is rationalised, neutral, work-horse. If the text face is the brand carrier (rare but legitimate, especially for editorial brands), the display face is structured restraint. **Two carriers compete; one carrier and one carrier-of-water cooperate.** A useful mental model: imagine each face speaking aloud. Display speaks slowly and emphatically; text speaks quickly and quietly. If both faces speak the same way, the user can't tell which voice is the headline.
+
+### Pairing as a token-system decision
+
+The pairing has to live in the token layer or it doesn't survive. The shape:
+
+- **Primitive tier.** `font-family/display`, `font-family/text`, `font-family/mono`. Each maps to a font stack: brand face plus script-specific siblings plus system fallback plus generic-family terminator. The roles are abstract; the *names* of the families are values, not roles.
+- **Composite tier.** Every composite typography token (`heading/large`, `body/medium`, `code/inline`, `display/xl`, `caption`) declares which family role it consumes. `display/xl` consumes `font-family/display`. `body/medium` consumes `font-family/text`. `code/inline` consumes `font-family/mono`. Consumers never see the literal family name.
+- **Component tier.** Per-component overrides exist but are rare; the rule of three from component design applies. A `KpiNumber` that consumes `font-family/mono` for the figure and `font-family/text` for the unit suffix encodes both inheritances at the component-tier composite, not in component CSS.
+
+The architectural pay-off: rebranding a system, swapping the brand face, or adding a multi-script sibling is a primitive-tier change. No composite is rewritten; no component is re-templated. Pairings that aren't tokenised in this shape get rewritten by every consumer that touches them.
+
+**Multi-script fallbacks are the under-named cost.** A brand's display face is, at best, a Latin / Latin-Extended cut; at worst, it's Latin-only. The brand's text face is more likely to ship Cyrillic, Greek, and possibly Hebrew or Arabic. CJK is almost never in the brand face — CJK fonts are categorically distinct (different file format demands, far larger glyph counts, different licensing markets) and almost no Latin foundry ships them. **The pairing's *Latin* harmony does not carry through localisation.**
+
+The token treatment: encode script-specific family overrides explicitly.
+
+```json
+"font-family/display/cyrillic": {
+  "$type": "fontFamily",
+  "$value": ["BrandDisplay", "PT Serif Pro", "Noto Serif", "serif"]
+},
+"font-family/display/cjk": {
+  "$type": "fontFamily",
+  "$value": ["Noto Serif CJK SC", "Source Han Serif", "serif"]
+}
+```
+
+The build pipeline emits per-script `@font-face` rules with `unicode-range` (see the font loading section below), and the runtime resolves the family per character. The pairing relationship — Latin display matches Latin text — has to be *re-validated for every script the system ships.* Visual cohesion in CJK is its own engagement; do not assume the Latin pairing's harmony transfers. Google's Noto family (coverage for over 150 scripts) is the routine source for fallback siblings; advanced engagements commission per-script display siblings from foundries that specialise (Latinotype for Latin-American typography; Sandoll for Korean; FontWorks for Japanese).
+
+### Variable-font triads and the `opsz` pivot
+
+The variable-font era changed pairing economics. A single variable family with a credible `opsz` axis can plausibly cover both display and text — the same DNA, optically retuned for size. Inter's optical-size variant, Roboto Flex's `opsz`, Recursive's blended axes, and a growing list of foundry releases (Editorial New, IBM Plex's variable cuts) ship workable display + text from one source.
+
+A single variable family is the right call when:
+
+- **Brand voice doesn't require pairing contrast.** The brand reads as one voice; display work is "the text face but bigger and more confident." Most B2B SaaS brands sit here — Stripe's Söhne, Linear's Inter Display + Inter, Vercel's Geist + Geist Mono.
+- **Performance budget is binding.** Two families means two sets of weights, two sets of subsets, two licensing transactions. If the engagement's LCP budget can't accommodate two web-font families on the critical path, the architecture has to choose.
+- **Localisation is the dominant constraint.** A single variable family with broad script coverage simplifies the multi-script fallback story.
+
+Two families remain warranted when:
+
+- **Brand voice requires real category contrast.** The display face is a serif and the text face is a sans; the display face is geometric and the text face is humanist; the brand's identity needs the contrast.
+- **Display work is *display* work.** A pull-quote, an editorial hero, a brand statement — the display face is doing typographic work that an `opsz`-tuned text face cannot, even at large sizes. A high-contrast modulated serif at 64pt is qualitatively different from a low-contrast neo-grotesque at 64pt; `opsz` retunes proportions, not category.
+- **Editorial / publishing surfaces.** Long-form reading benefits from a text face genuinely tuned for reading, and the display surface benefits from a face tuned for display impact. Two different design briefs.
+
+A subtle implementation gotcha: **`font-variation-settings` overrides every axis the font supports, not just the one named.** Setting `font-variation-settings: "wght" 700` on an element silently disables `font-optical-sizing: auto`. The 2026 practitioner pattern is `font-variation-settings: "wght" var(--wght), "opsz" var(--opsz)` declaring every axis at every consumer site, or — preferred — using the higher-level CSS properties (`font-weight`, `font-stretch`, `font-optical-sizing`) and letting the browser compose the variation string. The token system should ship the higher-level form by default; reach for `font-variation-settings` only when the system needs `opsz` decoupled from `font-size` (a marketing surface that uses a small-size composite at large proportions through transform scaling, or a print-derived workflow).
+
+### Tooling gaps in pairing architecture
+
+The discipline is articulable; the tools to enforce it as system constraints are not.
+
+- **Figma's font-pairing surface.** Figma's font picker is a flat search; pairings happen by recommendation, not by constraint. There is no equivalent of the colour-step grid Radix encodes — no tool that says "if `font-family/display` is X, only these `font-family/text` values are validated pairings." Designers can pair anything; validation lives in review.
+- **Google Fonts pairing recommendations.** Co-occurrence-based — what other people use together — not structurally compatibility-based. Useful for popular pairings; uninformative for system-design decisions.
+- **Adobe Fonts pairings.** Editorial-led, pairings curated by humans, more reliable than Google's algorithm but limited to Adobe's catalogue and not exposed as constraints in design tools.
+- **Fontstand and Fonts In Use.** Fontstand is the rental-licensing surface that lets foundries' production-quality faces be tested at full quality without commissioning; Fonts In Use is the editorial archive of how typefaces have been deployed in real publishing contexts. Both are reference material for human judgement; neither is a system constraint.
+- **Practitioner-curated libraries.** What senior typography-aware DS practitioners actually use — private, tacit-knowledge artefacts maintained per practice. The closest the practice has to a tooled pairing constraint is the per-component documentation pattern (declare which composites a component is allowed to consume, which faces those composites resolve to), but that's downstream of the pairing decision.
+
+The largest gap: **no major tool encodes pairing as a system constraint the way Radix encodes color steps.** Pairings remain hand-tuned and review-validated. A second gap: **multi-script pairings are unverified by default.** No tool renders the same composite token across Latin, Cyrillic, CJK, Arabic, and Hebrew side-by-side and reports the pairing's coherence. Practitioners sample manually, and most sample only the locales the launch market uses, with the rest discovered in production by users who notice their language reads differently.
+
+The verification path for the pairing itself stays artisanal — pair candidates rendered side-by-side at the system's actual scales and weight matrix, on the actual surfaces (light mode, dark mode, mobile, desktop), with the actual content (sample paragraphs at production line lengths, headlines at production breakpoints, captions at the smallest legible size). The system encodes the *outcome* of that work, not the work itself.
 
 ---
 
@@ -255,6 +433,203 @@ The discipline: **author with the variable font in Figma; export named instances
 
 ---
 
+## Font loading and performance
+
+Typography is the most layout-critical asset in an interface. How fonts are requested, parsed, and rendered dictates Core Web Vitals — LCP, INP, CLS — and through them the user's first-paint experience and the site's ranking signal in metrics-aware search. The 2026 baseline has stabilised into a small set of decisions the system makes once and inherits across composites.
+
+### The `font-display` matrix
+
+`font-display` is per-role, not global. The decision is tied to each role's relationship with brand fidelity, layout stability, and the rendering critical path:
+
+| Role | `font-display` | Reasoning |
+|---|---|---|
+| Body, UI labels, form values, table cells | `optional` | LCP/INP-protective. Browser gives the font ~100 ms to load (cache or network); if it misses, the fallback is used permanently for that page render and the web font loads quietly into cache for the next navigation. Eliminates layout shift; minimises blocking. The user sees fallback for one navigation and brand on the second; metrics protect immediately. |
+| Display, hero, marketing copy, headings on brand-critical surfaces | `swap` | Brand fidelity is non-negotiable on display surfaces. Browser renders fallback immediately, swaps to web font when ready (no timeout). FOUT is visible; the swap causes layout shift unless paired with a metric-matched fallback (below). LCP is protected; CLS is mitigated, not eliminated. |
+| Iconography (icon fonts, glyph-bearing brand marks) | `block` | A missing icon glyph rendered as a fallback character (a square, a question mark, a Latin letter) is worse than a brief FOIT. Block waits up to 3s, then falls back. Used only for icon fonts where the alternative is broken-icon UI; the SVG-icon-system answer is the better path where it's available. |
+
+The `optional` value's aggression is under-appreciated. Browsers give the font roughly the duration of a typical paint frame and then commit to the fallback. On a cold cache and a slow network, every body composite renders in fallback for the first navigation; only on subsequent navigations (font cached) does the brand face appear. The metrics rationale: late font swaps are CLS events, late paints are LCP events, a fallback render is faster than waiting. The brand cost: first impression is fallback. **The mitigation is a metric-matched fallback** (below) so the typography reads as deliberate, not as broken. A common configuration error: `font-display: optional` without metric matching. The user sees fallback at one set of metrics, refreshes and sees brand at different metrics, and the fallback render reads as a draft. The pattern only works when fallback metrics match brand metrics so the typography looks intentional in either state.
+
+`font-display: fallback` (a 100 ms timeout *plus* a 3-second swap window) is rarely the right answer in 2026; either `optional` (commit to fallback if too slow) or `swap` (commit to brand whenever it arrives) is more decisive. Practitioners who reach for `fallback` are usually trying to avoid making the call.
+
+`font-display` is universally supported across modern browsers; the values' semantics have been stable since 2020. Verification: `caniuse.com/css-font-rendering-controls`, MDN's `@font-face/font-display` page. The Core Web Vitals thresholds — LCP ≤ 2.5s "good," INP ≤ 200 ms "good," CLS ≤ 0.1 "good" — are the 2026 baseline; the field expects INP to remain the primary mover for font-loading optimisation through 2026–2027.
+
+### Subsetting via `unicode-range`
+
+A complete brand font carries 1,000–10,000+ glyphs; a typical web product uses 200–500. Shipping the full font is bandwidth wasted on glyphs the page will never render. `unicode-range` partitions the font into subsets and lets the browser fetch only the subsets the page's content needs.
+
+The standard partition:
+
+```css
+@font-face {
+  font-family: "BrandText";
+  src: url("brandtext-latin.woff2") format("woff2");
+  unicode-range: U+0000-007F, U+0080-00FF, U+0100-017F;
+}
+@font-face {
+  font-family: "BrandText";
+  src: url("brandtext-cyrillic.woff2") format("woff2");
+  unicode-range: U+0400-04FF;
+}
+@font-face {
+  font-family: "BrandText";
+  src: url("brandtext-greek.woff2") format("woff2");
+  unicode-range: U+0370-03FF;
+}
+/* CJK in larger files; typically further partitioned by frequency */
+```
+
+The browser's text shaper checks the page's content against `unicode-range` declarations and fetches only the matching subsets. A page in English fetches `latin.woff2` and nothing else; a page in Russian fetches `cyrillic.woff2`; a multi-language page fetches both lazily. The same `font-family` name binds the subsets together; the browser composes the glyphs across files transparently.
+
+The toolchain in 2026:
+
+- **Glyphhanger** — Node-based; spiders the production site, extracts the actual character set used, generates subset definitions. Best for static sites; inadequate for dynamic content where the character set isn't fully discoverable at build time.
+- **fonttools / pyftsubset** — Python; the industrial-strength tool. More configurable than Glyphhanger; produces smaller outputs because of finer-grained control over OpenType tables.
+- **Fontsource** — curates subsetted Google Fonts as NPM packages with `@font-face` declarations pre-written and `unicode-range` partitioning baked in. The 2026 default for self-hosted Google Fonts; saves the pipeline work for the common case.
+
+**The over-subsetting failure mode.** A subset that excludes a character the runtime needs causes the browser to fall back through the `font-family` stack mid-glyph. A single character renders in the fallback font, visibly different from the surrounding text. Common offenders: typographic punctuation (em-dash U+2014, en-dash U+2013, ellipsis U+2026, smart quotes U+2018-201D), the non-breaking space (U+00A0), currency symbols (U+20AC Euro, U+00A3 Pound), and accented characters in user-generated content the build pipeline didn't see. The defensive shape: include the *Latin Extended* range (U+0080–017F) and the typographic punctuation block (U+2000–206F, U+2070–209F) in the base subset by default, even if the static-site scan says they aren't used. The bytes are cheap insurance; the alternative is per-incident bug-fix loops discovered in production.
+
+A second gotcha: **CMS-injected content is subset-blind.** A subsetting pipeline that runs on the static site code and not on the CMS database will miss every special character editorial has used in articles. Real practice: subset against the CMS database export, not just the codebase.
+
+### `<link rel="preload">` discipline
+
+Preload is a rendering-priority hint that tells the browser to fetch the asset before the renderer would have discovered it. Misused, it produces network contention on the critical path; used correctly, it saves a single round-trip on the LCP-critical font. **The single rule:** preload only the fonts on the rendering critical path of the LCP element. For most pages, that is one to two font files: the brand text font for above-the-fold body copy if `font-display: swap` is in effect, and possibly the brand display font for the hero heading. Beyond that, every preloaded font is fighting CSS, JS, and images for bandwidth on the critical path.
+
+What not to preload: body fonts marked `font-display: optional` (the value declares the font as non-critical to first paint; preloading contradicts the declaration); every weight in a static font family (the page will use one or two weights at first paint; preloading all four wastes ~100–250 KB of critical-path bandwidth); variable fonts beyond a single asset (the variable file covers all weights in one fetch).
+
+The HTML syntax that matters:
+
+```html
+<link
+  rel="preload"
+  href="/fonts/BrandText-latin.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+```
+
+- `as="font"` — required. Tells the preload scanner this is a font; without it the preload is downgraded.
+- `type="font/woff2"` — required for the scanner to skip non-supporting browsers without a wasted fetch.
+- `crossorigin` — **required even for same-origin fonts.** The fetch a preload triggers and the fetch the CSS triggers must use the same CORS mode; CSS-driven font requests are CORS-anonymous by default, so the preload must be too. Without `crossorigin` the browser fetches the font twice — once via preload (uncached because of mode mismatch), once via CSS — and the optimisation backfires into a regression.
+- `href` — use the same path the CSS will use; otherwise the cache key differs and the preloaded font isn't reused.
+
+The `crossorigin` requirement is the most-missed detail. The first time a practitioner ships `<link rel="preload" as="font">` without it, the metrics get worse and the cause is not obvious; the network panel shows two requests for the same asset.
+
+### Variable-font byte economics
+
+The break-even between a variable font and multiple static-weight files is straightforward arithmetic but commonly mis-modelled. The naive model — "variable fonts include all weights in one file, so they're always cheaper than shipping multiple statics" — is wrong. A variable font carries the full interpolation deltas, which is a fixed overhead independent of how many weights are used.
+
+The actual break-even:
+
+- A typical static `woff2` weight: ~30–50 KB compressed. A weight pair (Regular + Bold) is ~60–100 KB.
+- A typical `wght`-only variable `woff2`: ~80–120 KB compressed for the same family. The variable file pays a one-time cost for the deltas; every weight in the range is "free" (a single fetch).
+- **Break-even at 2–3 weights.** Two static weights ≈ variable on bytes. Three weights → variable wins. One weight → static wins. Four or more → variable wins decisively.
+
+**Per-axis cost is non-linear.** `wght` only is the cheapest variable axis; the deltas are 1-D and the file is a small overhead over a single static weight. `wght` + `wdth` adds 2-D delta tables — file grows ~30–60% over `wght`-only. `wght` + `wdth` + `opsz` adds another set of masters because optical size is qualitatively different from weight or width (different x-heights, different stroke contrast at the masters); the file grows another ~30–80% over the two-axis case. A `wght` + `wdth` + `opsz` variable can be ~250–400 KB, which approaches the cost of shipping 5–6 static weight pairs. (These ranges are practitioner-observed; verify against the specific font binary via Wakamai Fondue before committing budget figures to client-facing artefacts — see provenance.) Custom axes (foundry-specific axes — `MONO`, `slnt`, `GRAD`, `CASL` in Recursive, `XOPQ`/`XTRA` in Roboto Flex's parametric set) compound the cost; each axis adds delta tables.
+
+The decision shape: **single-axis (`wght`) variable when the system uses ≥3 weights** (the default for most engagements). **Multi-axis variable when the additional axes do real design work** (`opsz` for true display/text in one family, `wdth` for compressed-display variants, `slnt` for proper italics-as-axis behaviour); audit the file size and budget accordingly. **Static weights when the system is genuinely restrained to 1–2 weights** (rare in production systems; more common in marketing-only deployments).
+
+OpenType feature settings have a secondary cost. Discretionary ligatures, stylistic sets, alternate figures — each set is glyphs in the font file plus substitution-table machinery. A font shipping 5 stylistic sets and tabular numerals carries ~5–20% more bytes than the same font with the features stripped. The 2026 tooling (`pyftsubset --no-layout-closure`, `fonttools subset --layout-features=...`) lets pipelines strip features the system doesn't use. **Wakamai Fondue** (`wakamaifondue.com`) is the practitioner standard for inspecting which axes and features a `woff2` actually carries; run any incoming font binary through it before committing to feature-dependent tokens.
+
+### CLS mitigation via fallback metric matching
+
+`font-display: swap` causes a layout shift the moment the brand font loads — the brand font's intrinsic line height and glyph proportions differ from the fallback's, the text reflows, and CLS spikes. The 2026 mitigation: **a metric-matched fallback** that occupies the same vertical and horizontal space as the brand font, so the swap is a typographic-texture change, not a layout change.
+
+The mechanism is the `@font-face` descriptors `size-adjust`, `ascent-override`, `descent-override`, and `line-gap-override` applied to a *named local fallback*:
+
+```css
+@font-face {
+  font-family: "BrandText Fallback";
+  src: local("Arial"), local("Helvetica"), local("system-ui");
+  size-adjust: 107.4%;
+  ascent-override: 92%;
+  descent-override: 23%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "BrandText";
+  src: url("brandtext.woff2") format("woff2");
+  font-display: swap;
+}
+:root {
+  --font-text: "BrandText", "BrandText Fallback", "Arial", sans-serif;
+}
+```
+
+`BrandText` is the brand font with `font-display: swap`. `BrandText Fallback` is a *named* `@font-face` whose `src` is the system font (Arial / Helvetica / Liberation Sans), not the brand font. The descriptors warp Arial's metrics to match `BrandText`'s metrics — same x-height, same ascender, same descender, same effective line-height. When the brand face loads and swaps in, the bounding boxes don't change; only the glyph shapes do.
+
+The four descriptors, in order of impact:
+
+- `size-adjust` — global glyph scale. Multiplies the rendered size of the fallback. If the brand font's x-height is 510/1000 units and the fallback's is 480/1000, `size-adjust: ~106%` makes the fallback's x-height match. The single highest-impact descriptor; everything else is fine-tuning.
+- `ascent-override` — the font's ascender height as a percentage of `1em`. Typically the brand font's `OS/2` `usWinAscent` divided by `unitsPerEm`. If the fallback has a different ascender, layout above each line shifts.
+- `descent-override` — the descender depth, same calculation. Shifts the baseline; affects line-to-line spacing.
+- `line-gap-override` — the leading the font requests for itself. Most modern web fonts ship `line-gap: 0` (rely on CSS `line-height`); align the fallback to the same.
+
+Tooling: **Fontaine** (`github.com/unjs/fontaine`) auto-generates the `@font-face` fallback declarations from the brand font's metrics, with Nuxt/Vite/Webpack integration; the 2026 standard for the common case. **Fontsource** ships pre-computed metric-matched fallbacks for many open-source fonts; install the package, the fallback is in the bundle. **Capsize** (`seek-oss.github.io/capsize/`) extracts metrics from a font file and renders the override CSS; useful for one-offs and for understanding the calculation before automating. A correctly metric-matched fallback brings text-driven CLS to ~0 across the swap; an unmatched fallback can produce CLS in the 0.05–0.20 range — enough to fail the "good" threshold and degrade Core Web Vitals scoring. The mitigation is straightforward; the failure to ship it is usually inattention, not technical difficulty.
+
+### Self-hosted vs. third-party hosting
+
+The 2026 baseline: **self-host brand fonts.** Third-party hosting (Google Fonts via `fonts.googleapis.com`, Adobe Fonts / Typekit, Monotype's hosted services, smaller foundry-hosted CDNs) is reserved for prototypes, internal tools, and engagements where the brand cost of self-hosting exceeds the fidelity cost of third-party.
+
+Three drivers of the shift:
+
+- **Privacy.** A January 2022 Munich Regional Court ruling held that embedding Google Fonts via the live `fonts.googleapis.com` URL violated GDPR by transmitting visitors' IP addresses to Google without consent. The ruling was narrow (a German court, a particular case, single-defendant) but the legal exposure for EU operators was widely interpreted as material. The practitioner consensus through 2022–2023 was to self-host Google Fonts (which is permitted under Google's licence) and remove the `googleapis.com` linkage. As of mid-2026 the migration is essentially complete in EU-facing engagements. (The "loading remote Google Fonts is illegal under EU privacy guidelines" framing common in the field over-states the precedent — verify against current case law before quoting in client artefacts; see provenance.)
+- **Performance.** Connecting to a third-party origin requires DNS resolution, TCP handshake, TLS handshake, and HTTP request — all on the critical path before the font can be requested. The CSS file is on the third-party origin; the woff2 binaries it references are typically on a different origin (`fonts.gstatic.com`), requiring its own DNS+TCP+TLS chain. Self-hosting collapses this to a single origin (the application origin) with one already-warm connection (HTTP/2 or HTTP/3 multiplexing). The latency saving is typically 100–400 ms on cold loads.
+- **Stability and provenance.** A self-hosted font binary is version-locked to the deployment. A `googleapis.com` font URL serves whatever Google currently has at that URL — including silently-updated metrics that can shift layout and break metric-matched fallbacks. Self-hosted is the only path to deterministic typography across deploys.
+
+The toolchain: **Fontsource** (`fontsource.org`) packages Google Fonts (and a growing list of other open-source fonts) as NPM dependencies with `@font-face` declarations and subsets pre-written; install `@fontsource/inter`, import in CSS, done. Version-locked. **Foundry-direct licensing** for licensed faces — Klim, Commercial Type, Grilli Type, Production Type, OH no Type Co., Pangram Pangram all license web `woff2` files directly; the licensee self-hosts under licence terms (typically pageview-based or domain-based). **Adobe Fonts (Typekit)** still uses the `use.typekit.net` CDN; self-hosting an Adobe-licensed font is generally not permitted under the Adobe Fonts service. Engagements with Adobe-licensed faces typically license direct from the foundry (where the font is also separately available) or accept the third-party trade-offs. **Monotype Fonts** — similar third-party-CDN model with paid tiers; self-hosting is licence-dependent.
+
+What stays third-party: rapid prototyping, internal tools where the privacy and performance trade-offs are immaterial, engagements where licensing economics make self-hosting infeasible (some enterprise foundry contracts price self-hosting at a premium).
+
+### Font features as authoring decisions
+
+OpenType feature settings — small caps, tabular numerals, oldstyle figures, stylistic sets, discretionary ligatures, contextual alternates — are tokenisable typographic decisions, not consumer-site overrides. The 2026 token shape ships them.
+
+The CSS surface, in priority order:
+
+```css
+/* Preferred — high-level properties */
+font-variant-numeric: tabular-nums;
+font-variant-caps: small-caps;
+font-variant-ligatures: discretionary-ligatures;
+font-variant-numeric: oldstyle-nums;
+
+/* Lower-level — feature tags directly */
+font-feature-settings: "tnum", "smcp", "dlig", "onum";
+```
+
+The high-level `font-variant-*` properties are preferred for two reasons:
+
+1. **Semantic clarity in the cascade.** `font-variant-numeric: tabular-nums` is self-describing in DevTools, in computed-style inspection, in CSS-in-JS debugging. `font-feature-settings: "tnum"` requires the reader to know the four-letter OpenType tag.
+2. **Cascade composition.** `font-feature-settings` is a single property — declaring it overrides any previous declaration. A component that sets `font-feature-settings: "ss01"` for a stylistic set and inherits a parent's `font-feature-settings: "tnum"` for tabular numerals will lose the `tnum`. The high-level properties cascade independently — `font-variant-numeric`, `font-variant-caps`, and `font-variant-ligatures` don't fight each other.
+
+The practitioner pattern: tokenise feature decisions at the composite level.
+
+```json
+"typography/numeric/tabular": {
+  "$type": "typography",
+  "$value": {
+    "fontFamily": "{font-family.text}",
+    "fontVariantNumeric": "tabular-nums lining-nums",
+    "fontFeatureSettings": "'kern' 1"
+  }
+},
+"typography/numeric/oldstyle-prose": {
+  "$type": "typography",
+  "$value": {
+    "fontFamily": "{font-family.text}",
+    "fontVariantNumeric": "oldstyle-nums proportional-nums",
+    "fontFeatureSettings": "'kern' 1, 'liga' 1"
+  }
+}
+```
+
+Component briefs reach for the composite that matches the role: a data table consumes `typography/numeric/tabular`; a long-form article body consumes `typography/numeric/oldstyle-prose` (where the brand text face supports oldstyle figures).
+
+**Verification before tokenising.** A feature in the CSS that the font doesn't support is a no-op — silently. Wakamai Fondue is the inspection tool; the audit is "does this font binary actually carry the features the tokens reference?" Subsetted variable fonts are common offenders — a build pipeline that strips layout features to save bytes will silently disable the tokens that depend on them. A design-tool gap: **Figma's typography surface doesn't fully expose `font-variant-*`.** OpenType features are accessible via the type panel's feature toggles, but the design-token export round-trip can lose them. Tokens Studio handles them; native Figma Variables typography is incomplete on this surface as of mid-2026.
+
+---
+
 ## Line-height, leading, and the discipline of the multiplier
 
 Line-height is the most poorly tokenised typography property in most systems we audit. It is usually a single global value (`1.5`), occasionally a per-token override hardcoded in pixels (`24px`), and never a structured part of the typography scale. The 2026 discipline is straightforward and the practice should adopt it as a default.
@@ -288,6 +663,14 @@ Composite typography tokens reference the appropriate primitive. The semantic co
 A more sophisticated approach available on the modern platform: expressing line-height relative to the font's intrinsic line gap (the metrics-defined space between descenders and ascenders) rather than as a flat multiplier of font-size. Different typefaces with different x-heights and ascender/descender ratios produce different visual rhythm at the same `1.5` multiplier; expressing leading optically (relative to the intrinsic gap) produces consistent visual rhythm across typeface changes.
 
 Browser support for optical leading is partial; the field has not converged on a canonical way to encode it in tokens. Flag as a watch-list item; do not yet ship as a default.
+
+### Vertical rhythm and the baseline grid — where this stands
+
+The strict baseline grid — every line of text, every UI element, every spatial block aligned to a pixel-perfect global rhythm — is **mostly dead as a web enforcement mechanism in 2026.** Mixed type scales (display at line-height 1.05 next to body at line-height 1.5 next to caption at line-height 1.4) don't share a divisor; fluid type via `clamp()` and container queries makes the rhythm change across the viewport; differing intrinsic font metrics across families break the alignment even when line-height multipliers agree; mixed UI elements (a button, an icon, an image) don't align to a typographic baseline anyway. The discipline is real in print and does not transfer.
+
+Where it survives: print-derived clients (publishing houses, editorial brands, brand books) arrive with InDesign-shaped expectations; long-form reading surfaces with a single body face at a single line-height read as rhythmic if line-height is tuned to the body's metrics; Figma offers optical baseline-grid snapping at the design-tool layer as a visual aid for designer alignment review (not enforced in code).
+
+**The 2026 practitioner answer:** *don't enforce a baseline grid in CSS code; do tune line-height tokens per typographic role so they resolve to clean multiples of the system's base spatial unit.* If the spatial base unit is 8 px, tune body `line-height` so its computed pixel value lands on a multiple of 8 — at `font-size: 16px`, `line-height: 1.5` produces 24 px (3 × 8); at `font-size: 14px`, `line-height: 1.71` (≈ 24/14) also produces 24 px. The composite tokens carry these tuned values; the math stays per-composite; the rhythm reads as deliberate without machinery. **Document the inheritance for print-derived clients** — a short section in the typography documentation explaining "we don't enforce a baseline grid; here's why; here's the rhythm we do enforce" prevents per-engagement re-litigation. The print client's expectation is reasonable; the discipline doesn't transfer; the substitute discipline (clean-multiple line-heights) is the substitute, not a compromise.
 
 ### `text-box-trim` — the alignment-baseline story
 
@@ -422,6 +805,20 @@ This extends 15-ai-in-ds's components-as-data argument into the token layer spec
 - **`text-box-trim` shipped as a load-bearing layout primitive.** Limited Availability as of mid-2026; Firefox blocks. Progressive enhancement only.
 - **Locale-aware sizing as separate token files.** Encourages drift; doubles maintenance. Use DTCG modes carrying script-specific values.
 - **Vague token descriptions.** "Heading large" tells an AI agent nothing about when to use it. Five-field descriptions with explicit anti-patterns.
+- **Categorical-collapse pairings.** Two neo-grotesques from different foundries, paired at different sizes. Reads as one face at two sizes, not as a typographic system. Pair on contrast of personality; don't assume two sibling faces in the same category produce hierarchy.
+- **Pairing decisions made in component CSS.** A component author picks `font-family: "BrandSerif"` directly; the token system's pairing logic is bypassed; the multi-script fallback chain is gone. Pairings live in the primitive tier; composites consume role tokens; consumers never see literal family names.
+- **Latin pairings assumed to transfer to non-Latin scripts.** A brand display face with no Cyrillic / CJK / Arabic coverage falls through to a generic system font; the carefully tuned Latin harmony evaporates the moment a user sets a non-Latin locale. Encode script-specific family overrides explicitly; validate cohesion per script.
+- **`font-variation-settings` overriding every axis.** Setting `font-variation-settings: "wght" 700` silently disables `font-optical-sizing: auto` and any other axis the font supports. Use the higher-level CSS properties (`font-weight`, `font-stretch`, `font-optical-sizing`) and let the browser compose the variation string; reach for `font-variation-settings` only when the system needs an axis decoupled from its high-level property and declare every axis at the consumer site.
+- **`font-display: swap` without metric-matched fallback.** The brand font swaps in and the layout shifts; CLS regresses; metrics fail "good." Always pair `swap` with a `size-adjust` / `ascent-override` / `descent-override` / `line-gap-override` fallback declaration via Fontaine, Fontsource, or Capsize.
+- **`font-display: optional` without metric-matched fallback.** The user sees the fallback render at one set of metrics, then refreshes and sees the brand at different metrics; the fallback render reads as a draft. The pattern only works when fallback metrics match brand metrics; otherwise revert to `swap` with metric matching or accept the visible quality regression.
+- **Preload without `crossorigin`.** The browser fetches the font twice — once via preload (uncached because of CORS-mode mismatch), once via CSS — and the optimisation backfires. Always include `crossorigin` on `<link rel="preload" as="font">`, even for same-origin fonts.
+- **Preloading every weight or every variable file.** Preload contention degrades LCP; the preload's purpose is the LCP-critical font, not the entire font payload. Preload one or two files maximum; let the rest load via CSS discovery.
+- **Over-subsetting that misses CMS-injected characters.** Editorial inserts an em-dash, a smart quote, an obscure currency symbol; the subset doesn't include it; that single glyph falls through to the system font and breaks the typographic colour mid-paragraph. Include Latin Extended (U+0080–017F) and the typographic punctuation block (U+2000–206F, U+2070–209F) in the base subset by default; subset against the CMS database, not just the codebase.
+- **`font-feature-settings` overriding sibling features.** `font-feature-settings` is a single property; declaring it stomps any inherited features. A component setting `font-feature-settings: "ss01"` for a stylistic set loses the inherited `"tnum"` for tabular numerals. Prefer `font-variant-*` properties (`font-variant-numeric`, `font-variant-caps`, `font-variant-ligatures`); they cascade independently.
+- **Tokenising features the font binary doesn't carry.** A subsetting pipeline strips discretionary ligatures or stylistic sets to save bytes; the `font-feature-settings: "dlig"` token is silently a no-op. Inspect the binary via Wakamai Fondue before tokenising feature-dependent decisions.
+- **Third-party font hosting in EU-facing engagements.** `fonts.googleapis.com` linked from production HTML transmits visitor IPs to Google; the legal exposure post-2022 Munich ruling is material enough that practitioner consensus is to self-host. Use Fontsource for open-source fonts, foundry-direct licensing for licensed fonts, and reserve third-party hosting for prototypes and internal tools.
+- **Composite tokens named for DOM heading levels (`h1`, `h2`).** Encourages consumers to bind size to level, defeating the type-scale-vs-DOM-tag decoupling. Name composites for visual role (`heading/large`, `display/xl`); document that the DOM level is determined by document structure, not by the composite chosen.
+- **Brand voice imposed on every surface.** Every label, every tooltip, every metadata caption styled with the display face's expressive treatment. The brand voice becomes wallpaper; the user can't tell what's important. Suppress brand voice in form labels, data tables, mono surfaces, microscopic metadata, and long-form data-dense reading; the system's typographic identity is in the families chosen and the scale, not in pervasive expression.
 
 ---
 
@@ -441,6 +838,14 @@ This extends 15-ai-in-ds's components-as-data argument into the token layer spec
 
 7. **The Dynamic Type bridge for React Native.** Several open-source modules exist; none has emerged as the convergent answer. The practice should either commit to maintaining its own bridge for RN engagements or commit to a specific upstream module and document the dependency. Currently undecided.
 
+8. **Pairing as a tooled system constraint.** No major design tool encodes type pairing the way Radix encodes color steps — pairings remain hand-tuned and review-validated. The closest the practice has is the per-component documentation pattern (declaring which composites a component is allowed to consume); that's downstream of the pairing decision itself. Whether a tool emerges that treats `font-family/text` × `font-family/display` as a constrained join is a 2027+ question.
+
+9. **Multi-script pairing validation tooling.** No tool renders the same composite token across Latin, Cyrillic, CJK, Arabic, and Hebrew side-by-side and reports the pairing's coherence. Practitioners sample manually, and most sample only the locales the launch market uses. The cohesion gap is discovered in production by users who notice their language reads differently.
+
+10. **`font-display: optional` on body for first-load brand fidelity.** The metrics case for `optional` is strong (LCP/INP/CLS protective); the brand case is weak (first navigation renders in fallback). A metric-matched fallback closes most of the gap, but the practice has not yet committed to `optional` as the body-text default for client-facing engagements where brand is non-negotiable. Watch through 2026–2027 as Core Web Vitals weighting in search and the metric-matching tooling continue to evolve.
+
+11. **Variable-font byte budgets at multi-axis configurations.** Per-axis cost is non-linear and varies materially per typeface. Practitioner-observed ranges (`+wdth` adds 30–60%, `+opsz` adds another 30–80%) are useful for budgeting but not authoritative. Run incoming font binaries through Wakamai Fondue and confirm against the foundry's published metrics before committing budget figures to client-facing artefacts.
+
 ---
 
 ## See also
@@ -457,4 +862,8 @@ This extends 15-ai-in-ds's components-as-data argument into the token layer spec
 
 ---
 
-*Provenance: DTCG composite typography token shape, the property-level aliasing fidelity gap, and the flatten-at-build discipline are from the dual-agent research outputs in `_research/_inbound/2026-05-15-tokens-architecture-extensions/` (May 2026) and aligned with 22. The three-tier mandatory stack (atomic primitive / semantic composite / component-tier), the modular-scale-with-display-pivot pattern, the `cqi` container-relative fluid-type encoding alongside `vw`, the `rem`-floor accessibility rule, the primitive triplet encoding for fluid-type tokens, the named-instance ladder for variable fonts, the `opsz`-auto default, the unit-less line-height multiplier discipline, the body-vs-display line-height ratios, the multi-script DS-contract-as-modes-not-files position, the iOS `relativeTo:` discipline, the Android `sp` discipline, the RN Dynamic Type bridge as a non-negotiable for accessibility, and the five-field AI-readable description schema (purpose / use / hierarchy / anti-patterns / notes) are synthesised from the dual-agent research outputs in `_research/_inbound/2026-05-15-tokens-typography/` (May 2026). The `text-box-trim` Limited Availability status (Chrome 133+, Safari 18.2+, Edge 133+; Firefox implemented but disabled by default through Firefox 149) is verified against `caniuse.com/mdn-css_properties_text-box-trim` and the MDN reference as of May 2026. Utopia (`utopia.fyi`) and the Type Scale Clamp Generator are referenced from their published documentation. Modular scale ratios and brand-personality mappings are aligned with practitioner writing including Tim Brown (*Modular Scale*) and Robin Rendle. Apple HIG Dynamic Type guidance and Material 3 typography are the per-platform native references.*
+*Provenance (May 2026): DTCG composite typography token shape, the property-level aliasing fidelity gap, and the flatten-at-build discipline are from the dual-agent research outputs in `_research/_inbound/2026-05-15-tokens-architecture-extensions/` and aligned with 22. The three-tier mandatory stack (atomic primitive / semantic composite / component-tier), the modular-scale-with-display-pivot pattern, the `cqi` container-relative fluid-type encoding alongside `vw`, the `rem`-floor accessibility rule, the primitive triplet encoding for fluid-type tokens, the named-instance ladder for variable fonts, the `opsz`-auto default, the unit-less line-height multiplier discipline, the body-vs-display line-height ratios, the multi-script DS-contract-as-modes-not-files position, the iOS `relativeTo:` discipline, the Android `sp` discipline, the RN Dynamic Type bridge as a non-negotiable for accessibility, and the five-field AI-readable description schema (purpose / use / hierarchy / anti-patterns / notes) are synthesised from the dual-agent research outputs in `_research/_inbound/2026-05-15-tokens-typography/`. The `text-box-trim` Limited Availability status (Chrome 133+, Safari 18.2+, Edge 133+; Firefox implemented but disabled by default through Firefox 149) is verified against `caniuse.com/mdn-css_properties_text-box-trim` and the MDN reference as of May 2026. Utopia (`utopia.fyi`) and the Type Scale Clamp Generator are referenced from their published documentation. Modular scale ratios and brand-personality mappings are aligned with practitioner writing including Tim Brown (*Modular Scale*) and Robin Rendle. Apple HIG Dynamic Type guidance and Material 3 typography are the per-platform native references.*
+
+*Provenance (June 2026 deepen pass): the brand-voice-in-type, type-pairing-as-a-system, and font-loading-and-performance sections plus the lighter heading-vs-scale and vertical-rhythm-where-this-stands additions are synthesised from the dual-agent research outputs in `_research/_inbound/2026-06-15-typography-deepen/` (claude.md and external-agent.md, both run from `prompt.md`). Convergence was clean across both passes on every load-bearing claim — the triad-with-rare-fourth, the contrast-of-personality-not-category discipline, the categorical-collapse / double-novelty / personality-conflict / brittle-balance failure modes, the one-carrier-one-supporter rule, the primitive/composite/component pairing token shape, the multi-script fallback pattern, the single-vs-two-variable-family decision logic around `opsz`, the no-Radix-equivalent-for-pairing tooling gap (both passes), the `optional` for body / `swap` for display / `block` for icons bifurcation, the metric-matched-fallback discipline with the four `@font-face` descriptors and Fontaine / Capsize / Fontsource toolchain, the `crossorigin` preload requirement, the variable-font 2–3-weight break-even, the per-axis non-linear cost, the `font-feature-settings`-overrides-siblings cascade gotcha (Claude only — the rationale for `font-variant-*` preference), the OpenType-feature audit via Wakamai Fondue, the self-hosted-as-2026-default position with Fontsource and foundry-direct licensing, the monumental-display-plus-invisible-text asymmetric pattern, the unify-text-vary-display multi-brand pattern, the commissioned / licensed / commodity asset matrix with named foundries, the "brand smell" framing, the brand-voice-suppression principle for forms / tables / mono / metadata, the type-scale-vs-DOM-tag decoupling, and the don't-enforce-baseline-grid-in-CSS / tune-line-heights-to-base-unit-multiples discipline.*
+
+*Three claims surfaced in the run need `_source-text/` backing before client-facing quotation: (1) **Munich Regional Court 2022 ruling on Google Fonts and GDPR** — Az. 3 O 17493/20 (January 2022) is the load-bearing precedent; the "loading remote Google Fonts is illegal under EU privacy guidelines" framing common in the field over-states the precedent's scope; verify against current case law before quoting in workshops or proposals. (2) **HTTP Archive `wght`-axis utilisation figures** (~60% of variable-font pages, external pass) — verify against the current Web Almanac fonts chapter before citing in proposals. (3) **`opsz` axis byte cost figures** (`+wdth` adds 30–60%, `+opsz` adds another 30–80% over `wght`-only) — practitioner-observed ranges; verify per-typeface via Wakamai Fondue and the foundry's published binaries before committing budget figures to client artefacts. One watch item: **DTCG typography composite-type evolution** continues; verify against the current spec at `tr.designtokens.org/format/` before committing token shapes to the spec's edge cases. Named-cut attributions in the brand-voice section (Stripe / Söhne via Klim, Linear / Inter Display via Rasmus Andersson, Vercel / Geist, Wired / Cooper, Bloomberg Businessweek / Neue Haas Grotesk via Commercial Type, IBM / Plex, Apple / SF, Google / Roboto, Netflix Sans, Airbnb Cereal) are publicly documented brand-typography case studies and aligned with the foundries' published case writeups; verify the specific licensing or commission narrative before quoting in client artefacts.*
