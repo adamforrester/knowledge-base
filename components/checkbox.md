@@ -47,6 +47,8 @@ The field splits into three paradigms (the external pass's taxonomy):
 
 This is the **same encapsulation hybrid the Text Field brief settled** (bundled props for the common case, composed slots for the exceptions — see text-field §3), applied here to a control. It folds the atomic+row tiers into one polymorphic `Checkbox` and keeps the group separate, rather than shipping three co-equal top-level components — because the atomic-only case is the exception, not the rule. **This decomposition is the pattern; Radio and Switch refine it** (Radio's group is *mandatory*; Switch usually has *no* group — §12).
 
+**Nesting the atomic control — the two-component surface is a convenience layer, not a closed system.** `Checkbox` and `CheckboxGroup` are the standalone-form ergonomics; underneath, **`Checkbox.Control` is the nestable unit** you drop into any host — a list row, a table cell, a menu item, a selectable card — and this is the load-bearing reason the atomic primitive is exposed rather than buried. When the control is nested, responsibilities redistribute to the host: (1) **the host provides the accessible name** — the row's own text names the control via `aria-labelledby`, so you never double-label; (2) **the host owns the hit target** — the whole row toggles, *unless* the row carries its own primary action (it navigates), in which case the control is a distinct secondary affordance with its own name (`aria-label="Select <item>"`) and the row's action stays separately reachable; (3) **the enclosing collection owns the selection state and group semantics** — a selectable List/Table/Menu plays the `CheckboxGroup` role at the collection level (the selected-ids array, select-all, `role=group`/grid-selection), so **you do not nest a `CheckboxGroup` inside a List** — the collection *is* the group (React Aria's `GridList`/`Table` with `selectionMode="multiple"` is the canonical example: rows carry checkboxes, the collection owns selection). The same mechanism lets one list mix control types — each row hosts the appropriate `*.Control` (`Checkbox.Control` / `Radio.Control` / `Switch.Control`) — provided **the selection semantics match the control type** (multi-select collection → checkbox; per-row independent immediate toggle → switch, no group; single-select collection → radio, and the collection *is* the radiogroup). The one trap to avoid is the **ambiguous nested interactive** — a control inside a row that is itself a button/link with no clear model of which the click hits; resolve it to either "the whole row is one control" or "the control is a named secondary affordance."
+
 Named parts: control (box + check/indeterminate glyph + focus ring), label, description, inline error; and at the group: group label, group description, group error, layout container.
 
 ## 3. Properties / API
@@ -199,6 +201,18 @@ anatomy:
       bundled-props-vs-composed-slots hybrid. Both research passes
       converged on this.
     pattern-carries-to: [radio (group MANDATORY), switch (no group)]
+    nesting: >
+      The two-component surface is a convenience layer, not closed.
+      Checkbox.Control is the NESTABLE unit (list row, table cell, menu
+      item, card). When nested: host provides the accessible name (row
+      text via aria-labelledby), host owns the hit target (whole row,
+      unless the row has a primary action -> control is a named secondary
+      affordance), and the enclosing collection (selectable List/Table/
+      Menu) owns selection + group semantics — do NOT nest CheckboxGroup
+      in a List, the collection IS the group. Mixing control types per
+      row is fine via *.Control if selection semantics match (multi ->
+      checkbox; per-row immediate -> switch; single -> radio). Avoid the
+      ambiguous nested-interactive (control inside a button/link row).
   parts: [control, check-glyph, indeterminate-glyph, label, description, inline-error, group-label, group-description, group-error, layout-container]
 api:
   inherits: text-field   # error/description/describedby substrate; label model differs (beside, rich-content, = hit target); native DOM naming (checked/indeterminate, not isChecked/isSelected)
