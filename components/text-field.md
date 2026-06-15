@@ -106,7 +106,7 @@ A frontier note: Carbon ships an **"AI Presence"** variant — a gradient + AI i
 
 **Use** for free-form, non-enumerable single-line input — names, titles, SKUs, identifiers, short queries (both agents).
 
-**Don't use** when the value comes from a known set (→ Select / Radio / Combobox), spans multiple lines or needs review of large blocks (→ Textarea), is numeric-formatted (→ NumberField), is boolean (→ Checkbox / Switch), is a date (→ Date Picker, though a masked text input is a legitimate fallback), or needs suggestions (→ Combobox) (both agents).
+**Don't use** when the value comes from a known set (→ Select / Radio / Combobox), spans multiple lines or needs review of large blocks (→ Textarea), is numeric-formatted (→ NumberField — and for an approximate/relative numeric value, → Slider, optionally paired with NumberField for precision; see slider), is boolean (→ Checkbox / Switch), is a date (→ Date Picker, though a masked text input is a legitimate fallback), or needs suggestions (→ Combobox) (both agents).
 
 **Decision frameworks rather than rules:**
 
