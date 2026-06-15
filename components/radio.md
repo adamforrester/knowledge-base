@@ -111,7 +111,7 @@ The control is universally **`Radio`** / `RadioButton`; the group **`RadioGroup`
 ## 12. Related and alternative components
 
 - **Composes with:** Label, Description, FieldError, Form, Tile/Card (which embeds `Radio.Control` for rich selectable options) — and the decomposition relationship: **`Radio` composes into `RadioGroup`** (mandatory); **`Radio.Control`** composes into single-select collection rows.
-- **Alternative to:** Checkbox/CheckboxGroup (any-number — see checkbox), Switch (immediate on/off), Select (collapsed single-select past ~5–7 — see select), Segmented Control / Connected Button Group (compact exclusive choice), ToggleButtonGroup (single-select pressed buttons).
+- **Alternative to:** Checkbox/CheckboxGroup (any-number — see checkbox), Switch (immediate on/off — see switch), Select (collapsed single-select past ~5–7 — see select), Segmented Control / Connected Button Group (compact exclusive choice), ToggleButtonGroup (single-select pressed buttons).
 - **Supersedes:** a set of checkboxes misused for an exclusive choice; a bare `<input type=radio>` set without a group label.
 - **Superseded by:** Select when the option count grows past ~5–7; Segmented Control when the presentation should be compact/toggle-like.
 
