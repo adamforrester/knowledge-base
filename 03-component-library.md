@@ -3,7 +3,7 @@ type: practice-area
 title: Component Library
 description: Component model — anatomy, properties, layout, composition primitives, components-as-data. Web rendering target assumed; mobile in 11.
 tags: [phase, components, components-as-data]
-timestamp: 2026-06-14
+timestamp: 2026-06-15
 ---
 
 # 03 — Component Library

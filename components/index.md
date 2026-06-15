@@ -4,7 +4,7 @@ type: practice-area
 title: Component Briefs
 description: Field-truth studies of individual components — how the leading systems handle them, where they converge, where they diverge, and the practice's defaults. Upstream of the per-component docs page (29) and the practice's POV on the component model (03).
 tags: [index, components]
-timestamp: 2026-06-14
+timestamp: 2026-06-15
 ---
 
 # Component Briefs
