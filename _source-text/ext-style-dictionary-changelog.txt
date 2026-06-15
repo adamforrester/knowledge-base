@@ -1,0 +1,64 @@
+Style Dictionary CHANGELOG
+Source: https://github.com/style-dictionary/style-dictionary/blob/main/CHANGELOG.md
+Captured: 2026-06-15
+Current version: 5.4.4
+
+This is the watch-item capture for §1.27 (Style Dictionary color-mix() support).
+
+---
+
+CURRENT STATUS — color-mix() / RELATIVE-COLOR-SYNTAX SUPPORT
+
+No native support for CSS color-mix() expression preservation has shipped
+in any version of Style Dictionary up to 5.4.4 (mid-2026).
+
+The closest color-related work is in 5.3.0:
+
+  Quote: "New `color/oklch` transformer - outputs modern CSS oklch() function"
+
+5.3.0 adds DTCG v2025.10 structured color format support including new
+transformers for oklch(), oklab(), color(display-p3 ...), and lch(). These
+output static CSS color functions from structured DTCG color objects (with
+colorSpace, components, alpha). They do NOT describe handling of color-mix()
+or relative color syntax expressions like oklch(from var(--brand-9) calc(l - 0.05) c h).
+
+No CHANGELOG entry mentions:
+  - color-mix
+  - color-mix()
+  - relative color
+  - relative-color
+  - oklch from
+  - lab from
+  - "Color Module Level 5"
+
+---
+
+PRACTICE-FACING IMPLICATIONS FOR 31
+
+31 §1's recommendation holds unchanged:
+
+  "Style Dictionary 4.x (mid-2026) doesn't natively preserve
+  color-mix()/relative-color expressions — its build pipeline emits the
+  resolved value, not the expression. To preserve runtime composition you
+  bypass Style Dictionary's color transforms or treat the expression as a
+  string token, surrendering cross-platform translation. The community
+  has open issues asking for a color-mix transform; not in core as of
+  Q2 2026 (verification path: Style Dictionary changelog)."
+
+The version-of-record for 31's "Style Dictionary 4.x" reference can be
+updated to "Style Dictionary 5.x" (the current major is now 5, with 5.4.4
+the latest patch as of the capture date), and the "as of Q2 2026" can be
+updated to "as of Q2 2026" — same calendar year, no shift.
+
+The web-only-state-derivation vs. cross-platform-state-tokens recommendation
+in 31 §1 stands. The next quarterly check should look for any 5.5+ entry
+that introduces a color-mix-preservation transform or a relative-color
+preservation pathway.
+
+---
+
+NEXT QUARTERLY CHECK: 2026-09-15
+  Expected outcome: still no native color-mix() support
+  Watch for: 5.5+ release with "color-mix" mentioned in CHANGELOG
+  Action if it lands: update 31 §1's tooling-fidelity catch and revisit
+                       the web-only-state-derivation recommendation

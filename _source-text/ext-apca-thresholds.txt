@@ -1,0 +1,165 @@
+APCA Visual Readability Contrast — Bronze / Silver / Gold tier tables
+APCA Readability Criterion (ARC), Inclusive Reading Technologies
+Source: https://readtech.org/ARC/tests/visual-readability-contrast/?tn=criterion
+Index page: https://github.com/Myndex/SAPC-APCA
+
+Status: Draft / Beta. Last lookup-table modification: 22 May 2022.
+Equation: APCA·W3 version 0.1.7 / Contrast Prediction Equation 0.0.98G-4g-base
+Change-log entries observed: 2023-02-10 (CSS revision, name ARC),
+2023-02-01 (ported to ASRG), 2022-05-21 (table update), 2021-02-25.
+
+Beta notice quoted: "Content in this resource is still under active
+development and should be considered beta. It may change, move, antecede,
+or be deleted with or without notice."
+
+---
+
+TIER STRUCTURE — Bronze / Silver / Gold
+
+BRONZE LEVEL CONFORMANCE
+- Use case: all fluent content text
+- No look-up tables
+- Exchange Rules: optional
+- Body text: Minimum Lc 75 / Preferred Lc 90
+- Other content text: Fonts ≥16px / Minimum Lc 60
+- Large fluent content: Fonts >32px / Minimum Lc 45 /
+  Maximum Lc 90 (large & bold only)
+
+SILVER LEVEL CONFORMANCE
+- Use cases: all fluent and sub-fluent content text
+- Uses look-up tables or tools for font weight & size
+- Exchange Rules: must choose at least one
+- Body text & fluent: Per lookup table; minimum font size 14px;
+  Maximum Lc 90 for fonts >36px
+- Sub-fluent & logos: May reduce contrast by up to Lc 15;
+  In no case below Lc 40; minimum font size 10px
+- Non-fluent & incidental: May reduce contrast by up to Lc 30;
+  In no case below Lc 30
+
+GOLD LEVEL CONFORMANCE
+- Use cases: all text (fluent, sub-fluent, non-fluent)
+- Exchange Rules: must choose at least two
+- Body text & fluent: When used for body text, any contrast value
+  less than Lc 75 must be increased by at least Lc 15;
+  Minimum font size 16px
+- Sub-fluent & logos: May reduce contrast by up to Lc 15;
+  In no case below Lc 45; minimum font size 12px
+- Non-fluent & incidental: May reduce contrast by up to Lc 20;
+  In no case below Lc 30
+
+---
+
+LOOK-UP TABLE — FONT SIZE × WEIGHT → MINIMUM Lc
+Reference fonts: Helvetica Neue, Helvetica, Barlow, Arial.
+Symbols: ⊘ = larger size or heavier weight required; ®© = non-content text only.
+
+px |   100 |   200 |   300 |   400 |   500 |   600 |   700 |   800 |   900
+---|-------|-------|-------|-------|-------|-------|-------|-------|------
+10 |    ⊘ |    ⊘ |    ⊘ |    ⊘ |    ⊘ |    ⊘ |    ⊘ |    ⊘ |    ⊘
+12 |    ⊘ |    ⊘ |    ⊘ |  ®©  |  ®©  |  ®©  |  ®©  |    ⊘ |    ⊘
+14 |    ⊘ |    ⊘ |  ®©  |  100  |  100  |   90  |   75  |    ⊘ |    ⊘
+15 |    ⊘ |    ⊘ |  ®©  |  100  |   90  |   75  |   70  |    ⊘ |    ⊘
+16 |    ⊘ |    ⊘ |  ®©  |   90  |   75  |   70  |   60  |   60  |    ⊘
+18 |    ⊘ |  ®©  |  100  |   75  |   70  |   60  |   55  |   55  |   55
+21 |    ⊘ |  ®©  |   90  |   70  |   60  |   55  |   50  |   50  |   50
+24 |    ⊘ |  ®©  |   75  |   60  |   55  |   50  |   45  |   45  |   45
+28 |    ⊘ |  100  |   70  |   55  |   50  |   45  |   43  |   43  |   43
+32 |    ⊘ |   90  |   65  |   50  |   45  |   43  |   40  |   40  |   40
+36 |    ⊘ |   75  |   60  |   45  |   43  |   40  |   38  |   38  |   38
+48 |   90  |   60  |   55  |   43  |   40  |   38  |   35  |   35  |   35
+60 |   75  |   55  |   50  |   40  |   38  |   35  |   33  |   33  |   33
+72 |   60  |   50  |   45  |   38  |   35  |   33  |   30  |   30  |   30
+96 |   50  |   45  |   40  |   35  |   33  |   30  |   25  |   25  |   25
+
+(Sorted by Lc → minimum px per weight is also published; see source URL.)
+
+---
+
+DIRECTIONAL ASYMMETRY (light-on-dark vs dark-on-light)
+
+The table is used by absolute Lc value — same Lc floor either direction.
+The asymmetry is encoded in the equation, not in the floors:
+
+  Normal polarity (dark text / light bg):  S_norm = Y_bg^0.56 − Y_txt^0.57
+  Reverse polarity (light text / dark bg): S_rev  = Y_bg^0.65 − Y_txt^0.62
+
+Practitioner rule (quoted): "do not swap the foreground & background colors
+in the tool entry fields. The contrast evaluation is based in part on
+polarity, i.e. dark-mode or light-mode."
+
+Identical colour pairs swapped will not yield identical |Lc|.
+
+---
+
+WEIGHT AS A SCALING FACTOR
+
+The page does not present a numeric "Lc adjustment per weight step" formula.
+Weight scaling is encoded in the table: each weight column gives its own
+minimum size for a given Lc, and each Lc row gives its own minimum size
+per weight column.
+
+For non-standard fonts, the page describes a manual offset procedure: measure
+x-height ratio for size; "Subtract the reference weight from the matching test
+font weight. This value is the reference weight offset." Worked example
+given: Raleway needs +120 weight offset at 400 and +30 at 700 vs. Arial.
+
+Gold-tier body-text rule that interacts with weight/size: "any contrast value
+less than Lc 75 must be increased by at least Lc 15."
+
+---
+
+CONTENT TYPE DEFINITIONS
+
+Fluent — Body Text: "a block or column of more than two continuous lines of
+content text that uses a readable font with an x-height of ~19px or less."
+
+Fluent — Primary content not body: "up to two and a half lines of continuous
+text" — headlines, captions, primary nav, tooltips, form input.
+
+Large Fluent: "fluent subcategory of 'large content' such as big, bold
+headlines, and generally referring to text larger than 36px."
+
+Sub-Fluent: "non-primary content with relaxed readability needs" — secondary
+nav, byline, footer matter.
+
+Non-Fluent: "non-content text of an incidental nature" — placeholder, disabled
+controls, copyright bugs.
+
+Logo or Branding and Incidental Text in Images also covered.
+
+---
+
+WHAT THIS PAGE EXPLICITLY DOES NOT COVER
+
+The Myndex/SAPC-APCA index page also points to a Non-Text Contrast guideline,
+but that guideline is currently a placeholder ("PLACEHOLDER for the non-text
+guidelines (coming soon!)"). The Lc 30 floor for non-text UI components named
+in 31 §3 is therefore not yet a published Myndex/ARC value as of mid-2026.
+The Lc 30 floor for non-content text in the Silver and Gold tiers above is
+the supportable figure; reserve Lc 30 for non-text UI as practitioner
+shorthand pending publication.
+
+---
+
+PRACTICE-FACING IMPLICATIONS FOR 31
+
+31 §3's Lc tier table can now be tightened against this source:
+- Lc 90+ "critical UI / super-bold" — corresponds to Bronze "preferred" body
+  text and the Silver/Gold ceiling for fonts >36px
+- Lc 75–90 "body-text minimum" — corresponds to Bronze body-text minimum,
+  Gold body-text floor (rule: < Lc 75 must be increased by ≥ Lc 15)
+- Lc 60–75 "large or non-essential text, UI labels" — corresponds to Bronze
+  "other content text" Lc 60 floor for ≥16px
+- Lc 45–60 "large headings, decorative" — corresponds to Bronze large
+  fluent content (Lc 45 floor for fonts >32px)
+- Lc <45 — non-text and non-content; the non-text-UI Lc 30 floor is
+  practitioner shorthand pending Myndex's published non-text guideline
+
+The line in 31's table about Lc 90+ requiring "14px @ 400 weight" is a
+specific over-reading of the matrix: the matrix at Lc 100 in column 400
+shows 15.5px (not 14px); the 14px figure in column 400 corresponds to
+Lc 80–85, not Lc 90+. Tighten this on the next pass through 31 §3.
+
+---
+
+Captured: 2026-06-15.

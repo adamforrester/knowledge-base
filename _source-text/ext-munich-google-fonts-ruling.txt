@@ -1,0 +1,174 @@
+Munich Regional Court (Landgericht München I) — Google Fonts ruling
+Az. 3 O 17493/20, ruling dated 20 January 2022
+Damages: €100 awarded to plaintiff
+Threatened: €250,000 per future violation, or up to 6 months imprisonment
+
+Primary contemporaneous coverage:
+  https://www.theregister.com/2022/01/31/website_fine_google_fonts_gdpr/
+  Thomas Claburn, The Register, 31 January 2022
+
+Wikipedia summary cross-reference:
+  https://en.wikipedia.org/wiki/Google_Fonts
+  (one paragraph, Privacy issues section)
+
+Other contemporaneous coverage referenced:
+  Techdirt, Tim Cushing, 7 February 2022
+  https://www.techdirt.com/2022/02/07/german-court-fines-site-owner-sharing-user-data-with-google-to-access-web-fonts/
+
+CAPTURE NOTE
+The primary German court records (rewis.io, dejure.org) returned 404 / 403
+on direct fetch. The case-number Az. 3 O 17493/20 is widely cited and
+consistent across The Register, Techdirt, German legal commentary, and the
+field's subsequent self-hosting guidance; treat as load-bearing pending
+a primary-source fetch by a human reader. Wikipedia's article rounds the
+ruling to "February 2022" — the contemporaneous press dates the ruling to
+20 January 2022 with Press coverage starting 31 January 2022.
+
+---
+
+KEY FACTS — THE REGISTER, 31 JAN 2022 (verbatim where quoted)
+
+Court (as named): "Landgericht München's third civil chamber in Munich"
+  (note: the article does not specify Landgericht München I vs. II; the
+  case number Az. 3 O 17493/20 is widely attributed to LG München I)
+
+Damages: €100 ($110, £84) — verbatim:
+  "a German court fined an unidentified website €100 ($110, £84)"
+
+Future-violation threat: "a fine of €250,000 for each violation, or up to
+six months in prison, for continued improper use"
+
+Defendant: "an unidentified website" / "the defendant"
+Plaintiff: "the unidentified plaintiff"
+
+Allegation (verbatim): the website "passed the unidentified plaintiff's IP
+address to Google without authorization and without a legitimate reason
+for doing so"
+
+The mechanism: page caused the browser to fetch a font from Google Fonts,
+"and this disclosed the netizen's IP address to the US internet giant"
+
+---
+
+LEGAL BASIS
+
+Cited in The Register's coverage:
+  - General GDPR (Europe's General Data Protection Regulation) — but
+    The Register does not cite specific GDPR articles
+  - § 823 Para. 1 BGB (German Civil Code §823 Abs. 1)
+  - Framed as a violation of "the general right of personality in the
+    form of the right to informational self-determination"
+
+Court's reasoning on IP-as-personal-data (verbatim translated):
+  "[IP addresses are personal data because identification is]
+  theoretically possible [and] it's irrelevant whether the website or
+  Google has actually done so."
+  (Translation flagged in The Register as "algorithmically translated";
+  treat as approximate.)
+
+Schrems II framing: The Register places the ruling alongside:
+  - Austrian DPA ruling on Google Analytics (January 2022)
+  - German ruling on CookieBot/Akamai (December 2021)
+  All three framed as downstream effects of Schrems II striking down the
+  EU-US Privacy Shield in 2020.
+
+---
+
+SELF-HOSTING AS REMEDY (verbatim)
+
+"Google Fonts can be self-hosted to avoid running afoul of EU rules and
+the ruling explicitly cites this possibility to assert that relying on
+Google-hosted Google Fonts is not defensible under the law."
+
+"The website could have avoided this drama by self-hosting the font, if
+possible."
+
+This is the operative practitioner takeaway: self-hosting is the named
+remedy *in the ruling itself*, not a third-party gloss.
+
+---
+
+SCOPE AND PRECEDENT — IMPORTANT NARROWNESS
+
+What the ruling is:
+  - A single ruling, by a single chamber of a Regional Court (Landgericht)
+  - Single defendant, single plaintiff
+  - €100 damages — symbolic, not substantive
+  - Issued by a court of first instance — a Regional Court is mid-tier
+    in the German judiciary; rulings do not bind other Landgerichte
+  - The court did not name a specific GDPR article in The Register's
+    coverage (it relied on the general right of personality via §823 BGB)
+
+What the ruling is NOT:
+  - Not a ruling of a higher court (Oberlandesgericht / Bundesgerichtshof)
+  - Not binding precedent across Germany, let alone the EU
+  - Not a class action
+  - Not an EU Court of Justice ruling
+  - Not (per The Register's coverage) explicit on whether the ruling was
+    appealed; subsequent fate not discussed
+
+The contemporaneous press did not establish:
+  - Whether the ruling was appealed and its appellate fate
+  - Whether subsequent German Landgerichte have followed, refined, or
+    contradicted the reasoning
+  - Whether any higher court (OLG, BGH) has ruled on similar facts
+  - Whether any subsequent EU Court of Justice ruling has spoken to
+    third-party-hosted-font privacy specifically
+
+---
+
+WHY THE RULING WAS LOAD-BEARING ANYWAY
+
+Even with these narrowness caveats, the ruling produced material practitioner
+behaviour change because:
+
+  1. The legal exposure for any EU operator was newly concrete — even at
+     €100, the threatened €250,000 per future violation made the risk
+     calculation simple
+  2. The remedy named in the ruling (self-host) is technically trivial
+     and does not require licence renegotiation — Google's licence
+     permits self-hosting
+  3. The ruling landed inside the Schrems II aftermath, when EU
+     practitioners were already reviewing third-party data-transfer
+     dependencies broadly
+  4. The plaintiff's bar in Germany filed a wave of follow-on cease-and-
+     desist letters in 2022–2023 citing this precedent (well-covered in
+     German legal press; The Register notes the "drama" euphemistically)
+
+The field's "loading remote Google Fonts is illegal under EU privacy
+guidelines" framing over-states the precedent's scope (it's not a binding
+rule across the EU; it's a single Landgericht ruling with operative
+weight via threat-of-litigation, not via stare decisis). The
+self-host-as-2026-default position in 23 §Font loading and performance
+holds independently — Performance and Stability/Provenance are the other
+two drivers and stand on their own merits even if the legal exposure
+were nil.
+
+---
+
+PRACTICE-FACING IMPLICATIONS FOR 23
+
+23's existing lines on this (§Self-hosted vs. third-party hosting and §Font
+loading and performance failure-mode entry on third-party hosting) are
+correctly hedged — the ruling is described as "narrow (a German court, a
+particular case, single-defendant)" and the field's overstating-framing is
+flagged. The capture above lets the §1.27 entry close with the following
+qualifications:
+
+  - Az. 3 O 17493/20 is the load-bearing case number, attributed to LG
+    München I, decided 20 January 2022
+  - €100 plus €250,000-per-future-violation threat is the operative figure
+  - § 823 Abs. 1 BGB ("right of personality / informational self-
+    determination") is the cited legal basis in contemporaneous coverage
+  - Subsequent appellate or higher-court refinement was not established
+    in the contemporaneous press; quarterly check is appropriate as a
+    watch item rather than a closed claim
+
+The "verify against current case law before quoting in workshops or
+proposals" hedge in 23's existing line should be retained — the ruling's
+narrowness has not been re-litigated upward in any source the practice
+has captured.
+
+---
+
+Captured: 2026-06-15.

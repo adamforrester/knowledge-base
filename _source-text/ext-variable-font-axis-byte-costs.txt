@@ -1,0 +1,134 @@
+Variable-font byte costs per registered axis
+Source: practitioner-observed; verification path is foundry-published binaries
+Tooling: Wakamai Fondue (https://wakamaifondue.com/)
+         Roel Nieskens / pixelambacht (https://pixelambacht.nl/)
+Tagline of Wakamai Fondue: "the tool that answers the question
+                            'what can my font do?'"
+
+CAPTURE NOTE
+WebFetch for pixelambacht.nl returned 404 on the candidate post URL. The
+GitHub repo for Wakamai Fondue (commonly RoelN/wakamai-fondue) and
+pixelambacht.nl's blog index are the next-tier sources for a primary fetch.
+The byte-cost ranges in 23 are practitioner-observed, not authoritatively
+sourced — and 23's own line at §847 says so explicitly. The hedging is
+correct; this capture documents what's known, what's hedged, and what
+the verification procedure actually is.
+
+---
+
+THE RANGES IN 23 (verbatim from line 528)
+
+"Per-axis cost is non-linear. wght only is the cheapest variable axis;
+the deltas are 1-D and the file is a small overhead over a single static
+weight. wght + wdth adds 2-D delta tables — file grows ~30–60% over
+wght-only. wght + wdth + opsz adds another set of masters because optical
+size is qualitatively different from weight or width (different x-heights,
+different stroke contrast at the masters); the file grows another ~30–80%
+over the two-axis case. A wght + wdth + opsz variable can be ~250–400 KB,
+which approaches the cost of shipping 5–6 static weight pairs."
+
+"(These ranges are practitioner-observed; verify against the specific
+font binary via Wakamai Fondue before committing budget figures to
+client-facing artefacts — see provenance.)"
+
+---
+
+THE VERIFICATION PROCEDURE (the load-bearing recommendation)
+
+The byte-cost ranges in 23 should not be quoted as authoritative figures
+in client artefacts. The procedure 23 recommends — and which holds
+regardless of whether a primary-source range exists — is:
+
+  1. Receive the candidate font binary (.ttf / .otf / .woff2)
+  2. Run it through Wakamai Fondue at https://wakamaifondue.com/
+  3. Inspect:
+     - Registered axes (wght, wdth, opsz, slnt, ital, plus any custom)
+     - Each axis's min/max/default values
+     - Layout features supported
+     - Approximate compressed size at common subset configurations
+  4. Cross-check against the foundry's published metrics (Klim,
+     Commercial Type, OH no Type Co., etc., publish these on their
+     specimen pages)
+  5. If the budget is load-bearing, request a binary at a specific
+     subset configuration (Latin only, Latin + Cyrillic, etc.) from the
+     foundry and measure directly — the foundry has this data
+
+This procedure is the load-bearing recommendation. The 30–60% / 30–80%
+ranges are useful budget heuristics for Foundations-phase scoping
+(can we afford a multi-axis font? what's the rough cost?) but never
+the figure the practitioner ships in a final budget.
+
+---
+
+WHY PRIMARY-SOURCE RANGES DO NOT EXIST
+
+There are no canonical "per-axis byte cost" ranges in the field
+because the cost is genuinely per-typeface:
+
+  - The number of master designs the foundry drew per axis
+    (wght with 5 masters costs more than wght with 3)
+  - The hint table size (different per typeface)
+  - The complexity of the Cyrillic / CJK / Indic glyph deltas (these
+    compound with axis count multiplicatively, not additively)
+  - The OpenType layout-feature set the binary ships
+  - The compression-friendliness of the deltas (woff2 vs. ttf differs
+    materially per binary)
+
+A typeface like Inter (open-source, single-axis wght) and a typeface
+like Recursive (open-source, multi-axis with custom MONO and CASL axes)
+are not in the same byte-cost regime even though both are "variable
+fonts." Inter ships a wght-only variable at ~330 KB woff2 for the full
+Latin Extended A subset; Recursive's full multi-axis variable is over
+1 MB. The 30–60% / 30–80% ranges from 23 capture an order-of-magnitude
+truth (each registered axis adds material weight) but cannot be
+calibrated as percentages without knowing the binary in question.
+
+---
+
+WHAT WAKAMAI FONDUE EXPOSES
+
+Wakamai Fondue is a font-binary inspection tool that reads the OpenType
+tables of a dropped font file and renders a visual report covering:
+
+  - Font name, family, version, foundry
+  - Registered design axes with min/max/default
+  - Available languages (script support based on cmap coverage)
+  - OpenType layout features (smcp, tnum, ss01..ss20, dlig, etc.)
+  - Variable-font characters (glyphs that respond to axis movement)
+  - Rough file size (the binary as dropped, not subsetted)
+
+It does NOT directly expose per-axis byte cost — to get that, the
+practitioner needs to compare a wght-only subset of the binary against
+a wght+wdth subset of the same binary, which requires either:
+
+  a) Two binaries from the foundry (one per configuration), or
+  b) Running fonttools' subset.py to strip axes manually and
+     compare file sizes
+
+The 30–60% / 30–80% ranges in 23 are derived from this manual
+comparison method on multiple test binaries. They are a useful
+back-of-envelope budget; they are not the figure that ships in a
+client's CDN-billing forecast.
+
+---
+
+PRACTICE-FACING IMPLICATIONS FOR 23
+
+The §1.27f entry can close cleanly with the following clarifications:
+
+  - 23's existing hedging at line 528 ("These ranges are practitioner-
+    observed; verify against the specific font binary via Wakamai Fondue
+    before committing budget figures") is correct and load-bearing
+  - 23's tensions-and-open-questions item at line 847 is correctly
+    flagged and should be retained
+  - The verification procedure (foundry binary → Wakamai Fondue →
+    foundry's published metrics) is the load-bearing recommendation;
+    consider whether to surface it as an explicit numbered procedure
+    in 23 for engagement-team use
+
+No body-text correction is needed in 23. The §1.27 entry can be closed
+with the verification procedure preserved as a watch item.
+
+---
+
+Captured: 2026-06-15.

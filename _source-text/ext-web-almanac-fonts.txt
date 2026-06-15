@@ -1,0 +1,113 @@
+Web Almanac 2024 — Fonts chapter
+Published 11 November 2024, updated 2 January 2025
+Source: https://almanac.httparchive.org/en/2024/fonts
+Publisher: HTTP Archive
+
+This is the canonical source for the variable-font axis-utilisation figures
+referenced in the §1.27e flag on 23-typography-tokenisation.md.
+
+---
+
+VARIABLE-FONT USAGE AT THE PAGE LEVEL (2024)
+
+"about 33% of websites are now using variable fonts"
+  — 33% desktop / 34% mobile (up from 28% / 29% in 2022)
+
+---
+
+PER-AXIS UTILISATION — THE ~60% CLAIM REVISITED
+
+The ~60% wght-axis figure surfaced by 23's external-pass run is NOT
+supported by the 2024 chapter. The chapter reports two distinct figures
+and the 60% rounding falls between them.
+
+Axis present in the font file (Figure 4.37):
+  Axis | Desktop | Mobile
+  -----|---------|-------
+  wght |   99%   |  99%
+  slnt |    4.1% |   4.7%
+  wdth |    2.8% |   2.4%
+  opsz |    2.8% |   2.4%
+  GRAD |    0.6% |   0.5%
+  ital |    0.5% |   0.3%
+
+Axis used via font-variation-settings CSS (Figure 4.38, desktop / mobile):
+  wght    75% / 78%
+  opsz    36% / 35%
+  FILL    30% / 30%
+  GRAD    28% / 29%
+  wdth    18% / 18%
+  SOFT     9% / 10%
+  slnt     9% /  8%
+  ital     3% /  2%
+
+Methodology note (verbatim, paraphrased): the chapter measured variable-font
+usage by scanning font-variation-settings declarations. Standard CSS
+properties (font-weight, font-stretch, font-style) are NOT captured by
+this method because "detecting variable fonts via standard CSS properties
+requires reconstructing the CSS object model." The chapter cautions: "we
+used font-variation-settings as an approximation (so take these results
+with a grain of salt)."
+
+---
+
+VARIABLE-FONT ANIMATION USE
+
+"Variable font animation is on the rise but remains quite low."
+
+  2022: 163 desktop / 147 mobile sites animating axes
+  2024: 35,000 desktop / 46,000 mobile sites animating
+  As share of the web: ~0.28%
+
+The chapter notes adoption may be passive — "many sites use variable fonts
+because the service(s) they use chose to serve a variable font instead of
+regular font styles," not by deliberate developer choice. This is the
+field's actual posture: variable fonts are widely available, but most
+implementations are static-weight delivery via a variable file, not
+multi-axis design exploitation.
+
+---
+
+PRACTICE-FACING IMPLICATIONS FOR 23
+
+23's body text does not actually quote the ~60% figure — the figure is
+flagged in 23's provenance footer as a claim from the external pass that
+needed verification before client-facing quotation. This source clears
+that flag with a correction:
+
+  - Variable-font availability in the font file: ~99% of variable fonts
+    declare wght (this is essentially "every variable font has a weight
+    axis" — wght is registered for ~all variable fonts shipping in 2024)
+  - CSS-level wght axis usage (font-variation-settings declarations):
+    75–78% of variable-font pages
+  - The ~60% figure is not in the source; treat it as an external-pass
+    over-statement, neither confirmable nor a useful field figure to quote
+
+For workshop / proposal use, the load-bearing pair is:
+  - "Variable fonts now account for ~33% of font usage on the web (Web
+    Almanac 2024)"
+  - "Of those, the wght axis is universally available and used by 75–78%
+    of pages via font-variation-settings; multi-axis use is rare, with
+    opsz the second-most-used axis at ~35%"
+
+The 23 footer's §1.27e entry can close cleanly: the ~60% figure does not
+land; the actual figures are stronger (99% file-level / 75–78% CSS-level)
+and the multi-axis usage is materially lower than the wght-only headline
+suggests.
+
+---
+
+ANCILLARY FACTS WORTH PRESERVING
+
+  - The 2022 → 2024 jump in wght CSS-level usage tracked from ~70% to
+    ~75% — the field is converging on wght as the universal axis
+  - opsz is the second axis; wdth is third (CSS-level). FILL and GRAD
+    track ahead of wdth, both being icon-font axes (Material Symbols,
+    Google's font-icon catalogue)
+  - The axis-presence figures (Figure 4.37) reveal that even though
+    nearly every variable font supports wght, only ~3% of variable fonts
+    ship wdth or opsz axes. The web is dominated by wght-only variables.
+
+---
+
+Captured: 2026-06-15.

@@ -1,0 +1,157 @@
+DTCG Format Module 2025.10 + Color Module 2025.10
+Draft Community Group Reports, dated 13 June 2026 (preview drafts)
+Format Module: https://www.designtokens.org/TR/drafts/format/
+Color Module:  https://www.designtokens.org/TR/drafts/color/
+
+Editors (Format): Louis Chenais, Kathleen McMahon, Drew Powers,
+                  Matthew Ström-Awn, Donna Vitan
+Editors (Color):  Ayesha Mazrana (Mazumdar), Kathleen McMahon,
+                  Adekunle Oduye, Matthew Ström-Awn
+
+Latest published versions:
+  https://www.designtokens.org/TR/2025.10/format/
+  https://www.designtokens.org/TR/2025.10/color/
+
+STATUS WARNING (verbatim from drafts):
+  "This is a preview draft of in progress changes. Do not refer to this
+  document directly, and do not implement anything in this document."
+  "Do not attempt to implement this version of the specification. Do not
+  reference this version as authoritative in any way."
+
+---
+
+COLOR MODULE — SCHEMA
+
+For color tokens, the $type property MUST be set to the string "color".
+
+The $value is an object with these properties:
+  - colorSpace  (required): string identifying the colour space / model
+  - components  (required): array of numbers (or the keyword 'none');
+                            length and meaning depend on colorSpace
+  - alpha       (optional): number 0–1; defaults to 1 if omitted
+  - hex         (optional): 6-digit CSS hex string, fallback value
+
+colorSpace, components, alpha, and hex are all sub-fields of $value
+(not peers of $value).
+
+VALID colorSpace VALUES (14 enumerated in 2025.10):
+  "srgb"         — sRGB
+  "srgb-linear"  — sRGB linear
+  "hsl"          — HSL
+  "hwb"          — HWB
+  "lab"          — CIELAB
+  "lch"          — LCH
+  "oklab"        — OKLAB
+  "oklch"        — OKLCH
+  "display-p3"   — Display P3                  ← verified
+  "a98-rgb"      — A98 RGB
+  "prophoto-rgb" — ProPhoto RGB
+  "rec2020"      — Rec 2020
+  "xyz-d65"      — XYZ-D65
+  "xyz-d50"      — XYZ-D50
+
+Section 4.3 notes future additions are possible.
+
+EXAMPLES (verbatim, Color Module Examples 4 and 12):
+
+  Example 4 — sRGB:
+  {
+    "Hot pink": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [1, 0, 1],
+        "alpha": 1,
+        "hex": "#ff00ff"
+      }
+    }
+  }
+
+  Example 12 — Display P3:
+  {
+    "Hot pink": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "display-p3",
+        "components": [1, 0, 1],
+        "alpha": 1,
+        "hex": "#ff00ff"
+      }
+    }
+  }
+
+ISSUE SUMMARY (Color Module Appendix A): "There are no issues listed in
+this specification." No at-risk markers on colorSpace or display-p3.
+
+---
+
+FORMAT MODULE — TYPOGRAPHY COMPOSITE TYPE
+
+Section 8.1 (Color) delegates to the separate Color Module — quoted:
+  "Represents a color in the UI. For details on how to represent colors,
+  see the Color module."
+
+Section 9.8 (Typography) defines the composite type. From observed
+examples in §7.3.3:
+
+  "$value": {
+    "fontFamily": ["Helvetica", "Arial", "sans-serif"],
+    "fontSize": { "value": 16, "unit": "px" },
+    "fontWeight": 400,
+    "lineHeight": 1.5
+  }
+
+Sub-properties confirmed in examples: fontFamily, fontSize, fontWeight,
+lineHeight. (Body-text capture for §9.8 was truncated — letterSpacing,
+fontStyle, fontVariant and the full list are likely present in the spec
+but were not captured in this fetch.)
+
+PROPERTY-LEVEL ALIASING — verbatim:
+  "Property-level references require JSON Pointer syntax ($ref) and
+  cannot be expressed using curly brace syntax."
+
+Example given for sub-property reference:
+  { "$ref": "#/base/text/$value/fontFamily" }
+
+This is the load-bearing change for typography composite tokens. The
+curly-brace alias syntax used at the token level does not work at the
+sub-property level — you have to use JSON Pointer ($ref).
+
+OPEN ISSUES OBSERVED ON TYPOGRAPHY:
+  - Issue 53 on fontFamily: noted as potentially "more complicated than
+    it seems due to platform/OS/browser restrictions"
+  - Issues 98, 99, 103 (stroke style, border, transition) flagged as
+    "Composite Type Feedback"
+  - Section 8.8: font style listed as a type "still to be documented"
+
+NOT CAPTURED (truncation):
+  - Multi-mode resolution for composite typography
+  - Per-script family overrides
+  - The full §9.8 sub-property list with required/optional flags
+
+---
+
+PRACTICE-FACING IMPLICATIONS
+
+For 31 — colorSpace as a token-level field:
+  31's existing line ("DTCG colorSpace: 'display-p3' schema field makes
+  this explicit at the token level") is correct and verified. The 14-value
+  enumeration confirms display-p3 is one of the standard values, not a
+  speculative addition. The line can drop its hedging.
+
+For 23 — typography composite type:
+  23's existing line ("DTCG 2025.10 defines a typography token as a
+  composite type. The token bundles family, size, weight, line-height,
+  tracking, etc. into a single named entity") is correct and verified.
+  The §1.27 watch item should now record:
+    - The property-level-aliasing-via-JSON-Pointer rule is the load-bearing
+      2025.10 mechanic — sub-property references need $ref, not {alias}.
+      This is worth a sentence in 23's discussion of composite typography.
+    - Multi-mode resolution and per-script family overrides remain
+      uncaptured from the spec; the watch should continue.
+
+The 13 June 2026 forward-dated preview draft is current for both modules.
+
+---
+
+Captured: 2026-06-15.

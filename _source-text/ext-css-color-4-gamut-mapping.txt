@@ -1,0 +1,96 @@
+CSS Color Module Level 4 — Gamut Mapping
+W3C Candidate Recommendation Draft, 2 May 2026
+Source: https://www.w3.org/TR/css-color-4/
+Editor's Draft: https://drafts.csswg.org/css-color-4/
+
+Editors: Tab Atkins Jr. (Google), Chris Lilley (W3C), Lea Verou (Invited Expert)
+This version: https://www.w3.org/TR/2026/CRD-css-color-4-20260502/
+
+CAPTURE NOTE
+WebFetch was unable to retrieve the body text of §14 — the spec exceeds the
+fetch window and truncates well before §14 in every variation tried (W3C TR,
+drafts.csswg.org, fragment URLs). What follows is the verified table-of-contents
+structure and the named algorithms; the body-text capture is incomplete and
+should be re-attempted by a human reader visiting the spec directly. The
+algorithm-name attribution in 31 is therefore retained with its existing
+hedging rather than upgraded to a verbatim quote.
+
+---
+
+§14 GAMUT MAPPING — TABLE OF CONTENTS (verified verbatim from spec)
+
+§14.1 An Introduction to Gamut Mapping
+  §14.1.1 Clipping
+  §14.1.2 Closest Color (MINDE)
+  §14.1.3 Chroma Reduction
+  §14.1.4 Excessive Chroma Reduction
+  §14.1.5 Chroma Reduction with Local Clipping
+  §14.1.6 Deviations from Perceptual Uniformity: Hue Curvature
+
+§14.2 CSS Gamut Mapping to an RGB Destination
+  §14.2.1 Binary Search Gamut Mapping with Local MINDE
+  §14.2.2 Sample Pseudocode for the Binary Search Gamut Mapping with Local MINDE
+  §14.2.3 The EdgeSeeker Gamut Mapping
+  §14.2.4 Sample Pseudocode for the EdgeSeeker Gamut Mapping
+  §14.2.5 The Ray Trace Gamut Mapping
+  §14.2.6 Sample Pseudocode for the Ray Trace Gamut Mapping
+
+§20 Sample Code for ΔE2000 and ΔEOK Color Differences
+  (named in TOC; confirms ΔEOK is a defined distance metric in the spec)
+
+---
+
+WHAT THE TOC CONFIRMS
+
+1. The acronym MINDE appears in the spec's section headings — both at the
+   conceptual level (§14.1.2 "Closest Color (MINDE)") and at the algorithmic
+   level (§14.2.1 "Binary Search Gamut Mapping with Local MINDE"). MINDE is
+   plausibly "Minimum Delta-E" given the spec's use of ΔE2000 and ΔEOK as
+   distance metrics in §20, but the expansion is not literally written out
+   in any heading captured.
+
+2. The CSS spec presents three named algorithms as siblings in §14.2:
+   - Binary Search Gamut Mapping with Local MINDE
+   - EdgeSeeker Gamut Mapping
+   - Ray Trace Gamut Mapping
+   Whether one is normatively designated as the CSS *default* could not be
+   verified from the captured TOC — the body-text designation lives in
+   §14.2's intro paragraphs, which were truncated.
+
+3. The conceptual building blocks named in §14.1 ("Closest Color (MINDE)",
+   "Chroma Reduction", "Chroma Reduction with Local Clipping") align with
+   the practitioner shorthand "chroma reduction" used in 31's body text. The
+   *category* of the default algorithm (chroma-reduction in OKLCh/Oklab
+   space) is supportable from the TOC structure; the precise algorithm name
+   ("MINDE Chroma Reduction with ΔE_ok distancing", as the external pass to
+   31's run named it) needs a body-text capture before it can be quoted
+   verbatim in a client artefact.
+
+---
+
+WHAT WAS NOT CAPTURED
+
+- The §14.2 normative paragraph(s) designating the CSS default
+- The §14.2.1 algorithm body — distance metric, L/H preservation, binary
+  search procedure, termination condition, working colour space
+- The §14.2.2 pseudocode
+
+These should be re-fetched by a human reader visiting:
+  https://www.w3.org/TR/css-color-4/#GMA-Binary-local-MINDE
+  https://drafts.csswg.org/css-color-4/#GMA
+
+---
+
+PRACTICE STANCE PRESERVED
+
+31's body line at §1 ("CSS Color 4 default (chroma-reduction) — keep L and H,
+reduce C until the color is in gamut") is supported by the TOC structure and
+by the spec's named conceptual building blocks. The external pass's specific
+"MINDE Chroma Reduction with ΔE_ok distancing" naming remains flagged for
+verification before client-facing quotation; the §1 line in 31 already
+hedges this correctly. No body-text correction needed in 31; §1.27a stays
+open as a watch item until a human-fetched body-text capture lands.
+
+---
+
+Captured: 2026-06-15. Capture is partial — see "WHAT WAS NOT CAPTURED" above.
