@@ -35,11 +35,11 @@ A flat catalogue of per-component field-truth briefs. Each brief is a single com
 
 ### Foundations
 
-- **Icon** — *not yet briefed.* `scope: glyph sizing model, semantic vs. decorative split, accessible name vs. aria-hidden, the icon-only-button anti-pattern, the bicolour/duotone trend.`
+- **[Icon](icon.md)** — a primitive with two load-bearing decisions, meaningful-vs-decorative and how the set is delivered: the decorative-by-default accessible-name matrix (`aria-hidden` unless meaningfully standalone), the icon-only-button trap (the Icon is never the interactive node — the wrapping Button is), the `currentColor` sizing-and-colour model, inline-SVG over the icon-font anti-pattern, and the set-as-versioned-API rename problem. *stable* — claude-only run; the more contested of the two foundation primitives, a candidate for a dual-agent second pass.
 - **Avatar** — *not yet briefed.* `scope: image vs. initials vs. fallback, group/stack composition, accessible name patterns, presence-indicator overlay.`
 - **Badge** — *not yet briefed.* `scope: count vs. dot vs. status, the announcement contract, placement relative to host, color-as-sole-carrier failure.`
 - **Tag** — *not yet briefed.* `scope: chip vs. tag vs. pill terminology, removable vs. static, multi-select interaction model, the tag-vs-badge boundary.`
-- **Divider** — *not yet briefed.* `scope: presentational vs. semantic separator, vertical vs. horizontal, inset and full-bleed variants, the role="separator" decision.`
+- **[Divider](divider.md)** — the catalogue's thinnest component and sharpest accessibility test: the decorative-vs-semantic separator decision (`aria-hidden` by default, `role="separator"` only for true thematic breaks), the vertical-divider height trap, the inset model, the labelled "OR" divider, and the divider-versus-spacing judgment. *stable* — the catalogue's first claude-only brief; proves depth scales to the component (states and motion sections collapse, by design).
 - **Spinner** — *not yet briefed.* `scope: indeterminate vs. determinate, when to use vs. skeleton, accessible loading announcement, the reduce-motion contract.`
 - **Skeleton** — *not yet briefed.* `scope: shape-matched vs. block placeholders, animation discipline, accessibility (aria-busy on parent, hidden from AT), the spinner-vs-skeleton decision.`
 
