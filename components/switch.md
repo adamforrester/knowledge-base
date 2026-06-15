@@ -111,7 +111,7 @@ The field splits three ways: **`Switch`** (Spectrum/React Aria, Material, Fluent
 ## 12. Related and alternative components
 
 - **Composes with:** Label, Description, status message (async outcome), List / SettingsRow (the canonical host that embeds `Switch.Control`), Form (rarely — switches are usually live settings, not staged form fields).
-- **Alternative to:** Checkbox (staged binary — see checkbox), ToggleButton (`aria-pressed` action/mode — see button), Radio/Segmented (one-of-two exclusive labelled choice).
+- **Alternative to:** Checkbox (staged binary — see checkbox), ToggleButton (`aria-pressed` action/mode — see toggle-button), Radio/Segmented (one-of-two exclusive labelled choice).
 - **Supersedes:** a Checkbox misused for an immediate-effect setting; two radios used for a binary on/off where the off state is obvious; a `role=button`/`aria-pressed` toggle misused for a state setting.
 - **Superseded by:** Checkbox when the change must be staged and submitted.
 

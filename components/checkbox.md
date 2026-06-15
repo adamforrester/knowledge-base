@@ -143,7 +143,7 @@ The row is universally **`Checkbox`**. The group splits: **`CheckboxGroup`** (Sp
 ## 12. Related and alternative components
 
 - **Composes with:** Label, Description, FieldError, Form — and the decomposition relationship: **`Checkbox` composes into `CheckboxGroup`**; **`Checkbox.Control`** composes into custom rows (table select-all, card-select).
-- **Alternative to:** Switch (immediate-effect binary — see switch, which closes this decomposition arc with no group), Radio/RadioGroup (exactly-one — see radio, which inherits this decomposition with the group made mandatory), ToggleButton (`aria-pressed` action), multi-select Combobox/Listbox (large sets — see combobox), Chip/Tag (selectable token). *(The external pass listed Switch/Combobox as `superseded-by`; that overstates it — they're sibling alternatives chosen by intent and scale, not replacements. Prose wins; the schema is corrected.)*
+- **Alternative to:** Switch (immediate-effect binary — see switch, which closes this decomposition arc with no group), Radio/RadioGroup (exactly-one — see radio, which inherits this decomposition with the group made mandatory), ToggleButton (`aria-pressed` action — see toggle-button), multi-select Combobox/Listbox (large sets — see combobox), Chip/Tag (selectable token). *(The external pass listed Switch/Combobox as `superseded-by`; that overstates it — they're sibling alternatives chosen by intent and scale, not replacements. Prose wins; the schema is corrected.)*
 - **Supersedes:** a bare `<input type=checkbox>` without label wiring; a `role=checkbox` div where a styled native input would do.
 - **Superseded by:** nothing for staged binary choice.
 

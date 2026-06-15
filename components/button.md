@@ -143,7 +143,7 @@ The practice's prop nomenclature: **`intent`** `{primary, secondary, danger, gho
 ## 12. Related and alternative components
 
 - **Composes with:** Icon (leading/trailing visual — and in the icon-only case the Button owns the accessible name while the Icon is `aria-hidden`; see icon §5, the same boundary from the other side), Spinner (pending), Tooltip (icon-only name / inactive-reason — with the don't-tooltip-a-natively-disabled-button caveat), ButtonGroup (grouping, radius collapsing, hierarchy validation), Menu/Popover (as a MenuButton trigger via `aria-haspopup`/`aria-expanded`).
-- **Alternative to:** Link (navigation vs. action — the core boundary), IconButton (icon-only specialisation), LinkButton (navigation that looks like a button), ToggleButton (`aria-pressed` persistent state), SplitButton (default action + adjacent menu of related actions — the primary action is never duplicated inside the menu; Fluent 2, 2024), Switch (binary setting), Chip/Tag (removable/selectable token).
+- **Alternative to:** Link (navigation vs. action — the core boundary), IconButton (icon-only specialisation), LinkButton (navigation that looks like a button), ToggleButton (`aria-pressed` persistent state — see toggle-button), SplitButton (default action + adjacent menu of related actions — the primary action is never duplicated inside the menu; Fluent 2, 2024), Switch (binary setting), Chip/Tag (removable/selectable token).
 - **Supersedes:** `<input type="button|submit">`, `<div role="button">`, and Material 2's all-caps button styling.
 - **Superseded by:** nothing — Button is foundational. (Within the Material lineage, M2's button taxonomy was superseded by M3's typed model.)
 
