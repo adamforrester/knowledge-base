@@ -172,7 +172,7 @@ Prop aliases consumers will reach for, with canonical mappings for codemod/searc
 ## 12. Related and alternative components
 
 - **Composes with:** Label, Helper/Description text, FieldError, Icon (prefix/suffix adornment), Button (clear / reveal action), Spinner (loading), Form (the composite owner), Tooltip (optional inline help — never the sole carrier of essential info).
-- **Alternative to:** Textarea (multi-line — see textarea, which inherits this brief's substrate and diverges on the sizing model, the character counter, and the Enter-key contract), Select / Combobox (enumerable / suggested values), NumberField (numeric), SearchField (search + clear), Date Picker (dates), PasswordField (reveal), Checkbox / Switch (boolean).
+- **Alternative to:** Textarea (multi-line — see textarea, which inherits this brief's substrate and diverges on the sizing model, the character counter, and the Enter-key contract), Select / Combobox (enumerable / suggested values — see select for the listbox sibling and the select-vs-combobox boundary), NumberField (numeric), SearchField (search + clear), Date Picker (dates), PasswordField (reveal), Checkbox / Switch (boolean).
 - **Supersedes:** a bare `<input>` without label wiring; the placeholder-as-label pattern; `type="number"` for formatted numeric input.
 - **Superseded by:** nothing for free-form single-line text; specific uses migrate to the typed siblings above.
 

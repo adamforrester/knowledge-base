@@ -150,7 +150,7 @@ Inherits the Text Field implementation contract — `useId` for the label/descri
 ## 12. Related and alternative components
 
 - **Composes with:** Label, Helper/Description text, FieldError, Character counter, Form (the composite owner), Button (the paired submit/send action), Spinner (AI-streaming loading).
-- **Alternative to:** Text Field (single-line), Rich Text Editor (formatted/structured content), Combobox / Select (enumerable values), Code Editor (monospace/structured code). *(The external pass typed Textarea as `supersedes: TextField`; that is wrong — they are siblings a designer chooses between by input shape, neither superseding the other. The prose is authoritative; the schema below is corrected.)*
+- **Alternative to:** Text Field (single-line), Rich Text Editor (formatted/structured content), Combobox / Select (enumerable values — see select), Code Editor (monospace/structured code). *(The external pass typed Textarea as `supersedes: TextField`; that is wrong — they are siblings a designer chooses between by input shape, neither superseding the other. The prose is authoritative; the schema below is corrected.)*
 - **Supersedes:** a one-row `<textarea>` used as a "tall input"; a `contenteditable` div used for plain multi-line text.
 - **Superseded by:** a rich-text editor when the content needs formatting; otherwise nothing for plain multi-line text.
 
