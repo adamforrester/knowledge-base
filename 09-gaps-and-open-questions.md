@@ -285,6 +285,7 @@ Per the brief's final-check instruction: areas significant to design systems con
 - Not addressed by any source.
 - Charts have their own foundations (color encoding accessibility, axis conventions, legend patterns, accessibility for screen readers, animation in transitions).
 - For healthcare (CareCentrix), financial services (Thrive), and most B2B SaaS, data viz is a required deliverable. Practice should have a charting POV.
+- **Partial close (color layer): 31-color-systems.md §7** lands the data-viz palette architecture — three palette types (categorical / sequential / diverging), the 8–12 categorical limit and table-fallback contract, OKLCH-derived sequential ramps for accurate perceptual ordering, and the **isolation rule that data-viz tokens must never alias UI tokens**. The non-color half of charting (axis conventions, legend patterns, AT announcements, transition animation) remains open.
 
 ### 5.3 Email and notification design
 - Email has fundamentally different rendering constraints (table-based layout, limited CSS, dark-mode quirks per client). No source addresses email design within DS scope.

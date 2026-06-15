@@ -115,7 +115,7 @@ The pragmatic stance:
 - **Internal practice:** also check against APCA where you have the tooling. Where APCA flags a failure that WCAG 2.2 passes — particularly thin font weights against medium backgrounds — that's a real readability concern worth taking seriously even if not a compliance failure.
 - **Public communication:** be explicit. "Targets WCAG 2.2 AA; APCA-validated where supported" is honest. "Beyond WCAG" without qualification reads as marketing.
 
-Verify APCA's standardization status before recommending it as the primary contrast target — its trajectory in WCAG 3 has shifted multiple times and may continue to.
+Verify APCA's standardization status before recommending it as the primary contrast target — its trajectory in WCAG 3 has shifted multiple times and may continue to. (The full color-system depth — anchoring contrast on a generated ramp, the contrast-tier-named-step rule across hues, OKLCH-derived ramps, the disabled-state-exemption harder line, and the forced-colors transparent-border trick — lives in 31-color-systems.md as the architectural extension of the contract this section names.)
 
 ### Color blindness and the limits of contrast
 

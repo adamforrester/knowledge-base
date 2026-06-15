@@ -10,7 +10,7 @@ Vault-specific and practice-adjacent vocabulary. Common DS terms (token, compone
 
 **`.ai.json`** — Internal-tier component metadata schema from the practice's *AI-Compatible Design Systems* doc (Feb 2025). Per-component structured data including `component_id`, `primary_purpose`, `when_to_use`, `avoid_when`, slot contracts, and accessibility metadata. The practice's instantiation of components-as-data. (See 03-component-library, 15-ai-in-ds.)
 
-**APCA (Accessible Perceptual Contrast Algorithm)** — Perceptual contrast model that more accurately predicts readability than WCAG 2.x's relative-luminance ratio. Candidate for WCAG 3; not yet a compliance standard as of early 2026. Use as internal target; cite WCAG 2.2 for compliance. In token validation pipelines, the discipline is to **block on WCAG failures and warn on APCA failures** — regulatory floor plus readability signal. (See 14-accessibility, 24-tokens-at-scale.)
+**APCA (Accessible Perceptual Contrast Algorithm)** — Perceptual contrast model that more accurately predicts readability than WCAG 2.x's relative-luminance ratio. Candidate for WCAG 3; not yet a compliance standard as of early 2026. Use as internal target; cite WCAG 2.2 for compliance. In token validation pipelines, the discipline is to **block on WCAG failures and warn on APCA failures** — regulatory floor plus readability signal. (See 14-accessibility, 24-tokens-at-scale, 31-color-systems.)
 
 **APG (ARIA Authoring Practices Guide)** — W3C's canonical pattern catalog for composite widgets (combobox, menu, tabs, listbox, dialog, treegrid, etc.). Components implementing composite patterns should conform to APG. (See 14-accessibility.)
 
@@ -116,6 +116,8 @@ Vault-specific and practice-adjacent vocabulary. Common DS terms (token, compone
 
 **Levers and dials** — Yesenia Perez-Cruz framing for system flexibility: levers are big choices (variant, density), dials are fine-grained (token overrides). (See 02-design-foundations.)
 
+**Lift pattern (dark-mode elevation)** — Material 3-popularised pattern for signalling elevation in dark mode: instead of a drop shadow (invisible against a dark surface), the *surface itself* is incrementally lightened (white overlay or upward lightness shift) to simulate proximity to a light source. The semantic implication: a `color/surface/raised` token in dark mode resolves to a lighter primitive, and elevation tokens map to a lighter background rather than a shadow. (See 31-color-systems.)
+
 **Logical properties** — CSS properties that resolve to physical sides based on the document's writing mode and direction (`margin-inline-start`, `padding-inline-end`, `text-align: start`). The 2026 default for bidirectional layout. (See 13-internationalization-and-rtl.)
 
 **Lockup** — Composition primitive: a fixed arrangement of multiple components treated as a unit (e.g., logo + tagline). (See 03-component-library.)
@@ -147,6 +149,10 @@ Vault-specific and practice-adjacent vocabulary. Common DS terms (token, compone
 ---
 
 ## O
+
+**`on-X` token (forced-foreground luminance flip)** — A semantic foreground token paired with a background token (`on-primary` paired with `action/primary`) whose value is mathematically computed to flip between black and white depending on the luminance of the swapped primitive. The load-bearing technique for keeping `color/action/primary` and its foreground both contrast-compliant when the underlying primitive swaps under multi-brand theming. The semantic-layer counterpart to the contrast-tier-named-step rule at the primitive layer. (See 31-color-systems, 24-tokens-at-scale.)
+
+**OKLCH** — Perceptually-uniform color space (Lightness, Chroma, Hue) that the field has converged on as the default for ramp authoring 2024–2026. Native CSS function (`oklch()`); ships in stable Safari/Chrome/Firefox since 2023. Distinct from HCT (Material 3's CAM16-based tonal model) and from the legacy HSL space. A color *space*, not a *gamut* — describes coordinates outside any renderable display, requiring gamut-mapping for sRGB/P3 fallbacks. (See 31-color-systems.)
 
 **Opinionated library** — Architectural pattern (Material UI as canonical example): functionality and styling tightly coupled. Faster to start with, harder to brand-extend. Counter-pattern to Headless UI. (See 05-development-support.)
 

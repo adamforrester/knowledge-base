@@ -471,6 +471,8 @@ A reinforcing detail: token names like `surface/action/primary/rest` are AI-read
 
 **The components/ catalogue is the per-component layer the four-layer stack assumes.** Per 03's *Per-component briefs* section, every brief in `components/` carries a §15 *Agent-consumable schema* — a free-form YAML block that is the practice's opinionated default `.ai.json` shape for the component. When this vault is eventually exposed via MCP (per the long-term plan in CLAUDE.md), an extractor parsing those fenced YAML blocks from `components/*.md` is the per-component-registry surface an agent actually consumes. The catalogue is what makes the AI-readiness story materially testable per-component, not aspirationally per-system.
 
+**The same argument applied to color tokens specifically: 31-color-systems.md §9** lands the seven-field AI-readable color schema (`$description`, `meaning`, `when_to_use`, `avoid_when`, `paired_with`, `contrast_with`, `mode_overrides`). Color is the foundation where the AI-readable argument has the highest leverage in 2026 — agents pick colors in nearly every generation, and `paired_with` + `meaning` + `contrast_with` are what stop them hallucinating hex values or mis-using semantic tokens. This is where AI-readable design tokens stop being a nice-to-have and become the apex deliverable.
+
 ---
 
 ## Current limits and honest assessment

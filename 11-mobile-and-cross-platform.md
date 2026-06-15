@@ -54,6 +54,8 @@ Tokens are the mechanism that makes a single design system serve multiple platfo
 
 **Motion as a cross-platform token category.** Motion tokens (duration, easing, springs, composite motion tokens) sit in the same token pipeline as color and space. The architectural treatment lives in 18-motion-foundations; the per-framework spelling — SwiftUI's perceptual springs, Compose's classical springs, Flutter's `SpringDescription`, Reanimated's worklets, shared element transitions, reduce-motion APIs — lives in 20-motion-implementation-mobile. The cross-platform calibration problem (the same `spring/snappy` token must feel the same across all four frameworks) is the practical extension of this file's token-architecture argument into the motion layer.
 
+**Color is the platform-divergence cost amplified.** Each platform's color system is opinionated — iOS's dynamic system colors, Android Material 3's `MaterialTheme.colorScheme` API, Flutter's `ColorScheme` tied to Material, React Native's `useColorScheme` thinness — and a DS that ships across all of them must reimplement its theming machinery in each platform's idiom. The translation is integration into the native rendering engine, not 1:1 hex mapping; hardcoding hex values into iOS gives up dark-mode/HC handling for free, and bypassing `MaterialTheme.colorScheme` on Android breaks native ripple effects, text-selection highlights, and disabled states. The full color-specific cross-platform discipline — dynamic `Color` objects on iOS, M3 colorScheme integration on Android, deep provider-level theming in RN/Flutter, and the OKLCH↔HCT round-trip cost — lives in 31-color-systems.md §8.
+
 ---
 
 ## The native vs. custom component decision

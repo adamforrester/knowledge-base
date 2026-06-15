@@ -453,6 +453,7 @@ This extends 15-ai-in-ds's components-as-data argument into the token layer spec
 - **15-ai-in-ds** — components-as-data and the AI-readable description discipline; this file applies the same argument to typography tokens specifically with the five-field schema.
 - **22-token-architecture-extensions** — DTCG 2025.10 composite-token mechanics, the compute-at-authoring-ship-literals discipline that this file's modular scales and fluid-type triplets implement.
 - **24-tokens-at-scale** — the multi-brand portfolio and validation layer this file's typography tokens consume.
+- **31-color-systems** — the parallel foundation file. Same 2024–2026-platform-shift treatment, same three-tier architecture, same AI-readable-description discipline applied to color (with `paired_with`, `meaning`, and `contrast_with` as the highest-leverage fields). The architecture, voice, and depth match.
 
 ---
 

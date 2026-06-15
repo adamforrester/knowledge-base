@@ -309,6 +309,7 @@ This is the same components-as-data argument that 15-ai-in-ds names for componen
 ## See also
 
 - **22-token-architecture-extensions** — the DTCG mechanics, computed-token discipline, and density encoding that this file's operations layer assumes.
+- **31-color-systems** — the color-specific multi-brand discipline this file generalises: the contrast-tier-named-step rule at the primitive layer + the forced-foreground `on-X` luminance-flip token at the semantic layer is the color-layer encoding of the validation matrix this file demands. Status colors as architectural exceptions to brand expression, OKLCH-derived ramps, and APCA-as-quality-bar all live there.
 - **12-figma-practice** — the Figma-side mechanics (Variables, modes, scoping, library architecture). The multi-collection-for-brand pattern in this file extends 12's one-dimension-per-collection treatment.
 - **07-governance-and-adoption** — the contribution-flow patterns this file's blast-radius-weighted RACI specialises into the token layer.
 - **14-accessibility** — pair tokens for contrast; this file's matrix contrast validation is the CI enforcement that makes pair tokens executable.

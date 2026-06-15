@@ -197,7 +197,7 @@ What the system encodes:
 - **SVG icons set `fill: currentColor`** so they inherit the forced foreground; icons with explicit hex fills disappear in forced-colors.
 - **Selected state in radio / checkbox** is automatically handled by the user agent for native `<input>`; for custom controls (a `Switch` primitive), forced-colors must be tested specifically.
 
-The system ships a single forced-colors audit pass per component and a Storybook addon mode that simulates `forced-colors: active`. The Storybook accessibility addon supports this since 2023; the practice should adopt it as a default mode for any system component.
+The system ships a single forced-colors audit pass per component and a Storybook addon mode that simulates `forced-colors: active`. The Storybook accessibility addon supports this since 2023; the practice should adopt it as a default mode for any system component. (For the color-architecture position behind these implementation rules — forced-colors as a near-first-class theme axis, the transparent-border trick as a structural-preservation pattern rather than a one-off, and the system-keyword fallback discipline — see 31-color-systems.md §3 and §4.)
 
 ### The reduce-motion contract
 

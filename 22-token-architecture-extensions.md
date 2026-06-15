@@ -255,6 +255,7 @@ The practice's defaults, after this synthesis:
 - **12-figma-practice** — the Figma-side mechanics of Variables, modes, scoping, and composite types. The "verify before recommending" flag on composite types and expression tokens in 12 is partially closed by this file: composite types are stable, expression tokens remain Tokens Studio + preprocessor territory.
 - **18-motion-foundations** — composite motion tokens follow the same authoring-vs-runtime discipline as composite typography and shadow tokens.
 - **23-typography-tokenisation** — the typography-specific deep dive that this file's DTCG composite treatment hands off to.
+- **31-color-systems** — the color-specific deep dive that this file's DTCG, mode, and computed-token machinery applies to color. The OKLCH/P3 colorSpace question, the `color-mix()` round-trip gap, the `on-X` foreground tokens for multi-brand, and the AI-readable color schema all live there.
 - **24-tokens-at-scale** — multi-brand portfolio architecture, governance, validation, versioning, and the Generative Token pattern that builds on this file's computed-tokens discipline.
 - **14-accessibility** — pair tokens for contrast as the per-token validation pattern; this file's discrete-density discipline preserves accessibility floors.
 
