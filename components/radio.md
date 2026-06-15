@@ -58,7 +58,7 @@ Inherits checkbox runtime states (rest/hover/focus-visible/pressed/disabled/erro
 | **no indeterminate** | a mutually-exclusive choice has no partial state — radio simply has no mixed glyph (the clean contrast with checkbox) |
 | error | group-level only ("Select an option"), never per-option |
 
-**Variants:** `size`; group **orientation** (vertical default — and strongly preferred for scannability and safe text wrapping; horizontal only for few short options, with strict spacing to avoid ambiguous label association); density (touch targets hold to 44/48 on mobile). The presentation axis is where Radio meets **Segmented Control** — identical single-select semantics and a11y tree, different skin (§5). No tone/emphasis. A frontier note: Carbon's "AI presence" variant embeds an AI-explainability label beside a recommended option (a dual-action row needing careful focus management so AT doesn't conflate the explainer button with the radio) — the same AI-presence signal flagged on text-field/select; a watch item, not a default.
+**Variants:** `size`; group **orientation** (vertical default — and strongly preferred for scannability and safe text wrapping; horizontal only for few short options, with strict spacing to avoid ambiguous label association); density (touch targets hold to 44/48 on mobile). The presentation axis is where Radio meets **Segmented Control** — the same single-select *intent*, different skin — though, per the segmented-control brief, a *different a11y model* (a true immediate-switch segmented is `role=group` + `aria-current`, not a `radiogroup`; see segmented-control §6). No tone/emphasis. A frontier note: Carbon's "AI presence" variant embeds an AI-explainability label beside a recommended option (a dual-action row needing careful focus management so AT doesn't conflate the explainer button with the radio) — the same AI-presence signal flagged on text-field/select; a watch item, not a default.
 
 ## 5. Usage guidance
 
@@ -67,7 +67,7 @@ Inherits checkbox runtime states (rest/hover/focus-visible/pressed/disabled/erro
 - **Decision frameworks:**
   - **Radio vs. Checkbox is exactly-one-vs-any-number** — never model an exclusive choice as multiple checkboxes.
   - **Radio vs. Select is exposed-vs-collapsed** (~≤5–7 visible vs. long/space-constrained — see select §5).
-  - **Radio vs. Segmented Control is presentation, not semantics** — segmented for compact view-switches; radio for standard form options with descriptions.
+  - **Radio vs. Segmented Control is immediate-vs-deferred + density** — segmented for compact view-switches that take effect now (and so carries a different a11y model — see segmented-control §6); radio for standard form options with descriptions, committed on submit.
   - **The optional-group rule:** because of no-deselect, an *optional* radio group must provide an explicit "None"/"N/A" option — otherwise a stray click permanently pollutes the data and can't be undone. If a "None" option corrupts the data model, the choice belongs in a clearable Select instead. (Worth a lint/console warning when an optional group lacks a null option — external.)
   - **Default selection:** start empty to force a deliberate choice; pre-select only a genuinely safe default.
 
