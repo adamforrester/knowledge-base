@@ -109,11 +109,11 @@ Two visual models, two distinct implementation challenges (external):
 ## 12. Related and alternative components
 
 - **Composes with:** Toggle Button (the segment/atomic — see toggle-button), Icon, Tooltip (icon-only segment names — see icon), Toolbar / Action Bar / Table & Card headers (the canonical hosts).
-- **Alternative to:** Radio (deferred form single-select — see radio), Tabs (panel-switching — the key boundary), Select (collapsed — see select), Switch (single on/off — see switch).
+- **Alternative to:** Radio (deferred form single-select — see radio), Tabs (panel-switching — the key boundary; see tabs), Select (collapsed — see select), Switch (single on/off — see switch).
 - **Supersedes:** a radio group misused where a compact immediate switcher is wanted; a row of ad-hoc buttons with hand-rolled active state and no group semantics.
 - **Superseded by:** Tabs when selecting switches whole panels; Select/ActionMenu when the option count grows past ~5; a Toolbar of independent toggles when the options aren't a mutually-related set.
 
-(Built on the Toggle Button atomic (toggle-button) and the ToggleButtonGroup primitive; for single-select it draws on Radio but **diverges on the a11y model** — see radio §5/§6 and the refinement note there. Tabs, when briefed, owns the panel-switching boundary from its side. See 03-component-library; 29 for the docs template.)
+(Built on the Toggle Button atomic (toggle-button) and the ToggleButtonGroup primitive; for single-select it draws on Radio but **diverges on the a11y model** — see radio §5/§6 and the refinement note there. Tabs owns the panel-switching boundary from its side (see tabs §1, §5). See 03-component-library; 29 for the docs template.)
 
 ## 13. Field POV evolution
 

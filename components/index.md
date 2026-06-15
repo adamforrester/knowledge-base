@@ -71,7 +71,7 @@ A flat catalogue of per-component field-truth briefs. Each brief is a single com
 ### Navigation
 
 - **Link** — *not yet briefed.* `scope: link vs. button semantics, internal vs. external, visited state, focus visibility, the underline-discipline.`
-- **Tabs** — *not yet briefed.* `scope: ARIA tabs pattern, manual vs. automatic activation, panel association, scroll/overflow handling, vertical orientation.`
+- **[Tabs](tabs.md)** — the first Navigation brief and the component most misused for routing: in-page panel switching (the tabs-vs-routing boundary — route changes are nav links + `aria-current`, not a tablist; and the tabs-vs-segmented boundary, panels vs. value-in-place), the tablist/tab/tabpanel + roving-tabindex contract, manual-vs-automatic activation (automatic default, manual when switching is expensive), the panel-mounting trilemma, and overflow handling. *stable* — the fourteenth brief; opens the Navigation category.
 - **Breadcrumbs** — *not yet briefed.* `scope: separator semantics, current-page convention, truncation/overflow, the breadcrumb-vs-back-button decision.`
 - **Pagination** — *not yet briefed.* `scope: numbered vs. load-more vs. infinite, current-page announcement, the truncation pattern, accessibility.`
 - **Menu** — *not yet briefed.* `scope: ARIA menu pattern, submenu navigation, the menu-vs-listbox-vs-combobox confusion, click-outside dismissal, focus management.`
