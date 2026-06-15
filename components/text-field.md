@@ -309,11 +309,16 @@ api:
       values: [small, medium, large]
       default: medium
       required: false
-composition:
-  composes-with: [label, helper-text, field-error, icon, button, spinner, form, tooltip]
-  alternative-to: [textarea, select, combobox, number-field, search-field, date-picker, password-field, checkbox, switch]
-  supersedes: ["bare input without label wiring", "placeholder-as-label", "type=number for formatted numeric"]
-  superseded-by: null
+states:
+  runtime: [rest, hover, focus-visible, pressed, disabled, read-only, loading, error, empty]
+  optional: [warning]            # contested; many systems fold into helper/error
+  notes:
+    read-only-vs-disabled: "readOnly submits + is copyable + passes contrast; disabled does none and is silent to AT"
+variants:
+  size: [small, medium, large]
+  density: [comfortable, compact, fluid]
+  style: [outline]               # default; filled/underline are theming, not API
+  frontier: [ai-presence]        # Carbon-only; not a practice default
 accessibility:
   wcag-criteria: ["1.3.5", "1.3.1", "3.3.1", "3.3.2", "3.3.3", "1.4.3", "1.4.11", "2.4.13", "4.1.2", "2.5.8", "3.3.7", "3.3.8"]
   label-association: "native <label for>/wrapping; placeholder is NOT a label"
@@ -335,16 +340,6 @@ accessibility:
   character-counter:
     visual: aria-hidden=true, updates instantly
     announced: separate visually-hidden node, aria-live=polite (speaks on pause)
-states:
-  runtime: [rest, hover, focus-visible, pressed, disabled, read-only, loading, error, empty]
-  optional: [warning]            # contested; many systems fold into helper/error
-  notes:
-    read-only-vs-disabled: "readOnly submits + is copyable + passes contrast; disabled does none and is silent to AT"
-variants:
-  size: [small, medium, large]
-  density: [comfortable, compact, fluid]
-  style: [outline]               # default; filled/underline are theming, not API
-  frontier: [ai-presence]        # Carbon-only; not a practice default
 content:
   label-pattern: "noun phrase, sentence case, <=3 words, no trailing colon; never the placeholder"
   placeholder-pattern: "example value only; nothing load-bearing"
@@ -355,6 +350,11 @@ i18n:
   text-expansion: "no fixed label/message width; wrap, never truncate; field width content-driven"
   rtl: "mirror via logical properties; set dir=auto on input so content direction can differ from UI"
   locale: "locale-aware decimal/grouping parsing (number-field); guard validation during IME composition"
+composition:
+  composes-with: [label, helper-text, field-error, icon, button, spinner, form, tooltip]
+  alternative-to: [textarea, select, combobox, number-field, search-field, date-picker, password-field, checkbox, switch]
+  supersedes: ["bare input without label wiring", "placeholder-as-label", "type=number for formatted numeric"]
+  superseded-by: null
 notes:
   contested:
     - bundled-props vs composed-slots (ship both: props for 90%, slots for 10%)

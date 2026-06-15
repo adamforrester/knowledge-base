@@ -160,4 +160,4 @@ After the brief lands at `components/<slug>.md`, the `_inbound/` folder stays in
 
 - **House voice.** The vault's first-person plural enters at the synthesis step (when writing the brief), not at the agent step.
 - **Vault-specific cross-references.** The agents do not see numbered files; the brief author adds the `(See 14-accessibility §3.)`-style cross-references during synthesis.
-- **The §15 schema's final shape.** Free-form YAML for the first ~5 briefs. The shape stabilises through real use; only then is the schema formalised into `components/_schema.md`.
+- **The §15 schema's final shape.** Was free-form YAML for the first six briefs; the shape has now stabilised and is **formalised** in `components/_schema.md` (locked key order + ALWAYS/SCALES rule + `inherits:` / `notes.unverified` conventions; keys locked, values prose). New briefs conform to it from the start.

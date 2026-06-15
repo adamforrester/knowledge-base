@@ -134,17 +134,17 @@ accessibility:
 content:
   label-pattern: "1-2 words (OR / Today); not a heading"
   empty-pattern: "n/a"
-composition:
-  composes-with: [list, menu, card, stack, toolbar]
-  alternative-to: [spacing-token, border]
-  supersedes: ["ad-hoc <hr> styled inline without the hairline token"]
-  superseded-by: null
 i18n:
   rtl: "inset measured from logical edges (margin-inline-start) so it mirrors; label follows text direction"
 implementation:
   - "prefer native <hr> for the semantic horizontal case (role for free)"
   - "vertical divider has NO intrinsic height — parent must stretch it (align-self: stretch) or set explicit block-size"
   - "render at 1px via logical size; watch HiDPI sub-pixel rounding; thickness from the hairline token"
+composition:
+  composes-with: [list, menu, card, stack, toolbar]
+  alternative-to: [spacing-token, border]
+  supersedes: ["ad-hoc <hr> styled inline without the hairline token"]
+  superseded-by: null
 notes:
   contested:
     - "decorative-vs-semantic default — we default decorative"

@@ -265,11 +265,15 @@ api:
       required: false
       description: Required when no visible label (icon-only); must be a
         superset of any visible text (SC 2.5.3).
-composition:
-  composes-with: [icon, spinner, tooltip, button-group, menu, popover]
-  alternative-to: [link, link-button, icon-button, toggle-button, split-button, switch, chip]
-  supersedes: ["input[type=button|submit]", "div[role=button]"]
-  superseded-by: null
+states:
+  runtime: [rest, hover, focus-visible, pressed, pending, inactive, disabled]
+  not-applicable: [error, empty, read-only]   # belong to field/form, not button
+variants:
+  intent: [primary, secondary, danger, ghost]
+  appearance: [solid, outline, plain]
+  size: [small, medium, large]
+  width: [auto, full]
+  modifiers: [leading-visual, trailing-visual, icon-only, pending]
 accessibility:
   wcag-criteria: ["1.4.11", "2.4.7", "2.4.13", "2.5.3", "2.5.5", "2.5.8", "4.1.2", "1.4.13"]
   role: button            # native <button>; never div[role=button]
@@ -288,15 +292,6 @@ accessibility:
     ring: offset-from-border       # avoid blend with own fill (SC 1.4.11)
     disabled-focus: retained-when-aria-disabled
     pending-focus: retained
-states:
-  runtime: [rest, hover, focus-visible, pressed, pending, inactive, disabled]
-  not-applicable: [error, empty, read-only]   # belong to field/form, not button
-variants:
-  intent: [primary, secondary, danger, ghost]
-  appearance: [solid, outline, plain]
-  size: [small, medium, large]
-  width: [auto, full]
-  modifiers: [leading-visual, trailing-visual, icon-only, pending]
 content:
   label-pattern: "verb-first, action-specific, sentence case, <=3 words; no 'OK'/'Submit'/'click here'"
   error-pattern: null     # button has no error state; error belongs to the form/field
@@ -305,6 +300,11 @@ content:
 i18n:
   text-expansion: "no fixed width to English label; min-width + padding; wrap, never truncate"
   rtl: "mirror via logical props; flip directional icons only; never media-transport icons"
+composition:
+  composes-with: [icon, spinner, tooltip, button-group, menu, popover]
+  alternative-to: [link, link-button, icon-button, toggle-button, split-button, switch, chip]
+  supersedes: ["input[type=button|submit]", "div[role=button]"]
+  superseded-by: null
 notes:
   contested:
     - native-disabled vs focusable-inactive (live edge; per-engagement decision)

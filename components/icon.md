@@ -187,12 +187,12 @@ accessibility:
 content:
   label-pattern: "concise noun/verb naming the concept/action (Search, Delete); decorative => none"
   metaphor-rules: "global metaphors not local idioms; minimal/additive (mud at 16px); no physical-hardware depictions"
-i18n:
-  rtl: "directional glyphs mirror (scaleX(-1)); non-directional do not; per-glyph isMirroredInRTL metadata automates it; culturally-loaded glyphs need review"
 motion:
   default: none
   variable-font: "animate font-variation-settings (FILL 0->1) via CSS transition — hardware-accelerated, no reflow"
   svg-path-morph: "heavy JS interpolation — avoid on the main thread"
+i18n:
+  rtl: "directional glyphs mirror (scaleX(-1)); non-directional do not; per-glyph isMirroredInRTL metadata automates it; culturally-loaded glyphs need review"
 implementation:
   default: "tree-shaken inline SVG for a locked fixed-stroke design language (safest, most resilient)"
   variable-font: "variable WOFF2 for multi-axis / optical-sizing / dynamic-weight systems (one compact payload, minimal DOM, infinite axes)"

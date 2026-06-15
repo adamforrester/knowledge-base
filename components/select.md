@@ -213,11 +213,17 @@ api:
   frontier-not-default:
     - "AI-inferred-option label (Carbon) — marks an algorithmically suggested selection for verification"
     - "URL-driven value (Hydrogen VariantSelector) — selection in URL params for shareable/indexable links"
-composition:
-  composes-with: [label, helper-text, field-error, option, option-group, icon, checkbox, tag, popover, listbox, button, form]
-  alternative-to: [combobox, radio-group, segmented-control, checkbox-group, menu, switch, checkbox]
-  supersedes: ["bare unstyled <select> without label wiring", "menu misused to set a form value"]
-  superseded-by: ["combobox when the set needs filtering (>~15 options or typed filtering)"]
+states:
+  inherits: text-field   # rest, hover, focus-visible, disabled, read-only, loading, error, empty
+  select-specific: [expanded, option-hover-highlight-only, selected, loading-listbox, no-selection, no-results]
+  note: "native <select> has no readonly — only disabled; true read-only needs custom path or hidden mirror"
+variants:
+  size: [small, medium, large]
+  density: [comfortable, compact]
+  selection: [single, multiple]
+  multi-summary: [count, tokens]
+  rendering: [native, custom]
+  mode: [creatable]      # blurs toward combobox; document as such
 accessibility:
   inherits: text-field
   pattern: "native <select> baseline | APG Listbox (custom)"
@@ -237,17 +243,6 @@ accessibility:
     active-option: aria-activedescendant (not roving)
     on-close: focus returns to trigger
     portal-bug: "iOS VoiceOver loses activedescendant across a portal — inlinePopup / top-layer Popover mitigates"
-states:
-  inherits: text-field   # rest, hover, focus-visible, disabled, read-only, loading, error, empty
-  select-specific: [expanded, option-hover-highlight-only, selected, loading-listbox, no-selection, no-results]
-  note: "native <select> has no readonly — only disabled; true read-only needs custom path or hidden mirror"
-variants:
-  size: [small, medium, large]
-  density: [comfortable, compact]
-  selection: [single, multiple]
-  multi-summary: [count, tokens]
-  rendering: [native, custom]
-  mode: [creatable]      # blurs toward combobox; document as such
 content:
   label-pattern: "concise noun phrase, sentence case (shared with text-field)"
   placeholder-pattern: "plain null state ('Country'), not an instruction; omittable; never the label"
@@ -255,6 +250,11 @@ content:
   empty-pattern: "'No results' (filtered only); loading is a spinner/skeleton, not empty copy"
   clear-pattern: "persistent Clear affordance on the trigger over a 'None' option in the list"
   error-pattern: "what + how to fix (SC 3.3.3); aria-invalid on trigger; delegated to substrate"
+motion:
+  enter: "~100-150ms opacity + translateY(-4px)->0, anchored to trigger"
+  exit: "~75ms, faster, fade without translate"
+  reduce-motion: "drop translate/scale; accelerated opacity fade (~50ms)"
+  platform: "Popover API + @starting-style enable pure-CSS enter/exit (retiring JS mount choreography)"
 i18n:
   inherits: text-field
   select-specific:
@@ -262,17 +262,17 @@ i18n:
     - "listbox not locked to trigger width — grows min-width for expansion (German/Russian) up to viewport"
     - "type-ahead normalizes diacritics (o -> Österreich)"
     - "locale-aware option sort; native picker localizes for free"
-motion:
-  enter: "~100-150ms opacity + translateY(-4px)->0, anchored to trigger"
-  exit: "~75ms, faster, fade without translate"
-  reduce-motion: "drop translate/scale; accelerated opacity fade (~50ms)"
-  platform: "Popover API + @starting-style enable pure-CSS enter/exit (retiring JS mount choreography)"
 implementation:
   - "don't hand-roll — headless primitive (React Aria useSelect, Downshift, Radix) for the contract; skin it"
   - "positioning moving off JS (Floating UI) to CSS Anchor Positioning + Popover API top layer — verify support, keep fallback"
   - "design toward appearance:base-select (rich DOM in <option>, ::picker styling) — architect so native drops in under the hood (UNVERIFIED — Chromium-only/flagged; verify)"
   - "virtualize long lists (React Aria Virtualizer) but it fights activedescendant + type-ahead — long list usually wants Combobox"
   - "custom listbox needs a hidden <select>/<input> mirror for native form/Server-Action submission"
+composition:
+  composes-with: [label, helper-text, field-error, option, option-group, icon, checkbox, tag, popover, listbox, button, form]
+  alternative-to: [combobox, radio-group, segmented-control, checkbox-group, menu, switch, checkbox]
+  supersedes: ["bare unstyled <select> without label wiring", "menu misused to set a form value"]
+  superseded-by: ["combobox when the set needs filtering (>~15 options or typed filtering)"]
 notes:
   contested:
     - native vs custom (decision framework, not a winner — and actively collapsing)
