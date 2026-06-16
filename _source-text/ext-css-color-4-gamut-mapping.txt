@@ -1,19 +1,18 @@
 CSS Color Module Level 4 — Gamut Mapping
-W3C Candidate Recommendation Draft, 2 May 2026
-Source: https://www.w3.org/TR/css-color-4/
-Editor's Draft: https://drafts.csswg.org/css-color-4/
+W3C Editor's Draft, 7 May 2026
+Source: https://drafts.csswg.org/css-color-4/#GMA
+Latest published: https://www.w3.org/TR/css-color-4/
 
 Editors: Tab Atkins Jr. (Google), Chris Lilley (W3C), Lea Verou (Invited Expert)
-This version: https://www.w3.org/TR/2026/CRD-css-color-4-20260502/
+Generator stamp: Bikeshed d113b2e81, updated 2026-06-09
+Capture date: 2026-06-15 (full body-text pass via firecrawl_scrape)
 
 CAPTURE NOTE
-WebFetch was unable to retrieve the body text of §14 — the spec exceeds the
-fetch window and truncates well before §14 in every variation tried (W3C TR,
-drafts.csswg.org, fragment URLs). What follows is the verified table-of-contents
-structure and the named algorithms; the body-text capture is incomplete and
-should be re-attempted by a human reader visiting the spec directly. The
-algorithm-name attribution in 31 is therefore retained with its existing
-hedging rather than upgraded to a verbatim quote.
+Earlier 2026-06-15 capture from WebFetch was partial — the spec exceeded the
+fetch window and §14.2 body text was truncated. This pass replaces that one;
+firecrawl_scrape against the editor's draft returned the full document and the
+§14.2 / §14.2.1 body text was extracted verbatim. Capture is now complete for
+the algorithm-attribution question that 09 §1.27a was tracking.
 
 ---
 
@@ -34,63 +33,168 @@ hedging rather than upgraded to a verbatim quote.
   §14.2.4 Sample Pseudocode for the EdgeSeeker Gamut Mapping
   §14.2.5 The Ray Trace Gamut Mapping
   §14.2.6 Sample Pseudocode for the Ray Trace Gamut Mapping
+    §14.2.6.1 Footnotes for Ray Trace algorithm
 
 §20 Sample Code for ΔE2000 and ΔEOK Color Differences
-  (named in TOC; confirms ΔEOK is a defined distance metric in the spec)
+  §20.1 ΔE2000
+  §20.2 ΔEOK
 
 ---
 
-WHAT THE TOC CONFIRMS
+§14.2 BODY TEXT — VERBATIM (between the H3 heading and the §14.2.1 sub-heading)
 
-1. The acronym MINDE appears in the spec's section headings — both at the
-   conceptual level (§14.1.2 "Closest Color (MINDE)") and at the algorithmic
-   level (§14.2.1 "Binary Search Gamut Mapping with Local MINDE"). MINDE is
-   plausibly "Minimum Delta-E" given the spec's use of ΔE2000 and ΔEOK as
-   distance metrics in §20, but the expansion is not literally written out
-   in any heading captured.
-
-2. The CSS spec presents three named algorithms as siblings in §14.2:
-   - Binary Search Gamut Mapping with Local MINDE
-   - EdgeSeeker Gamut Mapping
-   - Ray Trace Gamut Mapping
-   Whether one is normatively designated as the CSS *default* could not be
-   verified from the captured TOC — the body-text designation lives in
-   §14.2's intro paragraphs, which were truncated.
-
-3. The conceptual building blocks named in §14.1 ("Closest Color (MINDE)",
-   "Chroma Reduction", "Chroma Reduction with Local Clipping") align with
-   the practitioner shorthand "chroma reduction" used in 31's body text. The
-   *category* of the default algorithm (chroma-reduction in OKLCh/Oklab
-   space) is supportable from the TOC structure; the precise algorithm name
-   ("MINDE Chroma Reduction with ΔE_ok distancing", as the external pass to
-   31's run named it) needs a body-text capture before it can be quoted
-   verbatim in a client artefact.
-
----
-
-WHAT WAS NOT CAPTURED
-
-- The §14.2 normative paragraph(s) designating the CSS default
-- The §14.2.1 algorithm body — distance metric, L/H preservation, binary
-  search procedure, termination condition, working colour space
-- The §14.2.2 pseudocode
-
-These should be re-fetched by a human reader visiting:
-  https://www.w3.org/TR/css-color-4/#GMA-Binary-local-MINDE
-  https://drafts.csswg.org/css-color-4/#GMA
-
----
-
-PRACTICE STANCE PRESERVED
-
-31's body line at §1 ("CSS Color 4 default (chroma-reduction) — keep L and H,
-reduce C until the color is in gamut") is supported by the TOC structure and
-by the spec's named conceptual building blocks. The external pass's specific
-"MINDE Chroma Reduction with ΔE_ok distancing" naming remains flagged for
-verification before client-facing quotation; the §1 line in 31 already
-hedges this correctly. No body-text correction needed in 31; §1.27a stays
-open as a watch item until a human-fetched body-text capture lands.
+> The three CSS gamut mapping algorithms apply to individual, Standard Dynamic
+> Range (SDR) CSS colors which are out of gamut of an RGB display and thus
+> require to be css gamut mapped.
+>
+> Implementations my [sic — spec typo for "may"] choose any of the three
+> algorithms based on their quality and runtime efficiency tradeoffs, and must
+> use their chosen algorithm wherever CSS mandates that gamut mapping be
+> performed.
+>
+> - Binary Search Gamut Mapping with Local MINDE
+> - EdgeSeeker Gamut Mapping
+> - Ray Trace Gamut Mapping
+>
+> They all implement a relative colorimetric intent, thus colors inside the
+> destination gamut are unchanged.
+>
+> Note: other situations, in particular mapping to printer gamuts where the
+> maximum black level is significantly above zero, will require different
+> algorithms which align the respective black and white points, which will
+> result in lightness changes for very light and very dark colors as chroma
+> is reduced.
+>
+> Note: these algorithms are for individual, distinct colors; for color images,
+> where relationships between neighboring pixels are important and the aim is
+> to preserve detail and texture, a perceptual rendering intent is more
+> appropriate and in that case, colors inside the destination gamut could be
+> changed.
+>
+> All three CSS gamut mapping algorithms aim at constant-lightness,
+> constant-hue chroma reduction in the OkLCh color space.
+>
+> For colors which are out of range on the Lightness axis, white is returned
+> in the destination color space if the Lightness is greater than or equal to
+> 1.0, while black is returned in the destination color space if the Lightness
+> is less than or equal to 0.0.
 
 ---
 
-Captured: 2026-06-15. Capture is partial — see "WHAT WAS NOT CAPTURED" above.
+§14.2.1 BODY TEXT — VERBATIM (between the H4 heading and the §14.2.2 sub-heading)
+
+> For this binary search algorithm, the color difference formula used is
+> deltaEOK. The local-MINDE improvement is used. At each step in the search,
+> the deltaEOK is computed between the current mapped color and a clipped
+> version of that color.
+>
+> If the current color is outside the gamut boundary, but the deltaEOK between
+> it and the clipped version is below a threshold for a just noticeable
+> difference (JND), the clipped version of the color is returned as the
+> mapped result. This gives good results with non-noticeable [sic — spec has
+> "non-notivceable"] hue shifts, and avoids excessive chroma reduction near
+> concave gamut surfaces, but can be computationally intensive.
+>
+> For the OkLCh color space, one JND is is [sic — spec has duplicate "is"]
+> an OkLCh difference of 0.02.
+>
+> Note: In CIE Lab color space, where the range of the Lightness component
+> is 0 to 100, using deltaE2000, one JND is 2. Because the range of Lightness
+> in Oklab and OkLCh is 0 to 1, using deltaEOK, one JND is 100 times smaller.
+>
+> Note: for the purposes of experimentation, and comparing implementations,
+> implementations of the Binary Search with Local MINDE algorithm are
+> available in the Coloriade [sic — spec has "Coloriade", canonical name is
+> "Coloraide"] library (in Python) and the color.js library (in JavaScript).
+
+---
+
+WHAT THE SPEC ESTABLISHES
+
+1. **There is no single normative CSS default.** The spec presents the three
+   §14.2 algorithms as siblings. "Implementations may choose any of the three
+   algorithms based on their quality and runtime efficiency tradeoffs, and
+   must use their chosen algorithm wherever CSS mandates that gamut mapping
+   be performed." This is the load-bearing sentence. The practice's prior
+   framing ("CSS Color 4 default — chroma-reduction") was conflating the
+   common conceptual frame (all three are chroma-reduction) with a specific
+   named algorithm. The spec does not designate one.
+
+2. **The three algorithms share a common frame.** All three "aim at
+   constant-lightness, constant-hue chroma reduction in the OkLCh color
+   space" and "implement a relative colorimetric intent, thus colors inside
+   the destination gamut are unchanged." The category (constant-L,
+   constant-H chroma reduction in OkLCh) is the spec's framing for all
+   three, not for any one default. This is what 31's body line should
+   reflect.
+
+3. **MINDE = Minimum-Delta-E.** §14.2.1 confirms the algorithm uses ΔE_OK
+   (deltaEOK) as its distance metric and the local-MINDE improvement
+   for handling concave gamut surfaces. One JND in OkLCh = 0.02. The
+   external pass to 31's run named this "MINDE Chroma Reduction with ΔE_ok
+   distancing" — the algorithm-name attribution was *partly* right (MINDE +
+   ΔE_OK) but *partly* wrong (treating it as the spec's default rather than
+   one of three sibling algorithms).
+
+4. **Lightness extrema are clamped before chroma reduction runs.** L ≥ 1.0
+   returns destination-space white; L ≤ 0.0 returns destination-space black.
+   This applies equally to all three algorithms.
+
+5. **Per-pixel, not per-image.** The §14.2 algorithms are explicitly for
+   individual colors, not images. For images, the spec says perceptual
+   rendering intent is more appropriate; the §14.2 algorithms preserve
+   in-gamut colors but a perceptual remap might not.
+
+6. **Browsers each pick one.** The spec leaves the choice to implementations.
+   Which algorithm a given browser ships at a given version is an
+   implementation question, not a spec question — this is what the practice
+   should track if it wants to reason about what end-users actually see.
+
+---
+
+PRACTICE-FACING IMPLICATIONS
+
+The 31 §1 gamut-mapping line previously read:
+
+  "CSS Color 4 default (chroma-reduction) — keep L and H, reduce C until the
+   color is in gamut. Default for `oklch()` colors out of gamut."
+
+This is a **factual inaccuracy** as stated. The spec does not designate a
+single algorithm as the CSS default; it specifies three siblings and lets
+implementations choose. The category (constant-L, constant-H chroma reduction
+in OkLCh, relative colorimetric) is the *common frame* of all three §14.2
+algorithms — it is the right framing, but it should not be attributed to a
+single "default" algorithm.
+
+Recommended replacement: name the spec's frame faithfully — three §14.2
+algorithms (Binary Search with Local MINDE, EdgeSeeker, Ray Trace), all aiming
+at constant-L, constant-H chroma reduction in OkLCh under a relative
+colorimetric intent, with implementation choice left to the browser. Note
+that L ≥ 1.0 returns destination-space white and L ≤ 0.0 returns
+destination-space black before the chroma-reduction step runs.
+
+If a future engagement needs to know what a specific browser ships, the
+question moves from "what does CSS Color 4 say is default" (no answer) to
+"what algorithm does Chromium 149 / Firefox 151 / WebKit 26 currently
+implement for `color()`/`oklch()` out-of-gamut handling" (a per-browser
+implementation question with per-version answers; track via WPT results
+linked from the spec — `wpt.fyi/results/css/css-color/`).
+
+---
+
+CITATION FORM
+
+Cite as:
+  CSS Color Module Level 4, Editor's Draft 7 May 2026, §14.2 "CSS Gamut
+  Mapping to an RGB Destination" and §14.2.1 "Binary Search Gamut Mapping
+  with Local MINDE". https://drafts.csswg.org/css-color-4/#GMA
+
+For client-facing artefacts, prefer the published TR snapshot URL once a
+post-2025-04-24 CRD lands: https://www.w3.org/TR/css-color-4/. The Editor's
+Draft is the authoritative source for current-spec state but cycles faster
+than published Recommendations.
+
+---
+
+Captured: 2026-06-15. Capture is complete; supersedes the partial 2026-06-15
+WebFetch capture this file previously held.
