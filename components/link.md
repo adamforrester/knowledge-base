@@ -41,7 +41,7 @@ The design-system Link is **polymorphic** — it renders `<a>` by default but ca
 - **`target` / `rel`** — `target="_blank"` must auto-attach **`rel="noopener noreferrer"`** (security, §5).
 - **`isExternal`** — renders the external indicator + visually-hidden warning + the rel.
 - **`asChild` (or `as`)** — the router polymorphism: merge the Link's styling/a11y onto a framework router's Link while emitting one clean `<a href>` (§11). The most-debated API decision.
-- **`aria-current`** — `page` (current page in nav) / `step` (wizard) / `location` (breadcrumb leaf) / `true` (generic) (§6).
+- **`aria-current`** — `page` (current page in nav — *including the breadcrumb leaf*) / `step` (wizard) / `location` (current position within a container/environment) / `true` (generic) (§6).
 - **No real `disabled`** — links don't natively disable; handle via the documented sequence (§4) or, better, don't render it as a link. (Primer note: the discrete `underline` prop is being deprecated in favour of deriving it from the variant.)
 
 ## 4. States and variants
@@ -73,7 +73,7 @@ States: rest / hover (pointer cursor; standalone reveals its underline) / focus-
 - **`role=link` via a real `<a href>`.** The `href` is what makes it focusable, Enter-operable, and context-menu/middle-click capable. **The no-href anti-pattern** (`<a>` without `href`, `a[role=button]`, onClick div) removes it from the accessibility tree as a link and from the tab order; the fragile `href="#"` + `preventDefault` or `role=link` + `tabindex=0` fallbacks are last resorts — provide a resolvable URL at render.
 - **Keyboard: Enter activates (NOT Space).** Space scrolls the page; this is the operational tell vs. Button (which takes both). Standard tab order.
 - **The underline/contrast contract** (the most link-specific rule): an inline link distinguished from surrounding text by **colour alone fails SC 1.4.1**. The contrast-only workaround (link-vs-text ≥3:1 *and* text-vs-background ≥4.5:1) technically passes but cramps the palette and collapses in dark mode, so **the practice enforces the underline for inline links** and rejects the contrast-only route. Standalone/nav links are exempt only because placement supplies the cue.
-- **`aria-current`** marks the current item: **`page`** in site nav, `step` in a wizard, `location` in a breadcrumb, `true` generic — so AT announces "current page, link, Dashboard". A visual `.active` class alone is insufficient. (This is the nav-routing signal — *not* `aria-selected`, which is Tabs.)
+- **`aria-current`** marks the current item: **`page`** in site nav *and on the breadcrumb leaf* (the current crumb *is* the current page — see Breadcrumbs §6), `step` in a wizard, `location` for a current position within a container/environment, `true` generic — so AT announces "current page, link, Dashboard". A visual `.active` class alone is insufficient. (This is the nav-routing signal — *not* `aria-selected`, which is Tabs.)
 - **New-tab warning** — `target="_blank"` must be announced (visually-hidden "(opens in new tab)" or the external icon's accessible name) per the no-surprise-context-change rule (3.2.5); pair with `rel="noopener noreferrer"` (reverse-tabnabbing + referrer privacy).
 - **Skip link** — a "Skip to main content" Link, first in the tab order, visually hidden (via clipping, not `display:none`) until focused, targeting the `<main>` landmark (`href="#main"`) — a required bypass-blocks pattern Link owns.
 - **WCAG SCs:** 1.4.1 (not colour-only), 2.4.4 / 2.4.9 (link purpose from text / in context), 4.1.2 (role/name), 1.4.11 / 2.4.13 (focus + contrast), 2.4.1 (bypass blocks / skip link), 3.2.5 (no unexpected new context).
@@ -105,12 +105,12 @@ Minimal and functional: a ~150–200ms ease `text-decoration-color`/colour trans
 
 ## 12. Related and alternative components
 
-- **Composes with:** Icon (external/new-tab/download/file indicator — see icon), the `<nav>` landmark, Breadcrumbs (a trail of links, the leaf marked `aria-current="location"` — see Breadcrumbs when briefed), Menu items (navigation menu items *are* links under the hood), the framework router's Link.
+- **Composes with:** Icon (external/new-tab/download/file indicator — see icon), the `<nav>` landmark, Breadcrumbs (a trail of links, the current crumb marked `aria-current="page"` — see breadcrumbs), Menu items (navigation menu items *are* links under the hood), the framework router's Link.
 - **Alternative to:** Button (in-place action — see button; the core boundary), LinkButton (navigation with button weight — button §10), a routing nav (the tabs/segmented routing boundary — links + `aria-current`, not a tablist — see tabs, segmented-control).
 - **Supersedes:** an `onClick`-navigation `<div>`/`<span>`; an `<a>` without `href` (or `href="#"`/`javascript:void(0)`); `a[role=button]` for navigation.
 - **Superseded by:** Button when the affordance is an action, not navigation.
 
-(The routing/`aria-current` counterpart to the tabs-vs-routing and segmented-vs-routing boundaries; closes the link-vs-button boundary from the link side. See button for that boundary + LinkButton, tabs and segmented-control for the routing rule, icon for the external indicator. 03-component-library; 29 for the docs template. Breadcrumbs and Menu are the adjacent Navigation briefs that build on Link.)
+(The routing/`aria-current` counterpart to the tabs-vs-routing and segmented-vs-routing boundaries; closes the link-vs-button boundary from the link side. See button for that boundary + LinkButton, tabs and segmented-control for the routing rule, icon for the external indicator. 03-component-library; 29 for the docs template. Breadcrumbs (now briefed — see breadcrumbs) and Menu are the adjacent Navigation briefs that build on Link.)
 
 ## 13. Field POV evolution
 
@@ -163,7 +163,7 @@ api:
     - {name: rel, type: string, description: "auto noopener noreferrer when target=_blank"}
     - {name: isExternal, type: boolean, default: false, description: external indicator + visually-hidden warning + rel}
     - {name: asChild/as, type: boolean/elementType, description: "router polymorphism — merge DS styling onto a framework router Link, emit one real <a> (§implementation)"}
-    - {name: aria-current, type: enum, values: [page, step, location, true], description: current nav item (NOT aria-selected — that's tabs)}
+    - {name: aria-current, type: enum, values: [page, step, location, true], description: "current nav item — page (incl. breadcrumb leaf) / step (wizard) / location (within a container) / true; NOT aria-selected — that's tabs"}
   no-disabled: "links don't natively disable; if required: remove href + aria-disabled=true + role=link + pointer-events:none (+tabindex=-1) — but prefer rendering plain text"
 states:
   runtime: [rest, hover, focus-visible, active, visited, current]
@@ -181,7 +181,7 @@ accessibility:
   semantics: "role=link via a REAL <a href>; the no-href anti-pattern (a w/o href, a[role=button], onClick div) is removed from the a11y tree + tab order"
   keyboard: "ENTER activates (NOT Space — Space scrolls; the tell vs button which takes both)"
   underline-contract: "inline link by colour ALONE fails 1.4.1 -> enforce the underline; contrast-only workaround (link-vs-text >=3:1 AND text-vs-bg >=4.5:1) rejected (cramps palette, fails dark mode)"
-  aria-current: "page (site nav) / step (wizard) / location (breadcrumb) / true; a visual .active class alone is insufficient"
+  aria-current: "page (site nav + breadcrumb leaf) / step (wizard) / location (within a container/environment) / true; a visual .active class alone is insufficient"
   new-tab: "target=_blank announced (visually-hidden 'opens in new tab' / external icon name) per 3.2.5; + rel=noopener noreferrer"
   skip-link: "first focusable, visually-hidden-until-focused (clip, not display:none), href=#main"
 content:
