@@ -27,7 +27,7 @@ A Drawer is an **edge-anchored overlay panel** sliding in from a viewport edge (
 
 The field is **genuinely fractured** on the non-modal case: **Chakra** discourages it (focus/orientation hazards — if you must, you disable pointer-events on the wrapper and override `modal`), while **Fluent** ships a first-class `InlineDrawer` and **Carbon** a non-modal "Side Panel" precisely for editing-while-referencing enterprise workflows. **Material 3** taxonomises three archetypes: **modal** (scrimmed) / **standard/permanent** (inline, part of the layout) / **dismissible** (non-modal but closeable).
 
-What it *isn't*: a **Dialog** (centred, destroys spatial context — see dialog), a **Side Navigation** (a *persistent structural* part of the page; a drawer is its temporary/mobile form — see side-navigation when briefed), or a **Popover** (a small surface anchored to a *trigger*, not the viewport edge — see popover). Why systems disagree: the non-modal philosophy, the bottom-sheet detent model, and the Drawer-vs-Sheet naming line.
+What it *isn't*: a **Dialog** (centred, destroys spatial context — see dialog), a **Side Navigation** (a *persistent structural* part of the page; a drawer is its temporary/mobile form — see side-navigation), or a **Popover** (a small surface anchored to a *trigger*, not the viewport edge — see popover). Why systems disagree: the non-modal philosophy, the bottom-sheet detent model, and the Drawer-vs-Sheet naming line.
 
 ## 2. Anatomy and parts
 - **scrim / backdrop** — modal only (inherited Dialog `::backdrop`); absent for the non-modal push.
@@ -101,7 +101,7 @@ Slide from the anchored edge — a `translate` from off-screen + the Dialog subs
 
 ## 12. Related and alternative components
 - **Stands on:** Dialog (the modal-overlay substrate — focus-trap, scrim, top layer, scroll-lock, native `<dialog>`, `@starting-style` animation, close/footer; a modal drawer is a Dialog at the edge — see dialog), Button (footer/close — see button), Icon (close/handle — see icon).
-- **Alternative to / boundary with:** Dialog (centred, total isolation; the edge + reference-while-working case picks Drawer — see dialog), **Side Navigation** (a persistent nav structure; a drawer is its temporary/mobile form — see side-navigation when briefed), Popover (small surface anchored to a trigger, not the viewport edge — see popover), Toast/Snackbar (slides from an edge like a drawer but no trap/scrim, auto-dismisses — see toast when briefed).
+- **Alternative to / boundary with:** Dialog (centred, total isolation; the edge + reference-while-working case picks Drawer — see dialog), **Side Navigation** (a persistent nav structure; a drawer is its temporary/mobile form — see side-navigation), Popover (small surface anchored to a trigger, not the viewport edge — see popover), Toast/Snackbar (slides from an edge like a drawer but no trap/scrim, auto-dismisses — see toast when briefed).
 - **Specialises into:** the navigation drawer, the utility/detail drawer ("Side Panel"), the bottom **Sheet**.
 
 (The edge-anchored overlay that closes the Overlay arc — a modal drawer is a Dialog anchored to an edge; a non-modal drawer is a pushing/squeezing panel. The fifth and final Overlay brief (Menu, Dialog, Popover, Tooltip, Drawer), completing the category. See dialog for the modal substrate and the centred boundary, popover for the small-anchored boundary and the portal-loop fix, side-navigation for the persistent-nav boundary, button for the controls. 03-component-library; 29 for the docs template.)
