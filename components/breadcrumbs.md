@@ -114,7 +114,7 @@ Minimal — breadcrumbs are a static utility. The only motion is the **overflow 
 
 ## 12. Related and alternative components
 
-- **Composes with:** Link (each crumb — the substrate; see link), the `<nav>` landmark, Icon (home icon, separator chevron, overflow ellipsis — see icon), Menu (the overflow/collapse popover, with focus management — see menu when briefed), the page header/title (breadcrumbs commonly sit above the `<h1>`).
+- **Composes with:** Link (each crumb — the substrate; see link), the `<nav>` landmark, Icon (home icon, separator chevron, overflow ellipsis — see icon), Menu (the overflow/collapse popover, with focus management — see menu), the page header/title (breadcrumbs commonly sit above the `<h1>`).
 - **Alternative to:** Tabs (peer views, not ancestors — see tabs), Stepper/Progress Indicator (linear ordered flow — see stepper when briefed), a back button (history, not hierarchy; favoured natively on mobile — Apple HIG, Material), the primary nav (breadcrumbs supplement it).
 - **Supersedes:** a `<div>` of slash-separated `<a>`s with the separator as text content (the recurring anti-pattern — fails the list count and reads the slash); path/history-based breadcrumbs.
 - **Superseded by:** Tabs/Stepper when the relationship is peer/linear rather than hierarchical; nothing within the wayfinding-hierarchy lane.
