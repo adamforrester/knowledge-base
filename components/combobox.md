@@ -125,7 +125,7 @@ The field is badly fragmented (external's table): **`Combobox`** (W3C/ARIA, Spec
 
 ## 11. Implementation notes
 
-Inherits Select's overlay machinery (positioning via Floating UI → CSS Anchor Positioning + Popover API, top-layer rendering, virtualization, the hidden form-mirror for submission — see select §11). The Combobox-specific traps, all of which recur across codebases (both agents):
+Inherits Select's overlay machinery (positioning via Floating UI → CSS Anchor Positioning + Popover API, top-layer rendering, virtualization, the hidden form-mirror for submission — see select §11; that machinery is now formalised in popover, of which the Combobox listbox is a `role=listbox` specialisation). The Combobox-specific traps, all of which recur across codebases (both agents):
 
 - **Don't hand-roll** — use a headless primitive (React Aria `useComboBox`, Downshift, Radix/Base UI) for the input/listbox/`activedescendant`/keyboard contract; it is even more failure-prone than Select. Ship an opinionated styled `Combobox` for the 90% case *and* expose `Combobox.Root`/`.Input`/`.Popover` for the 10% (a data-table cell, a nav bar).
 - **The two-state cursor-jump trap is the signature bug.** A fully controlled `inputValue` wired to slow React state can drop keystrokes and fling the caret to the end: the native input updates instantly, but a batched/delayed state commit overwrites it with stale text. The fix: the component maintains a **localized, synchronous source of truth** for the input (an uncontrolled ref / `useSyncExternalStore`) and only accepts an incoming `inputValue` that genuinely differs — breaking the destructive loop and preserving caret position. Never bind the input directly to the committed `value`.

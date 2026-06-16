@@ -140,7 +140,7 @@ The component is mid-transformation; the practice's call is to **build durably a
 - **Supersedes:** a bare unstyled native `<select>` without label wiring; a Menu misused to pick a form value.
 - **Superseded by:** Combobox when the set grows large enough to need filtering.
 
-(See text-field and textarea for the shared substrate this brief stands on, 03-component-library for the component model, and 29-per-component-documentation-template for the docs page this feeds. Combobox, when briefed, should back-reference this for the boundary; the Popover/Overlay and Menu briefs will share the overlay/positioning machinery covered here.)
+(See text-field and textarea for the shared substrate this brief stands on, 03-component-library for the component model, and 29-per-component-documentation-template for the docs page this feeds. Combobox, when briefed, should back-reference this for the boundary; the overlay/positioning machinery sketched here is now formalised in its own brief — see popover (the Select listbox, Combobox, and Menu surfaces are all Popovers with a content role).)
 
 ## 13. Field POV evolution
 
