@@ -3,7 +3,7 @@ type: practice-area
 title: Gaps and Open Questions
 description: Practice gaps and unanswered questions across the corpus. Sourced inventory of what we don't yet have a POV on.
 tags: [gaps, open-questions]
-timestamp: 2026-06-15
+timestamp: 2026-06-16
 ---
 
 # 09 — Gaps & Open Questions
@@ -172,6 +172,66 @@ This will become a procurement-grade requirement for regulated industries (healt
 
 **What remains open:**
 - Nothing. §1.27 is fully closed. The two watch items (§Style Dictionary `color-mix()` and §DTCG typography composite-type) continue on their 2026-09-15 quarterly cadence, but neither is a §1.27 follow-up — they're standing watches.
+
+### 1.28 Auditing design systems as a discipline (split out from 01 + 08)
+
+- Audit references appear across 17+ files (01 Discovery audit activities, 08 quarterly governance review with brand-alignment audit, 11 mobile-specific token audit, 12 Figma's native linting, 17 annotation-state auditing, 23 typography under-tokenisation patterns, 25 the manual-walkthrough-when-Zeroheight-is-closed pattern, 31 WCAG-passes-audit-but-fails-real-users, 00b audit-first inherited engagements). The practice runs audits constantly; auditing-as-a-discipline is not articulated.
+- Named gaps:
+  - **Audit methodology.** What an audit examines (token, component, accessibility, content, motion, code, governance, adoption) and how each surface is examined. The eight audit lanes deserve their own treatment.
+  - **Audit-as-deliverable.** The practice does audits inside Discovery but does not sell **standalone audit engagements** (3–5 day diagnostic outputs) despite this being the most-asked-for entry-point engagement. Productizable as a paid Discovery offering — connects directly to §1.1 (commercial scoping) and §1.2 (maturity diagnostic).
+  - **Audit reporting templates.** The format of an audit report, the severity model, the recommendations format, the buy-in tactics (UXPin's "62 shades of gray" framing). Currently every senior practitioner reinvents this for each engagement.
+  - **Continuous-audit / drift-detection.** Auditing as something that runs in CI, not just at engagement start. Partially named in 08 and 24-tokens-at-scale (Cascade Report, dead-token detection, matrix contrast validation) but not articulated as audit-the-discipline.
+  - **The audit ↔ Six Signs ↔ maturity diagnostic relationship.** Six Signs (recognition), maturity diagnostic (where on the curve), audit (current state) form a Discovery triad the practice ships piecemeal; should be unified.
+- **This is practice IP the practice has but has not packaged.** Likely path: a new file (e.g. `32-auditing-design-systems.md`). Strong commercial-leverage candidate; queues high in the active stack because it is productizable as a sellable Discovery deliverable.
+
+### 1.29 MCPs as practitioner tooling for DS work (split out from 15 + 30)
+
+- MCPs as **architecture** (custom DS MCP server, registry-served-via-MCP, components-as-data → schema → MCP) are substantially closed by 15-ai-in-ds and 30-generated-from-data-documentation. The custom-MCP-server-as-practice-IP framing is committed (30 §The MCP server tooling reality: 40–80 hours, build-once-reuse-across-portfolio).
+- The gap is **MCPs as practitioner tooling** — the developer's-workstation MCP stack a DS designer or engineer should have configured by default. None of this is documented:
+  - **Storybook MCP** — exposing component metadata and stories to AI clients; how this differs from a custom DS MCP server.
+  - **Figma MCP / Figma Console MCP** — design-side automation, screenshot capture, component instantiation, design-token audit; the practice already uses Figma Console MCP but no internal POV exists on what to recommend to clients.
+  - **Accessibility-scanner MCPs** — automated AT scanning surfaced as a tool an AI client can call; sits next to 28-web-accessibility-implementation.
+  - **Design-token MCPs** — Tokens Studio, Specify, Style Dictionary built-in MCP exposure if/when it lands.
+  - **Web-research MCPs in the DS context** — firecrawl / fetch MCPs for primary-source verification (the 2026-06-15 §1.27a closure used firecrawl_scrape; the worked example deserves a write-up).
+  - **The "what every DS practitioner should configure by default" recommendation** — equivalent to "what plugins should every Figma designer have." Practice has IP here but nothing is documented.
+- **Likely path: deepen 15-ai-in-ds with an MCP-tooling H2 section, or split a new file (`34-mcps-for-ds-practice.md`).** Decide the slot before scaffolding the run. Practice-IP that compounds — every engagement benefits from a stated default.
+
+### 1.30 White-label design systems as an engagement type (consolidates 00b + 24 + 09 §3.2)
+
+- White-label content is split across 00b (Prism2 as VML's white-label kit), 00d (white-label kit commercial question), 02 §6 (white-label as Curtis's seventh theming dimension), 24 §White-label and reseller scenarios (the unknown-brand-list architecture problem with brand-generation-engine framing), and 09 §3.2 (Prism positioning conflict — DS vs. UI Kit).
+- White-label-as-an-engagement-type is not articulated. Named gaps:
+  - **The two white-label shapes.** **White-label-for-resellers** (one product, N reseller-supplied brand inputs — the 24 §White-label scenario) vs. **white-label-as-starter** (Prism-style accelerator for bespoke client work — the 00b/00d scenario). These have different architectures, different commercial shapes, and different team structures; they are currently conflated.
+  - **The architecture decision tree.** When does white-label justify the brand-generation-engine investment? At what reseller count does the engine pay back? What is the minimum brand-defining input set? The 24-tokens-at-scale Generative Token pattern is the architectural primitive; the engagement-shaping decision tree is missing.
+  - **Prism positioning closure.** 09 §3.2 names the conflict (Prism is alternately called a DS and a UI Kit); the working POV ("white-label foundations + starter library") is stated but not operationalised. A white-label file is the natural place to close §3.2.
+  - **The commercial shape of white-label engagements.** Recurring brand-onboarding revenue vs. per-brand design effort (24 §White-label-and-reseller flags this). The practice should articulate the SOW shape, the retainer pattern, and the brand-onboarding pricing model — connects to §1.1 (pricing-after-handoff).
+  - **Headless-vs-opinionated for white-label.** White-label products often face a tension between letting resellers override surface elements (visual layer) without letting them override behaviour (interaction layer). Headless-component architecture is the modern answer; not yet articulated as a white-label-specific recommendation.
+- **Likely path: a new file (e.g. `33-white-label-systems.md`).** Solves the Prism positioning conflict along the way.
+
+### 1.31 Content considerations at the system level (deepen on 04 + new sections)
+
+- Content guidance lives at the **per-component level** in 04, 29 §14, 30 §Authored, 03, 26 §3 (assistant tone). System-level content architecture is thin.
+- Named gaps:
+  - **Voice and tone systematisation.** How a DS encodes brand voice into component microcopy by default; the Mailchimp / Shopify Polaris voice-and-tone matrix as a system artefact rather than per-component guidance.
+  - **Content tokens / writing-tokens.** Error message templates, empty-state copy patterns, CTA verb taxonomies as tokenised resources — analogous to design tokens but for content. The field is starting to ship these (Linear's empty-states pattern, Stripe's error-message taxonomy); the practice does not yet treat content as tokenisable.
+  - **Internationalised content depth.** ICU MessageFormat, plurals, gendered language, RTL content ordering. Partly covered in 13-internationalization-and-rtl but not explicitly tied back to component content guidelines or system-level content tokens.
+  - **Content for AI surfaces.** Assistant tone, refusal copy patterns, disclosure boilerplate, citation format conventions. Partly in 25 §The architecture beneath but not articulated as a content-system layer (and not connected to the per-component template's Content guidelines section in 29).
+  - **The UX Copywriter role at engagement scale.** When a system needs one (the 04 75-hour scope is named but not justified by client size or content surface complexity); what the role owns end-to-end; how the role hands off to client product teams; how content guidelines get maintained after handoff. Connects to §1.26 team-building.
+- **Likely path: deepen 04-documentation with a system-level content H2 section, plus likely additions to 23 (typography composite tokens) and 13 (i18n content). Not a new file.** Bounded scope.
+
+### 1.32 CMS platforms — modern composable / headless coverage (deepen on 10)
+
+- 10-cms-and-platform-integration is AEM-and-Drupal-shaped (12 H2 sections, 321 lines, with AEM as the dominant treatment). Modern composable-content / API-first patterns are largely absent.
+- Named gaps:
+  - **Headless CMS coverage.** Sitecore (XM Cloud / OrderCloud / SaaS), Contentful, Sanity, Strapi, Storyblok — none meaningfully covered. For agency clients on Sitecore (a real cohort) the file currently provides little.
+  - **WordPress as DS host.** Still a real engagement type; absent.
+  - **The CMS-vs-DS authoring boundary.** Where component anatomy lives in CMS schema vs. system schema; how the two source-of-truth claims reconcile; how Code Connect or `.ai.json` schemas align with CMS content models. This is a procurement-grade decision that the practice ships against without an articulated POV.
+  - **MCP / AI-readability for CMS-managed components.** A natural extension of 30 §MCP — when components are authored *and stored* in the CMS, the registry has to source from there too. Not articulated.
+  - **Composable-content patterns.** The 2025–2026 movement toward content-as-data with explicit schemas (sometimes called "headless DS-as-content-source") changes the integration story. Not covered.
+- **Likely path: deepen 10-cms-and-platform-integration with new H2 sections for headless / composable / MCP-for-CMS-components. Not a new file.** Queue behind §1.30 (white-label) and §1.31 (content); surface when an engagement requires it.
+
+### 1.33 SEO, GEO, and agent-discoverability for DS docs sites — field-level
+
+- See §5.21 below — promoted to the field-level gaps section because the gap is across the entire DS field, not specific to the practice's coverage shape.
 
 ---
 
@@ -395,6 +455,16 @@ Per the brief's final-check instruction: areas significant to design systems con
 ### 5.20 Failure recovery patterns
 - What happens if the system loses its champion? Loses funding? A consuming team forks the system? An audit shows low coverage?
 - Practice has implicit experience; nothing documented.
+
+### 5.21 SEO, GEO, and agent-discoverability for DS docs sites
+- Absent across all source material. Grep across the corpus returns one false positive (§1.27a "search" in another sense) and a single line in 07 §Specialists negotiable (SEO as a partial role). 25 §A practical lesson names the Zeroheight-behind-anonymous-fetch pattern as making research-by-fetching impossible — that observation is *adjacent* to the gap but does not articulate it.
+- The 2025–2026 layer the practice does not engage:
+  - **`llms.txt` / `agents.txt`** — emerging convention for sites declaring what an LLM crawler should index, analogous to `robots.txt`. Whether DS docs sites should ship one, what it should contain (the `.ai.json` registry path? the conformance dossier index? component prose?), and how it interacts with hosted-platform constraints (Zeroheight, Supernova) is undefined practice-wide.
+  - **Generative Engine Optimization (GEO).** How a DS docs site ranks in AI-generated answers (ChatGPT, Perplexity, Claude.ai-as-search, Gemini summary). The optimisations differ from traditional SEO — citation-friendliness, structured authoritative claims, machine-readable provenance — and connect directly to 30's `.ai.json` registry-served-via-MCP architecture, but the practice has not yet positioned its docs architecture as GEO-favourable explicitly.
+  - **Schema.org / structured data.** Whether DS docs output JSON-LD, whether the `.ai.json` registry should align with schema.org typing, whether per-component pages should be marked up as `SoftwareApplication` or `TechArticle` — all open. Storybook's autodocs output is not currently schema.org-typed by default.
+  - **Crawlability of DS docs for LLMs vs. for traditional search.** Hosted platforms (Zeroheight in particular) often gate content behind anonymous-fetch barriers that block LLM training and serving crawlers as well as research-by-fetching. The procurement implication — clients on closed platforms inadvertently disqualify themselves from being cited by AI assistants — is a real concern the practice should have a stance on.
+- Connects to §1.13 (Trust, governance, liability for AI-generated assets) — this is a *consumer-facing* extension of that. Connects to §1.12 (AI-readiness as commercial default) and §4.10 (public-IP strategy).
+- **Likely path: a new initiative, but not the highest priority — surface when a content-heavy or regulated-industry client asks the question.** Log the gap; do not lead with the topic.
 
 ---
 
