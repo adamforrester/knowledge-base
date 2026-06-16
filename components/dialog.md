@@ -123,7 +123,7 @@ Entry is easy (opacity + `transform: scale(0.95→1)`, ~150–300ms, backdrop fa
 ## 12. Related and alternative components
 
 - **Stands on:** Button (footer confirm/cancel + the close-X — see button), Icon (the close glyph — see icon).
-- **Alternative to / boundary with:** **Popover** (the next brief — light-dismiss, non-modal, anchored, *not* focus-trapped; the importance/modality boundary — see popover), **Drawer/Sheet** (edge-anchored; centered-modal vs edge — see drawer when briefed), **Toast/Banner/Alert** (non-interrupting, no focus steal — see toast/banner when briefed), **Menu** (roving tabindex, not a trap — see menu), **Accordion/Disclosure** (inline expansion, not an overlay — see accordion).
+- **Alternative to / boundary with:** **Popover** (the next brief — light-dismiss, non-modal, anchored, *not* focus-trapped; the importance/modality boundary — see popover), **Drawer/Sheet** (edge-anchored; centered-modal vs edge — see drawer; a modal drawer is a Dialog at the edge, and the mobile bottom-sheet *is* a Drawer), **Toast/Banner/Alert** (non-interrupting, no focus steal — see toast/banner when briefed), **Menu** (roving tabindex, not a trap — see menu), **Accordion/Disclosure** (inline expansion, not an overlay — see accordion).
 - **Specialises into:** `AlertDialog` (the confirmation/destructive pattern); the mobile bottom-sheet (shades into Drawer).
 - **Composed by:** any flow needing a blocking sub-task — destructive confirms, required forms, focus-demanding wizards.
 
