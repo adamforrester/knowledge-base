@@ -23,7 +23,7 @@ A Dialog opens over the page and, when modal, blocks the background until resolv
 
 **The defining contract is the focus trap.** On open, focus **moves into** the dialog; Tab/Shift+Tab **cycle within it** (the background is `inert` — unreachable to AT and pointer); Escape closes; on close, focus **returns to the invoker**. This is the explicit contrast with Menu (roving tabindex, Tab closes, *not* trapped) and Popover (light-dismiss, focus *not* trapped). Modality + the trap is what makes a Dialog a Dialog — not its size or its scrim.
 
-What it *isn't*: a **Popover** (light-dismiss, non-modal, anchored to a trigger — see popover), a **Drawer/Sheet** (edge-anchored, often non-modal), a **Toast/Banner/Alert** (non-interrupting, no focus steal — see toast/banner when briefed), or an **inline expander** (Accordion/Disclosure — see accordion). Why systems disagree: native-vs-custom, initial-focus placement, when to disable light-dismiss, scroll-lock mechanics, footer button order, and the exit-animation approach.
+What it *isn't*: a **Popover** (light-dismiss, non-modal, anchored to a trigger — see popover), a **Drawer/Sheet** (edge-anchored, often non-modal), a **Toast/Banner/Alert** (non-interrupting, no focus steal — see toast; banner when briefed), or an **inline expander** (Accordion/Disclosure — see accordion). Why systems disagree: native-vs-custom, initial-focus placement, when to disable light-dismiss, scroll-lock mechanics, footer button order, and the exit-animation approach.
 
 ## 2. Anatomy and parts
 
@@ -65,7 +65,7 @@ The practice default exposes `Dialog.Header`/`Dialog.Body`/`Dialog.Footer` (comp
 ## 5. Usage guidance
 
 - **Use a modal Dialog** when the user must make an **immediate, blocking decision** before continuing: a destructive confirmation (→ `alertdialog`), a required form/step, or entering a small discrete set of data that needs context from the page behind it. Modality is justified when continuing without resolving would lose data or cause error.
-- **Don't use a modal Dialog for:** non-critical info or transient feedback (→ Toast/Banner — see toast/banner when briefed), a small contextual overflow of actions/info anchored to a control (→ Popover/Menu — see popover, menu), edge-anchored secondary content or navigation (→ Drawer), deeply paginated/scrolling forms (→ a dedicated page route), or content that belongs inline (→ Accordion). **Modal overuse is the anti-pattern** — teams reach for dialogs to avoid proper routing; every modal steals focus and halts the user, so reserve it.
+- **Don't use a modal Dialog for:** non-critical info or transient feedback (→ Toast/Banner — see toast; banner when briefed), a small contextual overflow of actions/info anchored to a control (→ Popover/Menu — see popover, menu), edge-anchored secondary content or navigation (→ Drawer), deeply paginated/scrolling forms (→ a dedicated page route), or content that belongs inline (→ Accordion). **Modal overuse is the anti-pattern** — teams reach for dialogs to avoid proper routing; every modal steals focus and halts the user, so reserve it.
 - **Decision frameworks:**
   - **Dialog vs. Popover:** does it **block** the page and demand resolution (modal Dialog, focus-trapped) or **supplement** a trigger and dismiss on outside-click (Popover, non-trapping)? Importance + modality, not size.
   - **Dialog vs. Drawer/Sheet:** centered + interrupting (Dialog) vs. edge-anchored + often-browsable-alongside, sometimes modeless pushing content (Drawer). On mobile a Dialog often *becomes* a bottom-sheet.
@@ -123,7 +123,7 @@ Entry is easy (opacity + `transform: scale(0.95→1)`, ~150–300ms, backdrop fa
 ## 12. Related and alternative components
 
 - **Stands on:** Button (footer confirm/cancel + the close-X — see button), Icon (the close glyph — see icon).
-- **Alternative to / boundary with:** **Popover** (the next brief — light-dismiss, non-modal, anchored, *not* focus-trapped; the importance/modality boundary — see popover), **Drawer/Sheet** (edge-anchored; centered-modal vs edge — see drawer; a modal drawer is a Dialog at the edge, and the mobile bottom-sheet *is* a Drawer), **Toast/Banner/Alert** (non-interrupting, no focus steal — see toast/banner when briefed), **Menu** (roving tabindex, not a trap — see menu), **Accordion/Disclosure** (inline expansion, not an overlay — see accordion).
+- **Alternative to / boundary with:** **Popover** (the next brief — light-dismiss, non-modal, anchored, *not* focus-trapped; the importance/modality boundary — see popover), **Drawer/Sheet** (edge-anchored; centered-modal vs edge — see drawer; a modal drawer is a Dialog at the edge, and the mobile bottom-sheet *is* a Drawer), **Toast/Banner/Alert** (non-interrupting, no focus steal — see toast; banner when briefed), **Menu** (roving tabindex, not a trap — see menu), **Accordion/Disclosure** (inline expansion, not an overlay — see accordion).
 - **Specialises into:** `AlertDialog` (the confirmation/destructive pattern); the mobile bottom-sheet (shades into Drawer).
 - **Composed by:** any flow needing a blocking sub-task — destructive confirms, required forms, focus-demanding wizards.
 
