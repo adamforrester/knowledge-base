@@ -28,7 +28,7 @@ A Toast is a **brief, non-interrupting, transient notification** anchored to a s
 
 **The boundaries** (precise across field leaders):
 - **vs. Dialog** — *interruption*: a Dialog traps focus and demands resolution; a Toast never does. A required acknowledgement / destructive confirm is a **Dialog** (see dialog).
-- **vs. Banner/Alert** — *persistence + document flow*: a Banner is persistent and in-flow, staying until resolved/dismissed; a Toast floats and vanishes. Persistent errors, connection failures, and corrective-action messages belong in a **Banner** (see banner when briefed).
+- **vs. Banner/Alert** — *persistence + document flow*: a Banner is persistent and in-flow, staying until resolved/dismissed; a Toast floats and vanishes. Persistent errors, connection failures, and corrective-action messages belong in a **Banner** (see banner).
 - **vs. Inline Message** — *spatial context*: an Inline Message sits next to the DOM element it describes (field validation); a Toast is viewport-relative and disconnected (see inline-message when briefed).
 - **vs. Notification Center** — a persistent inbox/log of past notifications, vs. the transient flare.
 
@@ -119,7 +119,7 @@ Slide + fade in from the edge/corner (~150–250ms) — motion establishes the s
 
 ## 12. Related and alternative components
 - **Stands on:** Button (the optional action + the close — see button), Icon (the severity glyph — see icon).
-- **Alternative to / boundary with:** **Dialog** (the interrupting, focus-stealing, must-act opposite — see dialog), **Banner/Alert** (persistent, in-flow, important — the toast-vs-banner boundary; errors and actions go here; see banner when briefed), **Inline Message** (field/section validation — see inline-message when briefed), a **Notification Center** (a persistent inbox/log — composed *with* toasts), **Progress/Spinner** (a loading/promise toast shades into progress feedback — see progress/spinner when briefed).
+- **Alternative to / boundary with:** **Dialog** (the interrupting, focus-stealing, must-act opposite — see dialog), **Banner/Alert** (persistent, in-flow, important — the toast-vs-banner boundary; errors and actions go here; see banner), **Inline Message** (field/section validation — see inline-message when briefed), a **Notification Center** (a persistent inbox/log — composed *with* toasts), **Progress/Spinner** (a loading/promise toast shades into progress feedback — see progress/spinner when briefed).
 - **Establishes for the category:** the **ARIA live-region announcement pattern** (`role=status`/`alert`, the pre-existing region) that Banner/Alert, Inline Message, and Progress reuse.
 
 (The first Feedback brief — the non-interrupting, transient, no-focus-steal counterpart to Dialog, establishing the live-region announcement pattern the rest of the category inherits. See dialog for the interrupting boundary, button for the action/close, icon for the severity glyph, banner/inline-message/progress when briefed for the siblings that reuse the live-region pattern. 03-component-library; 29 for the docs template.)
