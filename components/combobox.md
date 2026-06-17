@@ -136,7 +136,7 @@ Inherits Select's overlay machinery (positioning via Floating UI → CSS Anchor 
 
 ## 12. Related and alternative components
 
-- **Composes with:** Text Field substrate, Listbox/Option/Popover (the inherited surface), Icon (search/caret/clear — see icon), Tag/Token (multi-token), Spinner (async), Virtualizer, Form.
+- **Composes with:** Text Field substrate, Listbox/Option/Popover (the inherited surface), Icon (search/caret/clear — see icon), Tag/Token (the multi-select token field renders Tags — see tag), Spinner (async), Virtualizer, Form.
 - **Alternative to:** Select (no typing/filtering — the §1 boundary), Search Field (submits a query and routes vs. resolves to a value), Tags Input (arbitrary tokens, no vocabulary), Menu (commands), Radio (tiny sets).
 - **Supersedes:** the legacy standalone Typeahead (absorbed into the ARIA 1.2 combobox); a Select with a bolted-on filter lacking the combobox ARIA; an autocomplete hand-rolled on a bare `<input>`; the native `<datalist>` (§13).
 - **Superseded by / specialises into:** **TagInput/TokenInput** (free-text multi), **Command palette** (combobox over actions — ⌘K), **predictive/address search** (combobox-shaped but routing).
