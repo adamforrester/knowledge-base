@@ -24,7 +24,7 @@ Progress is the programmatic + visual bridge between a user's action and an asyn
 It must be disambiguated from **three sibling loading patterns** + the meter:
 - **Progress bar** — a value contract for a *longer/measurable* task (this brief; >~5s, or a known file size/step count, or a large area where a tiny spinner would look lost).
 - **Spinner** — the minimal *indeterminate inline busy* indicator (~1–5s; a button, a dropdown fetching) — no value contract — see spinner.
-- **Skeleton** — the content-shaped *placeholder* for an *initial page/section load*, reserving space to prevent CLS — see skeleton when briefed.
+- **Skeleton** — the content-shaped *placeholder* for an *initial page/section load*, reserving space to prevent CLS — see skeleton.
 - **`role=meter`** (the sharp boundary) — a *static measurement within a range* (disk usage, battery, score); **not a task**; a different role/component.
 
 What it *isn't*: a **Spinner** (minimal inline, no value), a **Skeleton** (placeholder), a **Meter** (static measurement), or a **Stepper** (discrete *user* steps, not *system* labour). Why systems disagree: the determinate threshold, the announcement model, the linear/circular/global placement, and unified-vs-distinct naming.
@@ -109,7 +109,7 @@ The field splits on **unified vs distinct primitives**: unified **`Progress`** w
 
 ## 12. Related and alternative components
 - **Stands on:** the **live-region announcement pattern** inherited from Toast (the Feedback substrate — for milestone/completion — see toast).
-- **Alternative to / boundary with:** **Spinner** (minimal indeterminate inline busy indicator, no value contract — see spinner), **Skeleton** (content-shaped initial-load placeholder, prevents CLS — see skeleton when briefed), **Meter** (`role=meter` static measurement — a separate component), **Stepper** (discrete *user* steps vs system labour), the **loading/promise Toast** (see toast §promise — shades into progress feedback).
+- **Alternative to / boundary with:** **Spinner** (minimal indeterminate inline busy indicator, no value contract — see spinner), **Skeleton** (content-shaped initial-load placeholder, prevents CLS — see skeleton), **Meter** (`role=meter` static measurement — a separate component), **Stepper** (discrete *user* steps vs system labour), the **loading/promise Toast** (see toast §promise — shades into progress feedback).
 - **Composed by:** Button (the loading state uses a Spinner, not a Progress bar — see button), File Upload (a determinate upload bar — see file-upload when briefed), measurable processes.
 
 (The fourth Feedback brief — the loading/in-progress indicator, reusing Toast's live-region pattern for milestone/completion announcements and anchoring the three-loading-patterns decision (Progress / Spinner / Skeleton) plus the `meter`-vs-`progressbar` semantic boundary. See toast for the live-region pattern, spinner/skeleton/meter when briefed for the boundaries, button for the loading-button boundary, breadcrumbs for the stepper boundary. 03-component-library; 29 for the docs template.)

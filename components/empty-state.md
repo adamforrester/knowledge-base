@@ -28,7 +28,7 @@ An Empty State is one terminal state of a data container's lifecycle (`loading �
 - **error / failure** — a *localized* container load failure (the empty-vs-error boundary); degrades to an error-flavored empty state to hold the layout, with a **retry**.
 - **no-permission** — the data exists but the user lacks access; pivots to **request-access**.
 
-What it *isn't*: a **loading** state (→ Skeleton/Progress, the *in-between* — see progress, skeleton when briefed; an empty result is *expected*, loading is transient), or a **system error** that warrants a persistent surface (→ Banner/Inline — see banner, inline-message; a 500 is a *failure*, not expected absence). Why systems disagree: the genre taxonomy, the illustration question, the empty-vs-error treatment, and the table-replacement methodology.
+What it *isn't*: a **loading** state (→ Skeleton/Progress, the *in-between* — see progress, skeleton; an empty result is *expected*, loading is transient), or a **system error** that warrants a persistent surface (→ Banner/Inline — see banner, inline-message; a 500 is a *failure*, not expected absence). Why systems disagree: the genre taxonomy, the illustration question, the empty-vs-error treatment, and the table-replacement methodology.
 
 ## 2. Anatomy and parts
 A standardised vertical hierarchy (center-aligned for a void; left-aligned/inline for tight table rows; container queries scale padding/font in narrow bounds — Primer):
@@ -105,7 +105,7 @@ The field splits on framing: **`EmptyState`**/**`Empty State`** (Polaris, Atlass
 ## 12. Related and alternative components
 - **Stands on:** Button (the CTA — see button), Icon/illustration (the visual — see icon), Link (secondary/inline links — see link), and **lightly the live-region pattern** from Toast (the dynamic no-results announcement — see toast).
 - **Composed by:** Table / List / Tree / search-results / card — the data hosts whose zero-state *is* the empty state (see table/list/tree when briefed).
-- **Alternative to / boundary with:** **Skeleton / Progress** (the *loading* terminal state — the in-between; transition without a flash — see progress, skeleton when briefed), **Banner / Inline Message** (the *error/failure* terminal state — a persistent error surface vs an in-container error-flavored empty state — see banner, inline-message).
+- **Alternative to / boundary with:** **Skeleton / Progress** (the *loading* terminal state — the in-between; transition without a flash — see progress, skeleton), **Banner / Inline Message** (the *error/failure* terminal state — a persistent error surface vs an in-container error-flavored empty state — see banner, inline-message).
 
 (The fifth and final Feedback brief — the zero-state content of a data container, anchored by the genre taxonomy and the loading/content/empty/error terminal-states machine; the live-region pattern's lightest touch. It **closes the Feedback category**. See button for the CTA, icon for the visual, link for the links, toast for the no-results live-region touch, progress/skeleton for the loading boundary, banner/inline-message for the error boundary, table/list/tree when briefed for the hosts that compose it. 03-component-library; 29 for the docs template.)
 
