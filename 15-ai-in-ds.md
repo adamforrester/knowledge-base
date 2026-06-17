@@ -463,7 +463,7 @@ The custom DS MCP server is what most teams haven't built yet. Its tools, concep
 - `get_usage_guidelines(component_id)` — return when-to-use / avoid-when
 - `validate_implementation(code, component_id)` — check generated code against the contract
 
-This is what "AI-ready DS architecture" looks like in 2026. **Most teams have pieces of it; few have the whole stack.** It's a 2026–2027 investment for shops that want to lead. (See 05-development-support on the broader AI integration layer in our practice POV.)
+This is what "AI-ready DS architecture" looks like in 2026. **Most teams have pieces of it; few have the whole stack.** It's a 2026–2027 investment for shops that want to lead. (See 05-development-support on the broader AI integration layer in our practice POV. The custom DS MCP server is the *system-as-data* axis — what one client's design system exposes to AI clients as a structured contract. The complementary axis — the practitioner's day-to-day workstation MCP stack that reads whatever Figma file, Storybook, codebase, or spec is in front of them, regardless of client — is treated separately in 34-mcps-for-ds-practice. The two compose at the senior practitioner's terminal: the workstation stack acts as the sensor array, the custom DS MCP is the authoritative contract.)
 
 ### Semantic naming as compressed sentence
 
