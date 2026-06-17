@@ -27,7 +27,7 @@ The task library (`DS_TaskLibrary_Schema_v02_1.xlsx`) is the source of truth for
 
 ## Roles and Disciplines
 
-The following roles appear in DS engagements at VML. Not all are required for every engagement — see the pattern-specific guidance below.
+The following roles appear in DS engagements at VML. Not all are required for every engagement — see the pattern-specific guidance below. (For the team-as-discipline layer beneath the role table — what each role actually owns, the design-technologist archetype, the DS lead's commercial-and-craft hybrid surface, hiring signals, and the practitioner-count arc as a coaching question rather than a billing question — see 00e.)
 
 | Role | Typical Allocation | Notes |
 |---|---|---|

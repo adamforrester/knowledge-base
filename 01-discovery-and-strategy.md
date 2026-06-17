@@ -41,7 +41,7 @@ Before designing anything, define why the system exists for *this* organization,
 
 ### 2. Audits and inventory
 
-The objective baseline. What exists, what is duplicated, what is broken, what is unused.
+The objective baseline. What exists, what is duplicated, what is broken, what is unused. (For the audit-as-discipline depth this section sketches at engagement-architecture level — the eight-lane methodology, the productised audit engagement, the reporting template, the continuous-audit substrate, and the unified Discovery triad with Six Signs and the maturity diagnostic — see 32.)
 
 - **Interface inventory** — UXPin's five-part framework (2017) is still the cleanest checklist: Patterns, Colors, Typography, Icons, Space. Walk the codebase and the screens; count appearances; surface anomalies. ("62 shades of gray" remains the canonical example of how this work generates buy-in.)
 - **Asset and code audit** — every existing Figma library, design file, code library, plugin, token export. Categorize by *visual* (which look alike) *and* by *purpose* (the *why* behind their existence) — the second axis is what reveals which patterns belong in the system. (Scoping doc.)

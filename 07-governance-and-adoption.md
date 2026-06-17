@@ -48,7 +48,7 @@ Curtis's near-internal-tier guidance is the sharpest in the field. Adopt:
 - **Specialists negotiable** — content strategy, accessibility, performance, SEO can be partial.
 - **Three lead roles** (Client lead / Design lead / Tech lead) plus PM as minimum.
 - **Minimum maker pairs:** 1 UX + 1 UI designer paired; 1 lead + 1 production developer paired; 1 QA; 1 PM; ideally 1 content strategist.
-- **Stages of getting to a core team:** Part Timers → Allocated Individuals → Dedicated Team. Most clients are stuck at Allocated Individuals; the engagement should prepare the org to fund a Dedicated Team.
+- **Stages of getting to a core team:** Part Timers → Allocated Individuals → Dedicated Team. Most clients are stuck at Allocated Individuals; the engagement should prepare the org to fund a Dedicated Team. (See 00e §The Part Timer → Allocated Individual → Dedicated Team arc, which operationalises each stage's risks, escalation signals, and the Stage 4 federated variant for the rare large-scale engagement.)
 
 The internal practice's commercial model in CareCentrix 2026:
 - Project Lead (Design Director, 25%)

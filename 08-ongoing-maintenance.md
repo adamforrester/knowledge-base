@@ -226,9 +226,9 @@ Thrive 2024 commercially: "Run" phase covers Adoption & Integration / Support / 
 
 1. **What does the practice sell after handoff?** Today: not much. Three productizable offerings:
    - **Run-phase retainer** — embedded core-team support for 6–12 months post-Launch.
-   - **Quarterly governance review** — one-shot per quarter; measurement, contribution review, roadmap update, brand-alignment audit.
+   - **Quarterly governance review** — one-shot per quarter; measurement, contribution review, roadmap update, brand-alignment audit. (32 §5 frames this as the human surface above the continuous-audit signal — without the CI substrate the review is vibes-based; with it the review is signal-driven.)
    - **Ambassadors program** — 4–6 week embedded coaching for the client's emerging Ambassadors team.
-   Which is right depends on the client. Practice needs all three articulated and priced.
+   Which is right depends on the client. Practice needs all three articulated and priced. (See 00e §The agency-to-client team handoff for the operational frame: the retainer is what makes the handoff a *transition* from project revenue to retainer revenue rather than a commercial loss, and the four-part transfer — client team identity, discipline, artefact, relationship — is the work the retainer holds open across years.)
 2. **Coverage definition.** Three industry definitions; practice should commit. Working synthesis: Morningstar's *"% of pages applying system components"* is the most actionable measurement; Veriff's *"components in use across all repos"* is the most comprehensive but engineering-heavy; didoo's *"proportion sourced from system"* is intermediate. Pick Morningstar as default; provide alternatives by client context.
 3. **NPS or SUS.** Curtis prefers SUS. Most clients reach for NPS by default. Practice should pick SUS with open-ended follow-up.
 4. **Deprecation timeline default.** No published consensus. Working synthesis: 6 months for major component deprecations; 3 months for token deprecations (with `_legacy` overlap); shorter for documented bugs/security fixes.

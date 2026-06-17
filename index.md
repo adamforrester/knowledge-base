@@ -16,6 +16,7 @@ A personal knowledge base on design systems consulting, maintained by Adam Forre
 * [Principles and Philosophy](/00-principles-and-philosophy.md) - The practice's POV: the ten principles, where we converge with and diverge from the field.
 * [Agency Context](/00b-agency-context.md) - VML as agency context: how DS work fits the agency commercial reality, and the gap between "what good looks like" and the world we operate in.
 * [Commercial Model](/00d-commercial-model.md) - How VML scopes, resources, and prices DS engagements. Working document, not fixed formula.
+* [Team and Discipline](/00e-team-and-discipline.md) - DS-team-as-discipline at agency scale: hiring, the practitioner-count arc, the agency-to-client handoff, internal rituals, career paths, distributed-team patterns, burnout. The people-and-craft layer beneath 00d's commercial model and 07's governance.
 
 ## Engagement phases
 
@@ -56,6 +57,7 @@ A personal knowledge base on design systems consulting, maintained by Adam Forre
 * [Per-Component Documentation Template](/29-per-component-documentation-template.md) - The 17-section spine of a single component's docs page, per-section depth, four-audience entry points, generation-vs-authoring seam with CI freshness check, tooling decisions, anti-patterns, the version-zero YAML schema the practice ships in week one.
 * [Generated-From-Data Documentation as Commercial Default](/30-generated-from-data-documentation.md) - The architecture that treats the component data file as the source of truth, the pipeline shape, the upfront engineering investment with phased adoption (Phase 1 baseline / Phase 2 Code Connect and Figma sync / Phase 3 custom MCP server), the per-component hours redistribution, the ~30-component break-even, the 5-question decision tree, the migration playbook, the cluster relationship to AI-readiness, the commercial pitch, and the tooling realities where the field is genuinely behind in 2026.
 * [Color Systems](/31-color-systems.md) - Three-tier color architecture, OKLCH-as-authoring + sRGB/P3 as render targets, the WCAG-2-as-floor / APCA-as-quality-bar discipline, the orthogonal-axes theming model with the dark-mode lift pattern and forced-colors transparent-border trick, contrast-anchored ramp generation, the brand-vs-UI carve-out, isolated data-vis namespaces, native platform translation as integration not mapping, and the seven-field AI-readable color schema.
+* [Auditing Design Systems](/32-auditing-design-systems.md) - Auditing as a discipline at agency scale: the eight-lane methodology (token / component / accessibility / content / motion / code / governance / adoption), the productised audit engagement (3-day / 5-day / 10-day shapes with priced ranges), the reporting template with bell-shaped severity distribution and "62 shades of gray" buy-in, continuous audit and drift detection in CI, and the audit ↔ Six Signs ↔ maturity diagnostic Discovery triad as the practice's highest-leverage productised offering.
 
 ## Component briefs
 
