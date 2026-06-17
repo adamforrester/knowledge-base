@@ -73,7 +73,7 @@ Conspicuously absent: **interactive targets**. No hover/focus/active, no focus r
 ## 5. Usage guidance
 
 - **Count** — for a *pending action / unread accumulation / queue size* attached to the navigational vector that resolves it ("3" over an Inbox, "5" over a Cart). A passive prompt to action; the number must be **actionable** — if the exact value doesn't matter, prefer a dot.
-- **Dot** — when the exact integer is unknown, expensive to compute, or irrelevant; it answers the boolean "is there new activity?". Lower visual weight than a count; the standard for **avatar presence** (online/offline — Avatar the host, not yet briefed).
+- **Dot** — when the exact integer is unknown, expensive to compute, or irrelevant; it answers the boolean "is there new activity?". Lower visual weight than a count; the standard for **avatar presence** (online/offline — Avatar the host; see avatar).
 - **Status pill** — inline beside data entities in tables/lists/headers to denote lifecycle state ("Pending"/"Authorized"/"Voided").
 - **Don't use a Badge for:**
   - An **interactive/removable token** → a **Tag/Chip** (filter chips, removable selections). The boundary: a Badge has no `onClick`, no `×`, no selected state. (See tag — the boundary is now drawn from both sides.)
@@ -144,7 +144,7 @@ Conspicuously absent: **interactive targets**. No hover/focus/active, no focus r
 
 - **Stands on:** **Icon** (the optional severity icon in a status pill + the icon-button count host — see icon).
 - **Inherits (patterns):** the **color-not-sole-carrier severity model** from the Feedback family (info/success/warning/error/neutral as color + text — see banner, toast); the **live-region announcement pattern** from Toast for the dynamic-count change (see toast).
-- **Overlaid on (hosts):** Icon buttons, **Avatar** (the presence-dot host — not yet briefed; shares the circular-overlap trigonometry), **Tabs** (a count on a tab — see tabs), nav items (a count on a side-nav item — see side-navigation).
+- **Overlaid on (hosts):** Icon buttons, **Avatar** (the presence-dot host — see avatar; shares the circular-overlap trigonometry, and resolves the `overflow: hidden` clipping trap from the host side), **Tabs** (a count on a tab — see tabs), nav items (a count on a side-nav item — see side-navigation).
 - **Boundary:** **Tag/Chip** — the interactive/removable/selectable token (Badge is the passive indicator; the strictest functional boundary in the system; see tag).
 - **Not:** **Toast** (transient feedback — see toast), **Banner** (persistent feedback — see banner). Badge is a passive standing indicator, not an event.
 

@@ -27,7 +27,7 @@ The naming morass: **Material / MUI / Polaris** standardize on **Chip** (Materia
 ## 2. Anatomy and parts
 A fully-featured removable Tag has up to five slots in a tightly constrained 24–32px height, demanding precise flex orchestration:
 - **the substrate (container)** — the bounding box: radius, fill, padding, the stateful visual shifts (hover/focus/active), and the focus-ring projection. The primary hit target *when the whole tag is interactive*.
-- **the leading affordance (optional)** — an icon, avatar (Primer's `AvatarToken`), or status dot for at-a-glance categorization (inherits Icon — see icon).
+- **the leading affordance (optional)** — an icon, avatar (Primer's `AvatarToken` — a person token; see avatar), or status dot for at-a-glance categorization (inherits Icon — see icon).
 - **the label (core substance)** — the short text descriptor; truncates with ellipsis + full text on hover/`title` (§7).
 - **the selected indicator (stateful)** — typically an animated checkmark that replaces or precedes the leading slot when a filter/choice tag toggles active; never color alone (§6).
 - **the trailing affordance (action)** — the remove `×`, functionally an **embedded icon button** with its *own* accessible name ("Remove [label]") inheriting Button + Icon (see button, icon). The source of the accessibility complexity: one tag = two operable things.
