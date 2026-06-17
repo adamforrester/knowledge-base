@@ -79,7 +79,7 @@ A horizontal full-bleed divider is direction-neutral. An **inset** divider must 
 - **Supersedes:** an ad-hoc `<hr>` styled inline without the hairline token.
 - **Superseded by:** nothing.
 
-(See 03-component-library for the system-level component model, and 29-per-component-documentation-template for the docs page this feeds. The Stack brief, when written, should reference this for its `divider`-between contract.)
+(See 03-component-library for the system-level component model, and 29-per-component-documentation-template for the docs page this feeds. The Stack brief now references this for its `divider`-between contract — see stack §11 (the n−1 injection, and its incompatibility with `wrap`).)
 
 ## 13. Field POV evolution
 
