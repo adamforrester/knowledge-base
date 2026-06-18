@@ -1,0 +1,38 @@
+Source: https://didoo.medium.com/measuring-the-impact-of-a-design-system-7f925af090f7
+Title: Measuring the Impact of a Design System
+Author: Cristiano Rastelli (didoo)
+Published: Jan 29, 2019 (Medium-displayed publishedTime metadata gives 2026-03-09 but that appears to be a Medium republishing-stamp; the post is widely cited from 2019 and the article body references Rastelli's "bi-annual review" consistent with the Jan 2019 date)
+Captured: 2026-06-18 via firecrawl_scrape
+
+The post describes Rastelli's measurement work on Badoo's Cosmos design system. As Design System Lead at HashiCorp at time of capture; was UI Engineer at Badoo when the post was written.
+
+The two methods Rastelli describes:
+
+(1) UI coverage spreadsheet — the synthetic / qualitative method.
+- Inventoried all UI elements composing the application; created a list of components and sub-components in a spreadsheet (~240 lines).
+- Per component: status ("to do", "in progress", "to refine", "done") + a 1–5 effort estimate (story-points-shape).
+- Defined a complex weighted formula comparing total points required for the entire UI vs. the points of components weighted by status (1.0 if completed, 0.8 if to refine, 0.6 if in progress, 0 if still to do).
+- Split into two formulas — one optimistic, one pessimistic — producing two converging numbers over time.
+- Plotted as "UI coverage over time"; trend showed growth from ~50% to ~80% in under one year; the two formulas converged (less uncertainty); approached the 80% Pareto threshold per Curtis's "average cost increases as benefit decreases" curve.
+- Caveat Rastelli is explicit about: "subjective (and probably biased) metric" — based on his own perception of complexity; not objective like code-coverage.
+- Useful primarily for tracking progress (rate of change), not for declaring absolute success.
+
+(2) Source-mix-overtime via git log — the quantitative method.
+- Ran `git log --stat --reverse --date=short -- 'src/css/*.less'` against the application's repo (and equivalent for Sass after the LESS-to-Sass migration).
+- Wrote a Node-based JSON parser (gist linked in original post at gist.github.com/didoo/7a9fa5a95cfac32107c5358a4eba46a6) producing per-day aggregations: { date, files, insertions, deletions }.
+- Produced two D3-rendered visualisations — one for the application codebase, one for the Cosmos library codebase.
+- Bubbles version (radius proportional to value) — quickly showed before/after the introduction of Cosmos: large bubbles followed by small bubbles in the application codebase, correlated with the second chart for Cosmos.
+- Rectangles version (linear, fixed-width with proportional height) — uncovered the secondary measure: "frequency of change" — denser rectangles = darker opacity = more frequent CSS changes.
+- The chart showed before-Cosmos: many frequent medium/large changes; after-Cosmos: relatively transparent with infrequent small changes — matching Rastelli's lived experience as a UI engineer.
+
+Rastelli's framing — explicitly *not* a metric to be reduced to a single number:
+> "First, because that would be like measuring the 'number of lines committed per day' or the 'number of tickets closed per month', and this is a really bad way to measure something. When humans are involved, not everything can be measured."
+>
+> "Second, because I don't want to pass the idea that 'a design system makes people work less'. If you're reading this in the charts above, well let me tell you you're completely wrong. The reason for introducing a design system in a company is not because so people can work less, but because so people can work better."
+
+Vault use:
+- 32 §2.8 references "source-mix-overtime formula at Badoo's Cosmos system" attributed to Rastelli. The capture confirms: the formula is the git-log-based change-counting approach, NOT a closed-form mathematical formula. The phrase "source-mix-overtime" appears in the secondary citation at uxdesign.cc/design-systems-adoption-metrics-over-the-past-5-years — that secondary article seems to have coined the "source-mix-overtime" framing as a name for what Rastelli demonstrated. Rastelli himself does not use the phrase "source-mix-overtime" in his original post.
+- The 32 §2.8 reference can be tightened: cite Rastelli's Medium post (Jan 2019) as the canonical demonstration of the technique; describe it as "git-log-based source-of-CSS-change tracking, visualised as application-codebase vs. component-library-codebase change patterns over time"; if the practice wants to use the "source-mix-overtime" phrasing, attribute that label to the secondary uxdesign.cc article (or coin the practice's own equivalent phrase).
+- Rastelli's caveat about "humans involved, not everything can be measured" is worth preserving in client artefacts that quote the technique — the technique is a *visualisation* of impact, not a defensible single-number ROI metric.
+- Related canonical post: Cosmos origin story at https://medium.com/bumble-tech/from-zero-to-cosmos-part-1-2d080fe35bf2 — first-person account of how Cosmos was built. Worth capturing separately if the practice wants to reference the system's origin (not yet load-bearing).
+- Rastelli's references list at the bottom of the post is itself a useful curated bibliography on DS impact measurement — Curtis on OKRs, Mounter at GitHub, Hampton on outcomes-over-output, Sortino+Anne, Sparkbox's experiment, etc. Could feed future 32 §5 deepening if needed.

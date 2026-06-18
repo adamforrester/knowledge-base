@@ -1,0 +1,32 @@
+Source: https://amyhupe.co.uk/articles/burn-baby-burnout/
+Title: Burn baby burnout
+Author: Amy Hupe
+Published: 29 September 2023
+Origin: Based on talk delivered at Converge Manchester 2023
+Captured: 2026-06-18 via firecrawl_scrape
+
+Hupe defines burnout per Herbert Freudenberger (1975), three components:
+1. Emotional exhaustion — the fatigue that comes from caring too much, for too long
+2. Depersonalization — the depletion of empathy, caring and compassion
+3. Decreased sense of accomplishment — an unconquerable sense of futility: feeling that nothing you do makes any difference
+
+Hupe identifies the *third* component as the dominant burnout vector in DS work.
+
+Five reasons design systems cause burnout (verbatim section headings):
+1. We overvalue outputs over outcomes — including "the post-launch crash" failure pattern: pre-launch the team is galvanised by a shared aim; post-launch demand surges, gaps surface, stakeholders question whether the team needs to exist; "that light at the end of the tunnel turned out to be nothing more than the entrance to another."
+2. Design systems are seen as static products, not living services — "It's like promising to build a national rail service, without giving thought to who's going to drive the trains once the tracks are in place." External agencies promising "we'll come in and build you a design system" are explicitly named as contributing to this misconception.
+3. Design system value is hard to quantify — both quantitative product impact (impossible to attribute cleanly to the system vs. other factors) and quantitative DS-metadata (only meaningful if stakeholders already believe in the system) are described as inadequate. "No one has found a universal formula for persuading stakeholders to keep the money coming in."
+4. We hear more about our failures than our success — the engagement paradox: "as engagement, buy-in and usage of the system increases, so too does the amount of criticism — constructive or otherwise — we receive. That means that the more impactful our design system is, the more we're going to hear about its shortcomings. Our success is going to make us feel like we're failing, by design."
+5. We care too much about too much — the systems-thinking failure mode: cautious to risk-averse decision-making because of cascade-blast-radius awareness; aware of all the problems they're not solving; "the very qualities that make us good at our jobs — our empathy, our problem-solving skills, and our ability to hold the whole picture in mind — that make us so vulnerable to burnout."
+
+Four counter-strategies (verbatim section headings):
+1. Tell a better story — over-communicate that DS work is a continuous practice, not a set of artefacts to deliver; reset stakeholder expectations away from the "save 25% of design and development costs" oversimplified pitch.
+2. Radically descope — accept the team can't be everything to everyone; goal-setting should pick which users / products / platforms / commitments to focus on, "and if I've learned one thing in the past 7 years working in this space, it's that it's always less than you think."
+3. Celebrate success often — retros that include what went well; "whenever you ship something: cake"; spam Slack with updates; the dopamine hits accumulate.
+4. Reconnect to your purpose — "design systems have taken on a life of their own. Once a means to an end, they have become the end itself." Approaching DS in a formulaic way (artefact checklists) loses sight of purpose; the antidote is reconnecting individually and team-wise to the *why*.
+
+Vault use:
+- 00e §8 references the four primary burnout vectors. The capture confirms Hupe's five reasons map onto 00e's burnout cluster — the "everyone's customer / never finished / invisible improvement" framing in 00e §8 corresponds to Hupe's #4 (failures heard more than successes) and #5 (caring too much about too much). The "post-launch crash" framing in Hupe §1 is a cleaner articulation than 00e currently has and could be folded in as an inline reference.
+- The "design systems as Sysiphusarbeit" framing (per Christine Vallaure at Smashing Conf Freiburg 2023, attributed in Hupe's intro) is a citable line for client artefacts that need to convey the futility risk to leadership.
+- Hupe's URL structure: amyhupe.co.uk/articles/burn-baby-burnout/. The post is consistently linked across the field (Chase McCoy at chsmc.org cites it; Elly Loel's digital garden references it).
+- Date confirmed: 29 September 2023. Cite as: "Amy Hupe, 'Burn baby burnout', amyhupe.co.uk, 29 September 2023."

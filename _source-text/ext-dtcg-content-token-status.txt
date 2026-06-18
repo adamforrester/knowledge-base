@@ -1,0 +1,42 @@
+Source: https://github.com/design-tokens/community-group
+Captured: 2026-06-18 via firecrawl_scrape
+
+Repository state at capture:
+- Stars: 2k
+- Forks: 92
+- Watchers: 228
+- Branches: 17, Tags: 3
+- Latest commit: 2026-06-17 (one day before capture; "chore(blog): add blog post 'Thank you, Jina and Val'" merged via PR #427 by Kaelig)
+- Total commits: 347
+- Total contributors: 70
+
+DTCG specification version table (from canonical README):
+
+| Name | URL | Date | Status |
+| --- | --- | --- | --- |
+| 2025.10 | www.designtokens.org/TR/2025.10/ | 2025-10-28 | Stable |
+| third-editors-draft | www.designtokens.org/TR/third-editors-draft/ | 2025-07-21 | Draft |
+| second-editors-draft | www.designtokens.org/TR/second-editors-draft/ | 2022-06-14 | Draft |
+| first-editors-draft | www.designtokens.org/TR/first-editors-draft/ | 2021-09-23 | Draft |
+| preview | www.designtokens.org/TR/drafts/ | — | Experimental |
+
+The DTCG charter (per repo principles section): "Stay focused on the smallest surface area necessary to cover the most commonly referenced use-cases. Be a platform that opens the door to a wide range of possibilities. This small footprint helps maintain simplicity with zero dependencies. Extensibility allows the community to incubate new ideas that will define the future of design tokens."
+
+DTCG-represented companies and projects (verbatim README list):
+Abstract, Adobe, Alaska Airlines, Amazon, Atlassian, Chroma, Divriots, Dynatrace, Figma, Framer, Google, Herman + Accoutrement, Interplay, InVision, Kaspersky, Knapsack, Liferay, Lona, Marvel, Microsoft, Open edX, Penpot, Philips Design, Salesforce, Sass, Shopify, Sketch, Specify, Sprout Social, Style Dictionary, Superposition, Supernova, Synology, system-ui, Toolabs, Tokens Studio, Universal Design Tokens, Webstudio, Zendesk, Zeplin, zeroheight, ex-Theo contributors.
+
+Search queries for "content tokens" / "message tokens" / "i18n tokens" against the DTCG repo and tr.designtokens.org returned **zero results** as of capture date. The 2025.10 stable spec covers: color, dimension, font-family, font-weight, duration, cubic-bezier (per the practice's 22 / 23 / 24 reading) plus composite types (typography, shadow, transition, gradient, border).
+
+What the 2025.10 spec does *not* cover (as of capture):
+- Content tokens (templated strings; ICU-shaped messages; i18n-aware content)
+- Motion-related composite types beyond duration / cubic-bezier (e.g., spring parameters)
+- Any locale-resolution semantics for token values
+
+The "Format Module meeting notes" link (docs.google.com) suggests active spec discussion is ongoing for additional types, but no public artefact in the repo or on tr.designtokens.org indicates content-token spec work as of mid-2026.
+
+Vault use:
+- 04 §Content as a system layer §Content tokens / writing-tokens (the 04 deepen from the §1.31 closure) names: "As of mid-2026, DTCG's 2025.10 Format Module covers design tokens (color, spacing, typography, motion, dimension) but **does not cover content tokens**." This capture verifies the claim. The DTCG repo has zero discussion of content tokens; no draft spec exists; no mention in the 2025.10 stable spec, the third-editors-draft (2025-07-21), or the preview drafts.
+- 04's framing of the practice's `$extensions.<vendor>` content-token shape as "bridge investment" is correct — there is no canonical DTCG spec for content tokens, and one is not visibly imminent in the repo's public surface.
+- The verification path the residual flagged (§1.31a in 09) was: "track DTCG community discussions quarterly; if and when a content-token spec lands, the practice migrates the bridge schema." This residual should remain *open* as a *standing watch*, not a one-time closure — the spec doesn't exist yet, so there's nothing to capture; the practice's discipline is to re-check at quarterly cadence.
+- Cite as: "Design Tokens Community Group, github.com/design-tokens/community-group, captured 2026-06-18. As of mid-2026, the 2025.10 stable spec does not cover content tokens; no draft spec for content tokens is in active development."
+- Recommendation for 09 §1.31a: convert from one-time-residual to standing-watch (analogous to the §1.27 watches on Style Dictionary `color-mix()` and DTCG typography composite-type). Re-check 2026-09-18.

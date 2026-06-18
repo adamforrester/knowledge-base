@@ -1,0 +1,34 @@
+Source: https://github.com/southleft/figma-console-mcp
+Documentation site: https://docs.figma-console-mcp.southleft.com
+Setup guide: https://docs.figma-console-mcp.southleft.com/setup
+Skills repo: https://github.com/southleft/figma-console-mcp-skills
+Maintainer: Southleft (lead committer @tpitre, possibly Travis Pitre)
+Captured: 2026-06-18 via firecrawl_scrape (capture truncated due to GitHub readme size; key fields confirmed from search results + initial page sections)
+
+Repository status as of 2026-06-18:
+- Stars: 1.8k
+- Forks: 201
+- Default branch: main
+- Latest commit: 2026-06-05 (~2 weeks before capture)
+- Active branch in progress: feature/desktop-bridge-ui-v0.2.1
+- Tags: 72
+- Branches: 9
+- Reddit discussion thread (positive practitioner sentiment): r/FigmaDesign post 1r8aszf on MCP code-to-design
+
+Tagline (from search result): "Your design system as an API ... bridges the gap between design and development—giving AI assistants complete access to your Figma files for extraction, creation, and ..."
+
+Setup-guide compatibility (per setup page title): "Claude Desktop, OpenAI Codex, GitHub Copilot, Cursor, Windsurf, and other AI clients."
+
+Key capability claim from the repo's README (verified via firecrawl_scrape preview): "One of the most powerful capabilities of this MCP server is the ability to design complete UI components and pages directly in Figma through natural language."
+
+Companion skills repo at github.com/southleft/figma-console-mcp-skills exists; tagline: "The most powerful Figma Console MCP capabilities, repackaged as Markdown skills for the native Figma MCP server — design tokens, variables, ..." This suggests the maintainer is also building an alternative-installation path that uses Figma's official MCP server with skills overlay rather than requiring the Console MCP's own server.
+
+Vault use:
+- 34 §2 references "Figma Console MCP" by Southleft; this captures the canonical URL, repo activity, install path, and maintainer continuity. The repo is healthy (1.8k stars, active commits, in-progress v0.2.1) — the bus-factor risk named in 34 §2 remains real (third-party single-maintainer) but the immediate trajectory looks good.
+- The Desktop Bridge plugin requirement noted in 34 §2 and §7 — confirmed by the v0.2.1 branch name (desktop-bridge-ui). The Desktop Bridge plugin is a Figma plugin that bridges the Console MCP server to the Figma desktop app's runtime.
+- Licensing: not directly captured in the scraped preview; the repo's GitHub default page shows licensing in a sidebar that wasn't included in the truncated scrape. Verify per use; expected to be MIT or similar permissive based on the public-availability shape, but confirm before treating as fixed in client work.
+- The skills repo (figma-console-mcp-skills) is worth noting as a parallel productisation track from the same maintainer — the practice may want to track both as the Figma-side MCP landscape evolves.
+
+Verification-path discipline (per 34 §2's "name the capability with a date" rule):
+- This capture: 2026-06-18. Re-verify next quarterly check (2026-09-18) for: latest tag, license clarification, Desktop Bridge plugin install path stability, any roadmap announcements.
+- Maintainer's active branch (desktop-bridge-ui-v0.2.1) suggests the install/runbook may shift soon; pin the version when documenting in client work.

@@ -1,0 +1,29 @@
+Source: https://richardmbanfield.medium.com/improved-integrated-enterprise-product-infrastructure-with-knapsack-40fac706efa4
+Title: Improved Integrated Enterprise Product Infrastructure with Knapsack
+Subtitle: An comparison of typical product architectures when using either Knapsack or Storybook to manage design systems
+Author: Richard Banfield (with credit to Andrew Rohman for the diagrams)
+Published: 6 June 2024
+Captured: 2026-06-18 via firecrawl_scrape
+
+Verification status: cited URL resolves and post is live; content is **not what 00e §8 / 30 needs as a primary source**. The post is essentially a Knapsack-vs-Storybook product-positioning comparison, not an academic or practitioner essay on enterprise product infrastructure.
+
+What the post actually contains:
+- Three architecture-diagram options:
+  - Option 1 (control): no formal DS, no Knapsack, no Storybook — Figma → Docs (often disconnected) ↔ Git → CI/CD
+  - Option 2 (Storybook only): Figma → Docs ↔ Git ↔ Storybook → CI/CD; Storybook bridges design and engineering as code-side documentation
+  - Option 3 (Knapsack integrated): Figma ↔ Knapsack (specs, guidelines, docs, demos, brand mgmt, tokens admin, theming, prototyping) ↔ Git → CI/CD
+- The Knapsack option is positioned as solving cross-functional collaboration, central source of truth, and end-to-end platform needs at enterprise scale.
+- Banfield cites a "10–40% reduction in cycle times for teams using Knapsack" claim (no methodology disclosed; presumably internal Knapsack data).
+- The post's framing: "Knapsack is best for comprehensive, enterprise-grade design systems while Storybook is more suited to agile, code-centric component development."
+
+Why this doesn't add anything load-bearing for 00e or 30:
+- 30-generated-from-data-documentation already covers the architectural pipeline at greater depth (Phase 1 baseline / Phase 2 Code Connect & Figma sync / Phase 3 custom MCP server) and with more rigour than this post's three-option product positioning.
+- The post is vendor-positioning content (Banfield is "Helping people find what makes them more 'them'" per his bio; he writes for Knapsack's content marketing). The 10–40% cycle-time-reduction figure is unsourced and reads as marketing.
+- The post is not the practitioner essay that 00e §8 might benefit from on enterprise product infrastructure questions — it's a vendor differentiation piece.
+
+Vault use:
+- §1.26d in 09 was logged with the framing: "External agent cited it; confirm title, URL, and whether it adds anything beyond what 30-generated-from-data-documentation already covers. If yes, capture; if no, drop the reference."
+- Verdict: **drop the reference.** The post is a Knapsack vendor-positioning artefact rather than a practitioner essay on enterprise product infrastructure. The architectural pipeline content is already covered (and at greater depth) by 30. The "enterprise product infrastructure" framing is Knapsack's product positioning, not a generally useful practitioner concept.
+- 00e currently does not cite this post inline. No inline correction needed; just drop the §1.26d residual flag in 09.
+- If the practice wants to reference Knapsack's product positioning directly in a future revision (e.g., as a comparable to other DS-as-vendor-product offerings — Supernova, Specify, Zeroheight per 09 §5.15), this URL is the canonical citation.
+- Cite as (if used): "Richard Banfield, 'Improved Integrated Enterprise Product Infrastructure with Knapsack,' Medium, 6 June 2024."

@@ -1,0 +1,39 @@
+Source: https://amyhupe.co.uk/articles/your-contribution-model-is-doomed/
+Title: Your design system contribution practice is doomed to fail
+Author: Amy Hupe
+Published: 23 September 2022
+Origin: Based on talk delivered at Converge London 2022 (talk video at youtu.be/2xvq7CLlEkw)
+Captured: 2026-06-18 via firecrawl_scrape
+
+This is the essay 00e §8's "capitalist contradiction of contribution" framing leans on. Hupe's full thesis verbatim, as a sketch:
+
+Premise (drawing on Curtis 2020): contribution to design systems matters because it injects representation into the features the system offers — "different patterns come into play, test and expand the work."
+
+The political-economy reframe Hupe constructs:
+- We live in capitalism. Organisations operate as microcosms of capitalist incentive structures. People and teams are incentivised to earn power (influence; career progression; visibility; immunity from consequences of poor performance).
+- Design system teams build power by creating common solutions. The more they create, the more they save the org, the more business-critical they become, the more investment they receive, the more capacity they have. Self-reinforcing.
+- Contribution-to-design-systems is a *socialist* ideal — "if everyone contributes to a design system, the design system becomes better for everyone in turn." This is the *socialist* purpose-shape (representation, redistribution, collective ownership) imposed on a *capitalist* incentive system.
+
+The conflict that produces the contradiction:
+- People are not incentivised to contribute. Contribution is usually not part of a designer or developer's job description. Where it is, contribution takes time away from the day-to-day work that's compensated. Earning power from a person's *core role* is more reliable than earning it from contribution.
+- DS teams are not incentivised to support contribution. The time spent eliciting contribution is time *not* spent producing common infrastructure. "There is sometimes a belief that contribution can help design systems grow faster ... it's not the reality." Per Curtis 2020 interviews with DS leads: contributions "do not reduce workload and do not make a system produce more." Hupe is explicit that in her experience contribution actually *increases* workload.
+
+The deeper failure mode (the "capitalist contradiction" 00e §8 names):
+- Even individuals motivated by the socialist ideal are working against systemic incentives — "the system we're operating in is not built to cultivate this. So it's not too far of a stretch to say that contribution, in this environment, is destined to fail."
+- Contribution can reinforce inequality. Most people earn power from their core role; only those with *existing* power (privilege of role / seniority / visibility) can afford to contribute on top. Contribution rewards them. The gap between haves and have-nots widens. "If only individuals who have enough power already are able to contribute, then only those individuals can increase their power through contribution."
+- Net effect: "contribution as a socialist ideal is not merely doomed not to work: it's actually destined to reinforce inequality."
+
+Hupe's "what can I do from where I sit?" remediation (per Sara Wachter-Boettcher's framing):
+1. Recognise and name the problem — validation that "it's not you getting it wrong; the task and the system are in conflict."
+2. If we want representative DS, contribution models must redistribute power — empower a more diverse group; remove barriers; introduce better incentives.
+3. Identify organisational currency — power is the capital; what are the systems (official: performance frameworks, recognition, promotion; unofficial: relationships, sponsorship) the org actually uses to trade power? Currency is what the team has to barter with.
+4. Balance acceptance with activism — three options exist on a spectrum: (a) change org culture/power structures, (b) update org systems to make space for contribution, (c) work *with* the system, redesigning contribution practice around it. The right balance is engagement-specific.
+
+Closing (verbatim): "We can start to explore the forces that are working against us and ask ourselves why those norms exist and persist. It's not because we're doing a bad job — it's because contribution is a socialist ideal that's hard to establish and sustain in a capitalist system. And none of that means we shouldn't try."
+
+Vault use:
+- 00e §8's "capitalist contradiction of contribution" framing is directly grounded in this essay; the framing in 00e is faithful to Hupe's thesis. The capture confirms the attribution and the verbatim closing line is citable in client artefacts.
+- The "contribution reinforces inequality" thread is worth surfacing inline in 00e §8 if it isn't already — the inequality dynamic is a sharper articulation than just "contribution is hard." It connects to 09 §3.7 (centralized blind-spot mitigation) and 09 §1.6 (Ambassadors program productisation) — both of which are about who-gets-to-contribute questions.
+- Hupe's "what's our currency?" question is itself a useful Discovery prompt the practice could productise — it's a more concrete way to surface the politics of contribution than asking abstract questions about governance.
+- Date confirmed: 23 September 2022. Cite as: "Amy Hupe, 'Your design system contribution practice is doomed to fail', amyhupe.co.uk, 23 September 2022."
+- Both Hupe essays now captured (this + ext-hupe-burn-baby-burnout.txt). §1.26a closeable.

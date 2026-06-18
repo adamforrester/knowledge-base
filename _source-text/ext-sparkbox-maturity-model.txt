@@ -1,0 +1,33 @@
+Source: https://sparkbox.com/foundry/design_system_maturity_model
+Title: Design Systems Maturity Model
+Author: Ben Callahan (Sparkbox)
+Captured: 2026-06-18 via firecrawl_scrape
+
+The post is undated in the body but explicitly references their Design Systems Survey 2020 and includes 2021-vintage imagery, suggesting the model was published ~2020–2021 with subsequent maintenance. The Sparkbox foundry post is the canonical primary source. Callahan is Sparkbox president.
+
+The four stages, verbatim:
+
+Stage 1: Building Version One — "the very earliest stage of a design system, beginning with a specific problem (for example, inconsistent experiences or inefficient processes) and ending with the first release. There are a lot of decisions to be made during this phase, such as technology selection, initial component definition, and what tools and frameworks will be supported."
+
+Stage 2: Growing Adoption — "Once an initial design system is in place, the critical challenge is adoption. In order for the system to succeed, the owners need to educate a growing number of internal team members (potential subscribers) about the system and persuade them to use it."
+
+Stage 3: Surviving the Teenage Years — "When the design system is part of the day-to-day rhythm of the organization, there's a new set of issues to address, including enforcing standards while allowing for creativity, assessing and prioritizing growth, and analyzing return on investment."
+
+Stage 4: Evolving a Healthy Product — "In this final stage, the design system is a fully-realized product. The focus turns to long-term sustainability, growth, and governance, often with highly evolved communication and product management strategies."
+
+The model uses two cross-cutting "origin story" axes — Grassroots (passionate individual contributor drives initial release) vs. Top-Down (executive drives the work from the beginning) — that change priorities, challenges, and measurement targets at each stage.
+
+Per-stage priorities and metrics from the source:
+
+Stage 1 priorities: Release version one; find a balance between releasing quickly and showing value. Measure: Qualitative value of the system for the first round of subscribers.
+
+Stage 2 priority: Demonstrate that multiple teams will use the design system. Measure: Adoption of the system; implementation variations from the documented patterns.
+
+Stage 3 priorities: Demonstrate the value of the system to leadership; begin to build deeper engagement with subscribers; evolve the system to better serve a variety of subscribers. Measure: Efficiency of product design and development process; consistency of products built with the system; accessibility regressions.
+
+Stage 4 priorities: Establish the design system as a full-fledged product; spread design system value to all disciplines in the product life cycle; support subscribers. Measure: Subscriber engagement (adoption of new releases, variance from core system); onboarding speed and effectiveness; process and cultural changes driven by the system; product metrics for the system (velocity, release cadence).
+
+Vault use:
+- 00e §3 references the Sparkbox stages as a system-side companion to the team-side Part-Timer-arc. The four stage names landed verbatim in 00e match the canonical source exactly. No correction needed.
+- The model is actively maintained at sparkbox.com/foundry/design_system_maturity_model (post still live as of 2026-06-18; no superseding post visible). Callahan also maintains the Design Systems Maturity Model Assessment at typeform.com (linked from the post) as a self-assessment tool.
+- For client artefacts: cite as "Ben Callahan, Sparkbox, 'Design Systems Maturity Model'" with the URL above. The model has been in market since ~2020 and remains current.

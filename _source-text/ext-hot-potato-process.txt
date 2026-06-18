@@ -1,0 +1,33 @@
+Source: https://danmall.com/posts/hot-potato-process/
+Title: "The Hot Potato Process," an article by Dan Mall
+Author: Dan Mall (with Brad Frost named as co-originator)
+Published: undated on the page; based on the linked Communication Arts 2020 follow-up post and the August 2018 free-resources reference, the canonical post likely dates to ~2018–2020
+Captured: 2026-06-18 via firecrawl_scrape
+
+Hot Potato Process — verbatim definition from Mall's post:
+> "The big misconception I've seen designers and developers often fall victim to is believing that handoff goes one way. Designers hand off comps to developers and think their work is done. That puts a lot of pressure on the designer to get everything perfect in one pass.
+>
+> Instead, great collaboration follows what Brad Frost and I call 'The Hot Potato Process,' where ideas are passed quickly back and forth from designer to developer and back to designer then back to developer for the entirety of a product creation cycle."
+
+Companion artefacts referenced from Mall's post:
+- A "designer + developer collaboration recording" at danmall.com/articles/designer-developer-workflow/ (live demo of the Hot Potato Process; 10 August 2018 reference in Dan's free-resources)
+- A "designer + developer collaboration workshop" Mall and Frost teach at danmall.com/articles/designer-developer-collaboration-workshop/
+- An accompanying "Waterfall vs. Hot Potato" diagram (image at danmall.com/static/img/articles/hot-potato-process/waterfall-vs-hotPotato.svg)
+
+Operationalisation guidance (verbatim section headings):
+- "Sit together" — the simplest entry point; "many a designer + developer pair who have worked together for years become enlightened as to how the other works within the first few minutes of sitting together."
+- "Distributed teams" — use video chat as a co-located proxy; "leave a Zoom chat open for a few hours as a proxy for being in the same office together, even if we're not talking to each other the whole time." Cites Mandy Brown's "Making remote teams work" essay.
+- "Use recordings to bridge time zone gaps" — when synchronous isn't possible, record yourself working and pass it to the collaborator who continues the work and records back. Tools named: Voxer, Marco Polo. The walkie-talkie/intercom shape lets asynchronous collaboration approximate synchronous.
+- "Working together means working together" — closing rule: if you can't sit together, trade recordings, or approximate any of these, "you might have to come to terms with the fact that you're not truly working together."
+
+Brad Frost's parallel coverage:
+- bradfrost.com/blog/post/level-of-effort/ — "Rather than chucking Zeplin links at developers, it's possible to practice the Hot Potato Process that Dan and myself practice and coach teams [on]"
+- bradfrost.com/blog/tag/workflow/ — Frost's workflow tag aggregates related posts including "The Hot Potato process. Designer/developer collaboration"
+- bradfrost.com/blog/link/gridless-design/ — references Mall's Hot Potato Process explicitly
+
+Vault use:
+- 00e §4 references the Hot Potato Process as the canonical articulation of the paired-contribution coaching pattern. The capture confirms attribution to Mall and Frost (jointly), and confirms the canonical citation URL is danmall.com/posts/hot-potato-process/. Frost's blog tag at bradfrost.com/blog/tag/workflow/ is the secondary source.
+- The "Waterfall vs. Hot Potato" diagram URL is stable and could be referenced in client artefacts where the practice wants to illustrate the pattern visually.
+- The pattern's wider application beyond DS work: Mall and Frost frame it as a designer-developer collaboration practice, not specifically DS contribution. 00e §4 picks it up as the paired-contribution shape; the application transfers cleanly because contribution-to-DS is a special case of designer-developer collaboration with multiple authors.
+- The remote / async guidance is worth folding into the practice's distributed-team patterns (per 00e §7's distributed-and-global-team patterns) — Mall's "leave a Zoom chat open" pattern and the Voxer/Marco Polo recording approach are both portable to DS contribution coordination.
+- Cite as: "Dan Mall and Brad Frost, 'The Hot Potato Process,' danmall.com/posts/hot-potato-process/." Use the date "undated; ~2018–2020" until a definitive original-publication date can be verified.

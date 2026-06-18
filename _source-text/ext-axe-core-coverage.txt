@@ -1,0 +1,50 @@
+Sources:
+- https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/ (Mar 2021 announcement; modified Dec 2025)
+- https://www.deque.com/automated-accessibility-coverage-report/ (full report; modified Apr 2026)
+- https://github.com/dequelabs/axe-core (per search-result snippet: "With axe-core, you can find on average 57% of WCAG issues automatically")
+Captured: 2026-06-18 via firecrawl_scrape
+
+**Critical finding: the canonical Deque figure is 57.38%, not 30–40%.** The 34 §4 reference to "30–40% / 60–70% automated-vs-manual coverage split" cites a *folk-belief* figure Deque has actively worked to disprove since 2021. Inline correction required.
+
+What Deque's 2021 study actually says (verbatim from the coverage report):
+
+> "It is our intention to disprove the widely accepted belief that automated accessibility testing only provides 20 to 30% of accessibility testing coverage."
+>
+> "This statistic is founded on an inaccurate definition that accessibility coverage is calculated by how many individual WCAG success criteria can be tested by automation."
+
+Deque's methodology and findings:
+- 2,000+ audits across various industries; 13,000+ pages/page states; nearly 300,000 issues in the data set
+- First-time audits only (each page counted once; only first-audit issues; no remediation bias)
+- Automated tests: Deque's axe suite (powered by axe-core); manual tests: Deque's manual testing methodology
+- Result: **57.38% of total issues** were identified by automated testing alone
+
+Why the figures differ:
+- The "20–30%" / "30–40%" figures (often misattributed to Deque or axe-core) measure *WCAG Success Criteria coverage* — i.e., what percentage of the 50 WCAG 2.1 Level AA criteria can be automatically tested. Deque's analysis confirms this number too: "we found automated issues for 16 out of the 50 Success Criteria under WCAG 2.1 Level AA. This supports the 20 to 30% automated coverage claims that many experts claim today."
+- The 57.38% figure measures *issue volume coverage* — i.e., what percentage of total issues found in real audits can be detected automatically. Some criteria (e.g., contrast, name/role/value, parsing) generate many issues per page, and automation catches them at high rates (83.11%, 54.42%, 90.28% respectively).
+
+Top 5 WCAG SC by issue volume in Deque's dataset (Cumulative 78.51% of all issues):
+1. 1.4.3 Contrast (minimum) — 88,714 issues; 83.11% automated
+2. 4.1.2 Name, Role, Value — 48,287; 54.42% automated
+3. 1.3.1 Info and Relationships — 36,382; 45.17% automated
+4. 4.1.1 Parsing — 34,488; 90.28% automated
+5. 1.1.1 Non-text Content — 23,701; 67.57% automated
+
+100% manual SC examples (automation cannot detect):
+- 2.4.3 Focus Order
+- 2.4.7 Focus Visible
+- 1.4.11 Non-text Contrast
+- 1.3.2 Meaningful Sequence
+
+Marcy Sutton's earlier 2016 framing (still on Deque blog at deque.com/blog/accessibility-testing-axe-webdriverjs/, modified Dec 2025): *"Automated testing can free up 30% of your manual testing effort."* This is a *different claim* about manual-effort reduction, not coverage; the "30%" in this older post is often misread as the coverage figure.
+
+axe-core README's exact framing (per search-result snippet): "With axe-core, you can find on average 57% of WCAG issues automatically. Additionally, axe-core will return elements as 'incomplete' where axe-core could not be [certain]."
+
+Vault use:
+- 34 §4 currently asserts "30–40% / 60–70% automated-vs-manual a11y coverage split." **This is incorrect against Deque's canonical position.** The fix:
+  1. The widely-cited "30%" figure is the WCAG-Success-Criteria-coverage metric, which Deque measures at ~32% (16 of 50 SC) but has explicitly distanced itself from since 2021.
+  2. The Deque-canonical figure is **~57% of total issues** (57.38% from the 2021 study) detected by automated testing alone.
+  3. The remaining ~43% requires manual testing — not the "60–70%" stated in 34.
+- Inline correction in 34 §4: replace "30–40% / 60–70%" with "~57% / ~43%" (citing Deque 2021 study) OR keep the 30% figure as the *WCAG-SC-coverage* metric while adding the 57% figure as the *issue-volume* metric, naming both with their definitions. The latter is more honest because both numbers exist in the field; practitioners encounter both; the 34 prose should distinguish them.
+- The "30%" figure is widely cited because it predates Deque's 2021 reframing and matches WCAG-SC counting. The "57%" figure is the more current and operationally useful metric for the issue-volume framing the practice uses.
+- Cite as: "Deque Systems, 'The Automated Accessibility Coverage Report' (2021), deque.com/automated-accessibility-coverage-report/." For the WCAG-SC framing, cite as: "Deque's analysis identifies 16 of 50 WCAG 2.1 AA Success Criteria as having automated tests (~32%); the remaining criteria require manual testing for full coverage."
+- 28 §Web-accessibility-implementation and 32 §2.3 (audit's a11y lane) may also need parallel inline corrections — verify per the residual-application step.

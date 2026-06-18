@@ -1,0 +1,73 @@
+Source: https://webaim.org/projects/screenreadersurvey10/
+Title: Screen Reader User Survey #10 Results
+Author: WebAIM (with research support from BrowserStack)
+Survey period: December 2023 – January 2024
+Sample: 1,539 valid responses
+Captured: 2026-06-18 via firecrawl_scrape
+
+Survey #10 is the latest in the WebAIM screen-reader survey series (since Oct 2009). Survey #11 not yet announced as of capture date.
+
+Primary desktop/laptop screen reader (% respondents):
+- JAWS — 40.5%
+- NVDA — 37.7%
+- VoiceOver — 9.7%
+- Dolphin SuperNova — 3.7%
+- ZoomText/Fusion — 2.7%
+- Orca — 2.4%
+- Narrator — 0.7%
+- Other — 2.7%
+
+Screen readers commonly used (multi-select; % of respondents using at all, not exclusively):
+- NVDA — 65.6%
+- JAWS — 60.5%
+- VoiceOver — 43.9%
+- Narrator — 37.3%
+- Orca — 8.3%
+- ZoomText/Fusion — 7.5%
+- Dolphin SuperNova — 5.4%
+- ChromeVox — 3.8%
+- System Access / SA to Go — 1.8%
+- Window-Eyes — 1.2%
+- Other — 5.1%
+
+Operating system: Windows 86.1% / Mac 9.6% / Linux 2.9% / Other 1.4%.
+
+Browsers (primary, when paired with primary screen reader):
+- Chrome — 52.3%
+- Microsoft Edge — 19.3%
+- Firefox — 16.0%
+- Safari — 8.0%
+- Internet Explorer — 0.9%
+
+Most common screen reader + browser combinations:
+- JAWS with Chrome — 24.7%
+- NVDA with Chrome — 21.3%
+- JAWS with Edge — 11.4%
+- NVDA with Firefox — 10.0%
+- VoiceOver with Safari — 7.0%
+- NVDA with Edge — 5.0%
+- JAWS with Firefox — 2.6%
+- VoiceOver with Chrome — 2.0%
+- Orca with Firefox — 1.9%
+
+Mobile platform: iOS 70.6%, Android 27.6%.
+Mobile screen readers commonly used:
+- VoiceOver — 70.6%
+- TalkBack — 34.7%
+- Commentary/Jieshuo — 10.1% (significant in Asia)
+- Voice Assistant (Samsung) — 6.0%
+- VoiceView — 5.9%
+
+Regional notes:
+- North America: JAWS 55.5%, NVDA 24.0% (JAWS dominant)
+- Europe: JAWS 29.7%, NVDA 37.2% (NVDA leads)
+- Africa/Middle East: JAWS 23.3%, NVDA 69.9% (NVDA strongly dominant)
+- Asia: JAWS 22.9%, NVDA 70.8% (NVDA strongly dominant)
+
+The 4-engine × 4-AT matrix per 32 §2.3 is justified by these figures — JAWS+Chrome, JAWS+Edge, NVDA+Chrome, NVDA+Firefox, VoiceOver+Safari are the five combinations that together cover ~75% of respondents. NVDA+Edge is the rounding combination at 5%.
+
+Vault use:
+- 32 §2.3 references VoiceOver-on-mobile, JAWS-on-Windows, NVDA-on-Windows market share without quantification; the §1.28 external pass surfaced specific numbers (~70% / ~40% / ~30%) — these correlate to mobile VoiceOver 70.6%, primary JAWS 40.5%, primary NVDA 37.7%. The numbers slightly disagree with external's ~30% NVDA — the actual figure is 37.7% as primary, 65.6% as commonly-used. Fix: the 32 inline number is approximately correct for "primary" but understates "commonly used"; preferred citation is the survey number alongside its definition.
+- The 32 §2.3 reference can be tightened: "JAWS at 40.5% primary use and 60.5% common use; NVDA at 37.7% primary and 65.6% common use; VoiceOver at 9.7% desktop primary but 70.6% mobile primary; Narrator at 37.3% common use; per WebAIM Screen Reader User Survey #10 (Dec 2023 – Jan 2024)."
+- Survey methodology caveat to preserve in client artefacts: "the sample was not controlled and may not represent all screen reader users" (WebAIM's own caveat). The survey is the field's best public reference but not a population-level census.
+- Next survey expected ~2026–2027; the practice should re-fetch when announced.

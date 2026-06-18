@@ -1,0 +1,39 @@
+Sources:
+- https://spectrum.adobe.com/page/color-system/ (Adobe Spectrum)
+- https://opensource.adobe.com/spectrum-web-components/tools/styles/ (Spectrum Web Components)
+- https://carbondesignsystem.com/elements/themes/overview/ (IBM Carbon)
+- https://v10.carbondesignsystem.com/guidelines/color/usage/ (Carbon v10 color tokens by theme)
+Captured: 2026-06-18 via firecrawl_search (snippets confirm the canonical pattern; full doc capture deferred — search-result text is sufficient to verify the architectural claim)
+
+**The 33 §3 "10% of first reseller's cost" payback figure is a practitioner-extension claim, not a directly-citable Spectrum/Carbon figure.** What Spectrum and Carbon *do* publish is the architectural pattern that *enables* per-brand programmatic generation:
+
+Adobe Spectrum (per `spectrum.adobe.com/page/color-system/`):
+- Color tokens use semantic naming with index notation: `gray-50`, `gray-75`, `gray-100`, ..., `blue-100`, `blue-1000`, etc.
+- "Grays 50 through 200 are used for background layers" — semantic role mapping
+- "When not using background layers, gray-100 is the default background color"
+- Per `opensource.adobe.com/spectrum-web-components/tools/styles/`: "Raw color definitions — Color scale values that differ between light and dark themes: `--spectrum-gray-50` is white (255, 255, 255) in light theme, but dark in dark theme"
+- Per `adobe.design/ideas/naming-colors-in-design-systems`: "In our dark color theme, `blue-100` is darker than `blue-400`. In all themes, `gray-50` is lighter than `gray-100`."
+
+The Spectrum pattern verified: a *single color name* (`gray-50`) resolves to *different values per theme* via theme-swap. The semantic role (lighter vs. darker; default-background vs. layered-background) is preserved across themes.
+
+IBM Carbon (per `carbondesignsystem.com/elements/themes/overview/`):
+- "package per theme for white, g10, g90, and g100"
+- "Each theme is assigned universal color variables, which are determined by common roles and usage"
+- Per `v10.carbondesignsystem.com/guidelines/color/usage/`: "Tokens by theme. White G10 G90 G100. Core color tokens... `$ui-background` Default page background. White; —; #ffffff. ..."
+- Per `react.carbondesignsystem.com/?path=/docs/components-theme--overview`: "g100. g90. g10. white" — four-theme switching
+- Per `svelte.carbondesignsystem.com/llms-full.txt`: theme switching uses `document.documentElement.setAttribute` with theme name (`g10` | `g80` | `g90` | `g100` | `white`)
+
+The Carbon pattern verified: four canonical themes (`white`, `g10`, `g90`, `g100`) shipped as separate CSS packages with a runtime theme-swap mechanism. Tokens like `$ui-background` resolve to per-theme values; the semantic role is preserved.
+
+What this means for the 33 §3 "10%-of-first-reseller" payback figure:
+- Neither Spectrum nor Carbon *publish* the 10% figure. The figure is a practitioner-extension claim that *abstracts from* their architectural pattern: once the engine + theme-swap mechanism + per-token semantic-role discipline is built (which IS what Spectrum and Carbon publish), per-brand cost drops dramatically because the brand layer is parameterised, not redesigned.
+- Both Spectrum and Carbon *do* publish the per-brand programmatic-derivation architecture: a single semantic token (`gray-50` / `$ui-background`) resolves to different values per theme; the engine handles the resolution; the consumer codes against the semantic name.
+- The "10%" figure is a reasonable practitioner abstraction but should be cited as such, not as a Spectrum/Carbon-published figure.
+
+Vault use:
+- 33 §3 currently states: "Per-reseller cost *with* the engine drops to roughly **10% of the first reseller's cost** per the Adobe Spectrum and IBM Carbon precedents (10–25 hours per reseller for the onboarding work...). Verify the 10% figure against current Spectrum / Carbon documentation before quoting in client work; the figure is widely cited but not trivially verified against a single primary source."
+- The verification ran. The figure is **not directly verified against a single Spectrum or Carbon primary source.** What IS verified: the architectural pattern (per-theme programmatic resolution; semantic-role-preserving theme-swap; multiple themes as package-per-theme distribution).
+- Inline correction in 33 §3: change "per the Adobe Spectrum and IBM Carbon precedents" to "per practitioner observation drawing on the Adobe Spectrum and IBM Carbon programmatic-theming architecture (Spectrum's per-theme semantic-name resolution; Carbon's `white` / `g10` / `g90` / `g100` theme-swap pattern with per-theme CSS packages)." Keep the 10% figure but flag it as practitioner-extension rather than Spectrum/Carbon-published.
+- Alternative: drop the "10%" figure entirely and replace with the architectural framing — "with the engine, the per-reseller cost is bounded by the per-reseller QA work (10–25 hours typical) rather than the engine investment, because the engine handles the brand-derivation programmatically. Per Adobe Spectrum's per-theme semantic-name resolution and IBM Carbon's `g10`/`g90`/`g100` theme-swap with per-theme CSS packages."
+- §1.30a closes with this capture as "verified-architectural-pattern-not-figure." The §1.30b "five-reseller break-even" residual remains as observation-grounded; that one needs engagement data, not source-text.
+- Cite as: "Adobe Spectrum, 'Color system,' spectrum.adobe.com/page/color-system/" and "IBM Carbon Design System, 'Themes,' carbondesignsystem.com/elements/themes/overview/."

@@ -1,0 +1,40 @@
+Source: https://www.supernova.io/ (homepage)
+Captured: 2026-06-18 via firecrawl_scrape (homepage; cache hit 2026-06-17)
+
+Supernova has fully repositioned around AI-readiness as of mid-2026. The homepage tagline (verbatim):
+
+> "Design & engineering context, ready for AI agents
+> Ship faster with AI that knows your design system, codebase, and rules"
+
+This is a clear shift from earlier "design system platform" positioning to **AI-context-management platform**. The homepage now structures around three claims:
+
+1. "Improve agents quality — Feed agents with rich context improving their results immediately."
+2. "Cut token usage cost — Provide each team with only what they really need and save tokens."
+3. "Self-healing contexts — Collect feedback, resolve issues, improve over time."
+
+Specific platform features named on the homepage (verbatim):
+- "Scope and tailor context for every use-case — Define exactly what each team's agents need to know: design tokens, component APIs, rules, and docs. Then publish it as a focused MCP endpoint they can plug into any coding or design tool."
+- "Tailor context per team, workflow, or agent type"
+- "Distribute via multiple MCPs to Cursor, Copilot, Claude Code, Codex"
+- "Update once, every agent gets it instantly"
+- "Component patterns and usage data — Give agents access to real component APIs, including props, import paths, and valid compositions, so engineers get answers without leaving their flow."
+- "Skills & Exporters — Manage, curate and distribute skills — Build, curate, and refine the capabilities your agents bring to every interaction: knowledge files, rules, and custom skills."
+- "Capture feedback to improve contexts easily — Manual flags from engineers and automatic captures from agent interactions; actionable suggestions: a gap in the data, a missing knowledge file, a skill that needs refining"
+
+Beta gate: "AI context management in private beta" (asterisked at top of page) — the AI-positioning material is forward-leaning; the underlying platform is still in private-beta state for the AI-context-management surface specifically.
+
+Twitter tagline confirms the positioning: "At Supernova, we make your design system the vocabulary for AI agents. And it's changing how teams build products."
+
+Underlying platform features still listed (consistent with earlier Supernova positioning):
+- Data imports
+- Design token manager
+- Design to code pipelines
+- Collaborative documentation
+- Documentation analytics
+
+Vault use:
+- 32 §5 references "Supernova's 'AI-ready design systems' positioning" as the vendor framing pushing toward continuous validation as the prerequisite for AI-agent code generation. The capture confirms the positioning is real and current; mid-2026 Supernova is fully repositioned around the AI-context surface, with MCP endpoints distributing context to Cursor / Copilot / Claude Code / Codex named explicitly.
+- 34 §5 references Supernova as one of the design-token-platform vendors not yet shipping native MCP. **This needs partial correction** — Supernova *is* shipping MCP endpoints as of mid-2026 (private beta as of capture date), via the "publish it as a focused MCP endpoint" capability. The MCP support is per-context (per team / workflow / agent type) rather than a single canonical MCP server, which is actually more flexible than the framing 34 §5 anticipated. Update 34 §5 inline: Supernova has moved from "API-only" to "MCP-native (private beta)" between when 34 was written (mid-2026) and when the housekeeping pass ran (still mid-2026 — vendor moved fast).
+- The "design system as the vocabulary for AI agents" framing is a sharp articulation that maps directly onto the practice's matrix-as-AI-system-prompt enforcement pattern (per 04 §Content as a system layer §AI-surface enforcement). Worth referencing in client artefacts.
+- Citation: "Supernova, supernova.io homepage, captured 2026-06-18. AI context management in private beta."
+- The §1.28d residual closes with this capture; Supernova's positioning is real and current, and the ninth-lane-AI-readability framing in 32 §5 is grounded.

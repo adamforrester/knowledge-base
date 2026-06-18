@@ -1,0 +1,35 @@
+Source attempt: original Marcin Treder UXPin "62 shades of gray" post
+Captured: 2026-06-18 via firecrawl_search (multiple queries)
+
+**Status: source not directly recoverable; figure is canonical-by-secondary-citation.**
+
+What was searched:
+- `"62 shades of gray" Marcin Treder UXPin design system audit` — surfaced only secondary citations (Smashing eBook collections, Studocu PDFs, Scribd PDFs, dokumen.pub mirrors)
+- `Marcin Treder UXPin "62 grays" color audit design system blog` — no direct results
+- `UXPin Marcin Treder "design system" eBook chapter audit color` (uxpin.com domain only) — surfaced UXPin's eBook-marketing pages but not the original "62 shades of gray" post
+- `Treder UXPin "design systems" book design audit grays color inventory` — surfaced eBook reviews but no original-publication URL
+
+Where the figure does appear (verbatim from secondary sources):
+- Smashing Magazine's "Design Systems" eBook (Scribd document/365559702): "tens of variations of the same color (Marcin Treder discovered 62 shades of gray while doing the color inventory for UXPin)."
+- Smashing Magazine's "Design Systems Smashing eBooks" PDF compilation (Scribd document/545683853): "same color (Marcin Treder discovered 62 shades of gray while doing the color 6 inventory for UXPin). Most of them are unnecessary and create needless [duplication]"
+- "A Guide to UX Design and Development" (dokumen.pub, ISBN 9781484295755): "...62 shades of gray. To bring order to the disorder, start by combing through all of the code files and listing all of the color variables. That also includes [...]"
+- "The Actionable Guide to Starting Your Design System" (Studocu version, attributed to Treder/UXPin): "Focus on numbers and the influence on the speed of the process (62 shades of gray, 16 types of [components])"
+
+What the citations consistently agree on:
+- The phrase "62 shades of gray" is attributed to Marcin Treder
+- The audit happened internally at UXPin (the design-and-engineering tool company; Treder was CEO/Head of Design Operations)
+- The audit was a color-token inventory: counting how many distinct gray values existed in UXPin's own codebase before consolidation
+- The number serves as the canonical illustration of "before-DS variation" / "audit reveals untenable token sprawl"
+
+What is NOT directly verifiable:
+- The exact original publication URL on uxpin.com (the post may have been retired during UXPin's content reorgs; the eBook compilation may be the only-surviving form)
+- The exact year of the original audit (citations imply ~2016–2017 given UXPin's design-system content cadence; not confirmed)
+- The exact phrasing in the original post (every secondary citation paraphrases slightly differently)
+
+Vault use:
+- 32 §4 references the "62 shades of gray" framing as the canonical audit buy-in tactic. The **claim itself is well-attested** across multiple independent secondary sources (Smashing, dokumen.pub, Studocu) — even though the original UXPin post is not directly recoverable via firecrawl as of mid-2026.
+- The status: **gating discovery rather than full source-text capture.** The figure is widely cited; the attribution is consistent; the original source is *probably* a UXPin blog post or chapter from Treder's design-systems eBook that was retired during platform reorganisation but lived on through Smashing's eBook syndication.
+- For client artefacts: cite as "Marcin Treder, UXPin (~2016–2017), via Smashing Magazine's *Design Systems* eBook compilation" — acknowledge the secondary-source pathway. Don't claim a direct UXPin-blog URL the practice can't verify resolves.
+- Per the housekeeping discipline ("flag and move on" for gated/un-recoverable content): the residual closes via the *gating-as-record* shape — the source is real, the figure is consistent, the original URL is unrecoverable; the citation is via secondary-source compilation.
+- 32 §4's inline reference to "62 shades of gray" can stay; the inline citation should be updated to "(Marcin Treder, UXPin; widely cited via Smashing Magazine's *Design Systems* eBook compilation; original UXPin post not directly recoverable as of mid-2026)" rather than asserting a direct URL.
+- §1.28b closes as gating-discovery — the figure is verified-by-attestation rather than verified-by-original-source-capture.
