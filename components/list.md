@@ -132,10 +132,10 @@ The genre decides the model (§1); two sharp List-specific traps anchor it.
 - **The 1D sibling of:** **Table** (the 2D matrix — Table deferred to List; the boundary is dimensionality: 1D self-contained items vs 2D cross-column comparison — see table).
 - **The content of:** the **listbox** the **Select** / **Combobox** dropdowns and **Popover** surfaces host (a selection List in a Popover — see select, combobox, popover).
 - **Composes (the cluster):** **Avatar** / **Icon** (leading visual — see avatar, icon), **Badge** / **Tag** (trailing metadata — see badge, tag), **Button** / **Switch** (trailing actions — see button, switch), **Checkbox** (selection — see checkbox), **Divider** (between items — see divider), **Empty State** (no items — see empty-state) + **Skeleton** (loading items — see skeleton), **Link** (navigation items — see link).
-- **Borders:** **Menu** (the action list — `role=menu`, "do" — see menu), **Side Navigation** (the navigation list — "go" — see side-navigation), **Tree** (the hierarchical list — Tree = a List with expand/collapse / `role=tree` — not yet briefed).
+- **Borders:** **Menu** (the action list — `role=menu`, "do" — see menu), **Side Navigation** (the navigation list — "go" — see side-navigation), **Tree** (the hierarchical list — Tree = a List with expand/collapse / `role=tree` — see tree).
 - **Alternative to:** a **Table** (2D), a **Grid of Cards** (visual/heterogeneous — see grid, card), a **description list `<dl>`** (single-entity key-value).
 
-(The 1D sibling of Table — the one-dimensional record list across content/selection/navigation/action genres, and the content the overlay listboxes host. It composes Avatar/Icon/Badge/Tag/Button/Switch/Checkbox/Divider/Empty-State/Skeleton/Link. See table for the 2D sibling + the list-vs-table boundary, select/combobox/popover for the listbox-host relationship, avatar/badge/tag/checkbox/divider for the composed parts, menu/side-navigation for the do/go borders, tree when briefed for the hierarchical sibling. 03-component-library; 29 for the docs template.)
+(The 1D sibling of Table — the one-dimensional record list across content/selection/navigation/action genres, and the content the overlay listboxes host. It composes Avatar/Icon/Badge/Tag/Button/Switch/Checkbox/Divider/Empty-State/Skeleton/Link. See table for the 2D sibling + the list-vs-table boundary, select/combobox/popover for the listbox-host relationship, avatar/badge/tag/checkbox/divider for the composed parts, menu/side-navigation for the do/go borders, tree for the hierarchical sibling. 03-component-library; 29 for the docs template.)
 
 ## 13. Field POV evolution
 1. **The `list-style: none` semantics-removal discovery → `role=list` re-assertion.** Scott O'Hara's **2018** finding that WebKit/Safari strips the list role when bullets are styled off forced design systems (which strip bullets universally) to programmatically re-assert `role="list"`/`role="listitem"` — now a settled baseline.
@@ -253,7 +253,7 @@ composition:
   sibling-of: [table]                      # the 1D vs 2D boundary (Table deferred to List)
   listbox-content-of: [select, combobox, popover]
   composes: [avatar, icon, badge, tag, button, switch, checkbox, divider, empty-state, skeleton, link]
-  borders: [menu, side-navigation, tree]   # do (action list) / go (nav list) / hierarchical (Tree = List + expand/collapse) — Tree not yet briefed
+  borders: [menu, side-navigation, tree]   # do (action list) / go (nav list) / hierarchical (Tree = List + expand/collapse; see tree)
   alternative-to: [table, "grid-of-cards", "description-list <dl>"]
   supersedes: null
   superseded-by: null

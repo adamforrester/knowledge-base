@@ -104,10 +104,10 @@ The field splits on framing: **`EmptyState`**/**`Empty State`** (Polaris, Atlass
 
 ## 12. Related and alternative components
 - **Stands on:** Button (the CTA — see button), Icon/illustration (the visual — see icon), Link (secondary/inline links — see link), and **lightly the live-region pattern** from Toast (the dynamic no-results announcement — see toast).
-- **Composed by:** Table / List / Tree / search-results / card — the data hosts whose zero-state *is* the empty state (see table/list for the hosts, tree when briefed).
+- **Composed by:** Table / List / Tree / search-results / card — the data hosts whose zero-state *is* the empty state (see table/list/tree for the hosts).
 - **Alternative to / boundary with:** **Skeleton / Progress** (the *loading* terminal state — the in-between; transition without a flash — see progress, skeleton), **Banner / Inline Message** (the *error/failure* terminal state — a persistent error surface vs an in-container error-flavored empty state — see banner, inline-message).
 
-(The fifth and final Feedback brief — the zero-state content of a data container, anchored by the genre taxonomy and the loading/content/empty/error terminal-states machine; the live-region pattern's lightest touch. It **closes the Feedback category**. See button for the CTA, icon for the visual, link for the links, toast for the no-results live-region touch, progress/skeleton for the loading boundary, banner/inline-message for the error boundary, table/list for the hosts that compose it, tree when briefed. 03-component-library; 29 for the docs template.)
+(The fifth and final Feedback brief — the zero-state content of a data container, anchored by the genre taxonomy and the loading/content/empty/error terminal-states machine; the live-region pattern's lightest touch. It **closes the Feedback category**. See button for the CTA, icon for the visual, link for the links, toast for the no-results live-region touch, progress/skeleton for the loading boundary, banner/inline-message for the error boundary, table/list/tree for the data hosts that compose it. 03-component-library; 29 for the docs template.)
 
 ## 13. Field POV evolution
 1. **From technical fallback to growth surface** — the empty state moved from a place to dump "404"/error codes to a recognised **user-acquisition and onboarding** surface (product-led growth); first-use especially is a feature's first impression.

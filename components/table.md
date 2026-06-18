@@ -127,11 +127,11 @@ The a11y model **hinges entirely on the genre** (§1) — the most technically d
 ## 12. Related and alternative components
 - **The `role=grid` boundary from Grid** — Table is where the interactive ARIA data-grid pattern lives; CSS `display: grid` is the *layout* Grid and is presentational (the naming collision Grid named — see grid).
 - **Composes (the convergence — the brief where the catalogue pays off):** **Checkbox** (selection + the select-all indeterminate — see checkbox), **Pagination** (paging — see pagination), **Empty State** (the no-data zero-state — see empty-state) + **Skeleton** (the loading rows — see skeleton) (the terminal-states machine), **Menu** (row actions — see menu), and cell content — **Tag** / **Badge** / **Avatar** / **Button** / **Link** / **Tooltip** (see tag, badge, avatar, button, link, tooltip).
-- **Borders (siblings):** **List** (the 1D simpler sibling — records without column relationships — see list), **Tree** (the hierarchical sibling; `role=treegrid` = table + tree, with parent-child keyboard nav — not yet briefed).
+- **Borders (siblings):** **List** (the 1D simpler sibling — records without column relationships — see list), **Tree** (the hierarchical sibling; `role=treegrid` = table + tree, with parent-child keyboard nav — see tree).
 - **Responsive boundary:** the stacked-card view turns each row into a **Card** (see card) — the responsive transform (with the semantics caveat — §6).
 - **Alternative to:** a **List** (1D records), a **Grid of Cards** (heterogeneous/visual/browse), a **description list `<dl>`** (single-entity key-value).
 
-(The keystone of the Data category — the tabular-data display + the interactive data grid, the catalogue's biggest convergence point. It is where Grid's `role=grid` boundary lands, and it composes Checkbox/Pagination/Empty-State/Skeleton/Menu/Tag/Badge/Avatar/Button/Link/Tooltip. See grid for the role=grid boundary, checkbox/pagination/empty-state/skeleton/menu for the composed machinery, tag/badge/avatar/button for the cell content, card for the responsive row→card, list for the 1D sibling, tree when briefed for the hierarchical sibling. 03-component-library; 29 for the docs template.)
+(The keystone of the Data category — the tabular-data display + the interactive data grid, the catalogue's biggest convergence point. It is where Grid's `role=grid` boundary lands, and it composes Checkbox/Pagination/Empty-State/Skeleton/Menu/Tag/Badge/Avatar/Button/Link/Tooltip. See grid for the role=grid boundary, checkbox/pagination/empty-state/skeleton/menu for the composed machinery, tag/badge/avatar/button for the cell content, card for the responsive row→card, list for the 1D sibling, tree for the hierarchical sibling (+ the treegrid). 03-component-library; 29 for the docs template.)
 
 ## 13. Field POV evolution
 1. **The layout-table anti-pattern → tables-for-data-only.** The web spent a decade unwinding `<table>`-for-layout; tables now convey *data relationships* to AT, and layout is Box/Stack/Grid.
@@ -246,7 +246,7 @@ implementation:
 composition:
   role-grid-boundary-from: [grid]
   composes: [checkbox, pagination, empty-state, skeleton, menu, tag, badge, avatar, button, link, tooltip]
-  borders: [list, tree]                    # 1D sibling (see list) / hierarchical sibling (treegrid = table + tree; tree not yet briefed)
+  borders: [list, tree]                    # 1D sibling (see list) / hierarchical sibling (treegrid = table + tree; see tree)
   responsive-to: [card]                    # the stacked row -> Card transform
   alternative-to: [list, "grid-of-cards", "description-list <dl>"]
   supersedes: null
