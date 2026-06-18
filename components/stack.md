@@ -65,7 +65,7 @@ A curated, strongly-typed subset of the CSS Box Alignment Module — tokens and 
   - **vs Grid** — Stack is **one** axis (a column *or* a row, even when it wraps); use **Grid** when elements must align to rows *and* columns simultaneously regardless of content size. Forcing a Stack to behave like a grid (fixed percentage widths + flex wrap) is extremely fragile across viewports (see grid).
   - **vs Inline** (if split) — vertical flow → Stack; horizontal wrapping flow → Inline (or `direction="row"` + `wrap`).
 - **The recursive model (the load-bearing pattern):** build layouts as a **tree of Stacks** — a vertical page-level Stack containing horizontal card-level Stacks containing vertical text-level Stacks. The "Stack of Stacks" reinforces that whitespace is managed through a rigorous parent-child hierarchy, not ad-hoc component margins. Most layouts are a Stack tree with the occasional Grid.
-- **Don't add chrome to a Stack** — if it needs a background/border/elevation, it's a **Card** (not yet briefed).
+- **Don't add chrome to a Stack** — if it needs a background/border/elevation, it's a **Card** (see card).
 
 ## 6. Accessibility
 Stack inherits Box's a11y story — **a semantically-neutral flex `div` (no role, no name), so the accessibility surface is the element it renders via `as`/`asChild`** (see box). It adds **one sharp, Stack-specific trap**:
@@ -116,10 +116,10 @@ Stack inherits Box's a11y story — **a semantically-neutral flex `div` (no role
 - **The answer to:** Box's **no-external-margin principle** — Stack owns the inter-sibling gap so children stay flush and portable (see box).
 - **Composes:** **Divider** (the divider-between-children, n−1 separators inheriting the Stack's direction — see divider).
 - **1D sibling of:** **Grid** (the 2D engine — Stack is one axis; reach for Grid when you need rows × columns simultaneously — see grid; the two close the Box→Stack→Grid triad).
-- **Composed by / nested:** **Card** (the card body is a Stack — not yet briefed), forms, lists, nav, toolbars, and **recursively** (the Stack-of-Stacks layout tree).
+- **Composed by / nested:** **Card** (the card body is a Stack — see card), forms, lists, nav, toolbars, and **recursively** (the Stack-of-Stacks layout tree).
 - **Alternative to / boundary with:** a bare **Box** (`display="flex"` by hand — the smell Stack replaces), a **Spacer** (a `flex-grow` node absorbing free space to push clusters apart — for the one-off push, vs Stack's uniform gap), and **flex utility classes** (Tailwind's `flex gap-4 md:flex-row` — the no-Stack-component position, trading the enforced scale + a11y abstraction for raw flexibility).
 
-(The first Layout engine — the 1D flexbox component that owns the gap, the answer to Box's no-external-margin principle. It stands on Box (inheriting the Slot, the scale, the RTL), composes Divider (the divider-between), is the 1D sibling of Grid, and is nested recursively into the layout tree. See box for the substrate, divider for the divider-between, grid for the 2D sibling, card/section when briefed for the hosts, tag for the FLIP reflow it shares. 03-component-library; 29 for the docs template.)
+(The first Layout engine — the 1D flexbox component that owns the gap, the answer to Box's no-external-margin principle. It stands on Box (inheriting the Slot, the scale, the RTL), composes Divider (the divider-between), is the 1D sibling of Grid, and is nested recursively into the layout tree. See box for the substrate, divider for the divider-between, grid for the 2D sibling, card for the host (the card body is a Stack), section when briefed for the host, tag for the FLIP reflow it shares. 03-component-library; 29 for the docs template.)
 
 ## 13. Field POV evolution
 1. **Self-contained-margins → the no-margin principle.** Early component-driven development made components own their external margins (a button's right margin, a paragraph's bottom margin), producing fragile systems where novel combinations caused margin collapse and cascading overrides. The field stripped external margins from components — the no-external-margin principle — which *necessitated* a mechanism to own the removed space.
