@@ -74,7 +74,7 @@ Curtis's seven theming dimensions (in ascending cost):
 3. **Multi-brand** (A/B/C — like T-Mobile/Metro or Ford/Lincoln) — common in enterprise.
 4. **Campaigns** — temporary brand extension for marketing.
 5. **Design generations** — DS2_0 / DS3_0 alongside, for migrations.
-6. **White label** — extensive customization at any decision level. Highest cost.
+6. **White label** — extensive customization at any decision level. Highest cost. (See 33-white-label-systems for the productisation of this dimension as an engagement type — the two white-label shapes, the architecture decision tree for when the brand-generation engine pays back, the headless-vs-opinionated visual-vs-behaviour split, the commercial shape with Pattern 6, and the Prism positioning closure.)
 7. **Density** (compact / cozy / comfortable) — often forgotten; matters for data-dense UIs.
 
 Strategy: "Define the customer problems, and work back from there." Don't theme dimensions you can't justify.

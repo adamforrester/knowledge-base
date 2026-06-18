@@ -68,7 +68,7 @@ The hardest portfolio scenario is the one where the brand list is unknown at arc
 
 The architectural pattern is **contract-driven interoperability.** The DS defines a Theme Schema: a JSON contract that specifies exactly which values a brand must provide (primary color, logo URI, font stack, brand radius, brand density). A Theme Resolver — typically a custom Style Dictionary transform or a runtime CSS-variable injection step — injects the brand-supplied values into the global semantic framework.
 
-This shifts the agency's role from "designing each brand" to "architecting a brand-generation engine." Resellers supply the minimum brand-defining values; the system generates the rest. The economic shape of this engagement is different — recurring brand-onboarding revenue rather than per-brand design effort — and the practice should flag it explicitly when scoping white-label work.
+This shifts the agency's role from "designing each brand" to "architecting a brand-generation engine." Resellers supply the minimum brand-defining values; the system generates the rest. The economic shape of this engagement is different — recurring brand-onboarding revenue rather than per-brand design effort — and the practice should flag it explicitly when scoping white-label work. (33-white-label-systems is the engagement-shape companion to this architectural framing. 33 §3 commits the architecture decision tree for when the brand-generation engine pays back — five primitives as the minimum input set, ~five resellers as the break-even point, five questions in the synthesis-ready tree. 33 §2 distinguishes white-label-for-resellers, which needs the engine, from white-label-as-starter, which doesn't.)
 
 ### The Generative Token pattern
 

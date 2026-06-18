@@ -203,7 +203,7 @@ The following ranges come from the task library and represent standard complexit
 
 ## The White-Label Kit Question
 
-VML has an internal white-label Figma component kit (Prism2) that is intended to reduce setup time on client engagements. The commercial question — does this reduce our estimates, or does it raise the quality of what we deliver for the same estimate — is unresolved and should be treated honestly.
+VML has an internal white-label Figma component kit (Prism2) that is intended to reduce setup time on client engagements. The commercial question — does this reduce our estimates, or does it raise the quality of what we deliver for the same estimate — is unresolved and should be treated honestly. (33-white-label-systems articulates the engagement-shape framing this section sits inside — Prism2 is a **white-label-as-starter** kit, distinct from a **white-label-for-resellers** platform; the two shapes price differently. 33 §5 commits **Pattern 6 — White-label / reseller platform** as the sixth pattern alongside the five below, with the recurring brand-onboarding retainer as the answer to the run-phase pricing gap further down this file.)
 
 **Current position:** Scope at standard hours. Use the kit as a quality and consistency accelerator, not a line-item reduction. Until formal technology team adoption and engagement data exist to back up time savings, quoting reduced hours based on the kit creates commercial risk.
 

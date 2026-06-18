@@ -58,7 +58,7 @@ VML has an internal white-label design system called **Prism2**. As of early 202
 - A plug-and-play solution for AEM or Drupal-based projects (CMS integration is planned, not delivered)
 - A fully documented, contribution-ready system — governance and contribution models are not yet established
 
-**The commercial tension:** The question of whether Prism2 reduces estimates or raises quality for the same estimate is unresolved. The honest current position: scope at standard hours and use the kit as a quality and consistency accelerator. Until formal technology team adoption exists and engagement data supports it, quoting reduced hours based on the kit creates commercial risk. See `00d-commercial-model.md` for the full framing of this tension.
+**The commercial tension:** The question of whether Prism2 reduces estimates or raises quality for the same estimate is unresolved. The honest current position: scope at standard hours and use the kit as a quality and consistency accelerator. Until formal technology team adoption exists and engagement data supports it, quoting reduced hours based on the kit creates commercial risk. See `00d-commercial-model.md` for the full framing of this tension. (33-white-label-systems §6 closes the long-standing positioning conflict by naming Prism2 as **white-label-as-starter** — not a finished design system, not a white-label-for-resellers platform — with the technology-team-adoption gap as the load-bearing constraint that holds it in that shape.)
 
 **What likely compresses when Prism2 is used:**
 - Primitive token architecture (foundations exist; work is theming and client-specific extension)
