@@ -136,7 +136,7 @@ The component is mid-transformation; the practice's call is to **build durably a
 ## 12. Related and alternative components
 
 - **Composes with:** Label, Helper/FieldError, Option, OptionGroup, Icon (option/trigger visuals — see icon), Checkbox (multi-select options), Tag/Token (multi summary — see Tag when briefed), Popover/Listbox (the surface), Button (the trigger), Form.
-- **Alternative to:** Combobox (searchable/typeahead — the §1 boundary; see combobox, which inherits this brief's overlay machinery and adds the destructive filter), Radio Group / Segmented Control / Connected Button Group (small sets exposed for one-tap), Checkbox Group (multi-select of a few items — see checkbox), Menu (commands, not value-setting — the select-vs-menu line: a menu *performs an action*, a select *sets a form value*), Switch/Checkbox (boolean).
+- **Alternative to:** Combobox (searchable/typeahead — the §1 boundary; see combobox, which inherits this brief's overlay machinery and adds the destructive filter), Radio Group / Segmented Control / Connected Button Group (small sets exposed for one-tap), Checkbox Group (multi-select of a few items — see checkbox), Menu (commands, not value-setting — the select-vs-menu line: a menu *performs an action*, a select *sets a form value*), Switch/Checkbox (boolean), Date Picker (dates — which borrows this brief's native-`<select>`-vs-custom framework for its own native-`<input type=date>`-vs-custom decision, and the same `appearance: base` styleable-native trajectory; see date-picker).
 - **Supersedes:** a bare unstyled native `<select>` without label wiring; a Menu misused to pick a form value.
 - **Superseded by:** Combobox when the set grows large enough to need filtering.
 
