@@ -1,9 +1,9 @@
 ---
 type: practice-area
 title: Documentation
-description: Docs strategy for two audiences (humans and machines). Storybook/MDX plus machine-readable metadata and registries from one source.
-tags: [phase, documentation, storybook, mcp]
-timestamp: 2026-06-10
+description: Docs strategy for two audiences (humans and machines). Storybook/MDX plus machine-readable metadata and registries from one source. Plus content as a system layer — voice-and-tone matrix, content tokens, i18n content depth, AI-surface content — and the UX Copywriter role at engagement scale.
+tags: [phase, documentation, storybook, mcp, content, voice-and-tone]
+timestamp: 2026-06-18
 ---
 
 # 04 — Documentation
@@ -92,6 +92,170 @@ Tactics:
 - States documented and visible (rest / hover / focus / disabled / loading / error / empty).
 - Accessibility details inline (color contrast, keyboard nav, screen reader expectations) — not in a separate a11y page consumers won't visit. (Figma DS x AI, 2025.)
 - Changelog and versioning visible. Adopters need to know what's stable, what's deprecated, what's coming.
+
+## Content as a system layer
+
+The practice's content material has lived almost entirely at the per-component layer for the full life of the corpus. The Cluster-1 Content guidelines bullet (per the CareCentrix 2026 standard) ships content per component; 29 §14 captures content as one of seventeen template fields; 30 §Authored locates content guidance in the human-authored half of the pipeline; 03 names the microcopy seam at the component-library level; 25 / 26 / 27 cover AI-surface content at the pattern level. None of this articulates the system-level content architecture *above* the per-component layer — the voice-and-tone matrix as a system artefact rather than per-component microcopy guidance; content tokens as a tokenised primitive analogous to design tokens; i18n content as system-level scope tied back to component content guidelines; AI-surface content as a content-system layer rather than per-25/26/27-pattern guidance. This section closes that gap.
+
+The hierarchy this section commits: **voice-and-tone constraint at the top; content tokens at the primitive layer; per-component guidance as the consumption layer.** All three articulated; the architecture established once per engagement to serve as the structural foundation; per-component guidance follows the architecture rather than leading it. The agency that ships per-component content guidance without the system-level architecture produces fragmented microcopy that drifts release-by-release; the agency that ships content tokens without the voice-and-tone constraint above them ships primitives that fail to compose into coherent brand voice. Linear's empty-states pattern works *because* Linear has a strong, articulated voice; the same primitives in a brand without the voice constraint produce inconsistent output. All three layers are necessary; the system-level architecture is the practice's leverage at engagement scale.
+
+### The voice-and-tone matrix as a system artefact
+
+The voice-and-tone matrix is the practice's most-undersold content artefact at system altitude. Mailchimp's *Voice and Tone* (`styleguide.mailchimp.com/voice-and-tone/`) is the canonical field reference; Shopify Polaris's *Voice and tone* (`polaris.shopify.com/content/voice-and-tone`) is the design-system-native reference; the Atlassian Design System's *Writing style* and IBM Carbon's *Content guidelines* both ship matrix-shaped artefacts. The shared shape: **voice** (the brand's immutable character — the thing that doesn't change between a confirmation toast and a destructive-action dialog) across the top of the matrix; **tone** (the contextual adjustment per situation — confident in success, calm in error, direct in destructive-action) across the side; body cells specifying how voice expresses in each tone context.
+
+The matrix's altitude is system-level — applied across every surface, not per-component. The brand's three-to-five voice attributes are the immutable column headers; the system's content contexts (success / error / destructive / empty / loading / disabled / read-only / informational; plus AI contexts per the AI-surface section below) are the tone row headers; the body cells specify how voice expresses in each context.
+
+The matrix the practice ships at engagement scale follows the shape below. Voice attributes are brand-specific (the three columns are illustrative — Expert / Warm / Direct serves as a worked example; real engagements author against the client's brand). Tone contexts are system-specific.
+
+| Tone context ↓ / Voice attribute → | Expert (clear, authoritative, precise) | Warm (empathetic, human, supportive) | Direct (unambiguous, efficient, plainspoken) |
+|---|---|---|---|
+| **Success / confirmation** | Validates the system state definitively ("Database synchronisation complete"). | Acknowledges the user's effort without exuberance or patronising. | States the outcome immediately, no filler ("Changes saved"). |
+| **Error / network failure** | Diagnoses the cause precisely; never dead-ends. | Validates frustration; never blames the user; offers the next path. | Names the remediation step ("Check connection and retry"). |
+| **Destructive action** | Names the technical scope of the deletion and any retention. | Calm, never alarming; confirms intent without inducing panic. | Stark, unmistakable verbs ("Delete permanently", not "Remove"). |
+| **Empty state — first-use** | Explains the surface's capability and required inputs. | Encourages the first interaction; never patronising. | Single, clear imperative verb ("Start", "Create"). |
+| **Empty state — no-results / filtered-out** | States the filter that excluded results; never abstract. | Brief; offers the next action (clear filters; broaden criteria). | Short; no metaphors. |
+| **Loading / processing** | Specific where possible ("Searching 1,200 records…"). | Reassuring; acknowledges wait without anxiety. | Concise progress; "Loading…" only when no specifics available. |
+| **Disabled / read-only** | States the constraint precisely; never the symptom. | Neutral; explains why if non-obvious. | Avoid passive voice. |
+| **Informational** | Names what's true; avoids hedging. | Helpful, never lecturing. | Short sentences; one idea per callout. |
+| **Assistant — proactive** (per AI-surface section) | Offers one thing; never overwhelms. | Warm but bounded. | No filler ("I can help with…"). |
+| **Assistant — refusing** (per AI-surface section) | Names the constraint precisely; offers the alternative. | Acknowledges the request; never apologetic loops. | Direct; no hedging. |
+
+The matrix is the artefact; the body cells are the system's voice expressing in each context. The matrix ships as part of the content-system deliverable; per-component content guidance per 29 §14 references the matrix's body cells rather than re-authoring them.
+
+The matrix is only useful if it's enforceable. Three enforcement disciplines work — and the highest-leverage one is AI-prompt-mediated. **Matrix-as-AI-system-prompt** (the most aggressive discipline): the matrix becomes the system prompt the AI assistant consumes; per 25 §The architecture beneath; per 27's structured-output scaffolding — the assistant's outputs are constrained by the system prompt; the system prompt encodes the voice attributes plus the relevant tone-context body cells; the assistant's outputs inherit the brand voice without per-output authoring. Voice fragmentation across AI surfaces becomes structurally prevented. The matrix directly parameterises the LLM. **Pre-merge content review**: every PR with content changes runs the matrix's three or four voice questions before merge; the reviewer (typically the UX Copywriter per the next section) confirms the new content satisfies the matrix's voice attributes for the relevant tone context; ~5 minutes per content-bearing PR. **Token-mediated authoring** (per the content-tokens subsection below): when the system ships content tokens, components consuming the tokens inherit the matrix's voice rather than authoring per-component; the matrix's voice expresses *through the token catalogue*. Token-mediated authoring is the most durable enforcement because it removes the per-component authoring step entirely. Without enforcement, the matrix decays into a docs page nobody reads; per-component content drifts release-by-release; the brand voice fragments.
+
+For multi-brand and white-label-for-resellers systems (per 24 / 33), the voice-and-tone matrix scales as a per-brand axis. Each brand's matrix is one of the per-reseller assets the engine generates per 33 §7. The Theme Schema's voice-tone parameter (per 33's brand-voice tone parameter at §3 / §5) is the for-resellers system's voice-axis input; the engine derives the per-brand content tokens from the voice parameter the way it derives the color tokens from the primary-color primitive.
+
+Voice connects to typography at the token layer. Per 23 — typography is voice in type; the brand-voice-as-immutable-system-constraint framing in 23 covers the type-side voice; the matrix here covers the content-side voice; both express the same brand constraint at the system level. The link is operational at the typography composite-token layer — the composite typography token's `$description` field carries the voice intent (the practice's tokens-with-descriptions discipline applied to the content / voice axis). See 23 for the typography-side discipline.
+
+### Content tokens / writing-tokens as a primitive
+
+The field is starting to ship content tokens, mostly without naming them as such. **Linear's empty-states.** Each empty state across Linear's product surface carries a consistent encouraging-not-perky voice via what are effectively templated tokens — first-use, no-results, filtered-out — the voice is consistent because the primitives are shared. **Stripe's error-message taxonomy.** Errors carry codes (`card_declined`, `insufficient_funds`, `expired_card`); the codes map to user-facing message templates; the templates carry Stripe's voice (clear; never blaming; always offering the next action). **Polaris's content-pattern primitives.** Polaris ships pattern tokens for CTAs, error microcopy, loading messages — each with usage rules and parameter slots. **GOV.UK's component content patterns.** GOV.UK Design System ships content patterns for date input, names, addresses, error messages — each pattern carries the GOV.UK voice (concise; plain English; accessible reading level) as a tokenised template. **IBM Carbon's content guidance.** Carbon ships content-pattern guidance for empty states, error messages, notifications — less explicitly tokenised than Linear or Stripe but moving in the same direction.
+
+The shared shape: content as a *named, reusable, composable resource* analogous to design tokens — primitives the consumer pulls off the shelf rather than authoring per-component. Every system already ships these implicitly through pattern guidance; making them explicit (named, versioned, governed, AI-readable) converts implicit IP into an operational primitive.
+
+The line between content-as-token and content-as-prose is the same line as design-tokens-vs-component-styles: tokens carry *templated, system-level* content; prose carries *judgment*. **Tokenisable.** CTA verb taxonomies (the system's verbs — "Save", "Continue", "Submit", "Cancel", "Discard", "Discard changes" — with usage rules and tone-context mappings); error message templates per error category (network / validation / permission / destructive-confirm); empty-state copy patterns (first-use / no-results / filtered-out / system-empty / waiting-for-input); loading-state microcopy ("Loading…" / "Searching…" / "Saving…" / "Generating…"); confirmation patterns (success messages; toast copy; destructive-action confirmation); disabled-state explanations; loading skeletons' ARIA-live announcements; AI-surface refusal templates; disclosure boilerplate; citation copy templates. **Not tokenisable.** Long-form prose; marketing copy; brand-narrative content; per-component intent prose (the "when-to-use" and "avoid-when" guidance is per-component judgment, not a token); authored content in product surfaces (blog posts; help documentation; legal text — these live in CMS per the CMS-vs-content-tokens line below). The discipline is testable — if the content varies meaningfully per-instance based on the local situation (the specific error code; the specific empty-state context), it's tokenisable with parameter slots; if it varies meaningfully based on human judgment, it's prose.
+
+The DTCG-shaped schema for content tokens is the practice's defensible POV. As of mid-2026, DTCG's 2025.10 Format Module covers design tokens (color, spacing, typography, motion, dimension) but **does not cover content tokens**. The closest precedent is i18n message catalogues (ICU MessageFormat per 13). The practice can lead by shipping a content-token schema shape as a custom DTCG `$extensions` extension; if and when the DTCG community ratifies a content-token spec, the practice migrates.
+
+The schema's load-bearing properties:
+
+| Schema property | Type | System function |
+|---|---|---|
+| `$type` | String | Declares the token type as `content` (or `message`). Signals to translation, build, and validation tools that the value requires linguistic processing rather than transformation as a design value. |
+| `$value` | String | The source-locale ICU MessageFormat template (e.g., `"{count, plural, one {# item selected} other {# items selected}}"`). ICU-shaped from authoring time; pluralisation, gender, ordinal-aware via ICU selectors. |
+| `$description` | String | The voice intent — references the relevant tone-context body cell from the voice-and-tone matrix above ("Used in error states. Voice: calm, never blaming. Tone: direct without alarm. Per voice-and-tone matrix §Error."). The contract between the matrix and the token; reviews against the matrix happen here. |
+| `$extensions.<vendor>.parameters` | Object | The slot shape — each parameter has type and usage description; parameters are validated at runtime; AI clients consume the parameter shape via `.ai.json` integration per 30 and respect it during composition. |
+| `$extensions.<vendor>.locale` | Object | The i18n axis — default locale; per-locale variants live in the localisation catalogue keyed by the token's name; ICU-conformance flag. |
+| `$extensions.<vendor>.tone` | String | Ties the token back to the matrix — the tone-context name is the body-cell key the description references ("error", "destructive", "assistant-refusing"). |
+| `$extensions.<vendor>.ai-readable` | Boolean | The `.ai.json` integration flag per 30 — when true, the token is consumed by AI clients via the per-component MCP surface; when false, the token is human-only. |
+
+Cross-platform localisation flows naturally from this shape. The token's `$value` is the source-locale template; per-locale variants live in the i18n catalogue keyed by the token's name; the runtime resolves per the user's locale via ICU. Without content tokens, every component carries its own i18n integration; with content tokens, the integration happens at the token layer.
+
+Where content lives — in the DS's content tokens or in the CMS's content models — is a procurement-grade decision. The practice's working position: **tokens for templated, system-level content; CMS for editorial, product-specific content.** The line is similar to design tokens vs. component-specific styles: tokens for system primitives; component-specific authoring for per-instance overrides. **Tokens.** "Save" / "Cancel" / "Discard changes" CTA verbs (every product uses them). Network-error templates. Empty-state copy patterns. AI-surface refusal templates. Disclosure boilerplate. **CMS.** Help documentation. Marketing copy. Blog posts. Legal text. Per-product feature names. Per-product onboarding copy. The boundary surfaces again at the i18n layer (per the next subsection) and again in the forthcoming §1.32 CMS work; the practice's discipline is to name the boundary at scoping.
+
+Tooling reality and gaps. Tokens Studio doesn't ship content tokens as a first-class object (custom metadata via `$extensions` is the bridge investment); Style Dictionary's transforms don't cover content tokens natively (custom transforms required, ~8–16 hours per platform); Specify, Knapsack, Supernova, Backlight don't ship content tokens as a first-class object; ICU authoring tooling is thin — most CMSes don't author ICU; most translation vendors have varying ICU support (Lokalise, Crowdin, and Phrase support ICU; Smartling and TransPerfect have varying support; verify per vendor); ICU's parser-error mode is brittle (authors mistakenly using double curly braces instead of single braces produce parse failures). The practice's bet: native vendor support for content tokens lands in 2026–2027 alongside the AI-readiness commercial pressure; practitioners shipping content tokens today are wrapping ICU message catalogues with DTCG-shaped metadata as a bridge investment.
+
+LLM-based content review tooling is emerging — LLMs can read the matrix above and review content-PR diffs against it (automated voice / tone consistency checking). As of mid-2026, this is custom work (senior practitioners script it via Claude API; no major DS-tooling vendor ships LLM content review natively); the practice's bet is that this lands in 2026–2027.
+
+### i18n content depth at the system level
+
+Per 13 — the practice covers RTL and locale shape at the architectural level. What this section adds is the content layer above 13: how component content guidelines tie back to i18n tooling; how content tokens (per the previous subsection) carry locale variants; how the UX Copywriter role coordinates with localisation vendors; how the voice-and-tone matrix handles per-locale tonal adjustments.
+
+ICU MessageFormat at system scale integrates with content tokens — the token contains an ICU template; the runtime resolves via ICU per the user's locale. The system ships ICU-shaped templates, not hand-authored per-locale strings. Most engagements still ship hand-authored per-locale strings because the tooling for ICU authoring is thin; the practice's discipline at engagement scale is to author ICU-shaped templates from day one of the content-token catalogue; localisation vendors translate the ICU templates per locale (preserving ICU shape); the runtime resolves per locale.
+
+Pluralisation at system scale illustrates the necessity. The English speaker's mental model — *one cat / two cats* — doesn't generalise. **Russian** has three plural categories (one / few / many); **Arabic** has six (zero / one / two / few / many / other); **Welsh** has six; **Polish** has four; **Japanese and Chinese** have one (no inflection by count); **Slovenian** has four. ICU expresses pluralisation via the `plural` selector with named CLDR cases (`zero`, `one`, `two`, `few`, `many`, `other`). Content tokens carrying ICU templates handle this natively; per-locale variants in the localisation catalogue carry locale-specific plural categories. Hand-authored per-locale strings break here — the English authoring "one item / N items" doesn't translate to Russian's three categories without re-authoring.
+
+Gendered language. ICU's `select` selector handles gendered variants. **Spanish** has masculine / feminine; **German** has three genders; **Finnish** has none; **Hebrew** has masculine / feminine in second-person address. Content tokens at system scale declare the gendered variant axis as part of the token shape; per-locale catalogues carry the variants; the runtime resolves per the user's gender preference (or the application's known data about the user). The pattern that fails: gendered language treated as per-component; per-component microcopy authored without gender-axis support; the application produces grammatically incorrect output in gendered locales.
+
+RTL content ordering. Per 13 — logical properties at the layout level. At the content level: bidirectional content embedding (Arabic-with-English-loanwords; Hebrew-with-numbers); the Unicode `<bdi>` element (bidirectional isolation) versus `<span dir="rtl">` directional override; the `unicode-bidi` CSS property's role. Content tokens at system scale carry directional metadata — the token's primary direction; the embedded-content directional handling. The discipline: prefer `<bdi>` over `<span dir="rtl">` to prevent cross-directional pollution between the directional run and surrounding content.
+
+Localisation governance. The UX Copywriter (per the next H2 section) coordinates with localisation vendors on per-locale content. The system's content tokens are the source-of-truth; the localisation vendor consumes the source tokens and produces per-locale variants; the variants flow back into the content-token catalogue. Without content tokens, localisation is per-component string-by-string; with content tokens, localisation is catalogue-shaped. The vendor landscape: TransPerfect, Lionbridge (the large translation vendors); Smartling, Lokalise, Crowdin, Phrase (the modern localisation platforms). The content-token catalogue is portable across platform vendors via standard formats (JSON, XLIFF, TMX, Gettext); the practice's discipline is to keep the catalogue portable and treat the platform vendor as a workflow tool rather than a lock-in.
+
+The line that connects to §1.32 (CMS platforms — forthcoming). Localised editorial content lives in the CMS; localised system content lives in the content-token catalogue. The boundary is the same as the content-token-vs-CMS line above — system-level vs. product-specific. When §1.32 deepens 10 with the headless / composable / MCP-for-CMS-components material, the boundary articulated here applies at the broader CMS surface (Sitecore, Contentful, Sanity, Strapi, Storyblok).
+
+### Content for AI surfaces as a content-system layer
+
+Per 25 / 26 / 27 — the practice ships AI-aware patterns (chat, streaming, citation, refusal, tool-call) and adaptive interfaces (Sentient Triangle scaffold, fourteen patterns, five-rung spectrum). The content half of these patterns — assistant tone, refusal copy patterns, disclosure boilerplate, citation format conventions, error / fallback / clarification / tool-call-confirm copy — is currently per-pattern in 25 / 26 / 27 but not articulated as a content-system layer. The voice-and-tone matrix above + the content tokens above + the UX Copywriter role below collectively own the AI-surface content layer at system scale.
+
+**Assistant tone as voice-and-tone applied to AI surfaces.** The brand's voice constrains the assistant's outputs; the matrix's contexts include AI-surface contexts (assistant-proactive / assistant-reactive / assistant-uncertain / assistant-refusing / assistant-clarifying / assistant-handing-off-to-human). The matrix's body cells for AI contexts specify how the brand voice expresses in each AI context — and become the system prompt the assistant consumes (per 25 §The architecture beneath; per 27's structured-output scaffolding). **The matrix directly parameterises the LLM.** This is the highest-leverage AI-surface enforcement pattern; the matrix isn't a docs page, the matrix is in the assistant's runtime prompt; voice consistency across AI surfaces becomes structurally guaranteed.
+
+**Refusal copy patterns.** Per 25 §Refusal patterns — the assistant refuses (out-of-scope; safety; capability; privacy). Each refusal category has a content-pattern shape — the refusal acknowledges the request, names the constraint, offers an alternative path. Content tokens at system level ship the refusal templates per refusal category; the templates carry the brand voice; per-pattern customisation fills the parameter slots. Without tokens, every product surface re-authors refusal copy and the brand voice fragments.
+
+**Disclosure boilerplate.** Per 25 §Disclosure (EU AI Act Article 50 framing). Disclosure copy is system-level — the system ships the disclosure template; products consume the template; the legal team reviews the template once not per-product. Content tokens at system level ship the disclosure templates. Disclosure that drifts per-product is a compliance risk under EU AI Act Article 50; tokenised disclosure is structurally enforced.
+
+**Citation format conventions.** Per 25 §Citation patterns — the assistant cites sources. Citation format (inline-link / footnote / sidebar / collapsible) is per-pattern; citation copy conventions (how to introduce a citation; how to handle partial-confidence citations; how to handle missing-source cases) is system-level. Content tokens carry the citation copy templates — confident citation ("{source} states {claim}"); partial-confidence citation ("{source} suggests {claim}, though context may matter"); missing-source case ("I don't have a source for this; treat as opinion").
+
+**Streaming / partial-output / interruption content.** Per 25 — streaming responses produce partial outputs; users may interrupt; the system shows a partial state then a final state. The content for streaming UI (the "thinking…" / "generating…" / "almost done…" microcopy; the interruption confirmation; the resume-vs-restart prompt) is system-level. Content tokens carry the streaming-state templates; the family's body cells per the matrix carry the brand voice in streaming contexts (calm; never anxious; specific where possible; never apologetic).
+
+**Tool-call confirmation.** Per 25 §Tool-call patterns + 27's structured output rendering — the assistant proposes a tool call; the user confirms. The confirmation copy ("This will send an email to {recipient}. Continue?") is system-shaped via tokens; the tool-call's specific parameters fill the parameter slots. The matrix's destructive-action body cell applies — direct without alarm; name the consequence; never bury the lede.
+
+**Adaptive-UI content (the variability-by-design problem applied to content).** Per 26 / 27 — adaptive interfaces compose components per render via LLM. The components' content (the microcopy in each rendered component; the copy in adaptive empty-states / loading-states / refusal-states) is system-shaped — the LLM composes from the system's content tokens, not from ad-hoc strings. The variability-by-design problem (per 26's residual gap on purpose-built authoring tooling for variability) applies to content as well as visual: the designer specifies a *space* of possible content outputs and reviews the *distribution* of what the LLM produces. **Content tokens are the boundary the variability operates within** — the LLM composes within the token catalogue; the token catalogue carries the matrix's voice constraint; the matrix is enforced at composition time. The pattern that fails: the LLM composes free-form content that drifts from the matrix; the brand voice fragments; per-render variance is unbounded. The pattern that works: the LLM composes from tokens; the variance is bounded; the matrix is structurally enforced.
+
+## The UX Copywriter role at engagement scale
+
+The CareCentrix 2026 commercial standard (Our POV, below) names a UX Copywriter at 75 fixed hours integrated into component documentation. The role is named but not justified — the 75 hours is a CareCentrix-specific number; what justifies more or fewer hours; what the role owns end-to-end at system scale; how the role hands off to client product teams; how content guidelines get maintained after handoff — none of this is articulated. This section closes that gap.
+
+The UX Copywriter is the practice's content-side analogue to the design technologist (per 00e) — a hybrid role that crosses content / design / engineering boundaries. Hiring signal: writing fluency at senior level (the role authors the system's voice; weak writing produces a weak system); design-system literacy (the role consumes 22 / 23 / 24's token discipline and produces a content-token catalogue against it); i18n awareness (the role coordinates with localisation vendors and authors ICU-shaped templates); AI-surface fluency (the role authors the system prompt's voice constraint and the AI-surface content templates per the section above). The role doesn't need to be a senior software engineer; the role does need to operate fluently with engineering counterparts on token-catalogue mechanics and AI system-prompt coordination.
+
+### What the role owns end-to-end
+
+Four ownership clusters:
+
+- **Content architecture.** The voice-and-tone matrix; the content-token catalogue; the i18n content strategy; the AI-surface content layer. The role authors the matrix at engagement Discovery; ships the content-token catalogue alongside Foundations; coordinates the i18n strategy with the localisation vendor; ships the AI-surface content layer alongside whichever 25 / 26 / 27 patterns the engagement scopes.
+- **Content production.** The system-level content (matrix, tokens, templates, AI-surface copy) per Cluster-2 above (Document intent). The role authors the system-level content directly; per-component content guidance per 29 §14 references the system-level content rather than re-authoring.
+- **Content review.** Per-component content guidance review; pre-merge PR review for content changes (~5 minutes per content-bearing PR); release-readiness content audit per the matrix's enforcement disciplines (a quarterly drift audit at portfolio scale; the audit produces a remediation list for the next quarter).
+- **Cross-functional coordination.** Localisation vendor coordination (~4–8 hours per locale beyond source — TransPerfect / Lionbridge / Smartling / Lokalise / Crowdin / Phrase); legal review for disclosure copy (~8–16 hours per major release for legal-review cycles under EU AI Act Article 50); brand-team review for voice-and-tone matrix evolution (~4–8 hours per quarter); AI-surface tone-prompt coordination with the engineering team that ships the prompt.
+
+### The hour-justification model
+
+The CareCentrix 75 hours is a Pattern 2 (Figma-only handoff per 00d) standard-complexity number. At engagement scale, the role's hours scale against three drivers:
+
+- **Component count.** ~0.5–1 hour per component for the per-component content guidance per 29 §14 — primarily review and matrix-binding rather than authoring (the matrix and content tokens carry most of the per-component work).
+- **Content-surface complexity.** AI surfaces add ~20–40 hours per AI pattern family (chat / streaming / refusal / citation / tool-call). Multi-locale adds ~30–60 hours per locale beyond the source (vendor coordination; ICU template authoring; per-locale tone review for tonal-adjustment locales — Japanese keigo, German Sie/du, etc.).
+- **Content-token catalogue depth.** A deep catalogue (CTA / error / empty-state / loading / confirmation / disclosure / citation / refusal token families) adds ~40–80 hours; a thin catalogue (errors only) adds ~15–25 hours.
+
+The CareCentrix 75 hours fits roughly **20–25 components, English-only, no AI surfaces, a thin token catalogue**. Other points on the range:
+
+| Engagement shape | Hours |
+|---|---|
+| Pattern 1 (Product-support component build), 15 components, English-only, no AI surfaces, error tokens only | **~40–60 hrs** |
+| Pattern 2 (Figma-only handoff), 20–25 components, English-only, no AI surfaces, thin catalogue (CareCentrix baseline) | **~75 hrs** |
+| Pattern 2, 30 components, English-only, no AI surfaces, thin catalogue | **~80–100 hrs** |
+| Pattern 2, 30 components, three locales (English + two others), no AI surfaces, standard catalogue | **~140–180 hrs** |
+| Pattern 6 (white-label per 33), 50 components, English-only at launch, AI surfaces (chat + refusal + citation), deep catalogue | **~180–250 hrs** plus Run-phase retainer |
+
+The practice's discipline: scope the role against the three drivers; quote a range (40–250 hours per Build) with the driver mix making the case for the chosen point in the range. The CareCentrix 75-hour line item becomes a defensible point on a scaled range rather than a number quoted without justification.
+
+### When a system needs the role
+
+Below ~10 components, the role doesn't pay back — the content guidance is thin enough for the senior visual designer or UX designer to author directly. Above ~10 components, content drift becomes visible by release; above ~20 components, content drift becomes a failure mode (per the Failure modes section below). At ~20+ components with multi-locale or AI-surface scope, the role's payback is strongest; below, it's optional.
+
+The minimum viable scope for the role's inclusion: **~10 components plus any of multi-locale, AI surfaces, or recurring content-system maintenance (Run-phase retainer).** At less than that, content can be absorbed by the senior visual designer or UX designer; at more than that, content drift without the dedicated role becomes a release-cost.
+
+### Handoff to client product teams
+
+The role hands off three things at engagement end:
+
+- **The voice-and-tone matrix as a governed artefact.** The client's content team owns evolution; the practice provides the matrix shape and the per-context body cells; the client extends per their content surface's needs over time.
+- **The content-token catalogue as a maintained primitive.** The client's engineering team consumes; the client's content team authors token additions; the practice provides the schema shape, the initial catalogue, and the token-evolution discipline (semver-for-content-tokens analogous to 24's semver-for-design-tokens).
+- **The per-component content guidance per 29 §14.** Consumed by the client's product teams; the practice provides the initial per-component guidance and the matrix-binding discipline; the client maintains as components evolve.
+
+The handoff is incomplete without the governance contract — who reviews matrix changes; who approves token additions; who coordinates localisation. This is content's analogue to the 07 contribution-model handoff at the component layer. The practice's discipline: ship the governance contract alongside the content-system handoff; without it, the system the client paid for decays as soon as the practice leaves.
+
+### The Run-phase parallel
+
+Per 33 §5 — white-label-for-resellers ships a run-phase retainer with three SLAs (brand-onboarding / engine-availability / schema-coordination). Bespoke engagements with a content-system handoff can ship an analogous content-retainer with three commitments:
+
+- **Matrix-evolution coordination.** Quarterly matrix review; new tone contexts added as the client's product surfaces grow; voice attributes maintained across the matrix's evolution.
+- **Token-addition review.** New content tokens reviewed against the matrix; schema-shape conformance; voice / tone metadata complete; AI-readability flag set correctly.
+- **Localisation coordination.** Per-locale variant review with the localisation vendor; ICU shape preserved; per-locale tone review for tonal-adjustment locales.
+
+The retainer follows the same shape as 33 §5 but applied to the content layer — three discrete commitments, each with an explicit SLA, each with an hour estimate, all priced as a recurring monthly retainer (typically 8–24 hours/month depending on content-surface complexity). Content is one of the natural Run-phase retainer surfaces the practice has not yet articulated; this section adds it to the run-phase pricing landscape that 00d's run-phase pricing gap and 33 §5's for-resellers retainer also occupy.
+
+### Connection to 00e team-and-discipline
+
+The role's hiring signal, seniority calibration, and career path within the practice are open questions worth picking up in a future 00e revision. This section lands the role's *engagement-scale* discipline; the *practice-scale* discipline (how the practice hires, levels, and progresses Copywriters across engagements) belongs in 00e.
 
 ## Our POV
 

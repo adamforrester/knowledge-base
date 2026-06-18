@@ -62,6 +62,8 @@ The most basic architectural requirement for i18n is the **complete externalizat
 
 **Pseudo-localization is the cheapest layout-validation tool we have.** It replaces source strings with elongated, accented, bracketed text — `[Ĥéééļļļööö Ŵööörļļļḑ]` — that simultaneously tests for hardcoded strings (anything un-bracketed leaked through) and for layout fragility (anything that breaks reveals a fixed-width container). Pair it with a bidi pseudo-locale to test direction at the same time. **Every multi-locale engagement should ship pseudo-localization in the build pipeline by default.**
 
+**ICU-shaped messages live in the system's content-token catalogue** per 04 §Content as a system layer. The content tokens carry ICU templates in `$value`, locale variants in `$extensions.<vendor>.locale`, parameter shapes in `$extensions.<vendor>.parameters`, and voice intent in `$description` bound to the system's voice-and-tone matrix. The localisation vendor consumes the source-locale templates and produces per-locale variants; the runtime resolves per the user's locale via ICU. Without content tokens, every component carries its own i18n integration — the component imports message catalogues directly, manages locale state, formats strings inline. With content tokens, the integration happens at the token layer; the component is locale-agnostic. The practitioner-side gotcha worth naming: ICU's parser is brittle on brace mismatches — single curly braces `{count}` are required for parameter slots; double braces `{{count}}` produce parse failures in most ICU runtimes. Verify per tool. (See 04 §Content as a system layer for the content-token catalogue authoring discipline; per-component i18n consumption follows the catalogue.)
+
 ---
 
 ## RTL layout support
