@@ -13,7 +13,7 @@ timestamp: 2026-06-16
 
 # Table
 
-> A Table presents **tabular data** — information with genuine row × column relationships, where a cell's meaning depends on *both* its column header and its row. It is the **keystone of the Data category** (the first Data brief), the catalogue's **biggest convergence point**, and the hardest component in the set: the structural chassis where Checkbox (selection), Pagination (paging), Empty State + Skeleton (the no-data/loading states), Menu (row actions), and Tag/Badge/Avatar/Button/Link/Tooltip (cell content) all integrate — the brief where the whole catalogue pays off. It is where **Grid's `role=grid` boundary lands**: CSS `display: grid` is *presentational* and is *not* the interactive ARIA data-grid pattern; `role=grid` (and `role=treegrid`) live here (see grid). The headline that decides the entire technical, interactive, and a11y model is the **data-table vs data-grid genre split**, and the **native-`<table>` / `role=grid` / div-soup** decision that follows. What it *isn't*: a **CSS Grid layout** (`role=grid` ≠ `display: grid`), a **List** (1D records, no column relationships — not yet briefed), or a **layout table** (the dead anti-pattern — a layout table lies to assistive tech). Why systems disagree: the genre split, the headless-vs-batteries-included architecture, and the responsive-table problem (no clean winner).
+> A Table presents **tabular data** — information with genuine row × column relationships, where a cell's meaning depends on *both* its column header and its row. It is the **keystone of the Data category** (the first Data brief), the catalogue's **biggest convergence point**, and the hardest component in the set: the structural chassis where Checkbox (selection), Pagination (paging), Empty State + Skeleton (the no-data/loading states), Menu (row actions), and Tag/Badge/Avatar/Button/Link/Tooltip (cell content) all integrate — the brief where the whole catalogue pays off. It is where **Grid's `role=grid` boundary lands**: CSS `display: grid` is *presentational* and is *not* the interactive ARIA data-grid pattern; `role=grid` (and `role=treegrid`) live here (see grid). The headline that decides the entire technical, interactive, and a11y model is the **data-table vs data-grid genre split**, and the **native-`<table>` / `role=grid` / div-soup** decision that follows. What it *isn't*: a **CSS Grid layout** (`role=grid` ≠ `display: grid`), a **List** (1D records, no column relationships — see list), or a **layout table** (the dead anti-pattern — a layout table lies to assistive tech). Why systems disagree: the genre split, the headless-vs-batteries-included architecture, and the responsive-table problem (no clean winner).
 
 ---
 
@@ -27,7 +27,7 @@ The **`<table>` / `role=grid` / div-soup decision** that follows:
 - **`role=grid`** — *only* for the genuine interactive widget. The recurring trap is **architectural over-reach** — slapping grid roles on a data table, creating barriers for screen-reader users who expect document-reading behavior.
 - **Div-soup** (`role=table/row/cell` on `<div>`s) — recreating table semantics when native `<table>` can't be used. **Partial div-soup is a catastrophe**; the *one legitimate case* is heavy virtualization, which can *force* the complete-ARIA-grid route off native `<table>` (§6).
 
-The other axis is the **deployment architecture**: **headless** (TanStack Table — the sort/filter/paginate/select *logic* separated from the markup, the DS owns the DOM) vs **batteries-included** (MUI X DataGrid, AG Grid — opinionated DOM + enterprise features out of the box, at the cost of bundle size and brand-alignment friction). The practice ships a **headless engine + an opinionated a11y-correct skin**. What it *isn't*: a CSS Grid layout (the naming collision Grid named — see grid), a **List** (1D — not yet briefed), a **layout table** (dead).
+The other axis is the **deployment architecture**: **headless** (TanStack Table — the sort/filter/paginate/select *logic* separated from the markup, the DS owns the DOM) vs **batteries-included** (MUI X DataGrid, AG Grid — opinionated DOM + enterprise features out of the box, at the cost of bundle size and brand-alignment friction). The practice ships a **headless engine + an opinionated a11y-correct skin**. What it *isn't*: a CSS Grid layout (the naming collision Grid named — see grid), a **List** (1D — see list), a **layout table** (dead).
 
 ## 2. Anatomy and parts
 The outermost layer is the **table container** (managing horizontal overflow, border-radius, the scroll context). Within it:
@@ -68,7 +68,7 @@ The foundation is the **"columns-as-config" + "rows-as-data"** model: developers
 ## 5. Usage guidance
 - **Use a Table for genuine two-dimensional data** — records the user cross-references *across columns* and *down rows*. The test: does a cell's meaning depend on *both* its column and its row? Yes → Table.
 - **Table vs the alternatives (by data dimensionality):**
-  - **vs a List** — *1D* records (a directory of names, no comparative attributes) → a **List** (not yet briefed); don't build a single-column table.
+  - **vs a List** — *1D* records (a directory of names, no comparative attributes) → a **List** (see list); don't build a single-column table.
   - **vs a Grid / Card gallery** — heterogeneous, heavily visual (product thumbnails, varying metadata), browse-mode → a **Grid of Cards** (see grid, card); homogeneous, dense, comparable → a Table.
   - **vs a description list (`<dl>`)** — single-entity key-value pairs (a detail panel) → a `<dl>`, not a one-row table.
 - **The data-table-vs-data-grid decision (the most critical call):** **default to the data table** for the vast majority of cases (reading, selecting, navigating to a detail view). **Escalate to an interactive data grid only** when building a focus-managed application where users edit data inline as rapidly as a native spreadsheet — its keyboard model is a real cost.
@@ -127,11 +127,11 @@ The a11y model **hinges entirely on the genre** (§1) — the most technically d
 ## 12. Related and alternative components
 - **The `role=grid` boundary from Grid** — Table is where the interactive ARIA data-grid pattern lives; CSS `display: grid` is the *layout* Grid and is presentational (the naming collision Grid named — see grid).
 - **Composes (the convergence — the brief where the catalogue pays off):** **Checkbox** (selection + the select-all indeterminate — see checkbox), **Pagination** (paging — see pagination), **Empty State** (the no-data zero-state — see empty-state) + **Skeleton** (the loading rows — see skeleton) (the terminal-states machine), **Menu** (row actions — see menu), and cell content — **Tag** / **Badge** / **Avatar** / **Button** / **Link** / **Tooltip** (see tag, badge, avatar, button, link, tooltip).
-- **Borders (siblings):** **List** (the 1D simpler sibling — records without column relationships — not yet briefed), **Tree** (the hierarchical sibling; `role=treegrid` = table + tree, with parent-child keyboard nav — not yet briefed).
+- **Borders (siblings):** **List** (the 1D simpler sibling — records without column relationships — see list), **Tree** (the hierarchical sibling; `role=treegrid` = table + tree, with parent-child keyboard nav — not yet briefed).
 - **Responsive boundary:** the stacked-card view turns each row into a **Card** (see card) — the responsive transform (with the semantics caveat — §6).
 - **Alternative to:** a **List** (1D records), a **Grid of Cards** (heterogeneous/visual/browse), a **description list `<dl>`** (single-entity key-value).
 
-(The keystone of the Data category — the tabular-data display + the interactive data grid, the catalogue's biggest convergence point. It is where Grid's `role=grid` boundary lands, and it composes Checkbox/Pagination/Empty-State/Skeleton/Menu/Tag/Badge/Avatar/Button/Link/Tooltip. See grid for the role=grid boundary, checkbox/pagination/empty-state/skeleton/menu for the composed machinery, tag/badge/avatar/button for the cell content, card for the responsive row→card, list/tree when briefed for the siblings. 03-component-library; 29 for the docs template.)
+(The keystone of the Data category — the tabular-data display + the interactive data grid, the catalogue's biggest convergence point. It is where Grid's `role=grid` boundary lands, and it composes Checkbox/Pagination/Empty-State/Skeleton/Menu/Tag/Badge/Avatar/Button/Link/Tooltip. See grid for the role=grid boundary, checkbox/pagination/empty-state/skeleton/menu for the composed machinery, tag/badge/avatar/button for the cell content, card for the responsive row→card, list for the 1D sibling, tree when briefed for the hierarchical sibling. 03-component-library; 29 for the docs template.)
 
 ## 13. Field POV evolution
 1. **The layout-table anti-pattern → tables-for-data-only.** The web spent a decade unwinding `<table>`-for-layout; tables now convey *data relationships* to AT, and layout is Box/Stack/Grid.
@@ -246,7 +246,7 @@ implementation:
 composition:
   role-grid-boundary-from: [grid]
   composes: [checkbox, pagination, empty-state, skeleton, menu, tag, badge, avatar, button, link, tooltip]
-  borders: [list, tree]                    # 1D sibling / hierarchical sibling (treegrid = table + tree) — not yet briefed
+  borders: [list, tree]                    # 1D sibling (see list) / hierarchical sibling (treegrid = table + tree; tree not yet briefed)
   responsive-to: [card]                    # the stacked row -> Card transform
   alternative-to: [list, "grid-of-cards", "description-list <dl>"]
   supersedes: null
