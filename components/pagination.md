@@ -123,7 +123,7 @@ Pagination is an index — users expect snappy, immediate response, so motion is
 ## 12. Related and alternative components
 
 - **Stands on:** Link + the Breadcrumbs nav-landmark contract (page items + `aria-label` + `aria-current` — see link, breadcrumbs), Button (prev/next/load-more — see button), Select (rows-per-page — see select), Icon (chevrons — see icon).
-- **Hosted by:** Table / Data Grid (the primary host of the enterprise pager, coupling page state to sort/filter/offset — see table when briefed), List, search-results and gallery layouts.
+- **Hosted by:** Table / Data Grid (the primary host of the enterprise pager, coupling page state to sort/filter/offset — see table), List, search-results and gallery layouts.
 - **Alternative to / boundary with:** Tabs (fixed peer views — see tabs), Stepper (linear flow with completion — see breadcrumbs boundary), Carousel (paged content, not results), **infinite scroll** (the pattern pagination is the accessible alternative to), and **virtualized/windowed scrolling** (`useAsyncList` + DOM virtualization — performant for massive sets but with its own a11y costs: absolute-positioning/SR-cursor tracking and broken native find-in-page; a specialised alternative, not a replacement).
 
 (The most reuse-heavy brief so far — it invents almost nothing, standing on Link/Breadcrumbs (items + nav contract), Button (controls), and Select (page-size), and contributing the three-model decision, the window algorithm, the link-vs-button rule, and the focus-on-page-change discipline. See link/breadcrumbs for the nav contract, button for the controls, select for the page-size picker, table for the primary host. 03-component-library; 29 for the docs template.)

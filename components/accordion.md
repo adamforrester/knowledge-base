@@ -101,7 +101,7 @@ The field converges on **`Accordion` + `AccordionItem`** for the public set (Car
 ## 12. Related and alternative components
 
 - **Composes with:** Disclosure (the primitive), heading, Icon (chevron — see icon), Card/Section (the contained variant), an expand-all Button.
-- **Alternative to:** Tabs (horizontal one-at-a-time — see tabs), Disclosure (single), Tree (hierarchical), Stepper (sequential), an expandable Table row (disclosure inside the table matrix — see Table when briefed).
+- **Alternative to:** Tabs (horizontal one-at-a-time — see tabs), Disclosure (single), Tree (hierarchical), Stepper (sequential), an expandable Table row (disclosure inside the table matrix — the treegrid pattern; see table).
 - **Supersedes:** ad-hoc show/hide `<div>`s without `aria-expanded`/heading semantics; a tablist misused for vertical multi-open sections.
 - **Superseded by:** Tabs on wide viewports when one-at-a-time peer panels fit better; just showing the content when it's all needed.
 
