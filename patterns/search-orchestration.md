@@ -248,7 +248,7 @@ reference_instantiations:
   - { system: "Command palettes", look_at: "Linear / Raycast / Algolia DocSearch (cmd-K, subsequence match)" }
 relations:
   composes: [combobox, text-field, popover, empty-state, list, menu, spinner, skeleton, tag]
-  relates-to: [filtering, view-state-orchestration, command-palette, forms-as-a-system]
+  relates-to: [filtering, view-state-orchestration, command-palette, forms-as-a-system, app-shell]
   boundary: >
     The Search field/Combobox component is the input; this pattern is the
     experience around it. Filtering narrows a known set; search queries an
