@@ -93,7 +93,7 @@ A non-compliant dialog is among the most destructive a11y failures possible — 
 - **Title** — a clear noun phrase or a direct question ("Delete repository?"), mapped to the invoking action; never generic ("Warning", "Are you sure?"). It's the accessible name.
 - **Body** — ruthlessly concise (the user is blocked and the background is obscured); state the **consequence**, especially for destructive actions (what's lost, whether it's reversible).
 - **Button labels — action-specific, never ambiguous.** The primary button echoes the title's verb ("Delete account", not "OK"/"Yes"/"Confirm"); cancel is explicit ("Cancel"/"Keep account"/"Go back"). A labelled action button is scannable and unambiguous out of context.
-- **Destructive-confirm pattern** — `alertdialog`, the title names the action, the body names the consequence, focus lands on the safe choice, the destructive button carries the **danger token** beside a subdued/ghost cancel.
+- **Destructive-confirm pattern** — `alertdialog`, the title names the action, the body names the consequence, focus lands on the safe choice, the destructive button carries the **danger token** beside a subdued/ghost cancel. This is the *component* side of a larger flow: whether to summon this dialog at all (confirm vs undo), the friction ladder, type-to-confirm, and the soft-delete undo model live in the patterns layer (see patterns/destructive-confirmation) — this component owns the alertdialog, that pattern owns the decision.
 - **Close affordance** — a labelled "Close" icon button (top-trailing) for all *standard* dialogs (Atlassian lints this); **omit it for `alertdialog`/required** flows to force a decision.
 
 ## 8. Motion and transition
