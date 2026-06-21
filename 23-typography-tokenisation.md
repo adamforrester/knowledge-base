@@ -1,9 +1,9 @@
 ---
 type: practice-area
 title: Typography Tokenisation
-description: Three-tier mandatory typography stack, brand voice as a system constraint, type pairing as a token-system decision, modular scales with the display pivot, fluid type with clamp() + container queries + rem-floor accessibility rule, variable fonts as tokenisation, font loading and CWV-tuned font-display, metric-matched fallbacks, multi-script as DTCG modes.
+description: Three-tier mandatory typography stack, brand voice as a system constraint, type pairing as a token-system decision, modular scales with the display pivot, function-named weight ladders (not appearance, not relative comparatives) as the white-label-safe naming, fluid type with clamp() + container queries + rem-floor accessibility rule, variable fonts as tokenisation, font loading and CWV-tuned font-display, metric-matched fallbacks, multi-script as DTCG modes.
 tags: [extension, typography, tokens, dtcg, fluid-type, variable-fonts, type-pairing, font-loading, brand-voice]
-timestamp: 2026-06-15
+timestamp: 2026-06-21
 ---
 
 # 23 — Typography Tokenisation
@@ -407,6 +407,18 @@ Custom axes (per-typeface) exist on some fonts — `GRAD` (grade), `XHGT` (x-hei
 The architectural answer to the continuous-axis problem is **named instances**: the typography token system exposes a finite semantic ladder over the continuous range. Instead of letting consumers reach for `font-weight: 437`, the system ships `font-weight/regular` → `450`, `font-weight/medium` → `550`, `font-weight/semibold` → `650`. The continuous range is collapsed into a discrete, designable set.
 
 The principle: **the variable font's continuous design is realised at authoring time and frozen at the token layer.** The architect picks the specific values that produce the system's typographic identity; consumers reach for the names. The flexibility of the underlying font is not exposed to authoring; the discipline of the token system is.
+
+### Naming the weight ladder — function, not appearance
+
+Named instances settle *how many* weights to expose; they leave *what to call them* open, and the conventional answer — the `regular` / `medium` / `semibold` labels used above for familiarity — is quietly wrong for white-label and multi-brand work. **Naming weights by appearance bakes a promise the brand can't keep across a portfolio.** One brand's "bold" is 700, another's is 600, a third ships only two weights and has no "semibold" at all. The name asserts an absolute the font may not contain, and the assertion breaks the moment the family is swapped — the exact event a token system exists to survive.
+
+The relative-comparative escape hatch — `thin` / `thinner`, `thick` / `thicker` — fails differently and worse. It encodes *direction* without an *anchor*: "thicker than what?" has no answer, and nothing in the ladder names the resting body weight, so consumers cannot tell which rung is the default. We have tried it in practice; it reads as confusing because it is genuinely under-determined.
+
+**The discipline that holds: name weights by function, the same way we name colour roles.** A semantic colour token says `action/primary`, not `blue` — it names what the token is *for* and lets each brand map the hue. Weight roles work identically. A small, bounded emphasis ladder — `weight/default` (resting body and UI), `weight/emphasis` (mild lift: strong inline text, active states), `weight/strong` (headings, primary actions), with an optional `weight/subtle` below default — names *purpose*, stays stable across brands, and lets each brand map the role to whatever numeric its font ships. A two-weight brand collapses `emphasis` and `strong` onto one value; a five-weight brand spreads them across the range. The role is the stable contract; the numeric mapping is the brand-variable part. Because the set is small and bounded, t-shirt-style semantic naming is correct here — the same rule that lets radius stay `sm/md/lg` while an open-ended axis like the spacing scale goes numbered (see 02 §Naming principles, and 22 on the numbered-vs-t-shirt decision).
+
+This sits in the three-tier stack exactly where the size scale does: a **reference tier** of numeric primitives (`weight/100`–`900`, the literal axis values the brand ships — the white-label-variable layer), a **semantic tier** of function-named roles aliasing into them, and the composites that consume the roles.
+
+**Weight is an orthogonal axis, not a property of the size token — and naming it by function is what keeps it orthogonal.** Because `weight/strong` is independent of `heading/large`, a composite carries a *default* weight role but any size can be rendered at any weight role without minting a new token. This is what dissolves the "multiple weights per size" problem that otherwise drives a catalogue toward `heading-bold` / `heading-regular` explosion: there is no explosion, because weight is applied, not baked. The composite references the weight *role* — property-level alias where the toolchain preserves it, flattened at build where it doesn't (per the composite-fidelity discipline above) — so re-mapping a brand's weights reflows every composite at once, the same primitive-tier-change payoff the pairing section claims for font families.
 
 ### Optical size as the under-used axis
 
