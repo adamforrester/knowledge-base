@@ -1,9 +1,9 @@
 ---
 type: practice-area
 title: Web Accessibility Implementation
-description: Web accessibility implementation depth — ARIA 1.3, the user-preference media-query surface, composite-widget patterns under APG, live regions, native form primitives, contrast and focus, the four-engine × four-AT test matrix, and the cross-engine divergences that change implementation decisions.
+description: Web accessibility implementation depth — ARIA 1.3, the user-preference media-query surface, composite-widget patterns under APG, live regions, native form primitives, contrast and focus, validating against the surface floor (not pure white), the four-engine × four-AT test matrix, and the cross-engine divergences that change implementation decisions.
 tags: [extension, accessibility, a11y, web, aria, wcag, forced-colors]
-timestamp: 2026-06-13
+timestamp: 2026-06-21
 ---
 
 # 28 — Web Accessibility Implementation
@@ -412,6 +412,16 @@ Per 14-accessibility, contrast is a property of *foreground × background pairs*
 - **The system enforces contrast at build time** via DTCG validation: pair tokens that produce sub-AA contrast fail the build. (See 22-token-architecture-extensions for the DTCG validation pattern; 24-tokens-at-scale for the multi-brand version.)
 - **Developers consume pair tokens.** A `Button` uses `text-on-brand-primary` for its label, not `text-primary`. The foreground / background relationship is explicit at the consumption site.
 - **Themes and densities multiply pairs.** Light × dark × high-contrast × density = N foreground tokens per logical text role. The validation matrix is correspondingly large; CI runs all combinations.
+
+### Validate against the surface floor, not the page extreme
+
+Pair tokens declare an *intended* background, but the background a colour gets tested against is almost always pure white in light mode (and pure black in dark) — and that is the most forgiving surface there is. **A saturated foreground that only just clears 4.5:1 on white fails the moment it sits on a surface a step off white** — a `neutral.50` card, a tinted panel, a raised sheet. The page background is rarely the only surface a button or status colour lands on, so validating only against the page extreme builds the system on its weakest guarantee.
+
+The discipline: **validate action, status, and secondary-text colours against the *surface floor* — the most-tinted, closest-to-mid surface the system actually uses — not pure white or black.** In light mode that is typically the first neutral step off white (`neutral.50`); in dark mode the first step off black (`neutral.950`). Because the floor is dimmer than the page, a colour that clears it also clears the page — the floor is the conservative case, and passing it buys contrast headroom across the whole elevation range. Primary text (the strongest neutral) and decorative borders can stay against the literal page surface; it is the saturated, contract-bearing foregrounds that break first.
+
+**The floor moves with the brand.** When the primary surface is not white — a warm off-white page, a branded tint — the floor is a step off *that* surface, not off an abstract white the product never renders. The robust encoding makes the page surface an explicit, confirmable input and *derives* the contrast floor from it, rather than hardcoding white. This is the symmetric partner to dark mode, which already tests against `neutral.950` rather than pure black for exactly this reason — light-mode tooling still anchored to pure white is the inconsistent, too-lenient case.
+
+In the pair-token model this is a property of the assumed background: the foreground token's `$description` names the *floor* surface it was validated against, and build-time validation (see 22-token-architecture-extensions) checks the ratio there. It adds no combinations to the matrix above — it tightens which surface each existing combination is checked on.
 
 ### Non-text contrast — SC 1.4.11
 

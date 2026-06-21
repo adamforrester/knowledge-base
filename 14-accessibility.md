@@ -3,7 +3,7 @@ type: practice-area
 title: Accessibility
 description: Accessibility encoded into the DS architecture. Pair tokens, ARIA encapsulation, focus management, the four-layer model, conformance under EAA / Section 508.
 tags: [extension, accessibility, a11y, wcag, eaa]
-timestamp: 2026-06-10
+timestamp: 2026-06-21
 ---
 
 # 14 — Accessibility in Design Systems
@@ -83,7 +83,7 @@ The naming makes the pair explicit (`on-X` reads as "intended to sit on X") and 
 
 What this prevents: the all-too-common scenario where a designer applies `gray/700` text to `gray/200` background, both of which pass contrast in some pairings, and produces a 3.8:1 result that fails AA for body text. With pair tokens, that combination is unavailable — the picker shows `text/on-surface-secondary`, which resolves to whatever satisfies the contract.
 
-This is particularly load-bearing for systems supporting **dark mode and multi-brand themes** — the pair tokens automatically adjust foreground based on background luminance per mode, ensuring every theme stays accessible without per-theme audit.
+This is particularly load-bearing for systems supporting **dark mode and multi-brand themes** — the pair tokens automatically adjust foreground based on background luminance per mode, ensuring every theme stays accessible without per-theme audit. One refinement matters here: the background a pair validates against should be the *surface floor* — the most-tinted surface the system actually uses, the first step off white — not pure white, which is the most forgiving case and breaks the instant a colour lands on a tinted card. (See 28-web-accessibility-implementation §7 for the surface-floor rule and why the floor must move with a non-white brand surface.)
 
 The **Adobe Spectrum convention** is the most-cited public example; Polaris (Shopify), Carbon (IBM), and most mature systems have converged on similar pair-based shapes. (See 02-design-foundations on the broader token architecture.)
 
