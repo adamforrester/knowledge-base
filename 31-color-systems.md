@@ -1,9 +1,9 @@
 ---
 type: practice-area
 title: Color Systems
-description: Three-tier color architecture, OKLCH-as-authoring + sRGB/P3 as render targets, the WCAG-2-as-floor / APCA-as-quality-bar discipline, the orthogonal-axes theming model with the dark-mode lift pattern and forced-colors transparent-border trick, contrast-anchored ramp generation, the brand-vs-UI carve-out, isolated data-vis namespaces, native platform translation as integration not mapping, and the five-field AI-readable color schema.
+description: Three-tier color architecture, the committed semantic vocabulary (background/foreground/action-states/border, not surface) decided against a seven-system field survey, OKLCH-as-authoring + sRGB/P3 as render targets, the WCAG-2-as-floor / APCA-as-quality-bar discipline, the orthogonal-axes theming model with the dark-mode lift pattern and forced-colors transparent-border trick, contrast-anchored ramp generation, the brand-vs-UI carve-out, isolated data-vis namespaces, native platform translation as integration not mapping, and the five-field AI-readable color schema.
 tags: [extension, color, tokens, oklch, p3, apca, theming, dtcg]
-timestamp: 2026-06-15
+timestamp: 2026-06-21
 ---
 
 # 31 — Color Systems
@@ -28,7 +28,7 @@ The same primitive / semantic / component spine that holds for typography and sp
 
 **Primitive tier.** The ramps themselves — hue scales (`blue/1..12`, `neutral/50..950`, etc.), alpha/transparency siblings, anchor colors (true black, true white, an explicit "natural" warm-neutral if the system has one). Primitives carry zero contextual meaning: `blue/9` is just blue at step 9, not "primary action." This is *the* tier where gamut, color space, and ramp math live.
 
-**Semantic tier.** Intent bound to primitives via aliasing — `color/text/primary`, `color/surface/raised`, `color/border/subtle`, `color/action/primary/rest`, `color/status/error`. The semantic tier is the *contract* layer; consumers reach for it, not for primitives. Mode resolution (light/dark/brand/density) happens at the semantic→primitive alias, never at the consumer site.
+**Semantic tier.** Intent bound to primitives via aliasing — `color/foreground/primary`, `color/background/raised`, `color/border/subtle`, `color/action/default`, `color/foreground/danger` (the committed vocabulary; see *The semantic role vocabulary* below). The semantic tier is the *contract* layer; consumers reach for it, not for primitives. Mode resolution (light/dark/brand/density) happens at the semantic→primitive alias, never at the consumer site.
 
 **Component tier.** Per-component overrides where divergence is genuine — a `Badge` whose background is heavier than the equivalent `Tag`'s, a focus ring tuned to a contrast-specific blue distinct from the action blue. **Component-tier color tokens should be the smallest of the three sets — typically <10 across an entire system, not per-component.** Both passes are emphatic on this; the external pass goes further and treats component-tier color tokens as a sign of architectural failure to be designed out wherever possible. The rule of three from component design applies: if three components diverge from the semantic, promote a new semantic; if only one does, ship a component-tier override.
 
@@ -47,6 +47,16 @@ Both passes converge on five distinct paradigms, each with a different cognitive
 | **Stripe semantic-only** | `surface`, `text-subtle`, `border-muted` | Primitives are private to the build; only semantics are published. | Resilient to theming and re-branding; demands strict governance to prevent designers from introducing one-off undocumented values. |
 
 **The convergent practitioner shape: numeric scale at primitives, role-aligned step grid behind it, semantic tier as the public surface.** Consumers see semantics. Behind the curtain, the primitive ramps use a numeric scale where step N has the same *contrast role* across every hue (the Radix discipline applied to the math). This buys role-step alignment without forcing the Radix vocabulary on the consumer surface, and lets the system choose the numeric grammar (`50..950`, `1..12`, `45/90`-OKLCH-coupled) based on engagement preference.
+
+### The semantic role vocabulary — background/foreground, not surface
+
+The grammar above governs primitives; the semantic tier needs its own committed vocabulary, and the field does not hand us a clean one. A seven-system survey (Material 3, Radix, Tailwind, GitHub Primer, Shopify Polaris, IBM Carbon, Adobe Spectrum) splits almost evenly on the container term: **`background`** (Primer's `bgColor`, Carbon, Spectrum, Tailwind/shadcn, and Radix's page layer) against **`surface`** (Material 3, Polaris, and Radix's component layer) — roughly five to three. There is no dominant convention to defer to, so the tie-breaker is internal: **our consuming brands name the page `background` and its contents `foreground`** (the New Balance shape), and a matched antonym pair reads more honestly than `surface` paired with nothing. We commit to it. *This supersedes the `surface/*` examples used illustratively elsewhere in this file (carried over from the source research pass); where this file describes an external system's roles — Material's `surface` tiers, the dark-mode lift — that system's own term stands.*
+
+**The container/content split carries the interactivity rule.** Backgrounds are inert — page, cards, overlays, wells, semantic tints. Foregrounds sit on top and *may* be interactive; a link is an interactive foreground. The one case the pair doesn't resolve by itself is the button fill, which is both an interactive element and a surface for its own label. Polaris answers it by separating an interactive **fill** role from the inert container, and we take the same move: interactive fills live under the `action` role, never under `background`, so "backgrounds aren't interactive" holds literally.
+
+**On the one point the field is unanimous, defer to it: the `on-*` pair token.** Every surveyed system ships a paired-contrast foreground — `on-primary` (M3), `fgColor-onEmphasis` (Primer), `text-*-on-bg-fill` (Polaris), `text-on-color` (Carbon), `*-foreground` (shadcn), `--accent-contrast` (Radix), `static-white/black` (Spectrum). The name varies; the mechanism is universal. We name ours `foreground/on-*` and treat it as non-negotiable — the forced-foreground luminance flip (§3) is how it stays compliant across a brand swap.
+
+**Interactivity is states on roles, not a dedicated namespace.** Six of the seven express interaction as state variants of an existing role — M3 state-layer opacities, Radix step numbers, Tailwind/Spectrum/Polaris/Primer `-hover`/`-pressed`/`-focus` (Spectrum's `-down`/`-key-focus`) suffixes. Only Carbon ships a standalone `interactive`/`button-*`/`link-*` tree, and New Balance made the same call — but it pays for it in token volume and in duplicating text/icon/border across both a content group and an interactive group. We take the majority shape: `action/{default,hover,pressed,focus,inactive}`, with `inactive` (contrast-preserved) as the default disabled treatment per §3. One caveat the gamut enforces: **text on a saturated fill targets AA, not the escalated high-contrast bar** — a vivid mid-tone is bounded, no pure black or white label reaches 7:1 on it, so HC escalation applies to text-on-neutral-surface, not text-on-vivid-fill. (See 28-web-accessibility-implementation §7 on the surface-floor rule that the same saturated foregrounds are validated against.)
 
 ### Token volume — measuring the same thing
 
