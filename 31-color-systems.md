@@ -3,7 +3,7 @@ type: practice-area
 title: Color Systems
 description: Three-tier color architecture, the committed semantic vocabulary (background/foreground/action-states/border, not surface) decided against a seven-system field survey, OKLCH-as-authoring + sRGB/P3 as render targets, the WCAG-2-as-floor / APCA-as-quality-bar discipline, the orthogonal-axes theming model with the dark-mode lift pattern and forced-colors transparent-border trick, contrast-anchored ramp generation, the brand-vs-UI carve-out, isolated data-vis namespaces, native platform translation as integration not mapping, and the five-field AI-readable color schema.
 tags: [extension, color, tokens, oklch, p3, apca, theming, dtcg]
-timestamp: 2026-06-21
+timestamp: 2026-06-28
 ---
 
 # 31 — Color Systems
@@ -306,6 +306,18 @@ Material 3's lift pattern: `surface-1` through `surface-5`, each at a progressiv
 **The shadow-fade-becomes-surface-lighten swap.** In light mode `shadow/large` is a soft drop shadow. In dark mode the equivalent token is *the same shadow plus a surface lift*, or — if the system commits — the shadow disappears entirely and the surface lift carries the elevation. Both patterns are in the field; M3 keeps a faint shadow plus surface lift; some systems (Vercel's, Stripe's) use surface-only.
 
 **The implication for tokens.** Composite shadow tokens have to be mode-aware (the dark-mode value may be null or different). Surface tokens have to be elevation-aware. Component authors ask not just "what's my surface" but "what's my surface at this elevation in this mode." Token volume in dark-mode-aware systems is meaningfully larger.
+
+### Shadow tokens — shape, colour, and the elevation lever
+
+The lift pattern settles the *dark-mode* half; the shadow ramp itself has its own settled shape, and a ten-system survey (M3, Carbon, Atlassian, Polaris, Primer, Fluent, Spectrum, Tailwind, Radix, Apple) converges more than the noise suggests.
+
+**Six steps, two layers.** The convergent step count is **six** (M3 levels 0–5, Radix 1–6, Fluent 2/4/8/16/28/64, Tailwind sm–2xl) plus a separate inset. Each step is best built from **two layers — a tight directional "key" shadow that defines the edge and a soft diffuse "ambient" shadow that implies distance** (Fluent names this explicitly; Tailwind's defaults and most brand systems ship it). One layer reads flat at high elevation; the 3–6-layer "smooth shadow" technique (Radix, Comeau's shadow-palette method) is higher fidelity but heavier than tokens that must round-trip to Figma usually want — reserve it for marketing-expressive work. Across every system the offsets behave the same: **`offsetX` is 0** (light directly above), `offsetY` and blur grow with elevation, and **spread goes negative and grows** to keep large shadows from ballooning.
+
+**Tint, don't reach for pure black.** The lazy default is `rgba(0,0,0,…)`; the better systems tint the shadow toward the surface or brand hue — Polaris ships `rgba(26,26,26)` not `#000`, Radix mixes a theme-hued `gray-a*`, Fluent offers brand-tinted shadow variants, and the field's generation advice (Comeau) is "match the hue, drop the lightness." A pure-black shadow over a tinted surface reads as a dead grey smudge; a near-black tinted toward the palette reads as light. **The practice default: a tinted near-black, with pure black as the explicit opt-out**, and the tint hue exposed as an expressive lever for brand-hued marketing shadows.
+
+**Two axes, one semantic token.** Elevation is *two* token families — a surface ladder and a shadow ladder — and the cleanest architecture (Atlassian's) keeps them explicit (`elevation.surface.*` and `elevation.shadow.*`) and **pairs them through a single semantic `elevation.N`** that resolves per mode: in light the shadow does the work, in dark the surface lift does (per the lift pattern above). Components reference the semantic level (`card`, `dropdown`, `dialog`), never the raw step — so the light/dark swap lives in the token layer, not in component logic. (This is the same primitive→semantic discipline §The semantic→primitive aliasing chain describes, applied across the surface/shadow boundary.)
+
+**The generation lever.** When a system generates its shadows rather than hand-drawing them, the one knob worth exposing is **softness — the blur-to-offset ratio** — which moves the whole ramp from crisp/product (Carbon, Fluent) to soft/marketing (Stripe, Comeau-style). Offsets grow geometrically with the step, blur is `offset × softness`, spread is negative and growing, opacity drifts up at the top, and the key/ambient pair is derived from the same step index. Softness plus the tint hue are the two dials that make one engine produce a Carbon-crisp neutral ramp or a soft brand-hued one. (Sourced from the shadow/elevation research run, `_research/_inbound/2026-06-28-shadow-elevation-tokens`.)
 
 ### The semantic→primitive aliasing chain — and where it breaks
 
