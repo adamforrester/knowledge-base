@@ -3,7 +3,7 @@ type: practice-area
 title: Typography Tokenisation
 description: Three-tier mandatory typography stack, brand voice as a system constraint, type pairing as a token-system decision, modular scales with the display pivot, function-named weight ladders (not appearance, not relative comparatives) as the white-label-safe naming, fluid type with clamp() + container queries + rem-floor accessibility rule, variable fonts as tokenisation, font loading and CWV-tuned font-display, metric-matched fallbacks, multi-script as DTCG modes.
 tags: [extension, typography, tokens, dtcg, fluid-type, variable-fonts, type-pairing, font-loading, brand-voice]
-timestamp: 2026-06-21
+timestamp: 2026-06-28
 ---
 
 # 23 — Typography Tokenisation
@@ -365,6 +365,18 @@ Fluid type is a marketing-tier default, not a universal default. Three contexts 
 - **Long-form reading.** Continuous prose benefits from stable line lengths and predictable rhythm; a font-size that shifts continuously across viewport changes interferes with the reader's eye. Articles, documentation, and book-tier reading should use static type scales.
 - **Locale-aware sizing.** Arabic, Thai, CJK, and Devanagari each have script-specific sizing requirements that a generic `vw` interpolation cannot encode. Fluid type with a single ratio produces wrong sizes in non-Latin scripts. See the multi-script section below.
 - **Accessibility-constrained contexts.** Users who have set a custom font size at the browser level expect that size to be honoured. Fluid type that relies too heavily on viewport units can defeat user preferences — see the accessibility rule below.
+
+### How much to shrink — the mobile↔desktop relationship
+
+`clamp()` answers *how* type interpolates; it doesn't answer *how far* — what the mobile floor should be relative to the desktop ceiling. **The instinct to apply one shrink factor across the scale is wrong, and it's the most common mistake we see.** A uniform factor (mobile = desktop × 0.8) keeps the ratio between steps constant and slides the whole scale down; no mature responsive system does this. The field shrinks **bigger sizes more** — body barely moves, the hero collapses. IBM Carbon's fluid set is the clearest published evidence: its small fluid heading runs ~83–88% of desktop on the narrow viewport, while `fluid-display-04` is **40→176px — the mobile size is 23% of desktop** (Carbon `_styles.scss` / `_scale.scss`, 2026). Utopia reaches the same shape by a different route: two scale ratios, calmer at the min viewport and punchier at the max, so the hierarchy *compresses* on mobile rather than scaling uniformly (Utopia, 2026).
+
+The rule that falls out, in three bands:
+
+- **Body and UI text stay constant.** ~16px web (17pt iOS) at every viewport. This is near-unanimous — Carbon holds productive type fixed, Polaris collapsed its mobile and desktop scales into one after finding the difference was "often a difference of 1px… users often didn't even realise a change happened" (Polaris v10, 2026), and Apple uses the same Dynamic Type sizes on iPhone and iPad (Apple HIG, 2026). Reading comfort tracks reading *distance*, not viewport width, and we sit about the same distance from a phone and a laptop.
+- **Headings shrink gently** — roughly one scale step on mobile, and never below ~20px or they stop reading as headings.
+- **Display shrinks hard and *progressively*** — the larger the desktop size, the more it gives up, converging to a **~40–48px mobile "hero band"** no matter how large the desktop hero is. The driver is line count: a 160px headline on a 360px phone fits ~3 characters per line and wraps a two-word headline to three lines; at ~48px it fits ~9–11 and reads as a headline. **A 160px desktop hero belongs at ~48px on mobile, not ~120px** — the single error a flat factor guarantees.
+
+**Floors that bound the mobile endpoint:** body ≥ ~16px (below it mobile Safari auto-zooms inputs), any heading ≥ ~20px, and the hard platform floor of 11pt on iOS (Apple HIG). Whatever the floor, the `clamp()` must still survive 200% resize — see the rule below. The practical encoding is a size-dependent curve, not a factor: body static, titles a single step down, display interpolated against the field's published fluid-display curve. (Sourced from the responsive-type research run, `_research/_inbound/2026-06-28-responsive-type-scaling`.)
 
 ### The accessibility rule for `clamp()`
 
