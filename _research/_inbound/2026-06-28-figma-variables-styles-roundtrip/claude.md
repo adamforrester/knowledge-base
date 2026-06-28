@@ -56,9 +56,11 @@ FONT_FAMILY, FONT_STYLE, FONT_WEIGHT, FONT_SIZE, LINE_HEIGHT,
 LETTER_SPACING, PARAGRAPH_SPACING, PARAGRAPH_INDENT
 ```
 
-(+ `FONT_VARIATIONS` in the OpenAPI spec — VERIFIED present there; the rendered
-Plugin API page omits it. Treat `FONT_VARIATIONS` as real but newer/under-
-documented.)
+(+ `FONT_VARIATIONS` appears in the OpenAPI spec and in Figma's own first-party
+export tooling, but it is **absent from the Plugin API `VariableScope` union and
+from `VariableBindableTextField`**, and is **not bindable** via
+`setBoundVariable`/`setVariableScopes`. It is undocumented — do not build against
+it; treat variable-font axes as non-bindable. See §3a.)
 
 **Validity by resolvedType** (VERIFIED, Plugin API `VariableScope`):
 
@@ -118,12 +120,13 @@ surface). Styles carry their own ids (`key`/`node_id`), separate from
 **What can bind to variables inside a style — current, and broader than the
 legacy model:**
 
-- **Text Styles.** `setBoundVariable(field, variable)` binds `fontFamily`,
-  `fontStyle` (STRING vars) and `fontWeight`, `lineHeight`, `letterSpacing`,
-  `paragraphSpacing`, `paragraphIndent` (FLOAT vars). `fontSize` is **omitted from
-  the doc's prose bullet list** but `FONT_SIZE` is a real scope and font-size
-  binding is shipped — treat the omission as a doc gap, not a capability gap.
-  (VERIFIED with that caveat — `TextStyle`, `working-with-variables`.)
+- **Text Styles.** `setBoundVariable(field, variable)` binds exactly **eight**
+  fields (`VariableBindableTextField`, verbatim from `plugin-api.d.ts`):
+  `fontFamily`, `fontStyle` (STRING) and `fontSize`, `fontWeight`, `lineHeight`,
+  `letterSpacing`, `paragraphSpacing`, `paragraphIndent` (FLOAT). The set of what
+  you *cannot* bind — and the unit traps on what you can — matter more than the
+  list; see **§3a** for the full nuance. (VERIFIED — `TextStyle`,
+  `VariableBindableTextField`, `plugin-typings`.)
 - **Effect Styles.** `VariableBindableShadowEffectField = 'radius' | 'color' |
   'spread' | 'offsetX' | 'offsetY'` — i.e. **the numerics bind too, not only
   colour**, via `setBoundVariableForEffect(effect, field, variable)`. Blur effects
@@ -153,6 +156,69 @@ tokens-round-trip mechanics are UNCONFIRMED and the API is explicitly beta.)
 **Practitioner takeaway:** motion tokens now have a *plausible* Figma home for the
 first time, but no stable composite-motion round-trip exists yet — do not assume a
 DTCG `transition` survives a code→Figma write. Re-verify before building on it.
+
+### 3a. Typography binding limitations — the nuances that bite
+
+The bindable text-style surface is exactly **eight fields**. What you *can't*
+bind, and the unit traps on what you can, shape the typography build more than the
+list itself:
+
+| field | bindable | unit when bound | nuance |
+|---|---|---|---|
+| `fontFamily` | ✓ STRING | — | name string (e.g. `Inter`) |
+| `fontStyle` | ✓ STRING | — | must be a valid style for the family |
+| `fontWeight` | ✓ FLOAT | — | snaps to nearest valid weight |
+| `fontSize` | ✓ FLOAT | px | (the `.d.ts` confirms it; an earlier doc prose list omitted it) |
+| **`lineHeight`** | ✓ FLOAT | **PIXELS only** | **no `%`, no `AUTO`/unitless** — a bound FLOAT is always px |
+| **`letterSpacing`** | ✓ FLOAT | **PIXELS only** | **no `%`** |
+| `paragraphSpacing` | ✓ FLOAT | px | **bindable** — but **not on substrings** (`TextSublayer`), whole node/style only |
+| `paragraphIndent` | ✓ FLOAT | px | same substring caveat |
+| **`textDecoration`** (underline/strike) | ✗ | — | not in the field list, no scope — **links must be separate Text Styles** |
+| **`textCase`** (UPPER/…) | ✗ | — | not bindable — all-caps is a separate style |
+| **`fontVariations`** (wght/wdth/opsz) | ✗ (public API) | — | `FONT_VARIATIONS` undocumented/unsupported; express via distinct styles |
+
+A note on `paragraphSpacing`: it **is** bindable (in `VariableBindableTextField`
+and a valid `PARAGRAPH_SPACING` FLOAT scope). The common belief that it "can't be
+bound" traces to two real things — the typography-scoping rollout (May 2024)
+before which the variable didn't *surface* in those pickers, and the documented
+"not valid for substrings" caveat (`setRangeBoundVariable` on a `TextSublayer`
+can't carry it). At the whole-style level it binds fine.
+
+Three consequences that shape the engine's typography axis:
+
+1. **Line-height can't be a unitless multiplier.** Figma reads a bound FLOAT
+   line-height as **pixels** — bind DTCG `1.5` and you get 1.5px, not 150%. The
+   engine must either compute `size × ratio → px` *per role and per mode* and bind
+   that, or leave line-height a literal `%` in the style and accept it won't scale.
+   Keep the canonical token unitless (DTCG-correct), materialise px for Figma —
+   the Tokens Studio / SD-Transforms discipline (author ratio → store px-for-Figma
+   → transform back to unitless for code). Same trap on percent letter-spacing.
+2. **`desktop`/`mobile` is a *modes* problem, with a sharp caveat.** One Text
+   Style can render two sizes by binding `fontSize` to a moded variable (resolved
+   from frame context); for line-height to scale with it, line-height must **also**
+   be a moded **px** variable (a literal `%` won't move). But Figma has confirmed
+   the **styles picker does not reflect modes for typography variables** (expected
+   behaviour, unfixed as of Aug 2025): the rendered text is correct, the panel
+   shows the default-mode value. Workaround: write per-mode values into the style
+   description. So map the NB desktop/mobile split to **modes on the size/
+   line-height variables**, not two parallel style sets — *unless* the viewports
+   diverge structurally (different roles), where separate styles stay honest.
+3. **Links and caps are a *style-count* axis, not a variable axis.** Because
+   decoration/case can't bind, every role needing an underlined or all-caps
+   variant becomes a **separate Text Style** (`body` + `body-link`), with
+   decoration baked as a literal — the engine emits the extra style and handles
+   `text-decoration: underline` at generation time; it cannot be a variable
+   toggle. (Hazard: applying underline ad-hoc over a bound style *breaks* the
+   linkage — it must live inside the style.) DTCG's composite `typography` can
+   carry a `textDecoration` field; Tokens Studio round-trips it as a **baked
+   property** of the applied style, never a variable.
+
+(VERIFIED against `plugin-typings/plugin-api.d.ts` and the Plugin API
+`VariableBindableTextField` / `LineHeight` / `LetterSpacing` / `VariableScope`
+pages; Figma Help/Forum for the unit limits and the picker-modes behaviour;
+Tokens Studio docs for the decoration/line-height round-trip. Percent line-height
+and font-variations have open Figma feature requests as of Jan 2026 — re-verify
+before shipping.)
 
 ---
 
@@ -301,8 +367,8 @@ Enterprise-gated):
 |---|---|
 | colour | `variable` (COLOR), 1:1 |
 | dimension / radius / spacing / size / border-width / opacity | `variable` (FLOAT), 1:1 |
-| typography | `style-part`: atomic STRING/FLOAT vars + a **Text Style** binding them |
-| shadow | `style-part`: atomic COLOR/FLOAT vars + an **Effect Style** binding them |
+| typography | `style-part`: atomic STRING/FLOAT vars + a **Text Style** binding them. Line-height materialised as **px per mode** (not unitless); underline/caps variants are **separate styles** (decoration/case can't bind); desktop/mobile via moded size+line-height vars |
+| shadow | `style-part`: atomic COLOR/FLOAT vars + an **Effect Style** binding them (colour *and* numerics bind) |
 | motion (duration/easing/spring/transition) | **experimental** — timing/easing variables exist (Config 2026); composite round-trip not yet stable → treat as `code-only` until proven |
 | strokeStyle (solid/dashed) | no variable/style home → `code-only` |
 | gradient | no single-variable home (paint-level) → Style/`code-only` |
