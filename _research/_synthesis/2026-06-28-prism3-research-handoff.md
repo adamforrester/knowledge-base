@@ -58,6 +58,13 @@
 - **Promote to:** likely a **new numbered file** (e.g. a layout-foundations topic in the 10+ extension range, or a section in `02-design-foundations` if you prefer to keep it in foundations). Core POV: 5–6 t-shirt min-width breakpoints; the 12-col grid is a *design artifact* not the load-bearing code contract (CSS Grid + container queries do real layout); gutter/margin **alias the spacing scale**; fluid-first + a `container.max` cap + a narrow reading container (collapse the fluid-vs-fixed duplication); breakpoints as Figma modes in a separate collection.
 - **If a new file:** add frontmatter + `index.md` hook + cross-refs from `23` (container queries vs breakpoints), `12-figma-practice` (breakpoints as modes), `13-internationalization-and-rtl` (which already mentions breakpoint/Direction modes).
 
+### 5. Gradient tokens — DTCG, the field, and Figma  ·  FILED, NO HOME (needs a section)
+- **Run:** `_inbound/2026-06-29-gradient-tokens/` (`prompt.md` + `claude.md`; filed 2026-06-29).
+- **Gap:** the vault has **no POV on tokenizing gradients**. `22-token-architecture-extensions` lists `gradient` in the DTCG `$type` allowlist but never says how to model one; the only other mentions are component-level (Carbon's AI-presence gradient in `table`/`text-field`, the skeleton shimmer).
+- **Core POV (decision-useful):** gradients are the **most-skipped token category** — most mature systems abstain (Material/Carbon/Atlassian/Primer/USWDS) or deprecated theirs (Polaris/SLDS); only Fluent ships a real composite. The DTCG `gradient` type is a **stops-only composite** (`{color, position}` array; stop colours can be references) that **omits kind/angle/interpolation** (their issue #101, still open). Where systems tokenize gradients well they **decompose and alias stops to the colour ramp** (Fluent/Carbon), not raw CSS strings (the deprecated trap). In Figma a gradient is a **Paint Style**, never a variable — only stop colours bind; Figma interpolates **sRGB only**, so an OKLCH gradient needs a pre-sampled sRGB approximation. Text-on-gradient must clear contrast at the **worst-case stop**.
+- **Promote to:** likely a section in **`12-figma-practice`** (the Variables-vs-Styles material from run #1 already lands there — gradients are the 4th Style class, a natural extension) and/or a short note in **`31-color-systems`** (gradients as colour-adjacent: stops alias the ramp, OKLCH interpolation, dark-mode via semantic-token stops). Cross-ref from `22-token-architecture-extensions` (the `gradient` `$type` it already lists; the materialization-directive pattern).
+- **Also flagged in prism3:** the engine shipped an opt-in gradient axis built on this run (`Prism3/docs/05-token-coverage-roadmap` → Gradients = Done).
+
 ---
 
 ## Lower-priority / optional gaps (encountered, not yet researched or filed)
@@ -80,5 +87,6 @@ These two are optional and prism3-flavoured; include only if they earn vault-tie
 | 2 | Responsive type sizing | ✅ | ✅ (`23`) | reconcile only |
 | 3 | Shadow / elevation | ✅ | ✅ (`31`) | reconcile only |
 | 4 | Layout / breakpoints / grid | ✅ | ✗ | **new file** (+ `index.md`, cross-refs) |
-| 5 | AI-metadata technique | ✗ | partial (`31 §9`) | optional note |
-| 6 | Materialization-directive principle | ✗ | ✗ | optional → `22` |
+| 5 | Gradient tokens (DTCG / field / Figma) | ✅ | ✗ | section → `12-figma-practice` (+ `31`, cross-refs) |
+| 6 | AI-metadata technique | ✗ | partial (`31 §9`) | optional note |
+| 7 | Materialization-directive principle | ✗ | ✗ | optional → `22` |
