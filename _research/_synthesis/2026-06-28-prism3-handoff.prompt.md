@@ -2,9 +2,17 @@
 
 ---
 
+**Before you start — check out the right branch.** All the source research lives on
+the branch **`claude/prism3-token-architecture-leipq2`**, not `main`. Run
+`git fetch origin && git checkout claude/prism3-token-architecture-leipq2` (or, if
+that branch has since been merged, confirm `main` contains
+`_research/_synthesis/2026-06-28-prism3-research-handoff.md`). If the handoff index
+and the four `_research/_inbound/2026-06-28-*/` folders are not present, stop — you
+are on the wrong branch; do not fabricate them.
+
 You are the maintainer agent for the **knowledge-base** vault — a design-systems
 consulting KB (an Obsidian vault of long-form markdown; the vault is the product).
-Before touching anything, read **`CLAUDE.md`** (house conventions: numbering,
+After checking out the branch above, read **`CLAUDE.md`** (house conventions: numbering,
 frontmatter/OKF, cross-reference style, file anatomy, voice) and
 **`_research/README.md`** (the dual-agent research workflow and the promotion
 discipline). Follow them exactly — this is editorial work, not code.
