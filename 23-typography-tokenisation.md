@@ -3,7 +3,7 @@ type: practice-area
 title: Typography Tokenisation
 description: Three-tier mandatory typography stack, brand voice as a system constraint, type pairing as a token-system decision, modular scales with the display pivot, function-named weight ladders (not appearance, not relative comparatives) as the white-label-safe naming, fluid type with clamp() + container queries + rem-floor accessibility rule, variable fonts as tokenisation, font loading and CWV-tuned font-display, metric-matched fallbacks, multi-script as DTCG modes.
 tags: [extension, typography, tokens, dtcg, fluid-type, variable-fonts, type-pairing, font-loading, brand-voice]
-timestamp: 2026-06-28
+timestamp: 2026-06-29
 ---
 
 # 23 — Typography Tokenisation
@@ -356,7 +356,7 @@ The unit for this is `cqi` (container query inline) — analogous to `vw` but me
 font-size: clamp(1rem, 0.875rem + 0.5cqi, 1.25rem);
 ```
 
-**The token system should ship two parallel fluid-type sets — viewport-relative and container-relative — and let component authors choose.** Page-level typography (hero headlines, section titles on marketing pages) usually wants viewport-relative; component-level typography (card titles, sidebar labels) usually wants container-relative. Shipping only viewport-relative locks consumers into the page-as-context model that the platform has moved past.
+**The token system should ship two parallel fluid-type sets — viewport-relative and container-relative — and let component authors choose.** Page-level typography (hero headlines, section titles on marketing pages) usually wants viewport-relative; component-level typography (card titles, sidebar labels) usually wants container-relative. Shipping only viewport-relative locks consumers into the page-as-context model that the platform has moved past. This is the typographic half of a larger division of labour: viewport breakpoints own the page shell, container queries own component responsiveness. The page-shell side — breakpoints, the column grid, gutter/margin — is its own foundation. (See 35-layout-grid-and-breakpoints.)
 
 ### When fluid type is the wrong answer
 
@@ -665,6 +665,8 @@ Line-height is the most poorly tokenised typography property in most systems we 
 **Line-height should always be expressed as a unit-less number** (`1.4`, `1.55`, `1.2`). A unit-less multiplier scales with the element's `font-size` automatically. A dimensional line-height (`24px`) does not — it stays fixed when the font-size changes, producing the "collapsing" and "exploding" text failures that are visible across the field.
 
 The CSS spec has always supported unit-less line-height; the field's slow adoption is a habits problem, not a platform problem. The practice's default should be unit-less in every case the system allows.
+
+**The one place this discipline hits a hard wall is Figma.** A Figma Text Style *can* bind line-height to a variable, but only as **pixels** — a bound value is always px, never a unit-less multiplier or a percentage (Figma Plugin API, 2026). Bind a canonical `1.5` and Figma renders 1.5px. The resolution is to keep the token unit-less (correct for code) and let the pipeline materialise a px value *per role and per mode* for Figma to bind — which also means the desktop/mobile size split must ride the size and line-height variables together, since a literal `%` won't move with the size. The same ceiling forces underlined and all-caps roles into *separate* Text Styles, because `textDecoration` and `textCase` aren't bindable at all. (See 12-figma-practice, *Variables vs. Styles, and the code → Figma round-trip*, for the eight bindable text fields and the full set of limits.)
 
 ### Body vs. display ratios
 

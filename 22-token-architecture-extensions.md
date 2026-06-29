@@ -3,7 +3,7 @@ type: practice-area
 title: Token Architecture Extensions
 description: Spec-and-architecture layer beneath 02. DTCG 2025.10 at practitioner depth, composite-token fidelity gap, computed/relational tokens, density as a theming dimension, web-vs-native asymmetry.
 tags: [extension, tokens, dtcg, theming, density]
-timestamp: 2026-05-16
+timestamp: 2026-06-29
 ---
 
 # 22 — Token Architecture Extensions
@@ -63,7 +63,7 @@ The fidelity gap shows up at three boundaries:
 2. **DTCG → native platform output.** Style Dictionary v4 handles the composite type but the output formats are not symmetric across platforms. CSS gets the composite as a utility class or set of custom properties; SwiftUI gets it as a `Font` extension with the line-height applied separately; Compose gets it as a `TextStyle`. Each platform's output is faithful in isolation; the conceptual unity of the composite is preserved at the source only.
 3. **Tool-to-tool round trip.** A composite shadow exported from Tokens Studio, imported into Figma, then re-exported back to Tokens Studio is unlikely to preserve every sub-property alias intact.
 
-**The practical implication.** Authoring composites is correct for designer ergonomics — a single named token captures a complete design decision. **Consuming composites is where the fidelity gap forces a compromise: flatten the composite at the build pipeline into the platform-specific atomic outputs each runtime expects, and treat the composite as an authoring-time convenience rather than a runtime contract.** This is not a defeat of the spec; it is how the spec was designed to be used. The DTCG composite is the source-of-truth representation; the build pipeline's job is to produce the per-platform output that runtime can actually consume.
+**The practical implication.** Authoring composites is correct for designer ergonomics — a single named token captures a complete design decision. **Consuming composites is where the fidelity gap forces a compromise: flatten the composite at the build pipeline into the platform-specific atomic outputs each runtime expects, and treat the composite as an authoring-time convenience rather than a runtime contract.** This is not a defeat of the spec; it is how the spec was designed to be used. The DTCG composite is the source-of-truth representation; the build pipeline's job is to produce the per-platform output that runtime can actually consume. The reverse leg — writing a composite *back into* Figma — is harder still: a composite typography or shadow token has no single-variable home there, so it must be rebuilt as a Style with its sub-properties bound to atomic variables, behind an Enterprise-or-plugin write gate. (See 12-figma-practice, *Variables vs. Styles, and the code → Figma round-trip*, for that mechanics.)
 
 ### Alias resolution semantics
 
@@ -217,6 +217,7 @@ The practice's defaults, after this synthesis:
 6. **Density is application-default, modality-as-signal, not runtime-contract.** Target-size tokens are a separate accessibility-floor concern.
 7. **Forward-compatible `$extensions` over proprietary spec deviations.** Use `$extensions` with a documented internal schema for modes, deprecations, and math. When the W3C Resolver Module stabilises, the migration path should be a key rename, not a structural rewrite.
 8. **Unitless primitives, units applied at the transform layer.** A primitive value of `16` becomes `16px` for iOS (in points), `1rem` for web, `16dp` for Android, `16` for Flutter logical pixels. The primitive layer of the source remains platform-agnostic.
+9. **The materialization directive — one canonical value, transform data in `$extensions`, intent in the prose.** A token's canonical value lives in `$value` and nowhere else. The per-exporter transform data a build step needs to *materialise* that value for a target — a line-height's `px-from-ratio` for Figma, a fluid token's `clamp()` min/preferred/max, a shadow's effect-style mode, the Figma `variableId` that keeps a write-back idempotent — lives in `$extensions`, keyed per exporter. The human- and AI-facing description sidecar (`$description`, `meaning`, `when_to_use`) carries *intent*, never a second copy of the value. The failure this prevents is the same value drifting across three places that each claim to be authoritative; the rule is that exactly one does. (The Figma round-trip in 12-figma-practice is the worked example — the unitless ratio in `$value`, the px-for-Figma in `$extensions`, the binding documented but never re-valued.)
 
 ---
 
