@@ -3,7 +3,7 @@ type: practice-area
 title: Internationalization and RTL
 description: i18n, l10n, and RTL as DS architecture. Logical properties, text expansion, multi-script typography, locale-aware tokens, RTL component mirroring.
 tags: [extension, i18n, l10n, rtl, multi-script]
-timestamp: 2026-05-16
+timestamp: 2026-06-29
 ---
 
 # 13 — Internationalization, Localization, and RTL
@@ -227,7 +227,7 @@ That distinction makes the boundary clear:
 
 The mechanism to encode locale-specific design values in a token system depends on the tooling:
 
-- **Figma Variables modes.** Define a Locale (or Direction) mode dimension and let semantic spacing/line-height variables resolve differently per mode. Frames inherit the mode from their context.
+- **Figma Variables modes.** Define a Locale (or Direction) mode dimension and let semantic spacing/line-height variables resolve differently per mode. Frames inherit the mode from their context. (The responsive axis works the same way — breakpoints as modes on a separate layout collection, composing with Direction rather than multiplying against it; see 35-layout-grid-and-breakpoints.)
 - **Style Dictionary themes / DTCG token sets.** Generate locale-specific stylesheets (`tokens.latin.css`, `tokens.arabic.css`) and switch them at runtime via attribute selectors (`html[lang="ar"]`). The build pipeline materializes the differences into discrete CSS variable values.
 - **CSS custom properties with `:lang()` selectors.** Define base tokens and override at the language level. `--line-height-body: 1.5` globally; `:lang(ar) { --line-height-body: 1.7 }` for Arabic.
 

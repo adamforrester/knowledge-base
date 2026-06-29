@@ -3,7 +3,7 @@ type: practice-area
 title: Figma Practice
 description: Figma at professional depth. Library architecture, component construction, Variables, Dev Mode/Code Connect/MCP, branching, performance, deprecation.
 tags: [extension, figma, code-connect, mcp]
-timestamp: 2026-05-16
+timestamp: 2026-06-29
 ---
 
 # 12 — Figma as the Design Systems Tool
@@ -165,7 +165,7 @@ The mature pattern is two or three tiers, kept in separate collections:
 
 ### Modes
 
-Modes let a single semantic variable resolve differently based on context. Canonical use cases: theme (Light/Dark), brand (Brand A / Brand B), density (Compact/Comfortable). Less canonical but increasingly common: locale, contrast (WCAG AAA mode), motion (reduced).
+Modes let a single semantic variable resolve differently based on context. Canonical use cases: theme (Light/Dark), brand (Brand A / Brand B), density (Compact/Comfortable). Less canonical but increasingly common: locale, contrast (WCAG AAA mode), motion (reduced), and **breakpoint** — a layout collection whose modes are the responsive floors (`sm … 2xl`), kept in its own collection so it composes with theme rather than multiplying against it (see 35-layout-grid-and-breakpoints).
 
 **Plan tier limits matter.** Free and Professional plans have a hard cap on modes per collection (smaller); Organization and Enterprise plans raise it. Specific cap numbers we've seen cited (e.g., 10 on Professional, 20 on Organization/Enterprise) should be treated as plan- and date-dependent and confirmed against current Figma docs before designing around a number. Figma has revised these caps multiple times since Variables launched in mid-2023.
 
@@ -242,7 +242,48 @@ Consumer applications
 - Variable descriptions don't always survive the DTCG round-trip cleanly — descriptions are first-class in DTCG but Figma's export is not always lossless.
 - Variable scoping doesn't translate to DTCG (it's a Figma-UI concern, no equivalent in tokens-as-data).
 - Mode collections export as separate token sets; the consumer pipeline must decide how to reconcile them (one CSS file per theme, runtime switching via attribute selectors, etc.). Figma can't make this decision for you.
-- **Bidirectional sync (code-to-Figma) remains weaker than Figma-to-code.** Most pipelines are one-way: Figma is the source of truth, code consumes.
+- **Bidirectional sync (code-to-Figma) remains weaker than Figma-to-code.** Most pipelines are one-way: Figma is the source of truth, code consumes. The reasons are structural — the variable-type ceiling, styles being a separate plugin-only object class, and the Enterprise gate on REST writes — and they get their own treatment below (see Variables vs. Styles, and the code → Figma round-trip).
+
+---
+
+## Variables vs. Styles, and the code → Figma round-trip
+
+Everything above treats Figma Variables as the token surface. They are not the whole surface, and the gap is the single biggest reason code-to-Figma is harder than Figma-to-code. A Figma variable resolves to exactly **four** scalar types — Boolean, Color, Float, String — and nothing else (Figma Plugin API `VariableResolvedDataType`, REST `resolvedType`, 2026). There is no composite, no dimension-with-unit, no gradient, no expression variable. A dimension is a unitless Float (the discipline already stated under Variables); a **typography or shadow token has no single-variable representation at all.** It can only exist in Figma as a **Style** — a different object class — whose sub-properties are individually bound to atomic variables. So the round-trip question is never "what do we call the token"; it is "this token class does not exist as a variable, and must be reconstructed as a Style plus bound atoms." That is the whole game, and it shapes how we build and how we write back.
+
+### Styles are a separate object class
+
+Figma has four style types — Paint, Text, Effect, Grid (`BaseStyle`; the REST resource calls Paint `FILL`) — stored and created separately from variables, carrying their own ids distinct from `VariableID:*`. **The Style is the composite; the variables are its atoms.** A Text Style binds eight fields to variables (`fontFamily`, `fontStyle` as String; `fontSize`, `fontWeight`, `lineHeight`, `letterSpacing`, `paragraphSpacing`, `paragraphIndent` as Float). An Effect Style binds a shadow's `color`, `radius`, `spread`, `offsetX`, and `offsetY` — **the numerics bind, not only the colour**, which corrects the widespread assumption that only a shadow's colour can be a variable (`VariableBindableEffectField`, 2026).
+
+This gives a clean three-tier **disposition** — every token category has exactly one honest Figma home:
+
+| Token category | Figma disposition |
+|---|---|
+| colour | **variable** (Color), 1:1 |
+| dimension / radius / spacing / size / border-width / opacity | **variable** (Float), 1:1 |
+| typography | **style-part** — atomic String/Float variables bound into a **Text Style** |
+| shadow | **style-part** — atomic Color/Float variables bound into an **Effect Style** (colour *and* numerics) |
+| motion (duration / easing / spring) | **experimental** — Figma Motion (Config 2026) introduced timing/easing variables, but no stable composite round-trip exists yet; treat as code-only until proven |
+| strokeStyle (solid / dashed), gradient | **code-only** — no variable or single-style home |
+
+The practical reading: colour and dimension round-trip losslessly; typography and shadow survive only if the writer also reconstructs the Style and the bindings; everything else is documentation in Figma and lives for real only in code.
+
+### The typography binding limits — the sharpest case
+
+Typography is where the variable-type ceiling bites hardest, and the limits are worth stating precisely because they change the build. **`lineHeight` and `letterSpacing` bind as pixels only** — no unitless multiplier, no percentage. Bind a DTCG line-height of `1.5` and Figma renders 1.5px, not 150%. The canonical token must stay unitless (DTCG-correct), and the pipeline materialises a px value *per role and per mode* for Figma to bind — the same author-ratio / store-px-for-Figma / transform-back-to-unitless discipline Tokens Studio and the SD-Transforms ecosystem already encode. And **`textDecoration` and `textCase` are not bindable at all**: underlined links and all-caps labels cannot be a variable toggle, so each becomes a **separate Text Style** with the decoration baked as a literal (applying underline ad-hoc over a bound style breaks the linkage). The desktop/mobile size split is therefore a *modes* problem on the size and line-height variables, not two parallel style trees — with the caveat that Figma's styles picker does not reflect modes for typography variables (the rendered text is correct; the panel shows the default-mode value). (See 23-typography-tokenisation for the line-height-as-multiplier discipline these limits collide with.)
+
+### The write gate — what code can actually push back
+
+Two hard constraints govern code → Figma, and together they explain why bidirectional sync stays weak:
+
+**The REST Variables API — read *and* write — is Enterprise-only.** Both `file_variables:read` and `file_variables:write` require a Full seat in an Enterprise org; there is no cheap-read / expensive-write split (Figma REST docs, 2026). This is the kind of plan gate Figma has loosened before, so treat it as date-sensitive and confirm against current docs before it becomes load-bearing in an architecture — but as of mid-2026 it is the binding constraint for headless pipelines.
+
+**Styles can only be *created* via the Plugin API.** REST exposes styles read-only — there is no POST/PUT for a Text or Effect Style. The Plugin API has `createTextStyle()`, `createEffectStyle()`, and the rest. The consequence is sharp and often missed: **any code → Figma pipeline that needs typography or shadow styles requires a plugin, regardless of plan — REST cannot do it even on Enterprise.** So the two write paths are not interchangeable. REST is headless and CI-friendly but Enterprise-gated and variables-only; the Plugin API runs on any plan and can create and bind styles, but it is interactive — a human or a manually-triggered run inside the open file, not a cron job. Enterprise teams with CI tend to write variables over REST and run a plugin for the styles; everyone else replays the whole generated payload — variables and the style manifest — through a single plugin and accepts the manual step.
+
+### Update-in-place, not delete-and-recreate
+
+Whichever path, the same rule decides whether a re-import is safe to run weekly or detonates the file. **Variables are referenced by stable `VariableID`; component bindings, style bindings, and alias chains all point at those ids. Delete-and-recreate mints new ids and breaks every binding and alias. Update-in-place preserves them.** Figma offers no upsert-by-name — it will not match an incoming token to an existing variable by name — so the writer must know each existing id. The discipline is to **persist a token→id map** (exactly what a `$extensions.figma.variableId` linkage on each token gives you): each run, a known id is an `UPDATE`, an unknown one is a `CREATE` (capturing the real id from the response's `tempIdToRealId` map), and a token absent from source is an optional `DELETE`. Name-match reconciliation — diffing against `GET …/variables/local` — works without stored state but is rename-fragile (a rename reads as delete-plus-create, and the bindings break), so we use it only to bootstrap or self-heal a missing map.
+
+A writer that wants to recreate the full token layer therefore emits **three** things, not one: the atomic variables for every composite leaf; the Style definitions (one Text Style per type role, one Effect Style per shadow, with literal fallbacks); and a **binding map** — which variable binds which style field — which a plain variables or DTCG export has nowhere to put. One last interop trap worth carrying: the RGBA object is universal across the ecosystem but its channel range is not — REST uses 0–1 floats, several community plugins use 0–255 — so check before ingesting anyone's exported JSON. (See 22-token-architecture-extensions for composite round-trip fidelity, and the Tokens Studio row above for why a plugin-based bridge can do what REST cannot.)
 
 ---
 

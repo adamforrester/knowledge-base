@@ -4,7 +4,7 @@ type: practice-area
 title: Design Systems Knowledge Base
 description: Adam Forrester's vault on design systems consulting at VML. Numbered files imply both reading order and DS engagement phase.
 tags: [index]
-timestamp: 2026-06-13
+timestamp: 2026-06-29
 ---
 
 # Design Systems Knowledge Base
@@ -60,6 +60,7 @@ A personal knowledge base on design systems consulting, maintained by Adam Forre
 * [Auditing Design Systems](/32-auditing-design-systems.md) - Auditing as a discipline at agency scale: the eight-lane methodology (token / component / accessibility / content / motion / code / governance / adoption), the productised audit engagement (3-day / 5-day / 10-day shapes with priced ranges), the reporting template with bell-shaped severity distribution and "62 shades of gray" buy-in, continuous audit and drift detection in CI, and the audit ↔ Six Signs ↔ maturity diagnostic Discovery triad as the practice's highest-leverage productised offering.
 * [White-Label Systems](/33-white-label-systems.md) - White-label DS as an engagement type: the two shapes (white-label-for-resellers vs. white-label-as-starter), the architecture decision tree for when the brand-generation engine pays back (5 primitives floor, ~5 resellers break-even, 5-question tree), the headless-vs-opinionated visual-vs-behaviour split, the commercial shape with **Pattern 6** added to 00d and the recurring brand-onboarding retainer ($5k / $12k / $25k+ tiers, three SLAs) as the answer to the run-phase pricing gap, and the Prism positioning closure (resolves 09 §3.2) — Prism2 as white-label-as-starter, the technology-team-adoption gap as the load-bearing constraint, the Prism2 → Prism3 investment shape.
 * [MCPs for DS Practice](/34-mcps-for-ds-practice.md) - The developer's-workstation MCP stack a senior DS practitioner should have configured by default (Figma Dev Mode + Console / Storybook / axe-core / Style Dictionary / firecrawl / one search MCP / per-engagement custom DS MCP), the two-layer architecture distinguishing workstation-as-standardisation-IP from custom-DS-MCP-server-as-productised-asset, the §1.27a truncation-fallback pattern, and the runbook the new senior practitioner follows on day one.
+* [Layout, Grid, and Breakpoints](/35-layout-grid-and-breakpoints.md) - The layout foundation the vault was missing: five t-shirt min-width breakpoints (mobile-first, brand authors the values, ranges derive), the 12-column grid as a design artifact rather than the load-bearing code contract (CSS Grid + container queries do the real work), gutters and margins as aliases of the spacing scale, fluid-first containers with a max cap and a narrow reading width (the fluid-vs-fixed duplication collapsed), breakpoints as Figma modes in a separate layout collection, and the two-knob generation lever (breakpoint floors + base column count) for the white-label engine.
 
 ## Component briefs
 
