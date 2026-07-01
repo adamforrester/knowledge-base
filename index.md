@@ -4,7 +4,7 @@ type: practice-area
 title: Design Systems Knowledge Base
 description: Adam Forrester's vault on design systems consulting at VML. Numbered files imply both reading order and DS engagement phase.
 tags: [index]
-timestamp: 2026-06-29
+timestamp: 2026-07-01
 ---
 
 # Design Systems Knowledge Base
@@ -24,7 +24,7 @@ A personal knowledge base on design systems consulting, maintained by Adam Forre
 * [Design Foundations](/02-design-foundations.md) - Tokens, theming, naming, the Figma → DTCG → Style Dictionary pipeline. The bedrock layer.
 * [Component Library](/03-component-library.md) - Component model: anatomy, properties, layout, composition primitives, components-as-data.
 * [Documentation](/04-documentation.md) - Docs strategy for two audiences (humans and machines). Storybook/MDX plus machine-readable metadata and registries from one source.
-* [Development Support](/05-development-support.md) - Dev pipeline, Storybook, headless vs. opinionated, CI quality gates, MCP/AI integration, adoption enablement.
+* [Development Support](/05-development-support.md) - Dev pipeline, Storybook, headless vs. opinionated, CI quality gates, MCP/AI integration, adoption enablement, owned-tooling architecture (the portable core / plugin-as-adapter).
 * [Pilot and Implementation](/06-pilot-and-implementation.md) - Running the pilot product team: validating the system in production, building the executive coalition for scale.
 * [Governance and Adoption](/07-governance-and-adoption.md) - Governance models, contribution flow, adoption mechanics. The phase that decides whether the system survives the engagement.
 * [Ongoing Maintenance](/08-ongoing-maintenance.md) - Post-launch operating model, retainer shapes, KPIs. The phase the practice sells the least.
@@ -40,7 +40,7 @@ A personal knowledge base on design systems consulting, maintained by Adam Forre
 * [Figma Practice](/12-figma-practice.md) - Figma at professional depth. Library architecture, component construction, Variables, Dev Mode/Code Connect/MCP, branching, performance, deprecation.
 * [Internationalization and RTL](/13-internationalization-and-rtl.md) - i18n, l10n, and RTL as DS architecture. Logical properties, text expansion, multi-script typography, locale-aware tokens, RTL component mirroring.
 * [Accessibility](/14-accessibility.md) - Accessibility encoded into the DS architecture. Pair tokens for contrast, ARIA encapsulation, focus management, the four-layer model, conformance under EAA / Section 508.
-* [AI in Design Systems](/15-ai-in-ds.md) - AI integration across the DS lifecycle. Components-as-data as architectural prerequisite. MCP server architecture, Figma MCP and Code Connect, three-level context maturity.
+* [AI in Design Systems](/15-ai-in-ds.md) - AI integration across the DS lifecycle. Components-as-data as architectural prerequisite. MCP server architecture, Figma MCP and Code Connect, three-level context maturity, the generative brand pipeline (design.md brief, extract→generate, the fidelity report).
 * [Mobile Accessibility Implementation](/16-mobile-accessibility-implementation.md) - Mobile accessibility implementation depth across Flutter, Jetpack Compose, SwiftUI/UIKit, and React Native.
 * [Accessibility Annotation Contract](/17-accessibility-annotation-contract.md) - What designers specify in Figma so engineers can implement accessibility faithfully. Per-concern annotation spec. Mobile-scoped today.
 * [Motion Foundations](/18-motion-foundations.md) - Motion as a first-class foundation primitive. Three-tier motion tokens, choreography vocabulary, reduce-motion as a system contract, performance budget.

@@ -3,7 +3,7 @@ type: practice-area
 title: Tokens at Scale
 description: Operational layer for enterprise multi-brand token systems. Multi-collection-not-multi-mode, Generative Token pattern, blast-radius-weighted RACI, the Cascade Report, semver-for-tokens, build-vs-buy.
 tags: [extension, tokens, scale, multi-brand, governance, semver]
-timestamp: 2026-05-16
+timestamp: 2026-07-01
 ---
 
 # 24 — Tokens at Scale
@@ -77,6 +77,8 @@ A related and more aggressive extension: deriving a brand's entire semantic laye
 Mature systems doing this (Adobe Spectrum's light/dark math, IBM Carbon's contrast-pinned palettes) report onboarding costs for an additional brand of roughly 10% of the first brand's cost.
 
 **Practice position:** the Generative Token pattern is the field's most-promising direction for multi-brand at scale, and the practice does not yet ship it as a default. The investment to build the computation set is meaningful but one-time per portfolio. **Treat as a known pattern that warrants investment in the next portfolio engagement** (also flagged in 09 as a gap between what the field has moved to and what our commercial proposals currently default to).
+
+This is the same computation, seen from the *pipeline* rather than the portfolio: a generative engine that takes a few brand anchors and produces the complete accessible system is the Generative Token pattern with a front door (a `design.md`-class brief) and a safety net (a fidelity report). The **extract→generate** split — why generation, not extraction, is where the accessibility value is created — is developed in 15-ai-in-ds §Extract vs. generate.
 
 ---
 

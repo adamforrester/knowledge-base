@@ -3,7 +3,7 @@ type: practice-area
 title: Typography Tokenisation
 description: Three-tier mandatory typography stack, brand voice as a system constraint, type pairing as a token-system decision, modular scales with the display pivot, function-named weight ladders (not appearance, not relative comparatives) as the white-label-safe naming, fluid type with clamp() + container queries + rem-floor accessibility rule, variable fonts as tokenisation, font loading and CWV-tuned font-display, metric-matched fallbacks, multi-script as DTCG modes.
 tags: [extension, typography, tokens, dtcg, fluid-type, variable-fonts, type-pairing, font-loading, brand-voice]
-timestamp: 2026-06-29
+timestamp: 2026-07-01
 ---
 
 # 23 — Typography Tokenisation
@@ -456,6 +456,8 @@ The 2026 delivery discipline:
 Figma's variable font support has matured through 2024–2025 and is robust by mid-2026 for design-tool use. The export-to-DTCG round trip remains imperfect: Figma exports specific weight instances (typically as static-font-equivalents) rather than the axis-and-value pair that would survive a round trip back into the variable font. The Tokens Studio plugin closes most of this gap; Penpot's native DTCG support handles it cleanly.
 
 The discipline: **author with the variable font in Figma; export named instances at the system's chosen axis values; the build pipeline maps the named instances to the variable font's axis values in the runtime CSS.** The token layer holds the named ladder (`weight/regular` → axis value `450`); the runtime CSS uses `font-variation-settings: 'wght' 450` to render.
+
+**Declare the weight-role → named-instance map once.** There is a materialisation trap hiding under that discipline: fonts disagree not only on which numeric a weight is, but on the *spelling* of its named instance — one family ships "Semi Bold", another "Semibold", a third "SemiBold". Figma binds a text style's `fontStyle` as an exact string that must match the family's own instance name, so a spelling hardcoded per component breaks the moment the family is swapped — the same swap the function-named ladder exists to survive. The fix mirrors the role-versus-value split above: **declare the weight-role → named-instance map once, in the brand brief** (the `design.md`-class front door — see 15), and *resolve* it against the font Figma has actually loaded at materialisation time, rather than baking a spelling into each style. The role (`weight/strong`) stays the stable contract; the concrete instance name ("Semi Bold") is a brand-and-font-variable value looked up once, exactly like the numeric axis value. (See 12-figma-practice for the Figma variable-and-style mechanics this resolves against.)
 
 ---
 
