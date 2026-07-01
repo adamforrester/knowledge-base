@@ -3,7 +3,7 @@ type: practice-area
 title: Gaps and Open Questions
 description: Practice gaps and unanswered questions across the corpus. Sourced inventory of what we don't yet have a POV on.
 tags: [gaps, open-questions]
-timestamp: 2026-06-16
+timestamp: 2026-07-01
 ---
 
 # 09 — Gaps & Open Questions
@@ -262,6 +262,15 @@ Inline cross-references added from 10's new sections to 03 / 04 / 13 / 17 / 24 /
 ### 1.33 SEO, GEO, and agent-discoverability for DS docs sites — field-level
 
 - See §5.21 below — promoted to the field-level gaps section because the gap is across the entire DS field, not specific to the practice's coverage shape.
+
+### 1.34 design.md interop and the generative brand pipeline — CLOSED
+
+- Surfaced from the Prism3 token-engine E2E build (intake brief in `_research/_inbound/2026-07-01-design-md-e2e-integration/`, July 2026): six POV gaps around a *design brief as a file* driving a *generative* token engine — a layer the vault had no committed position on (closest prior anchors were 15 §Brand-book to token architecture, 30 data-as-source, 04 voice-and-tone matrix as brief).
+- **Promoted:**
+  - `design.md` as brief-interchange (upstream of DTCG token-interchange), the extract→generate descriptive-vs-generative split, the accessibility-lives-in-generation POV, the fidelity-report regression artefact, and the one-generator / standalone-vs-pipeline principle → **15-ai-in-ds** (§The design brief as a file; §Extract vs. generate). Synthesised from a single-sourced Claude-side research run in `_research/_inbound/2026-07-01-generative-brand-pipeline/` (no external-agent pass — Path B, as the prism3 batch established).
+  - Owned-toolchain architecture — the portable core / plugin-as-materialization-adapter ("one brain, many surfaces") and naming-convention contracts as the cross-tool interoperability layer → **05-development-support** (§6 Owned tooling).
+  - Declare-once weight-role → named-instance mapping (the "Semi Bold" vs "Semibold" spelling trap, resolved against the loaded font at materialisation) → **23-typography-tokenisation** (§Variable fonts in Figma).
+- **Residual watch-item:** `design.md` is an *alpha* open standard (Apache-2.0, `google-labs-code/design.md`). The practice's position is adopt-internally-and-pilot now, but **re-verify its version and stability before naming it in a client proposal** as a procurement-grade standard the way DTCG 2025.10 is named (see 22). Track to stable.
 
 ---
 

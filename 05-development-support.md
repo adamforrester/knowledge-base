@@ -3,7 +3,7 @@ type: practice-area
 title: Development Support
 description: Dev pipeline, Storybook, headless vs. opinionated, CI quality gates, MCP/AI integration, adoption enablement.
 tags: [phase, engineering, ci, mcp, adoption]
-timestamp: 2026-05-05
+timestamp: 2026-07-01
 ---
 
 # 05 — Development Support
@@ -111,6 +111,16 @@ Per Curtis's *Operating Design Systems* workshop (Sep 2023) — Adoption Enablem
 - **Warranty period after launch** — rapid releases of fixes, priority enhancements, integration support.
 
 The point: development support is not an artifact, it's a practice. The engineering org's relationship to the system is shaped over months by the rituals of release, support, and communication — not by the quality of the npm package alone.
+
+### 6. Owned tooling — the portable core and plugin-as-adapter
+
+Advanced engagements increasingly ship not just a system but *tools that build the system* — a brand extractor, a generative token engine, a Figma plugin that materialises the output (see 15 for the generative brand pipeline these tools compose into). Once a practice owns more than one such tool, an architecture question decides whether the toolchain stays coherent or rots: **where does the logic live?**
+
+**The portable core, with thin adapters.** The durable pattern is a single framework-agnostic **engine core** — the brain: one testable implementation of the generation and materialisation logic — with each surface (a Figma plugin, a CLI, a web app) as a **thin adapter** over it. The adapter's only job is to translate the core's output into its surface's API; it does not re-derive the ramp or re-decide the semantic mapping. "**One brain, many surfaces.**" The inverse — logic re-implemented per surface — guarantees drift: two tools computing the same thing diverge, and the output depends on which one ran last.
+
+**Consolidation follows from this, not from "fewer is better."** A designer forced to open a theming plugin, then a text-style-binding plugin, then a style-guide generator, in sequence, pays a real friction-and-error tax — but the reason to consolidate them is not tidiness, it is that they *share a core computation*. When plugins share a brain, collapse them to one surface over that brain; when they are genuinely different jobs, keep them separate. And the **plugin-as-materialization-adapter** framing is the structural fix for a drift this vault already warns about (see 12): when a plugin merely materialises what the core computed, there is nothing for a designer to hand-reassemble and nothing to diverge from the tokens — the reassembly step that produces the drift simply does not exist.
+
+**Naming is the contract that lets the tools compose.** For an extractor, an engine, and the generated code to understand each other, they must share vocabularies — a **colour-role vocabulary** (`primary` / `secondary` / `tertiary` / `neutral-<step>` / `success` / `warning` / `error` / `info`) and a **single type-role vocabulary** (function-named, not appearance-named). This is not a style preference; it is the integration contract. If the extractor emits `brand-blue` and the engine expects `primary`, they cannot compose without a translation layer nobody maintains. Naming discipline, which the practice already treats as token architecture (see 02's token-architecture-and-naming section and 22), is also the seam that lets an *owned toolchain* interoperate at all — agreed once, read and written by every stage; drifted per-tool, it re-introduces the exact translation tax the pipeline was meant to remove.
 
 ## Our POV
 
