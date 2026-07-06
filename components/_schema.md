@@ -4,7 +4,7 @@ type: schema
 title: Component Brief §15 Schema
 description: The locked shape for the agent-consumable schema embedded as section 15 of every component brief. Formalised after the first six briefs (Button, Text Field, Textarea, Divider, Icon, Select) once the free-form shape had stabilised through real use. Keys and ordering are locked; values stay free-form prose. The practice's opinionated default `.ai.json` projection of a component brief.
 tags: [components, schema]
-timestamp: 2026-06-15
+timestamp: 2026-07-06
 ---
 
 # Component Brief §15 Schema
@@ -12,6 +12,8 @@ timestamp: 2026-06-15
 Every component brief ends with a §15 *agent-consumable schema* — a fenced YAML block that is the structured projection of the brief's prose (§§1–13). For the first six briefs that block was free-form, so the shape could stabilise through real use (the catalogue's stated plan; see `index.md`). It has now stabilised, and this file locks it.
 
 **What "locked" means here:** the **top-level keys, their ordering, and the ALWAYS/SCALES rule** are fixed; **values stay free-form prose**. The schema is not strictly typed — a key's value can be a string, a list, a map, or nested prose, whichever carries the meaning. The discipline is structural consistency, not a rigid type system. (This is the "keys locked, values prose" decision; a future tightening to typed values is possible but deliberately deferred until the catalogue is larger.)
+
+Because values are free-form, a **downstream implementation may reconcile a brief's recommended vocabulary without touching the locked keys** — the keys are the contract, the vocabulary is a value. This is the brief-upstream / engagement-data-downstream relationship (see 30) at the schema level: the brief records the field's terms; an implementation may settle on its own, and the reconciliation is recorded where it is authoritative — in the implementation. The worked example is Button: its `intent` / `appearance` vocabulary is reconciled by the Prism3 engine (`filled/outline/text` + `primary/neutral/destructive/accent`), noted in `button` §3 and specified in `Prism3/docs/20-interactive-color-system`. The `§15` keys are unchanged; only the values differ downstream.
 
 The §15 block stays **complete and self-contained in every brief** — this file defines the shared shape they all conform to; it does not replace the per-brief block. A reader (human or agent) gets the full schema from any single brief.
 
