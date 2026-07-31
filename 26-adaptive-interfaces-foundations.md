@@ -3,7 +3,7 @@ type: practice-area
 title: Adaptive Interfaces - Foundations
 description: Six lineages of adaptive UI, Sentient Design as adopted vocabulary, the Sentient Triangle, four-tier pattern catalogue, agent typology, personalization vs. adaptation, EU AI Act Article 5.
 tags: [extension, ai, adaptive-ui, sentient-design, governance]
-timestamp: 2026-06-10
+timestamp: 2026-07-31
 ---
 
 # 26 — Adaptive Interfaces (Foundations)
@@ -14,7 +14,7 @@ timestamp: 2026-06-10
 
 ## A note on currency before anything else
 
-This file dates fast in the same way 15-ai-in-ds does, and for the same reasons. Specific products (Vercel v0, Linear AI, Notion, Granola, Dia, Apple Intelligence), regulatory dates (EU AI Act Article 5 effective 2 February 2025; Article 50 fully applicable 2 August 2026; California SB 942 and AB 2013 operative January 2026; Colorado SB24-205 operative February 2026), and headline claims (Adobe's 2025 holiday-season AI-referred-traffic figure, the OpenAI–Promptfoo acquisition of March 2026) reflect platform and policy state at the time of synthesis. Where claims are platform- or policy-state-dependent, we date them and flag the verification path. **The architectural shape — the Sentient Triangle, the four postures, the personalization-vs-adaptation distinction, the deferential-design contract, the variant-logging-as-infrastructure stance — is more durable than any tool name attached to it.** Bet on the architecture, not the platform.
+This file dates fast in the same way 15-ai-in-ds does, and for the same reasons. Specific products (Vercel v0, Linear AI, Notion, Granola, Dia, Apple Intelligence), regulatory dates (EU AI Act Article 5 effective 2 February 2025; Article 50 in force 2 August 2026, with the Article 50(2) marking obligation running to 2 December 2026 for pre-existing systems; California SB 942 and AB 2013 operative January 2026; Colorado SB24-205 operative February 2026), and headline claims (Adobe's 2025 holiday-season AI-referred-traffic figure, the OpenAI–Promptfoo acquisition of March 2026) reflect platform and policy state at the time of synthesis. Where claims are platform- or policy-state-dependent, we date them and flag the verification path. **The architectural shape — the Sentient Triangle, the four postures, the personalization-vs-adaptation distinction, the deferential-design contract, the variant-logging-as-infrastructure stance — is more durable than any tool name attached to it.** Bet on the architecture, not the platform.
 
 ---
 
@@ -26,7 +26,7 @@ Three forcing functions converge in 2026 to push adaptive interfaces from resear
 
 **Commerce is shifting upstream.** Adobe's analysis of the 2025 holiday season reported retail traffic from generative-AI sources (ChatGPT, Claude, Perplexity, Gemini referrals) up roughly 693% year over year, with AI-referred shoppers converting about 31% higher than traffic from traditional channels (Adobe Analytics, January 2026; corroborated in Braze's 2026 Customer Engagement Review). The volume is small today; the trajectory is the point. Within 18 months, "is our product legible to the agent recommending it?" becomes a real question for every commerce client we have.
 
-**Regulation has crystallised.** EU AI Act Article 5(1)(a)–(b) — the manipulation prohibition — entered into force on 2 February 2025, with Recital 29 clarifying that effect, not intent, is the test (artificialintelligenceact.eu/article/5; eur-lex). Article 50's transparency obligations become fully applicable 2 August 2026. US state laws — Colorado SB24-205, California SB 942, California AB 2013, Utah's Artificial Intelligence Policy Act — accumulate operative dates through 2026. The "we'll figure out ethics later" posture has expired.
+**Regulation has crystallised.** EU AI Act Article 5(1)(a)–(b) — the manipulation prohibition — entered into force on 2 February 2025, with Recital 29 clarifying that effect, not intent, is the test (artificialintelligenceact.eu/article/5; eur-lex). Article 50's transparency obligations came into force 2 August 2026. US state laws — Colorado SB24-205, California SB 942, California AB 2013, Utah's Artificial Intelligence Policy Act — accumulate operative dates through 2026. The "we'll figure out ethics later" posture has expired.
 
 This is the field as we actually find it in May 2026. The reader is assumed to know what an LLM is, what a design system is, and what RAG and personalization platforms do. We are not introducing those concepts; we are mapping the terrain that sits on top of them.
 
@@ -299,7 +299,7 @@ EU AI Act Article 5(1)(a)–(b) entered into force on 2 February 2025 (artificia
 
 Recital 29 contains the load-bearing line for adaptive UI specifically: subliminal stimuli include cases where users "are aware of them, [but] can still be deceived or are not able to control or resist them" — and *intent is not required, effect is sufficient*. **Adaptive UI that materially distorts behaviour and causes significant harm is illegal in the EU regardless of whether the design team intended manipulation.** The first hard-law instrument that names adaptive AI manipulation as such has already taken effect.
 
-Article 50 — the transparency obligations covering chatbot disclosure, synthetic content marking, and public-interest text disclosure — is fully applicable from 2 August 2026. (See 25-ai-aware-patterns-and-conversational-ui §7 for the chatbot-side breakdown; 27-adaptive-interfaces-implementation §4.3 for the open interpretive question of whether content-marking obligations attach to AI-generated *interfaces*, not just generated media.)
+Article 50 — the transparency obligations covering chatbot disclosure, synthetic content marking, and public-interest text disclosure — **is in force as of 2 August 2026** (verified 2026-07-31). The Digital Omnibus left it on schedule but for one carve-out: the Article 50(2) machine-readable *marking* obligation runs to **2 December 2026 for AI systems placed on the market before 2 August 2026**, and applies immediately to anything shipped after. So both prohibitions that bound adaptive UI — Article 5 on manipulation and Article 50 on transparency — are now live law rather than forthcoming. (See 25-ai-aware-patterns-and-conversational-ui §Disclosure regimes for the chatbot-side breakdown and the C2PA provenance question; 27-adaptive-interfaces-implementation §4.3 for the open interpretive question of whether content-marking obligations attach to AI-generated *interfaces*, not just generated media.)
 
 ### 7.2 US state-level disclosure regimes
 
