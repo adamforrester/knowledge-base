@@ -35,6 +35,19 @@ Three top-level navigation aids:
 
 Frontmatter is scoped to numbered files (and the root `index.md`). Underscore-prefixed directories — `_research/`, `_notes/`, `_source-text/` — stay frontmatter-free as editorial scratch. Revisit `_source-text/` only when the planned MCP server is real and the source corpus needs to be agent-discoverable.
 
+## Issues vs. `09-gaps` — where work is tracked
+
+The repo uses **GitHub Issues as the work queue**. They are not a second gaps register, and the distinction is load-bearing:
+
+- **An issue is a unit of work.** "Someone should do X." It closes and disappears. It lives outside the vault, is visible regardless of which branch work is on, and can be referenced cross-repo (the Prism3 engine repo files intake here by issue, not by committing a brief to a branch and hoping the next agent finds it).
+- **`09-gaps-and-open-questions.md` is an epistemic register.** "The practice has no POV on X." Entries persist after closing, marked CLOSED with the promotion record, because the record of what we didn't know — and how it got answered — is itself part of the corpus. It is a numbered file, readable in Obsidian, and served by the eventual MCP server. Issues are none of those things.
+
+**The routing rule.** If it's *what we don't yet have a position on* → `09`. If it's *a unit of work someone needs to pick up* → an issue. An intake from outside the vault usually creates **both**: an issue (do this) that results in a `09` entry (here's the gap, here's how it closed). Closing a promotion issue should leave a `09` entry behind; opening a `09` gap doesn't require an issue unless someone is meant to act on it now.
+
+**Labels** — a deliberately small vocabulary: `intake` (a gap surfaced outside the vault), `promotion` (research ready to land in a numbered file), `watch-item` (a dated claim to re-verify on a trigger), `maintenance` (stale cross-refs, index drift, citation checks). Add `from:prism3` (or another source tag) for provenance when the item came from a sibling repo. Templates live in `.github/ISSUE_TEMPLATE/`; blank issues are enabled on purpose for one-line maintenance notes.
+
+**What stays a file, not an issue.** Research runs. `_research/_inbound/` is the audit record and belongs in-repo — an issue may *point at* a run, but the run is never an issue. Same for synthesis drafts and the numbered files themselves.
+
 ## Cross-reference style
 
 References to other files are written inline as prose, e.g. `(See 01-discovery-and-strategy.)` — not as Obsidian `[[wikilinks]]` and not as relative markdown links. Match this style. When a new file is added, search for topics it now covers and add inline references from the relevant earlier files rather than retrofitting links into every file.

@@ -1,0 +1,12 @@
+# Blank issues stay enabled on purpose: `maintenance` items (a stale
+# cross-reference, index drift, a citation to re-check) are usually a
+# sentence, and a template would be friction. The three templates exist
+# for the shapes that benefit from structure.
+blank_issues_enabled: true
+contact_links:
+  - name: Vault conventions (read before editing)
+    url: https://github.com/adamforrester/knowledge-base/blob/main/CLAUDE.md
+    about: House conventions — numbering, frontmatter, cross-reference style, voice, and the issues-vs-09 routing rule.
+  - name: Research workflow
+    url: https://github.com/adamforrester/knowledge-base/blob/main/_research/README.md
+    about: The dual-agent run convention and the promotion discipline.

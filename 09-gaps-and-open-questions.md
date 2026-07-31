@@ -10,6 +10,8 @@ timestamp: 2026-07-01
 
 > Where the practice's collective material — internal and external — is thin, dated, contested, or silent. Organized in four categories per brief, plus a fifth pass against the broader field for what's missing across all sources.
 
+**This file is the register, not the work queue.** It records what the practice does not yet have a position on, and keeps the record after a gap closes — entries stay, marked CLOSED, with the promotion trail. The *queue* — what someone is meant to pick up next, including intake from sibling repos and dated claims due for re-verification — lives in GitHub Issues. Closing a promotion issue should leave an entry here; not every entry here needs an open issue. See `CLAUDE.md` for the routing rule.
+
 ---
 
 ## 1. Known depth gaps

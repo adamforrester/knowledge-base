@@ -75,6 +75,8 @@ When a synthesis is ready to land in the vault:
 
 The `_inbound/` folder for that topic stays put as the audit record of where the synthesis came from, regardless of which path was used.
 
+**Track the promotion as a GitHub Issue.** A run that lands in `_inbound/` and never gets promoted is invisible — it isn't authoritative, so it isn't in the vault, and nobody reading the numbered files will notice it's missing. That has already happened once (the gradient-tokens run sat unpromoted for a month because it was filed just after its batch was promoted). So: when a run is filed and ready to land, open a `promotion` issue pointing at it (template in `.github/ISSUE_TEMPLATE/`). The issue closes when the content lands in a numbered file. Research itself stays a file — the issue is a pointer to work, never a substitute for the run. See `CLAUDE.md` for the issues-vs-`09` split.
+
 ---
 
 ## What this directory is *not*
