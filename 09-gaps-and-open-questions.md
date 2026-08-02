@@ -3,7 +3,7 @@ type: practice-area
 title: Gaps and Open Questions
 description: Practice gaps and unanswered questions across the corpus. Sourced inventory of what we don't yet have a POV on.
 tags: [gaps, open-questions]
-timestamp: 2026-07-01
+timestamp: 2026-08-02
 ---
 
 # 09 — Gaps & Open Questions
@@ -274,6 +274,14 @@ Inline cross-references added from 10's new sections to 03 / 04 / 13 / 17 / 24 /
   - Declare-once weight-role → named-instance mapping (the "Semi Bold" vs "Semibold" spelling trap, resolved against the loaded font at materialisation) → **23-typography-tokenisation** (§Variable fonts in Figma).
 - **Build-validated (2026-07-01):** the extract-vs-generate split, the fidelity-report regression artefact, and the namespaced-extension (`x-prism3`) discipline were run end-to-end through the Prism3 engine on a real extracted brief — pinned anchor at ΔE00 0.00, generated ramp diverging at ~2.0 aggregate (surfaced, not hidden), the extension round-tripping, and a stale contrast in the brief's own prose caught only by the generator's per-contract measurement. Evidence in `_research/_inbound/2026-07-01-generative-brand-pipeline/build-validation.md`; the POV in 15 is updated accordingly.
 - **Residual watch-item:** `design.md` is an *alpha* open standard (Apache-2.0, `google-labs-code/design.md`). The practice's position is adopt-internally-and-pilot now, but **re-verify its version and stability before naming it in a client proposal** as a procurement-grade standard the way DTCG 2025.10 is named (see 22). Track to stable.
+
+### 1.35 Schema governance — no ADR equivalent for `.ai.json`'s own schema
+
+- Surfaced while logging Curtis's *Component Contracts and Schemas* (Jul 2026) into 03-component-library, where it is named as a gap in the commercial Component standard. Registered here because it is a genuine no-POV-yet item, not just a deliverables gap.
+- **The gap.** The practice versions what a component *is* — `.ai.json` ships per component, engagement docs record what shipped — but nothing versions **the schema itself** as it changes. When the contract's shape evolves (a field added, a type narrowed, a property renamed), there is no record of *why*, and consumers have no opt-in signal. Engagement documentation tracks the instances; nobody tracks the model.
+- **The named pattern to evaluate.** Curtis's **Architectural Decision Records** — numbered, one per schema-shaping decision, each driving a version bump consumers opt into. The obvious pilot is `.ai.json`'s own schema, before it accumulates undocumented drift; the practice's catalogue is now large enough (45 component briefs, a locked §15 shape in `components/_schema.md`) that the drift risk is real rather than theoretical.
+- **Why it matters commercially.** Curtis's framing is the sellable part: *"A rotted contract is worse than no contract at all, because people trust contracts."* A schema we ship to clients and to agents, with no governance mechanism behind it, is exactly that risk. Related to §1.12 (AI-readiness as commercial default) and §1.7 (code-side delivery), but distinct from both — this is about governing the *format*, not shipping it.
+- **Status:** open. Tracked as a work item in the issue queue.
 
 ---
 

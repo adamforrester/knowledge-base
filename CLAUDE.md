@@ -46,7 +46,11 @@ The repo uses **GitHub Issues as the work queue**. They are not a second gaps re
 
 **Labels** — a deliberately small vocabulary: `intake` (a gap surfaced outside the vault), `promotion` (research ready to land in a numbered file), `watch-item` (a dated claim to re-verify on a trigger), `maintenance` (stale cross-refs, index drift, citation checks). Add `from:prism3` (or another source tag) for provenance when the item came from a sibling repo. Templates live in `.github/ISSUE_TEMPLATE/`; blank issues are enabled on purpose for one-line maintenance notes.
 
-**What stays a file, not an issue.** Research runs. `_research/_inbound/` is the audit record and belongs in-repo — an issue may *point at* a run, but the run is never an issue. Same for synthesis drafts and the numbered files themselves.
+**What stays a file, not an issue.** Research runs. `_research/_inbound/` is the audit record and belongs in-repo — an issue may *point at* a run, but the run is never an issue. Same for `_source-text/` captures, synthesis drafts, and the numbered files themselves. Doing the work and committing it is correct; the issue queue is for work that still needs picking up, not a substitute for work already done.
+
+**File what you defer.** The common miss is not pushing work that should have been an issue — it's *finishing* work and leaving its loose threads untracked. If an edit says a topic "belongs in 29/30," or "is worth piloting," or "needs verifying before we quote it," that sentence is a unit of work: **open an issue for it before you close the session.** A deferral recorded only in prose is invisible to whoever picks the file up next. Same rule for a new gap discovered along the way — it goes in `09` *and*, if someone should act on it now, an issue.
+
+**Push to a branch, then open a PR.** Work lands on a branch, not directly on `main`. Open the PR when you push — a branch with no PR is invisible to everyone but the person who happens to run `git branch -r`, which is the same visibility failure the issue queue exists to fix. The PR body is where the review record lives: what changed, what you decided, and what you deliberately left.
 
 ## Cross-reference style
 
