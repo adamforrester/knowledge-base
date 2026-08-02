@@ -1,0 +1,102 @@
+Design System Doc Spec (DSDS)
+PJ Onori (maintainer); contributors Afyia Smith (governance/docOrigin schemas), Suleiman Ali Shakir (documentation editing)
+Site: https://designsystemdocspec.org/ | Repo: https://github.com/somerandomdude/design-system-documentation-schema
+Version at capture: 0.15.2 | Status: draft, not endorsed by a standards body | Captured: 2026-08-02
+
+NOTE ON THIS FILE: unlike the other _source-text files, this is not a full raw
+page dump — the source is a live, versioned spec site plus a repo README, not a
+single essay. This is a synthesized capture from two fetches (the site's landing
+page and the repo README), assembled for citation purposes. Re-fetch at the URLs
+above for anything beyond what's captured here; treat this as a substantive
+summary, not a verbatim transcript, and flag it as such if quoting from it.
+
+WHAT IT IS
+
+A machine-readable standard providing a unified format for documenting design
+systems — "a single source of truth to serve humans, parsers, and AI agents
+simultaneously."
+
+PROBLEM IT SOLVES (three stated challenges)
+
+1. Portability — "Information is more valuable when it's portable. Tools change.
+   Needs change. Budgets change."
+2. Unified documentation — "Documentation shouldn't have to pick a side. Humans,
+   parsers, and agents all need the same docs."
+3. Scalability — "A format that grows with you. Getting started should be easy.
+   A docs standard should also grow as your system's needs grow."
+
+Positioning, verbatim: "DSDS has strong opinions, but it doesn't force them on
+you."
+
+SCHEMA SHAPE
+
+JSON Schema (Draft 2020-12), organized across ~52 split schema files bundled
+into one (`dsds.bundled.schema.json`).
+
+Eight core entity types (`spec/schema/entities/`): components, tokens, token
+groups, themes, foundations, patterns, guides, chunks (chunks = "pre-composed
+code blocks from components"). Each entity carries a `kind` tag.
+
+Metadata fields (`spec/schema/metadata/`): status (statusValue, platformStatus),
+governance (owner, lastReviewed), category, tags, aliases, doc-origin.
+
+Document blocks (`spec/schema/document-blocks/`) — reusable content containers,
+17 standardized kinds, typed per entity (a component only accepts
+component-scoped + general block kinds): guidelines, use-cases, anatomy, api,
+states, variants, motion, accessibility, content, design-specifications, and
+others.
+
+VERSIONING AND TOOLING
+
+Single source of truth for the version number:
+`spec/schema/dsds.schema.json#/properties/dsdsVersion/const`. Each version
+publishes to its own URL path (`https://designsystemdocspec.org/v0.15.2/...`).
+Release strategy: patch = new optional fields; minor/major = breaking
+(renamed/removed fields); no bump for docs-only edits. `scripts/bump-version.js`
+updates all 52 schema files + examples + docs at once for a release.
+
+Validation: `npm run validate` (AJV against the bundled schema); CLI form
+`npx ajv validate --spec=draft2020 -c ajv-formats -s spec/schema/dsds.bundled.schema.json -d my-system.dsds.json`.
+Editorial lint (warnings only, not hard validation): `npm run lint:docs` — flags
+quality gaps like "guidelines without rationale."
+
+Generation: `scripts/bundle.js` (splits → one bundled schema), `scripts/build-site.js`
+(auto-renders property tables from the schema JSON onto the spec site itself —
+the site is generated from the schema, not hand-written), `scripts/build-samples.js`
+(interactive JSON/rendered side-by-side viewer), `scripts/visualize.js` (schema
+architecture diagram, SVG + Mermaid). Migration scripts per version bump
+(`migrate-to-0.7.js`, `migrate-to-0.8.js`, ...).
+
+Editor support: reference the bundled schema URL via `$schema` for IDE
+autocompletion.
+
+RELATIONSHIP TO OTHER EFFORTS (stated explicitly by the project)
+
+vs. W3C DTCG: "The W3C Design Tokens Community Group defines a format for
+trading token VALUES between tools. DSDS defines a format for the DOCUMENTATION
+around them." The two are "built to work together" — DSDS links to DTCG token
+definitions via a `source` property rather than duplicating values.
+
+vs. Adobe Spectrum Design Data: "DSDS's conformance and rules design follows the
+trail blazed by the Adobe Spectrum Design Data specification." Adopts Spectrum's
+layered model — structural rules enforced in the schema itself, quality rules in
+a separate catalog with stable IDs (`rules/rules.yaml`) and testable criteria.
+
+Unique positioning, verbatim: "Design system documentation is trapped in tools.
+It lives in Notion, Storybook, Zeroheight, Confluence, or custom-built sites...
+DSDS addresses these problems by defining a standard format that is structured,
+machine-readable, portable, and extensible."
+
+WHY THIS MATTERS FOR THE PRACTICE'S EXISTING WORK
+
+DSDS scopes itself as a documentation format, explicitly distinct from a
+component-build/contract format (Curtis's Specs schema, or the practice's
+`.ai.json`) — it documents ABOUT components/tokens/patterns rather than
+defining how to build them. That maps closely onto what 29
+(per-component-documentation-template) and 30 (generated-from-data-documentation)
+already describe as practice, more than it competes with the components-as-data
+lineage (see ext-curtis-contracts-and-schemas.txt, notes-curtis-trio.md). Its
+governance/versioning discipline (semver on the schema itself, AJV validation,
+scripted migrations between versions) is a concrete worked example of exactly
+the "evolvable contract" principle Curtis argues for in the same essay that
+named this project.

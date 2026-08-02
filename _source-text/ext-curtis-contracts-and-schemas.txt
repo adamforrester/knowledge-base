@@ -1,0 +1,154 @@
+Component Contracts and Schemas
+Establish principles to shape, decide and communicate design intent
+Nathan Curtis
+Jul 28, 2026
+
+Models to define components as data are spawning across our industry. Markdown formats are proliferating. Schema models like my Specs plugin and command's schema and PJ Onori's Design System Doc spec are emerging. TJ Pitre, Christine Vallaure, and Christian Morales Achiardi are diving into contracts. Perspectives abound, solving distinct and sometimes overlapping problems in similar ways.
+
+These artifacts record UI component decisions that humans and machines read to build a component. Builders interrogate a detail and decide "What should this implementation do about it?" System designers change specs and communicate to builders to revise what's made. In my role as a system architect, I'm responsible for "shaping specs," evolving the model of how specs express design intent.
+
+A library of 25 components used to change once or twice a year. Now systems span hundreds of components across libraries and platforms. Any given change lands on a spec's shape, content, tooling or the many implementations that depend on it — sometimes all at once. The impact is wide, and widens daily. I've spent the past 18 months building schema and tools that describe component design as contracts, largely because we couldn't handle change any other way.
+
+This post describes conveying the design intent of a UI component as a contract and how that contract can be modeled as a schema. It then follows with facets of good contracts – well-typed, normalized, independent, verifiable, deterministic, efficient and evolvable – I've embraced as principles to guide work.
+
+The Contract
+
+A UI component contract is an artifact that centralizes design intent in one place so that it can be implemented, verified and evolved across implementations. For example, an intent for button size resolves into a contract of "The `button` can be one of three `size`s (`medium` by default, or `small` or `large`), with `styles` varying as…".
+
+Teams are leveraging AI to increase the formality with which they store, change, and communicate component specs as contracts. A published component spec serving as a contract declares intent formally in a way implementers can rely on. Literally, as data to consume, build upon, and verify against. There's often a `specifications` repository with component contracts, published with the changelogs and release notes to derive and build what's changed.
+
+A description informs. A contract arbitrates.
+
+As a contract, a component spec isn't just about recording truth. Instead, a contract arbitrates interpreting truth across each implementing party. In a multi-platform design system, React, iOS, Android, Web Components and – yes – even Figma are all parties to that contract. As a multi-party agreement, no platform owns it and each platform is meant to sign and abide by it through its implementation.
+
+Without a contract and infrastructure around it, the system's promise of consistency, quality and pace rests on human vigilance. Humans on teams I work with have no time for that anymore, as expectations have changed.
+
+So, contracts have replaced meetings with automated and verifiable communication and checks. Before, delivering a component would require a handoff meeting per platform team. Now we're mass-delivering an entire library's spec from Figma with a single, repeatable command. Designers simply mark a component READY_FOR_DEV, conduct an agentic pass to compose the behaviors and accessibility Figma can't, and field occasional Slack threads to clarify requirements as needed.
+
+The Schema, Shaping the Contract
+
+Less formal component specs may represent decisions in a file with templated sections, such as a markdown file with tables for Layout, Props and Anatomy. Markdown components specs have spread for a reason: anyone can author it, PR tools can review it, agents can read and write it, and no tooling is needed to adopt it. Yet, markdown is loosely structured and not structurally validated, leaving it weak to arbitration and verification. Contracts should be formal and strict, and developing a schema for a contract is a way to do so.
+
+A schema is the model a contract is written in. It defines what and how to define a component while deliberately saying nothing about any component in particular. The schema is the structure: a model of types, hierarchies, and relationships that express the system's elements and relationships explicitly.
+
+A schema models what a contract can say.
+
+A spec based on that schema is what a contract does say.
+
+I've spent the last 18 months modeling a component contract into Specs schema. In the button example above, the schema models decisions in a grammar. A `Component` has `Props`, including an `EnumProp` with a name (like `size`) and `enum` options, each a string (like `large` and `small`), one of which is the `default` (like `medium`). A UI component schema is a meta system one level deeper: an abstraction of component decisions shaped into a model.
+
+The spec's content (there's a `Button` with a `size` prop) is versioned, and the schema model (a `Component` has `Props` such as an `EnumProp`) is versioned too, separately. Implementing a component's contract depends on both. It's this model that makes a component contract being "wrong" both computable and inarguable.
+
+The more rigorous the contract and schema, the more deterministic transformation (to CSS, stories, TypeScript contracts, scaffolds, etc) can become boring infrastructure, too. With a strong contract, component production is supported by scripts that generate 80-90% of the code you need before agents get to work. This leaves agentic inference for last strides, not foundation-up construction, and also isolates what you've generated when things change.
+
+What makes a good contract and schema?
+
+1. Favor well-typed over loosely formed
+
+A type declares what kind of value is legal in a given position: a number, a true/false, or one choice from a fixed list — an enum. A well-typed contract makes it impossible to write malformed things.
+
+props:
+  size:
+    type: string
+    enum:
+      - small
+      - medium
+      - large
+    default: medium
+
+A `size` `enum` reduces any possible size to three legal choices. In a loosely formed document, every value is just text, and text accepts anything, such as `size:med` or size: `kind of` `large`.
+
+An `Element` is included in a `Variant` and is bound to `Styles` like `backgroundColor` and `itemSpacing` (if a `container`) or `textColor` (as a themed token) and `typography.fontSize` (if `text`). All of these types and relationships are explicitly structured. No text element should have a `backgroundColor`, and no container should ever have a `glyph` name.
+
+Additionally, contracts are too loosely formed when signals are left to implicit naming conventions. For example, a markdown file might encode states implicitly in token or variant names like `button-primary`, `button-primary-hover`, and `button-primary-active`. An agentic pass usually figures it out, but the contract can't verify and hold every implementation accountable.
+
+2. Favor normalized over redundant
+
+Good contracts state each decision once. My favorite example remains the `button`'s `disabled` state. A contract need only state this as a configuration variant, specifying an `opacity` of the `root` element once.
+
+button:
+  variants:
+    - configurations:
+        disabled: true
+      elements:
+        root:
+          opacity: 0.36
+
+Yet a Figma button with 96 variants requires 96 more variants, each carrying the varied `opacity` property. This exposes Figma's verbose data model as an imperfect contract. That's massive redundancy – maybe 500ish layers – for one simple intent.
+
+Contracts are bad when you state the same decision twice, in different positions or contexts. A self-contradicting artifact cannot arbitrate anything. For example, a markdown file describing colors like `text-primary` (`#21272A`) in a prose description and `text-primary: "#1A1C1E"` in a YAML inventory is redundant. This de-normalization isn't an accident; it's an intentional, documented format that risks drift intrinsically.
+
+A self-contradicting artifact cannot arbitrate anything.
+
+Be wary of contracts positioned as a "single source of truth" that then encode decisions in multiple locations. I think to myself, "Is this declaration here the source, or is that declaration there the source?" Nobody knows.
+
+The moment a decision lives in two places, the contract risks disagreeing with itself. A spec architect could write rules into skills to prevent drift. Yet guarding against conflicts of intentional redundancies is wrong; avoid the redundancy in the first place.
+
+3. Favor independent over platform biased
+
+A good contract minimizes the bias of its shape away from any predominant platform, whether Figma, CSS, iOS, Android. A definition extracted untransformed from one party's point-of-view (like a Figma file) is testimony, not a contract.
+
+It's challenging to model schema when you spend as much time as I do extracting intent from Figma. Figma's biased point-of-view is evident in ways glaring (like prop types of `INSTANCE_SWAP`) or subtle (like absolute positioning anchored in `constraints` rather than edges). Grounding contracts in Figma-only types is wrong, since Figma's model is an approximation relative to web, iOS and Android code.
+
+A definition biased to one party's point-of-view is testimony, not a contract.
+
+As I've been modeling Specs schema, I've spent considerable effort bringing spec data to be more platform neutral. Example cases include:
+
+* The "Sides" of `padding`, `strokeWeight` and `absolute`ly positioned elements as `start` and `end` rather than the familiar `left` and `right` (Sides ADR) and `constraints` (Positioning ADR). In each case, Figma's model is weaker as a contract.
+* Mass-transforming Figma `TEXT` props from `string` to `number` when `default` values match specific numeric formats (Numbers ADR). Here, Figma's model is incomplete, requiring us to concede the risk of misclassification to correctly re-type props en-masse based on a heuristic.
+
+Avoiding bias is hard. My Specs' `layout` echoes Figma's layer hierarchy. Admittedly, all code platforms diverge and achieving a deterministically transformable hierarchy across platforms is a fool's errand (or, at least for now, not a priority). So, I'll cull unintentional leaks over time. Other times, we'll simply override Figma generated outputs with authored versions, such as declaring more sophisticated component props because Figma's limited prop types lack the needed expressiveness.
+
+Critics could also point to Specs' Variants structure and cry foul. The bias is right there in the name – Variants! – encoded as a type (`Variants`, `Variant`) and the `variants.yaml` file output by the generator. Yet, reading further exposes schema's layered, compact data model, which is far closer to web's CSS. So bias may remain by name (towards Figma) and model (towards web). Yet the concept has proven very suitable across all implementations. We're sticking with it.
+
+4. Favor verifiable over readable
+
+Verifiable contracts can be evaluated and decided as right or wrong by a machine, without human intervention. Two questions, two levels: is this a validly structured spec, and is it precisely implemented? A verifiable contract can reject a definition that references a dependency that doesn't exist, sets a property the schema doesn't support, or names an icon glyph the library doesn't ship. Reading a markdown file answers none of that.
+
+Reading is review, not verification.
+
+Markdown readers are built to tolerate ambiguity. Unknown token name? Accept it. Unknown component property describing this variant? Maybe fire a warning. A format where nothing is invalid is a format where nothing is verifiable. A linter can still check WCAG contrast or a broken link. However, when malformed isn't defined, a reader is left to guess or hunt.
+
+I am uncomfortable with spec prose describing types of decisions that frequently recur when they can be more strictly modeled. When prose like "Depth is achieved through tonal layers rather than heavy shadows" is load bearing, I'm lost. What makes a shadow heavy? What makes a layer tonal? What are the tones? When I can't verify something, I want to delete it. And if deleting that sentence changes the contract, that sentence was bearing too much load. That's not the contract I want.
+
+A validated extract isn't strict if downstream recipients consume a markdown file that an LLM already smoothed and elaborated. The verification data got stuck at the boundary and every consumer downstream is inferring from inference.
+
+5. Favor determinism over inference
+
+Determinism means the same input produces the same output, every time. Generate the spec twice with nothing changed, and your diff should be empty – no reordered keys, no noise. I change a `textTruncation` property buried deep in a text layer in a variant combining three props, regenerate, and that admittedly esoteric intent appears as a single additive change.
+
+In 2026, solely markdown formats serving as "THE System" – foundational context to guide agents making decisions – makes me nervous. Even when a workflow extracts data deterministically to start, agents layering intent through skills and rules inject uncertainty early and invisibly. Errors are introduced upstream before becoming spec, propagate wider and harden right when we thought we were recording truth.
+
+Deterministic compilation isn't the goal. It's evidence the contract is good.
+
+Transformations are necessary, such as overlaying subcomponents, icon glyphs, and states onto Figma's model using naming conventions. Reading them back out takes real logic, but it's achievable, maintainable and based on conventions set by system architects. That's my line: inference I configure, not inference I hope for. We know what comes out based on what goes in, it's mechanical, and it takes seconds.
+
+6. Favor efficiency over expense to keep true
+
+Efficiency means the cost of bringing the contract current is close to zero – in time, in tokens, and in human attention. Not the cost of building it, the cost of keeping it true. Once built, we used to change a component infrequently. Now we want to adjust and evolve constantly – a minor tweak, new element, added configuration, fixed defect – because we can. Every tweak comes with a bill, and nobody likes to be kept waiting.
+
+The more deterministic the infrastructure, the more the marginal cost of regeneration converges on zero. That matters, because a contract too costly to maintain will rot. A rotted contract is worse than no contract at all, because people trust contracts. If you've got 25 simple components on one platform, this doesn't matter and you shouldn't spend on it. But if your vision is updating 100+ components across 4 implementations changing weekly? Economics decides the architecture for you.
+
+A rotted contract is worse than no contract at all.
+
+Using Specs' command line tools to (re)fetch and (re)generate has made this possible for clients. Want to update `backgroundColor` for an `active`, `selected`, `tertiary` variant? Go ahead. Regenerating specs will pick up the change, whether we run it next sprint, tomorrow, or the moment a watcher notices the Figma library file's main branch moved.
+
+7. Favor evolvable over simply flexible
+
+Strict doesn't mean static. A contract that can't change dies, and a contract that changes without governance was never actually a contract. Is there a record of why the contract is shaped the way it is, and how that shape changed over time?
+
+I recently integrated a new contract feature: images. The feature impacted many components and spread across the schema's surface: a component's API (a new `image` prop type), `styles` bindings (via a `backgroundImage` property), `examples` and even storage.
+
+I could have just winged it, adding notes to markdown files of impacted components. Yet, that's evolving the contract privately, in a manner undetectable downstream without reading the entire contract from scratch every time. This is "flexibility" masquerading as evolvability, which is like branding drift with a more favorable descriptor.
+
+A contract that can't change dies. A contract changing without governance isn't a contract.
+
+Architectural decision records (ADRs) are the machinery to evolve component specs. The images ADR sprawled, but the breadth fostered iteration and alignment with teammates. Decisions in ADRs drive new schema versions, keep specs valid, and communicate downstream to consumers who see exactly what's changed and opt in when ready.
+
+My downstream partners pushed back on the `images` update, if only because their tools include deterministic scripts that weren't ready. Delaying the next generating pass for a week is a welcome outcome. It reinforced that conversations had shifted from complicated interpretations to simple coordination. For everybody, the change felt more like business-as-usual than a threat to stability.
+
+Settling on the correct form(s) of component contracts will take time. JSON schema took two decades. The W3C design tokens community group needed a full decade after tokens hit the scene. Formats will continue to spawn and refine. They'll also solve different problems for different systems.
+
+Heck, my own work has come so far that I look back unamused with how much less effective my schema was this time last year. Sometimes Figma bias still leaks through and other gaps reveal themselves. So I push on, one ADR and tooling update after another.
+
+Can you point implementing teams at a contract, change its content and its model over time, and regenerate it so they consume it cost-effectively as needed? If you are delivering specs manually or via a contract with less structure, skeptically critique your setup to identify where and how you can do better. For some, markdown may be all you need. For others, the journey continues somewhere more structured.
