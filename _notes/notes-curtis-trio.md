@@ -1,12 +1,19 @@
-# Notes: Nathan Curtis trio (Components as Data, Design Tokens, Workshop)
+# Notes: Nathan Curtis quartet (Components as Data, Component Contracts and Schemas, Design Tokens, Workshop)
+
+> Started as a trio (filename kept for history); the fourth entry was added
+> 2026-08-02 when "Component Contracts and Schemas" landed as a direct sequel
+> to entry 1, prompted by a Prism3-side review of the same piece (see
+> ext-curtis-contracts-and-schemas.txt and Prism3's `docs/13` §3b).
 
 ## Per-doc reading log
 
 **1. ext-curtis-components-as-data.txt** — "Components as Data: How to define components independent of platforms to scale a system's impact." Sep 23, 2025. ~424 lines. Read in full. A short essay/manifesto in which Curtis describes representing UI components as platform-neutral structured data (YAML/JSON) — anatomy, props, styles, variants — so they flow into Figma, code generation, docs, AI tooling, and version control. The Pill component bookends the piece (he wrote about it for tokens almost a decade ago; his team now refactors it again, this time as data). Tone: architect-at-heart, AI-era, "Figma assets as output not input."
 
-**2. ext-curtis-tokens.txt** — "Design tokens" workshop deck, Directed Edges LLC, Nov 2024. ~2451 lines. Read in full (chunks). A long instructional deck that systematically walks Foundations -> About tokens -> Generic tokens -> Semantic tokens -> Composite tokens -> Theming -> Component tokens -> Process. Curtis's canonical three-tier token taxonomy (Generic / Semantic / Component) is presented here with naming conventions, calculation rules, theming dimensions (mode, brand, density, generation, white-label), and a workshop-driven token process (Plan -> Discovery -> Decide -> Automation).
+**2. ext-curtis-contracts-and-schemas.txt** — "Component Contracts and Schemas: Establish principles to shape, decide and communicate design intent." Jul 28, 2026. Read in full (pasted directly, Substack blocks scraping). The direct sequel to #1, eighteen months later: components-as-data was the concept, this is the rigor layer — what makes the data a *contract* rather than just structured. Names PJ Onori's Design System Doc Spec, TJ Pitre, Christine Vallaure, and Christian Morales Achiardi as parallel/overlapping voices in the same "contracts" moment. Seven named qualities of a good contract+schema: well-typed, normalized, independent, verifiable, deterministic, efficient, evolvable — each with a worked example from his own Specs schema and ADR history.
 
-**3. ext-curtis-workshop.txt** — "Operating Design Systems," Curtis Day 1+2 workshop, prepared Oct 2021, presented Sep 2023. ~5518 lines. Read in 2000-line chunks (1-2000, 2000-4000, 4000-end skim). The two-day operating curriculum: Defining systems, Planning, People (team models), Communications, Features step-by-step, Process, Contributions, Systems of Systems (tiers), and Measuring Success. Heavy on operational frameworks — initiative types, team-model stages, contribution scale, library tiers.
+**3. ext-curtis-tokens.txt** — "Design tokens" workshop deck, Directed Edges LLC, Nov 2024. ~2451 lines. Read in full (chunks). A long instructional deck that systematically walks Foundations -> About tokens -> Generic tokens -> Semantic tokens -> Composite tokens -> Theming -> Component tokens -> Process. Curtis's canonical three-tier token taxonomy (Generic / Semantic / Component) is presented here with naming conventions, calculation rules, theming dimensions (mode, brand, density, generation, white-label), and a workshop-driven token process (Plan -> Discovery -> Decide -> Automation).
+
+**4. ext-curtis-workshop.txt** — "Operating Design Systems," Curtis Day 1+2 workshop, prepared Oct 2021, presented Sep 2023. ~5518 lines. Read in 2000-line chunks (1-2000, 2000-4000, 4000-end skim). The two-day operating curriculum: Defining systems, Planning, People (team models), Communications, Features step-by-step, Process, Contributions, Systems of Systems (tiers), and Measuring Success. Heavy on operational frameworks — initiative types, team-model stages, contribution scale, library tiers.
 
 ## Curtis's overall framework / worldview
 
@@ -85,6 +92,36 @@ Variants are expressed as overrides keyed by a `configuration` (the prop combina
 - "Chats evoke nullability. We're overdosing on overloading."
 - "Soon to be gone are the tedious, manual hours to produce countless variants."
 - "It's difficult to imagine returning to a time when I architected components only in a visual tool like Figma."
+
+## Component Contracts and Schemas (Jul 2026) — extract in detail
+
+### The thesis (verbatim)
+> "A UI component contract is an artifact that centralizes design intent in one place so that it can be implemented, verified and evolved across implementations."
+
+> "A description informs. A contract arbitrates."
+
+> "A schema models what a contract can say. A spec based on that schema is what a contract does say."
+
+### Why this piece exists (his framing)
+Scale forced it: "A library of 25 components used to change once or twice a year. Now systems span hundreds of components across libraries and platforms." A contract replaces the old per-platform handoff meeting with "automated and verifiable communication and checks" — his team now mass-delivers a whole library's spec from Figma with one repeatable command; a designer marks a component `READY_FOR_DEV`, an agentic pass composes the behaviors/a11y Figma can't express, and Slack threads handle only genuine ambiguity.
+
+### The seven qualities of a good contract+schema (verbatim names + his own test for each)
+
+1. **Well-typed over loosely formed** — "makes it impossible to write malformed things." Example: an `enum` for `size` (small/medium/large) vs. free text that accepts `size:med`.
+2. **Normalized over redundant** — "state each decision once." Example: `disabled` as one configuration-variant opacity override on the root, vs. Figma's ~500-layer redundancy across 96 variants each carrying the same override. Named principle: **"A self-contradicting artifact cannot arbitrate anything."**
+3. **Independent over platform biased** — "A definition extracted untransformed from one party's point-of-view (like a Figma file) is testimony, not a contract." Concrete fixes he's made: sides as `start`/`end` not `left`/`right` (his "Sides ADR"); Figma `TEXT` props mass-retyped `string`→`number` by heuristic (his "Numbers ADR"). Named principle: **"A definition biased to one party's point-of-view is testimony, not a contract."**
+4. **Verifiable over readable** — "Reading is review, not verification." A verifiable contract can mechanically reject a reference to a nonexistent dependency, an unsupported property, or an unshipped icon glyph; markdown "readers are built to tolerate ambiguity." Distrust of load-bearing prose he can't verify: "When prose like 'Depth is achieved through tonal layers rather than heavy shadows' is load bearing, I'm lost... When I can't verify something, I want to delete it."
+5. **Determinism over inference** — "the same input produces the same output, every time... Generate the spec twice with nothing changed, and your diff should be empty." His line on where inference belongs: **"inference I configure, not inference I hope for."** Warns specifically against markdown-as-agent-context in 2026: "agents layering intent through skills and rules inject uncertainty early and invisibly... right when we thought we were recording truth."
+6. **Efficiency over expense to keep true** — "the cost of bringing the contract current is close to zero." Sharpest line: **"A rotted contract is worse than no contract at all, because people trust contracts."** Explicit scale gate: doesn't matter for 25 components on one platform; "if your vision is updating 100+ components across 4 implementations changing weekly? Economics decides the architecture for you."
+7. **Evolvable over simply flexible** — "A contract that can't change dies, and a contract that changes without governance was never actually a contract." Distinguishes real evolvability from "flexibility" (ad-hoc notes in markdown files, undetectable downstream) via **Architectural Decision Records (ADRs)** — numbered, per-decision documents that drive schema version bumps and let consumers "see exactly what's changed and opt in when ready." His own `images` feature ADR "sprawled, but the breadth fostered iteration and alignment." Notes downstream partners *delaying* an update a week because their scripts weren't ready was "a welcome outcome" — evidence the contract model is working, not friction.
+
+### Named parallel/overlapping voices (new — not in the 2025 essay)
+PJ Onori's Design System Doc Spec (documentation format, not build format — see ext-onori-dsds.txt), TJ Pitre, Christine Vallaure, Christian Morales Achiardi — all "diving into contracts," per Curtis "solving distinct and sometimes overlapping problems in similar ways." Named without adjudicating between them; explicitly frames 2026 as a moment where multiple practitioners converge on "contract" as the operative word, the way "components as data" was the operative phrase in 2025.
+
+### Historical framing (verbatim, closing)
+> "Settling on the correct form(s) of component contracts will take time. JSON schema took two decades. The W3C design tokens community group needed a full decade after tokens hit the scene."
+
+Self-critical, notably: "my own work has come so far that I look back unamused with how much less effective my schema was this time last year."
 
 ## Design Tokens (Nov 2024) — extract in detail
 
@@ -481,6 +518,10 @@ Curtis explicitly calls NPS "Not well-respected in the design community." Prefer
 
 20. **YAGNI governance test** — needed by 1 team -> don't add to Core; needed across 7+ teams in 3+ BUs -> add it. (Tokens deck.)
 
+21. **Seven qualities of a good contract+schema** — well-typed / normalized / independent / verifiable / deterministic / efficient / evolvable. (Contracts and Schemas essay, 2026.)
+
+22. **ADR-driven schema governance** — numbered Architectural Decision Records (not a general changelog) as the mechanism that lets a schema evolve without becoming "flexible" (undetectable, private drift); each ADR drives a versioned schema bump consumers explicitly opt into. (Contracts and Schemas essay, 2026.)
+
 ## Notable verbatim quotes (with source doc)
 
 - *"A style guide is an artifact of design process. A design system is a living, funded product with a roadmap & backlog, serving an ecosystem."* — Workshop
@@ -514,6 +555,20 @@ Curtis explicitly calls NPS "Not well-respected in the design community." Prefer
 - *"Define the customer problems, and work back from there."* — Tokens deck (theming strategy)
 
 - *"Slack + Office Hours ≠ communications plan."* — Workshop
+
+- *"A description informs. A contract arbitrates."* — Component Contracts and Schemas
+
+- *"A self-contradicting artifact cannot arbitrate anything."* — Component Contracts and Schemas
+
+- *"A definition biased to one party's point-of-view is testimony, not a contract."* — Component Contracts and Schemas
+
+- *"Reading is review, not verification."* — Component Contracts and Schemas
+
+- *"Inference I configure, not inference I hope for."* — Component Contracts and Schemas
+
+- *"A rotted contract is worse than no contract at all, because people trust contracts."* — Component Contracts and Schemas
+
+- *"A contract that can't change dies. A contract changing without governance isn't a contract."* — Component Contracts and Schemas
 
 ## Where Curtis CHALLENGES typical industry POV
 
@@ -557,7 +612,9 @@ Curtis explicitly calls NPS "Not well-respected in the design community." Prefer
 
 ## Gaps Curtis surfaces that internal docs may not cover
 
-1. **Components-as-Data is recent (2025).** If internal docs predate this, they may not yet treat structured component definitions as a first-class artifact. Curtis: this is the AI-readiness move that surpasses tokens.
+1. **Components-as-Data is recent (2025).** If internal docs predate this, they may not yet treat structured component definitions as a first-class artifact. Curtis: this is the AI-readiness move that surpasses tokens. **Partially addressed 2026-08-02:** the 2026 follow-up (Component Contracts and Schemas) gives this a concrete rigor layer — seven checkable qualities, not just the "make it data" instruction — which is exactly what 03's own named gap ("components-as-data is not in our 2026 deliverables... the leading edge of practice") now has a citable standard to build toward, not just a direction to point at.
+
+1b. **ADR-driven schema governance has no internal equivalent.** 03 and other numbered files describe *what* the practice ships (component library standard, `.ai.json`) but nothing tracks *why the schema itself is shaped the way it is*, versioned, as it changes. Curtis's model — numbered ADRs, each driving a schema version bump, consumers opt in when ready — is a genuinely new practice pattern worth evaluating for `.ai.json`/UIC-series schema changes specifically, distinct from general engagement documentation.
 
 2. **The "Inverse conundrum"** — Curtis names a specific pitfall (button label inverse, checkbox check inverse) where teams over-promote inverse element/surface tokens to semantic tier. Internal token guidance may not name this explicitly.
 
