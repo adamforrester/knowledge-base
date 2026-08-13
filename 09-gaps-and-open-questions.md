@@ -3,7 +3,7 @@ type: practice-area
 title: Gaps and Open Questions
 description: Practice gaps and unanswered questions across the corpus. Sourced inventory of what we don't yet have a POV on.
 tags: [gaps, open-questions]
-timestamp: 2026-08-10
+timestamp: 2026-08-13
 ---
 
 # 09 — Gaps & Open Questions
@@ -294,6 +294,14 @@ Inline cross-references added from 10's new sections to 03 / 04 / 13 / 17 / 24 /
 - **The CMS mapping is where blocks earn their keep, and it adds a requirement.** Blocks map onto authorable CMS components far more cleanly than a component library does — Adobe's Edge Delivery Services uses the word literally, ships an open-source collection (hero, cards, columns, carousel, FAQ) and admits a block only if it is **used on more than half of all projects**, a pruning rule worth adopting. But an authorable component needs a **content model** — which fields exist, which are required, which the author edits versus which the system fixes — that a React or Web Component implementation never forces you to state. **A block brief that captures only layout is not portable to a CMS.** See 10 (CMS and platform integration), where the AEM depth already lives.
 - **The open decision (tracked as issue #10):** whether this is a new facet on `patterns/` (a `page-role` facet alongside `goal`, with a `marketing-composition` tier) or a third top-level layer beside `components/` and `patterns/`. The `_schema.md` boundary is drawn on opinionation-not-packaging, which a marketing block satisfies — it is an opinionated resolution — but of a *content* problem rather than an interaction one. **Lean facet, not layer**, unless the brief spine turns out not to bend that far.
 - Connects to 03 (component library — the tier boundary), 10 (CMS and platform integration — blocks are what a composable CMS actually assembles), 30 (generated-from-data documentation), and 31. Also the commercial angle in 00d: a block library is the most *visible* deliverable in an engagement and the easiest to demo, which is not the same as it being the most valuable.
+
+### 1.37 Gradient tokenisation — CLOSED
+
+- The vault had no POV on gradients as a token category — `12-figma-practice` covered the Figma Paint-style *mechanism*, but nothing said whether a system should ship gradient tokens at all, or how.
+- **Promoted** to `31-color-systems` §1 (*Gradients — the category most systems deliberately skip*) from the run at `_research/_inbound/2026-06-29-gradient-tokens/`, filed 2026-06-29 and stranded ~6 weeks because it landed just after its batch was promoted — the case that motivated tracking promotions as issues (queue item #3). Single-sourced (Path B), flagged in the section's provenance line.
+- **The position:** thin and opt-in — abstention is the field default and a defensible one (Material, USWDS, Primer, SLDS 2 ship nothing; Polaris *removed* its gradient token), so gradients are shipped only when a brand declares them. When shipped: DTCG `gradient` as the spine with **stops aliasing the colour ramp** (Fluent's model) and never raw CSS strings (the deprecated Polaris/SLDS trap, which is why they cannot theme); kind/angle/interpolation carried in `$extensions` because the spec omits them (issue #101); OKLCH as the canonical interpolation with a **pre-sampled sRGB approximation for Figma**, which interpolates in sRGB only.
+- **One differentiator worth naming commercially:** text-on-gradient contrast must be gated at the **worst-case stop under the text**, not the average — a check *no surveyed system performs*.
+- Cross-referenced from `22` (the `gradient` type is on the DTCG allowlist but incomplete — the clearest case for the materialization directive) and `12` (Paint Style mechanics).
 
 ---
 

@@ -3,7 +3,7 @@ type: practice-area
 title: Token Architecture Extensions
 description: Spec-and-architecture layer beneath 02. DTCG 2025.10 at practitioner depth, composite-token fidelity gap, computed/relational tokens, density as a theming dimension, web-vs-native asymmetry.
 tags: [extension, tokens, dtcg, theming, density]
-timestamp: 2026-06-29
+timestamp: 2026-08-13
 ---
 
 # 22 — Token Architecture Extensions
@@ -37,7 +37,7 @@ The stable, settled parts of the spec are:
 - **The file shape.** JSON, media type `application/design-tokens+json`, file extension `.tokens` or `.tokens.json`.
 - **The `$` prefix for built-in properties.** `$value`, `$type`, `$description`, `$extensions` — all mandatory `$`-prefixed. The earlier inconsistency (some tools accepted unprefixed) is closed.
 - **The terminal-node rule.** Any object containing a `$value` property is definitively a design token. **A token cannot simultaneously serve as a group or parent to other tokens.** This rules out the ambiguity that plagued earlier token sets where a color group held both a base value and child variants.
-- **The `$type` allowlist.** `color`, `dimension`, `fontFamily`, `fontWeight`, `duration`, `cubicBezier`, `number`, `strokeStyle`, `border`, `transition`, `shadow`, `gradient`, `typography`. Tools are forbidden from guessing the type from the value; missing `$type` is a validation error in conformant parsers.
+- **The `$type` allowlist.** `color`, `dimension`, `fontFamily`, `fontWeight`, `duration`, `cubicBezier`, `number`, `strokeStyle`, `border`, `transition`, `shadow`, `gradient`, `typography`. Tools are forbidden from guessing the type from the value; missing `$type` is a validation error in conformant parsers. Note that being *on* the allowlist doesn't mean a type is complete: **`gradient` is stops-only** — it encodes `{ color, position }` pairs but not kind, angle, or interpolation space (issue #101, open since 2022 and still a next-draft priority). It is the clearest case of a type whose missing half has to live in `$extensions` per the materialization directive below. (See 31-color-systems §1 for the gradient POV and why most systems skip the category entirely.)
 - **Alias resolution.** The `{path.to.token}` curly-brace syntax for references, with chained-alias recursion and circular-reference detection as required parser behaviours.
 - **The `$extensions` preservation rule.** Tools must preserve `$extensions` keys even when they don't recognise them. This is what makes vendor-specific data (Figma scope info, Tokens Studio math expressions, custom platform flags) survive a tool-to-tool round trip.
 
