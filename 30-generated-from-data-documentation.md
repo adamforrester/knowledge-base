@@ -3,7 +3,7 @@ type: practice-area
 title: Generated-From-Data Documentation as Commercial Default
 description: The architecture that treats the component data file as the source of truth — the pipeline, the upfront engineering cost, the per-component hours redistribution, the decision framework, the migration playbook, the cluster relationship to AI-readiness, the commercial pitch, and the tooling realities where the field is genuinely behind in 2026.
 tags: [extension, documentation, components, mdx, storybook, ai-json, mcp, code-connect, commercial]
-timestamp: 2026-06-14
+timestamp: 2026-08-13
 ---
 
 # 30 — Generated-From-Data Documentation as Commercial Default
@@ -421,6 +421,8 @@ Most engagements land Phase 1 in the initial commercial proposal and Phase 2/3 i
 ## 8. Anti-patterns and tooling realities — where the field is genuinely behind in 2026
 
 The practice should be honest about where the architecture works and where it doesn't.
+
+**One piece of the field is moving faster than this file assumes.** The whole architecture here rests on a data file whose *shape* every engagement currently invents. An emerging open standard now targets exactly that shape — PJ Onori's **Design System Doc Spec** (DSDS), a JSON Schema with eight entity types and 17 standardised document-block kinds, explicitly scoped as documentation-*about* components rather than a component-build format, and designed to link to DTCG token definitions rather than duplicate them. It is still draft (v0.15.2), so it changes nothing about what we ship today, but it is the first credible answer to "why is the portable layer bespoke in every engagement." Its own schema-governance discipline — semver on the schema, scripted migrations per bump, AJV validation in CI, an editorial lint that warns rather than fails — is also the most concrete model available for the gap in 09 §1.35. (See 29-per-component-documentation-template §6 for the full position and the procurement-test verdict.)
 
 ### "Storybook autodocs alone is enough"
 

@@ -3,7 +3,7 @@ type: practice-area
 title: Per-Component Documentation Template
 description: The shape of a single component's documentation page — sectional spine, per-section depth, four-audience entry points, generation-vs-authoring seam, tooling decisions, anti-patterns, the version-zero schema the practice ships in week one.
 tags: [extension, documentation, components, mdx, storybook, ai-json, mcp]
-timestamp: 2026-06-14
+timestamp: 2026-08-13
 ---
 
 # 29 — The Per-Component Documentation Template
@@ -431,6 +431,20 @@ A client picks a docs platform based on five questions:
 The component data file (per §5) is the portable layer. Each docs platform consumes the data file; each platform produces the docs site. A system that authors `Button.docs.mdx` with Storybook component imports is *not* portable; a system that authors `Button.metadata.json` plus `Button.docs.md` with no platform-specific dependencies is. **Separate the authoring source from the rendering platform** — the authoring source lives in the component repo, version-controlled, platform-neutral; the rendering platform is replaceable.
 
 This is the single most important architectural decision in the docs strategy and is under-articulated in most existing engagements. The template's structural discipline is what makes the separation tractable.
+
+### An emerging standard for the portable layer — DSDS
+
+The portable authoring layer above is currently a house format in every engagement we run: our version-zero YAML schema, some client's `component.json`, someone else's front-matter convention. **A candidate standard for exactly that layer has now appeared** — PJ Onori's **Design System Doc Spec** (DSDS, `designsystemdocspec.org`), which describes itself as "a single source of truth to serve humans, parsers, and AI agents simultaneously," and names the problem in the same terms this section does: *"Design system documentation is trapped in tools. It lives in Notion, Storybook, Zeroheight, Confluence, or custom-built sites."*
+
+**What it is.** A JSON Schema (Draft 2020-12) across ~52 split files bundled into one, with eight core entity types (components, tokens, token groups, themes, foundations, patterns, guides, chunks), metadata for status and governance, and **17 standardised document-block kinds** typed per entity — guidelines, use-cases, anatomy, api, states, variants, motion, accessibility, content, design-specifications and others. That block vocabulary maps onto this file's sectional spine closely enough to be worth reading side by side before anyone hand-rolls another house schema.
+
+**Where it sits relative to DTCG — the same layering we've drawn twice before.** The project states it plainly: *"The W3C DTCG defines a format for trading token VALUES between tools. DSDS defines a format for the DOCUMENTATION around them,"* and links to DTCG definitions via a `source` property rather than duplicating values. So it is not a competitor to DTCG (see 22) and not a competitor to the components-as-data / contract lineage either (Curtis's Specs schema, our `.ai.json` — those define how to *build* a component; DSDS documents *about* one). It is the third layer, and the one the vault has been treating as bespoke.
+
+**Our position, measured to its maturity.** Apply the procurement test we apply to DTCG and to `design.md` (see 15): a draft is an architectural commitment; a stable spec is a procurement commitment. DSDS is **v0.15.2, draft, not endorsed by a standards body** (captured 2026-08-02 — re-verify, it moves), so it does not belong in an SOW as a named standard. But the shape is right and the cost of alignment is low: **author the portable layer so it could map onto DSDS's block vocabulary, watch it toward 1.0, and don't invent a competing block taxonomy in the meantime.** The same adopt-internally-and-track posture `design.md` earned.
+
+**The part worth stealing immediately, regardless of adoption.** DSDS governs *its own schema* with the discipline the practice has just admitted it lacks: a single source of truth for the version number, a release policy where patch = new optional fields and minor/major = breaking, **scripted migrations per version bump**, AJV validation in CI, and an editorial lint that warns on quality gaps like "guidelines without rationale" without failing the build. That is a concrete worked example of the evolvable-contract principle Curtis argues for — and a direct answer to the schema-governance gap in 09 §1.35, which currently has the problem named and no mechanism. It also follows Adobe's Spectrum Design Data in separating **structural rules enforced in the schema** from **quality rules in a catalogue with stable IDs**, which is a distinction our own `.ai.json` doesn't yet make.
+
+*(Source capture: `_source-text/ext-onori-dsds.txt` — a synthesised capture from the spec site and repo README rather than a verbatim dump, flagged as such in the file. Surfaced via Curtis's "Component Contracts and Schemas," which names DSDS as a parallel effort.)*
 
 ---
 
