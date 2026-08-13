@@ -3,7 +3,7 @@ type: practice-area
 title: CMS and Platform Integration
 description: DS in CMS environments. The seam between component governance and content governance. AEM and Drupal at depth; the four CMS architectural shapes (traditional / hybrid / headless / composable) as the framing altitude; per-platform coverage of headless platforms (Sitecore XM Cloud / Contentful / Sanity / Strapi / Storyblok), WordPress as DS host, Salesforce Commerce Cloud Page Designer, the CMS-vs-DS authoring boundary, MCP / AI-readability for CMS-managed components, and composable-content patterns.
 tags: [extension, cms, content, integration, headless, composable, hybrid, salesforce, wordpress, mcp]
-timestamp: 2026-06-18
+timestamp: 2026-08-13
 ---
 
 # 10 — Design Systems in CMS Environments
@@ -241,7 +241,9 @@ SDC landed stable in Drupal 10.3 and is core in Drupal 11. It is the closest any
 
 SDC integrates cleanly with Storybook. Multiple agency tutorials now describe a Vite + Tailwind + Storybook + SDC stack as the modern Drupal DS development environment — a design surface that AEM lacks natively. This is significant: for new Drupal engagements, the DS development and documentation workflow can be much closer to the framework-agnostic ideal than anything AEM offers today.
 
-SDC is also the substrate for Drupal's upcoming Experience Builder — Drupal's answer to the Universal Editor. Betting on SDC for new Drupal DS work is safe.
+SDC is also the substrate Drupal's visual builder converges on — the module formerly called **Experience Builder is now Drupal Canvas**, and it is no longer upcoming: Canvas shipped stable at 1.10.0 (7 August 2026, `drupal.org/project/canvas`, verified 2026-08-13), works with Drupal ^11.3, and is covered by the security-advisory policy. The old `experience_builder` project is retained for historic reasons only. **Betting on SDC for new Drupal DS work remains safe** — SDC is core, and Canvas converges on it.
+
+**One wrinkle worth having before anyone calls Drupal "the non-React platform."** Canvas's own native unit is a **React "code component" authored in the browser as JSX**; a companion module registers those as SDC so they can be used outside Canvas, and Canvas validates props at render "to match SDC behavior" (`drupal.org/project/code_component`, verified 2026-08-13). So Drupal's newest visual builder is React-flavoured *at the authoring layer* even though the portable, core-blessed unit underneath is still SDC. The architectural bet doesn't change; the pitch does — don't position Drupal to a client as the escape from React and then hand them Canvas.
 
 ### Web Components in Drupal
 
@@ -257,7 +259,7 @@ Simpler than AEM. Drupal's Twig output is HTML; Custom Elements drop in as tags.
 | Multi-brand theming | Multiple clientlibs + policies | Theme inheritance + libraries |
 | DS dev environment | Storybook is bolt-on | Storybook is first-class with SDC |
 | Versioning model | Path-based (`/v1/`, `/v2/`) | Module/theme semver |
-| Editor direction | Universal Editor (decoupling) | Experience Builder (built on SDC) |
+| Editor direction | Universal Editor (decoupling) | Drupal Canvas, stable Aug 2026 (converges on SDC; React-authored code components) |
 | Web Components integration | Manageable with care | Straightforward |
 
 The practical summary: for greenfield projects where the design system is the centre of gravity and the CMS is a delivery surface, Drupal with SDC is a shorter path. For Adobe-stack enterprises where AEM is non-negotiable, the Universal Editor + HTL-native + token-clientlib approach is the most defensible architecture today.
