@@ -39,7 +39,11 @@ The box's height is font-metric dependent: the half-leading above and below a li
 
 The converged surface, and the one contested pair first:
 
-**`as` and `size` are two axes, and the practice ships them as two.** `as` selects the rendered element and therefore the semantics (`h1`–`h6`, `p`, `span`, `div`, `label`, `strong`). `size` (or `variant`) selects the step of the ramp. Polaris is the reference API here and states the reasoning plainly — the element you need and the style you want are independent choices, and a system that fuses them forces you to break one to get the other.
+**`as` and `size` are two axes, and the practice ships them as two.** `as` selects the rendered element and therefore the semantics (`h1`–`h6`, `p`, `span`, `div`, `label`, `strong`). `size` (or `variant`) selects the step of the ramp.
+
+**Polaris is the reference API, and the difference between what it demonstrates and what it argues is worth keeping.** Verified from `polaris-react/src/components/Text/Text.tsx`: `as: Element` — *"The element type"* — is required and un-suffixed, and every visual prop is optional and separate (`variant`, *"Typographic style of text"*, plus `alignment`, `fontWeight`, `tone`, `textDecorationLine`, `numeric`, `truncate`, `breakWord`, `visuallyHidden`). The two axes are separate **in the type**, not by convention.
+
+What Polaris does **not** do is state a rationale. An earlier draft of this brief claimed it did; the source says only *"The element type"* and *"Typographic style of text"*. **The argument for why — §6's heading-order case — is this brief's, not Shopify's**, and attributing it borrowed credibility the source does not supply. Polaris is a witness that the shape ships and works at scale; the reasoning stands on §6 alone.
 
 Beyond the pair: `weight` (constrained to the ramp's weights, not a free number), `tone` (a semantic ink enum, never a colour value — the same argument Icon makes), `align` (logical: `start`/`end`/`center`, never `left`/`right` — §9), `truncate` / `lineClamp`, and `visuallyHidden`.
 
@@ -98,7 +102,7 @@ More consequential here than in almost any other primitive, and three of these a
 
 ## 10. Naming
 
-`Text` is the field default for the primitive (Polaris, Chakra, Radix Themes, Spectrum, Material Compose). `Heading` appears as a sibling component in about half the surveyed systems. Base Web takes the third path — per-style components (`HeadingLarge`, `ParagraphMedium`) — which multiplies the API surface by the length of the ramp and is the approach with the fewest recent adopters.
+`Text` is the field default for the primitive (Polaris, Chakra, Radix Themes, Spectrum, Material Compose). `Heading` appears as a sibling component in about half the surveyed systems. Base Web takes the third path — per-style components — and its scale is the argument. Verified from `uber/baseweb` → `src/typography/index.tsx`: **36 exported components** for one concept. `DisplayLarge` through `DisplayXSmall`, `HeadingXXLarge` through `HeadingXSmall`, four `Label*`, four `Paragraph*`, and a complete `Mono*` mirror of all eighteen. No single `Text`. **Every ramp change is 36 potential API changes**, in a system where the ramp is the thing most likely to be re-tuned per brand.
 
 **The practice default is a single `Text` component with `as` and `size`.** `Heading` is documented as an alias and may ship as a thin convenience wrapper that defaults `as` to a heading element — a convenience is fine; a second source of truth for the ramp is not. `Title`, `Paragraph`, `Type` and `Typography` are documented aliases; consumers arriving from Ant will search `Typography.Title`.
 
@@ -129,18 +133,35 @@ Three movements, one of them recent:
 
 ## 14. Sources cited
 
-Conservative version dates (claude-only run, per the convergent-primitive rule; `last-audited` is the re-run trigger):
+**This brief was written from knowledge and verified afterwards** — a weaker provenance than the rest
+of the catalogue, separated here rather than blended. The audit record is
+`_research/_inbound/2026-08-15-component-text/`, and it records one claim this pass **falsified** as
+well as the two it confirmed.
 
-- Shopify Polaris — `Text` with `as` + `variant`; the decoupling is stated as the design rationale (Polaris, 2024–25).
-- Radix Themes — `Text` / `Heading` with `as` (Radix, 2024–25).
-- Chakra UI — `Text` / `Heading` (2024).
-- Adobe Spectrum — `Heading` / `Text` / `Content` (Spectrum, 2024).
-- Uber Base Web — per-style typography components (`HeadingLarge`, `ParagraphMedium`) (2024).
-- Ant Design — `Typography.Text` / `.Title` / `.Paragraph` (2024).
-- Google Material 3 — type scale + `Text` with `style` (Compose) (2024).
-- IBM Carbon — type as tokens/classes, no text component (2024).
+**Verified against primary sources (2026-08-15)** — type definitions rather than docs pages, because a
+page describes intent and the published Polaris component URL no longer resolves:
+
+- **Shopify Polaris** — `polaris-react/src/components/Text/Text.tsx`. `as: Element` required;
+  `variant`, `alignment`, `fontWeight`, `tone`, `textDecorationLine`, `numeric`, `truncate`,
+  `breakWord`, `visuallyHidden` all separate and optional. **The separation is confirmed; a stated
+  rationale is not — see §3.**
+- **Uber Base Web** — `src/typography/index.tsx`. 36 per-style exports, enumerated in §10.
+
+**Asserted without a source** — field-convention claims the author believes and this pass did not
+check. Read them as recollection, not as citations:
+
+- Radix Themes — `Text` / `Heading` with `as`.
+- Chakra UI — `Text` / `Heading`.
+- Adobe Spectrum — `Heading` / `Text` / `Content`.
+- Ant Design — `Typography.Text` / `.Title` / `.Paragraph`.
+- Google Material 3 — type scale + `Text` with `style` (Compose).
+- IBM Carbon — type as tokens/classes, no text component.
+
+**Specifications, cited by section rather than verified by fetch:**
+
 - WCAG 2.2 (W3C Recommendation, Oct 2023) — SC 1.3.1, 1.4.3, 1.4.4, 1.4.6, 1.4.12.
-- CSS Inline Layout Level 3 — `text-box-trim` / `text-box-edge`.
+- CSS Inline Layout Level 3 — `text-box-trim` / `text-box-edge`. Support levels in §11 and §13 are
+  **unchecked**.
 
 ## 15. Agent-consumable schema
 
@@ -218,8 +239,11 @@ notes:
     - "text-box-trim is the first real change to the primitive's box model in years"
   unverified:
     - "the ~30% figure for screen-reader users navigating primarily by heading is widely cited in practitioner material and is not backed by a source in _source-text/ — treat as directional"
+    - "FALSIFIED AND CORRECTED 2026-08-15: an earlier draft claimed Polaris states the rationale for the as/variant split. It does not — the JSDoc reads only 'The element type' and 'Typographic style of text'. §6's reasoning is this brief's own"
+    - "the Radix / Chakra / Spectrum / Ant / Material / Carbon descriptions in §10 and §14 are the author's recollection, unchecked — see _inbound/2026-08-15-component-text/"
+    - "text-box-trim support levels (§11, §13) are asserted, not checked against caniuse or the CSS WG"
 ```
 
 ---
 
-*Provenance: claude-only research run, 14 August 2026, sanctioned by the convergent-primitive rule (see `components/index.md`) — the field converges on everything except the one axis question in §3, which is documented as a live split rather than flattened. Written to close a gap found from the downstream direction: the Prism3 MVP catalogue (`Prism3/docs/40`) named `text` as a required dependency of Card, Banner, Dialog and List with no brief behind it, which inverts the catalogue's pipeline. The load-bearing call is the `as`/`size` decoupling and its §6 justification — the heading-order argument is what makes it an accessibility decision rather than an API preference. §11's first bullet is the finding most likely to be useful downstream and least likely to be in any vendor's documentation: the semantic axis is structurally uncarryable by a design tool, which makes it code-only in the sense `Prism3/docs/28` uses the term. The §15 schema conforms to `_schema.md`.*
+*Provenance, corrected 2026-08-15 — the first version of this line was wrong and the correction is the useful part. It read "claude-only research run, 14 August 2026," which describes a process that did not happen: this brief was **written from knowledge with no research run behind it**, and its §14 carried version-dated citations nobody had checked. A reviewer held the PR because the `_inbound/` audit folder every other claude-only brief carries was missing — the missing folder was the symptom, and an unverified §14 formatted like a verified one was the defect. That is the vault's own `_schema.md` rule broken by the file claiming to follow it: *a brief never silently launders an unverified claim into an asserted default.* A verification pass then ran **after** the fact against primary sources; it is recorded in `_research/_inbound/2026-08-15-component-text/`, it confirmed most of what the brief rested on, and it **falsified one claim outright**, which §14 and the `notes.unverified` block now carry. Read this brief's citations as split: a short verified list, and a longer list of recollections marked as such. Sanctioned by the convergent-primitive rule (see `components/index.md`) — the field converges on everything except the one axis question in §3, which is documented as a live split rather than flattened. Written to close a gap found from the downstream direction: the Prism3 MVP catalogue (`Prism3/docs/40`) named `text` as a required dependency of Card, Banner, Dialog and List with no brief behind it, which inverts the catalogue's pipeline. The load-bearing call is the `as`/`size` decoupling and its §6 justification — the heading-order argument is what makes it an accessibility decision rather than an API preference. §11's first bullet is the finding most likely to be useful downstream and least likely to be in any vendor's documentation: the semantic axis is structurally uncarryable by a design tool, which makes it code-only in the sense `Prism3/docs/28` uses the term. The §15 schema conforms to `_schema.md`.*

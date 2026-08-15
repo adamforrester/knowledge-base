@@ -65,7 +65,9 @@ Variants are the cartesian of `fit` × `radius` × the state layer's chosen plac
 
 Two things, and the first is more subtle than it looks.
 
-- **`alt` omitted and `alt=""` are different, and the difference is the whole contract (WCAG 1.1.1).** An empty `alt` marks the image decorative and assistive technology skips it — correct, and the right answer for a large share of product imagery. An **omitted** `alt` leaves the image with no accessible name, and screen readers commonly fall back to announcing the **filename**, which is how users end up hearing `hero-banner-v3-final-2.jpg`. The two look identical in a browser and behave oppositely. This is why §3 makes the prop required.
+- **`alt` omitted and `alt=""` are different, and the difference is the whole contract (WCAG 1.1.1).** Verified against MDN and quoted rather than paraphrased — an empty `alt` *"indicates that this image is not a key part of the content (it's decoration or a tracking pixel), and that non-visual browsers may omit it from rendering"*, and *"visual browsers will also hide the broken image icon if the `alt` attribute is empty and the image failed to display."* On omission: *"When an `alt` attribute is not present on an image, **some screen readers may announce the image's file name instead.** This can be a confusing experience if the file name isn't representative of the image's contents."* MDN calls the attribute **mandatory**.
+
+  So the two **look identical in a browser and behave oppositely**, which is why §3 makes the prop required with a permitted empty value. Note the source's hedge and keep it: *some* screen readers *may*. The behavior is real and not universal, and overstating it would be the same species of error as an unverified citation.
 - **Informative images need an alt that describes the function, not the picture.** If the image is a link or a control, the alt describes the destination or action, not the artwork. If the image conveys information the surrounding text does not, the alt carries that information.
 - **Images of text (1.4.5).** Text baked into an image cannot be resized, restyled, translated, or read. Logos are the standing exception. This is a content-governance issue more than a component one, but the component is where it becomes visible.
 - **Complex images need more than `alt`** — a chart or diagram needs a long description adjacent or linked (1.1.1 again). An `alt` is one sentence; a data visualization is not.
@@ -97,14 +99,18 @@ Under `prefers-reduced-motion`, an opacity fade is generally acceptable — it i
 
 `Image` is the field default (Polaris, Spectrum, Chakra, Ant, Mantine). `Img` appears as the element-mirroring alternative; `Picture` names the art-direction element specifically; `Media` is broader and usually covers video too.
 
-Polaris ships a separate `Thumbnail` for the small fixed-size case. **The practice treats thumbnail as a size, not a component** — a second component for the same media at a smaller box duplicates every decision in this brief for no gain.
+Polaris ships a separate `Thumbnail` for the small fixed-size case — verified from `polaris-react/src/components/Thumbnail/Thumbnail.tsx`: `size?: 'extraSmall' | 'small' | 'medium' | 'large'` defaulting to `medium`, plus `source`, `alt` and `transparent`, rendering either an `Image` or an `Icon` depending on whether `source` is a URL or an SVG component. **The practice treats thumbnail as a size, not a component** — a second component for the same media at a smaller box duplicates every decision in this brief for no gain, and Polaris shipping both is the evidence being argued against rather than a model.
+
+**One thing that pass found which supports §3:** Polaris types `alt: string` as **required**, not optional. The same call this brief makes, on the sibling component, arrived at independently.
 
 **The practice default is `Image`,** with `Img`, `Picture`, `Media`, `Thumbnail` and `Figure` documented as aliases.
 
 ## 11. Implementation notes
 
 - **Reserve the box, and prefer intrinsic `width`/`height` attributes where the dimensions are known.** Modern browsers compute an aspect ratio from the attribute pair and reserve the space before load, which fixes Cumulative Layout Shift without a wrapper. CSS `aspect-ratio` covers the case where the ratio is a design decision rather than the file's own.
-- **Do not lazy-load the LCP image.** This is the standing own-goal: `loading="lazy"` applied indiscriminately delays the one image the Largest Contentful Paint metric is measuring, making the page measurably slower while looking like an optimization. Above-the-fold hero images want `loading="eager"` and `fetchpriority="high"`; everything below the fold wants `lazy`. A component that defaults `lazy` for everything needs an escape hatch that people actually know about.
+- **Do not lazy-load the LCP image**, and the measurement is worth carrying because the effect is conditional rather than universal. web.dev's WordPress experiment lazy-loaded **all** images including above-the-fold: median LCP went from a 1,759 ms baseline to **2,029 ms — 13% slower** on archive-desktop, and exempting above-fold images returned it to ~1,749 ms **while keeping the byte savings**. So the cost bought nothing. But on **single pages the effect was minimal, within variance** — the article's own framing is that the problem was lazy-loading *all* images rather than the technique.
+
+  The penalty therefore lands when the lazily-loaded image **is** the LCP element, which is a property of the page rather than of the attribute. Above-the-fold hero images want `loading="eager"` and `fetchpriority="high"`; everything below wants `lazy`. And this sharpens §1's scope question rather than sitting beside it: **a design system's `Image` cannot know whether a given instance is the LCP element — only the page can** — so a component that hard-defaults `lazy` needs an escape hatch consumers actually know about, and the delivery decision belongs to the consumer.
 - **`object-fit` requires an explicitly sized box** to fit into. Without the frame it does nothing, which reads as the prop being broken.
 - **`srcset`/`sizes` and `<picture>` solve different problems.** `srcset` is resolution switching — the same image at different pixel densities and widths. `<picture>` with `<source media>` is art direction — a *different crop or composition* per breakpoint. Conflating them produces a responsive image that is correctly sized and badly composed on small screens.
 - **Compose with the framework's image component; do not replace it.** `next/image` and its equivalents own format negotiation, CDN routing and placeholder generation, and reimplementing that inside a design system is a large maintenance surface for a problem the platform layer already solved. The DS Image should own the *frame, fit, focal point, radius and alt contract* and delegate delivery. This is the practical answer to §1's scope question, and it is the one an engagement is most likely to override.
@@ -128,17 +134,33 @@ Polaris ships a separate `Thumbnail` for the small fixed-size case. **The practi
 
 ## 14. Sources cited
 
-Conservative version dates (claude-only run, per the convergent-primitive rule; `last-audited` is the re-run trigger):
+**This brief was written from knowledge and verified afterwards** — a weaker provenance than the rest
+of the catalogue, separated here rather than blended. Audit record:
+`_research/_inbound/2026-08-15-component-image/`.
 
-- Shopify Polaris — `Image`, and `Thumbnail` as a separate component (2024–25).
-- Adobe Spectrum — `Image` with `objectFit` (2024).
-- Chakra UI — `Image` with `fallback` and `fit` (2024).
-- Ant Design — `Image` with preview, placeholder and fallback (2024).
-- Mantine — `Image` with `fit` and fallback (2024).
-- Next.js — `next/image`: required dimensions, blur placeholder, format negotiation (2024–25).
-- MDN / HTML Standard — `<img>` `alt`, `loading`, `fetchpriority`; `<picture>` and `srcset`/`sizes`.
-- web.dev — Cumulative Layout Shift and Largest Contentful Paint guidance, including the lazy-loaded-LCP anti-pattern.
+**Verified against primary sources (2026-08-15):**
+
+- **MDN** — `Web/HTML/Reference/Elements/img`. The `alt=""`-versus-omitted contract, quoted verbatim
+  in §6 including the filename fallback. MDN calls the attribute mandatory.
+- **web.dev** — the LCP lazy-loading experiment. 1,759 ms baseline → **2,029 ms** with all images
+  lazy-loaded (+13%, archive-desktop) → ~1,749 ms with above-fold exempted, byte savings retained.
+  **Minimal on single pages, within variance** — the conditionality is carried in §11.
+- **Shopify Polaris** — `polaris-react/src/components/Thumbnail/Thumbnail.tsx`. Separate component,
+  four sizes, and `alt: string` **required**.
+
+**Asserted without a source** — recollection, not citation:
+
+- Adobe Spectrum — `Image` with `objectFit`.
+- Chakra UI — `Image` with `fallback` and `fit`.
+- Ant Design — `Image` with preview, placeholder and fallback.
+- Mantine — `Image` with `fit` and fallback.
+- Next.js `next/image` — required dimensions, blur placeholder, format negotiation. **Load-bearing
+  for §11's delegate-delivery position and unverified.**
+
+**Specifications, cited by section rather than verified by fetch:**
+
 - WCAG 2.2 (W3C Recommendation, Oct 2023) — SC 1.1.1, 1.4.5.
+- HTML Standard — `<picture>`, `srcset`/`sizes`, `loading`, `fetchpriority`.
 
 ## 15. Agent-consumable schema
 
@@ -213,6 +235,11 @@ notes:
   contested:
     - "SCOPE — how much delivery the DS Image owns. The field runs from a styled <img> to a full blur-up/format-negotiation machine. We land on frame + fit + focal point + radius + alt contract, delegating delivery — and this is the call an engagement is most likely to override."
     - "thumbnail as a size vs as a separate component (Polaris ships both) — we treat it as a size"
+  unverified:
+    - "next/image's current behavior (required dimensions, blur placeholder, format negotiation) is unchecked, and §11's delegate-delivery position leans on it — see _inbound/2026-08-15-component-image/"
+    - "the Spectrum / Chakra / Ant / Mantine API descriptions in §10 and §14 are the author's recollection, unchecked"
+    - "§9's RTL rule — directional imagery mirrors, photographs must not — is stated from practice with no source. It is the most confidently-written unverified claim here, and it reads as established BECAUSE it is stated crisply, which is the property that made §14 dangerous in the first place"
+    - "AVIF/WebP CDN negotiation as the prevailing pattern (§13) is a trend claim, unsourced"
   evolution:
     - "CSS aspect-ratio retired the percentage-padding hack; new systems should not carry the wrapper"
     - "the DS Image is thinning as the framework image component thickens"
@@ -222,4 +249,4 @@ notes:
 
 ---
 
-*Provenance: claude-only research run, 14 August 2026, sanctioned by the convergent-primitive rule (see `components/index.md`) — the field converges on the API and splits only on §1's scope question, which is recorded as contested rather than resolved because the honest answer is engagement-dependent. Written alongside `text.md` to close a gap found from the downstream direction: the Prism3 MVP catalogue (`Prism3/docs/40`) named `image` as a required dependency of Card with no brief behind it, which inverts the catalogue's pipeline. Two calls carry the brief. The first is making `alt` a REQUIRED prop whose value may be empty — stricter than HTML deliberately, because the platform's own permissiveness is what makes the defect silent, and `alt=""` versus omitted-`alt` behave oppositely while looking identical. The second is §11's lazy-loading bullet, which is the rare case of a well-intentioned default measurably harming the metric it appears to serve. §4 is called out against the category's pattern: unlike Divider, Icon and most Foundations primitives, this one is genuinely stateful. The §15 schema conforms to `_schema.md`.*
+*Provenance, corrected 2026-08-15 — the first version of this line was wrong and the correction is the useful part. It read "claude-only research run, 14 August 2026," which describes a process that did not happen: this brief was **written from knowledge with no research run behind it**, and its §14 carried version-dated citations nobody had checked. A reviewer held the PR because the `_inbound/` audit folder every other claude-only brief carries was missing — the missing folder was the symptom, and an unverified §14 formatted like a verified one was the defect. That is the vault's own `_schema.md` rule broken by the file claiming to follow it: *a brief never silently launders an unverified claim into an asserted default.* A verification pass then ran **after** the fact against primary sources; it is recorded in `_research/_inbound/2026-08-15-component-image/`, it confirmed most of what the brief rested on, and it **falsified one claim outright**, which §14 and the `notes.unverified` block now carry. Read this brief's citations as split: a short verified list, and a longer list of recollections marked as such. Sanctioned by the convergent-primitive rule (see `components/index.md`) — the field converges on the API and splits only on §1's scope question, which is recorded as contested rather than resolved because the honest answer is engagement-dependent. Written alongside `text.md` to close a gap found from the downstream direction: the Prism3 MVP catalogue (`Prism3/docs/40`) named `image` as a required dependency of Card with no brief behind it, which inverts the catalogue's pipeline. Two calls carry the brief. The first is making `alt` a REQUIRED prop whose value may be empty — stricter than HTML deliberately, because the platform's own permissiveness is what makes the defect silent, and `alt=""` versus omitted-`alt` behave oppositely while looking identical. The second is §11's lazy-loading bullet, which is the rare case of a well-intentioned default measurably harming the metric it appears to serve. §4 is called out against the category's pattern: unlike Divider, Icon and most Foundations primitives, this one is genuinely stateful. The §15 schema conforms to `_schema.md`.*
