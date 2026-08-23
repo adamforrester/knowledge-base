@@ -2,9 +2,10 @@
 
 Run date: 2026-08-21. Filed for prism3 issue #876.
 
-**Two agents were run against this brief**: Claude (in-repo, `claude.md`) and Gemini (run separately
-by the owner). See `gemini-NOT-CAPTURED.md` for the gap in this audit record and what it means for
-the synthesis.
+**Two agents were run against this brief**: Claude (in-repo, `claude.md`, 2026-08-21) and Gemini
+(`gemini.md`, captured 2026-08-23). **Read `PROVENANCE.md` first** — the second run arrived two days
+after the first synthesis was published, and what was reconciled against in the interim was a report
+whose provenance could not be established.
 
 ---
 

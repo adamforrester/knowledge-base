@@ -1,9 +1,13 @@
 # Synthesis — one source with many projections, or a hub? (the #876 run)
 
-> Reconciles two independent runs of `_research/_inbound/2026-08-21-source-of-truth-vs-hub/prompt.md`
-> — Claude (in-repo) and Gemini (run separately by the owner). Path A was used because the two runs
-> **conflict on two points**, and reconciling them is the deliverable. **Nothing here goes into a
-> numbered file**: the decision has not been taken, and this feeds it. Filed 2026-08-21.
+> Reconciles **two runs of the same brief** in `_research/_inbound/2026-08-21-source-of-truth-vs-hub/`
+> — Claude (in-repo, 2026-08-21) and Gemini (2026-08-23). Path A: the two runs largely corroborate but
+> **conflict on one point that should not be settled by majority**, and reconciling them is the
+> deliverable. **Nothing here goes into a numbered file**: the decision has not been taken.
+>
+> **Filed 2026-08-21; reconciliation REBUILT 2026-08-23** against the real pair. The first version
+> reconciled against a report of **unverified provenance** that was not established to be a run of this
+> brief. Read `PROVENANCE.md` before citing anything here, and do not cite the superseded version.
 
 ---
 
@@ -16,9 +20,20 @@ one strong analogue in a neighbouring discipline.**
 
 The four solid pieces are one survey with real numbers (Sparkbox 2022, 219 respondents), two product
 shutdowns as revealed preference (Specify, Backlight.dev), one first-party retrospective (Figma's own
-internal library), and what Figma chose to *build* (Code Connect's deliberate one-directionality). The
-analogue is master data management, which has had this exact argument for thirty years and named all
-four positions in it.
+internal library), and what Figma chose to *build*. The analogue is master data management, which has
+had this exact argument for thirty years and named all four positions in it.
+
+**One of those four needs an update after the second run, and it is a real one.** Claude's §3 cited
+Code Connect (Apr 2024) as evidence Figma had *deliberately chosen* one-directional. That is still true
+of Code Connect and **no longer true of Figma's posture overall**: `gemini.md` reports a **bidirectional
+MCP server shipped Feb 2026**, pushing rendered browser UI back into Figma as editable layers. The
+underlying finding survives — see the reconciliation — but the "even Figma won't try it" framing does
+not, and should not be repeated.
+
+**A second donor discipline arrived with the second run.** Gemini imports the same posture from machine
+learning as *Human-in-the-Loop*, where Claude imported it from MDM as *consolidation with stewardship*.
+Two neighbouring fields, one borrowed vocabulary, and **still nothing native to design systems** — which
+is the finding, not the disagreement.
 
 Everything else returned by search on "design system drift" was content marketing with no data.
 
@@ -29,119 +44,169 @@ see the trigger.
 
 ---
 
-## Reconciling the two runs — the most valuable part of this write-up
+## Reconciling the two runs
 
 The `#882` synthesis flagged that a single-agent run lacks the corroboration the dual-agent convention
-exists to produce. **This run has it**, and the corroboration is worth more than either run alone.
+exists to produce. **This run has it, as of 2026-08-23** — and getting there required withdrawing a
+reconciliation published two days earlier against a source that could not be shown to answer this
+brief. `PROVENANCE.md` carries that in full. The short version, because it changes what the agreements
+below are worth: **"two independent runs agree" is a claim with a date, and before 2026-08-23 it was
+not established.**
 
-**Caveat that must travel with everything in this section:** the Gemini raw text was not available to
-the agent writing this. Reconciliation was done against a **structured summary supplied by the owner**.
-See `gemini-NOT-CAPTURED.md` for exactly what that breaks.
+### Where they agree — corroborated, and now genuinely so
 
-### Where they agree — treat as corroborated
+Four findings, reached by two models on different reasoning paths from the same brief:
 
-Four findings, reached independently by two models on different reasoning paths:
-
-1. **Do not build bidirectional sync.**
-2. **Tokens round-trip; components do not — and it is lossy by construction, not by immaturity.**
+1. **Do not build automated bidirectional sync.** Gemini: *"it must strictly avoid becoming an
+   automated, bidirectional synchronization engine."*
+2. **Tokens round-trip; components do not — lossy by construction, not by immaturity.** Gemini reaches
+   this through paradigm mismatch (Figma Auto Layout's Hug/Fill/Fixed against CSS Grid, flexbox,
+   container queries) where Claude reached it through information preservation. Same line, two
+   derivations.
 3. **The answer is one authoritative artifact accepting imports, with human-mediated reconciliation.**
-4. **Conflict resolution needs a human for the residue. Never last-write-wins, never pure auto-merge.**
+4. **Conflict resolution needs a human for the residue.** Gemini adds the sharpest single sentence
+   either run produced on *why*: an engineer's contrast fix, then a designer's sync from an older
+   Figma file under last-write-wins, and **the accessibility fix is silently overwritten.** That is
+   the failure mode with a name and a victim, and it is better than Claude's abstract version.
 
-That both runs land on (2) and (3) *by different routes* is the strongest single result here. The
-Claude run derived the round-trip line from information-preservation (Figma cannot express a keyboard
-model; code cannot express a variant matrix) and the reconciliation posture from MDM's taxonomy.
-Whatever route Gemini took, it arrived at the same two places.
+**A third derivation of (2) already sat in #876's own comment**, which neither run saw: Curtis draws
+the line by *capability* — Figma "world-best-in-class" at naming/structure/styling/binding, limited at
+composition/behavior/accessibility. **Three independent derivations of one boundary**, from
+information-preservation, from paradigm mismatch, and from authoring capability. That is as close to
+settled as this topic gets.
 
-**And a third derivation of the same line already exists in prism3's own issue tracker**, which
-neither run saw. #876's own comment records Curtis drawing the line by *capability*: Figma is
-*"utterly world-best-in-class … in essential naming, structure, styling, binding"* but has
-*"limitations in expressiveness, particularly from a configuration and composition, behavior and
-accessibility perspective."* His generated specs are `api`/`variants`/`examples`; his authored ones are
-`accessibility`/`behavior`/`configurations`/`layout`/`motion`.
+### The naming question: Claude's finding survives, and the conflict mostly dissolves
 
-**That is the same line as finding (2), drawn from the opposite direction.** The round-trip argument
-says *structure survives translation and behavior does not*; Curtis's capability argument says *Figma
-authors structure well and behavior badly*. Three independent derivations of one boundary is as close
-to a settled result as this topic has.
+Claude's run concluded that the reconciliation *posture* **has no name in this field**, and that
+adopting it means importing vocabulary — it proposed MDM's *consolidation style with stewardship*.
 
-### Where they conflict — and why the readings differ
+Gemini supplies four names: **Human-in-the-Loop (HITL)**, **Drift Gate**, **Accuracy Harness**,
+**Targeted Review Queue**, **Reconciliation Loop**. On its face that is a reversal.
 
-#### Conflict 1: "Design System Contracts" as a named, established pattern
+**It is not, and Gemini's own §7 is why.** It concedes: *"While Human-in-the-Loop reconciliation is a
+mathematically proven and widely adopted pattern in **machine learning, Intelligent Document
+Processing (IDP), and general software engineering**, the exact percentage of enterprise design teams
+that have successfully formalized this workflow specifically for design-to-code synchronization
+remains unquantified."*
 
-**The other run** presents it as established 2026 practice: a named framework (`ds-contracts-poc`,
-Southleft / Christine Vallaure), a "three-way differ", and an A/B test scoring **69/100 unsupervised
-versus 100/100 constrained**.
+So the names are **imported from ML and general software**, and design-system adoption is unquantified
+— which is Claude's finding restated with a different donor discipline. Note the internal tension:
+§6 asserts *"In design system architecture, this pattern is also referred to as…"* while §7 concedes
+design-system adoption is unmeasured. **§7 is the more careful sentence and should be the one carried.**
 
-**This run** found the same artifact and classified it as **weak**: `ds-contracts-spec.pages.dev`,
-v1.0.1, page built 2026-08-17, GitHub org `southleft`, specifying *"props and their legal values,
-anatomy, token bindings, slot constraints, accessibility semantics, declared events"* — with **no named
-production adopters**, its evidence being compatibility scoring against 101 components from 8
-third-party libraries.
+**Net: the two runs agree that the posture is real and that its vocabulary is borrowed. They disagree
+only on where to borrow it from** — MDM (consolidation/stewardship/survivorship/golden record) or ML
+(HITL/drift gate/review queue). Both are defensible; MDM's is older and specifically about *reconciling
+multiple authoring origins for one record*, which is the exact shape here, while HITL is about *a human
+approving machine output*, which is a near neighbour rather than the same thing. **Worth having both
+vocabularies available and choosing deliberately rather than by whichever arrives first.**
 
-**On inspection this is substantially a scope confusion, not a factual disagreement, and that matters
-more than which run was "right".** Two different things are being named:
+### The one genuine conflict: what Lona demonstrates — UNRESOLVED, and not settled by majority
 
-| | what it names | is it established? |
+Gemini calls Lona *"the most prominent historical example of an abandoned bidirectional hub"*,
+*"explicitly designed to treat the design system as a programmable hub."*
+
+Claude classifies it as **the purest published instance of a single-source generator** — which is
+*prism3's own architecture*, not a hub.
+
+**Two external reports now say "hub" and Claude says "single-source generator". This is recorded as
+unresolved rather than folded, for three reasons.**
+
+**First, Gemini's own description of Lona is a description of a single-source generator.** In the same
+paragraph that labels it a hub: *"It utilized a single structured data format (.component JSON files)
+as the central hub to generate cross-platform UI code, Sketch files, and documentation."* One
+structured source, unidirectional generation outward, **no sync edge named anywhere.** The
+disagreement is about the *label applied*, not about the *mechanism described* — and on the mechanism
+the two runs do not actually differ.
+
+**Second, Gemini's diagnosis of why Lona failed is Claude's reading, not its own label's.** It says the
+failure was *"the sheer technical complexity of maintaining bespoke compilers"* — the **generation
+half**, exactly what Claude identified, and nothing to do with reconciling multiple origins.
+
+**Third, there is a checkable factual error on the "hub" side.** Gemini states Lona's *"repositories
+were archived."* Claude fetched the repository on 2026-08-21: **it is not archived** — 7.5k stars,
+2,197 commits, publicly active, moved out of the `airbnb` org and carrying *"Airbnb doesn't provide
+support for this project."* Disclaimed is not archived, and a report that reached for the stronger word
+is a report to check twice on this example.
+
+**What each reading implies, since that is what makes it worth resolving:**
+
+| reading | what Lona is evidence of | direction for prism3 |
 |---|---|---|
-| Design System Contracts | a **component contract schema** — props, anatomy, tokens, slots | new, one org, no named adopters |
-| the thing this run said has no name | the **multi-origin reconciliation posture** — who may author, what gets imported, who arbitrates | genuinely unnamed in this field |
+| hub (both external reports) | bidirectional sync collapses under maintenance cost | **reassuring** — argues *for* the current posture |
+| single-source generator (Claude) | the *projection* half is expensive and can stall on its own | **uncomfortable** — a caution *about* the current posture |
 
-This run's claim was *"an established design-systems term for this **posture**"* — not "nobody has
-written a component schema." Both statements survive. **A component contract schema is not a
-reconciliation architecture**, and conflating them is easy because both get called "contracts".
+**Claude's reading is held**, on the mechanism evidence above and on the principle that the
+less comfortable reading of an ambiguous case should not lose to a head-count. But it is a genuine
+open conflict and is labelled as one. **Anyone using Lona in an argument about prism3 should read its
+README first**, which takes two minutes and settles it better than either report.
 
-Where the runs do genuinely differ is on **status**, and here this run's reading holds: a v1.0.1 spec
-from a single organisation with no named production adopters is not established practice, however
-good the idea. **The A/B test is one vendor testing its own framework** — the direction of the result
-is unsurprising and the effect size (69 → 100, a perfect score) is suspiciously clean. It is not
-independent evidence. That does not make it wrong; it makes it unciteable as proof.
+### Two claims in `gemini.md` that must not enter the synthesis
 
-**Net:** the disagreement mostly dissolves. Design System Contracts is real, relevant, and worth
-watching for the *component schema* question. It is not evidence that the reconciliation posture has a
-name or a track record.
+Recorded here because both are load-bearing-looking and neither is sourced.
 
-#### Conflict 2: what Lona demonstrates
+**1. The four-phase drift timeline** (Initial Divergence 1–3 months → Artifact Stagnation 3–6 →
+Shadow Source 6–12 → System Abandonment 1–2 years), introduced as *"remarkably consistent across
+organizations."* **No citation is given for any phase or boundary.** Claude's run determined
+explicitly that **no source measures this interval** — it is undetermined item #2. Gemini's §7 does not
+list the timeline among what it could not determine, so the report asserts as fact something its own
+methodology section does not defend.
 
-**The other run** cites Airbnb's Lona as hub-failure evidence.
+**This is the second time a run on this question has asserted a drift timeline while conceding
+elsewhere that none is measurable.** The pattern is worth naming: the timeline is the single most
+useful thing a reader would want, which is exactly why it gets supplied without evidence. **It stays
+out.**
 
-**This run** classifies it as **the purest published instance of a single-source generator** — define
-the system in JSON, generate cross-platform UI code and design files — which is *prism3's own
-architecture*, not a hub.
+**2. The $25,000 per engineer per year "copy-paste tax"**, attributed in §2 to *"analysts tracking
+post-merger integration and multi-platform synchronization"* — **unnamed**. Gemini's own §7 then calls
+it *"the anecdotal metric of a $25,000 'copy-paste tax'."* **Presented as an analyst figure in §2,
+conceded as anecdotal in §7.** It stays out as a number; the qualitative claim it decorates —
+reconciliation labour is real and hidden — survives on its own.
 
-**The readings point the evidence in opposite directions, so this needs stating plainly rather than
-being left as emphasis.** If Lona is hub-failure evidence, it argues *for* prism3's current posture. If
-Lona is single-source-generator evidence, it is a caution *about* prism3's current posture. Those are
-not compatible.
+### Genuinely new in `gemini.md`, and worth carrying
 
-This run's reading is the more careful one, and the reason is a distinction it made explicitly:
+**Figma shipped a bidirectional MCP server (Feb 2026)** integrating with Claude Code and GitHub
+Copilot, able to *"query live Figma component hierarchies, generate code, and subsequently push
+rendered browser UI back into Figma as fully editable vector layers."* **This is a material update to
+Claude's §3**, which cited Code Connect (Apr 2024) as evidence Figma had deliberately chosen
+one-directional. That was true of Code Connect and is **no longer true of Figma's posture overall.**
 
-> "It is **not** evidence that single-source fails because of multi-origin authorship — it is evidence
-> that the *generation* half is expensive and can stall independently. Conflating the two would be
-> sloppy."
+The finding survives the update, and Gemini is the one who says why: the MCP round-trip *"strips the
+logic and corrupts the structural constraints, resulting in a visual artifact that looks correct but
+is fundamentally broken under the hood."* **A round-trip existing is not a round-trip working**, and
+Gemini's own §7 flags that there are *"no multi-year postmortems"* and that current reports are
+*"heavily influenced by vendor marketing."* Carry the caveat with the capability.
 
-Lona had no sync edges and no second origin. It generated from JSON. What failed was the **generator**:
-of the planned React/Swift/Kotlin/React-Native targets, its own README concedes *"currently, the only
-target is React Native, and it's extremely rough (not really usable)."* It is now outside the `airbnb`
-org with *"Airbnb doesn't provide support for this project"* on it.
+**`token-reconciler-mcp`** (attributed to humano-ai, glama.ai, Aug 2026) is the most decision-relevant
+new artifact: it computes a **drift report** rather than merging, compares colours **perceptually via
+OKLab** so `#FFFFFF` and `rgb(255,255,255)` are not flagged while two adjacent greys are, and pairs
+text/background against **WCAG 2.2 AA and the APCA draft** so *a pairing that passes in Figma and fails
+on the shipped site is surfaced explicitly.* Its default `mostRecentWins` resolver is described in its
+own docs as *"deliberately simple"* and *"dumb."*
 
-**So Lona is a caution about the cost of the projection half, addressed to prism3, not a point against
-hubs.** Read correctly it is the *less* comfortable finding — which is a reason to be suspicious of the
-comfortable reading rather than a reason to prefer it.
+**Verification status: the named tool could not be confirmed.** A search on 2026-08-23 did not surface
+`token-reconciler-mcp` or humano-ai. Adjacent tools in the same category do exist and were found —
+Dembrandt (token extraction and drift tracking over snapshots), designlang (CI drift bot, WCAG
+contrast remediation), `design-token-bridge-mcp` (cross-platform token translation with a
+`validate_contrast` tool). **So the category is corroborated and the specific tool is not.** Treat the
+*design* — perceptual comparison plus accessibility pairing plus a report rather than a merge — as the
+citable idea, and get a primary URL before naming the tool anywhere downstream.
 
-### Claims appearing in only one run — single-source, both directions
+### Claims appearing in only one run
 
-**This run only** (each fetched, URLs in `claude.md`): Sparkbox 2022 survey numbers; Specify sunset
+**Claude only** (each fetched, URLs in `claude.md`): Sparkbox 2022 survey numbers; Specify sunset
 15 Nov 2025 and Backlight.dev shutdown 1 Jun 2025; the MDM four-style taxonomy; Figma's Nov 2024
 internal rebuild; Code Connect's one-directionality; Storybook autodocs limitations.
 
-**Other run only** (relayed, **not verified here**): Airbnb `react-sketchapp`; the deprecation of
-Salesforce's Theo; the Southleft A/B test.
+**Gemini only** (not independently verified here): the Airbnb DLS retrospective attributed to
+Wichrowska and Kim at React Conf 2020 plus a Jan 2026 Medium analysis; Glovo's Pintxo cross-platform
+drift; Tokens Studio and Webstudio's "Theirs"/"Ours"/"Merge" precedence rules; the Cairn Framework's
+`cairn scan`; Figma's bidirectional MCP; `token-reconciler-mcp`.
 
-`react-sketchapp` and Theo are both real and both cheap to verify; neither was checked in this run and
-neither should be quoted without a URL. The A/B test is the one that most needs a primary source
-before it appears anywhere downstream.
+The Airbnb DLS account is the one most worth verifying, because it is the only *named-company account
+of the single-source failure mode* either run produced beyond Figma's own, and Claude's Lona reading
+means Lona no longer plays that role.
 
----
 
 ## The bottom line
 
@@ -190,8 +255,10 @@ posture. It is simply not evidence of outcome, and #876 leans on it as though it
 
 ## What neither run could determine
 
-Carried forward from `claude.md` in full, because the undetermined list is the part most likely to be
-dropped when someone summarises this later.
+Carried forward in full, because the undetermined list is the part most likely to be dropped when
+someone summarises this later. Items 1–8 are Claude's; 9–12 are added by the second run, and **items 2
+and 10 are the pair to watch — both runs concede the interval is unmeasured, and one of them supplied a
+four-phase timeline anyway.**
 
 1. **Why Specify and Backlight actually shut down.** Dates solid; no primary cause statement reachable.
    Business failure is not architectural failure and the two cannot be separated here.
@@ -209,6 +276,17 @@ dropped when someone summarises this later.
    the failure literature systematically overstates how often single-source fails. **If this synthesis
    gets compressed to one line by someone downstream, this is the item that will be lost, and losing
    it inverts the reading.**
+9. **Long-term viability of the Feb 2026 bidirectional MCP.** `gemini.md`'s own §7: *"no multi-year
+   postmortems available"*, and current reports *"heavily influenced by vendor marketing."* Whether it
+   goes the way of Lona's compilers is unknowable today.
+10. **The drift timeline — still unmeasured, and now asserted anyway.** `gemini.md` gives four phases
+    (1–3 months → 1–2 years) as *"remarkably consistent across organizations"* with **no citation**,
+    and does not list it in its own §7. It is excluded from this synthesis. See the reconciliation.
+11. **The cost of running a hub, in money.** `gemini.md`'s $25,000/engineer/year is attributed to
+    unnamed *"analysts"* in §2 and called *"anecdotal"* in its own §7. Excluded as a figure.
+12. **Whether `token-reconciler-mcp` exists as described.** The named tool could not be confirmed on
+    2026-08-23; adjacent tools in the same category were found. The *design* is citable; the tool needs
+    a primary URL first.
 
 ## What to do next
 
