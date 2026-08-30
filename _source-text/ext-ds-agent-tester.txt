@@ -1,0 +1,194 @@
+sanity-labs/design-system-agent-tester — a harness for measuring how well agents use a design system
+
+Sources:
+- https://github.com/sanity-labs/design-system-agent-tester (repo root, README)
+- https://raw.githubusercontent.com/.../README.md
+- https://raw.githubusercontent.com/.../briefs/default.js
+- https://raw.githubusercontent.com/.../src/evaluation/parse-feedback.js
+- https://raw.githubusercontent.com/.../src/evaluation/semantic-html.js
+- https://raw.githubusercontent.com/.../tests/carbon/{config.js,system.md,user.md}
+- https://github.com/sanity-labs/design-system-agent-tester/commits/main
+Captured: 2026-08-30 via WebFetch (each file fetched individually)
+
+Sourcing note. WebFetch answers a prompt against the page rather than returning
+raw text, so most of what follows is a faithful reading rather than a
+transcription. Passages in quotation marks were extracted by asking for the
+literal string and are reliable; everything else is description. Where a claim
+came from a search summary rather than the primary, it is marked [SECONDARY].
+Nothing here has been run — no output of this tool has been observed.
+
+
+WHAT IT IS
+
+A test harness that runs the same interface brief N times against an agent
+using a given design system's npm packages, then averages the results into a
+report.md. MIT licence. 18 stars at capture. ~34 commits between 11 Jun 2026
+and 26 Aug 2026 — active, four days stale at capture. Two contributors: the
+GitHub handle `somerandomdude`, with `claude` as co-author on several
+mid-June commits.
+
+Sanity Labs describes itself as "experimental projects, proof-of-concepts, and
+early-stage tools from the Sanity team that ship before they're ready for
+official support" [SECONDARY — from a search summary of the org page, not
+fetched directly]. Treat accordingly: a working prototype, not a standard, and
+from a vendor with a commercial interest in design systems being agent-ready.
+
+Requirements: Node >= 22.12, an Anthropic API key, macOS/Linux (Windows via
+WSL). First run downloads ~150MB of Chromium. Runs cost money per iteration;
+the CLI shows a cost warning that `--yes` skips.
+
+Nine systems ship pre-configured: atlaskit, carbon, gestalt, lightning, nord,
+polaris, shad-cn, spectrum, zendesk-garden.
+
+
+METHOD
+
+Each test directory holds config.js, system.md, user.md. config.js declares the
+npm packages to install, the prompt files, an optional inline docsPath, a
+`measure` block toggling screenshots/performance/visual-comparison, an
+`effort` level, a `preflight()` validation hook, an optional `mcp` block
+(command, args, env, and a lint tool name), and a `derive(ctx)` for computed
+values. Prompts are markdown with {{variable}} substitution and
+{{#if path}}...{{/if}} conditionals.
+
+Default run is 3 iterations; `--iterations` raises it. Default model is
+`claude-sonnet-4-6`; `--models` runs across several. A fix loop runs up to
+`--max-fixes` (default 5) cycles per iteration when accessibility or rendering
+problems occur; `--no-fix-accessibility` disables the accessibility half of it.
+`--concurrency` parallelises iterations. A lock file prevents concurrent runs,
+which the README frames as protecting measurement validity.
+
+
+THE BRIEF
+
+Static default, verbatim, typo included:
+
+    "Create an web app interface that uses a wide range of UI components."
+
+With `--agent-prompt`, a fresh PRD-style brief is generated per run by calling
+the Anthropic API with a senior-product-manager persona. Constraints on the
+generated brief, quoted:
+
+    "The deliverable is a FRONTEND-ONLY prototype"
+    "all data must be hardcoded or mocked directly in the React component"
+    "Build the page around the archetype's natural shape — do NOT default to a
+     sidebar + table + inspector layout unless that's genuinely the right shape"
+
+Out-of-scope must explicitly say "no backend setup, no authentication, no real
+API calls, no unit tests". Length 200–350 words, numbered sections, and the
+brief must exclude visual styling, colour, branding and tech-stack references.
+
+18 domain × archetype pairs are supplied, spanning dashboard, kanban, calendar,
+map, wizard, chat, feed, marketplace grid, comparison, configurator, monitor,
+settings hub, reader, gallery, data table, moderation queue and others.
+
+The anti-default instruction is the interesting part: it is an explicit guard
+against the one layout agents reliably produce when unconstrained.
+
+
+WHAT THE REPORT MEASURES
+
+  Timing              build duration per iteration
+  Code size           line counts — average, deviation, range
+  Code variance       3-gram Jaccard similarity across iterations
+  Build reliability   first-attempt success rate; average fixes needed
+  Components          unique component and icon usage
+  Developer feedback  friction categories encountered (see below)
+  Accessibility       axe-core violations, in light AND dark mode
+  Performance         FCP, LCP, TBT, TTI, Lighthouse scores
+  DOM                 element counts; semantic HTML ratio
+  Styling             inline style usage, broken down by component
+  Visual              pixel-level pairwise comparisons between iterations
+  Snapshots           8 screenshots per iteration (4 breakpoints × 2 themes)
+
+Utility scripts: `new-test` scaffolds a test directory, `summarize` aggregates
+across prior runs (--count/--test/--from/--save), `capture-screenshots`
+back-fills images, `clean-output` frees disk. Tests are disabled by prefixing
+the directory with an underscore.
+
+
+THE FRICTION PROTOCOL — the most portable idea here
+
+tests/carbon/user.md instructs the agent, verbatim:
+
+    "Provide feedback on areas of friction when using the design system, both
+     in implementation and understanding correct usage. THE JOB IS NOT COMPLETE
+     UNTIL FEEDBACK IS PROVIDED."
+
+(system.md carries no feedback language — it is purely build instructions. The
+obligation sits in the user prompt.)
+
+src/evaluation/parse-feedback.js then classifies the response into seven
+categories: documentation, api, components, theming, icons, dx, other.
+
+Parsing is two-stage. Primary: a structured block delimited by "---FEEDBACK---"
+and "---END FEEDBACK---", scanned for bullets matching "- [category] text",
+validated against the category list. Fallback: if no block exists, it looks for
+markdown sections headed "Feedback" or "Friction" and infers a category from
+bold prefixes or keywords ("api" -> api; "theme"/"styling" -> theming). Input is
+capped at MAX_PARSE_BYTES, explicitly to stop adversarial flooding causing
+quadratic-time parsing.
+
+Why this matters beyond this tool: it makes the agent a usability participant
+rather than only a subject. The categories are a ready-made taxonomy for "what
+about a design system hurts an agent", and it costs nothing to adopt the
+instruction independently of the harness.
+
+
+SEMANTIC HTML RATIO — how it is actually computed
+
+src/evaluation/semantic-html.js defines 87 semantic tags across six groups
+(content sectioning, text content, inline text semantics, forms, interactive,
+tables & media). Generic containers (div, span) are counted separately. SVG
+elements are excluded from both counts.
+
+    ratio = semantic / (semantic + generic) × 100, to 1 decimal
+
+Quoted from the file: "semantic / total, as a percentage (0–100), 1-decimal".
+
+No thresholds are defined. The metric is purely descriptive — it supports
+comparison between runs and says nothing about whether a given number is good.
+Anyone quoting it as a grade is over-reading it.
+
+
+CAVEATS TO CARRY WITH ANY USE OF THIS
+
+1. It measures Claude, not "agents". The harness spawns agents via the
+   Anthropic API and defaults to claude-sonnet-4-6. The tool's framing is
+   broader than its method supports. Any cross-system ranking it produces is a
+   ranking under one model family.
+
+2. The accessibility fix-loop changes what the accessibility number means.
+   Run with remediation on, the number answers "can the violations be fixed".
+   Run with --no-fix-accessibility, it answers "was it right out of the box".
+   Same metric name, two different claims. Which way a published figure was
+   produced must be stated or the figure is unreadable.
+
+3. Averaging over iterations is right for this question, but for agent-readiness
+   the variance matters at least as much as the mean — a system an agent uses
+   correctly two runs in three is not a system you can govern. The report does
+   carry deviation and range; a summary that quotes only the average throws away
+   the more useful half.
+
+4. Vendor interest. Sanity has a commercial stake in design systems being
+   agent-consumable. Not a reason to discount the tool — the metrics are
+   inspectable and mostly mechanical — but a reason not to cite its framing as
+   neutral field consensus.
+
+5. Nothing here has been run. Every number this tool could produce is
+   unobserved by us. This capture describes a method, not a result.
+
+
+WHAT IT DOES NOT COVER
+
+- It tests a React component library consumed as npm packages. A token-only
+  system has no component layer for it to exercise, and the default brief
+  ("use a wide range of UI components") does not fit one. Not runnable against
+  a token engine without building a component layer first.
+- No design-tool side. Nothing measures whether an agent can work with the
+  Figma library, only the code.
+- No multi-turn or maintenance dimension. It measures a cold build, not whether
+  an agent can extend or correct existing code that uses the system.
+- No documentation-quality metric independent of outcome. Friction feedback is
+  self-reported by the agent; there is no separate check of whether the docs
+  were accurate.
