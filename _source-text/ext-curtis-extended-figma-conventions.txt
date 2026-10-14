@@ -1,0 +1,33 @@
+Source: Nathan Curtis, on extended Figma authoring conventions (glyphs, subcomponents, images) and the Specs 2 plugin's config/conventions/figma.yaml (nathanacurtis.substack.com, 2026). Shared by the owner on 2026-10-14 as text plus five screenshots: the figma.yaml block, the nested subcomponents spec, the generated React folder tree, a DE Avatar with an Image source prop, and the native slot settings (minimum layers, preferred instances). The screenshots are not reproduced here; their content is described in the text below.
+
+Key passages, as shared:
+
+A component with `heart` icon component. Actually, it's a `heart` icon glyph as content. The difference matters. When working in Figma, a `heart` icon presents as a reusable component instance inside a `FavoriteButton` component. In many design systems, the `heart` is not really a component, per se. Instead, it's more like named content, similar to the text and images flowed into a rendered design.
+
+Tooling downstream from Figma treat icons differently, deliberately. Specs detect glyphs as primitive content so as to evaluate specific styles like `fillColor`. Generators scan files to process glyph assets separate from UI components: extract the art, convert to SVGs, and expose as a catalog referenced by web, iOS and Android code libraries.
+
+Yet, just because Figma doesn't treat icons as a first-class object doesn't mean Figma can't carry the intent. ... What's new is deciding them, writing them down, and building scripted pipelines that depend on them rather than leaking via inference along the way.
+
+Extending Figma using conventions ... is about naming what's happening in the design system's model when the surface doesn't: what kind of thing is this, what is it a part of, what does it mean?
+
+config/conventions/figma.yaml:
+  naming: SENTENCE
+  glyphs: { match: DS Icon asset / {i} }
+  images: { backgroundImage: true, match: DE Image, sourceProps: [Image source] }
+  subcomponents: { scope: PAGE, match: ['{C} / {S}', '{C} / Subfolder / {S}'], exclude: ['{C} / Examples / {S}'] }
+  instanceExamples: { scope: PAGE, parentNames: [Examples] }
+  slotConstraints: true
+  inferNumberProps: true
+  codeOnlyProps: { match: Code only props }
+
+Conventions rely on names across many existing Figma surfaces: component asset names (glyphs, images, subcomponents), instance names (instanceExamples), layer names (code only props), prop names (image source as a type of content), prop values (infer type:number from the default).
+
+Icon glyphs: name icons conventionally, prepending a namespace (like `DE Icon asset`) to a name (like `heart`). Specs detect, evaluate, style and track icons distinctively. Library scans isolate icons, generate catalogs of SVGs; downstream scripts land icons in assets/icons/, wire them into components, check a `name` is valid, and watch for changes.
+
+Subcomponents: an Action list contains distinctive Item, Group and Group heading; Item contains Start visual and End visual. Figma doesn't know this; nothing but the name can carry the relationship. A `{C} / {S}` convention establishes the closed relationship; examples (`{C} / Examples / ...`) are excluded. Specs colocate subcomponents under the main component; generated React code nests a folder per subcomponent (contract.ts, metadata.ts, scaffold.tsx, stories.tsx, styles.css). The convention strongly suggests including subcomponents on the same page as the main asset.
+
+Images: images are content, but in Figma they're a fill. Systems surface them via a DE Image component (source, reserved aspectRatios) or a prop that populates an avatar, card or hero background. The convention identifies the dedicated component, whether to process background fills, and the one conventional source prop name (source, imageSource, src) shared across components like DE Avatar. Formalized, images route through props predictably, can be extracted (generate --get-images), referenced via $image, and improve docs, stories and tests.
+
+Drawbacks: names become overloaded and brittle (one string carries identity, category, hierarchy and membership); matches are on names, not references (rename the parent and the child silently detaches); matching can't derive intent from shape (hence exclude rules). Authoring can fail silently: a renamed icon never reaches the catalog; a stray subcomponent never gets a spec; an image unbound to the source prop ships as default content. Linting tools and skills help.
+
+Promoting conventions into native features: Figma's slot component gained native constraints after Schema 2025 (minimum items, maximum items, preferred instances), so the convention-based hack was stripped out. "Conventions aren't something to hold loosely. Instead, you are writing down parts of your system the tool can't hold, and the ones that turn out to be real sometimes stop being yours to hold at all."
