@@ -3,7 +3,7 @@ type: practice-area
 title: Gaps and Open Questions
 description: Practice gaps and unanswered questions across the corpus. Sourced inventory of what we don't yet have a POV on.
 tags: [gaps, open-questions]
-timestamp: 2026-08-13
+timestamp: 2026-10-29
 ---
 
 # 09 — Gaps & Open Questions
@@ -303,6 +303,11 @@ Inline cross-references added from 10's new sections to 03 / 04 / 13 / 17 / 24 /
 - **The position:** thin and opt-in — abstention is the field default and a defensible one (Material, USWDS, Primer, SLDS 2 ship nothing; Polaris *removed* its gradient token), so gradients are shipped only when a brand declares them. When shipped: DTCG `gradient` as the spine with **stops aliasing the colour ramp** (Fluent's model) and never raw CSS strings (the deprecated Polaris/SLDS trap, which is why they cannot theme); kind/angle/interpolation carried in `$extensions` because the spec omits them (issue #101); OKLCH as the canonical interpolation with a **pre-sampled sRGB approximation for Figma**, which interpolates in sRGB only.
 - **One differentiator worth naming commercially:** text-on-gradient contrast must be gated at the **worst-case stop under the text**, not the average — a check *no surveyed system performs*.
 - Cross-referenced from `22` (the `gradient` type is on the DTCG allowlist but incomplete — the clearest case for the materialization directive) and `12` (Paint Style mechanics).
+
+### 1.38 Option-row density independent of type
+- The Checkbox and Radio briefs carry a group `density` variant (comfortable / compact), but the field scan behind their October 2026 amendment found **no system that documents a lever changing option-row spacing without changing type** (`_research/_inbound/2026-10-29-option-row-label-size/`). Where the gap between options varies at all, it rides the size step — Spectrum 2 sets the group's row gap per size, Chakra scales its gap with xs–lg — and Carbon simply fixes 6px between items.
+- With control size now single by default (see components/checkbox §4), density is the only lever left on the row, and it has no field precedent. Open: is it a token-mode concern applied to the group gap and row padding (see 1.22 and 22-token-architecture-extensions), or a component prop? Untested in an engagement either way.
+- **Likely path: resolve when a dense-form client (admin tooling, data entry) asks for it.** Until then the briefs' density variant is a stated intent, not a validated default.
 
 ---
 

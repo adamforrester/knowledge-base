@@ -8,7 +8,7 @@ category: Form
 status: stable
 aliases: [check, tickbox, checkbox-field, checkbox-list, choice-list, multiselect]
 last-audited: 2026-06-15
-timestamp: 2026-06-15
+timestamp: 2026-10-29
 ---
 
 # Checkbox
@@ -84,7 +84,15 @@ Runtime states: rest, hover, focus-visible, pressed, **checked / unchecked**, **
 | read-only | **the awkward one** — native `<input type=checkbox>` has no working `readonly` (only `disabled`), so a true read-only checkbox needs `aria-readonly` + prevented toggling, or is better rendered as static text (flag, like select's no-native-readonly) |
 | pressed | brief active feedback, mainly mobile/touch-down |
 
-**Intentional variants:** `size` (control scales with the type); **alignment** — **top/baseline alignment is the non-negotiable default**, not center: center-aligning the control to a multi-line label floats it mid-paragraph and breaks the scan line; top-anchoring keeps it at the first line's reading start regardless of wrap (both agents emphatic). Group **orientation** (vertical default; horizontal only for few short options) and density. No tone/emphasis axis — a checkbox is neutral.
+**Intentional variants:** **one control size by default** — not a `size` axis. This brief used to say the size variant meant *the control scales with the type*; the field does not bear that out. Most systems ship a single fixed control — Carbon (a 16px box under a 14px label, no size prop), Polaris, Primer, SLDS 2, Ant and Base Web — and Atlassian deprecated its `size` prop in v14 and removed it in v15 as *less accessible* (field scan, `_research/_inbound/2026-10-29-option-row-label-size/`, Oct 2026). The systems that couple box to font step (Spectrum 2's S–XL, Chakra, Mantine) are the minority, and the coupling buys nothing a single well-sized control doesn't.
+
+**Where text and control do differ, the control aligns to the label's line box, not to a font-size step.** Fluent 2's large size grows only the indicator (16 to 20px) while the label stays at its 14/20 base; GOV.UK's small radios shrink only the control (40 to 24px) and leave the label font alone; Radix sizes the box to the inherited `--line-height`, so a control composed inside a Text block lands on the first line by construction (all field scan, Oct 2026). The line box is what the eye reads; the font-size step is an implementation detail, and tying the control to it is how a system ends up with a box that drifts off the first line when a product team overrides the label style.
+
+**Alignment — top or first-line alignment is non-negotiable**, not center: center-aligning the control to a multi-line label floats it mid-paragraph and breaks the scan line; anchoring it to the first line keeps it at the reading start regardless of wrap (both agents emphatic). **Center alignment is a bug, not a style choice.** Atlassian shipped an accidental switch to center and restored top alignment in v12; Polaris's `.Choice`, SLDS 2, Chakra and the Material 3 Compose `Row` recipe still center, which holds only while every label fits on one line (field scan, Oct 2026).
+
+**The description sits one type step smaller and muted** — Carbon's helper-text-01 at 12px in `$text-secondary` under a 14px label, Primer's `FormControl.Caption` at body-small in `fgColor-muted` — and **indents to the label's start**, not the control's, so the text column stays a single column (Polaris indents by the control size plus gap, GOV.UK by the touch target plus padding). GOV.UK's same-size hint in a secondary colour is the exception, and a deliberate one for a service-design audience; we don't default to it (field scan, Oct 2026).
+
+Group **orientation** (vertical default; horizontal only for few short options) and density — though no surveyed system documents a density lever that changes row spacing without changing type, so our density variant is a stated intent rather than a field-validated default (see 09-gaps-and-open-questions §1.38). No tone/emphasis axis — a checkbox is neutral.
 
 ## 5. Usage guidance
 
@@ -172,6 +180,7 @@ Conservative dating (the external pass supplied precise, largely 2026-stamped ve
 - Apple Human Interface Guidelines — 44pt target size, toggles (Apple HIG, 2024–2025).
 - WAI-ARIA APG — Checkbox (single + mixed/tri-state) pattern; `role="group"` + `aria-labelledby`.
 - WCAG 2.2 (W3C Recommendation, Oct 2023) — SC 1.3.1, 3.3.1, 3.3.2, 3.3.3, 1.4.11, 2.4.13, 4.1.2, 2.5.8, 3.3.7.
+- Field scan — option-row control size, label alignment and description styling across Material 3 Compose, Carbon, Polaris, Spectrum 2, Atlassian, Primer, Fluent 2, SLDS 2, GOV.UK, Base Web, Radix Themes, Chakra v3, Mantine, Ant, Apple HIG, Shopify checkout UI and Stripe, cited per row to stylesheets and docs (`_research/_inbound/2026-10-29-option-row-label-size/`, Oct 2026; single-sourced).
 
 ## 15. Agent-consumable schema
 
@@ -238,8 +247,9 @@ states:
     read-only: "no working native readonly (like select) — aria-readonly + prevent toggle, or static text"
     error: "isolated row recolours the border; in a group the rows stay neutral and the GROUP shows the error"
 variants:
-  size: [small, medium, large]
-  alignment: [top-baseline-default]   # NEVER center — drifts mid-paragraph on multi-line labels
+  size: [default]   # ONE fixed control; where text and control differ, the control aligns to the label's line box, not a font-size step
+  alignment: [top-first-line-default]   # NEVER center — drifts mid-paragraph on multi-line labels; center is a bug (Atlassian fixed it in v12)
+  description: "one type step smaller + muted, indented to the label's start (GOV.UK same-size secondary colour is the exception)"
   group: {orientation: [vertical, horizontal], density: [comfortable, compact]}
 accessibility:
   inherits: text-field
@@ -284,10 +294,10 @@ notes:
   unverified:
     - "Polaris React->Web-Components migration + label-prop move (shared cross-brief claim; needs _source-text)"
     - "external-supplied 2026 version numbers"
-  evolution: "styled native input won; group first-class; role=group over fieldset; decomposition -> row+group+atomic-primitive; indeterminate ref-callback"
+  evolution: "styled native input won; group first-class; role=group over fieldset; decomposition -> row+group+atomic-primitive; indeterminate ref-callback; size prop retreating (Atlassian removed it in v15)"
   pattern-note: "establishes the selection-control decomposition for radio (group mandatory) and switch (no group)"
 ```
 
 ---
 
-*Provenance: dual-agent research run, `_research/_inbound/2026-06-15-component-checkbox/` (15 June 2026), the first of the boolean/choice controls. The headline finding is convergence on the decomposition: both passes independently landed on a two-component public surface (`Checkbox` labelled row + distinct `CheckboxGroup`) plus an exposed atomic primitive (`Checkbox.Control`), which is the text-field bundled-vs-composed hybrid applied to a control — and the pattern this brief sets for Radio (group mandatory) and Switch (no group). Other convergences: indeterminate as a DOM property / `aria-checked="mixed"` and not a third value, the whole-row hit target meeting 2.5.8/44/48, top-baseline alignment as non-negotiable, the Tab-each-vs-arrow-within difference from radio, positive-phrasing/sentence-case labels with shared-word abstraction into the group label, the staged-vs-immediate checkbox-vs-switch boundary, and the styled-native-input implementation. External-pass contributions folded in: the three-paradigm taxonomy (monolithic/composed/headless), the **label-as-rich-content** refinement (the consent-link case, which corrected my initial string-prop framing), `role="group"`+`aria-labelledby` as the practice default over `fieldset` (CSS-layout quirks), the indeterminate ref-callback over `useLayoutEffect`, the `CheckboxGroupContext`/value-array pattern, the explicit target-size numbers, the Enter-key-never-override rule, the checkmark-doesn't-mirror-in-RTL nuance, and the `ChoiceList` alias. Claude-pass contributions: the native-DOM-naming default (`checked`/`indeterminate` over `is*`), the no-native-readonly caveat, the icon-only-button hit-target parallel, and the explicit framing against the text-field encapsulation precedent. Two corrections against the external §15, prose winning: Switch/Combobox are **alternative-to**, not `superseded-by` (siblings chosen by intent/scale); and the label is rich-content (node), reconciling the prop-vs-children split. The Polaris Web-Components migration and the 2026 version numbers are flagged unverified pending `_source-text/` backing. Conformant to `components/_schema.md`.*
+*Provenance: dual-agent research run, `_research/_inbound/2026-06-15-component-checkbox/` (15 June 2026), the first of the boolean/choice controls. The headline finding is convergence on the decomposition: both passes independently landed on a two-component public surface (`Checkbox` labelled row + distinct `CheckboxGroup`) plus an exposed atomic primitive (`Checkbox.Control`), which is the text-field bundled-vs-composed hybrid applied to a control — and the pattern this brief sets for Radio (group mandatory) and Switch (no group). Other convergences: indeterminate as a DOM property / `aria-checked="mixed"` and not a third value, the whole-row hit target meeting 2.5.8/44/48, top-baseline alignment as non-negotiable, the Tab-each-vs-arrow-within difference from radio, positive-phrasing/sentence-case labels with shared-word abstraction into the group label, the staged-vs-immediate checkbox-vs-switch boundary, and the styled-native-input implementation. External-pass contributions folded in: the three-paradigm taxonomy (monolithic/composed/headless), the **label-as-rich-content** refinement (the consent-link case, which corrected my initial string-prop framing), `role="group"`+`aria-labelledby` as the practice default over `fieldset` (CSS-layout quirks), the indeterminate ref-callback over `useLayoutEffect`, the `CheckboxGroupContext`/value-array pattern, the explicit target-size numbers, the Enter-key-never-override rule, the checkmark-doesn't-mirror-in-RTL nuance, and the `ChoiceList` alias. Claude-pass contributions: the native-DOM-naming default (`checked`/`indeterminate` over `is*`), the no-native-readonly caveat, the icon-only-button hit-target parallel, and the explicit framing against the text-field encapsulation precedent. Two corrections against the external §15, prose winning: Switch/Combobox are **alternative-to**, not `superseded-by` (siblings chosen by intent/scale); and the label is rich-content (node), reconciling the prop-vs-children split. The Polaris Web-Components migration and the 2026 version numbers are flagged unverified pending `_source-text/` backing. Conformant to `components/_schema.md`. **Amended 29 October 2026** (owner decision Q854 A) from a single-sourced field scan, `_research/_inbound/2026-10-29-option-row-label-size/`: the `size` variant no longer means *the control scales with the type* — one control size is the default, and where text and control differ the control aligns to the label's line box; center alignment is now called out as a bug; and the description is specified as one step smaller, muted, and indented to the label's start. Radio inherits the change.*
