@@ -1,0 +1,62 @@
+Source: Eddie Lou, "Motion belongs in the design system" (working title; Medium, 2026). Shared by the owner on 2026-10-14. Medium's subscribe prompt removed; the text is otherwise as shared.
+
+Last week I made the argument that motion is functional, not decorative. That framing is only useful if teams actually operationalize it, which most do not. Motion still lives outside the design system at most organizations, treated as a per-component decision rather than a system-level concern. That is why so much shipped motion feels inconsistent even when the visual design is careful.
+Almost every design system I have reviewed over the past few years has been rigorous about color, typography, spacing, and component states. Almost none of them have been equally rigorous about motion.
+
+The color tokens are defined. The type scale is documented. The spacing system is intentional. The button states are specified in detail. And then somewhere, buried in a component or handled ad hoc by whoever is implementing the interaction, the animation just exists. Its duration was decided in the moment. Its easing curve was picked from whatever the framework offered by default. Its trigger conditions were coded once and forgotten.
+
+The result is what most shipped products actually feel like. Colors that are consistent. Typography that is consistent. Spacing that is consistent. And motion that is subtly different everywhere, even when nobody on the team can articulate exactly why the product feels less coherent than the components suggest it should.
+
+Motion belongs in the design system, at the same level of rigor as everything else the system defines. That statement is obvious once made, and yet many teams has been slow to actually do it. This piece is about why, and what motion in a design system actually looks like when it is taken seriously.
+
+Why Motion Gets Left Out
+There are specific reasons motion tends to live outside the design system, and understanding them helps explain why the gap has persisted for so long.
+
+Motion is harder to specify in static tools. Color can be expressed as a hex value. Typography can be expressed as a font family and size. Spacing can be expressed as a pixel value. Motion has to be expressed as duration, easing curve, direction, trigger conditions, and the interaction between motion on different properties. That is a lot more dimensions to specify, and static design tools have historically not been good at capturing all of them.
+
+Motion feels like an implementation detail. In many teams, the decision about what animation to use gets made by the engineer implementing the component rather than by the designer specifying it. This is not because designers do not care about motion. It is because the design specifications rarely include motion at the level of detail that would let the engineer implement it without making decisions. So the engineer makes the decisions, and each engineer makes different ones.
+
+Motion is genuinely hard to design at the system level. Component-level motion decisions are much easier than system-level ones. Should this button have a subtle bounce on press? A designer can make that call for one button. Should every interactive element in the product have consistent motion characteristics that reinforce the brand identity? That requires thinking at a level of abstraction most teams do not have the bandwidth for.
+
+Motion tooling has been immature. Until recently, the tools available for defining, documenting, and enforcing motion at the system level were significantly less mature than the tools for color, typography, and layout. This is finally changing, but the tooling gap contributed to the practice gap for years.
+
+None of these reasons are excuses. But they are the reasons, and understanding them makes it easier to see what has to change.
+
+What Motion in a System Actually Looks Like
+Motion in a mature design system operates at three levels. Each level has its own concerns, and all three need to be defined and documented for the system to work well.
+
+The token level. Motion primitives that everything else builds on. Duration values expressed as tokens rather than as one-off numbers. Easing curves defined once and referenced everywhere. Distance and displacement values for motion that involves position changes. These tokens are the foundation of a motion system in the same way color tokens are the foundation of a visual system. Without them, every component makes its own decisions and consistency is impossible to enforce.
+
+The duration tokens usually organize into a scale. Something like extra-fast, fast, medium, slow, extra-slow, with specific millisecond values assigned to each. The easing tokens usually organize into semantic categories. Something like standard easing for most transitions, entering easing for elements appearing, exiting easing for elements disappearing, and emphasized easing for interactions that need special attention. The specific values matter less than the fact that they are defined once and applied consistently.
+
+The pattern level. Reusable motion patterns that get applied across the product. What does a modal opening look like. What does a page transition feel like. What happens when a card is selected. These patterns are more than the sum of their tokens. They are motion decisions with their own identity, and they should be defined at the system level rather than reinvented in every component.
+
+Well-designed motion patterns are what give a product its distinctive feel. Users cannot always articulate why one product feels smooth and another feels twitchy, but the difference is almost always in the consistency and quality of the motion patterns. A product with well-defined patterns feels like it was made by one mind. A product without them feels like it was assembled from components that came from different design conversations.
+
+The behavioral level. The rules that govern when motion should be used, when it should not be, and how it should behave in specific contexts. When the user has enabled reduced motion preferences. When the device is under performance pressure. When motion would interfere with reading or focus. When a rapid sequence of actions should skip animations to feel responsive rather than delayed.
+
+These behavioral rules are the least documented layer of most motion systems and the most important for the system to actually work at scale. Without them, the system produces motion in situations where motion is inappropriate, and the individual pieces cannot compensate for a system-level failure of judgment.
+
+What This Requires From Teams
+Building motion at this level of rigor requires specific practices that most teams have not developed yet.
+
+Someone has to own motion at the system level. In most organizations, no single person is responsible for the coherence of motion across the product. Designers own visual design. Engineers own implementation. Product managers own features. Motion falls between the roles and gets treated as everyone's concern, which is functionally the same as nobody's concern. Teams that produce good motion systems have someone specifically responsible for the discipline.
+
+Motion has to be reviewed at the system level. Component-level review is not enough. A team reviewing individual components in isolation cannot catch the fact that three components have inconsistent motion characteristics because each was designed on its own. Motion review has to happen at the composition level, looking at how motion flows across pages, patterns, and user journeys.
+
+Motion has to be tested with real users, including users who need reduced motion. Most design and engineering teams do not test motion the way they test other design decisions. The animations get built, the developer confirms they look good on their machine, and that is where testing ends. Real testing with real users, especially users with motion sensitivities, reveals problems that are otherwise invisible.
+
+Motion has to be measured for performance. Every animation has a cost in frame budget and battery life. A mature motion system tracks these costs and stays within budgets that keep the product performant across the range of devices it needs to support. Motion that ships without measurement often produces the janky, expensive interactions that make products feel low-quality on anything less than a flagship device.
+
+The Point of View That Matters
+The reason motion belongs in the design system is the same reason color, typography, and spacing do. Design decisions that get made repeatedly across a product need to be centralized so they can be made once and applied consistently. When they are not centralized, they get made inconsistently, and the product suffers for it.
+
+Motion is not different from these other decisions. It is just harder to centralize because the tools have been less mature and the practice has been less developed. Neither of those excuses is going to hold up much longer.
+
+The teams that build motion into their systems now will produce products that feel more coherent, more polished, and more considered than teams that keep treating motion as a per-component decision. The gap between the two will be visible to users even when it is not articulable, and it will show up in the way products feel across everything from first-run experience to daily use.
+
+Motion has always been part of the design. Making it part of the design system is the next chapter of the discipline, and it is a chapter the industry is only beginning to write. The teams that write it well will produce work that stands out, and the teams that skip it will produce work that feels slightly off in ways that nobody can quite explain.
+
+That gap is the whole reason to take this seriously. Motion in the system is not optional anymore. It is what the next generation of well-crafted products is going to be built on.
+
+Eddie Lou is a UX and Design Engineering leader with 30+ years of experience at Cisco, PayPal, Apple, Visa, BigCommerce, and Indeed. He is the author of the Design Engineering Handbook (InVision / Design Better) and the founder of EFX Design, a design and development studio specializing in experience platforms, design systems, and custom product development.
