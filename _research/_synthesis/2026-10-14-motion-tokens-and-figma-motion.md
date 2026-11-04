@@ -238,7 +238,37 @@ The May external run's "70% reduction in design-to-dev cycle" and "DTCG motion m
 
 ---
 
+## Addendum (2026-11-04): a second external half
+
+The owner ran the identical prompt through another external agent and pasted the result in as `external-agent-2.md`. Like the first external half, it carries no URLs or fetch dates. Its claims were read against this synthesis and its ledger, and against what Prism3's own Figma write path does today. No new primary sources were opened in this pass.
+
+**It changes nothing in the recommendations.** It agrees with the architecture above on every structural point:
+- token primitives and roles, then a pattern tier, then components;
+- the spatial vs. effects split, with springs for spatial motion and curves for effects;
+- springs delivered to the web as a build-time `linear()` sample with a derived settling duration;
+- stagger as a token interval, with the iteration done at runtime in the component library;
+- out of scope for the token layer: scroll-driven timelines, out-and-back pulses and multi-stage keyframes, and motion of layout properties (width, height, margin).
+
+That's convergence from a third source, not new evidence.
+
+**What it adds that's worth keeping:**
+- **A CI audit for WCAG 2.3.1:** flag any cyclical pattern whose duration tokens could exceed three flashes per second. It's a cheap gate, and the existing open items don't cover it.
+- **A rationale for near-zero durations (e.g. 0.01ms) under reduced motion** instead of removing the animation: code that waits for a transition-end event keeps working. The rationale is sound; the "Fluent 2 does exactly this" attribution is unverified.
+
+**Claims that fail or stay unverified:**
+
+| Claim in `external-agent-2.md` | Verdict |
+|---|---|
+| Figma EASING "cannot natively represent physics-based springs… relies on Bezier approximations" | **Fails.** EASING holds `CUSTOM_SPRING` (ledger above). Prism3 has written springs as EASING variables since prism3 #2412 (2026-10-15), and the owner confirmed them on a live file. |
+| "M3 utilizes springs defined by mass, stiffness, and damping ratios" | **Fails.** It repeats the first external half's claim that the ledger already rejected. |
+| The Figma Variables REST API "supports the programmatic injection of TIMING and EASING" | **Unverified.** REST support for these types is still an open spike (below). |
+| "Dev Mode's dedicated Motion tab… exporting… CSS, JSON, or React" | **Unverified.** No primary source was opened. Don't quote it until it's checked. |
+| DTCG 2025.10 `$type: "transition"` (duration, delay, timingFunction) | **Consistent** with the DTCG composite type the first half and this synthesis use. No change. |
+| Reduced motion "flattens all spatial curves to linear" | **Disagrees with this synthesis.** Reduced motion substitutes fades for movement and shortens durations. Flattening curves to linear isn't the mechanism, and linear motion is what the field avoids. Keep the synthesis position. |
+
 ## Open items and spikes before promotion
+
+- **New (2026-11-04):** a WCAG 2.3.1 flash-frequency check over cyclical motion patterns, as a gate on the pattern tier when it ships.
 
 - Whether Figma's spring duration is perceptual or settling time (test against `Spring(duration:bounce:)` playback).
 - Whether TIMING can bind to a manual keyframe's `timelinePosition`; whether EASING accepts cubic-bezier y outside [0, 1]; cross-collection aliasing for TIMING and EASING.
