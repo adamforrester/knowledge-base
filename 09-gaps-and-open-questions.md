@@ -3,7 +3,7 @@ type: practice-area
 title: Gaps and Open Questions
 description: Practice gaps and unanswered questions across the corpus. Sourced inventory of what we don't yet have a POV on.
 tags: [gaps, open-questions]
-timestamp: 2026-08-13
+timestamp: 2026-11-04
 ---
 
 # 09 — Gaps & Open Questions
@@ -67,6 +67,7 @@ Areas where the collective source material is thin or silent. These are the high
 - Motion appears in token lists but the practice does not yet ship motion principles, motion audits, easing studies, or productive/expressive splits as foundational deliverables.
 - Head's framework (principles → building blocks → choreography) is straightforward to adopt and would close the gap.
 - **Closed (architectural layer) by 18-motion-foundations, 19-motion-implementation-web, 20-motion-implementation-mobile, and 21-motion-spec-and-handoff (May 2026).** Open gaps that remain are now downstream of the architectural treatment: cross-platform spring calibration as a practice deliverable (a starting mapping table is in 20 but the side-by-side reference videos are not yet a practice default); Pattern A vs. Pattern B tooling for the motion spec contract (a Figma-plugin or pipeline to emit machine-readable spec files does not yet exist as a turnkey product); the productive vs. expressive choice between parallel token sets and override-mode is not yet a practice default.
+- **Two of those downstream gaps closed (November 2026)** by the promotion of the 2026-10-14 motion run into 18-motion-foundations and 21-motion-spec-and-handoff, from `_research/_synthesis/2026-10-14-motion-tokens-and-figma-motion.md` (inbound halves in `_research/_inbound/2026-10-14-motion-tokens-and-figma-motion/`, including the 2026-11-04 second external half). **Productive vs. expressive — CLOSED:** the lever is a scheme or mode on the semantic tier, not parallel token sets; brand-curve permission rules carry the enforceability argument. **Pattern A vs. Pattern B tooling — CLOSED as framed:** the useful bridge now runs from the Pattern B spec *to* Figma Motion custom animation styles, buildable on the Plugin API since Update 140 (2026-09-30); the residual mechanics are open spikes in §1.38. The same promotion revised the token model into three tiers (tokens / motion patterns / components), replaced 21's "Figma is structurally inadequate" diagnosis with *adequate for timed motion, inadequate for behaviour*, and added decision frameworks, an out-of-scope list and a minimum viable pattern set. **Still open:** cross-platform spring calibration as a practice deliverable — now sharper, since the spatial/effects spring grid in 18 has not yet replaced the snappy/gentle/bouncy mapping table in 20.
 
 ### 1.10 Documentation IA and templates
 - Reference-site information architecture is named; not delivered as a deliverable.
@@ -303,6 +304,18 @@ Inline cross-references added from 10's new sections to 03 / 04 / 13 / 17 / 24 /
 - **The position:** thin and opt-in — abstention is the field default and a defensible one (Material, USWDS, Primer, SLDS 2 ship nothing; Polaris *removed* its gradient token), so gradients are shipped only when a brand declares them. When shipped: DTCG `gradient` as the spine with **stops aliasing the colour ramp** (Fluent's model) and never raw CSS strings (the deprecated Polaris/SLDS trap, which is why they cannot theme); kind/angle/interpolation carried in `$extensions` because the spec omits them (issue #101); OKLCH as the canonical interpolation with a **pre-sampled sRGB approximation for Figma**, which interpolates in sRGB only.
 - **One differentiator worth naming commercially:** text-on-gradient contrast must be gated at the **worst-case stop under the text**, not the average — a check *no surveyed system performs*.
 - Cross-referenced from `22` (the `gradient` type is on the DTCG allowlist but incomplete — the clearest case for the materialization directive) and `12` (Paint Style mechanics).
+
+### 1.38 Motion patterns and Figma Motion — open spikes and unsettled positions
+
+- The November 2026 motion promotion (§1.9) landed the three-tier model and the narrowed Figma position, but the synthesis left items it could not verify or decide. They stay open here until a spike or an engagement answers them.
+- **WCAG 2.3.1 flash check (new, 2026-11-04).** A CI gate on the pattern tier that flags any cyclical pattern — pulse, shimmer, spinner — whose duration tokens could resolve to more than three flashes per second. Cheap to build, and nothing in the current model catches it. Surfaced by the second external half of the run; belongs in the pattern tier when it ships.
+- **WCAG 2.2.2 and loading indicators.** Whether a loading indicator counts as essential under 2.2.2 must be checked against the Understanding document before pattern 11 (progress / loading loop) in 18's minimum viable set ships with a default.
+- **Figma Motion mechanics, untested.** Whether Figma's spring duration is perceptual or settling time (test against SwiftUI `Spring(duration:bounce:)` playback); whether TIMING can bind to a manual keyframe's timeline position; whether EASING accepts cubic-bezier y values outside [0, 1]; cross-collection aliasing for TIMING and EASING; REST support for both types (GET local variables on a file that contains them); library versioning of custom animation styles (what consumer instances do when an upstream entry is removed); and whether a style applied to a differently structured node fails (the external half's "rigid envelope" claim, unverified).
+- **Unverified claims held out of the numbered files.** A Dev Mode motion tab exporting CSS, JSON or React; the attribution of near-zero reduced durations to Fluent 2. Neither is quoted until checked.
+- **Distance scale shape.** Whether the motion distance scale aliases spacing one-to-one or holds its own steps; test against a brand inventory.
+- **Practice positions, not cited standards.** The overshoot cap (bounce ≈ 0.4), the brand-curve permission guardrail, `skipOnRapidRepeat`, `lowPower`, a tempo multiplier, and the spatial/effects → reduced-motion mapping. Each is defensible and none has a source; they need engagement evidence before they are presented as more than our position.
+- **Motion operating model.** Lou's ownership, review, user-testing and budget practices (`_source-text/ext-motion-in-design-systems-lou.txt`) are governance, not tokens; 18 points at 07 and 08, which do not yet carry them.
+- Connects to 18 (the tiers and the minimum viable pattern set), 21 (the Figma limits and the generated-styles bridge), 14 (reduced motion) and 34 (agent application of Figma Motion through MCP, which is technically possible and unproven).
 
 ---
 
