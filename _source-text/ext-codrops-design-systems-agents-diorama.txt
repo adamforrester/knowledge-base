@@ -1,0 +1,138 @@
+Source: Codrops, 2026-11-01, https://tympanus.net/codrops/2026/11/01/design-systems-agents/ (text pasted by the owner, 2026-11-04; the site blocks automated fetches)
+Referenced repos: https://github.com/bydiorama/ui · https://github.com/bydiorama/ui/tree/main/.claude/skills/design-component · https://github.com/Jakubantalik/transitions.dev/tree/main/skills
+
+Building Digital Products with Design Systems and Agents: A Guide for Terrified Designers
+A practical guide to building design systems, refining prototypes, and automating documentation with AI while keeping creativity and human judgment at the core.
+Tags: ai, ai agents, design system, mcp, paper
+
+Design systems matter more than ever. They let you build your own design harness, which, combined with agentic tools, opens up new ways to iterate, prototype and present your work.
+Many designers believe that agentic tools can't match the precision of direct manipulation. That belief is a bit dated. Today, we can control not only the output but also the process, without touching the code. I've been using AI tools in my process since the early versions of ChatGPT and Midjourney, but only in the last couple of weeks have I really started to feel the real change and improvement to my workflow as a designer.
+The moment it clicked for me was a deck design I worked on under time pressure a few weeks ago. That time, I didn't start with a prompt. Instead, I pasted examples of our previous decks directly onto the Paper canvas, added a few references and went totally berserk with comments. I annotated every detail in the references and explained why it matters for us and why it works in graphic design in general. Then I asked the agent to make two distinct versions of each slide layout and to review them against that direction as it worked.
+A few minutes later, I had a deck ready to send to a client requiring only a few small tweaks, and the whole session was used to distill a deck design skill I've been using since.
+Still, something feels off whenever an agent produces something on its own, whether it's a creative brief or a website. If you let an agent design without supervision it can achieve a certain aesthetic quality, but the results often feel somewhat empty.
+Coming from the world of pushing pixels and rounding rectangles, the process is a bit chaotic at first. Moving away from a traditional approach, where design, handoff and development always followed a predictable order, feels counterintuitive and a little messy.
+However, the parts that seem fuzzy actually open up room for more creativity and experimentation, while still meeting product design constraints consistently.
+
+Learnings from One Year of Agent-Powered Design, in a Nutshell
+When I started experimenting with coding agents for design work, it felt a bit like pulling the lever on a slot machine. First came a wish, then the agent worked, and after a while a designed page appeared out of nowhere. Then you could spend hours iterating and trying to figure out how to serve the context in a form the agent could digest. The process was slow and dreadful, and the only thing giving you the dopamine hit you needed for the next round was finally seeing your ideas live, or at least a roughly stitched version of them.
+Then MCPs got faster, agents got better at design and code, and, combined with many modern tools, they offered an experience far better than the "traditional" pre-AI way. It finally feels more like working with a team of pros than making wishes to a djinn eager to find every loophole and twist them in unexpected ways.
+Not so long ago, a freshly designed product screen that made you and your whole team happy still needed all its states to be drawn by hand. The more complex the functionality, the more states and screen variants there were. At handoff, writing the documentation could feel endless. Involving any animations and experimenting with interactions meant creating manually wired prototypes and motion mockups, and required close collaboration with engineers.
+Now designers can produce code themselves, and when the engineering time feels almost unlimited, explorations that used to be unthinkable, or at least unreasonable given the resources they required, are within reach. Collaboration with engineers is still important, but you don't need them to babysit your ideas and the conversation has shifted from how to build it to what to build.
+What has always mattered, at least in the eyes of a product designer, is parity between design and code. Digital products and design systems usually consist of three layers: design, code and documentation. All three are intertwined. With agents, you can now switch between contexts effortlessly and let them settle the debt in whichever layer it currently lies. We might never achieve AGI, but in this domain, we are pretty close to the singularity.
+Here's my current workflow when it comes to design work at Diorama, and how I'm using Paper, Claude Code and the bydiorama/ui design system for internal and client projects.
+
+Building bydiorama/ui, an Open-Source Agentic-First Design System
+At Diorama, we're working on bydiorama/ui because we see great value in using it not only for internal tools, but also for rapidly built prototypes. We wanted something ownable, built from scratch without the technical baggage of the past. That's why we decided to go agentic-first and open source.
+I started in Paper by simply exploring the tool. I designed essentials like buttons, input fields, checkboxes and other common components, mostly to compare Paper with other tools on the market. Along the way, I started working with agents to expand those components with all their states.
+The first component was a button. Since it's an essential element of every design system, the documentation and states the agent drew were almost spotless on the first attempt; there is a lot of out-of-the-box knowledge the agent can draw from.
+I used the time I saved to explore different sizes and color combinations. It also helped to build accessibility into the system early on, because the agent can continuously check color contrast and size ratios against accessibility standards.
+What I liked about Paper was its speed. Speed matters less to me when it comes to generating new screens from scratch. Even the slowest model is faster than a human, and something designed entirely by an agent is rarely something I'd use anyway. Since I work with agents as sidekicks, what matters much more is how fast they can interact with the canvas, go through comments, implement edits and organize files.
+Early on, I found that the design harness, the set of rules, the memory, and the knowledge you set for an agent, can be created by very little bits, as I shared my thoughts in comments directly in Paper accompanied by additional screenshots and moodboards. When I work with an agent that way in a session, the same thread gets analyzed to be distilled into documentation updates and skills later. That helps me codify and record the learnings, exceptions and recurring patterns in the form of markdown files such as CLAUDE.md, AGENTS.md and CONVENTIONS.md.
+CONVENTIONS.md became our rule book. Each rule comes from the design system as it lives in Paper and in code, and from what got approved in both. It also sets testing criteria and hard lines, especially against typical artifacts of agentic coding, such as thick left borders on cards for emphasis or randomly placed dotted and dashed lines.
+In a way, I often treat an agent as an apprentice. Instead of jumping right into designing screens, I start with explaining systems and patterns, and building the context step by step. Explaining taste is hard even to other people who share a similar and truly multi-modal experience of the world as you do, and explaining it to an LLM with a bunch of words and screenshots is harder.
+Detailed explanations of essential principles like typography, spacing, iconography and layout help turn something abstract into structured input that agents can actually work with.
+Agents don't know the pain of using a poorly designed product, and their sense of time is only an approximation. When I explain the relationship between a visual decision and the reasoning behind it, the way I'd explain it to someone with no design background, the results are much better. It also makes me better at articulating and calibrating my own taste. What often helps is to add a couple of examples of the concept.
+
+Stretching the System with a To-Do App
+There are three parallel ways we are currently expanding our design system in Diorama. The first is obviously the plan and the roadmap, the second is the requirements of our projects, and the third is pure experimentation. Stretching and using the system in different contexts reveals new opportunities for the system expansion.
+To-do list apps have always been the evergreen example for design and development sparring. They usually need only a few components, but underneath, they require a variety of actions and mechanisms to feel intuitive and work correctly. Add agentic superpowers to the mix, and they become a playground for novel exploration.
+For us, the app was a good stretch test for the system, and it also helped us develop new layers: a calendar item component, new widgets and patterns for agentic and conversational components, and better styling and theming options.
+That said, the workflow works with any design system you like. If you prefer to start with your own system, or with shadcn/ui, for example, the steps stay the same.
+
+Design
+My starting point varies. Sometimes I design single components, sometimes lo-fi wireframes, and sometimes I don't design anything at all. When it feels like staring at a blank page, I ask the agent for a quick draft of an idea and start from there. I've found it's much easier to take a mediocre design and make it great than to start from nothing.
+In Paper, I usually split the design into two main categories: Drafts and Handoff. Each component and each screen can have two pages, one for each purpose. In this case, they would be "To Do – Drafts" and "To Do – Handoff."
+Drafts usually contain many iterations and variations of a single instance, while Handoff holds the final design with documentation and annotations. We'll get back to them later.
+Outsourcing all your thinking to agents isn't a valid strategy. More complex problems still need your own assessment, your own research and clear intent when you lead the agent. Sometimes, though, I find it exciting to simply see how the agent would solve the problem and then iterate from there. Let's do that here.
+  Prompt: Use our design system and available skills to one-shot a calm, minimal and elegant AI productivity app. Three columns: a to-do list, a calendar view with events, and a chat bar. Use the Mobbin MCP and keep it compliant with our design standards. Here is the Paper file.
+I started with a simple prompt and added the Mobbin MCP, so the agent could find inspiration and research UX patterns along the way. Since I didn't mention Paper explicitly, I used the key phrase "available skills." These skills are:
+- The Design Component skill, which tells Claude how to design in Paper while honoring our design system.
+- The UI Craft skill, which defines general rules and practices for UI design, covering states, tokens and accessibility.
+- The Griddy Icons skill, which teaches the agent which icon library to use and the conventions for using icons, from preferred size and format to naming.
+Paper connects to Claude through an official connector, so without custom skills, simply writing "Paper" instead of "available skills" works just as well. I also always include a link in the prompt. Use Cmd + L to copy the link to the selected frame or current page.
+
+Iterate
+The first result doesn't have to feel magical, and mine did not in this case. It wasn't completely bad, but it had redundant components, unnecessary labels (AI agents love those), and a visual hierarchy that didn't match what I'd expect as a user. The visual language, on the other hand, was faithful to our UI design language from the very first iteration and needed only minor fine-tuning.
+For me, the magic happens in the next step. I review the design in Paper, maybe tweak a thing or two, and then leave comments with my feedback directly on the canvas, steering the direction the same way I would with other designers.
+My comments aren't always related only to the desired changes. I paste in moodboards and screenshots and comment on them too, explaining the context and why they matter.
+Friction is common. Sometimes I forget to mention something important in the prompt, or the agent puts too much weight on a clue that wasn't that important.
+Without clear intentions, agents default to what they know best and generalize. They take the path of least resistance and lead you on a boring trip through the sea of sameness.
+When I used to prompt an agent to design something and the output was pure code, iterating was slow. Being able to generate the design first, check its quality, fine-tune it by hand, or scrap the idea before anything touches the code feels like the missing link in the process.
+When the feedback round in Paper is done, I simply switch to Claude and ask:
+  Prompt: Good job! Please check my comments and implement them in a new frame.
+Once the agent is done with the first round, I usually repeat this step several times. The more you explain your motivations, the more context the agent can grasp. When you wrap up the session later, you end up with a precise set of rules about what works, what doesn't and why. That's the essential part of building your own design harness and enabling agents to design your way.
+
+Explore, Experiment and Expand
+Alternative layouts, different type scales, new color combinations: so many things are waiting to be discovered during exploration. Ideas I have but no time for can be summoned with a simple prompt.
+  Prompt: Could you please create a new iteration with a more polished hero? Then create an alternative version that adds more depth through subtle gradients and elevations.
+I ask for different variations, pick one or combine several, or redesign everything by hand once something on the screen inspires me. With the hero banner, the type sizes weren't right, and the generated versions were either too colorful or too bland. None of them found the right balance between highlighting the content and not being distracting. In the end, I redrew the banner from scratch, taking structural inspiration from the AI-generated variants and combining it with my own vision.
+Creating a dark mode for the project can be just as simple. In my experience, AI accessibility checks are even stricter than human ones. Agents follow guidelines to the letter and measure contrast programmatically as they go. The results are numerically precise, but often less visually captivating. So I usually water down those constraints and adjust the design until it's still compliant with accessibility standards, yet more engaging and compelling to the eye.
+  Prompt: Based on the linked design frame, create a dark mode version of the screen: [link].
+During this step, I also explore different combinations and configurations of layout elements, define the states of each component and their combinations and, of course, optimize for different screen sizes and breakpoints.
+
+Create a Theme
+The design we've created may or may not already use design tokens defined in Paper's Theme panel. Once the design no longer needs polishing, it's a good time to turn it into a design system.
+Tokens are a great example of where it really makes sense to work with agents. LLMs love structured data and, of course, text, and token systems fall squarely into that bracket. Many times, the agent created a token system that was better than the one I would have built by hand, and it took only minutes.
+Again, I asked the agent to generate tokens and define font parameters, colors, radii and spacing as theme variables:
+  Prompt: Based on the final layout at the attached link, create a token system as a theme in Paper. Define tokens for colors, spacing, fonts and other conventions applied to design systems.
+
+Prototype
+That was the design part, but let's go further. All the buzz about agentic coding is real, and these capabilities can improve the design process, even at the prototyping stage.
+The idea is to create a live prototype of the design, see how the interactions really work, and then iterate, going back and forth between Paper, Claude and code until everything is exactly where it needs to be. Besides interaction, I add a bit of motion, using the transitions.dev skills made by Jakub Antalik.
+  Prompt: Could you please use the transitions.dev skills to create a front-end artifact for demoing the app? Use the dark mode version.
+After a few minutes and hundreds of thousands of tokens, there's an interactive prototype.
+Without agents, a seemingly simple task can take several rounds. In the sidebar, I wanted the area of a selected item not to touch the hover states of neighboring items. All it needed was a bit of padding between the list items, but after a few attempts to fix it in code, it was much easier to make the edit in Paper by hand and let the agent implement it. Iterating in code by trial and error isn't just slow, it's frustrating.
+So when things go wrong in code, I ask the agent to bring the design back to Paper first. I refine it there, and the chance that it gets implemented as intended is much higher. Minor iterations can still be discussed directly in code, but whenever I want to do more with the visuals, I simply ask:
+  Prompt: Update the design in Paper based on the created prototype.
+I can make any further design decisions directly in Paper, by hand or with the agent, and bring the changes back to code whenever I like.
+
+Refine
+Let's focus on one example. Since we added an agent panel to the UI, a new task the agent generates can appear in the thread, in the to-do list and as a calendar event. In Claude, I prompted the agent to focus on this particular feature:
+  Prompt: Reveal the new task as if it's being generated on the go, inspired by the chat's thinking animation. Add a halo inside the bubble, circular gradients and soft shimmer. Keep the text crisp throughout. Let the calendar effect land with a subtle, haptic-like tap.
+Motion done by agents is everywhere these days, but I still consider it the step that requires the most attention. Agents clearly don't perceive a timeline the way humans do, so their timing is usually either too slow or too fast. Often, it's enough to steer with phrases like "slow down [a particular part]" or "focus on [a particular interaction]" and to explain why it matters for the user.
+
+Documentation
+Maintaining documentation always seemed like a dull task to me. I don't doubt its importance, but it takes resources that could be used more productively elsewhere, especially in a small team. What was unimaginable to do solo a few years ago now feels like routine.
+LLMs, being LLMs, are naturally best at generating text. Since the documentation and the memory layer are based on what you've created, they can be generated almost automatically.
+We use the design-component skill, which goes beyond text files and creates an annotated frame in Paper in minutes. It lives on the Handoff pages, so you, your teammates and your agents can come back to it later and see everything not only in writing, but also in visuals that define the components and their different applications and states.
+  Prompt: Use /design-component and related skills to define the calendar event component in Paper. Document the light and dark versions of the component, every state and the token map, and address every gap between the drawing and the code.
+The calendar event component will become part of the bydiorama/ui library, followed shortly by a more complex calendar component.
+
+Show Your Work
+Creating assets for this article revealed a new workflow I hadn't planned for. The combination of Paper and Claude also worked well for creating static assets and motion visuals. The designs were ready, the idea was validated by the prototype, and all those UI transitions and reveal animations deserved to live outside the system.
+I created a series of clips demoing the app prototype, where the extra care was put into defining the composition. The framing in videos and presentation materials can easily be off. I found it much faster to sketch a storyboard, or at least the frame composition, in Paper and let the agent use it as a reference.
+When the timing was completely off, a short storyboard helped there as well, and rendering at 60fps made a visible difference. On top of that, the prompt directs the reel precisely:
+  Prompt: Render the app walkthrough and short snippets of single components at 1024x768, 60fps, in seamless loops. Keep the focus under 60% of the frame width, dim the UI around it, and keep the vignette off the UI. Once you are done, render one static image inspired by the composition and intent of each video. Remove the cursor from the images. Don't add any text or graphics to the videos or the prototype; use only the UI.
+
+Create Skills
+There are many "best" parts of this new way of working for designers, but the most valuable one is that you don't need to go over the same things again and again. When you invest in foundations early on, later design and development become much easier.
+This was true even before you handed any menial work to agents. As you might discover along the way, when you build a knowledge layer continuously, conversations become shorter and more casual, and your tasks start to feel more like chatting with a colleague than writing a request for proposal every time.
+Actions you do often get codified as skills. I've found it works better to split the process into a set of specialized skills than to build one super-skill. There's a skill for designing a component in Paper, another for implementing it, and in our UI library, there's also one for component review. Then there are skills I use across projects: one for our Griddy icons, another for following our design standards. In one project, there's even a skill for designing new screens, so every new section follows the patterns and uses the components already in the app.
+We're moving from pushing pixels to building systems. When you put effort into building systems, your prompts get shorter, interactions get faster, and designs become more coherent and faithful to your vision.
+For example, that's what I did with the motion work. Once the clips were done, I asked Claude to turn the thread into skills:
+  Prompt: Turn this session into skills and sub-skills for animating UI and rendering presentation videos and stills. Keep each skill's reference script inside its own folder.
+Those skills for creating demo animations are now part of the library, too. You can also wrap up any session by using what you've learned to update existing skills and documentation.
+  Prompt: Use this session to update the documentation and related skills in this project.
+If I started over, I'd begin with documentation and my own skills much earlier.
+
+Last but Not Least: Context and Memory
+The codebase hosts a set of markdown files alongside the code itself. These files are almost exclusively generated and maintained by agents. Their role is to provide context, playbooks and rules, necessary documentation, memory, and skills for more nuanced or frequent actions.
+The universal entry point for agents is a markdown file called AGENTS.md. Claude Code has its own, branded version called CLAUDE.md. In this case, the CLAUDE.md file just points to AGENTS.md.
+AGENTS.md gives any agent the context of the current codebase and lets you set rules and playbooks for how it should act when generating design and code. I personally keep this agentic readme very brief and point it to other parts of the documentation, such as CONVENTIONS.md.
+
+What's Next? Pull the Lever Again
+We use the system for our internal tools, and soon we plan to migrate one of our clients' design systems to our library. We expect to learn a lot and end up with a more mature system. Using it for our internal tools has already helped: we see what works and what needs to be added, refactored or iterated while we use the apps we build.
+We covered a lot. You start small, proving the direction with just a few examples. Then you expand on what you've created with agents and let them polish and build on whatever you did.
+You comment and direct. Then you let them learn, so you don't have to repeat and explain yourself again and again. As you might notice, there's still a lot of "you" in the process.
+I let agents do the heavy lifting with structured data: creating token systems, reviewing against accessibility standards, implementing components in code. But as the level of abstraction grows, I rely less on agents and more on my own thinking and design skills.
+If you tried this once and gave up, that's okay.
+It's fine not to follow the mainstream and to keep designing by hand. But when scale and compliance matter, it's worth using agents for verification, second opinions, documentation and variants. It doesn't have to mean going all-in. The internet is full of workflows, tutorials and tools. Stay hungry and start experimenting at the smallest scale.
+Using agents for design might sound terrifying at first, but it only makes you more dangerous.
+
+Used Tools and Resources
+- Claude and Claude Code
+- Paper connected to Claude through the Paper MCP
+- The Paper file for the to-do app in this article
+- bydiorama/ui, the open-source design system, and its skills
+- The Mobbin MCP (UI/UX inspiration and research)
+- The transitions.dev skills by Jakub Antalik (motion and interactions)
