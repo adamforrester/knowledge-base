@@ -4,7 +4,7 @@ type: practice-area
 title: Design Systems Knowledge Base
 description: Adam Forrester's vault on design systems consulting at VML. Numbered files imply both reading order and DS engagement phase.
 tags: [index]
-timestamp: 2026-08-13
+timestamp: 2026-11-04
 ---
 
 # Design Systems Knowledge Base
@@ -43,10 +43,10 @@ A personal knowledge base on design systems consulting, maintained by Adam Forre
 * [AI in Design Systems](/15-ai-in-ds.md) - AI integration across the DS lifecycle. Components-as-data as architectural prerequisite. MCP server architecture, Figma MCP and Code Connect, three-level context maturity, the generative brand pipeline (design.md brief, extract→generate, the fidelity report).
 * [Mobile Accessibility Implementation](/16-mobile-accessibility-implementation.md) - Mobile accessibility implementation depth across Flutter, Jetpack Compose, SwiftUI/UIKit, and React Native.
 * [Accessibility Annotation Contract](/17-accessibility-annotation-contract.md) - What designers specify in Figma so engineers can implement accessibility faithfully. Per-concern annotation spec. Mobile-scoped today.
-* [Motion Foundations](/18-motion-foundations.md) - Motion as a first-class foundation primitive. Three-tier motion tokens, choreography vocabulary, reduce-motion as a system contract, performance budget.
+* [Motion Foundations](/18-motion-foundations.md) - Motion as a first-class foundation primitive. Three tiers — token primitives and roles, motion patterns, components — with decision frameworks, an out-of-scope list, a minimum viable pattern set, reduce-motion as substitution, performance budget.
 * [Motion Implementation - Web](/19-motion-implementation-web.md) - Web motion in 2026. CSS / WAAPI / View Transitions primitives, the linear() spring revolution, library landscape, INP / LoAF / compositor-only performance.
 * [Motion Implementation - Mobile](/20-motion-implementation-mobile.md) - Mobile motion across SwiftUI / UIKit, Compose, Flutter, RN. Cross-framework spring parameter mapping, shared element transitions, threading and 120Hz.
-* [Motion Spec and Handoff](/21-motion-spec-and-handoff.md) - The designer-to-developer micro-interaction spec gap. Why Figma is structurally inadequate for motion, the eight-field sufficient spec, the layered handoff contract.
+* [Motion Spec and Handoff](/21-motion-spec-and-handoff.md) - The designer-to-developer micro-interaction spec gap. Figma Motion as of late 2026 (adequate for timed motion, inadequate for behaviour), the eight-field sufficient spec, the layered handoff contract, the pattern spec as source with Figma styles generated from it.
 * [Token Architecture Extensions](/22-token-architecture-extensions.md) - The spec-and-architecture layer beneath 02. DTCG 2025.10 at practitioner depth, composite-token fidelity gap, computed/relational tokens, density as a theming dimension.
 * [Typography Tokenisation](/23-typography-tokenisation.md) - Three-tier mandatory typography stack, brand voice as a system constraint, type pairing as a token-system decision, modular scales with the display pivot, fluid type with clamp() + container queries, variable fonts as a tokenisation problem, font loading and CWV-tuned font-display, metric-matched fallbacks.
 * [Tokens at Scale](/24-tokens-at-scale.md) - Operational layer for enterprise multi-brand token systems. Multi-collection-not-multi-mode, Generative Token pattern, blast-radius-weighted RACI, the Cascade Report, semver-for-tokens.
