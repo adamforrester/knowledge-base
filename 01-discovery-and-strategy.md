@@ -66,7 +66,7 @@ Where is this organization on the curve, and what's realistic?
 - **InVision's five-level ladder** (Benchmarking, 2020) — Nascent → Basic → Integrated → Distributed → Optimized. Each level has a behavioral checklist and "level-up" resources. The most-cited industry benchmark; productizable as a "Where are you?" workshop.
 - **Paavan's 0–4 scale** (Design System Canvas, 2022) — more compact, suited to a single workshop session. 0 = bespoke per product → 4 = fully documented DS with dedicated team integrated into all workflows.
 
-The practice does not currently sell maturity assessment as a discrete offering. It should — see `09-gaps`.
+The practice does not currently sell maturity assessment as a discrete offering. It should — see 09-gaps-and-open-questions.
 
 ### 5. Pilot identification and scoring
 
@@ -201,7 +201,7 @@ Where the field — and our practice — has not yet settled.
 
 5. **Discovery for whom.** The single most useful evolution in the external corpus has been the shift from "designer-led" to "developer-led" Discovery. Our Discovery questions still center the design conversation. Whether the practice should re-weight is an open POV question.
 
-6. **Pilot definition and exit criteria.** "Pilot validation with engineering" appears in our 2026 milestones. What makes a pilot *successful*? What makes it *failing*? What is the exit criterion that promotes a pattern from pilot to canonical? We do not have published criteria. (See `09-gaps`.)
+6. **Pilot definition and exit criteria.** "Pilot validation with engineering" appears in our 2026 milestones. What makes a pilot *successful*? What makes it *failing*? What is the exit criterion that promotes a pattern from pilot to canonical? We do not have published criteria. (See 09-gaps-and-open-questions.)
 
 7. **The "Selling DS" boundary.** Our internal library treats Discovery and selling as overlapping — the Six Signs, the discovery questions, the case studies all serve both jobs. This is fine internally; with mature clients it becomes a tell that the practice has not yet separated *what we believe* from *how we pitch*. A mature 2027+ Discovery offering should look more like a paid diagnostic engagement and less like an extended pitch.
 

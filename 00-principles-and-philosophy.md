@@ -123,7 +123,7 @@ We cite, in priority order:
 - **Component-level reuse math:** Button used 75x, 1,500 hrs → 485 hrs, **67.7% efficiency gain**. Dynamic menu used 18x, 2,520 → 476 hrs, **81% efficiency gain**. (VML library.)
 - **Case-study metrics:** Wendy's Fresh — 600% time-to-market increase, 4,000 lines of code removed, 25 critical accessibility issues remediated; Ford FDS — 90% time savings switching brands, 900+ people onboarded across 5 regions; T-Mobile Apeiron — 500 tokens, 2 themes, 3 platforms.
 
-**Honest gap:** these are anecdotes, not a methodology. The external corpus is also thin on this — UXPin's "hours × salary" framing (2017) and the Sparkbox study Mall references are the most rigorous public artifacts, and neither is a calculator we can hand a client. **Building a defensible ROI calculator is one of the highest-leverage POV gaps the practice could fill** (flagged in 09-gaps).
+**Honest gap:** these are anecdotes, not a methodology. The external corpus is also thin on this — UXPin's "hours × salary" framing (2017) and the Sparkbox study Mall references are the most rigorous public artifacts, and neither is a calculator we can hand a client. **Building a defensible ROI calculator is one of the highest-leverage POV gaps the practice could fill** (flagged in 09-gaps-and-open-questions).
 
 ### Layer 3 — "Why VML" differentiation
 
@@ -170,7 +170,7 @@ Internal tensions that our materials don't yet resolve:
 
 ## Open strategic questions
 
-These are questions a senior practice leader should have a developed answer to. Most surface in 09-gaps; flagged here because they sit at the philosophy layer:
+These are questions a senior practice leader should have a developed answer to. Most surface in 09-gaps-and-open-questions; flagged here because they sit at the philosophy layer:
 
 - **What is our minimum viable governance?** What can we credibly ship for a 12–16 week MVP engagement that a client team can actually run after we leave? (See 07-governance-and-adoption.)
 - **What is our pricing model after handoff?** Retainer? Subscription? Federated chargeback? We sell the build; we don't sell the keep-alive. (See 08-ongoing-maintenance.)

@@ -1,7 +1,7 @@
 ---
 type: practice-area
 title: Color Systems
-description: Three-tier color architecture, the committed semantic vocabulary (background/foreground/action-states/border, not surface) decided against a seven-system field survey, OKLCH-as-authoring + sRGB/P3 as render targets, the WCAG-2-as-floor / APCA-as-quality-bar discipline, the orthogonal-axes theming model with the dark-mode lift pattern and forced-colors transparent-border trick, contrast-anchored ramp generation, the brand-vs-UI carve-out, isolated data-vis namespaces, native platform translation as integration not mapping, and the five-field AI-readable color schema.
+description: Three-tier color architecture, the committed semantic vocabulary (background/foreground/action-states/border, not surface) decided against a seven-system field survey, OKLCH-as-authoring + sRGB/P3 as render targets, the WCAG-2-as-floor / APCA-as-quality-bar discipline, the orthogonal-axes theming model with the dark-mode lift pattern and forced-colors transparent-border trick, contrast-anchored ramp generation, the brand-vs-UI carve-out, isolated data-vis namespaces, native platform translation as integration not mapping, and the seven-field AI-readable color schema.
 tags: [extension, color, tokens, oklch, p3, apca, theming, dtcg]
 timestamp: 2026-08-13
 ---
