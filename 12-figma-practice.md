@@ -515,7 +515,7 @@ The parallel-then-deprecate pattern is the consensus. Conversion-mechanic specif
 
 4. **The MCP-without-component-data problem.** Our POV — that MCP needs a structured data layer to be useful — is correct but is currently named in our AI-Compatible Design Systems doc rather than client-facing materials. If clients adopt MCP without our `.ai.json` POV, they'll get the failure mode we've predicted, blame the AI tools, and potentially blame the design system. Worth getting ahead of in pitch decks.
 
-5. **How much do we standardize Figma practice across the agency?** A single naming convention, a single multi-library template, a single contribution workflow — would speed every engagement but constrains client-specific judgement. A "VML Figma practice template" is a productizable artifact we don't currently have. (See also 09-gaps on the practice's productization gaps.)
+5. **How much do we standardize Figma practice across the agency?** A single naming convention, a single multi-library template, a single contribution workflow — would speed every engagement but constrains client-specific judgement. A "VML Figma practice template" is a productizable artifact we don't currently have. (See also 09-gaps-and-open-questions on the practice's productization gaps.)
 
 6. **The Figma-as-MCP question for our own knowledge.** This vault is markdown; eventually we plan to expose it via an MCP server. Figma files containing client design systems could be similarly exposed to AI tools doing component implementation. The infrastructure for this is increasingly available; our POV on it is not yet articulated.
 
