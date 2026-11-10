@@ -3,7 +3,7 @@ type: practice-area
 title: Design Foundations
 description: Tokens, theming, naming, the Figma → DTCG → Style Dictionary pipeline. The bedrock layer.
 tags: [phase, foundations, tokens, theming, dtcg]
-timestamp: 2026-05-16
+timestamp: 2026-11-10
 ---
 
 # 02 — Design Foundations
@@ -42,7 +42,7 @@ Six clusters of work, run roughly in parallel. Discovery deliverables flow into 
 - **Shape** — radius, border weights. Often overlooked; encodes "feel" more than designers credit it.
 - **Elevation / shadow** — composite tokens with structured DTCG values referencing color and offset primitives.
 - **Iconography** — robust library; flag licensing early (a recurring CareCentrix-style discovery question for a reason).
-- **Motion** — *the foundation primitive most legacy materials skip*. Tokens for **duration** and **easing** belong alongside color, type, and space. Three custom easing curves (in / out / in-out) is the minimum viable system. Carbon's *productive vs. expressive* split (utility vs. marketing) is a clean way to handle the consistency-vs-expression tension at the motion layer (Head, 2020). The 2025–2026 field has extended this with spring tokens and composite motion tokens; see 18-motion-foundations for the full treatment, plus 19 (web) and 20 (mobile) for implementation depth.
+- **Motion** — *the foundation primitive most legacy materials skip*. Tokens for **duration** and **easing** belong alongside color, type, and space. Three custom easing curves (in / out / in-out) is the minimum viable system. Carbon's *productive vs. expressive* split (utility vs. marketing) is a clean way to handle the consistency-vs-expression tension at the motion layer (Head, 2020). The 2025–2026 field has extended this with spring tokens and a motion pattern tier above the tokens, for motion that animates more than one property; see 18-motion-foundations for the full treatment, plus 19 (web) and 20 (mobile) for implementation depth.
 
 ### 3. Token architecture and naming
 
