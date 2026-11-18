@@ -3,7 +3,7 @@ type: practice-area
 title: Internationalization and RTL
 description: i18n, l10n, and RTL as DS architecture. Logical properties, text expansion, multi-script typography, locale-aware tokens, RTL component mirroring.
 tags: [extension, i18n, l10n, rtl, multi-script]
-timestamp: 2026-06-29
+timestamp: 2026-11-18
 ---
 
 # 13 — Internationalization, Localization, and RTL
@@ -119,16 +119,21 @@ Common directional icons that need attention: arrows, chevrons, send/forward, ba
 
 ### Figma for RTL
 
-Figma's native RTL support has improved through 2024–2025 but remains incomplete. Mode-based workarounds (covered below) are real partial solves, but residual issues — particularly around mixed-direction strings — bite in production, so we land cautious.
+Figma's RTL support is a text feature, not a layout feature, and that split has not moved since it shipped in March 2022. A November 2026 re-check against Figma's release notes, help center, plugin changelog and published API typings found no RTL, bidi or direction change in 2025–2026 (see `_research/_inbound/2026-11-18-figma-rtl-refresh/`). Mode-based workarounds (covered below) are real partial solves, but residual issues bite in production, so we land cautious.
+
+What Figma does handle is text. Direction is set automatically by language detection and can be overridden per paragraph from the sidebar, quick actions, or Text › Text direction; bidi strings mixing RTL and LTR scripts are supported in one paragraph; RTL fonts are available by default, with Noto as the fallback for missing glyphs (Figma help center, "Add right-to-left text", accessed Nov 2026). The help article says nothing about shaping quality, and **one text layer carries one alignment**, and that alignment is physical — `LEFT`, `CENTER`, `RIGHT`, `JUSTIFIED` — not `start`/`end`.
 
 The structural problems:
 
-- **Bidi text rendering** in Figma sometimes diverges from browser rendering, particularly for mixed-direction strings (Latin within Arabic). What looks correct in Figma may render differently in the live product. Cross-validate in browser.
-- **No native concept of logical properties** at the component level — designers manually swap padding-left/padding-right when designing the RTL view, or wire it through Figma Variables (see §Figma workflow below).
-- **Mirroring an Auto Layout frame** doesn't always handle nested instance directions correctly — children may need separate treatment.
-- **No vertical text flow** — traditional Japanese and Chinese vertical text is unsupported.
+- **Bidi text rendering** in Figma can diverge from browser rendering for mixed-direction strings (Latin within Arabic, numbers and punctuation at run boundaries). This is a practitioner observation, not something Figma documents either way; we have no primary source confirming or ruling it out. Cross-validate in browser.
+- **No layout direction at all.** Auto layout flows left-to-right or top-to-bottom; there is no direction, mirror, or reverse-order control, wrap fills from the left, and the newer grid layout and slots carry no direction either (Figma help center, "Use the horizontal and vertical flows in auto layout", accessed Nov 2026; `@figma/plugin-typings` 1.142.0, Oct 2026). Community requests for direction-aware auto layout are open with no Figma staff response (Figma forum, Jul 2025 thread, last reply Sep 2026).
+- **No logical properties.** Padding is `paddingLeft`/`paddingRight` in the node model, the plugin API and the REST API alike (`@figma/plugin-typings` 1.142.0; `@figma/rest-api-spec` 0.47.0, Oct 2026). Designers swap left and right by hand, or route the values through a Direction mode (see §Figma workflow below).
+- **Nested instances can't be re-ordered.** Children of an instance cannot be reparented or re-ordered — by a designer or by a plugin — so mirroring a frame stops at the first instance boundary. The only clean flip inside an instance is a variant swap.
+- **No vertical text flow** — traditional Japanese and Chinese vertical text is unsupported; the plugin typings expose no writing-mode or text-orientation property.
 
-The pragmatic stance: design the LTR component, validate the RTL behavior in code (or via a Figma plugin that simulates direction), and document the expected RTL state. **Don't try to make Figma the authoritative RTL preview.**
+**Plugins can't fully close the gap.** The plugin API exposes no text direction on text nodes or styled segments — a December 2025 forum request to expose it has no staff reply — and no layout direction on frames (`@figma/plugin-typings` 1.142.0; Figma forum, Dec 2025). A plugin can re-order children of plain frames, swap left and right padding, flip `LEFT`/`RIGHT` alignment, swap variants and instance-swap icons; it cannot set paragraph direction, cannot re-order inside instances, and cannot know which icons are directional unless the library declares it. The community "mirror to RTL" plugins work inside those limits.
+
+The pragmatic stance is unchanged: design the LTR component, validate the RTL behavior in code, and document the expected RTL state. **Don't try to make Figma the authoritative RTL preview.**
 
 ### Testing RTL
 
@@ -315,28 +320,30 @@ Without intervention, multi-locale Figma libraries double in maintenance burden 
 
 ### Variable-driven locale modes
 
-Figma Variables with mode dimensions partially solve the problem. Define a `Direction` mode (`LTR`, `RTL`) and bind component padding, text alignment, and instance-swap properties to mode-aware variables. Switching the frame's mode flips the component without duplicating it.
+Figma Variables with mode dimensions partially solve the problem. Define a `Direction` collection with `LTR` and `RTL` modes and bind what Figma lets you bind. Switching the frame's mode then flips the bound parts of the component without duplicating the file. **The set of bindable properties is narrower than this file previously claimed** — the November 2026 re-check corrected two of the three items below.
 
-What this works for:
+What a Direction mode can drive directly:
 
-- **Padding/margin direction.** `padding-start` and `padding-end` variables that resolve differently per mode.
-- **Text alignment.** `text-align/start` resolves to `left` in LTR mode and `right` in RTL mode.
-- **Mirrored icons via instance swap.** A directional icon's instance-swap property points to the LTR icon in LTR mode, the RTL variant in RTL mode.
+- **Padding direction.** `space/inline-start` and `space/inline-end` number variables, bound to `paddingLeft` and `paddingRight`, resolve to swapped values per mode. Padding, gap, sizes and radii are bindable; on-canvas padding edits detach the binding (Figma help center, "Apply variables to designs", accessed Nov 2026; `@figma/plugin-typings` 1.142.0).
+- **Variant selection.** Boolean, number and string variables can be bound to an instance's variant property, and the variant follows the parent frame's mode (Figma help center, "Apply variables to designs"). A `dir` variant property bound to a string variable that resolves to `ltr` or `rtl` is therefore the one mechanism that flips *structure* on a mode switch.
+- **Layer visibility.** Boolean variables drive visibility, so a component can carry a leading and a trailing icon slot and show one per mode.
 
-What it doesn't work for:
+What it can't drive, contrary to our earlier pattern:
 
-- **Bidi text rendering.** Figma's text engine handles Arabic and Hebrew but with known inconsistencies vs. browser rendering. Mixed-direction strings particularly suffer.
-- **Component structural mirroring.** A component whose Auto Layout structure assumes LTR (icon-then-label) doesn't auto-flip when mode changes; the structure remains as designed. Workarounds involve nested instances with mode-aware swaps, which gets complex fast.
+- **Text alignment.** Alignment is not a bindable property — it is absent from the help center's list and from the plugin API's bindable fields (`@figma/plugin-typings` 1.142.0). A `text-align/start` variable resolving to left or right does not exist in Figma. Alignment flips only by riding inside a `dir` variant.
+- **Instance-swap targets.** We found no documented way to bind an instance-swap property to a variable. Mirrored icons flip via a `dir` variant on the icon component, or via the visibility pattern above. (Unverified beyond the help center's silence; re-check before teaching it.)
+- **Auto layout order and direction.** Not bindable, and not a property at all. An icon-then-label structure stays icon-then-label until a variant swaps it.
+- **Bidi text rendering.** Text direction follows the content's language detection or a manual per-paragraph override, not a mode.
 - **Vertical writing modes.** Traditional Japanese and Chinese vertical text — Figma has no native support. Designers either skip it or use rotated frames as approximations.
 
-Modes are a real partial solution and worth implementing, but they don't make Figma the authoritative RTL preview.
+The honest cost: structural mirroring through modes means authoring an RTL variant for every directional component, so the variant count roughly doubles for that subset. That is cheaper than parallel LTR/RTL libraries and dearer than the "flip a mode and you're done" story clients have often been sold. Modes are a real partial solution and worth implementing, but they don't make Figma the authoritative RTL preview.
 
 ### A workable pattern
 
 For most engagements, the right Figma pattern is:
 
-1. **Design components in LTR with logical-property-style variable bindings** (padding-start, padding-end, alignment-start). Treat LTR as the source.
-2. **Provide a small set of RTL exemplar pages** showing key components and patterns in RTL via mode switch, so designers and reviewers can validate.
+1. **Design components in LTR with logical-property-style variable bindings** (inline-start and inline-end padding through a Direction mode). Give the directional subset — anything with a leading/trailing asymmetry, a chevron, or a progress vector — a `dir` variant bound to the Direction collection. Treat LTR as the source.
+2. **Provide a small set of RTL exemplar pages** showing key components and patterns in RTL via mode switch, so designers and reviewers can validate. Fill them with real translated strings, not mirrored English: Figma sets text direction from the content, so placeholder Latin copy in an RTL frame still renders LTR.
 3. **Document RTL behavior in component descriptions** — what mirrors, what doesn't, what edge cases the engineer needs to know about.
 4. **Don't try to maintain full RTL parity in Figma.** Validate critical RTL behavior in the live product.
 
@@ -359,6 +366,8 @@ The DS should ship i18n requirements as an **explicit contract**, not as implici
 - **Token contract.** Locale-aware tokens are documented as such; consuming applications know to wire `:lang()` or `[dir]` selectors to switch token resolution.
 - **Component contract.** Date/number/currency components take formatted strings; consuming applications produce them via `Intl.*`. This boundary is documented explicitly so neither side reinvents.
 - **Pseudo-localization tooling.** The DS recommends and ideally provides a pseudo-locale build (a fake locale with bracketed, accented, expanded strings) for design and engineering validation.
+
+**Direction does not travel from Figma to code by itself.** Because the node model holds only `paddingLeft`/`paddingRight` and physical alignment, there is no logical-property signal for Dev Mode to read, and nothing in Figma's documentation says its generated CSS emits `padding-inline-*` or `text-align: start`. Treat Dev Mode's CSS as physical and the logical-property convention as the DS's job, enforced in code. (We have not inspected Dev Mode output against an RTL fixture; that is unverified.) Code Connect maps Figma component properties to code props, so a `dir` variant, where the library has one, can map to a `dir` prop or simply be dropped because the code component reads direction from context — which is the better answer. A custom codegen plugin is the one place a team can make Figma's handoff speak logical properties, by translating left/right on the way out. (See 12-figma-practice for Code Connect generally.)
 
 (See 04-documentation on the broader docs strategy and 05-development-support on the dev pipeline.)
 
@@ -410,7 +419,7 @@ Two trends worth flagging in client conversations:
 
 2. **How much locale-aware token work should we ship by default?** Per-script line-height, locale-aware spacing, multi-script font stacks — all real concerns, all add complexity. For clients with one or two locales, the floor (logical properties + externalized strings + growth-friendly components) is enough. For clients with five-plus locales, the floor isn't. Where's the threshold? An open question for our scoping framework.
 
-3. **The Figma RTL preview gap.** TMS plugins and direction-mode patterns are partial solves. The honest answer is that Figma is not yet a reliable RTL preview surface, and we should validate in browser. This produces friction in client review processes that expect Figma to be authoritative. Worth a POV piece.
+3. **The Figma RTL preview gap.** TMS plugins and direction-mode patterns are partial solves. The honest answer is that Figma is not yet a reliable RTL preview surface, and we should validate in browser. This produces friction in client review processes that expect Figma to be authoritative. The November 2026 re-check sharpened it: Figma has no layout direction, no bindable alignment, and no plugin-settable text direction, so the gap is structural, not a polish backlog. Worth a POV piece.
 
 4. **Address forms and locale-aware patterns — DS or app?** The pure architectural answer is "app." The pragmatic answer for many clients is that they don't have the in-house engineering to build address forms per market, and they want the DS to ship it. Selling the architectural answer requires confidence in the client's engineering team or a clear path to a third-party (e.g., react-aria's address pattern). We don't currently have a defensible recommendation here.
 
@@ -420,4 +429,4 @@ Two trends worth flagging in client conversations:
 
 ---
 
-*Provenance: The CSS logical-properties pattern, the `<bdi>` / `unicode-bidi: isolate` controls for inline mixed-direction content, and the `:dir()` pseudo-class are documented at MDN and in W3C internationalization guidance. The Material Design three-script-category framing (English-like / Tall / Dense) for line-height comes from Material's regional customization guidance. The text-expansion budget is broadly aligned with IBM and W3C published numbers — the specific table presented should be verified against current sources before client-facing use. ICU MessageFormat is the established standard maintained by Unicode/ICU. Noto fonts and the "no tofu" universal-coverage strategy are from Google's Noto project. The `Intl.*` API delegation pattern is W3C/ECMA-262. The "DS provides the shell; application provides the content" boundary is the convergent practitioner framing, sharpened here as a defensible practice POV. The variable-fonts-don't-solve-multi-script correction is a misunderstanding the practice should call out explicitly when raised by clients or contributors. Practitioner sources include Robin Whittleton (Mozilla) on RTL CSS, Ahmad Shadeed on logical properties, and Adobe Spectrum's internationalization documentation. The four-level maturity ladder vocabulary (Locally Targeted → Globally Optimized) appears in some practitioner writing as a stakeholder-facing alternative to engineering stages. This file was synthesized from a dual-agent research run in May 2026 (see `_research/_archive/2026-05-05-i18n-rtl-l10n.md` for the editorial trail).*
+*Provenance: The CSS logical-properties pattern, the `<bdi>` / `unicode-bidi: isolate` controls for inline mixed-direction content, and the `:dir()` pseudo-class are documented at MDN and in W3C internationalization guidance. The Material Design three-script-category framing (English-like / Tall / Dense) for line-height comes from Material's regional customization guidance. The text-expansion budget is broadly aligned with IBM and W3C published numbers — the specific table presented should be verified against current sources before client-facing use. ICU MessageFormat is the established standard maintained by Unicode/ICU. Noto fonts and the "no tofu" universal-coverage strategy are from Google's Noto project. The `Intl.*` API delegation pattern is W3C/ECMA-262. The "DS provides the shell; application provides the content" boundary is the convergent practitioner framing, sharpened here as a defensible practice POV. The variable-fonts-don't-solve-multi-script correction is a misunderstanding the practice should call out explicitly when raised by clients or contributors. Practitioner sources include Robin Whittleton (Mozilla) on RTL CSS, Ahmad Shadeed on logical properties, and Adobe Spectrum's internationalization documentation. The four-level maturity ladder vocabulary (Locally Targeted → Globally Optimized) appears in some practitioner writing as a stakeholder-facing alternative to engineering stages. This file was synthesized from a dual-agent research run in May 2026 (see `_research/_archive/2026-05-05-i18n-rtl-l10n.md` for the editorial trail). The Figma sections were refreshed in November 2026 from a single-agent re-check against Figma's help center, release notes, plugin changelog, `@figma/plugin-typings` 1.142.0 and `@figma/rest-api-spec` 0.47.0; that run corrected the earlier claims that text alignment and instance-swap targets can be driven by a Direction mode (see `_research/_inbound/2026-11-18-figma-rtl-refresh/`).*
