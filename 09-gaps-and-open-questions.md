@@ -3,7 +3,7 @@ type: practice-area
 title: Gaps and Open Questions
 description: Practice gaps and unanswered questions across the corpus. Sourced inventory of what we don't yet have a POV on.
 tags: [gaps, open-questions]
-timestamp: 2026-11-04
+timestamp: 2026-11-18
 ---
 
 # 09 — Gaps & Open Questions
@@ -295,6 +295,7 @@ Inline cross-references added from 10's new sections to 03 / 04 / 13 / 17 / 24 /
 - **The commercial libraries are marketing-shaped, and the practice's most common surface is not in them.** All 23 types in the reference library are SaaS-marketing blocks — no product grid, no faceted filtering, no product detail page, no cart. **A block POV built by mirroring the field would miss commerce silently**, since nothing in a type list announces an omission. PDPs are bespoke per brand and genuinely vary, but they share a skeleton — media gallery, title/price/rating, variant selection, quantity and add-to-cart, delivery promise, specification accordions, reviews, recommendations, sticky mobile buy bar — and *high variation over a shared skeleton* is exactly the condition that makes a family worth deriving rather than hand-building per engagement. For an agency whose work is weighted to commerce (00b), this is the half of the taxonomy worth having first, not the half to append.
 - **The CMS mapping is where blocks earn their keep, and it adds a requirement.** Blocks map onto authorable CMS components far more cleanly than a component library does — Adobe's Edge Delivery Services uses the word literally, ships an open-source collection (hero, cards, columns, carousel, FAQ) and admits a block only if it is **used on more than half of all projects**, a pruning rule worth adopting. But an authorable component needs a **content model** — which fields exist, which are required, which the author edits versus which the system fixes — that a React or Web Component implementation never forces you to state. **A block brief that captures only layout is not portable to a CMS.** See 10 (CMS and platform integration), where the AEM depth already lives.
 - **The open decision (tracked as issue #10):** whether this is a new facet on `patterns/` (a `page-role` facet alongside `goal`, with a `marketing-composition` tier) or a third top-level layer beside `components/` and `patterns/`. The `_schema.md` boundary is drawn on opinionation-not-packaging, which a marketing block satisfies — it is an opinionated resolution — but of a *content* problem rather than an interaction one. **Lean facet, not layer**, unless the brief spine turns out not to bend that far.
+- **Update (2026-11-18).** The field study this entry asked for has run; see §1.39 and `_research/_inbound/2026-11-18-blocks-and-tiers/`. It contests two things here. Pricing, logo wall and stats are SaaS-genre blocks that no CMS or commerce witness ships. And the facet-not-layer lean in issue #10 now leans the other way.
 - Connects to 03 (component library — the tier boundary), 10 (CMS and platform integration — blocks are what a composable CMS actually assembles), 30 (generated-from-data documentation), and 31. Also the commercial angle in 00d: a block library is the most *visible* deliverable in an engagement and the easiest to demo, which is not the same as it being the most valuable.
 
 ### 1.37 Gradient tokenisation — CLOSED
@@ -316,6 +317,39 @@ Inline cross-references added from 10's new sections to 03 / 04 / 13 / 17 / 24 /
 - **Practice positions, not cited standards.** The overshoot cap (bounce ≈ 0.4), the brand-curve permission guardrail, `skipOnRapidRepeat`, `lowPower`, a tempo multiplier, and the spatial/effects → reduced-motion mapping. Each is defensible and none has a source; they need engagement evidence before they are presented as more than our position.
 - **Motion operating model.** Lou's ownership, review, user-testing and budget practices (`_source-text/ext-motion-in-design-systems-lou.txt`) are governance, not tokens; 18 points at 07 and 08, which do not yet carry them.
 - Connects to 18 (the tiers and the minimum viable pattern set), 21 (the Figma limits and the generated-styles bridge), 14 (reduced motion) and 34 (agent application of Figma Motion through MCP, which is technically possible and unproven).
+
+### 1.39 The tiers between component and page — composed components, patterns, sections, templates
+
+- **Where it came from.** Intake from the Prism3 engine (knowledge-base issue #65; the owner's decisions of 2026-11-18 in Prism3 #4001 and #3999). The engine adopted a five-tier model: atomic, composed, pattern, section, template. It now needs a looser *section contract* above component contracts before it can build heroes and page sections. 03 open question 7 had named the gap ("higher-order compositional blocks as registry entries") and left it open.
+- **The gap.** The practice has a locked contract for components (`components/_schema.md`) and a flexible spine for patterns (`patterns/_schema.md`). It has no stated definition of the tiers between them and the page, no contract for a section or a template, and no base list of blocks. §1.36 registered the marketing-block half of this. This entry is the whole tier question, of which §1.36 is one part.
+- **What the field study found.** Run filed 2026-11-18 at `_research/_inbound/2026-11-18-blocks-and-tiers/`; single-agent so far.
+  - **The field cuts the middle tiers along four different axes:**
+    - complexity (Atomic Design);
+    - reuse scope and ownership (Frost's 2023 ecosystem "recipes"; Polaris App Home's compositions and templates);
+    - user task (GOV.UK, Carbon, Cloudscape, Primer, and our own `patterns/`);
+    - page role (Shopify, AEM, WordPress, Carbon for IBM.com, Tailwind Plus).
+
+    Most taxonomy arguments are two people using two axes.
+  - **A pattern is not a rung between composed component and section.** It sits beside the ladder and can be realised at any scale.
+  - **Every authoring platform formalises a section contract, and they agree on its shape.** It holds regions with cardinality, allowed fillers, layout options as enumerated settings, presets, a content model with an author-editable/fixed line, and placement rules. Code kits are the exception: they ship numbered variants and no contract at all.
+  - **No platform makes landmark structure a clause.** That is the practice's contribution to make.
+- **Positions the run proposes, not yet adopted.**
+  - **Borderline placements.** Button group, card, date picker and carousel are all composed components. Each one owns a behaviour its fillers do not. Specific cards (product, promo) are composed components *with a content model*. A card grid is a section.
+  - **Clauses to add to Prism3 #3999's section contract:** content model, presets, placement, landmark/heading, surface and nesting limits.
+  - **Product detail is a template with a fixed region skeleton,** not a hero-like section.
+  - **Sections get their own layer** (`sections/` with its own schema), reversing the facet lean in #10.
+- **Still open.**
+  - **The prune rule needs data.** Adobe's ">50% of projects" rule needs a practice project census we do not have, so the catalog's frequencies are of vendor naming, not of use.
+  - **The catalog is untested against markup.** It was read from names, not markup. Prism3 #693 owns the per-family markup reading.
+  - **The run is single-agent.** An external half should test the four-axis reading and the pattern-beside-the-ladder claim, the run's two least conventional positions.
+  - **Sources need capturing.** Several primary sources need `_source-text/` captures before promotion. The run lists them.
+- **Promotion target, proposed.** A new numbered file, `36-composition-tiers-and-sections`, plus:
+  - closing 03 open question 7 with a cross-reference;
+  - cross-references from 10;
+  - schema additions: `slots` in `components/_schema.md`, and `realised-by` in `patterns/_schema.md`.
+
+  The run states the reasoning for a new file over 03.
+- **Status:** open. Tracked by issue #65 (intake) and its promotion issue. Connects to 03, 10, 29, 30, 35 (breakpoints for a section's responsive clause) and §1.36.
 
 ---
 
