@@ -349,7 +349,7 @@ Inline cross-references added from 10's new sections to 03 / 04 / 13 / 17 / 24 /
   - schema additions: `slots` in `components/_schema.md`, and `realised-by` in `patterns/_schema.md`.
 
   The run states the reasoning for a new file over 03.
-- **Status:** open. Tracked by issue #65 (intake) and its promotion issue. Connects to 03, 10, 29, 30, 35 (breakpoints for a section's responsive clause) and §1.36.
+- **Status:** open. Tracked by issue #65 (intake), #66 (promotion), #67 (the component briefs the catalog implies) and #68 (source captures). Connects to 03, 10, 29, 30, 35 (breakpoints for a section's responsive clause) and §1.36.
 
 ---
 
