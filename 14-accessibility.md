@@ -3,7 +3,7 @@ type: practice-area
 title: Accessibility
 description: Accessibility encoded into the DS architecture. Pair tokens, ARIA encapsulation, focus management, the four-layer model, conformance under EAA / Section 508.
 tags: [extension, accessibility, a11y, wcag, eaa]
-timestamp: 2026-06-21
+timestamp: 2026-11-19
 ---
 
 # 14 — Accessibility in Design Systems
@@ -129,19 +129,19 @@ This same practice helps with cultural color-meaning variation across markets (s
 
 ### Motion tokens and reduced motion
 
-`prefers-reduced-motion` is a media query the operating system surfaces based on the user's accessibility settings (vestibular disorders, motion sensitivity). The DS architectural response is to make motion tokens respect it natively:
+`prefers-reduced-motion` is a media query the operating system surfaces based on the user's accessibility settings (vestibular disorders, motion sensitivity). The DS architectural response is to make motion tokens respect it natively, through a `reduced` mode on the semantic motion collections:
 
 ```
-duration/short → 200ms (default), 0ms (reduced-motion)
-duration/medium → 400ms (default), 0ms (reduced-motion)
-easing/decel → cubic-bezier(0.2, 0, 0.4, 1) (default), step-end (reduced-motion)
+duration/short  → 200ms (default), shorter (reduced)
+distance/sm     → a spacing step (default), 0 (reduced)
+easing/enter    → a decelerating curve (default), its non-overshooting twin (reduced)
 ```
 
-Animations that can't simply be zeroed (a page transition that conveys spatial relationship) should fall back to an instant or near-instant version, or to a different transition style (cross-fade instead of slide). A parallel concern worth encoding is **calm easing tokens** — easing curves that avoid abrupt starts or stops, less likely to cause discomfort even for users without reduced-motion settings enabled.
+The values are illustrative; what the example fixes is the shape. A reduced twin is shorter, flatter and travels nowhere. It is never `0ms` and never `step-end`. Where a pattern collapses a track outright, it collapses to a near-zero duration (0.01ms), so code waiting on a transition-end event keeps working and nothing pops. Animations that can't simply be shortened (a page transition that conveys spatial relationship) swap properties instead, a cross-fade in place of the slide, and that swap lives in the motion pattern, not the token (see 18-motion-foundations). A parallel concern worth encoding is **calm easing tokens** — easing curves that avoid abrupt starts or stops, less likely to cause discomfort even for users without reduced-motion settings enabled.
 
 **A frequent failure mode:** the DS ships motion tokens that respect reduced-motion at the duration level but components have hardcoded transitions that bypass the tokens. The contract holds only if all motion goes through the token layer. (See also 02-design-foundations on motion as foundation primitive, 18-motion-foundations for the current architectural treatment, 19-motion-implementation-web and 20-motion-implementation-mobile for per-platform spelling.)
 
-**Refinement on the blanket "collapse to 0ms" pattern.** The convergent 2025–2026 position is that reduce-motion is *not* a blanket disable — it is an *informational vs. vestibular* split. Vestibular triggers (large-scale translation, parallax, 3D rotation, scale) should be replaced with a cross-fade. Informational motion (short fades, focus-state transitions, progress indicators) can be preserved unchanged or at reduced amplitude. The DS encodes this as a per-token decision, not a global override. See 18-motion-foundations for the token-layer contract.
+**Why not the blanket "collapse to 0ms" pattern.** Our earlier version of this section collapsed every duration to 0ms and every easing to `step-end`. The convergent 2025–2026 position is that reduce-motion is *not* a blanket disable — it is an *informational vs. vestibular* split. Vestibular triggers (large-scale translation, parallax, 3D rotation, scale) should be replaced with a cross-fade. Informational motion (short fades, focus-state transitions, progress indicators) can be preserved unchanged or at reduced amplitude. The DS encodes this in two places, not as a global override: value twins in the token tier, property substitution per motion pattern. See 18-motion-foundations for the contract.
 
 **The View Transitions API gotcha (web).** `document.startViewTransition()` does *not* automatically respect `prefers-reduced-motion`. If an engineer calls it, the browser runs the transition regardless of the user's setting — a frequent compliance finding in late-2025 audits. The DS should ship a `safeViewTransition` wrapper that gates on the system setting and route all view-transition calls through it. The full pattern is in 19-motion-implementation-web.
 

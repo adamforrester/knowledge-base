@@ -3,7 +3,7 @@ type: practice-area
 title: Motion Foundations
 description: Motion as a first-class foundation primitive. Three tiers — token primitives and roles, motion patterns, components — with spring storage, the spatial/effects split, brand-curve guardrails, decision frameworks, a minimum viable pattern set, reduce-motion as substitution, performance budget.
 tags: [extension, motion, foundations, tokens, patterns, reduce-motion]
-timestamp: 2026-11-04
+timestamp: 2026-11-19
 ---
 
 # 18 — Motion Foundations
@@ -141,7 +141,7 @@ A **motion pattern** is a named motion decision with its own identity — "dialo
 - **`direction`** — axis, and whether the motion reverses on back navigation.
 - **Behavioural fields** (below).
 
-Exit is faster than enter by default. A pattern's timing is always a token reference; a literal in a track is the exception that has to justify itself.
+Exit is faster than enter by default. How much faster is not yet a practice number: the two examples above put exit at half (Material) and two-thirds (Atlassian) of the enter duration, and we hold no ratio until a wider spread is in (see 09). A pattern's timing is always a token reference; a literal in a track is the exception that has to justify itself.
 
 ### Behavioural rules as fields
 
@@ -165,12 +165,12 @@ Not in the token namespace. A pattern is a structured spec per pattern, serialis
 
 Ordered by how many components each unblocks and by dependency (October 2026 research run, reconciled from both agents):
 
-1. **Fade (enter / exit).** Tooltips, popovers, skeleton-to-content — and the universal reduced-motion substitute, so it comes first.
+1. **Fade (enter / exit).** Tooltips, popovers, skeleton-to-content — and the universal reduced-motion substitute, so it comes first. A tooltip's default is the fade alone; the micro-scale some systems add moves it onto pattern 3 (see components/tooltip).
 2. **State change / press.** Hover, focus, press, toggle, tab indicator. Effects-only, plus a small spatial spring on press. Mostly composite transitions; the cheapest pattern and the first test of the brand-curve permission guardrail.
 3. **Pop / scale-fade (enter / exit).** Menus, selects, comboboxes, anchored popovers. Scale from about 0.95 to 1 plus fade, spatial/effects split, the first user of the distance scale.
 4. **Dialog (enter / exit).** Scrim on effects, panel on spatial, exit faster than enter.
 5. **Sheet / drawer (enter / exit, by edge).** Spring-driven and interruptible — the first pattern where `interruptible` changes the code.
-6. **Expand / collapse.** Accordion, disclosure, tree. Separate size and opacity tracks; the declared layout exception (see the performance section).
+6. **Expand / collapse.** Accordion, disclosure, tree. Separate size and opacity tracks; the declared layout exception (see the performance section). The size track changes an element in place rather than bringing it in or taking it out, so it takes `easing/standard` or the spatial spring, not the enter and exit curves. That follows from the easing roles above; no source states it, so it is our inference. Under reduced motion the size track goes near-zero and the opacity track stays at its reduced duration. Which duration role the size track takes is open (see 09).
 7. **Toast (enter, exit, reposition).** Stack reflow is the first choreography case.
 8. **Page / view transition.** Shared axis plus fade-through, mapped onto View Transitions on the web and the native navigation transitions (see 19, 20).
 9. **Container transform / shared element.** Last of the transitions, because every platform now provides the mechanism; the system supplies timing and the reduced substitute.
@@ -212,7 +212,7 @@ The vocabulary the field has converged on:
 
 The architectural treatment lives in 14-accessibility. The foundation-layer responsibility is to encode reduce-motion such that no individual engineer has to remember it. **The contract is: every motion token has a reduced twin, every motion pattern declares its reduced form, and every consuming component reaches motion through patterns and tokens, never through hardcoded values.** When both halves hold, the system honours reduce-motion automatically. When either half breaks, individual engineers carry the burden — and they will get it wrong.
 
-**The 2024–2026 refinement to our earlier position.** Our existing 14-accessibility material describes the reduce-motion fallback as collapsing durations to 0ms and easings to `step-end`. The field has moved on from that blanket treatment. The current convergent position is *informational vs. vestibular*:
+**The 2024–2026 refinement to our earlier position.** Our earlier 14-accessibility material described the reduce-motion fallback as collapsing durations to 0ms and easings to `step-end`; 14 now carries the position below. The field has moved on from that blanket treatment. The current convergent position is *informational vs. vestibular*:
 
 - **Vestibular triggers** — large-scale translation, scaling, parallax, 3D rotation, infinite-spin — should be eliminated or replaced with a cross-fade.
 - **Informational motion** — short fades, focus-state transitions, progress indicators — can be preserved at reduced amplitude or unchanged.

@@ -8,7 +8,7 @@ category: Form
 status: stable
 aliases: [btn, cta]
 last-audited: 2026-06-14
-timestamp: 2026-07-30
+timestamp: 2026-11-19
 ---
 
 # Button
@@ -121,7 +121,7 @@ The **"Cancel" vs. "Close" vs. "OK"** contract (Fluent 2, 2024, via external): "
 
 ## 8. Motion and transition
 
-State transitions (background, border, shadow) should run fast — ~100–150ms, eased-out — through motion *tokens*, not hard-coded values; slow button transitions make the whole app feel sluggish (external). A definite **press state** matters: without it a button feels broken, so a subtle `scale(0.98)` or shadow drop on `:active` gives tactile confirmation (Apple HIG, 2024, via external). **Delay the pending spinner** by a few hundred ms so fast responses don't flicker one, and preserve width across the transition (§4) (Claude). Material 3 Expressive's shape-morphing on press (pill→squarer corners) is visually engaging but introduces reflow and CSS cost; we eschew dimensional morphing for stable geometry (both agents — flagged Material-specific). **Reduce-motion contract:** under `prefers-reduced-motion: reduce`, resolve scale/translate to `transform: none` and drop ripple/morph, keeping the *instantaneous* colour change so the state stays perceivable; the spinner is functional, not decoration, and the `aria-busy`/live-region path carries the busy state regardless. (See 18-motion-foundations and 19-motion-implementation-web; mobile in 20-motion-implementation-mobile, handoff in 21-motion-spec-and-handoff.)
+State transitions (background, border, shadow) should run fast — ~100–150ms on `easing/standard`, since a colour or shadow change happens in place and the enter (ease-out) curve is for things arriving (see 18) — through motion *tokens*, not hard-coded values; slow button transitions make the whole app feel sluggish (external). A definite **press state** matters: without it a button feels broken, so a subtle `scale(0.98)` or shadow drop on `:active` gives tactile confirmation (Apple HIG, 2024, via external). **Delay the pending spinner** by a few hundred ms so fast responses don't flicker one, and preserve width across the transition (§4) (Claude). Material 3 Expressive's shape-morphing on press (pill→squarer corners) is visually engaging but introduces reflow and CSS cost; we eschew dimensional morphing for stable geometry (both agents — flagged Material-specific). **Reduce-motion contract:** under `prefers-reduced-motion: reduce`, resolve scale/translate to `transform: none` and drop ripple/morph, keeping the *instantaneous* colour change so the state stays perceivable; the spinner is functional, not decoration, and the `aria-busy`/live-region path carries the busy state regardless. (See 18-motion-foundations and 19-motion-implementation-web; mobile in 20-motion-implementation-mobile, handoff in 21-motion-spec-and-handoff.)
 
 ## 9. Internationalization
 

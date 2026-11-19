@@ -3,7 +3,7 @@ type: practice-area
 title: Motion Spec and Handoff
 description: The designer-to-developer micro-interaction spec gap. Figma Motion as of late 2026 — adequate for timed motion, inadequate for behaviour — the eight-field sufficient spec, the layered handoff contract, the pattern spec as source with Figma generated from it.
 tags: [extension, motion, handoff, figma, spec, patterns]
-timestamp: 2026-11-04
+timestamp: 2026-11-19
 ---
 
 # 21 — Motion Spec and Designer–Developer Handoff
@@ -158,17 +158,17 @@ tracks:
       duration: duration/short, easing: easing/enter }
   - { target: panel, property: opacity, from: 0, to: 1,
       spring: spring/default-effects, delay: 50ms }
-  - { target: panel, property: translateY, from: distance/sm, to: 0,
+  - { target: panel, property: scale, from: 0.95, to: 1,
       spring: spring/default-spatial, delay: 50ms }
 interruptible: true
 skipOnRapidRepeat: true
 reducedMotion:
-  substitute: drop-spatial   # panel translateY removed; opacity tracks kept, reduced duration
+  substitute: drop-spatial   # panel scale removed; opacity tracks kept, reduced duration
 lowPower: same-as-reduced
 iterations: 1
 ```
 
-A component's own file then holds only the reference — `motion: { enter: dialog/enter, exit: dialog/exit }` — plus any Layer 2 spec for motion no pattern covers, in the same track shape.
+The panel scales from 0.95 rather than sliding, which is the dialog brief's entry (see components/dialog); the mobile sheet, which slides from the edge, is a separate pattern (sheet / drawer in 18's minimum viable set). A component's own file then holds only the reference — `motion: { enter: dialog/enter, exit: dialog/exit }` — plus any Layer 2 spec for motion no pattern covers, in the same track shape.
 
 **The practice's recommendation: Pattern B, with the same rationale as 17.** A motion spec file alongside the component is the artefact MCP servers can surface to AI coding agents, the artefact CI can validate, and the artefact engineers can reference without leaving the codebase.
 

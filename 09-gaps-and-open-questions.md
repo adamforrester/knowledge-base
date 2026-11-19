@@ -3,7 +3,7 @@ type: practice-area
 title: Gaps and Open Questions
 description: Practice gaps and unanswered questions across the corpus. Sourced inventory of what we don't yet have a POV on.
 tags: [gaps, open-questions]
-timestamp: 2026-11-10
+timestamp: 2026-11-19
 ---
 
 # 09 — Gaps & Open Questions
@@ -315,6 +315,8 @@ Inline cross-references added from 10's new sections to 03 / 04 / 13 / 17 / 24 /
 - **Distance scale shape.** Whether the motion distance scale aliases spacing one-to-one or holds its own steps; test against a brand inventory.
 - **Practice positions, not cited standards.** The overshoot cap (bounce ≈ 0.4), the brand-curve permission guardrail, `skipOnRapidRepeat`, `lowPower`, a tempo multiplier, and the spatial/effects → reduced-motion mapping. Each is defensible and none has a source; they need engagement evidence before they are presented as more than our position.
 - **Motion operating model.** Lou's ownership, review, user-testing and budget practices (`_source-text/ext-motion-in-design-systems-lou.txt`) are governance, not tokens; 18 points at 07 and 08, which do not yet carry them.
+- **Reference timing per pattern track (new, 2026-11-19, issue #61).** 18 gives four duration roles and the component briefs give approximate per-component ranges, but nothing assigns a role to each track in the minimum viable pattern set. Open: which role each pattern's tracks take (fade, state/press, pop, dialog, sheet/drawer, expand/collapse, toast — is a dialog panel short or medium?); the exit ratio, where 18 now says exit is faster but holds no number (Material's fade puts exit at 0.5× enter, Atlassian's popup at about 0.67×); tooltip hide, which the tooltip brief leaves unspecified; press feedback, where the instant role (50–100ms), the button brief (~100–150ms) and pattern 2's spatial spring on press disagree and nothing separates press-down from release; the duration role of the expand/collapse size track; and distance-scaled duration for full-edge drawers (18 open question 7). Surfaced by the Prism3 motion-preset benchmark (prism3 #2857). Needs a research pass or a reconciliation that carries the per-system spread; no single system's numbers are the practice default.
+- **Reference easing curves and curve strength (new, 2026-11-19, issue #62).** 18's brand-curve shape gate checks direction (enter decelerates, exit accelerates) but sets no strength floor, so the practice can say a curve passes the role check and cannot say it is too soft. Open: reference enter / exit / standard values per scheme from a field pass (Material 3, Carbon productive and expressive, Fluent, Atlassian, Primer, Apple), with a strength rule the gate can check; whether mixing Material's legacy decelerate and accelerate with its M3 standard curve is a defect or an acceptable productive scheme; and whether a system with no expressive scheme meets 18's "a mature motion system ships both". Settled editorially in the same pass: the expand/collapse size track takes `easing/standard` or the spatial spring (18, components/accordion, as our inference), and 14's illustrative non-decelerating `easing/decel` value is gone. Surfaced by the same benchmark.
 - Connects to 18 (the tiers and the minimum viable pattern set), 21 (the Figma limits and the generated-styles bridge), 14 (reduced motion) and 34 (agent application of Figma Motion through MCP, which is technically possible and unproven).
 
 ---
