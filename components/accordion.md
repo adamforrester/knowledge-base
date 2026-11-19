@@ -8,7 +8,7 @@ category: Navigation
 status: stable
 aliases: [disclosure, collapse, expander, details, expansion-panel]
 last-audited: 2026-06-15
-timestamp: 2026-06-15
+timestamp: 2026-11-19
 ---
 
 # Accordion
@@ -79,7 +79,7 @@ Header labels: concise, parallel, scannable noun phrases (or questions, for FAQ)
 
 ## 8. Motion and transition
 
-The signature motion is the **height expand/collapse**, historically the most notorious trap in UI: you can't natively animate `height: 0 → auto`, so the field used the **`grid-template-rows: 0fr → 1fr`** trick, the brittle **`max-height` hack** (bad easing — the browser times to the fake max), or **JS-measured height** (a `ResizeObserver` writing a pixel custom property — smooth but with layout-thrash and jank). **As of 2025–2026 the platform solves it natively:** `interpolate-size: allow-keywords` (opting into keyword interpolation) and **`calc-size(auto)`** enable pure-CSS eased height transitions with zero JS — *verify browser support before relying on it*; `grid-template-rows` remains the robust fallback. The chevron rotates 180° (~150–200ms). Under `prefers-reduced-motion: reduce`, **snap open/closed** (force `transition-duration` to ~0) — animating large text blocks vertically is a vestibular trigger. (See 18-motion-foundations, 19-motion-implementation-web.)
+The signature motion is the **height expand/collapse**, historically the most notorious trap in UI: you can't natively animate `height: 0 → auto`, so the field used the **`grid-template-rows: 0fr → 1fr`** trick, the brittle **`max-height` hack** (bad easing — the browser times to the fake max), or **JS-measured height** (a `ResizeObserver` writing a pixel custom property — smooth but with layout-thrash and jank). **As of 2025–2026 the platform solves it natively:** `interpolate-size: allow-keywords` (opting into keyword interpolation) and **`calc-size(auto)`** enable pure-CSS eased height transitions with zero JS — *verify browser support before relying on it*; `grid-template-rows` remains the robust fallback. The height track is in-place motion, so it takes `easing/standard` (or the spatial spring), not the enter curve — our inference from 18's easing roles, not a cited standard. The chevron rotates 180° (~150–200ms). Under `prefers-reduced-motion: reduce`, **the height snaps** — the size track goes to a near-zero duration (0.01ms, never `0ms`, so `transitionend` still fires), because animating large text blocks vertically is a vestibular trigger — and the chevron's rotation goes with it, since rotation is spatial. The content's opacity fade stays at its reduced duration, so the panel arrives rather than pops. That is 18's expand/collapse pattern: layout track instant, effects track kept. (See 18-motion-foundations, 19-motion-implementation-web.)
 
 ## 9. Internationalization
 

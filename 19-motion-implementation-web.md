@@ -3,7 +3,7 @@ type: practice-area
 title: Motion Implementation - Web
 description: Web motion in 2026. CSS / WAAPI / View Transitions primitives, the linear() spring revolution, library landscape (Motion / GSAP / Rive / Lottie), INP / LoAF / compositor-only performance.
 tags: [extension, motion, web, css, view-transitions, performance]
-timestamp: 2026-11-10
+timestamp: 2026-11-19
 ---
 
 # 19 — Motion Implementation: Web
@@ -128,7 +128,7 @@ document.startViewTransition(() => {
 }
 ```
 
-**The stagger primitive.** Stagger remains a token-and-formula pattern, not a library feature. The DS should ship a `stagger/standard` token (typically 30–60ms) and consumers compute delays as `calc(var(--index) * var(--motion-stagger-standard))`. This works in both CSS transitions and WAAPI sequences. AI coding agents reach for magic numbers (`delay: 0.2s`) when this token is absent; with it, they reach for the token.
+**The stagger primitive.** Stagger remains a token-and-formula pattern, not a library feature. The DS should ship a `stagger/standard` token — Carbon's 20ms between items, within a 500ms total cap, is the practice default (see 18) — and consumers compute delays as `calc(var(--index) * var(--motion-stagger-standard))`. This works in both CSS transitions and WAAPI sequences. AI coding agents reach for magic numbers (`delay: 0.2s`) when this token is absent; with it, they reach for the token.
 
 **Route transitions in modern frameworks.** Next.js App Router, React Router 7, Nuxt, SvelteKit all now have first-class support for the View Transitions API, removing the need for a framework-specific route-transition library in most cases. The framework-specific spelling matters (Next.js exposes `useViewTransition`; SvelteKit handles it at the routing layer); the underlying API is the same.
 
@@ -156,7 +156,7 @@ This is the blanket fallback. It is also the *wrong* default per the information
 ```css
 :root {
   --motion-duration-medium: 300ms;
-  --motion-duration-medium-reduced: 0ms;
+  --motion-duration-medium-reduced: 0.01ms; /* near-zero, never 0ms */
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -164,7 +164,7 @@ This is the blanket fallback. It is also the *wrong* default per the information
 }
 ```
 
-Consumers use `var(--motion-duration-medium)` and the right value is selected automatically. This is the system contract 18 describes.
+Consumers use `var(--motion-duration-medium)` and the right value is selected automatically. This is the system contract 18 describes. The twin is near-zero rather than `0ms` so that `transitionend` and `animationend` still fire and code waiting on them doesn't hang. A near-zero twin suits a duration only spatial tracks use; an effects track (opacity, colour) reads a shorter, non-zero twin, and turning a slide into a fade is the motion pattern's job, not the variable's (see 18).
 
 **The View Transitions reduce-motion gotcha.** `document.startViewTransition()` does *not* automatically respect `prefers-reduced-motion`. If the engineer calls it, the browser runs the transition regardless of the user's setting. The DS must wrap every call site in a check:
 

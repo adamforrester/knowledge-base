@@ -8,7 +8,7 @@ category: Overlay
 status: stable
 aliases: [hint, infotip, info-tip]
 last-audited: 2026-06-16
-timestamp: 2026-06-16
+timestamp: 2026-11-19
 ---
 
 # Tooltip
@@ -94,7 +94,7 @@ The two realities: **WCAG 1.4.13** and **touch has no hover** → a tooltip **mu
 
 ## 8. Motion and transition
 
-Minimal and inherited from Popover: a rapid origin-aware opacity fade + micro-scale (95→100%, ~150ms) from the trigger edge (`@starting-style`/`allow-discrete`/`overlay` via the Popover/Dialog substrate). The meaningful timing is the **delay** logic, not the animation: during the `skipDelayDuration` window, sibling tooltips **bypass the entry animation** and appear instantly for a seamless tracking feel. Under `prefers-reduced-motion: reduce`, drop the scale — instant appearance or a ~50ms crossfade. (See popover §8, 18-motion-foundations, 19-motion-implementation-web.)
+Minimal and inherited from Popover: a rapid opacity fade (~150ms) via the Popover/Dialog substrate (`@starting-style`/`allow-discrete`/`overlay`). **The default is the fade alone**, which puts the tooltip on the Fade pattern in 18's minimum viable set and makes its reduced form the same motion at reduced duration. An origin-aware micro-scale (95→100%) from the trigger edge is an opt-in that moves the tooltip onto the Pop / scale-fade pattern; it buys little at tooltip size and costs a second track. The meaningful timing is the **delay** logic, not the animation: during the `skipDelayDuration` window, sibling tooltips **bypass the entry animation** and appear instantly for a seamless tracking feel. Under `prefers-reduced-motion: reduce`, drop the scale where it is on and keep the fade at its reduced duration (~50ms). (See popover §8, 18-motion-foundations, 19-motion-implementation-web.)
 
 ## 9. Internationalization
 
