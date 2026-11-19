@@ -6,14 +6,21 @@ Python 3 standard library only. Run from anywhere:
     python3 scripts/vault-check.py            # check the vault this script lives in
     python3 scripts/vault-check.py --root DIR # check another copy
 
-1. Every numbered file has the five frontmatter keys, and its H1 matches `# NN — Title`.
-2. Every inline "(See NN-...)" cross-ref names an existing numbered file.
-3. No [[wikilinks]], and no relative markdown links outside the catalogue index files.
+1. Every numbered file has the five frontmatter keys, each with a non-empty
+   value, and its H1 matches `# NN — Title`.
+2. Every "(See ...)" cross-ref names an existing numbered file, whether as a
+   slug (`See 15-ai-in-ds`) or a bare number (`See 00b`, `See 15 §3`), and
+   however deeply the parenthesis nests.
+3. No [[wikilinks]], and no relative markdown links (inline or reference-style)
+   outside the catalogue index files.
 4. Every _source-text/ and _research/ path cited in a numbered file exists.
 5. Every numbered file has a hook in index.md.
 
 Exit status is 1 if any enforced check fails. A check listed in REPORT_ONLY
 still prints its failures but does not fail the run, unless --strict is given.
+
+Files are read as UTF-8 with an optional BOM, and CRLF or CR line endings are
+normalized to LF before any check runs.
 """
 
 import argparse
@@ -22,12 +29,10 @@ import os
 import re
 import sys
 
-# TODO: checks 2 and 4 fail on main today (a cross-ref to a 00c file that
-# doesn't exist; two _research/_synthesis/ paths whose files moved to
-# _research/_archive/). They print their failures but don't fail the run until
-# a separate maintenance PR fixes the content. Then remove the number here so
-# the check starts failing PRs. --strict ignores this set.
-REPORT_ONLY = {2, 4}
+# Checks listed here print their failures but don't fail the run. Use it to
+# land a new check before main passes it; empty it once main does (#79).
+# --strict ignores this set.
+REPORT_ONLY = set()
 
 NUMBERED = re.compile(r"^(\d\d[a-z]?)-[a-z0-9-]+\.md$")
 FRONTMATTER_KEYS = ("type", "title", "description", "tags", "timestamp")
@@ -38,11 +43,18 @@ EXTRA_GLOBS = ("index.md", "GLOSSARY.md", "components/*.md", "patterns/*.md")
 
 FENCE = re.compile(r"^(```|~~~).*?^\1", re.M | re.S)
 INLINE_CODE = re.compile(r"`[^`\n]*`")
-SEE_GROUP = re.compile(r"\(([^()]*)\)")
 SEE_WORD = re.compile(r"\bsee\b", re.I)
 SLUG_REF = re.compile(r"(?<![\w/.-])(\d\d[a-z]?-[a-z][a-z0-9-]*[a-z0-9])(?:\.md)?(?![\w/-])")
+# A bare file number in reference position: `See 00b`, `see 15 §3`,
+# `see 18, 21 and 22`. It must open the "see" tail or follow a list joiner, so a
+# count such as "~40 components" isn't read as a file. Not part of a year,
+# version, decimal, section number or percentage. A trailing period is fine.
+# Known limit: a count right after a joiner (`see 12-figma-practice; 50 hours`)
+# reads as a ref and fails loudly; reword the prose.
+BARE_REF = re.compile(r"(?:^|\band|\bor|\balso|\bplus|\bsee|[,;/])[ \t\n]*(\d\d[a-z]?)(?![\w%/-]|\.\d)", re.I)
 WIKILINK = re.compile(r"\[\[[^\]]*\]\]")
 MD_LINK = re.compile(r"\]\(([^)\s]+)[^)]*\)")
+REF_DEF = re.compile(r"^ {0,3}\[[^\]\n]+\]:[ \t]*<?([^\s>]+)", re.M)
 ABSOLUTE = re.compile(r"^([a-z][a-z0-9+.-]*:|#)", re.I)
 CITED_PATH = re.compile(r"(?<![\w/])((?:_source-text|_research)/[^\s`'\"()\[\]<>,;]*)")
 
@@ -52,8 +64,8 @@ def line_of(text, pos):
 
 
 def read(root, rel):
-    with open(os.path.join(root, rel), encoding="utf-8") as f:
-        return f.read()
+    with open(os.path.join(root, rel), encoding="utf-8-sig", newline="") as f:
+        return f.read().replace("\r\n", "\n").replace("\r", "\n")
 
 
 def numbered_files(root):
@@ -68,6 +80,41 @@ def prose_files(root):
     return sorted(files)
 
 
+def frontmatter_values(block):
+    """Map each top-level key to its value: the inline value, else any indented
+    continuation lines (a block list or folded scalar). Empty means no value."""
+    values, key = {}, None
+    for ln in block.splitlines():
+        top = re.match(r"^([A-Za-z_][\w-]*)\s*:(.*)$", ln)
+        if top:
+            key = top.group(1)
+            values[key] = top.group(2).strip()
+            if values[key] in ('""', "''", "[]", "~", "null", "|", ">", "|-", ">-"):
+                values[key] = ""
+        elif key and ln.strip() and ln[:1] in " \t":
+            item = ln.strip()
+            if item not in ("-", '- ""', "- ''"):
+                values[key] = (values[key] + " " + item).strip()
+    return values
+
+
+def paren_groups(text):
+    """Yield (start, end) of every balanced (...) group, nested ones included.
+    A blank line closes any group still open, so a stray "(" can't swallow the
+    rest of the file."""
+    stack = []
+    i = 0
+    while i < len(text):
+        c = text[i]
+        if c == "(":
+            stack.append(i)
+        elif c == ")" and stack:
+            yield stack.pop(), i + 1
+        elif c == "\n" and re.match(r"\n[ \t]*\n", text[i:i + 64]):
+            stack.clear()
+        i += 1
+
+
 def check_frontmatter_and_h1(root):
     errors = []
     for name in numbered_files(root):
@@ -78,11 +125,13 @@ def check_frontmatter_and_h1(root):
             errors.append(f"{name}: no YAML frontmatter block at the top")
             body = text
         else:
-            keys = {ln.split(":", 1)[0].strip() for ln in m.group(1).splitlines()
-                    if re.match(r"^[A-Za-z_][\w-]*\s*:", ln)}
-            missing = [k for k in FRONTMATTER_KEYS if k not in keys]
+            values = frontmatter_values(m.group(1))
+            missing = [k for k in FRONTMATTER_KEYS if k not in values]
             if missing:
                 errors.append(f"{name}: frontmatter missing {', '.join(missing)}")
+            empty = [k for k in FRONTMATTER_KEYS if k in values and not values[k]]
+            if empty:
+                errors.append(f"{name}: frontmatter value empty for {', '.join(empty)}")
             body = text[m.end():]
         h1 = re.search(r"^# .*$", body, re.M)
         if not h1:
@@ -94,18 +143,28 @@ def check_frontmatter_and_h1(root):
 
 def check_see_refs(root):
     stems = {n[:-3] for n in numbered_files(root)}
+    prefixes = {NUMBERED.match(n).group(1) for n in numbered_files(root)}
     errors = []
     for rel in prose_files(root):
         text = FENCE.sub(lambda m: "\n" * m.group(0).count("\n"), read(root, rel))
-        for group in SEE_GROUP.finditer(text):
-            see = SEE_WORD.search(group.group(1))
+        seen = set()
+        for start, end in paren_groups(text):
+            inner = text[start + 1:end - 1]
+            see = SEE_WORD.search(inner)
             if not see:
                 continue
-            tail = group.group(1)[see.start():]
+            base = start + 1 + see.end()
+            tail = inner[see.end():]
             for ref in SLUG_REF.finditer(tail):
-                if ref.group(1) not in stems:
-                    ln = line_of(text, group.start())
-                    errors.append(f"{rel}:{ln}: cross-ref '{ref.group(1)}' names no numbered file")
+                pos = base + ref.start(1)
+                if ref.group(1) not in stems and pos not in seen:
+                    seen.add(pos)
+                    errors.append(f"{rel}:{line_of(text, pos)}: cross-ref '{ref.group(1)}' names no numbered file")
+            for ref in BARE_REF.finditer(SLUG_REF.sub(lambda m: " " * len(m.group(0)), tail)):
+                pos = base + ref.start(1)
+                if ref.group(1) not in prefixes and pos not in seen:
+                    seen.add(pos)
+                    errors.append(f"{rel}:{line_of(text, pos)}: cross-ref '{ref.group(1)}' names no numbered file")
     return errors
 
 
@@ -122,6 +181,9 @@ def check_links(root):
         for m in MD_LINK.finditer(text):
             if not ABSOLUTE.match(m.group(1)):
                 errors.append(f"{rel}:{line_of(text, m.start())}: relative markdown link ({m.group(1)})")
+        for m in REF_DEF.finditer(text):
+            if not ABSOLUTE.match(m.group(1)):
+                errors.append(f"{rel}:{line_of(text, m.start())}: relative reference-style link ({m.group(1)})")
     return errors
 
 
@@ -146,7 +208,7 @@ def check_index_hooks(root):
 
 CHECKS = (
     (1, "frontmatter keys and H1", check_frontmatter_and_h1),
-    (2, "(See NN-...) cross-refs resolve", check_see_refs),
+    (2, "(See NN...) cross-refs resolve", check_see_refs),
     (3, "no wikilinks or relative links", check_links),
     (4, "cited _source-text/ and _research/ paths exist", check_cited_paths),
     (5, "index.md hook for every numbered file", check_index_hooks),
