@@ -82,3 +82,18 @@ Voice is declarative and opinionated. Avoid hedging, avoid bullet-point dumps wh
 ## Git and remote
 
 The vault is a private git repo at `git@github.com:adamforrester/knowledge-base.git`, default branch `main`. Commits are editorial — make them when content is ready, not on every save. The user plans to eventually expose this vault via an MCP server.
+
+**Merge rules.** Mechanical changes merge on a review; changes to what the practice says merge on the owner's word. Every PR is one class, and a PR that mixes M with P is P. "The vault check" is the five mechanical checks in issue #75 (frontmatter and H1, `(See NN-…)` cross-refs, no wikilinks or stray relative links, cited `_source-text/` and `_research/` paths, `index.md` hooks), run on the PR head.
+
+| Class | What it is | Who merges | What it needs first |
+|---|---|---|---|
+| **M: Maintenance** | Cross-ref fixes, index hooks, frontmatter shape, typos, path moves after an archive, broken provenance paths. No claim or position changes. | The orchestrator | An independent read-only review saying MERGE, and the vault check passing |
+| **R: Research record** | New `_research/_inbound/` runs, `_source-text/` captures, `_notes/` drafts. No numbered-file edits in the same PR. | The orchestrator | The vault check passing. No review: the audit record stays as captured. |
+| **P: Promotion / position** | Any numbered-file edit that adds, removes or changes a claim, recommendation or POV, or a new numbered file. | The owner, or the orchestrator on the owner's explicit "merge #N" | An independent review that each new claim cites a `_source-text` file or a dated source in parens, flags any that don't, and checks voice and file anatomy |
+| **G: Gaps register** | New or changed `09` entries, or a CLOSED marking. | The orchestrator, when the entry only records a gap or a closure an already-merged P PR made | The vault check passing. An entry that states a new position is class P. |
+
+- Squash-merge, delete the branch, and keep the PR body as the record: what changed, what was decided, what was left.
+- Merge only a PR the base hasn't conflicted with since its review. A hand-resolved conflict in a numbered file needs a fresh review.
+- A finished class P PR goes into the owner's next digest, so nothing sits for days unseen.
+- A class M or R PR older than two days with no review gets one routed by the orchestrator's sweep.
+- The prism3 repo's rules don't apply here (no gate battery, no version bumps). Only review-before-merge carries over.
