@@ -16,7 +16,7 @@ timestamp: 2026-05-05
 
 Design systems work at VML is almost always scoped under one of two conditions:
 
-1. **You know what engagement pattern you're in** (see `00b-agency-context.md`) but the client has a budget number before the scope is defined
+1. **You know what engagement pattern you're in** (see Scoping by Engagement Pattern below) but the client has a budget number before the scope is defined
 2. **You don't yet know what you're in** — the RFP says "design system" but the actual need is unclear until discovery
 
 Both conditions require the same discipline: scope to what will actually be delivered, not to what the client thinks they want. Over-scoping to ideal-state and then cutting under pressure produces worse outcomes than honest scoping up front.

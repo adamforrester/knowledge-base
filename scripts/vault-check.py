@@ -48,8 +48,10 @@ SLUG_REF = re.compile(r"(?<![\w/.-])(\d\d[a-z]?-[a-z][a-z0-9-]*[a-z0-9])(?:\.md)
 # A bare file number in reference position: `See 00b`, `see 15 §3`,
 # `see 18, 21 and 22`. It must open the "see" tail or follow a list joiner, so a
 # count such as "~40 components" isn't read as a file. Not part of a year,
-# version, section number or percentage.
-BARE_REF = re.compile(r"(?:^|\band|\bor|\balso|\bplus|\bsee|[,;/])[ \t\n]*(\d\d[a-z]?)(?![\w%/.-]|\.\d)", re.I)
+# version, decimal, section number or percentage. A trailing period is fine.
+# Known limit: a count right after a joiner (`see 12-figma-practice; 50 hours`)
+# reads as a ref and fails loudly; reword the prose.
+BARE_REF = re.compile(r"(?:^|\band|\bor|\balso|\bplus|\bsee|[,;/])[ \t\n]*(\d\d[a-z]?)(?![\w%/-]|\.\d)", re.I)
 WIKILINK = re.compile(r"\[\[[^\]]*\]\]")
 MD_LINK = re.compile(r"\]\(([^)\s]+)[^)]*\)")
 REF_DEF = re.compile(r"^ {0,3}\[[^\]\n]+\]:[ \t]*<?([^\s>]+)", re.M)
