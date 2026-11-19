@@ -1,6 +1,6 @@
 # Synthesis — motion tokens, motion patterns and Figma Motion (the 2026-10-14 run)
 
-*Promoted on 2026-11-04 into 18-motion-foundations and 21-motion-spec-and-handoff, with open items recorded in 09-gaps-and-open-questions (§1.9, §1.38) and vocabulary in GLOSSARY.md. Only claims that passed the verification ledger were carried forward.*
+*Promoted on 2026-11-04 into 18-motion-foundations and 21-motion-spec-and-handoff, with open items recorded in 09-gaps-and-open-questions (§1.9, §1.38) and vocabulary in GLOSSARY.md. Only claims that passed the verification ledger were carried forward. Follow-through into 19, 20, 02, 11, 22 and 32 (spring grid, tokens-plus-patterns vocabulary, Figma MCP update) on 2026-11-10 under issue #48, when this file moved to `_archive/`.*
 
 > Reconciles the two raw outputs in `_research/_inbound/2026-10-14-motion-tokens-and-figma-motion/` (`claude.md` and `external-agent.md`, against the identical `prompt.md`), with Eddie Lou's practitioner piece (`_source-text/ext-motion-in-design-systems-lou.txt`) as a third, non-evidential view. Path A was used because the run reverses a standing diagnosis in `21-motion-spec-and-handoff` ("Figma is structurally inadequate for motion"), because the external half carries several claims that fail verification and need an explicit ledger, and because the result lands across 18, 21 and the generated token model rather than in one file. Filed 2026-10-14. Draft, not the practice's POV until promoted.
 

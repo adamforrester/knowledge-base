@@ -3,7 +3,7 @@ type: practice-area
 title: Token Architecture Extensions
 description: Spec-and-architecture layer beneath 02. DTCG 2025.10 at practitioner depth, composite-token fidelity gap, computed/relational tokens, density as a theming dimension, web-vs-native asymmetry.
 tags: [extension, tokens, dtcg, theming, density]
-timestamp: 2026-08-13
+timestamp: 2026-11-10
 ---
 
 # 22 — Token Architecture Extensions
@@ -254,7 +254,7 @@ The practice's defaults, after this synthesis:
 
 - **02-design-foundations** — the spine of our token POV. This file is the depth layer beneath 02's positions on three-tier taxonomy, DTCG, and the build pipeline.
 - **12-figma-practice** — the Figma-side mechanics of Variables, modes, scoping, and composite types. The "verify before recommending" flag on composite types and expression tokens in 12 is partially closed by this file: composite types are stable, expression tokens remain Tokens Studio + preprocessor territory.
-- **18-motion-foundations** — composite motion tokens follow the same authoring-vs-runtime discipline as composite typography and shadow tokens.
+- **18-motion-foundations** — composite motion tokens (DTCG `transition`: one duration, one easing) follow the same authoring-vs-runtime discipline as composite typography and shadow tokens. Multi-property motion is not a composite token at all; 18 moves it to a motion pattern tier above the tokens.
 - **23-typography-tokenisation** — the typography-specific deep dive that this file's DTCG composite treatment hands off to.
 - **31-color-systems** — the color-specific deep dive that this file's DTCG, mode, and computed-token machinery applies to color. The OKLCH/P3 colorSpace question, the `color-mix()` round-trip gap, the `on-X` foreground tokens for multi-brand, and the AI-readable color schema all live there.
 - **24-tokens-at-scale** — multi-brand portfolio architecture, governance, validation, versioning, and the Generative Token pattern that builds on this file's computed-tokens discipline.

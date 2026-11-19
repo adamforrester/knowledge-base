@@ -3,7 +3,7 @@ type: practice-area
 title: Motion Implementation - Web
 description: Web motion in 2026. CSS / WAAPI / View Transitions primitives, the linear() spring revolution, library landscape (Motion / GSAP / Rive / Lottie), INP / LoAF / compositor-only performance.
 tags: [extension, motion, web, css, view-transitions, performance]
-timestamp: 2026-05-16
+timestamp: 2026-11-10
 ---
 
 # 19 — Motion Implementation: Web
@@ -75,29 +75,32 @@ The largest implementation change since the existing 02-design-foundations and 1
 The `linear()` easing function takes a list of stops and interpolates between them. A spring physics curve, sampled at a high enough resolution and baked at build time, becomes a string the browser can run on the compositor thread. A spring that previously required `useSpring` from React Spring (with its main-thread cost) now runs as:
 
 ```css
---easing-spring-snappy: linear(0, 0.45, 0.82, 1.05, 1.08, 1.02, 1);
+--motion-spring-fast-spatial: linear(0, 0.45, 0.82, 1.05, 1.08, 1.02, 1);
 
 .button {
-  transition: transform 300ms var(--easing-spring-snappy);
+  transition: transform 300ms var(--motion-spring-fast-spatial);
 }
 ```
 
-The CSS Spring Easing Generator (csstools.github.io) and similar tooling produce these strings from physical parameters (stiffness, damping, mass). The result is a token-friendly artefact:
+The CSS Spring Easing Generator (csstools.github.io) and similar tooling produce these strings from physical parameters (stiffness, damping, mass). Fed from the system's stored form — damping ratio and stiffness at mass 1 (see 18) — the result is a token-friendly artefact, one per cell of the spring grid:
 
 ```css
---motion-spring-snappy: linear(...);
---motion-spring-gentle: linear(...);
---motion-spring-bouncy: linear(...);
+--motion-spring-fast-spatial: linear(...);
+--motion-spring-default-spatial: linear(...);
+--motion-spring-slow-spatial: linear(...);
+--motion-spring-fast-effects: linear(...);
+--motion-spring-default-effects: linear(...);
+--motion-spring-slow-effects: linear(...);
 ```
 
-This is the implementation layer for the spring tokens 18 defines. The token name is perceptual; the CSS string is the implementation.
+This is the implementation layer for the spring tokens 18 defines. The token name is perceptual; the CSS string is the implementation. A baked `linear()` is the one target the stored form cannot be recovered from, which is why it is generated, never authored.
 
 **Where `linear()` is the wrong tool:**
 
 - Gesture-driven motion where the spring needs to adjust mid-flight based on velocity. A baked curve cannot respond to a new gesture target. This is where Motion's `useSpring` and React Spring remain right.
 - Interruption that needs to settle to current position and animate to a new target. A `linear()` transition cannot do this cleanly because CSS transitions interpolate from current computed value; springs need physics state.
 
-**The cross-platform discipline.** Spring tokens defined as `linear()` strings on web and as native springs on mobile (see 20) must feel the same. The mapping is calibration, not direct translation — the parameters that produce a "snappy" spring in SwiftUI are not the same numbers that produce a "snappy" `linear()` curve. The practice should ship visual reference videos alongside the token definitions, so designers and engineers can validate that the perceptual outcome matches across platforms.
+**The cross-platform discipline.** Spring tokens defined as `linear()` strings on web and as native springs on mobile (see 20) must feel the same. The mapping is calibration, not direct translation — the parameters that produce `spring/fast-spatial` in SwiftUI are not the same numbers that produce it as a `linear()` curve. The practice should ship visual reference videos alongside the token definitions, so designers and engineers can validate that the perceptual outcome matches across platforms.
 
 ---
 
@@ -188,6 +191,8 @@ The 2026 budget is set by INP and LoAF. Both expose motion-related regressions i
 
 **Compositor-only properties.** `transform` and `opacity` are compositor-safe across all modern browsers. `filter` is compositor-safe in Chromium and Safari but not always in Firefox. Everything else triggers layout or paint and is per-frame expensive on the main thread.
 
+**Platform state for two newer primitives, dated 2026-10-14.** CSS scroll-driven animation (`animation-timeline` with `scroll()` and `view()`) ships in Chrome 115+ and Safari 26 but is Firefox Nightly only and not Baseline. `interpolate-size: allow-keywords`, which lets a transition run to `height: auto`, ships only in Chromium (Chrome 129+; Firefox and Safari not implemented). Neither is a default for system motion yet: scroll-linked motion needs a static fallback, and size animation to `auto` needs a measure-then-animate path or a clip/transform reveal as the portable route (MDN browser-compat-data, via 18).
+
 **The implication for DS components.** A `Drawer` that animates `width: 0 → 400px` triggers layout on every frame. The convergent alternative is to render the drawer at full size, translate it offscreen with `transform: translateX(-100%)`, and animate the transform. This is a 2015 pattern that still gets violated regularly, especially in AI-generated code where agents reach for the property name that matches the visible behaviour rather than the property that is cheap.
 
 **`will-change` discipline.** `will-change: transform` hints to the browser that an element will be animated, prompting layer promotion. Used universally, it leads to GPU memory bloat and can crash mobile browsers. The 2026 discipline is to apply `will-change` *only during* the active animation — typically by adding it on `mousedown` or `animationstart` and removing it on `animationend`. The library answer is to let Motion or WAAPI manage this; the manual answer is a small `useWillChange` helper. The DS should publish whichever pattern matches the consuming codebase's style.
@@ -226,15 +231,15 @@ new PerformanceObserver((list) => {
 
 The detailed treatment lives in 21. The web-specific notes:
 
-**Motion tokens as the primary handoff.** A motion spec that names `motion/modal/enter` and a trigger collapses to a CSS variable reference in code. The engineer does not implement the motion; the engineer references the token. This is the architectural payoff of 18.
+**Motion patterns as the primary handoff.** A motion spec that names a pattern (`dialog/enter`) and a trigger collapses to a reference to the system's implementation of that pattern, whose tracks read their durations, easings and springs from CSS variables. The engineer does not implement the motion; the engineer references the pattern, and the pattern references the tokens. A single-property transition with no pattern references the token directly. This is the architectural payoff of 18 (see 21 for the layered spec contract).
 
 **Lottie on web in 2026.** The `lottie-web` runtime remains the canonical player. The 2024 introduction of the `.lottie` format (compressed) reduces the file-size cost meaningfully. The dotLottie player (`@lottiefiles/dotlottie-web`) is the 2026-recommended runtime for new work.
 
 **Rive on web.** `@rive-app/canvas` is the canonical web runtime. The handoff artefact is the `.riv` file plus a list of state-machine inputs the engineer wires to app state.
 
-**AI coding agents and web motion.** Agents (Claude Code, Cursor, Copilot) reliably produce structurally correct CSS and WAAPI motion code, and reliably produce *wrong* motion values when the system does not provide tokens. The pattern that works: surface motion tokens in `AGENTS.md` / `CLAUDE.md` and in the MCP server's context. The pattern that fails: leave the agent to pick durations and easings from training-data defaults. With composite motion tokens available, agents converge on the system's motion identity; without them, the system fragments.
+**AI coding agents and web motion.** Agents (Claude Code, Cursor, Copilot) reliably produce structurally correct CSS and WAAPI motion code, and reliably produce *wrong* motion values when the system does not provide tokens. The pattern that works: surface motion tokens and motion patterns in `AGENTS.md` / `CLAUDE.md` and in the MCP server's context. The pattern that fails: leave the agent to pick durations and easings from training-data defaults. With tokens and patterns available, agents converge on the system's motion identity; without them, the system fragments.
 
-**The Figma MCP motion-variables surface.** Figma's MCP server (2025–2026) surfaces motion variables to AI agents, allowing the agent to query "what is the enter motion for a modal" and receive a token reference. This is the closest the field has come to the seamless designer-to-agent-to-code pipeline 21 argues for. The practice should track Figma's motion-spec roadmap closely — when Code Connect adds motion mapping, the contract in 21 collapses to a tooling integration rather than a manual artefact.
+**The Figma MCP motion surface.** Figma's MCP server now surfaces motion per node: `get_motion_context` returns keyframe tracks and easing for an animated node, with pre-computed CSS `@keyframes` and motion.dev snippets (see 21). That is the rendered pattern, not the pattern: what an agent recovers from Figma lacks the behavioural fields a Figma animation style cannot hold (`interruptible`, the reduced substitute, iteration limits), and a spring comes back as a bounce-only `CUSTOM_SPRING` with its stiffness carried, if at all, by a paired TIMING variable. The practice standardises on the pattern spec file as the agent's source and treats the MCP surface as a convenience for motion that has no pattern yet. The practice should still track Figma's motion roadmap — when Code Connect adds motion mapping, the bridge in 21 becomes a tooling integration rather than a generator we maintain.
 
 ---
 
@@ -245,7 +250,7 @@ The detailed treatment lives in 21. The web-specific notes:
 - **Animation on layout-triggering properties.** `width`, `height`, `top`, `left`, `box-shadow`, `background-color`. Compositor sits idle; main thread thrashes. INP inflates.
 - **View Transitions used without reduce-motion wrapping.** Browser runs the transition regardless of the user's setting. Accessibility regression, frequent compliance finding.
 - **Spring physics simulated with long ease-out.** Engineer received a "bouncy" spec and approximated with a 600ms ease-out. The result is not a spring; it is a slow ease that the user reads as latency.
-- **AI agent generates magic-number durations.** `transition: all 0.18s ease`, `transition: all 0.22s ease`. Compounds across components. Fix is composite motion tokens in agent context.
+- **AI agent generates magic-number durations.** `transition: all 0.18s ease`, `transition: all 0.22s ease`. Compounds across components. Fix is motion tokens and patterns in agent context.
 - **`document.startViewTransition()` swallowed by frameworks without reduce-motion checks.** Next.js App Router and similar frameworks expose view-transition hooks; the DS-supplied helper is the correct path, not the framework's raw hook.
 - **Stagger as magic numbers.** Engineer sees `delay: 0.05s` in one component, `delay: 0.08s` in another. The token would have prevented it.
 
@@ -263,7 +268,7 @@ The detailed treatment lives in 21. The web-specific notes:
 
 5. **The shift from library defaults to platform defaults as the enforcement layer.** Three years ago, accessibility-aware motion required configuring the library. In 2026, accessibility-aware motion requires configuring the *platform* through CSS variables and the per-token reduce-motion variants. This shifts the maintenance burden to the DS team and away from individual engineers. It also makes the DS more load-bearing — a bug in the system's reduce-motion contract is now everyone's bug.
 
-6. **AI-agent motion as the dominant authoring path.** By the end of 2026, more component motion is being authored by AI agents than by humans on most agency projects. The implication for the system is that motion tokens, composite motion tokens, and the agent's context surface (AGENTS.md, CLAUDE.md, MCP) become the primary enforcement layer. The practice's existing investment in components-as-data (15) is the prerequisite; this file's tokens are the second-layer prerequisite.
+6. **AI-agent motion as the dominant authoring path.** By the end of 2026, more component motion is being authored by AI agents than by humans on most agency projects. The implication for the system is that motion tokens, motion patterns, and the agent's context surface (AGENTS.md, CLAUDE.md, MCP) become the primary enforcement layer. The practice's existing investment in components-as-data (15) is the prerequisite; this file's tokens are the second-layer prerequisite.
 
 ---
 
@@ -278,4 +283,4 @@ The detailed treatment lives in 21. The web-specific notes:
 
 ---
 
-*Provenance: The CSS / WAAPI / View Transitions primitive treatment, the `linear()` spring discipline, the View Transitions reduce-motion gotcha, the WASM-tax threshold for Rive, the INP / LoAF performance budget, the Motion v12 WAAPI repositioning, the 120Hz target framing, and the AI-coding-agent argument are synthesised from the dual-agent research outputs in `_research/_inbound/2026-05-14-motion-implementation-web/` (May 2026). The "library imported by reflex" failure mode and the platform-defaults-as-enforcement framing are internal POV. INP as Core Web Vital (2024) and LoAF API (2024) are from web.dev and the W3C Web Performance Working Group documentation. The MCP motion-variables surface is from Figma's 2025–2026 product documentation. Cross-references to spring perceptual tokens, composite motion tokens, and the reduce-motion per-token contract are aligned with 18-motion-foundations.*
+*Provenance: The CSS / WAAPI / View Transitions primitive treatment, the `linear()` spring discipline, the View Transitions reduce-motion gotcha, the WASM-tax threshold for Rive, the INP / LoAF performance budget, the Motion v12 WAAPI repositioning, the 120Hz target framing, and the AI-coding-agent argument are synthesised from the dual-agent research outputs in `_research/_inbound/2026-05-14-motion-implementation-web/` (May 2026). The "library imported by reflex" failure mode and the platform-defaults-as-enforcement framing are internal POV. INP as Core Web Vital (2024) and LoAF API (2024) are from web.dev and the W3C Web Performance Working Group documentation. The MCP motion-variables surface is from Figma's 2025–2026 product documentation. Cross-references to spring perceptual tokens, composite motion tokens, and the reduce-motion per-token contract are aligned with 18-motion-foundations. The November 2026 revision — spring tokens renamed to 18's {fast, default, slow} × {spatial, effects} grid, the handoff and agent-context notes moved from composite tokens to tokens plus motion patterns, the Figma MCP paragraph updated for `get_motion_context` and bounce-only springs, and the dated `animation-timeline` / `interpolate-size` platform state — follows the promotion of `_research/_archive/2026-10-14-motion-tokens-and-figma-motion.md` into 18 and 21 (tracked in issue #48). Browser support is from MDN browser-compat-data (2026-10-14) as cited in 18.*

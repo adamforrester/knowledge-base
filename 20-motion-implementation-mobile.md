@@ -3,7 +3,7 @@ type: practice-area
 title: Motion Implementation - Mobile
 description: Mobile motion across SwiftUI / UIKit, Compose, Flutter, RN. Cross-framework spring parameter mapping, shared element transitions, Lottie vs. Rive, threading and 120Hz, reduce-motion per framework.
 tags: [extension, motion, mobile, swiftui, compose, flutter, react-native]
-timestamp: 2026-05-16
+timestamp: 2026-11-10
 ---
 
 # 20 — Motion Implementation: Mobile
@@ -62,17 +62,22 @@ The single biggest cross-framework comparison the DS team has to internalise. **
 | Flutter | `SpringSimulation(SpringDescription(mass:stiffness:damping))` | `mass`, `stiffness`, `damping` | Most explicit; least token-friendly without abstraction. |
 | Reanimated (RN) | `withSpring(value, { mass, stiffness, damping, velocity })` or `withSpring(value, { duration, dampingRatio })` | Either classical or perceptual, depending on version | Reanimated 3.7+ supports both vocabularies. |
 
-The same perceptual outcome — "snappy, settles quickly, no overshoot" — requires different parameters in each framework. The token contract in 18 names the outcome (`spring/snappy`); this file spells it.
+The same perceptual outcome — "fast, moves the element, a little overshoot" — requires different parameters in each framework. The token contract in 18 names the outcome (`spring/fast-spatial`); this file spells it.
 
-**Cross-platform spring calibration table.** Approximate parameter mappings for the three semantic spring tokens (these are starting values; perceptual calibration on device is required):
+**Cross-platform spring calibration table.** 18 replaced the May set of three presets (snappy, gentle, bouncy) with the {fast, default, slow} × {spatial, effects} grid, stored as damping ratio (ζ) and stiffness (k) at mass 1. Every column below is computed from that stored form, so the table is a set of transforms, not six hand-tuned guesses: Compose takes ζ and k verbatim; Flutter and Reanimated take mass 1, stiffness k and damping c = 2ζ√k; SwiftUI takes duration ≈ 2π/√k and bounce = 1 − ζ (see 18, *Spring tokens*). The stored values are Material 3's generated Expressive tokens, the only verified spring token set in the field, used as starting values (androidx `ExpressiveMotionTokens.kt`, via the October 2026 research run):
 
-| Token | SwiftUI (perceptual) | Compose | Flutter | Reanimated |
-|---|---|---|---|---|
-| spring/snappy | `.spring(duration: 0.3, bounce: 0.0)` | `spring(dampingRatio = 1.0f, stiffness = 1500f)` | `mass: 1, stiffness: 200, damping: 25` | `withSpring(val, { stiffness: 200, damping: 25, mass: 1 })` |
-| spring/gentle | `.spring(duration: 0.5, bounce: 0.15)` | `spring(dampingRatio = 0.8f, stiffness = 700f)` | `mass: 1, stiffness: 100, damping: 15` | `withSpring(val, { stiffness: 100, damping: 15, mass: 1 })` |
-| spring/bouncy | `.spring(duration: 0.6, bounce: 0.4)` | `spring(dampingRatio = 0.5f, stiffness = 500f)` | `mass: 1, stiffness: 150, damping: 10` | `withSpring(val, { stiffness: 150, damping: 10, mass: 1 })` |
+| Token | Stored (ζ / k) | SwiftUI (perceptual) | Compose | Flutter | Reanimated |
+|---|---|---|---|---|---|
+| spring/fast-spatial | 0.6 / 800 | `.spring(duration: 0.222, bounce: 0.4)` | `spring(dampingRatio = 0.6f, stiffness = 800f)` | `mass: 1, stiffness: 800, damping: 33.9` | `withSpring(val, { mass: 1, stiffness: 800, damping: 33.9 })` |
+| spring/default-spatial | 0.8 / 380 | `.spring(duration: 0.322, bounce: 0.2)` | `spring(dampingRatio = 0.8f, stiffness = 380f)` | `mass: 1, stiffness: 380, damping: 31.2` | `withSpring(val, { mass: 1, stiffness: 380, damping: 31.2 })` |
+| spring/slow-spatial | 0.8 / 200 | `.spring(duration: 0.444, bounce: 0.2)` | `spring(dampingRatio = 0.8f, stiffness = 200f)` | `mass: 1, stiffness: 200, damping: 22.6` | `withSpring(val, { mass: 1, stiffness: 200, damping: 22.6 })` |
+| spring/fast-effects | 1.0 / 3800 | `.spring(duration: 0.102, bounce: 0)` | `spring(dampingRatio = 1.0f, stiffness = 3800f)` | `mass: 1, stiffness: 3800, damping: 123.3` | `withSpring(val, { mass: 1, stiffness: 3800, damping: 123.3 })` |
+| spring/default-effects | 1.0 / 1600 | `.spring(duration: 0.157, bounce: 0)` | `spring(dampingRatio = 1.0f, stiffness = 1600f)` | `mass: 1, stiffness: 1600, damping: 80` | `withSpring(val, { mass: 1, stiffness: 1600, damping: 80 })` |
+| spring/slow-effects | 1.0 / 800 | `.spring(duration: 0.222, bounce: 0)` | `spring(dampingRatio = 1.0f, stiffness = 800f)` | `mass: 1, stiffness: 800, damping: 56.6` | `withSpring(val, { mass: 1, stiffness: 800, damping: 56.6 })` |
 
-**The discipline.** The token name is the contract. The parameters are the implementation. The practice ships side-by-side reference videos of each spring on each framework so designers can confirm the perceptual mapping holds. Without this calibration step, `spring/snappy` on iOS and `spring/snappy` on Android drift and the cross-platform consistency claim collapses.
+These are the `expressive` scheme. Under the `productive` scheme the spatial springs take Material 3's Standard values — ζ 0.9 at k 1400, 700 and 300, so a bounce of 0.1 — and the effects springs are identical across both schemes. Effects springs are critically damped by definition; `fast-spatial` sits exactly on the 0.4 overshoot guardrail in 18. Rounding is to one decimal for damping and three for SwiftUI duration; the SwiftUI duration is perceptual, so the declared settling tolerance from 18 travels with it.
+
+**The discipline.** The token name is the contract. The stored ζ and k are the source. The per-framework parameters are generated, not tuned by hand per platform. The practice still ships side-by-side reference videos of each spring on each framework so designers can confirm the perceptual mapping holds — the conversion is exact in physics and approximate in perception, because SwiftUI's duration is perceptual and Figma's spring keeps only bounce. Without this calibration step, `spring/default-spatial` on iOS and `spring/default-spatial` on Android drift and the cross-platform consistency claim collapses.
 
 **Why springs are the default in 2026.** Springs are interruptible by construction — a new state mid-animation continues from current physics state rather than restarting. Curves are not; a curve interrupted mid-flight either restarts or snaps. For any motion driven by direct manipulation (drag, swipe, pull), springs are the only correct primitive. For deterministic transitions (modal opens, route changes), curves remain right.
 
@@ -199,15 +204,15 @@ Detailed architectural treatment is in 14-accessibility and 16-mobile-accessibil
 
 Detailed treatment in 21. The mobile-specific notes:
 
-**Motion tokens as the primary handoff.** Same as on web. A motion spec that names `spring/snappy` and a trigger collapses to one line of framework code that reads the token from the platform's token surface (Style Dictionary outputs, or the framework's design-token integration).
+**Motion patterns and tokens as the primary handoff.** Same as on web. A motion spec that names a pattern (`dialog/enter`) and a trigger collapses to one call into the system's pattern implementation, which reads its springs and durations — `spring/default-spatial` for the panel, `spring/default-effects` for the scrim — from the platform's token surface (Style Dictionary outputs, or the framework's design-token integration). A one-off spring with no pattern references the token directly.
 
 **Lottie remains the canonical artefact for branded playback motion.** All four frameworks have mature Lottie runtimes; the artefact is portable across them.
 
 **Rive is the right artefact for interactive motion components on mobile.** The 2026 case for Rive on mobile is stronger than on web because the runtime cost is a smaller fraction of the app's binary size, and the interactive motion identity Rive ships maps cleanly to the system-icon and animated-control use cases that recur in mobile DS work.
 
-**AI coding agents and mobile motion.** The cross-framework spring-vocabulary divergence is exactly the kind of thing AI agents get wrong without explicit guardrails. An agent producing Compose code from a generic motion brief will pick `spring(0.8f, 1500f)` from training-data defaults rather than the system's `spring/snappy` mapping. The fix is to surface the per-framework spring parameter table (above) in the agent's context (`AGENTS.md`, `CLAUDE.md`, MCP). With this surfaced, agents produce framework-idiomatic motion that respects the system's tokens.
+**AI coding agents and mobile motion.** The cross-framework spring-vocabulary divergence is exactly the kind of thing AI agents get wrong without explicit guardrails. An agent producing Compose code from a generic motion brief will pick `spring(0.8f, 1500f)` from training-data defaults rather than the system's `spring/default-spatial` mapping. The fix is to surface the motion patterns and the per-framework spring parameter table (above) in the agent's context (`AGENTS.md`, `CLAUDE.md`, MCP). With this surfaced, agents produce framework-idiomatic motion that respects the system's tokens.
 
-**The Figma → mobile motion pipeline.** Figma's MCP server surfaces motion variables to AI agents (2025–2026). For mobile specifically, the gap that remains is the Figma → native-spring-parameter translation — the perceptual spring token in Figma needs to land as the right `(dampingRatio, stiffness)` on Compose, the right `(duration, bounce)` on SwiftUI, etc. This is the calibration step the practice has to own until Figma's tooling closes it.
+**The Figma → mobile motion pipeline.** Figma's MCP server now surfaces motion per node: `get_motion_context` returns keyframe tracks and easing, with pre-computed CSS and motion.dev snippets (see 21). Neither is a native spring. Figma's `CUSTOM_SPRING` easing stores only a normalised bounce (0–1), so a spring read back out of Figma has lost its stiffness; the generated styles carry it as a paired TIMING variable holding the perceptual duration (see 21). Reading Figma, an agent can recover ζ = 1 − bounce and k ≈ (2π / duration)², but only if it finds and pairs both values, and only for springs that are not overdamped. The practice answer is not to translate out of Figma at all: the stored ζ + k token is the source, and the Compose, SwiftUI, Flutter and Reanimated spellings above are generated from it, as Figma's are. Calibration on device is still ours to own.
 
 ---
 
@@ -242,7 +247,7 @@ Detailed treatment in 21. The mobile-specific notes:
 
 ## See also
 
-- **18-motion-foundations** — the spring token vocabulary (snappy/gentle/bouncy) and the perceptual-vs-physical token discipline this file implements.
+- **18-motion-foundations** — the spring token grid ({fast, default, slow} × {spatial, effects}), its ζ + k storage form, the motion pattern tier, and the perceptual-vs-physical token discipline this file implements.
 - **19-motion-implementation-web** — the web-side parallel; the cross-platform calibration this file's spring tables anchor.
 - **21-motion-spec-and-handoff** — the designer-to-engineer spec contract; Rive `.riv` files as the canonical interactive-motion handoff.
 - **11-mobile-and-cross-platform** — platform context, framework choice rationale.
@@ -251,4 +256,4 @@ Detailed treatment in 21. The mobile-specific notes:
 
 ---
 
-*Provenance: Cross-framework primitives, the spring parameter mapping table, shared-element transition convergence (matchedGeometryEffect / SharedTransitionLayout / Hero / sharedTransitionTag), the implicit/explicit split per framework, threading and 120Hz treatment, per-framework reduce-motion detection APIs, and the Rive/Lottie 2026 boundary are synthesised from the dual-agent research outputs in `_research/_inbound/2026-05-14-motion-implementation-mobile/` (May 2026). The 2024 SwiftUI perceptual spring (`duration:bounce:`) is from Apple's SwiftUI 5 release notes (WWDC 2023). Compose `SharedTransitionLayout` is from Compose 1.7.0 (July 2024). The cross-framework calibration argument and the failure modes section are internal POV. The Reanimated-as-required argument is internal POV building on the research output's strong recommendation. Apple HIG motion guidance, Material 3 motion documentation, Flutter animation documentation, and Reanimated 3.x documentation are the primary per-framework references.*
+*Provenance: Cross-framework primitives, the spring parameter mapping table, shared-element transition convergence (matchedGeometryEffect / SharedTransitionLayout / Hero / sharedTransitionTag), the implicit/explicit split per framework, threading and 120Hz treatment, per-framework reduce-motion detection APIs, and the Rive/Lottie 2026 boundary are synthesised from the dual-agent research outputs in `_research/_inbound/2026-05-14-motion-implementation-mobile/` (May 2026). The 2024 SwiftUI perceptual spring (`duration:bounce:`) is from Apple's SwiftUI 5 release notes (WWDC 2023). Compose `SharedTransitionLayout` is from Compose 1.7.0 (July 2024). The cross-framework calibration argument and the failure modes section are internal POV. The Reanimated-as-required argument is internal POV building on the research output's strong recommendation. Apple HIG motion guidance, Material 3 motion documentation, Flutter animation documentation, and Reanimated 3.x documentation are the primary per-framework references. The November 2026 revision — the spring table recomputed from 18's ζ + k storage over the {fast, default, slow} × {spatial, effects} grid, the pattern-first handoff, and the Figma `get_motion_context` / `CUSTOM_SPRING` update — follows the promotion of `_research/_archive/2026-10-14-motion-tokens-and-figma-motion.md` into 18 and 21 (tracked in issue #48). Stored spring values are Material 3's generated Expressive and Standard tokens (androidx source, verified 2026-10-14, per the worked conversion in `_research/_inbound/2026-10-14-motion-tokens-and-figma-motion/claude.md`); the per-framework columns are derived from them with the conversions in 18.*

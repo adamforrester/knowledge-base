@@ -87,7 +87,7 @@ The DS audit examines eight surfaces, each with its own methodology, evidence ty
 | **Component** | API consistency, composition primitives, state-machine completeness, API drift, polyfill propagation | Component library repo, consumer-codebase AST scans, Storybook |
 | **Accessibility** | WCAG 2.2 AA per component, four-engine × four-AT matrix, ARIA 1.3 APG conformance, focus management, user-preference media queries | Manual AT testing, axe-core CI, contrast-pair matrix |
 | **Content** | Voice-and-tone consistency, error templates, empty-state copy, CTA verb taxonomy, ICU MessageFormat, AI-surface assistant tone | Documentation, hard-coded strings in consumer repos, AI-surface prompt walkthroughs |
-| **Motion** | Three-tier motion tokens, choreography vocabulary, reduce-motion contract, performance budget, spring-parameter mapping | CSS transitions, Framer Motion configurations, native motion APIs |
+| **Motion** | Three-tier motion model (tokens, patterns, components), choreography vocabulary, reduce-motion contract, performance budget, spring-parameter mapping | CSS transitions, Framer Motion configurations, native motion APIs |
 | **Code** | Build pipeline health, CI quality gates, semver automation, test coverage, docs freshness, package-publish surface | CI/CD pipeline scripts, npm registry, GitHub Actions logs |
 | **Governance** | Triage SLAs, contributor distribution, contribution-vs-participation, deprecation discipline, executive coalition | PR review logs, Jira/Linear cycle times, governance-body meeting notes |
 | **Adoption** | Source-mix-overtime, per-team and per-component coverage, detached/forked counts | Build-time AST scans, Figma analytics, self-report-vs-reality interviews |
