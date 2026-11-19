@@ -1,0 +1,16 @@
+You are researching the reference timing and easing that major public design systems document for common UI motion patterns, for a senior design systems practitioner at a digital agency. The output is a structured research record of sourced numbers, not an essay.
+
+Context: our practice generates design-system token layers from a small brand input. Motion ships as a duration scale with semantic roles (instant, short, medium, long) and reduced-motion twins, easing roles (enter, exit, standard, emphasised) crossed with a productive/expressive scheme, and springs stored as damping ratio and stiffness. Above the tokens sits a pattern tier: a pattern is a set of per-property tracks, each with a duration or spring and an easing. We have the shape of that model but no reference values per pattern, no number for how much faster an exit should be than an enter, no position on how strong an enter or exit curve should be, and no rule for which curve a height (size) track takes in expand/collapse. A draft preset set uses enter `cubic-bezier(0, 0, 0.2, 1)`, exit `(0.4, 0, 1, 1)` and default `(0.2, 0, 0, 1)`. We want the per-system spread before we pick anything.
+
+Research scope. Use these as the section spine of the output:
+
+1. Per motion pattern, the duration and easing each system documents. Patterns: micro state change (hover, focus, selected, toggle); fade; crossfade; indicator move (tab or segmented indicator); reveal on view (scroll-triggered); line draw (stroke or path draw, e.g. a checkmark); surface or sheet enter and exit (dialog, menu, popover, tooltip, toast, drawer, sheet); expand/collapse (height track and its chevron); carousel step; settle after release (snap or fling settle); stagger (interval and cap).
+2. Systems, at least: Material 3, Carbon, Atlassian, Fluent 2, Apple HIG (and SwiftUI defaults), Polaris, Spectrum, Primer, and IBM's motion guidance if it is separate from Carbon.
+3. Exit versus enter: the ratio each system's paired values imply, and any stated rule.
+4. Reduced motion: what each system does when the user asks for reduced motion (zeroed, near-zero, substituted, removed, or not stated).
+5. Press feedback: press-down versus release timing, press scale, and any stated latency budget.
+6. Easing strength: current enter, exit and standard curves per system and per scheme, and whether the draft's curves are softer or stronger than the field; whether mixing legacy Material curves with Material 3's standard curve is a known pattern; which curve systems give a height track.
+
+Rules: cite every number with its source URL and access date. Distinguish documented guidance from published token values from shipped component code. Where a system does not state a value, write "not stated". Never infer a value; if you derive one (for example a spring's period from its stiffness), say so and show the formula. Prefer primary sources: design-system documentation, published token packages, and the systems' own component source.
+
+Output format: structured markdown with the sections above, a per-system exit/enter ratio table, a reduced-motion table, a press-feedback table, an open/unverified register, a sources list with URLs and access dates, and at the end a compact table of pattern × system → duration / curve.
