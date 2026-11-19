@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          persist-credentials: false
+      # The runner's own python3 is enough: the script is standard library only.
       - run: python3 scripts/vault-check.py

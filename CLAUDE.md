@@ -94,6 +94,6 @@ The vault is a private git repo at `git@github.com:adamforrester/knowledge-base.
 
 - Squash-merge, delete the branch, and keep the PR body as the record: what changed, what was decided, what was left.
 - Merge only a PR the base hasn't conflicted with since its review. A hand-resolved conflict in a numbered file needs a fresh review.
-- A finished class P PR goes into the owner's next digest, so nothing sits for days unseen.
+- The agent adds a finished class P PR to the owner's next digest, so nothing sits for days unseen.
 - A class M or R PR older than two days with no review gets one routed by the orchestrator's sweep.
 - The prism3 repo's rules don't apply here (no gate battery, no version bumps). Only review-before-merge carries over.
