@@ -304,7 +304,7 @@ Three positions the practice should commit to coming out of this survey:
 
 2. **Treat (a) and (b) as a single architecture with two surfaces.** Scope the (a) work — components-as-data audit, MCP server, structured metadata, AI-readable docs — as a co-deliverable when (b) is in scope. Name them separately on the SOW so the client sees the architectural dependency rather than reading the (a) work as scope creep.
 
-3. **Make refusal, eval-instrumented feedback, and disclosure-compliance review default custom-build line items on regulated-industry AI engagements.** The DS field does not ship these. Pretending it does in scoping conversations costs the engagement at delivery. (See 13-trust-governance-liability under 09-gaps for the broader field gap on indemnification, audit trails, and provenance.)
+3. **Make refusal, eval-instrumented feedback, and disclosure-compliance review default custom-build line items on regulated-industry AI engagements.** The DS field does not ship these. Pretending it does in scoping conversations costs the engagement at delivery. (See 09-gaps-and-open-questions §1.13, Trust, governance, liability for AI-generated assets, for the broader field gap on indemnification, audit trails, and provenance.)
 
 ---
 

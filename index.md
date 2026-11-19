@@ -4,7 +4,7 @@ type: practice-area
 title: Design Systems Knowledge Base
 description: Adam Forrester's vault on design systems consulting at VML. Numbered files imply both reading order and DS engagement phase.
 tags: [index]
-timestamp: 2026-11-04
+timestamp: 2026-11-10
 ---
 
 # Design Systems Knowledge Base
@@ -42,7 +42,7 @@ A personal knowledge base on design systems consulting, maintained by Adam Forre
 * [Accessibility](/14-accessibility.md) - Accessibility encoded into the DS architecture. Pair tokens for contrast, ARIA encapsulation, focus management, the four-layer model, conformance under EAA / Section 508.
 * [AI in Design Systems](/15-ai-in-ds.md) - AI integration across the DS lifecycle. Components-as-data as architectural prerequisite. MCP server architecture, Figma MCP and Code Connect, three-level context maturity, the generative brand pipeline (design.md brief, extract→generate, the fidelity report).
 * [Mobile Accessibility Implementation](/16-mobile-accessibility-implementation.md) - Mobile accessibility implementation depth across Flutter, Jetpack Compose, SwiftUI/UIKit, and React Native.
-* [Accessibility Annotation Contract](/17-accessibility-annotation-contract.md) - What designers specify in Figma so engineers can implement accessibility faithfully. Per-concern annotation spec. Mobile-scoped today.
+* [Accessibility Annotation Contract](/17-accessibility-annotation-contract.md) - What designers specify in Figma so engineers can implement accessibility faithfully. Per-concern annotation spec across mobile (iOS, Android, Flutter, Compose, RN) and web (ARIA, forced-colors, prefers-reduced-motion, landmark, headingLevel, inert).
 * [Motion Foundations](/18-motion-foundations.md) - Motion as a first-class foundation primitive. Three tiers — token primitives and roles, motion patterns, components — with decision frameworks, an out-of-scope list, a minimum viable pattern set, reduce-motion as substitution, performance budget.
 * [Motion Implementation - Web](/19-motion-implementation-web.md) - Web motion in 2026. CSS / WAAPI / View Transitions primitives, the linear() spring revolution, library landscape, INP / LoAF / compositor-only performance.
 * [Motion Implementation - Mobile](/20-motion-implementation-mobile.md) - Mobile motion across SwiftUI / UIKit, Compose, Flutter, RN. Cross-framework spring parameter mapping, shared element transitions, threading and 120Hz.
@@ -62,9 +62,10 @@ A personal knowledge base on design systems consulting, maintained by Adam Forre
 * [MCPs for DS Practice](/34-mcps-for-ds-practice.md) - The developer's-workstation MCP stack a senior DS practitioner should have configured by default (Figma Dev Mode + Console / Storybook / axe-core / Style Dictionary / firecrawl / one search MCP / per-engagement custom DS MCP), the two-layer architecture distinguishing workstation-as-standardisation-IP from custom-DS-MCP-server-as-productised-asset, the §1.27a truncation-fallback pattern, and the runbook the new senior practitioner follows on day one.
 * [Layout, Grid, and Breakpoints](/35-layout-grid-and-breakpoints.md) - The layout foundation the vault was missing: five t-shirt min-width breakpoints (mobile-first, brand authors the values, ranges derive), the 12-column grid as a design artifact rather than the load-bearing code contract (CSS Grid + container queries do the real work), gutters and margins as aliases of the spacing scale, fluid-first containers with a max cap and a narrow reading width (the fluid-vs-fixed duplication collapsed), breakpoints as Figma modes in a separate layout collection, and the two-knob generation lever (breakpoint floors + base column count) for the white-label engine.
 
-## Component briefs
+## Component and pattern briefs
 
 * [Component Briefs Catalogue](/components/index.md) - Field-truth studies of individual components — how the leading systems handle them, where they converge, where they diverge, and the practice's defaults. Upstream of 29's docs page and 30's data file.
+* [Pattern Briefs Catalogue](/patterns/index.md) - Field-truth studies of cross-component patterns — the recurring compositions of components that solve a problem (Forms-as-a-system, Filtering, wizards, app shells, page templates), resolved as decision rules. Upstream of an engagement's pattern library and the practice's POV on composition (03).
 
 ## Vocabulary
 

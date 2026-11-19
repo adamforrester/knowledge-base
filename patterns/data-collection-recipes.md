@@ -2,7 +2,7 @@
 okf_version: "0.1"
 type: pattern-brief
 title: Data-collection recipes
-description: The "Ask users for X" family — the per-datum field recipes that live inside the Forms-as-a-system shell. How to ask for a name, an address, a date of birth, a phone number, an email, and a payment card: the one-input-vs-many decision, the non-negotiable autocomplete-token contract (the third-party-data caveat included), tolerate-and-normalise, the i18n-first posture, proportionality, and each datum's signature anti-pattern. Composes Text Field/Select/Fieldset/Date Picker; borders Forms-as-a-system (the shell), the Date Picker component (the DOB recipe refuses it), the Login pattern, and 13-internationalization.
+description: The "Ask users for X" family — the per-datum field recipes that live inside the Forms-as-a-system shell. How to ask for a name, an address, a date of birth, a phone number, an email, and a payment card: the one-input-vs-many decision, the non-negotiable autocomplete-token contract (the third-party-data caveat included), tolerate-and-normalise, the i18n-first posture, proportionality, and each datum's signature anti-pattern. Composes Text Field/Select/Fieldset/Date Picker; borders Forms-as-a-system (the shell), the Date Picker component (the DOB recipe refuses it), the Login pattern, and 13-internationalization-and-rtl.
 tags: [patterns, forms, data-collection, autocomplete, internationalization, accessibility]
 tier: composition
 goal: ask-for-data
@@ -56,7 +56,7 @@ The cross-cutting spine first; the per-datum recipes follow in §6.
 
 **3. Format tolerance & normalisation.** Postel's Law: liberal in what you accept, conservative in what you store. `ALWAYS` accept spaces, dashes, parens, `+`, varied case — and **normalise on blur or server-side**; `NEVER` reject a syntactically valid international value for not matching a domestic template. Avoid strict character-by-character masking for international data; it breaks on the first edge case. Strip, don't scold.
 
-**4. Internationalisation posture.** The default assumption is **global users** unless the service is provably single-locale. Address: the **country selector is the primary variable** — choosing it shifts the schema. Phone: accommodate country codes by default. Resolve the *per-datum* shape here; reference the general RTL/translation/locale POV to 13-internationalization rather than re-deriving it.
+**4. Internationalisation posture.** The default assumption is **global users** unless the service is provably single-locale. Address: the **country selector is the primary variable** — choosing it shifts the schema. Phone: accommodate country codes by default. Resolve the *per-datum* shape here; reference the general RTL/translation/locale POV to 13-internationalization-and-rtl rather than re-deriving it.
 
 **5. Privacy & proportionality.** `IF you don't need a datum to deliver the service` → don't ask. `IF you only need a derived fact` → ask for that, not the raw datum (an over-18 check is a checkbox or an age, not necessarily a full DOB). `IF a value was already given this session` → pre-fill or offer a "same as" toggle (the default-checked "Billing address is the same as shipping"), satisfying §3.3.7. Fewer fields, less PII, lower abandonment, less to secure.
 
@@ -107,7 +107,7 @@ A Date Picker for date of birth. Splitting a name into First/Middle/Last (and re
 - **vs Forms-as-a-system** (see patterns/forms-as-a-system) — the shell owns validation *timing*, the error summary, focus management, and the save model; this brief owns the per-datum field *shape*. The shell composes these recipes; they never duplicate its orchestration.
 - **vs the Date Picker component** (see date-picker) — the calendar control for chosen/future dates; the DOB recipe is the explicit case where the field-truth answer is *not* a date picker.
 - **vs Login & authentication (pattern)** — email-and-password *for authentication* (sign-in, reset, MFA, the verification-link flow) lives there; this brief owns email and phone as *data capture*.
-- **vs Foundations / 13-internationalization** — the general RTL/translation/locale POV is the numbered file; this brief references it and resolves only the per-datum i18n shape.
+- **vs Foundations / 13-internationalization-and-rtl** — the general RTL/translation/locale POV is the numbered file; this brief references it and resolves only the per-datum i18n shape.
 - **`composes`:** text-field, select, combobox, checkbox, date-picker.
 
 ## Field POV evolution
@@ -215,7 +215,7 @@ relations:
     Forms-as-a-system (shell) owns timing/summary/focus/save and composes
     these recipes; the Date Picker component is deliberately NOT used for DOB;
     email/phone FOR AUTH live in the Login pattern; the general i18n/RTL POV is
-    13-internationalization, referenced not re-derived; PCI mechanics are
+    13-internationalization-and-rtl, referenced not re-derived; PCI mechanics are
     referenced via the hosted-fields provider, not re-derived.
 notes:
   contested: "confirm-email re-type vs verification loop (contested in some commerce contexts); whether a name should ever split; expiry+CVC on one line (Baymard supports it) vs strict single-column for everything else"
