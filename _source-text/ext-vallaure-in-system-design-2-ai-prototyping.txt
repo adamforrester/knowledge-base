@@ -1,5 +1,5 @@
 SOURCE: Christine Vallaure, "AI Prototyping inside your design system. A hands-on guide for design & product teams." Subtitle: "Why builders hand you a lookalike, what has to exist before an agent can use your components, and the MCP setup I use." (Substack, Nov 03, 2026). Part 2 of her three-part series "In-System Design". Read 2026-11-22. Text as pasted by Adam, with the Substack chrome (like/comment counts, image placeholders) removed.
-SERIES: Part 1: ext-vallaure-in-system-design-1-code-to-figma.txt; Part 2 (this file); Part 3 "From code to Figma and back" (Nov 10, 2026), not yet captured.
+SERIES: Part 1: ext-vallaure-in-system-design-1-code-to-figma.txt; Part 2 (this file); Part 3: ext-vallaure-in-system-design-3-code-figma-round-trip.txt.
 REFERENCES NAMED IN THE TEXT: Yunhao Jiao, "the prototype wall" (Forbes); Storybook MCP docs (https://storybook.js.org/docs/ai/mcp/overview); Brad Frost's "Eddie" custom DS MCP and "vibe killer" skill; the Brad Frost, Ian Frost and TJ Pitre course; TJ Pitre on design branches; Atlassian on custom prototyping tools (Nov 2025).
 
 ---

@@ -1,0 +1,170 @@
+SOURCE: Christine Vallaure, "In-System Design: From code to Figma and back. Prototyping in your real design system." Subtitle: "A practical guide for designers: why I stopped choosing between canvas and code, and how one prototype travels both ways." (Substack, Nov 10, 2026). Part 3 of her three-part series "In-System Design". Read 2026-11-22. Text as pasted by Adam, with the Substack chrome (like/comment counts, image and video placeholders) removed.
+SERIES: Part 1: ext-vallaure-in-system-design-1-code-to-figma.txt; Part 2: ext-vallaure-in-system-design-2-ai-prototyping.txt; Part 3 (this file).
+REFERENCES NAMED IN THE TEXT: a Stanford study on parallel vs. serial prototyping (not linked in the paste; likely Dow et al., "Parallel Prototyping Leads to Better Design Results, More Divergence, and Increased Self-Efficacy", 2010, unverified); the AI & Design System Jam Session (TJ Pitre, Ian Frost, Brad Frost); Figma Console MCP (Southleft); her public skills storybook-figma-sync and figma-library-from-code.
+
+---
+
+In-System Design: a three-part series.
+Part 1: Building an AI-ready design system: Code → Figma
+Part 2: AI prototyping inside your design system
+Part 3: From code to Figma and back (you are here)
+For designers who know Figma well and have never written production code, and for the design system teams around them. Every technical word is explained in the box at the end.
+I have a confession that does not go down well on LinkedIn right now. Yes, I can prototype in code with my real design system components; I enjoy it, and I still want to be on a canvas some of the time. That is where I nudge things quickly, pull a screen apart, see the whole flow and its hierarchy at a glance, put three versions side by side, and pull someone over to argue about them. And at times, the prompt, wait, watch, prompt again loop bores me enormously. Sometimes it is real speed, and sometimes it is waiting that only looks like speed. And I want to use the right thing at the right time.
+
+It is not nostalgia; it is about the outcome. And it seems I am not alone: in a Stanford study, designers who laid out several versions side by side made better work than those who improved one version at a time: more clicks when the ads ran live, higher scores from experts, more varied ideas. This study is from before AI; however, a prompt box clearly works like the second group: one screen, then a better version of it.
+
+Good products come from comparing, not only refining, and a canvas is still the cheapest place to do so. If you only work in code, that is absolutely fine. But with a clean system, you do not have to give up the canvas to get there: the same components can live on both. And if your system cannot be mirrored onto a canvas at all, that is worth a closer look, because it usually says more about the system than about the canvas.
+
+The good news is that I no longer have to choose. A screen I prototype in code becomes real library components in Figma; I pull it apart on the canvas, try versions, and send it back without anyone redrawing a thing.
+
+This is what I call In-System Design: for every task you pick the surface that does the best job, and you never leave the system to get there. Code or canvas up to you.
+
+This article shows how, step by step, and what the round trip keeps catching along the way. Part 1 shows how to get matching names and props, part 2 sets up the Storybook MCP I use here, and this one connects the two.
+
+I also ran through this workflow in the AI&Design System Jam Session by TJ Pitre, Ian & Brad Frost:
+
+The one condition: same names, same properties
+
+A prototype can only travel if every element points at the real component on both sides. In my setup, the code is the source of truth, so the Figma component carries the code's exact name and properties: Button, with a variant that is primary, secondary, ghost or danger. Same spelling, same lowercase, no "Style: Filled". I call this In-System Design: designing with the system's real parts, on whichever surface suits the question.
+
+With that in place, moving a screen is a lookup, not a translation. A ghost button on the canvas is <Button variant="ghost"> in code. When I had an agent rebuild a booking flow from Storybook in Figma, it placed 21 library components without making a single visual decision. If the names do not match (Figma says Size = Medium, code says size="md"), someone has to interpret, and an AI interprets with great confidence.
+
+I have stopped worrying about tiny pixel differences. Figma and CSS will never agree on every stroke, and the final look happens in code anyway. A green button where the system says blue is a different matter, and that is what the checks are for.
+
+Start anywhere, stay in the system
+
+In-System Design means I can start wherever the question is. Think of the AI as a hub in the middle, connected to the code on one side and Figma on the other, with everything aligned, and you tell it where to build first. "Build me an onboarding flow in code with our design system" works, and so does the same request in Figma. Wherever you start, if you need the other side, you tell the AI to place it there, and back again. As long as you stay in the system, it does not matter where you begin.
+
+The AI sits in the middle, with one arm in the code and one in Figma. Same components on both sides, so it does not matter where you start.
+This article covers the two workflows that involve the canvas: the full round trip from code to Figma and back or the other way around, and what you can do if you only have the Figma side. (To prototype in code alone with your real design system, you need to set it up first; I explain this in Part 2.)
+
+1. From code prototype to Figma and back
+
+What you need:
+
+A Figma library that matches your code exactly in names and properties, published. I explain how to build one with MCP in part 1.
+A prototype file: a new, empty Figma file with that library connected under Assets.
+An MCP connection to the Figma prototyping file, the standard plug that lets an AI work inside Figma. I use Figma Console MCP by Southleft and recommend it for this kind of work.
+And an AI agent, not only a chat. A chat only sees what you paste into it. An agent can open your project, run Storybook and work in Figma for you: for example, the Code tab in the Claude desktop app (that is Claude Code, which I use), Codex, Cursor or similar
+A way to prototype in code with your real components: either a custom design system MCP your developers built, or the Storybook MCP as I showed in Part 2
+Access to the codebase on a design branch, a safe copy of the code where you cannot break anything, and where prototypes in code are picked up from and sent back to (more on that below).
+From Code to Figma
+
+I use the Storybook MCP for prototyping. My Storybook has a Prototypes section with a course sign-up page prototype I made by connecting it to Claude and asking it to set this up: real components, clickable, running on my laptop.
+
+In my example, the top bar is not a component because my sample system is deliberately small and not ready yet. So I expect to see the same in Figma: All components and a suggested top bar.
+
+Figma file open, library connected, MCP on. Now I tell Claude, my hub in the middle, what I want. I mostly use voice, so my prompts are a bit chatty; once your workflow is set, most of this ends up in a skill:
+
+In my Storybook there is a prototype called Course sign-up. Send it over to the open Figma file called Prototype. Rebuild it with my Figma components, set up exactly the same way as you see it in code. Add comments to the prototype for anything I need to know, and put a little note next to it: components you could not build, gaps, anything else I should know.
+
+What comes back is the flow as Figma screens, connected as a clickable prototype, with comments where Figma cannot show the behaviour.
+
+The note it leaves for me
+
+You might have noticed I ask for a little note beside the prototype, and this part is crucial. It lists the components it used, what it built by hand (no top bar component, so it assembled one and said so), the gaps, and suggestions, like turning that top bar into a proper component. I read that note before I look at the screens, and you can shape it to whatever your team needs to know.
+
+My favourite: check that the components are real
+
+Now my favourite shortcut of the whole project: press Cmd+Y (Ctrl+Y on Windows). It switches Figma to the wireframe view, and every instance of a library component shows up in purple, while anything drawn by hand does not. It became my new best friend, because in one second I can see whether I am looking at my system or at a drawing of it. Every library component shows purple; the top bar and plain layout frames don't, and the note lists them correctly.
+
+From here it is design work, and this is the bit I love: change text, move things, put three versions next to each other, try a completely different layout, make notes, discuss it with the team. My library is connected and matches the code, so anything I add from it is the real thing too.
+
+From Figma back to code
+
+Then back to code, as all components and props match, it can simply be picked up in Storybook:
+
+Have a look at the Course sign-up prototype in the open Figma file and bring it back into Storybook, updating the prototype in code. Use only components from the system, and show me anything you would have to make up before you write it.
+
+On the way back, the AI reads every instance by the library component it comes from and the props that are set, not by its layer name. Anything that is not a library instance gets listed instead of quietly rebuilt. When I composed a booking tour in Figma from library instances and sent it to code, it came back exactly as designed.
+
+What the trip catches on the way
+
+I expected the round trip to save time. I did not expect it to find bugs, and it keeps finding them, because every crossing is a second pair of eyes on the system.
+
+Twenty-one pixels. I sent a sign-up page to Figma, and the Figma screen came out 21 pixels shorter than the one in Storybook. My first thought was "Figma is off again". It was the code: two form components wrapped their help text in a paragraph that kept the browser's default margin, and every automated check had waved it through, because it broke no rule. The Figma components had the spacing as intended, so the copy caught the original.
+Figma changing the flow, rightly. My Figma dialog had no slot, so a form could not sit inside it. Instead of hacking around it, the flow changed: the form became its own step and the dialog only confirms. The code kept that, so both stayed one design.
+A bad habit, faithfully copied. A top bar used an empty spacer layer to push things apart, because the code did, in three pasted copies. In code, nobody had noticed. On a canvas, an empty layer looks like what it is and could be fixed.
+2. What if I do not have all of this? Prototyping in Figma, pointing at code
+
+No code playground yet, no design branch, no Storybook MCP? No worries; this is the case for most teams right now, as design systems aren't AI-ready overnight. You can still do the canvas half, and this one surprises people most: you can prototype directly in Figma with AI and still hand over something a developer reads as real components.
+
+What you need: points 1 to 4 from the list above. A matching, published library, an empty prototype file with that library connected, the MCP into Figma, and an agent.
+
+I have an empty Figma file open called Prototype, and the MCP is on. Create a prototype of a blog page, plus a detail page for an article that opens when I click one of the blog articles. Use the connected library for everything you need and always use my existing components. Only if you absolutely cannot find something, create it, and tell me. Put a little note beside the prototype: which components you used, anything I should know, any gaps or problems, and anything you had to make up.
+
+In-System means all stations are optional add-ons. You pick and work with what you have or need.
+Same habits as above: read the note, press Cmd+Y, then design and you get a pretty decent prototype. If your naming is aligned and you hand this off, it's probably easier to rebuild than vibe-coded chaos, plus as soon as you can start prototyping with your design system in code, this clicks in nicely.
+
+What if the AI invents a new component in Figma?
+
+In my setup, it hasn't happened yet because I tell it to use only the connected library and to show me anything it has to make up, but still, working with AI, it loooves to give you extras you never asked for. So even if it did, it would happen in the prototype file, which is the only file the MCP works in. The main library the whole team designs with never gets touched, which makes the setup an accidental drift blocker.
+
+Fun fact: so far, the biggest source of errors has not been the AI at all. It has been library updates I forgot to accept in the prototype file, so the AI built with last week's components. Publish, accept, then prompt.
+
+And when the code side is ready later, these screens can go into code the same way as above.
+
+My prototyping skill, and what I improved along the way
+
+A disclaimer first, because it matters: none of this is an established workflow. It is very new and still trial and error, on my side too.
+
+After typing the same instructions a third time, I turned them into a skill: a packaged set of instructions the AI loads automatically when that job comes up. Now I say "use the skill to send the prototype from Storybook to Figma" and it runs through its steps. You can ask Claude to show and summarise a skill for you, then make it your own.
+
+The improvements that made the biggest difference:
+
+Gaps are marked in the Figma layer itself, not only in a note. A missing navigation becomes a layer with GAP in its name (an emoji works too, if you like it louder), so it can never be mistaken for a real component later.
+A Figma manifest. I took this idea from watching developers build custom MCPs for their design systems. They give the AI a small JSON file listing what exists, so it does not have to crawl through all the code every time, and I thought, why not do the same for Figma? My Figma manifest lists every library component with its properties, plus the internal key Figma needs to place it (the name says what to place, the key is the handle to pick it up with). Before I had it, one rebuild spent most of its effort digging through the whole library listing, about 59,000 characters, to find a single text style. Now that is a lookup of a few lines. It turned out to be the biggest speed difference of all, and it doubles as the check that Figma still matches the code.
+Layout names from code. Components are the furniture; layout is the arrangement. My codebase has a small vocabulary for arranging things: stack, cluster, split, columns, grid and page. Figma has auto layout but no names for arrangements, so every frame ends up as "Frame 47" and comes back into code as a guess. Now the skill reads the layout file from the code before it builds, and names my auto-layout frames the same way, with every gap bound to a spacing variable. Not perfect, but a developer recognises the structure instead of translating it. If that sounds alien, remember it the day you and your team run into layout problems; it might spark a better idea.
+Notes on the canvas, always in the same shape. Four headings: real library components, built by hand, where Figma does not match Storybook, components worth suggesting. The suggestions list is a backlog that writes itself. My top bar has been built by hand in every single prototype, which is the system politely asking for one.
+And the GAPS.md, the file where every difference between Figma and code gets written down, which I explained in the first article.
+The usual word of caution, since a skill can run code on your machine: read it before you install it, or have a developer look first. Mine are public if you want to have a look: storybook-figma-sync for prototyping and figma-library-from-code for the library.
+
+The design branch: a playground away from production
+
+All of this happens somewhere safe. In a good setup, developers create a design branch for designers (I first heard this idea from TJ Pitre): a parallel copy of the codebase where you can prototype in code, send it to Figma, design freely there and bring it back, and none of it can touch the real product. Broken states are fine, half-finished ideas are fine.
+
+There is still a handoff, and not a minor one
+
+The design branch is never merged into the system. It is a source of decisions, not of code. When a prototype is accepted, a developer rebuilds the accepted parts properly on a fresh branch, and the team's checks run on every change before a person approves it. I go through those steps in in detail in part 2, it is the same process
+
+So why bother, if it gets rebuilt anyway? Because most of the work is already done. Nobody has to negotiate what a button is or which variant it uses, so a developer transcribes decisions instead of reverse-engineering a picture. What is left are the real decisions, and the gaps are where they sit: that hand-built top bar is not a detail to tidy up, it is a new component the team has to decide on, design and build, then mirror in Figma so the next prototype can use it.
+
+Get started: As a designer, I need three things
+
+If you are expected to prototype with AI, this is the list I would take to your team, out loud, in a meeting:
+
+An AI-ready, context-based design system. Clean, semantic, with the context an AI needs. If it is not there yet, is someone working on it, and is everyone aware there will be gaps?
+A prototyping MCP that is AI-ready. Built in-house by your developers, or the Storybook MCP, which is the same idea built for you.
+A design branch away from production. Access to the real code, somewhere you cannot break anything.
+Then the softer list, which is the harder one. The dev team has to know this is happening and set it up. Design and UX need onboarding into the code side: which branch, what is off limits, how a pull request works here. The shift in workflow, and in heads, takes time and is very much underestimated. And leadership needs to understand that scalable AI has no quick-fix builder.
+
+A note for developers, with a lot of respect: none of this works without engineering that designers never see. What helps more than any tool is half an hour showing a designer the branch, and how you check what they hand you.
+
+What this does not solve
+
+Figma still cannot show behaviour. Error states, loading, and what happens when a request fails live in code; on the canvas, they are annotations. Good enough for a prototype, and a gap all the same.
+It is only as current as the mirror. If the Figma library has drifted from the code, the prototype carries that with it, which is why I check sync before I build anything. My check runs as a status page in Storybook, and part 1 explains how it works.
+Matching names is not owning the API. A button's text is called children in both places, but in Figma it accepts words and in code it accepts anything, an icon or a spinner included. Somebody has to decide what a property may hold, and in my system that decision is still open.
+Connections drop. Start Storybook before you start the AI session, and keep screenshots handy.
+Not checked yet: dark mode and narrow screens on the round trip.
+It needs a system worth prototyping with. A messy library gives you messy prototypes, only faster.
+Wherever I think best
+
+I get asked in almost every session whether designers should move into code now. The question I find more useful is whether the screen in front of you is made of your system. That one has an answer you can check, Cmd+Y on one side and the component list on the other, and it does not care where you happen to be sitting.
+
+For me this was never about Figma or code. It is about using whichever medium fits the question that day, so I can make the best product I can, knowing that whatever I decide counts in both places. Some days that is a prompt in Storybook. Most days it is three versions next to each other on a canvas and a long conversation about which one is right, and picking the right one is still the job. That is what In-System Design means to me: fewer strong opinions about one workflow, more products that hold together.
+
+Words in this article
+
+Storybook: a website that shows every component of a codebase, live and clickable. It lives inside the code itself.
+MCP (Model Context Protocol): a standard plug that lets an AI connect to a tool like Figma or Storybook and read from it or act in it. The Storybook MCP lets it read your component list; Figma Console MCP (by Southleft) lets it build in Figma.
+Props: the options a component has in code (size, variant, disabled). Figma calls them component properties.
+Instance (Figma): a copy of a library component that stays linked to it.
+Manifest: a list of every component with its properties and defaults, generated rather than written. My Figma manifest is the same for the Figma library, plus each component's key.
+Branch: a parallel copy of the codebase. The design branch is set aside for design, never merged into the real product.
+Deterministic check: a check that gives the same answer every time, with no AI involved, like a test or a contrast check.
+Layout words (from my codebase, not a standard): stack, cluster, split, columns, grid, page. Names for how components are arranged, used for Figma frames and code alike.
+GAPS.md (my term): the file where every difference between Figma and code gets written down.
+Skill: a packaged set of instructions an AI loads by itself for a recurring job. Read one before you install it.
+Pull request: a formal proposal to change the real product, reviewed before it is accepted.
+In-System Design (my term): designing with the system's real components, on whichever surface suits the question, instead of next to the system in a tool that rebuilds it.

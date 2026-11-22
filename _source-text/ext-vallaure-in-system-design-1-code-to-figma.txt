@@ -1,5 +1,5 @@
 SOURCE: Christine Vallaure, "Building an AI-ready design system library: Code → Figma with MCP. Hands-on guide." (Substack, Oct 27, 2026). Part 1 of her three-part series "In-System Design". Read 2026-11-22. Text as pasted by Adam, with the Substack chrome (like/comment counts, image placeholders) removed.
-SERIES: Part 1 (this file); Part 2: ext-vallaure-in-system-design-2-ai-prototyping.txt; Part 3 "From code to Figma and back" (Nov 10, 2026), not yet captured.
+SERIES: Part 1 (this file); Part 2: ext-vallaure-in-system-design-2-ai-prototyping.txt; Part 3: ext-vallaure-in-system-design-3-code-figma-round-trip.txt.
 RELATED: ext-vallaure-design-system-contracts.txt (her earlier "Design system contracts" article); ext-curtis-contracts-and-schemas.txt.
 
 ---
